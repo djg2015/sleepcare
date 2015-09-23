@@ -9,14 +9,13 @@
 import Foundation
 
 class MessageSubject{
-    var test:Int = 1
     var postMethod:String = "Request"
     var authCode:String = "1234567890"
     var version:String = "1.0"
     var biz:String = "sleepcareforpad"
     var operate:String? = nil
     var requestID:String? = nil
-    var random = ["1","2","3","4","5","6","7","8","9","0","a","b","c","d","e","f"]
+    var random = ["1","2","3","4","5","6","7","8","9","0","a","b","c","d","e","f","g"]
     init(opera:String){
         self.operate = opera
     }
