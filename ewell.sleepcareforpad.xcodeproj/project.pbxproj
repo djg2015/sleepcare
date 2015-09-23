@@ -1,0 +1,770 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
+		3A33EF851BAA56D700D82A4D /* MessageSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF841BAA56D700D82A4D /* MessageSubject.swift */; };
+		3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */; };
+		3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B0221BA96648000F4AED /* RealTimeReport.swift */; };
+		3A376E421BABB3B700D70953 /* EMString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E411BABB3B700D70953 /* EMString.swift */; };
+		3A376E441BABB81100D70953 /* EMProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E431BABB81100D70953 /* EMProperties.swift */; };
+		3A376E461BABBB1200D70953 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E451BABBB1200D70953 /* User.swift */; };
+		3A376E481BABD54200D70953 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E471BABD54200D70953 /* Role.swift */; };
+		3A376E4A1BABD9F400D70953 /* PartInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E491BABD9F400D70953 /* PartInfo.swift */; };
+		3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E4B1BABDA3B00D70953 /* Bed.swift */; };
+		3A376E4E1BABDE3500D70953 /* SignReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E4D1BABDE3500D70953 /* SignReport.swift */; };
+		3A3D65E41BAA8E1100CEFB25 /* MessageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */; };
+		3A3D65E61BAA97ED00CEFB25 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D65E51BAA97ED00CEFB25 /* UserInfo.swift */; };
+		3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADC01BA7A65A000C109B /* AppDelegate.swift */; };
+		3A41ADC31BA7A65A000C109B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADC21BA7A65A000C109B /* ViewController.swift */; };
+		3A41ADC61BA7A65A000C109B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADC41BA7A65A000C109B /* Main.storyboard */; };
+		3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADC71BA7A65A000C109B /* Images.xcassets */; };
+		3A41ADCB1BA7A65A000C109B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADC91BA7A65A000C109B /* LaunchScreen.xib */; };
+		3A41ADD71BA7A65A000C109B /* ewell_sleepcareforpadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADD61BA7A65A000C109B /* ewell_sleepcareforpadTests.swift */; };
+		3A41ADE31BA7B3D1000C109B /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADE21BA7B3D1000C109B /* LoginController.xib */; };
+		3A41ADE71BA7B425000C109B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADE51BA7B425000C109B /* BaseViewController.swift */; };
+		3A41ADE81BA7B425000C109B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADE61BA7B425000C109B /* LoginController.swift */; };
+		3A41ADEA1BA7B438000C109B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADE91BA7B438000C109B /* LoginViewModel.swift */; };
+		3A41ADF01BA7B45D000C109B /* MessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADED1BA7B45D000C109B /* MessageDelegate.swift */; };
+		3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADEE1BA7B45D000C109B /* ReactiveCocoa.swift */; };
+		3A4B85C61BB14D34006E4CF1 /* SleepCareBussinessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B85C51BB14D34006E4CF1 /* SleepCareBussinessManager.swift */; };
+		3A4B85C81BB14DFD006E4CF1 /* Worktask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B85C71BB14DFD006E4CF1 /* Worktask.swift */; };
+		3A4B85CA1BB14F28006E4CF1 /* SleepCareBussiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B85C91BB14F28006E4CF1 /* SleepCareBussiness.swift */; };
+		3A4B85CC1BB150C1006E4CF1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B85CB1BB150C1006E4CF1 /* Constants.swift */; };
+		3A4CD3F81BA804D2002C8A1A /* XmppMsgManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CD3F71BA804D2002C8A1A /* XmppMsgManager.swift */; };
+		3A4CD3FA1BA80536002C8A1A /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CD3F91BA80536002C8A1A /* CommonHelper.swift */; };
+		3A4CD3FD1BA80852002C8A1A /* BaseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CD3FC1BA80852002C8A1A /* BaseMessage.swift */; };
+		3A4CD3FF1BA808C1002C8A1A /* XmppMsgHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CD3FE1BA808C1002C8A1A /* XmppMsgHelper.swift */; };
+		3A4D17F11BAFB07400E0B862 /* BedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17F01BAFB07400E0B862 /* BedUser.swift */; };
+		3A4D17F31BAFB83500E0B862 /* SleepCareReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17F21BAFB83500E0B862 /* SleepCareReport.swift */; };
+		3A4D17F51BAFCBC000E0B862 /* SleepCareReportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17F41BAFCBC000E0B862 /* SleepCareReportList.swift */; };
+		3A4D17F71BAFDEFF00E0B862 /* TurnOverAnalysReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17F61BAFDEFF00E0B862 /* TurnOverAnalysReport.swift */; };
+		3A4D17F91BAFDF4800E0B862 /* TurnOverAnalysList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17F81BAFDF4800E0B862 /* TurnOverAnalysList.swift */; };
+		3A4D17FB1BAFE17D00E0B862 /* AlarmInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17FA1BAFE17D00E0B862 /* AlarmInfo.swift */; };
+		3A4D17FD1BAFE20A00E0B862 /* AlarmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17FC1BAFE20A00E0B862 /* AlarmList.swift */; };
+		3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */; };
+		3A6360271BB28FAB00F7F953 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6360261BB28FAB00F7F953 /* MainView.xib */; };
+		3A6360291BB2900300F7F953 /* SleepcareMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6360281BB2900300F7F953 /* SleepcareMainController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3A41ADD11BA7A65A000C109B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A41ADB31BA7A65A000C109B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A41ADBA1BA7A65A000C109B;
+			remoteInfo = ewell.sleepcareforpad;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3A33EF841BAA56D700D82A4D /* MessageSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSubject.swift; sourceTree = "<group>"; };
+		3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeDelegate.swift; sourceTree = "<group>"; };
+		3A36B0221BA96648000F4AED /* RealTimeReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeReport.swift; sourceTree = "<group>"; };
+		3A376E411BABB3B700D70953 /* EMString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMString.swift; sourceTree = "<group>"; };
+		3A376E431BABB81100D70953 /* EMProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMProperties.swift; sourceTree = "<group>"; };
+		3A376E451BABBB1200D70953 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3A376E471BABD54200D70953 /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		3A376E491BABD9F400D70953 /* PartInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartInfo.swift; sourceTree = "<group>"; };
+		3A376E4B1BABDA3B00D70953 /* Bed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bed.swift; sourceTree = "<group>"; };
+		3A376E4D1BABDE3500D70953 /* SignReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignReport.swift; sourceTree = "<group>"; };
+		3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageFactory.swift; sourceTree = "<group>"; };
+		3A3D65E51BAA97ED00CEFB25 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		3A3D65E71BAAB67C00CEFB25 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		3A41ADBB1BA7A65A000C109B /* ewell.sleepcareforpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ewell.sleepcareforpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A41ADBF1BA7A65A000C109B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A41ADC01BA7A65A000C109B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3A41ADC21BA7A65A000C109B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3A41ADC51BA7A65A000C109B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A41ADC71BA7A65A000C109B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3A41ADCA1BA7A65A000C109B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3A41ADD01BA7A65A000C109B /* ewell.sleepcareforpadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ewell.sleepcareforpadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A41ADD51BA7A65A000C109B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A41ADD61BA7A65A000C109B /* ewell_sleepcareforpadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ewell_sleepcareforpadTests.swift; sourceTree = "<group>"; };
+		3A41ADE21BA7B3D1000C109B /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = "<group>"; };
+		3A41ADE51BA7B425000C109B /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3A41ADE61BA7B425000C109B /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		3A41ADE91BA7B438000C109B /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		3A41ADED1BA7B45D000C109B /* MessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageDelegate.swift; path = ewell.sleepcareforpad/MessageDelegate.swift; sourceTree = "<group>"; };
+		3A41ADEE1BA7B45D000C109B /* ReactiveCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReactiveCocoa.swift; path = ewell.sleepcareforpad/ReactiveCocoa.swift; sourceTree = "<group>"; };
+		3A41ADF31BA7B543000C109B /* ewell.sleepcareforpad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ewell.sleepcareforpad-Bridging-Header.h"; sourceTree = "<group>"; };
+		3A41AE1C1BA7C121000C109B /* ewell.common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ewell.common.framework; path = "ewell.common/build/Debug-iphoneos/ewell.common.framework"; sourceTree = "<group>"; };
+		3A4B85C51BB14D34006E4CF1 /* SleepCareBussinessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareBussinessManager.swift; sourceTree = "<group>"; };
+		3A4B85C71BB14DFD006E4CF1 /* Worktask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worktask.swift; sourceTree = "<group>"; };
+		3A4B85C91BB14F28006E4CF1 /* SleepCareBussiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareBussiness.swift; sourceTree = "<group>"; };
+		3A4B85CB1BB150C1006E4CF1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3A4CD3EF1BA802E6002C8A1A /* common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = common.framework; path = "common/build/Debug-iphoneos/common.framework"; sourceTree = "<group>"; };
+		3A4CD3F71BA804D2002C8A1A /* XmppMsgManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmppMsgManager.swift; sourceTree = "<group>"; };
+		3A4CD3F91BA80536002C8A1A /* CommonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
+		3A4CD3FC1BA80852002C8A1A /* BaseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessage.swift; sourceTree = "<group>"; };
+		3A4CD3FE1BA808C1002C8A1A /* XmppMsgHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmppMsgHelper.swift; sourceTree = "<group>"; };
+		3A4D17F01BAFB07400E0B862 /* BedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BedUser.swift; sourceTree = "<group>"; };
+		3A4D17F21BAFB83500E0B862 /* SleepCareReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareReport.swift; sourceTree = "<group>"; };
+		3A4D17F41BAFCBC000E0B862 /* SleepCareReportList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SleepCareReportList.swift; path = ../SleepCareReportList.swift; sourceTree = "<group>"; };
+		3A4D17F61BAFDEFF00E0B862 /* TurnOverAnalysReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnOverAnalysReport.swift; sourceTree = "<group>"; };
+		3A4D17F81BAFDF4800E0B862 /* TurnOverAnalysList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnOverAnalysList.swift; sourceTree = "<group>"; };
+		3A4D17FA1BAFE17D00E0B862 /* AlarmInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmInfo.swift; sourceTree = "<group>"; };
+		3A4D17FC1BAFE20A00E0B862 /* AlarmList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmList.swift; sourceTree = "<group>"; };
+		3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMServiceException.swift; sourceTree = "<group>"; };
+		3A6360261BB28FAB00F7F953 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
+		3A6360281BB2900300F7F953 /* SleepcareMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepcareMainController.swift; sourceTree = "<group>"; };
+		54127559369C5508905B3990 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E7856675DBD0F8296CBE665 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8E709AD7A0D77B12CA43D3D0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A41ADB81BA7A65A000C109B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A41ADCD1BA7A65A000C109B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06AD0B292D0E3508E9178FF1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E7856675DBD0F8296CBE665 /* Pods.debug.xcconfig */,
+				8E709AD7A0D77B12CA43D3D0 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3A41ADB21BA7A65A000C109B = {
+			isa = PBXGroup;
+			children = (
+				3A4B85C41BB14C3F006E4CF1 /* IBLL */,
+				3A4CD3FB1BA80826002C8A1A /* Model */,
+				3A4CD3F61BA80423002C8A1A /* BLL */,
+				3A4CD3F51BA80408002C8A1A /* Common */,
+				3A41ADBD1BA7A65A000C109B /* ewell.sleepcareforpad */,
+				3A41ADD31BA7A65A000C109B /* ewell.sleepcareforpadTests */,
+				3A41ADBC1BA7A65A000C109B /* Products */,
+				06AD0B292D0E3508E9178FF1 /* Pods */,
+				3F28D28F10171C3606C8ADEE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3A41ADBC1BA7A65A000C109B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A41ADBB1BA7A65A000C109B /* ewell.sleepcareforpad.app */,
+				3A41ADD01BA7A65A000C109B /* ewell.sleepcareforpadTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A41ADBD1BA7A65A000C109B /* ewell.sleepcareforpad */ = {
+			isa = PBXGroup;
+			children = (
+				3A63602A1BB2905900F7F953 /* UILib */,
+				3A41ADE41BA7B3E9000C109B /* ViewController */,
+				3A41ADE11BA7B3A2000C109B /* View */,
+				3A41ADE01BA7B396000C109B /* ViewModel */,
+				3A41ADC01BA7A65A000C109B /* AppDelegate.swift */,
+				3A41ADC21BA7A65A000C109B /* ViewController.swift */,
+				3A41ADC41BA7A65A000C109B /* Main.storyboard */,
+				3A41ADC71BA7A65A000C109B /* Images.xcassets */,
+				3A41ADC91BA7A65A000C109B /* LaunchScreen.xib */,
+				3A41ADBE1BA7A65A000C109B /* Supporting Files */,
+				3A41ADF31BA7B543000C109B /* ewell.sleepcareforpad-Bridging-Header.h */,
+			);
+			path = ewell.sleepcareforpad;
+			sourceTree = "<group>";
+		};
+		3A41ADBE1BA7A65A000C109B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A41ADBF1BA7A65A000C109B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A41ADD31BA7A65A000C109B /* ewell.sleepcareforpadTests */ = {
+			isa = PBXGroup;
+			children = (
+				3A41ADD61BA7A65A000C109B /* ewell_sleepcareforpadTests.swift */,
+				3A41ADD41BA7A65A000C109B /* Supporting Files */,
+			);
+			path = ewell.sleepcareforpadTests;
+			sourceTree = "<group>";
+		};
+		3A41ADD41BA7A65A000C109B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A41ADD51BA7A65A000C109B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A41ADE01BA7B396000C109B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3A41ADE91BA7B438000C109B /* LoginViewModel.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		3A41ADE11BA7B3A2000C109B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A4D17EF1BAF921300E0B862 /* pad */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		3A41ADE41BA7B3E9000C109B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3A41ADE51BA7B425000C109B /* BaseViewController.swift */,
+				3A41ADE61BA7B425000C109B /* LoginController.swift */,
+				3A6360281BB2900300F7F953 /* SleepcareMainController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		3A4B85C41BB14C3F006E4CF1 /* IBLL */ = {
+			isa = PBXGroup;
+			children = (
+				3A4B85C51BB14D34006E4CF1 /* SleepCareBussinessManager.swift */,
+			);
+			name = IBLL;
+			sourceTree = "<group>";
+		};
+		3A4CD3F51BA80408002C8A1A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3A41ADED1BA7B45D000C109B /* MessageDelegate.swift */,
+				3A41ADEE1BA7B45D000C109B /* ReactiveCocoa.swift */,
+				3A4CD3F71BA804D2002C8A1A /* XmppMsgManager.swift */,
+				3A4CD3F91BA80536002C8A1A /* CommonHelper.swift */,
+				3A4CD3FE1BA808C1002C8A1A /* XmppMsgHelper.swift */,
+				3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		3A4CD3F61BA80423002C8A1A /* BLL */ = {
+			isa = PBXGroup;
+			children = (
+				3A4B85C91BB14F28006E4CF1 /* SleepCareBussiness.swift */,
+			);
+			name = BLL;
+			sourceTree = "<group>";
+		};
+		3A4CD3FB1BA80826002C8A1A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A4CD3FC1BA80852002C8A1A /* BaseMessage.swift */,
+				3A36B0221BA96648000F4AED /* RealTimeReport.swift */,
+				3A33EF841BAA56D700D82A4D /* MessageSubject.swift */,
+				3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */,
+				3A3D65E51BAA97ED00CEFB25 /* UserInfo.swift */,
+				3A376E411BABB3B700D70953 /* EMString.swift */,
+				3A376E431BABB81100D70953 /* EMProperties.swift */,
+				3A376E451BABBB1200D70953 /* User.swift */,
+				3A376E471BABD54200D70953 /* Role.swift */,
+				3A376E491BABD9F400D70953 /* PartInfo.swift */,
+				3A376E4B1BABDA3B00D70953 /* Bed.swift */,
+				3A376E4D1BABDE3500D70953 /* SignReport.swift */,
+				3A4D17F01BAFB07400E0B862 /* BedUser.swift */,
+				3A4D17F21BAFB83500E0B862 /* SleepCareReport.swift */,
+				3A4D17F41BAFCBC000E0B862 /* SleepCareReportList.swift */,
+				3A4D17F61BAFDEFF00E0B862 /* TurnOverAnalysReport.swift */,
+				3A4D17F81BAFDF4800E0B862 /* TurnOverAnalysList.swift */,
+				3A4D17FA1BAFE17D00E0B862 /* AlarmInfo.swift */,
+				3A4D17FC1BAFE20A00E0B862 /* AlarmList.swift */,
+				3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */,
+				3A4B85C71BB14DFD006E4CF1 /* Worktask.swift */,
+				3A4B85CB1BB150C1006E4CF1 /* Constants.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3A4D17EF1BAF921300E0B862 /* pad */ = {
+			isa = PBXGroup;
+			children = (
+				3A41ADE21BA7B3D1000C109B /* LoginController.xib */,
+				3A6360261BB28FAB00F7F953 /* MainView.xib */,
+			);
+			name = pad;
+			sourceTree = "<group>";
+		};
+		3A63602A1BB2905900F7F953 /* UILib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UILib;
+			sourceTree = "<group>";
+		};
+		3F28D28F10171C3606C8ADEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A3D65E71BAAB67C00CEFB25 /* libxml2.2.dylib */,
+				3A4CD3EF1BA802E6002C8A1A /* common.framework */,
+				3A41AE1C1BA7C121000C109B /* ewell.common.framework */,
+				54127559369C5508905B3990 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A41ADBA1BA7A65A000C109B /* ewell.sleepcareforpad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A41ADDA1BA7A65A000C109B /* Build configuration list for PBXNativeTarget "ewell.sleepcareforpad" */;
+			buildPhases = (
+				94B8FF2FEC56491759EB62A4 /* Check Pods Manifest.lock */,
+				3A41ADB71BA7A65A000C109B /* Sources */,
+				3A41ADB81BA7A65A000C109B /* Frameworks */,
+				3A41ADB91BA7A65A000C109B /* Resources */,
+				8C7EF80D5231F3785268B921 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ewell.sleepcareforpad;
+			productName = ewell.sleepcareforpad;
+			productReference = 3A41ADBB1BA7A65A000C109B /* ewell.sleepcareforpad.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3A41ADCF1BA7A65A000C109B /* ewell.sleepcareforpadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A41ADDD1BA7A65A000C109B /* Build configuration list for PBXNativeTarget "ewell.sleepcareforpadTests" */;
+			buildPhases = (
+				3A41ADCC1BA7A65A000C109B /* Sources */,
+				3A41ADCD1BA7A65A000C109B /* Frameworks */,
+				3A41ADCE1BA7A65A000C109B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A41ADD21BA7A65A000C109B /* PBXTargetDependency */,
+			);
+			name = ewell.sleepcareforpadTests;
+			productName = ewell.sleepcareforpadTests;
+			productReference = 3A41ADD01BA7A65A000C109B /* ewell.sleepcareforpadTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A41ADB31BA7A65A000C109B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = djg;
+				TargetAttributes = {
+					3A41ADBA1BA7A65A000C109B = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					3A41ADCF1BA7A65A000C109B = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 3A41ADBA1BA7A65A000C109B;
+					};
+				};
+			};
+			buildConfigurationList = 3A41ADB61BA7A65A000C109B /* Build configuration list for PBXProject "ewell.sleepcareforpad" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3A41ADB21BA7A65A000C109B;
+			productRefGroup = 3A41ADBC1BA7A65A000C109B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A41ADBA1BA7A65A000C109B /* ewell.sleepcareforpad */,
+				3A41ADCF1BA7A65A000C109B /* ewell.sleepcareforpadTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A41ADB91BA7A65A000C109B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A41ADC61BA7A65A000C109B /* Main.storyboard in Resources */,
+				3A41ADE31BA7B3D1000C109B /* LoginController.xib in Resources */,
+				3A41ADCB1BA7A65A000C109B /* LaunchScreen.xib in Resources */,
+				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
+				3A6360271BB28FAB00F7F953 /* MainView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A41ADCE1BA7A65A000C109B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8C7EF80D5231F3785268B921 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94B8FF2FEC56491759EB62A4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A41ADB71BA7A65A000C109B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A376E441BABB81100D70953 /* EMProperties.swift in Sources */,
+				3A4D17FD1BAFE20A00E0B862 /* AlarmList.swift in Sources */,
+				3A4D17F71BAFDEFF00E0B862 /* TurnOverAnalysReport.swift in Sources */,
+				3A4D17F31BAFB83500E0B862 /* SleepCareReport.swift in Sources */,
+				3A4CD3F81BA804D2002C8A1A /* XmppMsgManager.swift in Sources */,
+				3A4CD3FF1BA808C1002C8A1A /* XmppMsgHelper.swift in Sources */,
+				3A4D17F51BAFCBC000E0B862 /* SleepCareReportList.swift in Sources */,
+				3A41ADF01BA7B45D000C109B /* MessageDelegate.swift in Sources */,
+				3A4B85C61BB14D34006E4CF1 /* SleepCareBussinessManager.swift in Sources */,
+				3A3D65E41BAA8E1100CEFB25 /* MessageFactory.swift in Sources */,
+				3A3D65E61BAA97ED00CEFB25 /* UserInfo.swift in Sources */,
+				3A41ADC31BA7A65A000C109B /* ViewController.swift in Sources */,
+				3A4B85CA1BB14F28006E4CF1 /* SleepCareBussiness.swift in Sources */,
+				3A6360291BB2900300F7F953 /* SleepcareMainController.swift in Sources */,
+				3A376E4E1BABDE3500D70953 /* SignReport.swift in Sources */,
+				3A41ADE81BA7B425000C109B /* LoginController.swift in Sources */,
+				3A4CD3FD1BA80852002C8A1A /* BaseMessage.swift in Sources */,
+				3A4D17F11BAFB07400E0B862 /* BedUser.swift in Sources */,
+				3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */,
+				3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */,
+				3A4D17FB1BAFE17D00E0B862 /* AlarmInfo.swift in Sources */,
+				3A4D17F91BAFDF4800E0B862 /* TurnOverAnalysList.swift in Sources */,
+				3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */,
+				3A33EF851BAA56D700D82A4D /* MessageSubject.swift in Sources */,
+				3A376E421BABB3B700D70953 /* EMString.swift in Sources */,
+				3A4CD3FA1BA80536002C8A1A /* CommonHelper.swift in Sources */,
+				3A4B85CC1BB150C1006E4CF1 /* Constants.swift in Sources */,
+				3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */,
+				3A41ADEA1BA7B438000C109B /* LoginViewModel.swift in Sources */,
+				3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */,
+				3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */,
+				3A41ADE71BA7B425000C109B /* BaseViewController.swift in Sources */,
+				3A4B85C81BB14DFD006E4CF1 /* Worktask.swift in Sources */,
+				3A376E461BABBB1200D70953 /* User.swift in Sources */,
+				3A376E481BABD54200D70953 /* Role.swift in Sources */,
+				3A376E4A1BABD9F400D70953 /* PartInfo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A41ADCC1BA7A65A000C109B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A41ADD71BA7A65A000C109B /* ewell_sleepcareforpadTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3A41ADD21BA7A65A000C109B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A41ADBA1BA7A65A000C109B /* ewell.sleepcareforpad */;
+			targetProxy = 3A41ADD11BA7A65A000C109B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3A41ADC41BA7A65A000C109B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A41ADC51BA7A65A000C109B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3A41ADC91BA7A65A000C109B /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A41ADCA1BA7A65A000C109B /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3A41ADD81BA7A65A000C109B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3A41ADD91BA7A65A000C109B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A41ADDB1BA7A65A000C109B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E7856675DBD0F8296CBE665 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ewell.common/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/common/build/Debug-iphoneos",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/include/libxml2/**",
+					"$(PODS_ROOT)/XMPPFramework/module",
+					"$(SDKROOT)/usr/include/libresolv",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactiveCocoa\"",
+					"\"${PODS_ROOT}/Headers/Public/XMPPFramework\"",
+					"$(inherited)",
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(PODS_ROOT)/XMPPFramework/module",
+					"$(SDKROOT)/usr/include/libresolv",
+					"$(inherited)",
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(PODS_ROOT)/XMPPFramework/module",
+					"$(SDKROOT)/usr/include/libresolv",
+				);
+				INFOPLIST_FILE = ewell.sleepcareforpad/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3A41ADDC1BA7A65A000C109B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E709AD7A0D77B12CA43D3D0 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ewell.common/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/common/build/Debug-iphoneos",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/include/libxml2/**",
+					"$(PODS_ROOT)/XMPPFramework/module",
+					"$(SDKROOT)/usr/include/libresolv",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactiveCocoa\"",
+					"\"${PODS_ROOT}/Headers/Public/XMPPFramework\"",
+					"$(inherited)",
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(PODS_ROOT)/XMPPFramework/module",
+					"$(SDKROOT)/usr/include/libresolv",
+					"$(inherited)",
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(PODS_ROOT)/XMPPFramework/module",
+					"$(SDKROOT)/usr/include/libresolv",
+				);
+				INFOPLIST_FILE = ewell.sleepcareforpad/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		3A41ADDE1BA7A65A000C109B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ewell.sleepcareforpadTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ewell.sleepcareforpad.app/ewell.sleepcareforpad";
+			};
+			name = Debug;
+		};
+		3A41ADDF1BA7A65A000C109B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ewell.sleepcareforpadTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ewell.sleepcareforpad.app/ewell.sleepcareforpad";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A41ADB61BA7A65A000C109B /* Build configuration list for PBXProject "ewell.sleepcareforpad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A41ADD81BA7A65A000C109B /* Debug */,
+				3A41ADD91BA7A65A000C109B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A41ADDA1BA7A65A000C109B /* Build configuration list for PBXNativeTarget "ewell.sleepcareforpad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A41ADDB1BA7A65A000C109B /* Debug */,
+				3A41ADDC1BA7A65A000C109B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A41ADDD1BA7A65A000C109B /* Build configuration list for PBXNativeTarget "ewell.sleepcareforpadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A41ADDE1BA7A65A000C109B /* Debug */,
+				3A41ADDF1BA7A65A000C109B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A41ADB31BA7A65A000C109B /* Project object */;
+}
