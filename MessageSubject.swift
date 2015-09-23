@@ -9,6 +9,7 @@
 import Foundation
 
 class MessageSubject{
+    var test:Int = 1
     var postMethod:String = "Request"
     var authCode:String = "1234567890"
     var version:String = "1.0"
