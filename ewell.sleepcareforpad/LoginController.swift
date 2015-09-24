@@ -58,6 +58,8 @@ class LoginController: BaseViewController {
 //                self.xmppMsgManager = XmppMsgManager.GetInstance(XMPPStreamTimeoutNone)
 //                let isLogin = self.xmppMsgManager?.Connect()
                 
+                
+                
         }
         
     }
