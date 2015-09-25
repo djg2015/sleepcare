@@ -25,6 +25,17 @@ class LoginController: BaseViewController {
         super.viewDidLoad()
         self.rac_settings()
         // Do any additional setup after loading the view.
+        var defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        var user_text:NSString = "test@192.168.0.19"
+        var pass_text:NSString = "123"
+        var server_text:NSString = "192.168.0.19"
+        defaults.setObject(user_text,forKey:USERID)
+        defaults.setObject(pass_text,forKey:PASS)
+        defaults.setObject(server_text,forKey:SERVER)
+        defaults.synchronize()
+        self.xmppMsgManager = XmppMsgManager.GetInstance(XMPPStreamTimeoutNone)
+        let isLogin = self.xmppMsgManager?.Connect()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,12 +43,12 @@ class LoginController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //-------------自定义方法处理---------------    
+    //-------------自定义方法处理---------------
     func rac_settings(){
-       
+        
         //属性绑定
-         self.txtloginName.rac_textSignal() ~> RAC(self.loginModel, "UserName")
-         RACObserve(self.loginModel, "UserName") ~> RAC(self.txtloginName, "text")
+        self.txtloginName.rac_textSignal() ~> RAC(self.loginModel, "UserName")
+        RACObserve(self.loginModel, "UserName") ~> RAC(self.txtloginName, "text")
         
         //事件绑定
         self.btnSubmit.rac_command = loginModel.login
@@ -45,26 +56,19 @@ class LoginController: BaseViewController {
             .subscribeNext {
                 _ in
                 //RACObserve(self.loginModel, "UserName") ~> RAC(self.txtloginPwd, "text")
-                self.loginModel.UserName="2222"
-                
-//                var defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-//                var user_text:NSString = "test@192.168.0.19"
-//                var pass_text:NSString = "123"
-//                var server_text:NSString = "192.168.0.19"
-//                defaults.setObject(user_text,forKey:USERID)
-//                defaults.setObject(pass_text,forKey:PASS)
-//                defaults.setObject(server_text,forKey:SERVER)
-//                defaults.synchronize()
-//                self.xmppMsgManager = XmppMsgManager.GetInstance(XMPPStreamTimeoutNone)
-//                let isLogin = self.xmppMsgManager?.Connect()
+          
+                var sleepCareBll = SleepCareBussiness()
+                let user  = sleepCareBll.GetLoginInfo("admin", LoginPassword: "123456")
                 
                 
+                var v = user.LoginName
+                var v1 = user.LoginPassword
                 
         }
         
     }
     
- 
+    
     
     /*
     // MARK: - Navigation

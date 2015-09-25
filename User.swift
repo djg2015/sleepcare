@@ -25,14 +25,22 @@ class User:BaseMessage{
             result.LoginName = user.elementForName("LoginName").stringValue()
             result.LoginPassword = user.elementForName("LoginPassword").stringValue()
             result.Status = user.elementForName("Status").stringValue()
-            result.MainCode = user.elementForName("MainCode").stringValue()
-            result.PartCode = user.elementForName("PartCode").stringValue()
-            //获取role节点的子节点
-            let role = user.elementForName("Role") as DDXMLElement
-            result.role?.RoleCode = role.elementForName("RoleCode").stringValue()
-            result.role?.RoleName = role.elementForName("RoleName").stringValue()
-            result.role?.RoleType = role.elementForName("RoleType").stringValue()
-            
+            if(user.elementForName("MainCode") != nil)
+            {
+                result.MainCode = user.elementForName("MainCode").stringValue()
+            }
+            if(user.elementForName("PartCode") != nil)
+            {
+                result.PartCode = user.elementForName("PartCode").stringValue()
+            }
+            if(user.elementForName("Role") != nil)
+            {
+                //获取role节点的子节点
+                let role = user.elementForName("Role") as DDXMLElement
+                result.role?.RoleCode = role.elementForName("RoleCode").stringValue()
+                result.role?.RoleName = role.elementForName("RoleName").stringValue()
+                result.role?.RoleType = role.elementForName("RoleType").stringValue()
+            }
             var worktasks = doc.nodesForXPath("//Worktask", error:nil) as! [DDXMLElement]
             for worktask in worktasks {
                 var newWorktask = Worktask()

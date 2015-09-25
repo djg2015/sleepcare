@@ -12,8 +12,8 @@ class SleepCareBussiness: SleepCareBussinessManager {
     func GetLoginInfo(LoginName:String,LoginPassword:String)->User{
         var subject = MessageSubject(opera: "Login")
         var post = EMProperties(messageSubject: subject)
-        post.AddKeyValue("LoginName", value: LoginName)
-        post.AddKeyValue("LoginPassword", value: LoginPassword)
+        post.AddKeyValue("loginName", value: LoginName)
+        post.AddKeyValue("loginPassword", value: LoginPassword)
         var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
         return xmpp?.SendData(post) as! User
         
