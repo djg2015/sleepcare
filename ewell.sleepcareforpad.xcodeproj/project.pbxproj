@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
 		3A33EF851BAA56D700D82A4D /* MessageSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF841BAA56D700D82A4D /* MessageSubject.swift */; };
+		3A3449601BB5232400E1079F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A34495F1BB5232400E1079F /* Login.storyboard */; };
+		3A3449621BB5241B00E1079F /* SLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3449611BB5241B00E1079F /* SLoginViewController.swift */; };
 		3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */; };
 		3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B0221BA96648000F4AED /* RealTimeReport.swift */; };
 		3A376E421BABB3B700D70953 /* EMString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E411BABB3B700D70953 /* EMString.swift */; };
@@ -66,6 +68,8 @@
 
 /* Begin PBXFileReference section */
 		3A33EF841BAA56D700D82A4D /* MessageSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSubject.swift; sourceTree = "<group>"; };
+		3A34495F1BB5232400E1079F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		3A3449611BB5241B00E1079F /* SLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLoginViewController.swift; sourceTree = "<group>"; };
 		3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeDelegate.swift; sourceTree = "<group>"; };
 		3A36B0221BA96648000F4AED /* RealTimeReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeReport.swift; sourceTree = "<group>"; };
 		3A376E411BABB3B700D70953 /* EMString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMString.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 				3A41ADE51BA7B425000C109B /* BaseViewController.swift */,
 				3A41ADE61BA7B425000C109B /* LoginController.swift */,
 				3A6360281BB2900300F7F953 /* SleepcareMainController.swift */,
+				3A3449611BB5241B00E1079F /* SLoginViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 			children = (
 				3A41ADE21BA7B3D1000C109B /* LoginController.xib */,
 				3A6360261BB28FAB00F7F953 /* MainView.xib */,
+				3A34495F1BB5232400E1079F /* Login.storyboard */,
 			);
 			name = pad;
 			sourceTree = "<group>";
@@ -414,6 +420,7 @@
 			files = (
 				3A41ADC61BA7A65A000C109B /* Main.storyboard in Resources */,
 				3A41ADE31BA7B3D1000C109B /* LoginController.xib in Resources */,
+				3A3449601BB5232400E1079F /* Login.storyboard in Resources */,
 				3A41ADCB1BA7A65A000C109B /* LaunchScreen.xib in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
 				3A6360271BB28FAB00F7F953 /* MainView.xib in Resources */,
@@ -486,6 +493,7 @@
 				3A4CD3FD1BA80852002C8A1A /* BaseMessage.swift in Sources */,
 				3A4D17F11BAFB07400E0B862 /* BedUser.swift in Sources */,
 				3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */,
+				3A3449621BB5241B00E1079F /* SLoginViewController.swift in Sources */,
 				3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */,
 				3A4D17FB1BAFE17D00E0B862 /* AlarmInfo.swift in Sources */,
 				3A4D17F91BAFDF4800E0B862 /* TurnOverAnalysList.swift in Sources */,

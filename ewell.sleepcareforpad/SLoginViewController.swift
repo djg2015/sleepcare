@@ -1,23 +1,19 @@
 //
-//  SleepcareMainController.swift
+//  SLoginViewController.swift
 //  ewell.sleepcareforpad
 //
-//  Created by djg on 15/9/23.
+//  Created by djg on 15/9/25.
 //  Copyright (c) 2015年 djg. All rights reserved.
 //
 
 import UIKit
 
-class SleepcareMainController: BaseViewController {
-    
-    var tableView:SleepCareTableView!
-    
+class SLoginViewController: BaseViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView = SleepCareTableView(frame: CGRectMake(0, 20, self.view.frame.width, self.view.frame.height))
-        self.tableView.registerClass(SleepCareTableViewCell.self, forCellReuseIdentifier: "mycell")
+
         // Do any additional setup after loading the view.
-        self.view.addSubview(self.tableView)
     }
 
     override func didReceiveMemoryWarning() {

@@ -11,7 +11,7 @@ import UIKit
 class SleepCareTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
 
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: frame,style:UITableViewStyle.Plain)
         self.backgroundColor = UIColor.blueColor()
         self.separatorStyle = UITableViewCellSeparatorStyle.None
         self.delegate = self

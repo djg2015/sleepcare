@@ -19,7 +19,6 @@ class LoginController: BaseViewController {
     //属性变量定义
     var loginModel = LoginViewModel()
     var xmppMsgManager:XmppMsgManager?=nil
-    
     //-----------界面事件定义----------------
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +56,7 @@ class LoginController: BaseViewController {
 //                defaults.synchronize()
 //                self.xmppMsgManager = XmppMsgManager.GetInstance(XMPPStreamTimeoutNone)
 //                let isLogin = self.xmppMsgManager?.Connect()
+                self.presentViewController(SleepcareMainController(nibName:"MainView", bundle:nil), animated: true, completion: nil)
                 
         }
         
