@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
+		2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AEC471BB397130096DF3F /* RoleList.swift */; };
 		3A33EF851BAA56D700D82A4D /* MessageSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF841BAA56D700D82A4D /* MessageSubject.swift */; };
 		3A3449601BB5232400E1079F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A34495F1BB5232400E1079F /* Login.storyboard */; };
 		3A3449621BB5241B00E1079F /* SLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3449611BB5241B00E1079F /* SLoginViewController.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C5AEC471BB397130096DF3F /* RoleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleList.swift; sourceTree = "<group>"; };
 		3A33EF841BAA56D700D82A4D /* MessageSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSubject.swift; sourceTree = "<group>"; };
 		3A34495F1BB5232400E1079F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		3A3449611BB5241B00E1079F /* SLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLoginViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */,
 				3A4B85C71BB14DFD006E4CF1 /* Worktask.swift */,
 				3A4B85CB1BB150C1006E4CF1 /* Constants.swift */,
+				2C5AEC471BB397130096DF3F /* RoleList.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				3A376E461BABBB1200D70953 /* User.swift in Sources */,
 				3A376E481BABD54200D70953 /* Role.swift in Sources */,
 				3A376E4A1BABD9F400D70953 /* PartInfo.swift in Sources */,
+				2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

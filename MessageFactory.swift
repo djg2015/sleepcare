@@ -9,7 +9,7 @@
 import Foundation
 
 let tag_realtimedata:String="<RealTimeData"
-let tag_userinfo:String="<EBRealTimeSummary"
+let tag_userinfo:String="<User"
 class MessageFactory {
     //xmpp字符串节点
     
@@ -18,7 +18,7 @@ class MessageFactory {
             return RealTimeReport.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         else if(message.content.hasPrefix(tag_userinfo)){
-            return UserInfo.XmlToMessage(message.subject, bodyXMl: message.content)
+            return User.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         else
         {

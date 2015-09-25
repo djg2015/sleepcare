@@ -46,8 +46,9 @@ class LoginViewModel: NSObject {
         }
     }
     
-    //自定义方法
+    //自定义方法ß
     func Login() -> RACSignal{
+      
         println(self.UserName)
         self.UserName = "aa1"
         println(self.UserPwd)
