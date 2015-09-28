@@ -15,7 +15,12 @@ class SleepCareBussiness: SleepCareBussinessManager {
         post.AddKeyValue("loginName", value: LoginName)
         post.AddKeyValue("loginPassword", value: LoginPassword)
         var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
-        return xmpp?.SendData(post) as! User
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! User
     }
     
     // 根据角色父编码获取父编码下所有的角色包括当前父角色
@@ -25,7 +30,12 @@ class SleepCareBussiness: SleepCareBussinessManager {
         var post = EMString(messageSubject: subject)
         post.EMString = parentRoleCode
         var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
-        return xmpp?.SendData(post) as! RoleList
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! RoleList
     }
     
     // 根据科室/楼层编号 获取当前科室/楼层信息包括对应的床位信息
@@ -50,7 +60,12 @@ class SleepCareBussiness: SleepCareBussinessManager {
         }
         
         var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
-        return xmpp?.SendData(post) as! PartInfo
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! PartInfo
     }
     
     // 根据床位编码获取当前床位用户的信息
@@ -63,7 +78,12 @@ class SleepCareBussiness: SleepCareBussinessManager {
         post.AddKeyValue("bedCode", value: bedCode)
         
         var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
-        return xmpp?.SendData(post) as! BedUser
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! BedUser
     }
     
     // 根据科室/楼层编号、用户编号、分析时间段多条件获取睡眠质量总览
@@ -90,7 +110,12 @@ class SleepCareBussiness: SleepCareBussinessManager {
         }
         
         var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
-        return xmpp?.SendData(post) as! SleepCareReportList
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! SleepCareReportList
     }
     
     // 根据科室/楼层编号、用户编号、分析日期多条件获取睡眠质量分析明细
@@ -103,7 +128,12 @@ class SleepCareBussiness: SleepCareBussinessManager {
         post.AddKeyValue("analysDate", value: analysDate)
         
         var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
-        return xmpp?.SendData(post) as! SleepCareReport
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! SleepCareReport
     }
     
     // 根据科室/楼层编号、用户编号、分析时间段多条件获取睡眠质量总览
@@ -128,6 +158,11 @@ class SleepCareBussiness: SleepCareBussinessManager {
         }
         
         var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
-        return xmpp?.SendData(post) as! TurnOverAnalysList
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! TurnOverAnalysList
     }
 }

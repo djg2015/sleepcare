@@ -53,9 +53,6 @@ class MessageFactory {
         {
             return EMServiceException.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-        else
-        {
-            return BaseMessage.XmlToMessage(message.subject, bodyXMl: message.content)
-        }
+        return BaseMessage.XmlToMessage(message.subject, bodyXMl: message.content)
     }
 }

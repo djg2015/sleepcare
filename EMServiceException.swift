@@ -13,7 +13,7 @@ class EMServiceException:BaseMessage{
     var trace:String = ""
     
     //解析响应的message
-    override class func XmlToMessage(subjectXml:String,bodyXMl:String) -> BaseMessage{
+    override class func XmlToMessage(subjectXml:String,bodyXMl:String) -> EMServiceException{
         let result = EMServiceException(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
         //构造XML文档
         var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
