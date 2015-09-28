@@ -23,29 +23,74 @@ class PartInfo: BaseMessage {
         var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
         var partInfos = doc.nodesForXPath("//PartInfo", error:nil) as! [DDXMLElement]
         for partInfo in partInfos {
-            result.PartCode = partInfo.elementForName("PartCode").stringValue()
-            result.PartName = partInfo.elementForName("PartName").stringValue()
-            result.Location = partInfo.elementForName("Location").stringValue()
-            result.RoomCount = partInfo.elementForName("RoomCount").stringValue()
-            result.BedCount = partInfo.elementForName("BedCount").stringValue()
-            result.BindingCount = partInfo.elementForName("BindingCount").stringValue()
+            if(partInfo.elementForName("PartCode") != nil)
+            {
+                result.PartCode = partInfo.elementForName("PartCode").stringValue()
+            }
+            if(partInfo.elementForName("PartName") != nil)
+            {
+                result.PartName = partInfo.elementForName("PartName").stringValue()
+            }
+            if(partInfo.elementForName("Location") != nil)
+            {
+                result.Location = partInfo.elementForName("Location").stringValue()
+            }
+            if(partInfo.elementForName("RoomCount") != nil)
+            {
+                result.RoomCount = partInfo.elementForName("RoomCount").stringValue()
+            }
+            if(partInfo.elementForName("BedCount") != nil)
+            {
+                result.BedCount = partInfo.elementForName("BedCount").stringValue()
+            }
+            if(partInfo.elementForName("BindingCount") != nil)
+            {
+                result.BindingCount = partInfo.elementForName("BindingCount").stringValue()
+            }
             //获取role节点的子节点
-            let beds = partInfo.nodesForXPath("//PartInfo", error:nil) as! [DDXMLElement]
+            let beds = partInfo.nodesForXPath("//Bed", error:nil) as! [DDXMLElement]
             for bed in beds {
                 var newBed = Bed()
-                newBed.BedCode = bed.elementForName("BedCode").stringValue()
-                newBed.BedNumber = bed.elementForName("BedNumber").stringValue()
-                newBed.RoomCode = bed.elementForName("RoomCode").stringValue()
-                newBed.RoomNumber = bed.elementForName("RoomNumber").stringValue()
-                newBed.UserCode = bed.elementForName("UserCode").stringValue()
-                newBed.UserName = bed.elementForName("UserName").stringValue()
-                newBed.CaseCode = bed.elementForName("CaseCode").stringValue()
-                newBed.OnBedStatus = bed.elementForName("OnBedStatus").stringValue()
-                newBed.Sleep = bed.elementForName("Sleep").stringValue()
+                if(bed.elementForName("BedCode") != nil)
+                {
+                    newBed.BedCode = bed.elementForName("BedCode").stringValue()
+                }
+                if(bed.elementForName("BedNumber") != nil)
+                {
+                    newBed.BedNumber = bed.elementForName("BedNumber").stringValue()
+                }
+                if(bed.elementForName("RoomCode") != nil)
+                {
+                    newBed.RoomCode = bed.elementForName("RoomCode").stringValue()
+                }
+                if(bed.elementForName("RoomNumber") != nil)
+                {
+                    newBed.RoomNumber = bed.elementForName("RoomNumber").stringValue()
+                }
+                if(bed.elementForName("UserCode") != nil)
+                {
+                    newBed.UserCode = bed.elementForName("UserCode").stringValue()
+                }
+                if(bed.elementForName("UserName") != nil)
+                {
+                    newBed.UserName = bed.elementForName("UserName").stringValue()
+                }
+                if(bed.elementForName("CaseCode") != nil)
+                {
+                    newBed.CaseCode = bed.elementForName("CaseCode").stringValue()
+                }
+                if(bed.elementForName("OnBedStatus") != nil)
+                {
+                    newBed.OnBedStatus = bed.elementForName("OnBedStatus").stringValue()
+                }
+                if(bed.elementForName("Sleep") != nil)
+                {
+                    newBed.Sleep = bed.elementForName("Sleep").stringValue()
+                }
                 result.BedList.append(newBed)
             }
         }
         return result
     }
-
+    
 }

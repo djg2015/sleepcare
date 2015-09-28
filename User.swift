@@ -22,9 +22,18 @@ class User:BaseMessage{
         var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
         var users = doc.nodesForXPath("//User", error:nil) as! [DDXMLElement]
         for user in users {
-            result.LoginName = user.elementForName("LoginName").stringValue()
-            result.LoginPassword = user.elementForName("LoginPassword").stringValue()
-            result.Status = user.elementForName("Status").stringValue()
+            if(user.elementForName("LoginName") != nil)
+            {
+                result.LoginName = user.elementForName("LoginName").stringValue()
+            }
+            if(user.elementForName("LoginPassword") != nil)
+            {
+                result.LoginPassword = user.elementForName("LoginPassword").stringValue()
+            }
+            if(user.elementForName("Status") != nil)
+            {
+                result.Status = user.elementForName("Status").stringValue()
+            }
             if(user.elementForName("MainCode") != nil)
             {
                 result.MainCode = user.elementForName("MainCode").stringValue()
@@ -37,15 +46,30 @@ class User:BaseMessage{
             {
                 //获取role节点的子节点
                 let role = user.elementForName("Role") as DDXMLElement
-                result.role?.RoleCode = role.elementForName("RoleCode").stringValue()
-                result.role?.RoleName = role.elementForName("RoleName").stringValue()
-                result.role?.RoleType = role.elementForName("RoleType").stringValue()
+                if(role.elementForName("RoleCode") != nil)
+                {
+                    result.role?.RoleCode = role.elementForName("RoleCode").stringValue()
+                }
+                if(role.elementForName("RoleName") != nil)
+                {
+                    result.role?.RoleName = role.elementForName("RoleName").stringValue()
+                }
+                if(role.elementForName("RoleType") != nil)
+                {
+                    result.role?.RoleType = role.elementForName("RoleType").stringValue()
+                }
             }
             var worktasks = doc.nodesForXPath("//Worktask", error:nil) as! [DDXMLElement]
             for worktask in worktasks {
                 var newWorktask = Worktask()
-                newWorktask.WorktaskCode = worktask.elementForName("WorktaskCode").stringValue()
-                newWorktask.WorktaskName = worktask.elementForName("WorktaskName").stringValue()
+                if(worktask.elementForName("WorktaskCode") != nil)
+                {
+                    newWorktask.WorktaskCode = worktask.elementForName("WorktaskCode").stringValue()
+                }
+                if(worktask.elementForName("WorktaskName") != nil)
+                {
+                    newWorktask.WorktaskName = worktask.elementForName("WorktaskName").stringValue()
+                }
                 result.WorktaskList.append(newWorktask)
             }
         }

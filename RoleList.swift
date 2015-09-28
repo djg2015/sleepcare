@@ -21,14 +21,29 @@ class RoleList:BaseMessage
         var roleList = doc.nodesForXPath("//Role", error:nil) as! [DDXMLElement]
         for role in roleList {
             var newRole = Role()
-            newRole.RoleCode = role.elementForName("RoleCode").stringValue()
-            newRole.RoleName = role.elementForName("RoleName").stringValue()
-            newRole.RoleType = role.elementForName("RoleType").stringValue()
-            newRole.MainCode = role.elementForName("MainCode").stringValue()
-            newRole.PartCode = role.elementForName("PartCode").stringValue()
+            if(role.elementForName("RoleCode") != nil)
+            {
+                newRole.RoleCode = role.elementForName("RoleCode").stringValue()
+            }
+            if(role.elementForName("RoleName") != nil)
+            {
+                newRole.RoleName = role.elementForName("RoleName").stringValue()
+            }
+            if(role.elementForName("RoleType") != nil)
+            {
+                newRole.RoleType = role.elementForName("RoleType").stringValue()
+            }
+            if(role.elementForName("MainCode") != nil)
+            {
+                newRole.MainCode = role.elementForName("MainCode").stringValue()
+            }
+            if(role.elementForName("PartCode") != nil)
+            {
+                newRole.PartCode = role.elementForName("PartCode").stringValue()
+            }
             result.roleList.append(newRole)
         }
         return result
     }
-
+    
 }

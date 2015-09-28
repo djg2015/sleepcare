@@ -25,17 +25,44 @@ class BedUser:BaseMessage{
         var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
         var users = doc.nodesForXPath("//BedUser", error:nil) as! [DDXMLElement]
         for user in users {
-            result.BedCode = user.elementForName("BedCode").stringValue()
-            result.BedNumber = user.elementForName("BedNumber").stringValue()
-            result.UserCode = user.elementForName("UserCode").stringValue()
-            result.UserName = user.elementForName("UserName").stringValue()
-            result.Age = user.elementForName("Age").stringValue()
-            result.Sex = user.elementForName("Sex").stringValue()
-            result.Phone = user.elementForName("Phone").stringValue()
-            result.Address = user.elementForName("Address").stringValue()
-            result.CaseCode = user.elementForName("CaseCode").stringValue()
+            if(user.elementForName("BedCode") != nil)
+            {
+                result.BedCode = user.elementForName("BedCode").stringValue()
+            }
+            if(user.elementForName("BedNumber") != nil)
+            {
+                result.BedNumber = user.elementForName("BedNumber").stringValue()
+            }
+            if(user.elementForName("UserCode") != nil)
+            {
+                result.UserCode = user.elementForName("UserCode").stringValue()
+            }
+            if(user.elementForName("UserName") != nil)
+            {
+                result.UserName = user.elementForName("UserName").stringValue()
+            }
+            if(user.elementForName("Age") != nil)
+            {
+                result.Age = user.elementForName("Age").stringValue()
+            }
+            if(user.elementForName("Sex") != nil)
+            {
+                result.Sex = user.elementForName("Sex").stringValue()
+            }
+            if(user.elementForName("Phone") != nil)
+            {
+                result.Phone = user.elementForName("Phone").stringValue()
+            }
+            if(user.elementForName("Address") != nil)
+            {
+                result.Address = user.elementForName("Address").stringValue()
+            }
+            if(user.elementForName("CaseCode") != nil)
+            {
+                result.CaseCode = user.elementForName("CaseCode").stringValue()
+            }
         }
         return result
     }
-
+    
 }

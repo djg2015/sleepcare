@@ -47,10 +47,19 @@ class SleepCareReport:BaseMessage{
             result.OnBedTimeSpan = sleepCareReport.elementForName("OnBedTimeSpan").stringValue()
             result.DeepSleepTimeSpan = sleepCareReport.elementForName("DeepSleepTimeSpan").stringValue()
             result.LeaveBedCount = sleepCareReport.elementForName("LeaveBedCount").stringValue()
-            result.MaxLeaveTimeSpan = sleepCareReport.elementForName("MaxLeaveTimeSpan").stringValue()
-            result.LeaveBedSuggest = sleepCareReport.elementForName("LeaveBedSuggest").stringValue()
-            result.AnalysisDateSection = sleepCareReport.elementForName("AnalysisDateSection").stringValue()
-
+            if(nil != sleepCareReport.elementForName("MaxLeaveTimeSpan"))
+            {
+                result.MaxLeaveTimeSpan = sleepCareReport.elementForName("MaxLeaveTimeSpan").stringValue()
+            }
+            if(nil != sleepCareReport.elementForName("LeaveBedSuggest"))
+            {
+                result.LeaveBedSuggest = sleepCareReport.elementForName("LeaveBedSuggest").stringValue()
+            }
+            if(nil != sleepCareReport.elementForName("AnalysisDateSection"))
+            {
+                result.AnalysisDateSection = sleepCareReport.elementForName("AnalysisDateSection").stringValue()
+            }
+            
             
             //获取按小时体征节点的子节点
             let signReportList = sleepCareReport.nodesForXPath("//SignReport", error:nil) as! [DDXMLElement]
@@ -62,16 +71,37 @@ class SleepCareReport:BaseMessage{
                 newSignReport.PartCode = sign.elementForName("PartCode").stringValue()
                 newSignReport.UserCode = sign.elementForName("UserCode").stringValue()
                 newSignReport.UserName = sign.elementForName("UserName").stringValue()
-                newSignReport.CaseCode = sign.elementForName("CaseCode").stringValue()
-                newSignReport.AVGHR = sign.elementForName("AVGHR").stringValue()
-                newSignReport.AVGRR = sign.elementForName("AVGRR").stringValue()
-                newSignReport.AVGTemperature = sign.elementForName("AVGTemperature").stringValue()
-                newSignReport.TurnOverTime = sign.elementForName("TurnOverTime").stringValue()
-                newSignReport.AVGMV = sign.elementForName("AVGMV").stringValue()
-                newSignReport.AnalysisDateSection = sign.elementForName("AnalysisDateSection").stringValue()
+                if(sleepCareReport.elementForName("CaseCode") != nil)
+                {
+                    newSignReport.CaseCode = sign.elementForName("CaseCode").stringValue()
+                }
+                if(sign.elementForName("AVGHR") != nil)
+                {
+                    newSignReport.AVGHR = sign.elementForName("AVGHR").stringValue()
+                }
+                if(sign.elementForName("AVGRR") != nil)
+                {
+                    newSignReport.AVGRR = sign.elementForName("AVGRR").stringValue()
+                }
+                if(sign.elementForName("AVGTemperature") != nil)
+                {
+                    newSignReport.AVGTemperature = sign.elementForName("AVGTemperature").stringValue()
+                }
+                if(sign.elementForName("TurnOverTime") != nil)
+                {
+                    newSignReport.TurnOverTime = sign.elementForName("TurnOverTime").stringValue()
+                }
+                if(sign.elementForName("AVGMV") != nil)
+                {
+                    newSignReport.AVGMV = sign.elementForName("AVGMV").stringValue()
+                }
+                if(sign.elementForName("AnalysisDateSection") != nil)
+                {
+                    newSignReport.AnalysisDateSection = sign.elementForName("AnalysisDateSection").stringValue()
+                }
                 result.SignReports.append(newSignReport)
             }
-
+            
         }
         return result
     }

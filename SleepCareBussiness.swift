@@ -16,15 +16,14 @@ class SleepCareBussiness: SleepCareBussinessManager {
         post.AddKeyValue("loginPassword", value: LoginPassword)
         var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
         return xmpp?.SendData(post) as! User
-        
     }
     
     // 根据角色父编码获取父编码下所有的角色包括当前父角色
     // 参数：parentRoleCode->父角色编码
     func ListRolesByParentCode(parentRoleCode:String)->RoleList{
         var subject = MessageSubject(opera: "ListRolesByParentCode")
-        var post = EMProperties(messageSubject: subject)
-        post.AddKeyValue("parentRoleCode", value: parentRoleCode)
+        var post = EMString(messageSubject: subject)
+        post.EMString = parentRoleCode
         var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
         return xmpp?.SendData(post) as! RoleList
     }
@@ -35,14 +34,20 @@ class SleepCareBussiness: SleepCareBussinessManager {
     //      searchContent->房间号或者床位号
     //      from->查询记录起始序号
     //      max->查询的最大记录条数
-    func GetPartInfoByPartCode(partCode:String,searchType:String,searchContent:String,from:Int32,max:Int32)->PartInfo{
+    func GetPartInfoByPartCode(partCode:String,searchType:String,searchContent:String,from:Int32?,max:Int32?)->PartInfo{
         var subject = MessageSubject(opera: "GetPartInfoByPartCode")
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("partCode", value: partCode)
         post.AddKeyValue("searchType", value: searchType)
         post.AddKeyValue("searchContent", value: searchContent)
-        post.AddKeyValue("from", value: String(from))
-        post.AddKeyValue("max", value: String(max))
+        if(from != nil)
+        {
+            post.AddKeyValue("from", value: String(from!))
+        }
+        if(max != nil)
+        {
+            post.AddKeyValue("max", value: String(max!))
+        }
         
         var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
         return xmpp?.SendData(post) as! PartInfo
@@ -68,15 +73,21 @@ class SleepCareBussiness: SleepCareBussinessManager {
     //      analysTimeEnd->分析时段结束时间("yyyy-MM-dd"格式)
     //      from->查询记录起始序号
     //      max->查询的最大记录条数
-    func GetSleepCareReportByUser(partCode:String,userCode:String,analysTimeBegin:String,analysTimeEnd:String,from:Int32,max:Int32)->SleepCareReportList{
-        var subject = MessageSubject(opera: "GetPartInfoByPartCode")
+    func GetSleepCareReportByUser(partCode:String,userCode:String,analysTimeBegin:String,analysTimeEnd:String,from:Int32?,max:Int32?)->SleepCareReportList{
+        var subject = MessageSubject(opera: "GetSleepCareReportByUser")
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("partCode", value: partCode)
         post.AddKeyValue("userCode", value: userCode)
         post.AddKeyValue("analysTimeBegin", value: analysTimeBegin)
         post.AddKeyValue("analysTimeEnd", value: analysTimeEnd)
-        post.AddKeyValue("from", value: String(from))
-        post.AddKeyValue("max", value: String(max))
+        if(from != nil)
+        {
+            post.AddKeyValue("from", value: String(from!))
+        }
+        if(max != nil)
+        {
+            post.AddKeyValue("max", value: String(max!))
+        }
         
         var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
         return xmpp?.SendData(post) as! SleepCareReportList
@@ -86,7 +97,7 @@ class SleepCareBussiness: SleepCareBussinessManager {
     // 参数：userCode->用户编码
     //      analysDate->分析日期("yyyy-MM-dd"格式)
     func QuerySleepQulityDetail(userCode:String,analysDate:String)->SleepCareReport{
-        var subject = MessageSubject(opera: "GetPartInfoByPartCode")
+        var subject = MessageSubject(opera: "QuerySleepQulityDetail")
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("userCode", value: userCode)
         post.AddKeyValue("analysDate", value: analysDate)
@@ -101,14 +112,20 @@ class SleepCareBussiness: SleepCareBussinessManager {
     //      analysDateEnd->分析时段结束时间("yyyy-MM-dd"格式)
     //      from->查询记录起始序号
     //      max->查询的最大记录条数
-    func GetTurnOverAnalysByUser(userCode:String,analysDateBegin:String,analysDateEnd:String,from:Int32,max:Int32)->TurnOverAnalysList{
-        var subject = MessageSubject(opera: "GetPartInfoByPartCode")
+    func GetTurnOverAnalysByUser(userCode:String,analysDateBegin:String,analysDateEnd:String,from:Int32?,max:Int32?)->TurnOverAnalysList{
+        var subject = MessageSubject(opera: "GetTurnOverAnalysByUser")
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("userCode", value: userCode)
         post.AddKeyValue("analysDateBegin", value: analysDateBegin)
         post.AddKeyValue("analysDateEnd", value: analysDateEnd)
-        post.AddKeyValue("from", value: String(from))
-        post.AddKeyValue("max", value: String(max))
+        if(from != nil)
+        {
+            post.AddKeyValue("from", value: String(from!))
+        }
+        if(max != nil)
+        {
+            post.AddKeyValue("max", value: String(max!))
+        }
         
         var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
         return xmpp?.SendData(post) as! TurnOverAnalysList

@@ -22,7 +22,6 @@
 		3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E4B1BABDA3B00D70953 /* Bed.swift */; };
 		3A376E4E1BABDE3500D70953 /* SignReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E4D1BABDE3500D70953 /* SignReport.swift */; };
 		3A3D65E41BAA8E1100CEFB25 /* MessageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */; };
-		3A3D65E61BAA97ED00CEFB25 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D65E51BAA97ED00CEFB25 /* UserInfo.swift */; };
 		3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADC01BA7A65A000C109B /* AppDelegate.swift */; };
 		3A41ADC31BA7A65A000C109B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADC21BA7A65A000C109B /* ViewController.swift */; };
 		3A41ADC61BA7A65A000C109B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADC41BA7A65A000C109B /* Main.storyboard */; };
@@ -82,7 +81,6 @@
 		3A376E4B1BABDA3B00D70953 /* Bed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bed.swift; sourceTree = "<group>"; };
 		3A376E4D1BABDE3500D70953 /* SignReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignReport.swift; sourceTree = "<group>"; };
 		3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageFactory.swift; sourceTree = "<group>"; };
-		3A3D65E51BAA97ED00CEFB25 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		3A3D65E71BAAB67C00CEFB25 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		3A41ADBB1BA7A65A000C109B /* ewell.sleepcareforpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ewell.sleepcareforpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A41ADBF1BA7A65A000C109B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -287,7 +285,6 @@
 				3A36B0221BA96648000F4AED /* RealTimeReport.swift */,
 				3A33EF841BAA56D700D82A4D /* MessageSubject.swift */,
 				3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */,
-				3A3D65E51BAA97ED00CEFB25 /* UserInfo.swift */,
 				3A376E411BABB3B700D70953 /* EMString.swift */,
 				3A376E431BABB81100D70953 /* EMProperties.swift */,
 				3A376E451BABBB1200D70953 /* User.swift */,
@@ -487,7 +484,6 @@
 				3A41ADF01BA7B45D000C109B /* MessageDelegate.swift in Sources */,
 				3A4B85C61BB14D34006E4CF1 /* SleepCareBussinessManager.swift in Sources */,
 				3A3D65E41BAA8E1100CEFB25 /* MessageFactory.swift in Sources */,
-				3A3D65E61BAA97ED00CEFB25 /* UserInfo.swift in Sources */,
 				3A41ADC31BA7A65A000C109B /* ViewController.swift in Sources */,
 				3A4B85CA1BB14F28006E4CF1 /* SleepCareBussiness.swift in Sources */,
 				3A6360291BB2900300F7F953 /* SleepcareMainController.swift in Sources */,
