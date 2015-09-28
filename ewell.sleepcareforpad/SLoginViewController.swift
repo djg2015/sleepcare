@@ -10,6 +10,7 @@ import UIKit
 
 class SLoginViewController: BaseViewController {
 
+    @IBOutlet weak var test: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 

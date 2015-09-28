@@ -43,6 +43,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="test" destination="KTV-x9-dur" id="tHx-3f-O80"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2K-NT-NAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
