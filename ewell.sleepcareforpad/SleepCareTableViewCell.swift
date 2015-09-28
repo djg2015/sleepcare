@@ -12,9 +12,9 @@ class SleepCareTableViewCell: UITableViewCell {
     var bedNumber:UILabel!
     
     init(data:String,reuseIdentifier cellID:String){
-       self.bedNumber = UILabel()
+        self.bedNumber = UILabel(frame:CGRectMake(10, 10, 100, 30))
        self.bedNumber.text = data
-        super.init(style:UITableViewCellStyle.Default, reuseIdentifier: cellID)
+        super.init(style:UITableViewCellStyle.Subtitle, reuseIdentifier: cellID)
         rebuilderUserInterface()
     }
 
@@ -24,6 +24,7 @@ class SleepCareTableViewCell: UITableViewCell {
     
     //汇至床位界面
     func rebuilderUserInterface(){
+        self.backgroundColor = UIColor.redColor()
         self.addSubview(self.bedNumber)
     }
     

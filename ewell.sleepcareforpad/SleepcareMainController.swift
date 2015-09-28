@@ -17,6 +17,7 @@ class SleepcareMainController: BaseViewController {
         self.tableView = SleepCareTableView(frame: CGRectMake(0, 20, self.view.frame.width, self.view.frame.height))
         self.tableView.registerClass(SleepCareTableViewCell.self, forCellReuseIdentifier: "mycell")
         // Do any additional setup after loading the view.
+        self.tableView.reloadData()
         self.view.addSubview(self.tableView)
     }
 

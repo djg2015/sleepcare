@@ -55,9 +55,8 @@ class LoginController: BaseViewController {
             .subscribeNext {
                 _ in
                 //RACObserve(self.loginModel, "UserName") ~> RAC(self.txtloginPwd, "text")
-          
-                var sleepCareBll = SleepCareBussiness()
-                let user  = sleepCareBll.GetLoginInfo("admin", LoginPassword: "123456")
+//                var sleepCareBll = SleepCareBussiness()
+//                let user  = sleepCareBll.GetLoginInfo("admin", LoginPassword: "123456")
                 
 //                var defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
 //                var user_text:NSString = "test@192.168.0.19"
@@ -69,7 +68,22 @@ class LoginController: BaseViewController {
 //                defaults.synchronize()
 //                self.xmppMsgManager = XmppMsgManager.GetInstance(XMPPStreamTimeoutNone)
 //                let isLogin = self.xmppMsgManager?.Connect()
-                self.presentViewController(SleepcareMainController(nibName:"MainView", bundle:nil), animated: true, completion: nil)
+//                self.presentViewController(SleepcareMainController(nibName:"MainView", bundle:nil), animated: true, completion: nil)
+                try {
+                    ({
+                       //正常业务处理
+                        self.presentViewController(SleepcareMainController(nibName:"MainView", bundle:nil), animated: true, completion: nil)
+                        //抛出异常
+                        throw("0", "账户名不存在")
+                        },
+                        catch: { ex in
+                            //异常处理
+                            println(ex)
+                        },
+                        finally: {
+                         
+                        }
+                    )}
                 
         }
         
