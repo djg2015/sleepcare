@@ -74,7 +74,7 @@ class LoginController: BaseViewController {
                        //正常业务处理
                         self.presentViewController(SleepcareMainController(nibName:"MainView", bundle:nil), animated: true, completion: nil)
                         //抛出异常
-                        throw("0", "账户名不存在")
+                        //throw("0", "账户名不存在")
                         },
                         catch: { ex in
                             //异常处理

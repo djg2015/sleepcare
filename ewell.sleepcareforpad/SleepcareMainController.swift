@@ -11,14 +11,14 @@ import UIKit
 class SleepcareMainController: BaseViewController {
     
     var tableView:SleepCareTableView!
-    
+    var mainview:SleepCareCollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView = SleepCareTableView(frame: CGRectMake(0, 20, self.view.frame.width, self.view.frame.height))
-        self.tableView.registerClass(SleepCareTableViewCell.self, forCellReuseIdentifier: "mycell")
+        self.mainview = SleepCareCollectionView(frame: CGRectMake(0, 20, self.view.frame.width, self.view.frame.height), collectionViewLayout: UICollectionViewLayout())
+        self.mainview.registerClass(SleepCareCollectionViewCell.self, forCellWithReuseIdentifier: "bedCell")
         // Do any additional setup after loading the view.
-        self.tableView.reloadData()
-        self.view.addSubview(self.tableView)
+        self.mainview.reloadData()
+        self.view.addSubview(self.mainview)
     }
 
     override func didReceiveMemoryWarning() {
