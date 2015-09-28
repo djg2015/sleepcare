@@ -51,5 +51,9 @@ class MessageSubject{
         return result
     }
     
-    func randomIn(#min: Int, max: Int) -> Int {    return Int(arc4random()) % (max - min + 1) + min}
+    func randomIn(#min: Int, max: Int) -> Int {
+        var suff = max - min + 1
+        var rand = arc4random() % 10
+        return Int(rand) + min
+    }
 }

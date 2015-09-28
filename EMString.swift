@@ -13,7 +13,7 @@ class EMString: BaseMessage {
     
     //将当前模型转换为支持xml传递的Message格式
     override func ToXml()->DDXMLElement{
-        var bodyInnerXml:String = "<EMString>" + self.EMString + "</EMString>"
+        var bodyInnerXml:String = "<EMString value=\"" + self.EMString + "\"/>"
         
         return super.ToXml(bodyInnerXml)
     }

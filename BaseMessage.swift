@@ -32,6 +32,18 @@ class BaseMessage{
         return mes
     }
     
+    func GetElementValue(element:DDXMLElement)->String?
+    {
+        if(element.stringValue() == nil)
+        {
+            return nil;
+        }
+        else
+        {
+            return element.stringValue();
+        }
+    }
+    
     func ToXml()->DDXMLElement{
         //生成XML消息文档
         var mes:DDXMLElement = DDXMLElement.elementWithName("message") as! DDXMLElement

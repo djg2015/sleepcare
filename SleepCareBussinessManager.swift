@@ -24,7 +24,7 @@ protocol SleepCareBussinessManager{
     //      searchContent->房间号或者床位号
     //      from->查询记录起始序号
     //      max->查询的最大记录条数
-    func GetPartInfoByPartCode(partCode:String,searchType:String,searchContent:String,from:Int32,max:Int32)->PartInfo
+    func GetPartInfoByPartCode(partCode:String,searchType:String,searchContent:String,from:Int32?,max:Int32?)->PartInfo
     
     // 根据床位编码获取当前床位用户的信息
     // 参数：partCode->科室/楼层编码
@@ -38,7 +38,7 @@ protocol SleepCareBussinessManager{
     //      analysTimeEnd->分析时段结束时间("yyyy-MM-dd"格式)
     //      from->查询记录起始序号
     //      max->查询的最大记录条数
-    func GetSleepCareReportByUser(partCode:String,userCode:String,analysTimeBegin:String,analysTimeEnd:String,from:Int32,max:Int32)->SleepCareReportList
+    func GetSleepCareReportByUser(partCode:String,userCode:String,analysTimeBegin:String,analysTimeEnd:String,from:Int32?,max:Int32?)->SleepCareReportList
     
     // 根据科室/楼层编号、用户编号、分析日期多条件获取睡眠质量分析明细
     // 参数：userCode->用户编码
@@ -51,5 +51,5 @@ protocol SleepCareBussinessManager{
     //      analysDateEnd->分析时段结束时间("yyyy-MM-dd"格式)
     //      from->查询记录起始序号
     //      max->查询的最大记录条数
-    func GetTurnOverAnalysByUser(userCode:String,analysDateBegin:String,analysDateEnd:String,from:Int32,max:Int32)->TurnOverAnalysList
+    func GetTurnOverAnalysByUser(userCode:String,analysDateBegin:String,analysDateEnd:String,from:Int32?,max:Int32?)->TurnOverAnalysList
 }
