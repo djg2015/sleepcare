@@ -14,12 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        UIApplication.sharedApplication().statusBarHidden = true
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
         
-        self.window!.rootViewController =
-            UINavigationController(rootViewController:LoginController(nibName:"LoginController", bundle:nil));
+        self.window!.rootViewController = UINavigationController(rootViewController:LoginController(nibName:"LoginController", bundle:nil))
         return true
     }
 

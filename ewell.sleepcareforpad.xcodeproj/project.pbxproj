@@ -36,6 +36,8 @@
 		3A41ADEA1BA7B438000C109B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADE91BA7B438000C109B /* LoginViewModel.swift */; };
 		3A41ADF01BA7B45D000C109B /* MessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADED1BA7B45D000C109B /* MessageDelegate.swift */; };
 		3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADEE1BA7B45D000C109B /* ReactiveCocoa.swift */; };
+		3A4880C71BBBA61A00C60FD2 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4880C61BBBA61A00C60FD2 /* Popover.swift */; };
+		3A4880C91BBBA66700C60FD2 /* PopDownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4880C81BBBA66700C60FD2 /* PopDownList.swift */; };
 		3A4B85C61BB14D34006E4CF1 /* SleepCareBussinessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B85C51BB14D34006E4CF1 /* SleepCareBussinessManager.swift */; };
 		3A4B85C81BB14DFD006E4CF1 /* Worktask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B85C71BB14DFD006E4CF1 /* Worktask.swift */; };
 		3A4B85CA1BB14F28006E4CF1 /* SleepCareBussiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B85C91BB14F28006E4CF1 /* SleepCareBussiness.swift */; };
@@ -55,6 +57,8 @@
 		3A6360291BB2900300F7F953 /* SleepcareMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6360281BB2900300F7F953 /* SleepcareMainController.swift */; };
 		3A697CC31BB3DA3000F02EF3 /* SleepCareTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A697CC21BB3DA3000F02EF3 /* SleepCareTableView.swift */; };
 		3A697CC51BB3E13B00F02EF3 /* SleepCareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A697CC41BB3E13B00F02EF3 /* SleepCareTableViewCell.swift */; };
+		3A8604511BBA6327005FC117 /* topbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8604501BBA6327005FC117 /* topbg.png */; };
+		3A8759D51BB9362600535B3D /* SleepCareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8759D41BB9362600535B3D /* SleepCareCollectionViewCell.xib */; };
 		3AA4A7781BB2BF3F00B214C7 /* SleepCareReportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4A7771BB2BF3F00B214C7 /* SleepCareReportList.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +109,8 @@
 		3A41ADEE1BA7B45D000C109B /* ReactiveCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReactiveCocoa.swift; path = ewell.sleepcareforpad/ReactiveCocoa.swift; sourceTree = "<group>"; };
 		3A41ADF31BA7B543000C109B /* ewell.sleepcareforpad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ewell.sleepcareforpad-Bridging-Header.h"; sourceTree = "<group>"; };
 		3A41AE1C1BA7C121000C109B /* ewell.common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ewell.common.framework; path = "ewell.common/build/Debug-iphoneos/ewell.common.framework"; sourceTree = "<group>"; };
+		3A4880C61BBBA61A00C60FD2 /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
+		3A4880C81BBBA66700C60FD2 /* PopDownList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDownList.swift; sourceTree = "<group>"; };
 		3A4B85C51BB14D34006E4CF1 /* SleepCareBussinessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareBussinessManager.swift; sourceTree = "<group>"; };
 		3A4B85C71BB14DFD006E4CF1 /* Worktask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worktask.swift; sourceTree = "<group>"; };
 		3A4B85C91BB14F28006E4CF1 /* SleepCareBussiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareBussiness.swift; sourceTree = "<group>"; };
@@ -125,6 +131,8 @@
 		3A6360281BB2900300F7F953 /* SleepcareMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepcareMainController.swift; sourceTree = "<group>"; };
 		3A697CC21BB3DA3000F02EF3 /* SleepCareTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareTableView.swift; sourceTree = "<group>"; };
 		3A697CC41BB3E13B00F02EF3 /* SleepCareTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareTableViewCell.swift; sourceTree = "<group>"; };
+		3A8604501BBA6327005FC117 /* topbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbg.png; sourceTree = "<group>"; };
+		3A8759D41BB9362600535B3D /* SleepCareCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepCareCollectionViewCell.xib; sourceTree = "<group>"; };
 		3AA4A7771BB2BF3F00B214C7 /* SleepCareReportList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareReportList.swift; sourceTree = "<group>"; };
 		54127559369C5508905B3990 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7856675DBD0F8296CBE665 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +194,7 @@
 		3A41ADBD1BA7A65A000C109B /* ewell.sleepcareforpad */ = {
 			isa = PBXGroup;
 			children = (
+				3AFF67A51BBA2F1D00C9CA20 /* Images */,
 				3A63602A1BB2905900F7F953 /* UILib */,
 				3A41ADE41BA7B3E9000C109B /* ViewController */,
 				3A41ADE11BA7B3A2000C109B /* View */,
@@ -325,12 +334,31 @@
 		3A63602A1BB2905900F7F953 /* UILib */ = {
 			isa = PBXGroup;
 			children = (
+				3A4880C61BBBA61A00C60FD2 /* Popover.swift */,
 				3A697CC21BB3DA3000F02EF3 /* SleepCareTableView.swift */,
 				3A697CC41BB3E13B00F02EF3 /* SleepCareTableViewCell.swift */,
 				3A3262D91BB90AD00002687B /* SleepCareCollectionView.swift */,
 				3A3262DB1BB90AF40002687B /* SleepCareCollectionViewCell.swift */,
+				3A8759D41BB9362600535B3D /* SleepCareCollectionViewCell.xib */,
+				3A4880C81BBBA66700C60FD2 /* PopDownList.swift */,
 			);
 			name = UILib;
+			sourceTree = "<group>";
+		};
+		3AFF67A51BBA2F1D00C9CA20 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3AFF67A61BBA2F2500C9CA20 /* Pad */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		3AFF67A61BBA2F2500C9CA20 /* Pad */ = {
+			isa = PBXGroup;
+			children = (
+				3A8604501BBA6327005FC117 /* topbg.png */,
+			);
+			name = Pad;
 			sourceTree = "<group>";
 		};
 		3F28D28F10171C3606C8ADEE /* Frameworks */ = {
@@ -430,7 +458,9 @@
 				3A41ADE31BA7B3D1000C109B /* LoginController.xib in Resources */,
 				3A41ADCB1BA7A65A000C109B /* LaunchScreen.xib in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
+				3A8604511BBA6327005FC117 /* topbg.png in Resources */,
 				3A6360271BB28FAB00F7F953 /* MainView.xib in Resources */,
+				3A8759D51BB9362600535B3D /* SleepCareCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +526,7 @@
 				3A6360291BB2900300F7F953 /* SleepcareMainController.swift in Sources */,
 				3A376E4E1BABDE3500D70953 /* SignReport.swift in Sources */,
 				3A3262E11BB912180002687B /* OSSTry.swift in Sources */,
+				3A4880C91BBBA66700C60FD2 /* PopDownList.swift in Sources */,
 				3A41ADE81BA7B425000C109B /* LoginController.swift in Sources */,
 				3A4CD3FD1BA80852002C8A1A /* BaseMessage.swift in Sources */,
 				3A4D17F11BAFB07400E0B862 /* BedUser.swift in Sources */,
@@ -513,6 +544,7 @@
 				3A4B85CC1BB150C1006E4CF1 /* Constants.swift in Sources */,
 				3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */,
 				3A41ADEA1BA7B438000C109B /* LoginViewModel.swift in Sources */,
+				3A4880C71BBBA61A00C60FD2 /* Popover.swift in Sources */,
 				3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */,
 				3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */,
 				3A41ADE71BA7B425000C109B /* BaseViewController.swift in Sources */,

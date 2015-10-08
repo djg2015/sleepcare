@@ -19,21 +19,24 @@ class LoginController: BaseViewController {
     //属性变量定义
     var loginModel = LoginViewModel()
     var xmppMsgManager:XmppMsgManager?=nil
+    var popDownList:PopDownList?
     //-----------界面事件定义----------------
     override func viewDidLoad() {
         super.viewDidLoad()
         self.rac_settings()
         // Do any additional setup after loading the view.
-        var defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        var user_text:NSString = "test@192.168.0.19"
-        var pass_text:NSString = "123"
-        var server_text:NSString = "192.168.0.19"
-        defaults.setObject(user_text,forKey:USERID)
-        defaults.setObject(pass_text,forKey:PASS)
-        defaults.setObject(server_text,forKey:SERVER)
-        defaults.synchronize()
-        self.xmppMsgManager = XmppMsgManager.GetInstance(XMPPStreamTimeoutNone)
-        let isLogin = self.xmppMsgManager?.Connect()
+//        var defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+//        var user_text:NSString = "test@192.168.0.19"
+//        var pass_text:NSString = "123"
+//        var server_text:NSString = "192.168.0.19"
+//        defaults.setObject(user_text,forKey:USERID)
+//        defaults.setObject(pass_text,forKey:PASS)
+//        defaults.setObject(server_text,forKey:SERVER)
+//        defaults.synchronize()
+//        self.xmppMsgManager = XmppMsgManager.GetInstance(XMPPStreamTimeoutNone)
+//        let isLogin = self.xmppMsgManager?.Connect()
+//        let testBLL = SleepCareBussiness()
+//        let user = testBLL.GetLoginInfo("yuanzhang", LoginPassword: "123456")
         
     }
     
@@ -54,6 +57,18 @@ class LoginController: BaseViewController {
         self.btnReset!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
+//                var dataSource = Array<DownListModel>()
+//                var item = DownListModel()
+//                item.key = "1"
+//                item.value = "科室"
+//                dataSource.append(item)
+//                item = DownListModel()
+//                item.key = "2"
+//                item.value = "病房"
+//                dataSource.append(item)
+//                self.popDownList = PopDownList(datasource: dataSource, dismissHandler: self.ChoosedItem)
+//                self.popDownList!.Show(300, height: 200, uiElement: self.btnReset)
+
                 //RACObserve(self.loginModel, "UserName") ~> RAC(self.txtloginPwd, "text")
 //                var sleepCareBll = SleepCareBussiness()
 //                let user  = sleepCareBll.GetLoginInfo("admin", LoginPassword: "123456")
@@ -89,7 +104,10 @@ class LoginController: BaseViewController {
         
     }
     
-    
+    func ChoosedItem(downListModel:DownListModel){
+        
+    }
+
     
     /*
     // MARK: - Navigation
