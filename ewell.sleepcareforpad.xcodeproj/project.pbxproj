@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
+		2C3BAF131BCBA387003A2F48 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BAF121BCBA387003A2F48 /* AlarmViewModel.swift */; };
+		2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3BAF141BCBA481003A2F48 /* AlarmView.xib */; };
+		2C3BAF171BCBA4C3003A2F48 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BAF161BCBA4C3003A2F48 /* AlarmView.swift */; };
 		2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AEC471BB397130096DF3F /* RoleList.swift */; };
 		3A309C551BC607050005F475 /* SleepCareCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A309C541BC607050005F475 /* SleepCareCollectionView.xib */; };
 		3A3262DA1BB90AD00002687B /* SleepCareCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262D91BB90AD00002687B /* SleepCareCollectionView.swift */; };
@@ -95,6 +98,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C3BAF121BCBA387003A2F48 /* AlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
+		2C3BAF141BCBA481003A2F48 /* AlarmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmView.xib; sourceTree = "<group>"; };
+		2C3BAF161BCBA4C3003A2F48 /* AlarmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		2C5AEC471BB397130096DF3F /* RoleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleList.swift; sourceTree = "<group>"; };
 		3A309C541BC607050005F475 /* SleepCareCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepCareCollectionView.xib; sourceTree = "<group>"; };
 		3A3262D91BB90AD00002687B /* SleepCareCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareCollectionView.swift; sourceTree = "<group>"; };
@@ -214,6 +220,7 @@
 		3A3646021BCB843E007C65EF /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				2C3BAF161BCBA4C3003A2F48 /* AlarmView.swift */,
 				3A3756231BCB5E7600182DE4 /* SleepCareListView.swift */,
 			);
 			name = CustomView;
@@ -291,6 +298,7 @@
 		3A41ADE01BA7B396000C109B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2C3BAF121BCBA387003A2F48 /* AlarmViewModel.swift */,
 				3A41ADE91BA7B438000C109B /* LoginViewModel.swift */,
 			);
 			name = ViewModel;
@@ -379,6 +387,7 @@
 		3A4D17EF1BAF921300E0B862 /* pad */ = {
 			isa = PBXGroup;
 			children = (
+				2C3BAF141BCBA481003A2F48 /* AlarmView.xib */,
 				3A41ADE21BA7B3D1000C109B /* LoginController.xib */,
 				3A3452931BC63A5000292107 /* MainView.xib */,
 				3A37561F1BCB589600182DE4 /* DialogFrame.xib */,
@@ -535,6 +544,7 @@
 				3A41ADCB1BA7A65A000C109B /* LaunchScreen.xib in Resources */,
 				3A3756201BCB589600182DE4 /* DialogFrame.xib in Resources */,
 				3A9C13001BC789C6008EC314 /* onBedView.png in Resources */,
+				2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */,
 				3A9C12FE1BC789C6008EC314 /* pagerselected.png in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
 				3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */,
@@ -616,6 +626,7 @@
 				3A3D65E41BAA8E1100CEFB25 /* MessageFactory.swift in Sources */,
 				3A41ADC31BA7A65A000C109B /* ViewController.swift in Sources */,
 				3A4B85CA1BB14F28006E4CF1 /* SleepCareBussiness.swift in Sources */,
+				2C3BAF171BCBA4C3003A2F48 /* AlarmView.swift in Sources */,
 				3A6360291BB2900300F7F953 /* SleepcareMainController.swift in Sources */,
 				3A376E4E1BABDE3500D70953 /* SignReport.swift in Sources */,
 				3A3262E11BB912180002687B /* OSSTry.swift in Sources */,
@@ -644,6 +655,7 @@
 				3A41856C1BC6618900DE6F5F /* Pager.swift in Sources */,
 				3A41ADE71BA7B425000C109B /* BaseViewController.swift in Sources */,
 				3A4B85C81BB14DFD006E4CF1 /* Worktask.swift in Sources */,
+				2C3BAF131BCBA387003A2F48 /* AlarmViewModel.swift in Sources */,
 				3A3262DC1BB90AF40002687B /* SleepCareCollectionViewCell.swift in Sources */,
 				3A3262DA1BB90AD00002687B /* SleepCareCollectionView.swift in Sources */,
 				3A3756241BCB5E7600182DE4 /* SleepCareListView.swift in Sources */,
