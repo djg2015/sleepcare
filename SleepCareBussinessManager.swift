@@ -52,4 +52,16 @@ protocol SleepCareBussinessManager{
     //      from->查询记录起始序号
     //      max->查询的最大记录条数
     func GetTurnOverAnalysByUser(userCode:String,analysDateBegin:String,analysDateEnd:String,from:Int32?,max:Int32?)->TurnOverAnalysList
+    
+    // 根据科室/楼层编号、用户编码、用户姓名模糊查找、床位号模糊查找、报警类型、报警时间段等多条件获取报警信息
+    // 参数：partCode->科室/楼层编码
+    //      userCode->用户编码
+    //      userNameLike->用户名称模糊查找
+    //      bedNumberLike->床位号模糊查找
+    //      schemaCode->报警方案编码
+    //      alarmTimeBegin->报警起始时间
+    //      alarmTimeEnd->报警结束时间
+    //      from->查询记录起始序号
+    //      max->查询的最大记录条数
+    func GetAlarmByUser(partCode:String,userCode:String,userNameLike:String,bedNumberLike:String,schemaCode:String,alarmTimeBegin:String,alarmTimeEnd:String, from:Int32?,max:Int32?)-> AlarmList
 }
