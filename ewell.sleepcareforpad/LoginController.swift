@@ -16,6 +16,7 @@ class LoginController: BaseViewController {
     @IBOutlet weak var btnSubmit: UIButton!
     @IBOutlet weak var btnReset: UIButton!
     
+    @IBOutlet weak var btnDialog: UIButton!
     //属性变量定义
     var loginModel = LoginViewModel()
     var xmppMsgManager:XmppMsgManager?=nil
@@ -102,6 +103,28 @@ class LoginController: BaseViewController {
                 
         }
         
+        
+        self.btnDialog!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
+            .subscribeNext {
+                _ in
+                
+                try {
+                    ({
+                        //正常业务处理
+                        self.presentViewController(DialogFrameController(nibName:"DialogFrame", bundle:nil), animated: true, completion: nil)
+                        //抛出异常
+                        //throw("0", "账户名不存在")
+                        },
+                        catch: { ex in
+                            //异常处理
+                            println(ex)
+                        },
+                        finally: {
+                            
+                        }
+                    )}
+                
+        }
     }
     
     func ChoosedItem(downListModel:DownListModel){

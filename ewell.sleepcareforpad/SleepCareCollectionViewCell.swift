@@ -16,7 +16,7 @@ class SleepCareCollectionViewCell: UICollectionViewCell {
     //汇至床位界面
     func rebuilderUserInterface(){
         
-        self.backgroundColor = UIColor.redColor()
+        self.backgroundColor = UIColor.clearColor()
         
     }
 

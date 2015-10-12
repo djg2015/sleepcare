@@ -9,13 +9,19 @@
 /* Begin PBXBuildFile section */
 		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
 		2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AEC471BB397130096DF3F /* RoleList.swift */; };
+		3A309C551BC607050005F475 /* SleepCareCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A309C541BC607050005F475 /* SleepCareCollectionView.xib */; };
 		3A3262DA1BB90AD00002687B /* SleepCareCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262D91BB90AD00002687B /* SleepCareCollectionView.swift */; };
 		3A3262DC1BB90AF40002687B /* SleepCareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262DB1BB90AF40002687B /* SleepCareCollectionViewCell.swift */; };
 		3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262DE1BB912180002687B /* OSSExceptionHelper.m */; };
 		3A3262E11BB912180002687B /* OSSTry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262DF1BB912180002687B /* OSSTry.swift */; };
 		3A33EF851BAA56D700D82A4D /* MessageSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF841BAA56D700D82A4D /* MessageSubject.swift */; };
+		3A3452941BC63A5000292107 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3452931BC63A5000292107 /* MainView.xib */; };
 		3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */; };
 		3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B0221BA96648000F4AED /* RealTimeReport.swift */; };
+		3A3756201BCB589600182DE4 /* DialogFrame.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A37561F1BCB589600182DE4 /* DialogFrame.xib */; };
+		3A3756221BCB58F700182DE4 /* DialogFrameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3756211BCB58F700182DE4 /* DialogFrameController.swift */; };
+		3A3756241BCB5E7600182DE4 /* SleepCareListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3756231BCB5E7600182DE4 /* SleepCareListView.swift */; };
+		3A3756261BCB5E9600182DE4 /* SleepcareList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3756251BCB5E9600182DE4 /* SleepcareList.xib */; };
 		3A376E421BABB3B700D70953 /* EMString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E411BABB3B700D70953 /* EMString.swift */; };
 		3A376E441BABB81100D70953 /* EMProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E431BABB81100D70953 /* EMProperties.swift */; };
 		3A376E461BABBB1200D70953 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E451BABBB1200D70953 /* User.swift */; };
@@ -24,6 +30,7 @@
 		3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E4B1BABDA3B00D70953 /* Bed.swift */; };
 		3A376E4E1BABDE3500D70953 /* SignReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E4D1BABDE3500D70953 /* SignReport.swift */; };
 		3A3D65E41BAA8E1100CEFB25 /* MessageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */; };
+		3A41856C1BC6618900DE6F5F /* Pager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41856B1BC6618900DE6F5F /* Pager.swift */; };
 		3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADC01BA7A65A000C109B /* AppDelegate.swift */; };
 		3A41ADC31BA7A65A000C109B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADC21BA7A65A000C109B /* ViewController.swift */; };
 		3A41ADC61BA7A65A000C109B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADC41BA7A65A000C109B /* Main.storyboard */; };
@@ -53,12 +60,27 @@
 		3A4D17FB1BAFE17D00E0B862 /* AlarmInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17FA1BAFE17D00E0B862 /* AlarmInfo.swift */; };
 		3A4D17FD1BAFE20A00E0B862 /* AlarmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17FC1BAFE20A00E0B862 /* AlarmList.swift */; };
 		3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */; };
-		3A6360271BB28FAB00F7F953 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6360261BB28FAB00F7F953 /* MainView.xib */; };
 		3A6360291BB2900300F7F953 /* SleepcareMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6360281BB2900300F7F953 /* SleepcareMainController.swift */; };
 		3A697CC31BB3DA3000F02EF3 /* SleepCareTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A697CC21BB3DA3000F02EF3 /* SleepCareTableView.swift */; };
 		3A697CC51BB3E13B00F02EF3 /* SleepCareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A697CC41BB3E13B00F02EF3 /* SleepCareTableViewCell.swift */; };
 		3A8604511BBA6327005FC117 /* topbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8604501BBA6327005FC117 /* topbg.png */; };
 		3A8759D51BB9362600535B3D /* SleepCareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8759D41BB9362600535B3D /* SleepCareCollectionViewCell.xib */; };
+		3A9C12F11BC789C6008EC314 /* maintop.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E01BC789C6008EC314 /* maintop.png */; };
+		3A9C12F21BC789C6008EC314 /* emptyBed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E11BC789C6008EC314 /* emptyBed.png */; };
+		3A9C12F31BC789C6008EC314 /* leaveBed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E21BC789C6008EC314 /* leaveBed.png */; };
+		3A9C12F41BC789C6008EC314 /* leaveView.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E31BC789C6008EC314 /* leaveView.png */; };
+		3A9C12F51BC789C6008EC314 /* unlineView.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E41BC789C6008EC314 /* unlineView.png */; };
+		3A9C12F61BC789C6008EC314 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E51BC789C6008EC314 /* clock.png */; };
+		3A9C12F71BC789C6008EC314 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E61BC789C6008EC314 /* search.png */; };
+		3A9C12F81BC789C6008EC314 /* dropdown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E71BC789C6008EC314 /* dropdown.png */; };
+		3A9C12F91BC789C6008EC314 /* infoHead.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E81BC789C6008EC314 /* infoHead.png */; };
+		3A9C12FB1BC789C6008EC314 /* infoHeadblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12EA1BC789C6008EC314 /* infoHeadblue.png */; };
+		3A9C12FC1BC789C6008EC314 /* BedFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12EB1BC789C6008EC314 /* BedFrame.png */; };
+		3A9C12FD1BC789C6008EC314 /* pagerunselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12EC1BC789C6008EC314 /* pagerunselected.png */; };
+		3A9C12FE1BC789C6008EC314 /* pagerselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12ED1BC789C6008EC314 /* pagerselected.png */; };
+		3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12EE1BC789C6008EC314 /* onBed.png */; };
+		3A9C13001BC789C6008EC314 /* onBedView.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12EF1BC789C6008EC314 /* onBedView.png */; };
+		3A9C13011BC789C6008EC314 /* transbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12F01BC789C6008EC314 /* transbg.png */; };
 		3AA4A7781BB2BF3F00B214C7 /* SleepCareReportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4A7771BB2BF3F00B214C7 /* SleepCareReportList.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,14 +96,20 @@
 
 /* Begin PBXFileReference section */
 		2C5AEC471BB397130096DF3F /* RoleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleList.swift; sourceTree = "<group>"; };
+		3A309C541BC607050005F475 /* SleepCareCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepCareCollectionView.xib; sourceTree = "<group>"; };
 		3A3262D91BB90AD00002687B /* SleepCareCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareCollectionView.swift; sourceTree = "<group>"; };
 		3A3262DB1BB90AF40002687B /* SleepCareCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareCollectionViewCell.swift; sourceTree = "<group>"; };
 		3A3262DD1BB912180002687B /* OSSExceptionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSExceptionHelper.h; sourceTree = "<group>"; };
 		3A3262DE1BB912180002687B /* OSSExceptionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSSExceptionHelper.m; sourceTree = "<group>"; };
 		3A3262DF1BB912180002687B /* OSSTry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSSTry.swift; sourceTree = "<group>"; };
 		3A33EF841BAA56D700D82A4D /* MessageSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSubject.swift; sourceTree = "<group>"; };
+		3A3452931BC63A5000292107 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeDelegate.swift; sourceTree = "<group>"; };
 		3A36B0221BA96648000F4AED /* RealTimeReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeReport.swift; sourceTree = "<group>"; };
+		3A37561F1BCB589600182DE4 /* DialogFrame.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DialogFrame.xib; sourceTree = "<group>"; };
+		3A3756211BCB58F700182DE4 /* DialogFrameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogFrameController.swift; sourceTree = "<group>"; };
+		3A3756231BCB5E7600182DE4 /* SleepCareListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareListView.swift; sourceTree = "<group>"; };
+		3A3756251BCB5E9600182DE4 /* SleepcareList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepcareList.xib; sourceTree = "<group>"; };
 		3A376E411BABB3B700D70953 /* EMString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMString.swift; sourceTree = "<group>"; };
 		3A376E431BABB81100D70953 /* EMProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMProperties.swift; sourceTree = "<group>"; };
 		3A376E451BABBB1200D70953 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -91,6 +119,7 @@
 		3A376E4D1BABDE3500D70953 /* SignReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignReport.swift; sourceTree = "<group>"; };
 		3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageFactory.swift; sourceTree = "<group>"; };
 		3A3D65E71BAAB67C00CEFB25 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		3A41856B1BC6618900DE6F5F /* Pager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pager.swift; sourceTree = "<group>"; };
 		3A41ADBB1BA7A65A000C109B /* ewell.sleepcareforpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ewell.sleepcareforpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A41ADBF1BA7A65A000C109B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A41ADC01BA7A65A000C109B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,12 +156,27 @@
 		3A4D17FA1BAFE17D00E0B862 /* AlarmInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmInfo.swift; sourceTree = "<group>"; };
 		3A4D17FC1BAFE20A00E0B862 /* AlarmList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmList.swift; sourceTree = "<group>"; };
 		3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMServiceException.swift; sourceTree = "<group>"; };
-		3A6360261BB28FAB00F7F953 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		3A6360281BB2900300F7F953 /* SleepcareMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepcareMainController.swift; sourceTree = "<group>"; };
 		3A697CC21BB3DA3000F02EF3 /* SleepCareTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareTableView.swift; sourceTree = "<group>"; };
 		3A697CC41BB3E13B00F02EF3 /* SleepCareTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareTableViewCell.swift; sourceTree = "<group>"; };
 		3A8604501BBA6327005FC117 /* topbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbg.png; sourceTree = "<group>"; };
 		3A8759D41BB9362600535B3D /* SleepCareCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepCareCollectionViewCell.xib; sourceTree = "<group>"; };
+		3A9C12E01BC789C6008EC314 /* maintop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maintop.png; sourceTree = "<group>"; };
+		3A9C12E11BC789C6008EC314 /* emptyBed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyBed.png; sourceTree = "<group>"; };
+		3A9C12E21BC789C6008EC314 /* leaveBed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaveBed.png; sourceTree = "<group>"; };
+		3A9C12E31BC789C6008EC314 /* leaveView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaveView.png; sourceTree = "<group>"; };
+		3A9C12E41BC789C6008EC314 /* unlineView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlineView.png; sourceTree = "<group>"; };
+		3A9C12E51BC789C6008EC314 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		3A9C12E61BC789C6008EC314 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
+		3A9C12E71BC789C6008EC314 /* dropdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdown.png; sourceTree = "<group>"; };
+		3A9C12E81BC789C6008EC314 /* infoHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoHead.png; sourceTree = "<group>"; };
+		3A9C12EA1BC789C6008EC314 /* infoHeadblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoHeadblue.png; sourceTree = "<group>"; };
+		3A9C12EB1BC789C6008EC314 /* BedFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BedFrame.png; sourceTree = "<group>"; };
+		3A9C12EC1BC789C6008EC314 /* pagerunselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pagerunselected.png; sourceTree = "<group>"; };
+		3A9C12ED1BC789C6008EC314 /* pagerselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pagerselected.png; sourceTree = "<group>"; };
+		3A9C12EE1BC789C6008EC314 /* onBed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onBed.png; sourceTree = "<group>"; };
+		3A9C12EF1BC789C6008EC314 /* onBedView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onBedView.png; sourceTree = "<group>"; };
+		3A9C12F01BC789C6008EC314 /* transbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transbg.png; sourceTree = "<group>"; };
 		3AA4A7771BB2BF3F00B214C7 /* SleepCareReportList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareReportList.swift; sourceTree = "<group>"; };
 		54127559369C5508905B3990 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7856675DBD0F8296CBE665 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +211,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3A3646021BCB843E007C65EF /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				3A3756231BCB5E7600182DE4 /* SleepCareListView.swift */,
+			);
+			name = CustomView;
+			sourceTree = "<group>";
+		};
 		3A41ADB21BA7A65A000C109B = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +246,7 @@
 		3A41ADBD1BA7A65A000C109B /* ewell.sleepcareforpad */ = {
 			isa = PBXGroup;
 			children = (
+				3A3646021BCB843E007C65EF /* CustomView */,
 				3AFF67A51BBA2F1D00C9CA20 /* Images */,
 				3A63602A1BB2905900F7F953 /* UILib */,
 				3A41ADE41BA7B3E9000C109B /* ViewController */,
@@ -257,6 +310,7 @@
 				3A41ADE51BA7B425000C109B /* BaseViewController.swift */,
 				3A41ADE61BA7B425000C109B /* LoginController.swift */,
 				3A6360281BB2900300F7F953 /* SleepcareMainController.swift */,
+				3A3756211BCB58F700182DE4 /* DialogFrameController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -326,7 +380,9 @@
 			isa = PBXGroup;
 			children = (
 				3A41ADE21BA7B3D1000C109B /* LoginController.xib */,
-				3A6360261BB28FAB00F7F953 /* MainView.xib */,
+				3A3452931BC63A5000292107 /* MainView.xib */,
+				3A37561F1BCB589600182DE4 /* DialogFrame.xib */,
+				3A3756251BCB5E9600182DE4 /* SleepcareList.xib */,
 			);
 			name = pad;
 			sourceTree = "<group>";
@@ -341,6 +397,8 @@
 				3A3262DB1BB90AF40002687B /* SleepCareCollectionViewCell.swift */,
 				3A8759D41BB9362600535B3D /* SleepCareCollectionViewCell.xib */,
 				3A4880C81BBBA66700C60FD2 /* PopDownList.swift */,
+				3A309C541BC607050005F475 /* SleepCareCollectionView.xib */,
+				3A41856B1BC6618900DE6F5F /* Pager.swift */,
 			);
 			name = UILib;
 			sourceTree = "<group>";
@@ -356,6 +414,22 @@
 		3AFF67A61BBA2F2500C9CA20 /* Pad */ = {
 			isa = PBXGroup;
 			children = (
+				3A9C12E01BC789C6008EC314 /* maintop.png */,
+				3A9C12E11BC789C6008EC314 /* emptyBed.png */,
+				3A9C12E21BC789C6008EC314 /* leaveBed.png */,
+				3A9C12E31BC789C6008EC314 /* leaveView.png */,
+				3A9C12E41BC789C6008EC314 /* unlineView.png */,
+				3A9C12E51BC789C6008EC314 /* clock.png */,
+				3A9C12E61BC789C6008EC314 /* search.png */,
+				3A9C12E71BC789C6008EC314 /* dropdown.png */,
+				3A9C12E81BC789C6008EC314 /* infoHead.png */,
+				3A9C12EA1BC789C6008EC314 /* infoHeadblue.png */,
+				3A9C12EB1BC789C6008EC314 /* BedFrame.png */,
+				3A9C12EC1BC789C6008EC314 /* pagerunselected.png */,
+				3A9C12ED1BC789C6008EC314 /* pagerselected.png */,
+				3A9C12EE1BC789C6008EC314 /* onBed.png */,
+				3A9C12EF1BC789C6008EC314 /* onBedView.png */,
+				3A9C12F01BC789C6008EC314 /* transbg.png */,
 				3A8604501BBA6327005FC117 /* topbg.png */,
 			);
 			name = Pad;
@@ -454,13 +528,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A9C12FC1BC789C6008EC314 /* BedFrame.png in Resources */,
 				3A41ADC61BA7A65A000C109B /* Main.storyboard in Resources */,
 				3A41ADE31BA7B3D1000C109B /* LoginController.xib in Resources */,
+				3A9C12FD1BC789C6008EC314 /* pagerunselected.png in Resources */,
 				3A41ADCB1BA7A65A000C109B /* LaunchScreen.xib in Resources */,
+				3A3756201BCB589600182DE4 /* DialogFrame.xib in Resources */,
+				3A9C13001BC789C6008EC314 /* onBedView.png in Resources */,
+				3A9C12FE1BC789C6008EC314 /* pagerselected.png in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
+				3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */,
+				3A9C12F91BC789C6008EC314 /* infoHead.png in Resources */,
 				3A8604511BBA6327005FC117 /* topbg.png in Resources */,
-				3A6360271BB28FAB00F7F953 /* MainView.xib in Resources */,
+				3A9C12F21BC789C6008EC314 /* emptyBed.png in Resources */,
+				3A3452941BC63A5000292107 /* MainView.xib in Resources */,
+				3A9C12FB1BC789C6008EC314 /* infoHeadblue.png in Resources */,
+				3A9C12F61BC789C6008EC314 /* clock.png in Resources */,
 				3A8759D51BB9362600535B3D /* SleepCareCollectionViewCell.xib in Resources */,
+				3A9C12F51BC789C6008EC314 /* unlineView.png in Resources */,
+				3A9C13011BC789C6008EC314 /* transbg.png in Resources */,
+				3A9C12F71BC789C6008EC314 /* search.png in Resources */,
+				3A3756261BCB5E9600182DE4 /* SleepcareList.xib in Resources */,
+				3A9C12F41BC789C6008EC314 /* leaveView.png in Resources */,
+				3A9C12F11BC789C6008EC314 /* maintop.png in Resources */,
+				3A9C12F81BC789C6008EC314 /* dropdown.png in Resources */,
+				3A309C551BC607050005F475 /* SleepCareCollectionView.xib in Resources */,
+				3A9C12F31BC789C6008EC314 /* leaveBed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +621,7 @@
 				3A3262E11BB912180002687B /* OSSTry.swift in Sources */,
 				3A4880C91BBBA66700C60FD2 /* PopDownList.swift in Sources */,
 				3A41ADE81BA7B425000C109B /* LoginController.swift in Sources */,
+				3A3756221BCB58F700182DE4 /* DialogFrameController.swift in Sources */,
 				3A4CD3FD1BA80852002C8A1A /* BaseMessage.swift in Sources */,
 				3A4D17F11BAFB07400E0B862 /* BedUser.swift in Sources */,
 				3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */,
@@ -547,10 +641,12 @@
 				3A4880C71BBBA61A00C60FD2 /* Popover.swift in Sources */,
 				3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */,
 				3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */,
+				3A41856C1BC6618900DE6F5F /* Pager.swift in Sources */,
 				3A41ADE71BA7B425000C109B /* BaseViewController.swift in Sources */,
 				3A4B85C81BB14DFD006E4CF1 /* Worktask.swift in Sources */,
 				3A3262DC1BB90AF40002687B /* SleepCareCollectionViewCell.swift in Sources */,
 				3A3262DA1BB90AD00002687B /* SleepCareCollectionView.swift in Sources */,
+				3A3756241BCB5E7600182DE4 /* SleepCareListView.swift in Sources */,
 				3A376E461BABBB1200D70953 /* User.swift in Sources */,
 				3A376E481BABD54200D70953 /* Role.swift in Sources */,
 				3A376E4A1BABD9F400D70953 /* PartInfo.swift in Sources */,

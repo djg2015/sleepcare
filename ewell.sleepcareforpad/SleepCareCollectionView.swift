@@ -24,8 +24,11 @@ class SleepCareCollectionView: UICollectionView, UICollectionViewDelegate, UICol
     
     //根据数据绑定重载当前表格
     override func reloadData() {
+        //注册单元格内容
         var cellNib =  UINib(nibName: "SleepCareCollectionViewCell", bundle: nil)
         self.registerNib(cellNib, forCellWithReuseIdentifier: "bedcell")
+        
+        //设置当前表格控件
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
         self.backgroundColor = UIColor.blueColor()
