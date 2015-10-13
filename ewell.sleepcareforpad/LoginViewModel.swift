@@ -48,9 +48,21 @@ class LoginViewModel: NSObject {
     
     //自定义方法ß
     func Login() -> RACSignal{
-              println(self.UserName)
-        self.UserName = "aa1"
-        println(self.UserPwd)
+        var defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        var user_text:NSString = "test@192.168.0.19"
+        var pass_text:NSString = "123"
+        var server_text:NSString = "192.168.0.19"
+        defaults.setObject(user_text,forKey:USERID)
+        defaults.setObject(pass_text,forKey:PASS)
+        defaults.setObject(server_text,forKey:SERVER)
+        defaults.synchronize()
+        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(XMPPStreamTimeoutNone)
+        let isLogin = xmppMsgManager!.Connect()
+        let testBLL = SleepCareBussiness()
+        //let user1 = testBLL.GetPartInfoByPartCode("00001", searchType: "", searchContent: "", from: 1, max: 30)
+
+        var user:User = testBLL.GetLoginInfo("yuanzhang", LoginPassword: "123456")
+        Session.SetSession(user)
         
         return RACSignal.empty()
     }
