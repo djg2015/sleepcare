@@ -24,6 +24,9 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+            <connections>
+                <outlet property="tabAlarm" destination="8nA-52-meR" id="dnx-co-3VJ"/>
+            </connections>
             <point key="canvasLocation" x="544" y="337"/>
         </view>
     </objects>

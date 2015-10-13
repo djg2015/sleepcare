@@ -32,6 +32,8 @@ class AlarmViewModel:NSObject{
         
     }
     
+    var _alarmList:Array<OnBedAlarmViewModel> =  Array<OnBedAlarmViewModel>();
+    
     //自定义方法
     //当前选项卡选择触发的事件
     // 当选择为0时 表示选择的在离床报警
@@ -54,6 +56,30 @@ class AlarmViewModel:NSObject{
             var turnList:TurnOverAnalysList = sleepCareBLL.GetTurnOverAnalysByUser("", analysDateBegin: "", analysDateEnd: "", from: nil, max: nil)
             
             return turnList
+        }
+    }
+    
+    // 在离床报警ViewModel
+    class OnBedAlarmViewModel: NSObject{
+        
+        // 属性
+        // 离床时长
+        var _leaveBedTimeSpan:String = "";
+        dynamic var LeaveBedTimeSpan:String
+            {
+            get
+            {
+                return self._leaveBedTimeSpan;
+            }
+            set(value)
+            {
+                self._leaveBedTimeSpan = value;
+            }
+        }
+        
+        override init()
+        {
+            super.init();
         }
     }
 }

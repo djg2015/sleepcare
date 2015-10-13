@@ -12,9 +12,6 @@ import UIKit
 class AlarmView:UIView
 {
     // 控件定义
-
-    @IBOutlet weak var viewAlarm: UIView!
-
     @IBOutlet weak var tabAlarm: UISegmentedControl!
     
     // 属性定义
