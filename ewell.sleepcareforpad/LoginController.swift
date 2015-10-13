@@ -37,7 +37,7 @@ class LoginController: BaseViewController {
 //        self.xmppMsgManager = XmppMsgManager.GetInstance(XMPPStreamTimeoutNone)
 //        let isLogin = self.xmppMsgManager?.Connect()
 //        let testBLL = SleepCareBussiness()
-//        let user = testBLL.GetLoginInfo("yuanzhang", LoginPassword: "123456")
+//        let user = testBLL.GetPartInfoByPartCode("00001", searchType: "", searchContent: "", from: 1, max: 30)
         
     }
     

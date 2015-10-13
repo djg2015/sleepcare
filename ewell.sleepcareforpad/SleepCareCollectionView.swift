@@ -9,17 +9,22 @@
 import UIKit
 //主界面床位布局控件
 class SleepCareCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource  {
-    
+    var _bedModelList:Array<BedModel> = []
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        return 5
+        return self._bedModelList.count
     }
     
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         var cell:SleepCareCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("bedcell", forIndexPath: indexPath) as! SleepCareCollectionViewCell
-        cell.rebuilderUserInterface()
+        cell.rebuilderUserInterface(self._bedModelList[indexPath.item])
         return cell
         
+    }
+    
+    func reloadData(bedModelList:Array<BedModel>) {
+        self._bedModelList = bedModelList
+        self.reloadData()
     }
     
     //根据数据绑定重载当前表格

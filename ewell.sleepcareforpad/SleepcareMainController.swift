@@ -35,7 +35,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate {
         let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepCareCollectionView", owner: self, options: nil).last as! SleepCareCollectionView
         mainview1.frame = CGRectMake(0, 0, 1024, self.mainScroll.frame.size.height)
         //self.mainview = SleepCareCollectionView(frame: CGRectMake(0, 0, 300, 400), collectionViewLayout: UICollectionViewLayout())
-        mainview1.reloadData()
+        mainview1.reloadData(TestDate())
         self.mainScroll.addSubview(mainview1)
         self.mainScroll.bringSubviewToFront(mainview1)
         
@@ -66,6 +66,51 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate {
     }
     
 
+    func TestDate() -> Array<BedModel> {
+        var data:Array<BedModel> = Array<BedModel>()
+        var item1 = BedModel()
+        item1.BedCode = "001"
+        item1.BedNumber = "1"
+        item1.UserName = "张三"
+        item1.RoomNumber = "1"
+        item1.HR = "79"
+        item1.BedStatus = "1"
+        data.append(item1)
+        
+        var item2 = BedModel()
+        item2.BedCode = "002"
+        item2.BedNumber = "2"
+        item2.UserName = "李四"
+        item2.RoomNumber = "1"
+        item2.HR = "86"
+         item2.BedStatus = "2"
+        data.append(item2)
+        
+        var item3 = BedModel()
+        item3.BedCode = "002"
+        item3.BedNumber = "3"
+        item3.UserName = "李四"
+        item3.RoomNumber = "1"
+        item3.HR = "86"
+        data.append(item3)
+        
+        var item4 = BedModel()
+        item4.BedCode = "002"
+        item4.BedNumber = "4"
+        item4.UserName = "李四"
+        item4.RoomNumber = "1"
+        item4.HR = "86"
+        data.append(item4)
+        
+        var item5 = BedModel()
+        item5.BedCode = "002"
+        item5.BedNumber = "5"
+        item5.UserName = "李四"
+        item5.RoomNumber = "1"
+        item5.HR = "86"
+        data.append(item5)
+        return data
+    }
     /*
     // MARK: - Navigation
 
