@@ -26,7 +26,7 @@ class Session {
     
     //设置登录用户信息
     class func SetSession(user:User){
-        if(self.instance != nil){
+        if(self.instance == nil){
         self.instance = Session()
         }
         self.instance!._user = user
