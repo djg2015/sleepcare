@@ -20,6 +20,7 @@
 		3A3262E11BB912180002687B /* OSSTry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262DF1BB912180002687B /* OSSTry.swift */; };
 		3A33EF851BAA56D700D82A4D /* MessageSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF841BAA56D700D82A4D /* MessageSubject.swift */; };
 		3A3452941BC63A5000292107 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3452931BC63A5000292107 /* MainView.xib */; };
+		3A346BF81BCCD36200E75E4E /* SleepcareMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A346BF71BCCD36200E75E4E /* SleepcareMainViewModel.swift */; };
 		3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */; };
 		3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B0221BA96648000F4AED /* RealTimeReport.swift */; };
 		3A3756201BCB589600182DE4 /* DialogFrame.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A37561F1BCB589600182DE4 /* DialogFrame.xib */; };
@@ -112,6 +113,7 @@
 		3A3262DF1BB912180002687B /* OSSTry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSSTry.swift; sourceTree = "<group>"; };
 		3A33EF841BAA56D700D82A4D /* MessageSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSubject.swift; sourceTree = "<group>"; };
 		3A3452931BC63A5000292107 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
+		3A346BF71BCCD36200E75E4E /* SleepcareMainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepcareMainViewModel.swift; sourceTree = "<group>"; };
 		3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeDelegate.swift; sourceTree = "<group>"; };
 		3A36B0221BA96648000F4AED /* RealTimeReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeReport.swift; sourceTree = "<group>"; };
 		3A37561F1BCB589600182DE4 /* DialogFrame.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DialogFrame.xib; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			children = (
 				2C3BAF121BCBA387003A2F48 /* AlarmViewModel.swift */,
 				3A41ADE91BA7B438000C109B /* LoginViewModel.swift */,
+				3A346BF71BCCD36200E75E4E /* SleepcareMainViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */,
 				3A41856C1BC6618900DE6F5F /* Pager.swift in Sources */,
 				3A41ADE71BA7B425000C109B /* BaseViewController.swift in Sources */,
+				3A346BF81BCCD36200E75E4E /* SleepcareMainViewModel.swift in Sources */,
 				3A4B85C81BB14DFD006E4CF1 /* Worktask.swift in Sources */,
 				2C3BAF131BCBA387003A2F48 /* AlarmViewModel.swift in Sources */,
 				3A3262DC1BB90AF40002687B /* SleepCareCollectionViewCell.swift in Sources */,

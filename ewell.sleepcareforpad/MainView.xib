@@ -109,7 +109,7 @@
                 </view>
                 <searchBar contentMode="redraw" fixedFrame="YES" placeholder="请输入内容搜索" translatesAutoresizingMaskIntoConstraints="NO" id="Svk-kA-1lf">
                     <rect key="frame" x="698" y="116" width="300" height="44"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                 </searchBar>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="YQo-TU-Kgh">
                     <rect key="frame" x="16" y="78" width="49" height="39"/>
