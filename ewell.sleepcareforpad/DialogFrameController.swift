@@ -50,6 +50,7 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         let mainview3 = NSBundle.mainBundle().loadNibNamed("AlarmView", owner: self, options: nil).last as! AlarmView
         mainview3.frame = CGRectMake(1024*2, 0, 1024, self.mainScroll.frame.size.height)
         mainview3.backgroundColor = UIColor.whiteColor()
+        mainview3.viewLoaded();
         self.mainScroll.addSubview(mainview3)
         self.mainScroll.bringSubviewToFront(mainview3)
         

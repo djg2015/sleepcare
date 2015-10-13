@@ -46,8 +46,10 @@ class AlarmViewModel:NSObject{
         // 根据选择索引判断返回值
         if(self.FuncSelectedIndex == 0)
         {
+            var user:User = sleepCareBLL.GetLoginInfo("yuanzhang", LoginPassword: "123456")
+            
             // 返回在离床报警
-            var alarmList:AlarmList = sleepCareBLL.GetAlarmByUser("", userCode: "", userNameLike: "", bedNumberLike: "", schemaCode: "", alarmTimeBegin: "", alarmTimeEnd: "", from: nil, max: nil)
+            var alarmList:AlarmList = sleepCareBLL.GetAlarmByUser("00001", userCode: "00000001", userNameLike: "", bedNumberLike: "", schemaCode: "", alarmTimeBegin: "", alarmTimeEnd: "", from: nil, max: nil)
             return alarmList
         }
         else
@@ -74,6 +76,20 @@ class AlarmViewModel:NSObject{
             set(value)
             {
                 self._leaveBedTimeSpan = value;
+            }
+        }
+        
+        // 离床时间
+        var _leaveBedTime:String = "";
+        dynamic var LeaveBedTime:String
+            {
+            get
+            {
+                return self._leaveBedTime;
+            }
+            set(value)
+            {
+                self._leaveBedTime = value;
             }
         }
         
