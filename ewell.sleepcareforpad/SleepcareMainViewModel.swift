@@ -150,17 +150,20 @@ class SleepcareMainViewModel: NSObject {
             ({
                 
                 let testBLL = SleepCareBussiness()
-                let user = testBLL.GetPartInfoByPartCode("00001", searchType: "", searchContent: "", from: 1, max: 30)
-                },
-                catch: { ex in
-                    //异常处理
-                    handleException(ex,showDialog: true)
-                },
-                finally: {
+                var partInfo:PartInfo = testBLL.GetPartInfoByPartCode("00001", searchType: "", searchContent: "", from: 1, max: 30)
+                for(var i = 0;i < partInfo.BedList.count; i++) {
                     
                 }
+             },
+             catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+             },
+             finally: {
+                    
+             }
             )}
-
+        
     }
     
     //自定义事件

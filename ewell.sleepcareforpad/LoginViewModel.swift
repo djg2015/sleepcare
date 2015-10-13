@@ -59,7 +59,7 @@ class LoginViewModel: NSObject {
         var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(XMPPStreamTimeoutNone)
         let isLogin = xmppMsgManager!.Connect()
         let testBLL = SleepCareBussiness()
-        //let user1 = testBLL.GetPartInfoByPartCode("00001", searchType: "", searchContent: "", from: 1, max: 30)
+        let user1 = testBLL.GetPartInfoByPartCode("00001", searchType: "", searchContent: "", from: 1, max: 30)
 
         var user:User = testBLL.GetLoginInfo("yuanzhang", LoginPassword: "123456")
         Session.SetSession(user)
