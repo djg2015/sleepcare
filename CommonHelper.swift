@@ -10,7 +10,7 @@ import Foundation
 let USERID:String = "userId"
 let PASS:String = "Pass"
 let SERVER:String = "Server"
-
+//获取当前时间
 func getCurrentTime() -> String{
     
     var nowUTC:NSDate  = NSDate()
@@ -22,4 +22,17 @@ func getCurrentTime() -> String{
     
     return dateFormatter.stringFromDate(nowUTC)
     
+}
+
+var alert = SweetAlert()
+//弹窗
+func showDialogMsg(msg:String){
+    SweetAlert().showAlert(msg)
+}
+
+//入口处理总入库
+func handleException(ex:NSObject, showDialog:Bool = false){
+    if(showDialog){
+       showDialogMsg(ex.description)
+    }
 }

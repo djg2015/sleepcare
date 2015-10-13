@@ -21,6 +21,8 @@
 		3A33EF851BAA56D700D82A4D /* MessageSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF841BAA56D700D82A4D /* MessageSubject.swift */; };
 		3A3452941BC63A5000292107 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3452931BC63A5000292107 /* MainView.xib */; };
 		3A346BF81BCCD36200E75E4E /* SleepcareMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A346BF71BCCD36200E75E4E /* SleepcareMainViewModel.swift */; };
+		3A35AB651BCCE8B000ED3293 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AB641BCCE8B000ED3293 /* SweetAlert.swift */; };
+		3A35AB671BCCECF000ED3293 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AB661BCCECF000ED3293 /* Session.swift */; };
 		3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */; };
 		3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B0221BA96648000F4AED /* RealTimeReport.swift */; };
 		3A3756201BCB589600182DE4 /* DialogFrame.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A37561F1BCB589600182DE4 /* DialogFrame.xib */; };
@@ -114,6 +116,8 @@
 		3A33EF841BAA56D700D82A4D /* MessageSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSubject.swift; sourceTree = "<group>"; };
 		3A3452931BC63A5000292107 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		3A346BF71BCCD36200E75E4E /* SleepcareMainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepcareMainViewModel.swift; sourceTree = "<group>"; };
+		3A35AB641BCCE8B000ED3293 /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
+		3A35AB661BCCECF000ED3293 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeDelegate.swift; sourceTree = "<group>"; };
 		3A36B0221BA96648000F4AED /* RealTimeReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeReport.swift; sourceTree = "<group>"; };
 		3A37561F1BCB589600182DE4 /* DialogFrame.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DialogFrame.xib; sourceTree = "<group>"; };
@@ -339,6 +343,7 @@
 		3A4CD3F51BA80408002C8A1A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3A35AB641BCCE8B000ED3293 /* SweetAlert.swift */,
 				3A3262DD1BB912180002687B /* OSSExceptionHelper.h */,
 				3A3262DE1BB912180002687B /* OSSExceptionHelper.m */,
 				3A3262DF1BB912180002687B /* OSSTry.swift */,
@@ -348,6 +353,7 @@
 				3A4CD3F91BA80536002C8A1A /* CommonHelper.swift */,
 				3A4CD3FE1BA808C1002C8A1A /* XmppMsgHelper.swift */,
 				3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */,
+				3A35AB661BCCECF000ED3293 /* Session.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -641,6 +647,7 @@
 				3A41ADE81BA7B425000C109B /* LoginController.swift in Sources */,
 				3A3756221BCB58F700182DE4 /* DialogFrameController.swift in Sources */,
 				3A4CD3FD1BA80852002C8A1A /* BaseMessage.swift in Sources */,
+				3A35AB671BCCECF000ED3293 /* Session.swift in Sources */,
 				3A4D17F11BAFB07400E0B862 /* BedUser.swift in Sources */,
 				3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */,
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
@@ -659,6 +666,7 @@
 				3A4880C71BBBA61A00C60FD2 /* Popover.swift in Sources */,
 				3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */,
 				3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */,
+				3A35AB651BCCE8B000ED3293 /* SweetAlert.swift in Sources */,
 				3A41856C1BC6618900DE6F5F /* Pager.swift in Sources */,
 				3A41ADE71BA7B425000C109B /* BaseViewController.swift in Sources */,
 				3A346BF81BCCD36200E75E4E /* SleepcareMainViewModel.swift in Sources */,
