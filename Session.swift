@@ -14,6 +14,13 @@ class Session {
     }
     
     var _user:User?
+    var LoginUser:User?{
+        get
+        {
+            return self._user
+        }
+    }
+
     
     private static var instance:Session? = nil
     

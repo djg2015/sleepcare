@@ -30,9 +30,14 @@ func showDialogMsg(msg:String){
     SweetAlert().showAlert(msg)
 }
 
-//入口处理总入库
-func handleException(ex:NSObject, showDialog:Bool = false){
+//入口处理总入口
+func handleException(ex:NSObject, showDialog:Bool = false,msg:String = ""){
     if(showDialog){
-       showDialogMsg(ex.description)
+        if(msg == ""){
+            showDialogMsg(ex.description)
+        }
+        else{
+            showDialogMsg(msg)
+        }
     }
 }
