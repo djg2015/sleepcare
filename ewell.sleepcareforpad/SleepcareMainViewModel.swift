@@ -8,7 +8,39 @@
 
 import UIKit
 
-class SleepcareMainViewModel: NSObject {
+class SleepcareMainViewModel:NSObject {
+    //初始化
+    override init() {
+        super.init()
+        var beds = Array<BedModel>()
+        try {
+            ({
+                
+                let testBLL = SleepCareBussiness()
+                //获取医院下的床位信息
+                var partInfo:PartInfo = testBLL.GetPartInfoByPartCode("00001", searchType: "", searchContent: "", from: 1, max: 30)
+                var beds = Array<BedModel>()
+                for(var i = 0;i < partInfo.BedList.count; i++) {
+                    var bed = BedModel()
+                    bed.UserName = partInfo.BedList[i].UserName
+                    bed.RoomNumber = partInfo.BedList[i].RoomNumber
+                    bed.BedCode = partInfo.BedList[i].BedCode
+                    bed.BedNumber = partInfo.BedList[i].BedNumber
+                    beds.append(bed)
+                }
+                self.BedModelList = beds
+                },
+                catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+                },
+                finally: {
+                    
+                }
+            )}
+        
+    }
+    
     //属性定义
     //医院/养老院名称
     var _mainName:String?
@@ -143,28 +175,7 @@ class SleepcareMainViewModel: NSObject {
     //界面命令
     
     
-    //初始化
-    override init() {
-        
-        try {
-            ({
-                
-                let testBLL = SleepCareBussiness()
-                var partInfo:PartInfo = testBLL.GetPartInfoByPartCode("00001", searchType: "", searchContent: "", from: 1, max: 30)
-                for(var i = 0;i < partInfo.BedList.count; i++) {
-                    
-                }
-             },
-             catch: { ex in
-                    //异常处理
-                    handleException(ex,showDialog: true)
-             },
-             finally: {
-                    
-             }
-            )}
-        
-    }
+    
     
     //自定义事件
 }
