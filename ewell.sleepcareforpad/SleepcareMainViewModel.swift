@@ -26,6 +26,7 @@ class SleepcareMainViewModel:NSObject {
                     bed.RoomNumber = partInfo.BedList[i].RoomNumber
                     bed.BedCode = partInfo.BedList[i].BedCode
                     bed.BedNumber = partInfo.BedList[i].BedNumber
+                    bed.BedStatus = "3"
                     beds.append(bed)
                 }
                 self.BedModelList = beds
@@ -178,4 +179,15 @@ class SleepcareMainViewModel:NSObject {
     
     
     //自定义事件
+    //获取指定分页对应的床位集合
+    func GetBedsOfPage(pageIndex:Int, count:NSInteger) -> Array<BedModel> {
+        var result = Array<BedModel>()
+        for(var i = (pageIndex - 1) * count;i < ((pageIndex - 1) * count + count); i++){
+            if(self.BedModelList.count <= i){
+                break
+            }
+            result.append(self.BedModelList[i])
+        }
+        return result
+    }
 }

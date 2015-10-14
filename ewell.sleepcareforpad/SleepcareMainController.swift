@@ -18,22 +18,19 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate {
     var sleepcareMainViewModel:SleepcareMainViewModel?
     var BedViews:Array<BedModel>?{
         didSet{
+            let pageCount:Int = (self.BedViews!.count / 8) + ((self.BedViews!.count % 8) > 0 ? 1 : 0)
+            self.sleepcareMainViewModel?.PageCount = pageCount
+            self.mainScroll.contentSize = CGSize(width: self.view.bounds.size.width * CGFloat(pageCount), height: 500)
             
-            self.mainScroll.contentSize = CGSize(width: self.view.bounds.size.width * 2, height: 500)
+            for i in 1...pageCount{
+                let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepCareCollectionView", owner: self, options: nil).last as! SleepCareCollectionView
+                mainview1.frame = CGRectMake(CGFloat((i-1) * 1024), 0, 1024, self.mainScroll.frame.size.height)
+                var bedList = self.sleepcareMainViewModel?.GetBedsOfPage(i, count: 8)
+                mainview1.reloadData(bedList!)
+                self.mainScroll.addSubview(mainview1)
+                self.mainScroll.bringSubviewToFront(mainview1)
+            }
             
-            let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepCareCollectionView", owner: self, options: nil).last as! SleepCareCollectionView
-            mainview1.frame = CGRectMake(0, 0, 1024, self.mainScroll.frame.size.height)
-            //self.mainview = SleepCareCollectionView(frame: CGRectMake(0, 0, 300, 400), collectionViewLayout: UICollectionViewLayout())
-            mainview1.reloadData(TestDate())
-            self.mainScroll.addSubview(mainview1)
-            self.mainScroll.bringSubviewToFront(mainview1)
-            
-            let mainview2 = NSBundle.mainBundle().loadNibNamed("SleepCareCollectionView", owner: self, options: nil).last as! SleepCareCollectionView
-            mainview2.frame = CGRectMake(1024, 0, 1024, self.mainScroll.frame.size.height)
-            //self.mainview = SleepCareCollectionView(frame: CGRectMake(0, 0, 300, 400), collectionViewLayout: UICollectionViewLayout())
-            mainview2.reloadData()
-            self.mainScroll.addSubview(mainview2)
-            self.mainScroll.bringSubviewToFront(mainview2)
         }
     }
     
