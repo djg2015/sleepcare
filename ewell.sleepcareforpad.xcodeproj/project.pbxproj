@@ -11,6 +11,8 @@
 		2C3BAF131BCBA387003A2F48 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BAF121BCBA387003A2F48 /* AlarmViewModel.swift */; };
 		2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3BAF141BCBA481003A2F48 /* AlarmView.xib */; };
 		2C3BAF171BCBA4C3003A2F48 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BAF161BCBA4C3003A2F48 /* AlarmView.swift */; };
+		2C4814E21BCCD8E500663B08 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4814E01BCCD8E500663B08 /* AlarmTableViewCell.swift */; };
+		2C4814E31BCCD8E500663B08 /* AlarmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C4814E11BCCD8E500663B08 /* AlarmTableViewCell.xib */; };
 		2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AEC471BB397130096DF3F /* RoleList.swift */; };
 		3A2F02781BCBA4E4000B16B5 /* infoHeadred.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2F02771BCBA4E4000B16B5 /* infoHeadred.png */; };
 		3A309C551BC607050005F475 /* SleepCareCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A309C541BC607050005F475 /* SleepCareCollectionView.xib */; };
@@ -105,6 +107,8 @@
 		2C3BAF121BCBA387003A2F48 /* AlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
 		2C3BAF141BCBA481003A2F48 /* AlarmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmView.xib; sourceTree = "<group>"; };
 		2C3BAF161BCBA4C3003A2F48 /* AlarmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
+		2C4814E01BCCD8E500663B08 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
+		2C4814E11BCCD8E500663B08 /* AlarmTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmTableViewCell.xib; sourceTree = "<group>"; };
 		2C5AEC471BB397130096DF3F /* RoleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleList.swift; sourceTree = "<group>"; };
 		3A2F02771BCBA4E4000B16B5 /* infoHeadred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoHeadred.png; sourceTree = "<group>"; };
 		3A309C541BC607050005F475 /* SleepCareCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepCareCollectionView.xib; sourceTree = "<group>"; };
@@ -419,6 +423,8 @@
 				3A4880C81BBBA66700C60FD2 /* PopDownList.swift */,
 				3A309C541BC607050005F475 /* SleepCareCollectionView.xib */,
 				3A41856B1BC6618900DE6F5F /* Pager.swift */,
+				2C4814E01BCCD8E500663B08 /* AlarmTableViewCell.swift */,
+				2C4814E11BCCD8E500663B08 /* AlarmTableViewCell.xib */,
 			);
 			name = UILib;
 			sourceTree = "<group>";
@@ -558,6 +564,7 @@
 				3A9C13001BC789C6008EC314 /* onBedView.png in Resources */,
 				2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */,
 				3A9C12FE1BC789C6008EC314 /* pagerselected.png in Resources */,
+				2C4814E31BCCD8E500663B08 /* AlarmTableViewCell.xib in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
 				3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */,
 				3A9C12F91BC789C6008EC314 /* infoHead.png in Resources */,
@@ -663,6 +670,7 @@
 				3A4B85CC1BB150C1006E4CF1 /* Constants.swift in Sources */,
 				3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */,
 				3A41ADEA1BA7B438000C109B /* LoginViewModel.swift in Sources */,
+				2C4814E21BCCD8E500663B08 /* AlarmTableViewCell.swift in Sources */,
 				3A4880C71BBBA61A00C60FD2 /* Popover.swift in Sources */,
 				3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */,
 				3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */,

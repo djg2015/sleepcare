@@ -30,11 +30,17 @@ class AlarmList:BaseMessage {
             newalarmInfo.SchemaCode = alarmInfo.elementForName("SchemaCode").stringValue()
             newalarmInfo.SchemaContent = alarmInfo.elementForName("SchemaContent").stringValue()
             newalarmInfo.AlarmDate = alarmInfo.elementForName("AlarmDate").stringValue()
-            newalarmInfo.FoobLevelCode = alarmInfo.elementForName("FoobLevelCode").stringValue()
-            newalarmInfo.BedSoreLevelCode = alarmInfo.elementForName("BedSoreLevelCode").stringValue()
+            if(alarmInfo.elementForName("FoobLevelCode") != nil)
+            {
+                newalarmInfo.FoobLevelCode = alarmInfo.elementForName("FoobLevelCode").stringValue()
+            }
+            if(alarmInfo.elementForName("BedSoreLevelCode") != nil)
+            {
+                newalarmInfo.BedSoreLevelCode = alarmInfo.elementForName("BedSoreLevelCode").stringValue()
+            }
             result.alarmInfoList.append(newalarmInfo)
         }
         return result
     }
-
+    
 }

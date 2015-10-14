@@ -32,6 +32,18 @@ class AlarmViewModel:NSObject{
         
     }
     
+    var _alarmList:Array<OnBedAlarmViewModel> =  Array<OnBedAlarmViewModel>();
+    dynamic var AlarmInfoList:Array<OnBedAlarmViewModel>{
+        get
+        {
+            return self._alarmList
+        }
+        set(value)
+        {
+            self._alarmList=value
+        }
+    }
+    
     //自定义方法
     //当前选项卡选择触发的事件
     // 当选择为0时 表示选择的在离床报警
@@ -45,8 +57,13 @@ class AlarmViewModel:NSObject{
         if(self.FuncSelectedIndex == 0)
         {
             // 返回在离床报警
-            var alarmList:AlarmList = sleepCareBLL.GetAlarmByUser("", userCode: "", userNameLike: "", bedNumberLike: "", schemaCode: "", alarmTimeBegin: "", alarmTimeEnd: "", from: nil, max: nil)
-            return alarmList
+            var alarmList:AlarmList = sleepCareBLL.GetAlarmByUser("00001", userCode: "00000001", userNameLike: "", bedNumberLike: "", schemaCode: "ALM_BEDSTATUS", alarmTimeBegin: "", alarmTimeEnd: "", from: nil, max: nil)
+            for alarmInfo in alarmList.alarmInfoList
+            {
+                var vm:OnBedAlarmViewModel = OnBedAlarmViewModel();
+                
+            }
+            return alarmList;
         }
         else
         {
@@ -54,6 +71,44 @@ class AlarmViewModel:NSObject{
             var turnList:TurnOverAnalysList = sleepCareBLL.GetTurnOverAnalysByUser("", analysDateBegin: "", analysDateEnd: "", from: nil, max: nil)
             
             return turnList
+        }
+    }
+    
+    // 在离床报警ViewModel
+    class OnBedAlarmViewModel: NSObject{
+        
+        // 属性
+        // 离床时长
+        var _leaveBedTimeSpan:String = "";
+        dynamic var LeaveBedTimeSpan:String
+            {
+            get
+            {
+                return self._leaveBedTimeSpan;
+            }
+            set(value)
+            {
+                self._leaveBedTimeSpan = value;
+            }
+        }
+        
+        // 离床时间
+        var _leaveBedTime:String = "";
+        dynamic var LeaveBedTime:String
+            {
+            get
+            {
+                return self._leaveBedTime;
+            }
+            set(value)
+            {
+                self._leaveBedTime = value;
+            }
+        }
+        
+        override init()
+        {
+            super.init();
         }
     }
 }

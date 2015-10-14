@@ -5,7 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlarmViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="Xji-bg-1dE"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AlarmView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -18,12 +22,16 @@
                         <segment title="体动/翻身"/>
                     </segments>
                 </segmentedControl>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NOD-DZ-PfR">
-                    <rect key="frame" x="182" y="126" width="1024" height="739"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4t6-M3-Xhk">
+                    <rect key="frame" x="0.0" y="30" width="600" height="583"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+            <connections>
+                <outlet property="tabAlarm" destination="8nA-52-meR" id="dnx-co-3VJ"/>
+                <outlet property="viewAlarm" destination="4t6-M3-Xhk" id="Hep-DX-xkb"/>
+            </connections>
             <point key="canvasLocation" x="544" y="337"/>
         </view>
     </objects>

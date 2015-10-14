@@ -16,7 +16,7 @@ let tag_bedUser:String="<BedUser"
 let tag_sleepCareReportList:String="<EPSleepCareReportList"
 let tag_sleepCareReport:String="<SleepCareReport"
 let tag_turnOverAnalysList:String="<EPTurnOverAnalysList"
-let tag_alarmList:String="<AlarmList"
+let tag_alarmList:String="<EPAlarmInfoList"
 let tag_EMServiceException:String="<EMServiceException"
 class MessageFactory {
     //xmpp字符串节点
