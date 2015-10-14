@@ -33,6 +33,16 @@ class AlarmViewModel:NSObject{
     }
     
     var _alarmList:Array<OnBedAlarmViewModel> =  Array<OnBedAlarmViewModel>();
+    dynamic var AlarmInfoList:Array<OnBedAlarmViewModel>{
+        get
+        {
+            return self._alarmList
+        }
+        set(value)
+        {
+            self._alarmList=value
+        }
+    }
     
     //自定义方法
     //当前选项卡选择触发的事件
@@ -46,11 +56,14 @@ class AlarmViewModel:NSObject{
         // 根据选择索引判断返回值
         if(self.FuncSelectedIndex == 0)
         {
-            var user:User = sleepCareBLL.GetLoginInfo("yuanzhang", LoginPassword: "123456")
-            
             // 返回在离床报警
-            var alarmList:AlarmList = sleepCareBLL.GetAlarmByUser("00001", userCode: "00000001", userNameLike: "", bedNumberLike: "", schemaCode: "", alarmTimeBegin: "", alarmTimeEnd: "", from: nil, max: nil)
-            return alarmList
+            var alarmList:AlarmList = sleepCareBLL.GetAlarmByUser("00001", userCode: "00000001", userNameLike: "", bedNumberLike: "", schemaCode: "ALM_BEDSTATUS", alarmTimeBegin: "", alarmTimeEnd: "", from: nil, max: nil)
+            for alarmInfo in alarmList.alarmInfoList
+            {
+                var vm:OnBedAlarmViewModel = OnBedAlarmViewModel();
+                
+            }
+            return alarmList;
         }
         else
         {
