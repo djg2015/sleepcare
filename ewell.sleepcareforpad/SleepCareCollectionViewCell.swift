@@ -187,6 +187,11 @@ class BedModel:NSObject{
                 self.BedImageStatus = UIImage(named: "unlineView.png")
                 self.BedImage = UIImage(named: "emptyBed.png")
             }
+            else{
+                self.HeadImageView = UIImage(named: "infoHead.png")
+                self.BedImageStatus = UIImage(named: "unlineView.png")
+                self.BedImage = UIImage(named: "emptyBed.png")
+            }
             
             self._bedStatus=value
         }

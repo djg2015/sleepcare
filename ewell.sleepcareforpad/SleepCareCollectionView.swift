@@ -36,7 +36,7 @@ class SleepCareCollectionView: UICollectionView, UICollectionViewDelegate, UICol
         //设置当前表格控件
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
-        self.backgroundColor = UIColor.blueColor()
+        self.backgroundColor = UIColor.clearColor()
         self.delegate = self
         self.dataSource = self
         super.reloadData()

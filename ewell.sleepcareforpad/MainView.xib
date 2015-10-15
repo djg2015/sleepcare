@@ -104,7 +104,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EBH-ju-ae7" customClass="Pager" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="722" width="1024" height="46"/>
+                    <rect key="frame" x="0.0" y="622" width="1024" height="46"/>
                     <color key="backgroundColor" red="0.53725490200000003" green="0.69803921570000005" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <searchBar contentMode="redraw" fixedFrame="YES" placeholder="请输入内容搜索" translatesAutoresizingMaskIntoConstraints="NO" id="Svk-kA-1lf">
