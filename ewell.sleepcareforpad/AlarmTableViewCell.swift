@@ -10,15 +10,26 @@ import UIKit
 
 class AlarmTableViewCell: UITableViewCell {
 
-    // 离床时长
     @IBOutlet weak var lblCellLeaveTimespan: UILabel!
-    // 离床时间
+    
     @IBOutlet weak var lblCellLeaveTime: UILabel!
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+//        self.lblCellLeaveTimespan.layer.borderWidth = 1
+//        self.lblCellLeaveTimespan.layer.borderColor = UIColor.lightGrayColor().CGColor
+//        self.lblCellLeaveTimespan.frame.size = CGSize(width: self.frame.width/2 + 1, height: self.frame.height)
+//        
+//        self.lblCellLeaveTime.layer.borderWidth = 1
+//        self.lblCellLeaveTime.layer.borderColor = UIColor.lightGrayColor().CGColor
+//        self.lblCellLeaveTime.frame.size = CGSize(width: self.frame.width/2, height: self.frame.height)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+       
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

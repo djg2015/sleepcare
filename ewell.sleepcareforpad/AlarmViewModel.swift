@@ -20,16 +20,35 @@ class AlarmViewModel:NSObject{
         }
         set(value)
         {
-            self._funcSelectedIndex=value
-        }
+            self._funcSelectedIndex=value        }
     }
     
     // 初始化
     override init()
     {
-        self._funcSelectedIndex = 1
+        self._funcSelectedIndex = 0
         super.init()
+        var sleepCareBLL = SleepCareBussiness()
+        // 返回在离床报警
+        var reportList:LeaveBedReportList = sleepCareBLL.GetLeaveBedReport("00001", userCode: "00000001", userNameLike: "", bedNumberLike: "", leaveBedTimeBegin: "", leaveBedTimeEnd: "", from: 1, max: 20)
+        for report in reportList.reportList
+        {
+            var alarmVM:OnBedAlarmViewModel = OnBedAlarmViewModel();
+            alarmVM.LeaveBedTime = report.StartTime;
+            alarmVM.LeaveBedTimeSpan = report.LeaveBedTimespan;
+            AlarmInfoList.append(alarmVM)
+        }
+        // 返回体动/翻身
+        var turnList:TurnOverAnalysList = sleepCareBLL.GetTurnOverAnalysByUser("00000001", analysDateBegin: "", analysDateEnd: "", from: nil, max: nil)
         
+        for report in turnList.turnOverAnalysReportList
+        {
+            var turnOverVM:TurnOverViewModel = TurnOverViewModel();
+            turnOverVM.Date = report.ReportDate;
+            turnOverVM.TurnOverTimes = report.TurnOverTime;
+            turnOverVM.TurnOverRate = report.TurnOverRate;
+            TurnOverList.append(turnOverVM)
+        }
     }
     
     var _alarmList:Array<OnBedAlarmViewModel> =  Array<OnBedAlarmViewModel>();
@@ -44,35 +63,25 @@ class AlarmViewModel:NSObject{
         }
     }
     
-    //自定义方法
-    //当前选项卡选择触发的事件
-    // 当选择为0时 表示选择的在离床报警
-    // 当选择为1时 表示选择的体动/翻身信息
-    func SelectChange(selectIndex:Int) -> BaseMessage
-    {
-        self.FuncSelectedIndex = selectIndex
-        
-        var sleepCareBLL = SleepCareBussiness()
-        // 根据选择索引判断返回值
-        if(self.FuncSelectedIndex == 0)
+    var _turnOverList:Array<TurnOverViewModel> =  Array<TurnOverViewModel>();
+    dynamic var TurnOverList:Array<TurnOverViewModel>{
+        get
         {
-            // 返回在离床报警
-            var alarmList:AlarmList = sleepCareBLL.GetAlarmByUser("00001", userCode: "00000001", userNameLike: "", bedNumberLike: "", schemaCode: "ALM_BEDSTATUS", alarmTimeBegin: "", alarmTimeEnd: "", from: nil, max: nil)
-            for alarmInfo in alarmList.alarmInfoList
-            {
-                var vm:OnBedAlarmViewModel = OnBedAlarmViewModel();
-                
-            }
-            return alarmList;
+            return self._turnOverList
         }
-        else
+        set(value)
         {
-            // 返回体动/翻身
-            var turnList:TurnOverAnalysList = sleepCareBLL.GetTurnOverAnalysByUser("", analysDateBegin: "", analysDateEnd: "", from: nil, max: nil)
-            
-            return turnList
+            self._turnOverList=value
         }
     }
+    
+    
+    //自定义方法
+    func SelectChange(selectIndex:Int)
+    {
+        self.FuncSelectedIndex = selectIndex;
+    }
+    
     
     // 在离床报警ViewModel
     class OnBedAlarmViewModel: NSObject{
@@ -103,6 +112,58 @@ class AlarmViewModel:NSObject{
             set(value)
             {
                 self._leaveBedTime = value;
+            }
+        }
+        
+        override init()
+        {
+            super.init();
+        }
+    }
+    
+    // 体动/翻身ViewModel
+    class TurnOverViewModel: NSObject{
+        
+        // 属性
+        // 分析日期
+        var _date:String = "";
+        dynamic var Date:String
+            {
+            get
+            {
+                return self._date;
+            }
+            set(value)
+            {
+                self._date = value;
+            }
+        }
+        
+        // 翻身次数
+        var _turnOverTimes:String = "";
+        dynamic var TurnOverTimes:String
+            {
+            get
+            {
+                return self._turnOverTimes;
+            }
+            set(value)
+            {
+                self._turnOverTimes = value;
+            }
+        }
+        
+        // 翻身频率
+        var _turnOverRate:String = "";
+        dynamic var TurnOverRate:String
+            {
+            get
+            {
+                return self._turnOverRate;
+            }
+            set(value)
+            {
+                self._turnOverRate = value;
             }
         }
         
