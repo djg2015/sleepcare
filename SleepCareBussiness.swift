@@ -233,7 +233,7 @@ class SleepCareBussiness: SleepCareBussinessManager {
             post.AddKeyValue("max", value: String(max!))
         }
         
-        var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
         var message = xmpp?.SendData(post)
         if(message is EMServiceException)
         {
