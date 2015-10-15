@@ -64,4 +64,16 @@ protocol SleepCareBussinessManager{
     //      from->查询记录起始序号
     //      max->查询的最大记录条数
     func GetAlarmByUser(partCode:String,userCode:String,userNameLike:String,bedNumberLike:String,schemaCode:String,alarmTimeBegin:String,alarmTimeEnd:String, from:Int32?,max:Int32?)-> AlarmList
+    
+    // 根据科室/楼层编号、用户编码、用户姓名模糊查找、床位号模糊查找、离床时间段等多条件获取离床异常信息
+    // 参数：partCode->科室/楼层编码
+    //      userCode->用户编码
+    //      userNameLike->用户名称模糊查找
+    //      bedNumberLike->床位号模糊查找
+    //      leaveBedTimeBegin->离床起始时间
+    //      leaveBedTimeEnd->离床结束时间
+    //      from->查询记录起始序号
+    //      max->查询的最大记录条数
+    func GetLeaveBedReport(partCode:String,userCode:String,userNameLike:String,bedNumberLike:String,leaveBedTimeBegin:String,leaveBedTimeEnd:String,from:Int32?,max:Int32?)-> LeaveBedReportList
+    
 }

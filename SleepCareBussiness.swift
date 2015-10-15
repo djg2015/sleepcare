@@ -204,4 +204,41 @@ class SleepCareBussiness: SleepCareBussinessManager {
         }
         return message as! AlarmList
     }
+    
+    // 根据科室/楼层编号、用户编码、用户姓名模糊查找、床位号模糊查找、离床时间段等多条件获取离床异常信息
+    // 参数：partCode->科室/楼层编码
+    //      userCode->用户编码
+    //      userNameLike->用户名称模糊查找
+    //      bedNumberLike->床位号模糊查找
+    //      leaveBedTimeBegin->离床起始时间
+    //      leaveBedTimeEnd->离床结束时间
+    //      from->查询记录起始序号
+    //      max->查询的最大记录条数
+    func GetLeaveBedReport(partCode:String,userCode:String,userNameLike:String,bedNumberLike:String,leaveBedTimeBegin:String,leaveBedTimeEnd:String,from:Int32?,max:Int32?)-> LeaveBedReportList
+    {
+        var subject = MessageSubject(opera: "GetLeaveBedReport")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("partCode", value: partCode)
+        post.AddKeyValue("userCode", value: userCode)
+        post.AddKeyValue("userNameLike", value: userNameLike)
+        post.AddKeyValue("bedNumberLike", value: bedNumberLike)
+        post.AddKeyValue("leaveBedTimeBegin", value: leaveBedTimeBegin)
+        post.AddKeyValue("leaveBedTimeEnd", value: leaveBedTimeEnd)
+        if(from != nil)
+        {
+            post.AddKeyValue("from", value: String(from!))
+        }
+        if(max != nil)
+        {
+            post.AddKeyValue("max", value: String(max!))
+        }
+        
+        var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! LeaveBedReportList
+    }
 }

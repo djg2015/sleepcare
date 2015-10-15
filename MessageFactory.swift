@@ -17,7 +17,9 @@ let tag_sleepCareReportList:String="<EPSleepCareReportList"
 let tag_sleepCareReport:String="<SleepCareReport"
 let tag_turnOverAnalysList:String="<EPTurnOverAnalysList"
 let tag_alarmList:String="<EPAlarmInfoList"
+let tag_bedReportList:String="<EPBedReportList"
 let tag_EMServiceException:String="<EMServiceException"
+
 class MessageFactory {
     //xmpp字符串节点
     
@@ -48,6 +50,9 @@ class MessageFactory {
         }
         else if(message.content.hasPrefix(tag_alarmList)){
             return AlarmList.XmlToMessage(message.subject, bodyXMl: message.content)
+        }
+        else if(message.content.hasPrefix(tag_bedReportList)){
+            return LeaveBedReportList.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         else if(message.content.hasPrefix(tag_EMServiceException))
         {
