@@ -48,6 +48,7 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         
         //报警日志
         let mainview3 = NSBundle.mainBundle().loadNibNamed("AlarmView", owner: self, options: nil).last as! AlarmView
+        println(self.mainScroll.frame.size.height)
         mainview3.frame = CGRectMake(1024*2, 0, 1024, self.mainScroll.frame.size.height)
         mainview3.backgroundColor = UIColor.whiteColor()
         mainview3.viewLoaded();
