@@ -16,9 +16,10 @@ func getCurrentTime() -> String{
     var nowUTC:NSDate  = NSDate()
     
     var dateFormatter:NSDateFormatter  = NSDateFormatter()
-    dateFormatter.timeZone = NSTimeZone.localTimeZone()
-    dateFormatter.dateStyle = .MediumStyle
-    dateFormatter.timeStyle = .MediumStyle
+    dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+//    dateFormatter.timeZone = NSTimeZone.localTimeZone()
+//    dateFormatter.dateStyle = .MediumStyle
+//    dateFormatter.timeStyle = .MediumStyle
     
     return dateFormatter.stringFromDate(nowUTC)
     

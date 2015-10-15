@@ -22,6 +22,12 @@ class SleepCareCollectionView: UICollectionView, UICollectionViewDelegate, UICol
         
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
+        if(self.didSelecteBedHandler != nil){
+            self.didSelecteBedHandler!(bedModel: self._bedModelList[indexPath.item])
+        }
+    }
+    
     func reloadData(bedModelList:Array<BedModel>) {
         self._bedModelList = bedModelList
         self.reloadData()
@@ -41,6 +47,11 @@ class SleepCareCollectionView: UICollectionView, UICollectionViewDelegate, UICol
         self.dataSource = self
         super.reloadData()
     }
+    
+    
+    
+    //床位点击命令
+    var didSelecteBedHandler: ((bedModel:BedModel) -> ())?
     
     /*
     // Only override drawRect: if you perform custom drawing.

@@ -56,7 +56,7 @@ class LoginViewModel: NSObject {
         defaults.setObject(pass_text,forKey:PASS)
         defaults.setObject(server_text,forKey:SERVER)
         defaults.synchronize()
-        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(XMPPStreamTimeoutNone)
+        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
         let isLogin = xmppMsgManager!.Connect()
         let testBLL = SleepCareBussiness()
         let user1 = testBLL.GetPartInfoByPartCode("00001", searchType: "", searchContent: "", from: 1, max: 30)

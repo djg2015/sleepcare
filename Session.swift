@@ -13,7 +13,7 @@ class Session {
     
     }
     
-    var _user:User?
+    private var _user:User?
     var LoginUser:User?{
         get
         {

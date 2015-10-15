@@ -20,8 +20,11 @@ import UIKit
     
     //初始化分页控件
     func setView(){
-        let width:CGFloat = 30.0
-        let height:CGFloat = 30.0
+        for(var i = 0 ; i < self.subviews.count; i++) {
+            self.subviews[i].removeFromSuperview()            
+        }
+        let width:CGFloat = 20.0
+        let height:CGFloat = 20.0
         let span:CGFloat = 5.0
         let top = (self.frame.height / 2) - (height / 2)
         let pagerWidth = width * CGFloat(pageCount) + span * (CGFloat(pageCount) - 1)

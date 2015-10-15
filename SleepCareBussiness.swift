@@ -14,7 +14,7 @@ class SleepCareBussiness: SleepCareBussinessManager {
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("loginName", value: LoginName)
         post.AddKeyValue("loginPassword", value: LoginPassword)
-        var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
         var message = xmpp?.SendData(post)
         if(message is EMServiceException)
         {
@@ -29,7 +29,7 @@ class SleepCareBussiness: SleepCareBussinessManager {
         var subject = MessageSubject(opera: "ListRolesByParentCode")
         var post = EMString(messageSubject: subject)
         post.EMString = parentRoleCode
-        var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
         var message = xmpp?.SendData(post)
         if(message is EMServiceException)
         {
@@ -59,7 +59,7 @@ class SleepCareBussiness: SleepCareBussinessManager {
             post.AddKeyValue("max", value: String(max!))
         }
         
-        var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
         var message = xmpp?.SendData(post)
         if(message is EMServiceException)
         {
@@ -77,7 +77,7 @@ class SleepCareBussiness: SleepCareBussinessManager {
         post.AddKeyValue("partCode", value: partCode)
         post.AddKeyValue("bedCode", value: bedCode)
         
-        var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
         var message = xmpp?.SendData(post)
         if(message is EMServiceException)
         {
@@ -109,7 +109,7 @@ class SleepCareBussiness: SleepCareBussinessManager {
             post.AddKeyValue("max", value: String(max!))
         }
         
-        var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
         var message = xmpp?.SendData(post)
         if(message is EMServiceException)
         {
@@ -127,7 +127,7 @@ class SleepCareBussiness: SleepCareBussinessManager {
         post.AddKeyValue("userCode", value: userCode)
         post.AddKeyValue("analysDate", value: analysDate)
         
-        var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
         var message = xmpp?.SendData(post)
         if(message is EMServiceException)
         {
@@ -157,7 +157,7 @@ class SleepCareBussiness: SleepCareBussinessManager {
             post.AddKeyValue("max", value: String(max!))
         }
         
-        var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
         var message = xmpp?.SendData(post)
         if(message is EMServiceException)
         {
@@ -196,7 +196,7 @@ class SleepCareBussiness: SleepCareBussinessManager {
             post.AddKeyValue("max", value: String(max!))
         }
         
-        var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
         var message = xmpp?.SendData(post)
         if(message is EMServiceException)
         {
@@ -233,7 +233,7 @@ class SleepCareBussiness: SleepCareBussinessManager {
             post.AddKeyValue("max", value: String(max!))
         }
         
-        var xmpp = XmppMsgManager.GetInstance(xmpp_Timeout)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
         var message = xmpp?.SendData(post)
         if(message is EMServiceException)
         {

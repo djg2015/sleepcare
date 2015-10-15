@@ -8,28 +8,20 @@
 
 import UIKit
 
-class SleepcareMainViewModel:NSObject {
+class SleepcareMainViewModel:NSObject,RealTimeDelegate {
     //初始化
     override init() {
         super.init()
+        //定时器
+        self.CurTime = getCurrentTime()
+        self.SearchType = self.searchSource[0] as String
+        doTimer()
         var beds = Array<BedModel>()
         try {
             ({
-                
-                let testBLL = SleepCareBussiness()
-                //获取医院下的床位信息
-                var partInfo:PartInfo = testBLL.GetPartInfoByPartCode("00001", searchType: "", searchContent: "", from: 1, max: 30)
-                var beds = Array<BedModel>()
-                for(var i = 0;i < partInfo.BedList.count; i++) {
-                    var bed = BedModel()
-                    bed.UserName = partInfo.BedList[i].UserName
-                    bed.RoomNumber = partInfo.BedList[i].RoomNumber
-                    bed.BedCode = partInfo.BedList[i].BedCode
-                    bed.BedNumber = partInfo.BedList[i].BedNumber
-                    bed.BedStatus = "3"
-                    beds.append(bed)
-                }
-                self.BedModelList = beds
+                let loginUser = Session.GetSession()
+                self.MainName = loginUser.LoginUser?.role?.RoleName
+                self.PartBedsSearch("00001", searchType: "", searchContent: "")
                 },
                 catch: { ex in
                     //异常处理
@@ -40,6 +32,9 @@ class SleepcareMainViewModel:NSObject {
                 }
             )}
         
+        //实时数据处理代理设置
+        var xmppMsgManager = XmppMsgManager.GetInstance()
+        xmppMsgManager?._realTimeDelegate = self
     }
     
     //属性定义
@@ -66,6 +61,19 @@ class SleepcareMainViewModel:NSObject {
         set(value)
         {
             self._curTime=value
+        }
+    }
+    
+    //楼层号
+    var _partCode:String?
+    dynamic var PartCode:String?{
+        get
+        {
+            return self._partCode
+        }
+        set(value)
+        {
+            self._partCode=value
         }
     }
     
@@ -172,7 +180,7 @@ class SleepcareMainViewModel:NSObject {
             self._pageCount=value
         }
     }
-    
+    var searchSource = ["按房间号","按床位号"]
     //界面命令
     
     
@@ -189,5 +197,57 @@ class SleepcareMainViewModel:NSObject {
             result.append(self.BedModelList[i])
         }
         return result
+    }
+    
+    //时间显示
+    func doTimer(){
+        var timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
+        timer.fire()
+    }
+    func timerFireMethod(timer: NSTimer) {
+        self.CurTime = getCurrentTime()
+    }
+    
+    //实时数据处理
+    func GetRealTimeDelegate(realTimeReport:RealTimeReport){
+        if(!self.BedModelList.isEmpty){
+            var bed = self.BedModelList.filter(
+                {$0.BedCode == realTimeReport.BedCode})
+            if(bed.count > 0){
+                let curBed:BedModel = bed[0]
+                curBed.HR = realTimeReport.HR
+                curBed.RR = realTimeReport.RR
+                if(realTimeReport.OnBedStatus == "在床"){
+                    curBed.BedStatus = BedStatusType.onbed
+                }
+                else if(realTimeReport.OnBedStatus == "离床"){
+                    curBed.BedStatus = BedStatusType.leavebed
+                }
+            }
+        }
+    }
+    
+    //房间床位查询设置
+    func PartBedsSearch(partCode:String,searchType:String,searchContent:String){
+        let sleepCareBussiness = SleepCareBussiness()
+        //获取医院下的床位信
+        var partInfo:PartInfo = sleepCareBussiness.GetPartInfoByPartCode(partCode, searchType: searchType, searchContent: searchContent, from: nil, max: nil)
+        self.FloorName = partInfo.Location
+        self.PartCode = partInfo.PartCode
+        self.BedCount = partInfo.BedCount
+        self.BindBedCount = partInfo.BindingCount
+        self.RoomCount = partInfo.RoomCount
+        var beds = Array<BedModel>()
+        for(var i = 0;i < partInfo.BedList.count; i++) {
+            var bed = BedModel()
+            bed.UserName = partInfo.BedList[i].UserName
+            bed.RoomNumber = partInfo.BedList[i].RoomNumber
+            bed.BedCode = partInfo.BedList[i].BedCode
+            bed.BedNumber = partInfo.BedList[i].BedNumber
+            bed.BedStatus = BedStatusType.unline
+            
+            beds.append(bed)
+        }
+        self.BedModelList = beds
     }
 }
