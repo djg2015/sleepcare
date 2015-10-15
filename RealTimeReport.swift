@@ -31,10 +31,12 @@ class RealTimeReport:BaseMessage{
             result.BedNumber = realTimeReport.elementForName("BedNumber").stringValue()
             result.UserCode = realTimeReport.elementForName("UserCode").stringValue()
             result.UserName = realTimeReport.elementForName("UserName").stringValue()
-            result.CaseCode = realTimeReport.elementForName("CaseCode").stringValue()
+            if(realTimeReport.elementForName("CaseCode") != nil){
+                result.CaseCode = realTimeReport.elementForName("CaseCode").stringValue()
+            }
             result.HR = realTimeReport.elementForName("HR").stringValue()
             result.RR = realTimeReport.elementForName("RR").stringValue()
-            result.BodyTemperature = realTimeReport.elementForName("BodyTemperature").stringValue()
+            result.BodyTemperature = realTimeReport.elementForName("BodyTemperature") != nil ?realTimeReport.elementForName("BodyTemperature").stringValue() : ""
             result.OnBedStatus = realTimeReport.elementForName("OnBedStatus").stringValue()
             result.MsgTime = realTimeReport.elementForName("MsgTime").stringValue()
         }

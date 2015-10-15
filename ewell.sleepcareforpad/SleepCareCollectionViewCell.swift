@@ -161,8 +161,8 @@ class BedModel:NSObject{
     }
     
     //在离床状态
-    var _bedStatus:String?
-    dynamic var BedStatus:String?{
+    var _bedStatus:BedStatusType = BedStatusType.unline
+    var BedStatus:BedStatusType{
         get
         {
             return self._bedStatus
@@ -170,22 +170,16 @@ class BedModel:NSObject{
         set(value)
         {
             //在床
-            if(value == "1"){
+            if(value == BedStatusType.onbed){
                 self.HeadImageView = UIImage(named: "infoHeadblue.png")
                 self.BedImageStatus = UIImage(named: "onBedView.png")
                 self.BedImage = UIImage(named: "onBed.png")
             }
-            //离床
-            else if(value == "2"){
+                //离床
+            else if(value == BedStatusType.leavebed){
                 self.HeadImageView = UIImage(named: "infoHeadred.png")
                 self.BedImageStatus = UIImage(named: "leaveView.png")
                 self.BedImage = UIImage(named: "leaveBed.png")
-            }
-            //离线
-            else if(value == "3"){
-                self.HeadImageView = UIImage(named: "infoHead.png")
-                self.BedImageStatus = UIImage(named: "unlineView.png")
-                self.BedImage = UIImage(named: "emptyBed.png")
             }
             else{
                 self.HeadImageView = UIImage(named: "infoHead.png")
@@ -196,4 +190,10 @@ class BedModel:NSObject{
             self._bedStatus=value
         }
     }
+}
+
+enum BedStatusType{
+    case onbed
+    case leavebed
+    case unline
 }

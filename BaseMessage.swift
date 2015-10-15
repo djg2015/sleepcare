@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BaseMessage{
+class BaseMessage:NSObject{
     init(messageSubject:MessageSubject){
         self.messageSubject = messageSubject
     }

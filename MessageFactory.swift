@@ -8,7 +8,7 @@
 
 import Foundation
 
-let tag_realtimedata:String="<RealTimeData"
+let tag_realtimedata:String="<RealTimeReport"
 let tag_userinfo:String="<User"
 let tag_roleList:String="<EPRoleList"
 let tag_partInfo:String="<PartInfo"

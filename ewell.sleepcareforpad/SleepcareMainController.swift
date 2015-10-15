@@ -8,11 +8,20 @@
 
 import UIKit
 
-class SleepcareMainController: BaseViewController,UIScrollViewDelegate {
+class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchBarDelegate {
     //界面控件
-    
     @IBOutlet weak var curPager: Pager!
     @IBOutlet weak var search: UISearchBar!
+    @IBOutlet weak var lblMainName: UILabel!
+    @IBOutlet weak var lblDateTime: UILabel!
+    @IBOutlet weak var lblPart: UILabel!
+    @IBOutlet weak var lblRoomCount: UILabel!
+    @IBOutlet weak var lblBedCount: UILabel!
+    @IBOutlet weak var lblBindBedCount: UILabel!
+    @IBOutlet weak var txtSearchType: UITextField!
+    @IBOutlet weak var imgSearch: UIImageView!
+    
+    
     //类字段
     var mainScroll:UIScrollView!
     var sleepcareMainViewModel:SleepcareMainViewModel?
@@ -25,6 +34,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate {
             for i in 1...pageCount{
                 let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepCareCollectionView", owner: self, options: nil).last as! SleepCareCollectionView
                 mainview1.frame = CGRectMake(CGFloat((i-1) * 1024), 0, 1024, self.mainScroll.frame.size.height)
+                mainview1.didSelecteBedHandler = self.BedSelected
                 var bedList = self.sleepcareMainViewModel?.GetBedsOfPage(i, count: 8)
                 mainview1.reloadData(bedList!)
                 self.mainScroll.addSubview(mainview1)
@@ -53,23 +63,52 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate {
         //去掉搜索按钮背景
         //self.search.backgroundColor = UIColor(patternImage: UIImage(named:"transbg.png")!)
         for(var i = 0 ; i < self.search.subviews[0].subviews.count; i++) {
-            println(self.search.subviews[0].subviews[i])
             if(self.search.subviews[0].subviews[i].isKindOfClass(NSClassFromString("UISearchBarBackground"))){
                 self.search.subviews[0].subviews[i].removeFromSuperview()
             }
         }
-        
-        //设置分页控件
-        self.curPager.pageCount = 3
-        self.curPager.go()
-        
+        self.search.delegate = self
         rac_setting()
+    }
+    
+    //查询按钮事件
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
+    
+    }
+    
+    //床位点击事件
+    func BedSelected(bedModel:BedModel){
+        try {
+            ({
+                //正常业务处理
+                self.presentViewController(DialogFrameController(nibName:"DialogFrame", bundle:nil), animated: true, completion: nil)
+                //抛出异常
+                //throw("0", "账户名不存在")
+                },
+                catch: { ex in
+                    //异常处理
+                    println(ex)
+                },
+                finally: {
+                    
+                }
+            )}
+
     }
     
     //属性绑定
     func rac_setting(){
         sleepcareMainViewModel = SleepcareMainViewModel()
         RACObserve(self.sleepcareMainViewModel, "BedModelList") ~> RAC(self, "BedViews")
+        RACObserve(self.sleepcareMainViewModel, "PageCount") ~> RAC(self.curPager, "pageCount")
+        RACObserve(self.sleepcareMainViewModel, "MainName") ~> RAC(self.lblMainName, "text")
+        RACObserve(self.sleepcareMainViewModel, "CurTime") ~> RAC(self.lblDateTime, "text")
+        RACObserve(self.sleepcareMainViewModel, "FloorName") ~> RAC(self.lblPart, "text")
+        RACObserve(self.sleepcareMainViewModel, "RoomCount") ~> RAC(self.lblRoomCount, "text")
+        RACObserve(self.sleepcareMainViewModel, "BedCount") ~> RAC(self.lblBedCount, "text")
+        RACObserve(self.sleepcareMainViewModel, "BindBedCount") ~> RAC(self.lblBindBedCount, "text")
+        RACObserve(self.sleepcareMainViewModel, "SearchType") ~> RAC(self.txtSearchType, "text")
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -86,7 +125,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate {
         item1.UserName = "张三"
         item1.RoomNumber = "1"
         item1.HR = "79"
-        item1.BedStatus = "1"
+        
         data.append(item1)
         
         var item2 = BedModel()
@@ -95,7 +134,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate {
         item2.UserName = "李四"
         item2.RoomNumber = "1"
         item2.HR = "86"
-        item2.BedStatus = "2"
+        
         data.append(item2)
         
         var item3 = BedModel()

@@ -23,7 +23,7 @@ class XmppMsgManager:MessageDelegate{
     }
     
     //获取xmpp通讯实例
-    class func GetInstance(timeout:NSTimeInterval)->XmppMsgManager?{
+    class func GetInstance(timeout:NSTimeInterval=100)->XmppMsgManager?{
         if(self._xmppMsgManager == nil){
             self._xmppMsgManager = XmppMsgManager()
             self._xmppMsgManager!._timeout = timeout
@@ -36,9 +36,15 @@ class XmppMsgManager:MessageDelegate{
     //是否能够连接
     func Connect() -> Bool{
         //_xmppMsgHelper!.connect(_timeout)
+        let curTime = NSDate()
         if(_xmppMsgHelper!.connect(_timeout))
         {
+            var sec:NSTimeInterval = 0
             while _xmppMsgHelper!.loginFlag == 0 {
+                sec = NSDate().timeIntervalSinceDate(curTime)
+                if(sec > 20){
+                    return false
+                }
             }
             
             return _xmppMsgHelper!.loginFlag == 1 ? true : false
@@ -72,8 +78,10 @@ class XmppMsgManager:MessageDelegate{
     func newMessageReceived(msg:Message){
         var object:BaseMessage = MessageFactory.GetMessageModel(msg)
         
-        if(object is RealTimeReport){
-          _realTimeDelegate?.GetRealTimeDelegate(object as! RealTimeReport)
+        if(object.isKindOfClass(RealTimeReport)){
+            if(self._realTimeDelegate != nil){
+                self._realTimeDelegate?.GetRealTimeDelegate(object as! RealTimeReport)
+            }
         }
         else
         {
