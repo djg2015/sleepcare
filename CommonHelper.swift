@@ -35,7 +35,7 @@ func showDialogMsg(msg:String){
 func handleException(ex:NSObject, showDialog:Bool = false,msg:String = ""){
     if(showDialog){
         if(msg == ""){
-            showDialogMsg(ex.description)
+            showDialogMsg((ex as! NSException).reason!)
         }
         else{
             showDialogMsg(msg)

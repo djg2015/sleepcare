@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
         
-        self.window!.rootViewController = UINavigationController(rootViewController:LoginController(nibName:"LoginController", bundle:nil))
+        self.window!.rootViewController = UINavigationController(rootViewController:LoginController(nibName:"LoginView", bundle:nil))
         return true
     }
 

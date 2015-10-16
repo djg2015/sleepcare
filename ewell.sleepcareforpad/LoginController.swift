@@ -47,83 +47,83 @@ class LoginController: BaseViewController {
     
     //-------------自定义方法处理---------------
     func rac_settings(){
-        
+        self.loginModel.controller = self
         //属性绑定
         self.txtloginName.rac_textSignal() ~> RAC(self.loginModel, "UserName")
         RACObserve(self.loginModel, "UserName") ~> RAC(self.txtloginName, "text")
         
         //事件绑定
         self.btnSubmit.rac_command = loginModel.login
-        self.btnReset!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
-            .subscribeNext {
-                _ in
-//                var dataSource = Array<DownListModel>()
-//                var item = DownListModel()
-//                item.key = "1"
-//                item.value = "科室"
-//                dataSource.append(item)
-//                item = DownListModel()
-//                item.key = "2"
-//                item.value = "病房"
-//                dataSource.append(item)
-//                self.popDownList = PopDownList(datasource: dataSource, dismissHandler: self.ChoosedItem)
-//                self.popDownList!.Show(300, height: 200, uiElement: self.btnReset)
-
-                //RACObserve(self.loginModel, "UserName") ~> RAC(self.txtloginPwd, "text")
-//                var sleepCareBll = SleepCareBussiness()
-//                let user  = sleepCareBll.GetLoginInfo("admin", LoginPassword: "123456")
-                
-//                var defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-//                var user_text:NSString = "test@192.168.0.19"
-//                var pass_text:NSString = "123"
-//                var server_text:NSString = "192.168.0.19"
-//                defaults.setObject(user_text,forKey:USERID)
-//                defaults.setObject(pass_text,forKey:PASS)
-//                defaults.setObject(server_text,forKey:SERVER)
-//                defaults.synchronize()
-//                self.xmppMsgManager = XmppMsgManager.GetInstance(XMPPStreamTimeoutNone)
-//                let isLogin = self.xmppMsgManager?.Connect()
-//                self.presentViewController(SleepcareMainController(nibName:"MainView", bundle:nil), animated: true, completion: nil)
-                try {
-                    ({
-                       //正常业务处理
-                        self.presentViewController(SleepcareMainController(nibName:"MainView", bundle:nil), animated: true, completion: nil)
-                        //抛出异常
-                        //throw("0", "账户名不存在")
-                        },
-                        catch: { ex in
-                            //异常处理
-                            println(ex)
-                        },
-                        finally: {
-                         
-                        }
-                    )}
-                
-        }
-        
-        
-        self.btnDialog!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
-            .subscribeNext {
-                _ in
-                
-                try {
-                    ({
-                        //正常业务处理
-                        self.presentViewController(DialogFrameController(nibName:"DialogFrame", bundle:nil), animated: true, completion: nil)
-                        //抛出异常
-                        //throw("0", "账户名不存在")
-                        },
-                        catch: { ex in
-                            //异常处理
-                            println(ex)
-                        },
-                        finally: {
-                            
-                        }
-                    )}
-                
-        }
+//        self.btnReset!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
+//            .subscribeNext {
+//                _ in
+////                var dataSource = Array<DownListModel>()
+////                var item = DownListModel()
+////                item.key = "1"
+////                item.value = "科室"
+////                dataSource.append(item)
+////                item = DownListModel()
+////                item.key = "2"
+////                item.value = "病房"
+////                dataSource.append(item)
+////                self.popDownList = PopDownList(datasource: dataSource, dismissHandler: self.ChoosedItem)
+////                self.popDownList!.Show(300, height: 200, uiElement: self.btnReset)
+//
+//                //RACObserve(self.loginModel, "UserName") ~> RAC(self.txtloginPwd, "text")
+////                var sleepCareBll = SleepCareBussiness()
+////                let user  = sleepCareBll.GetLoginInfo("admin", LoginPassword: "123456")
+//                
+////                var defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+////                var user_text:NSString = "test@192.168.0.19"
+////                var pass_text:NSString = "123"
+////                var server_text:NSString = "192.168.0.19"
+////                defaults.setObject(user_text,forKey:USERID)
+////                defaults.setObject(pass_text,forKey:PASS)
+////                defaults.setObject(server_text,forKey:SERVER)
+////                defaults.synchronize()
+////                self.xmppMsgManager = XmppMsgManager.GetInstance(XMPPStreamTimeoutNone)
+////                let isLogin = self.xmppMsgManager?.Connect()
+////                self.presentViewController(SleepcareMainController(nibName:"MainView", bundle:nil), animated: true, completion: nil)
+//                try {
+//                    ({
+//                       //正常业务处理
+//                        self.presentViewController(SleepcareMainController(nibName:"MainView", bundle:nil), animated: true, completion: nil)
+//                        //抛出异常
+//                        //throw("0", "账户名不存在")
+//                        },
+//                        catch: { ex in
+//                            //异常处理
+//                            println(ex)
+//                        },
+//                        finally: {
+//                         
+//                        }
+//                    )}
+//                
+//        }
+//        
+//        
+//        self.btnDialog!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
+//            .subscribeNext {
+//                _ in
+//                
+//                try {
+//                    ({
+//                        //正常业务处理
+//                        self.presentViewController(DialogFrameController(nibName:"DialogFrame", bundle:nil), animated: true, completion: nil)
+//                        //抛出异常
+//                        //throw("0", "账户名不存在")
+//                        },
+//                        catch: { ex in
+//                            //异常处理
+//                            println(ex)
+//                        },
+//                        finally: {
+//                            
+//                        }
+//                    )}
+//                
+//        }
     }
     
     func ChoosedItem(downListModel:DownListModel){

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SleepcareMainViewModel:NSObject,RealTimeDelegate {
+class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
     //初始化
     override init() {
         super.init()

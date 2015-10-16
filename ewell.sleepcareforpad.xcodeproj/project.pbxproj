@@ -20,6 +20,7 @@
 		2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AEC471BB397130096DF3F /* RoleList.swift */; };
 		3A2F02781BCBA4E4000B16B5 /* infoHeadred.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2F02771BCBA4E4000B16B5 /* infoHeadred.png */; };
 		3A309C551BC607050005F475 /* SleepCareCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A309C541BC607050005F475 /* SleepCareCollectionView.xib */; };
+		3A325A341BD08B7B00DE4E78 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A325A331BD08B7B00DE4E78 /* BaseViewModel.swift */; };
 		3A3262DA1BB90AD00002687B /* SleepCareCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262D91BB90AD00002687B /* SleepCareCollectionView.swift */; };
 		3A3262DC1BB90AF40002687B /* SleepCareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262DB1BB90AF40002687B /* SleepCareCollectionViewCell.swift */; };
 		3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262DE1BB912180002687B /* OSSExceptionHelper.m */; };
@@ -50,7 +51,7 @@
 		3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADC71BA7A65A000C109B /* Images.xcassets */; };
 		3A41ADCB1BA7A65A000C109B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADC91BA7A65A000C109B /* LaunchScreen.xib */; };
 		3A41ADD71BA7A65A000C109B /* ewell_sleepcareforpadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADD61BA7A65A000C109B /* ewell_sleepcareforpadTests.swift */; };
-		3A41ADE31BA7B3D1000C109B /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADE21BA7B3D1000C109B /* LoginController.xib */; };
+		3A41ADE31BA7B3D1000C109B /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADE21BA7B3D1000C109B /* LoginView.xib */; };
 		3A41ADE71BA7B425000C109B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADE51BA7B425000C109B /* BaseViewController.swift */; };
 		3A41ADE81BA7B425000C109B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADE61BA7B425000C109B /* LoginController.swift */; };
 		3A41ADEA1BA7B438000C109B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADE91BA7B438000C109B /* LoginViewModel.swift */; };
@@ -95,6 +96,14 @@
 		3A9C13001BC789C6008EC314 /* onBedView.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12EF1BC789C6008EC314 /* onBedView.png */; };
 		3A9C13011BC789C6008EC314 /* transbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12F01BC789C6008EC314 /* transbg.png */; };
 		3AA4A7781BB2BF3F00B214C7 /* SleepCareReportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4A7771BB2BF3F00B214C7 /* SleepCareReportList.swift */; };
+		3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB93881BCF96F200042AF1 /* loginBack.png */; };
+		3AFB93901BCF96F200042AF1 /* loginBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB93891BCF96F200042AF1 /* loginBtn.png */; };
+		3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB938A1BCF96F200042AF1 /* checkbox.png */; };
+		3AFB93921BCF96F200042AF1 /* loginTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB938B1BCF96F200042AF1 /* loginTitle.png */; };
+		3AFB93931BCF96F200042AF1 /* textboxBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB938C1BCF96F200042AF1 /* textboxBorder.png */; };
+		3AFB93941BCF96F200042AF1 /* pwdIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB938D1BCF96F200042AF1 /* pwdIcon.png */; };
+		3AFB93951BCF96F200042AF1 /* userIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB938E1BCF96F200042AF1 /* userIcon.png */; };
+		3AFB93971BCF999400042AF1 /* BackgroundCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFB93961BCF999400042AF1 /* BackgroundCommon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +129,7 @@
 		2C5AEC471BB397130096DF3F /* RoleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleList.swift; sourceTree = "<group>"; };
 		3A2F02771BCBA4E4000B16B5 /* infoHeadred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoHeadred.png; sourceTree = "<group>"; };
 		3A309C541BC607050005F475 /* SleepCareCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepCareCollectionView.xib; sourceTree = "<group>"; };
+		3A325A331BD08B7B00DE4E78 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		3A3262D91BB90AD00002687B /* SleepCareCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareCollectionView.swift; sourceTree = "<group>"; };
 		3A3262DB1BB90AF40002687B /* SleepCareCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareCollectionViewCell.swift; sourceTree = "<group>"; };
 		3A3262DD1BB912180002687B /* OSSExceptionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSExceptionHelper.h; sourceTree = "<group>"; };
@@ -156,7 +166,7 @@
 		3A41ADD01BA7A65A000C109B /* ewell.sleepcareforpadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ewell.sleepcareforpadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A41ADD51BA7A65A000C109B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A41ADD61BA7A65A000C109B /* ewell_sleepcareforpadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ewell_sleepcareforpadTests.swift; sourceTree = "<group>"; };
-		3A41ADE21BA7B3D1000C109B /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = "<group>"; };
+		3A41ADE21BA7B3D1000C109B /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		3A41ADE51BA7B425000C109B /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3A41ADE61BA7B425000C109B /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		3A41ADE91BA7B438000C109B /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -204,6 +214,14 @@
 		3A9C12EF1BC789C6008EC314 /* onBedView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onBedView.png; sourceTree = "<group>"; };
 		3A9C12F01BC789C6008EC314 /* transbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transbg.png; sourceTree = "<group>"; };
 		3AA4A7771BB2BF3F00B214C7 /* SleepCareReportList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareReportList.swift; sourceTree = "<group>"; };
+		3AFB93881BCF96F200042AF1 /* loginBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBack.png; sourceTree = "<group>"; };
+		3AFB93891BCF96F200042AF1 /* loginBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBtn.png; sourceTree = "<group>"; };
+		3AFB938A1BCF96F200042AF1 /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
+		3AFB938B1BCF96F200042AF1 /* loginTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginTitle.png; sourceTree = "<group>"; };
+		3AFB938C1BCF96F200042AF1 /* textboxBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textboxBorder.png; sourceTree = "<group>"; };
+		3AFB938D1BCF96F200042AF1 /* pwdIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pwdIcon.png; sourceTree = "<group>"; };
+		3AFB938E1BCF96F200042AF1 /* userIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userIcon.png; sourceTree = "<group>"; };
+		3AFB93961BCF999400042AF1 /* BackgroundCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundCommon.swift; sourceTree = "<group>"; };
 		54127559369C5508905B3990 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7856675DBD0F8296CBE665 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8E709AD7A0D77B12CA43D3D0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -321,6 +339,7 @@
 				2C3BAF121BCBA387003A2F48 /* AlarmViewModel.swift */,
 				3A41ADE91BA7B438000C109B /* LoginViewModel.swift */,
 				3A346BF71BCCD36200E75E4E /* SleepcareMainViewModel.swift */,
+				3A325A331BD08B7B00DE4E78 /* BaseViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -413,7 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				2C3BAF141BCBA481003A2F48 /* AlarmView.xib */,
-				3A41ADE21BA7B3D1000C109B /* LoginController.xib */,
+				3A41ADE21BA7B3D1000C109B /* LoginView.xib */,
 				3A3452931BC63A5000292107 /* MainView.xib */,
 				3A37561F1BCB589600182DE4 /* DialogFrame.xib */,
 				3A3756251BCB5E9600182DE4 /* SleepcareList.xib */,
@@ -437,6 +456,7 @@
 				2C4814E11BCCD8E500663B08 /* AlarmTableViewCell.xib */,
 				2C4F5FD71BCE2C70004FE6C3 /* TurnOverTableViewCell.swift */,
 				2C4F5FD81BCE2C70004FE6C3 /* TurnOverTableViewCell.xib */,
+				3AFB93961BCF999400042AF1 /* BackgroundCommon.swift */,
 			);
 			name = UILib;
 			sourceTree = "<group>";
@@ -452,6 +472,13 @@
 		3AFF67A61BBA2F2500C9CA20 /* Pad */ = {
 			isa = PBXGroup;
 			children = (
+				3AFB93881BCF96F200042AF1 /* loginBack.png */,
+				3AFB93891BCF96F200042AF1 /* loginBtn.png */,
+				3AFB938A1BCF96F200042AF1 /* checkbox.png */,
+				3AFB938B1BCF96F200042AF1 /* loginTitle.png */,
+				3AFB938C1BCF96F200042AF1 /* textboxBorder.png */,
+				3AFB938D1BCF96F200042AF1 /* pwdIcon.png */,
+				3AFB938E1BCF96F200042AF1 /* userIcon.png */,
 				3A2F02771BCBA4E4000B16B5 /* infoHeadred.png */,
 				3A9C12E01BC789C6008EC314 /* maintop.png */,
 				3A9C12E11BC789C6008EC314 /* emptyBed.png */,
@@ -567,26 +594,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AFB93941BCF96F200042AF1 /* pwdIcon.png in Resources */,
 				3A9C12FC1BC789C6008EC314 /* BedFrame.png in Resources */,
 				3A41ADC61BA7A65A000C109B /* Main.storyboard in Resources */,
-				3A41ADE31BA7B3D1000C109B /* LoginController.xib in Resources */,
+				3A41ADE31BA7B3D1000C109B /* LoginView.xib in Resources */,
 				3A9C12FD1BC789C6008EC314 /* pagerunselected.png in Resources */,
 				3A41ADCB1BA7A65A000C109B /* LaunchScreen.xib in Resources */,
 				3A3756201BCB589600182DE4 /* DialogFrame.xib in Resources */,
 				3A9C13001BC789C6008EC314 /* onBedView.png in Resources */,
 				2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */,
+				3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */,
 				3A9C12FE1BC789C6008EC314 /* pagerselected.png in Resources */,
+				3AFB93901BCF96F200042AF1 /* loginBtn.png in Resources */,
+				3AFB93931BCF96F200042AF1 /* textboxBorder.png in Resources */,
 				2C4814E31BCCD8E500663B08 /* AlarmTableViewCell.xib in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
 				3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */,
 				3A9C12F91BC789C6008EC314 /* infoHead.png in Resources */,
 				3A8604511BBA6327005FC117 /* topbg.png in Resources */,
 				3A9C12F21BC789C6008EC314 /* emptyBed.png in Resources */,
+				3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */,
+				3AFB93951BCF96F200042AF1 /* userIcon.png in Resources */,
 				3A3452941BC63A5000292107 /* MainView.xib in Resources */,
 				3A9C12FB1BC789C6008EC314 /* infoHeadblue.png in Resources */,
 				3A9C12F61BC789C6008EC314 /* clock.png in Resources */,
 				3A8759D51BB9362600535B3D /* SleepCareCollectionViewCell.xib in Resources */,
 				3A9C12F51BC789C6008EC314 /* unlineView.png in Resources */,
+				3AFB93921BCF96F200042AF1 /* loginTitle.png in Resources */,
 				2C4F5FDA1BCE2C70004FE6C3 /* TurnOverTableViewCell.xib in Resources */,
 				3A9C13011BC789C6008EC314 /* transbg.png in Resources */,
 				3A9C12F71BC789C6008EC314 /* search.png in Resources */,
@@ -670,6 +704,7 @@
 				3A35AB671BCCECF000ED3293 /* Session.swift in Sources */,
 				3A4D17F11BAFB07400E0B862 /* BedUser.swift in Sources */,
 				3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */,
+				3A325A341BD08B7B00DE4E78 /* BaseViewModel.swift in Sources */,
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
 				3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */,
 				3A4D17FB1BAFE17D00E0B862 /* AlarmInfo.swift in Sources */,
@@ -702,6 +737,7 @@
 				3A376E481BABD54200D70953 /* Role.swift in Sources */,
 				2C3150A71BCDFB4500EC749E /* LeaveBedReport.swift in Sources */,
 				3A376E4A1BABD9F400D70953 /* PartInfo.swift in Sources */,
+				3AFB93971BCF999400042AF1 /* BackgroundCommon.swift in Sources */,
 				2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
