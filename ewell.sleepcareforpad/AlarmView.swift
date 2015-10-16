@@ -30,11 +30,11 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
     {
         tabAlarm.frame.size.height = 40
         
-        self.screenWidth = UIScreen.mainScreen().bounds.size.width
-        self.screenHeight = UIScreen.mainScreen().bounds.size.height
+        self.screenWidth = self.frame.width
+        self.screenHeight = self.frame.height
         
         // 实例当前的报警tableView
-        self.tabViewAlarm = UITableView(frame: CGRectMake(0, 10, self.screenWidth, self.screenHeight), style: UITableViewStyle.Plain)
+        self.tabViewAlarm = UITableView(frame: CGRectMake(0, 10, self.screenWidth, self.screenHeight - 30), style: UITableViewStyle.Plain)
         // 设置tableView默认的行分隔符为空
         self.tabViewAlarm!.separatorStyle = UITableViewCellSeparatorStyle.None
         self.tabViewAlarm!.delegate = self
@@ -66,7 +66,7 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
         self.tabViewAlarm!.tableHeaderView = headViewAlarm
         
         
-        self.tabViewTurnOver = UITableView(frame: CGRectMake(0, 10, self.screenWidth, self.screenHeight), style: UITableViewStyle.Plain)
+        self.tabViewTurnOver = UITableView(frame: CGRectMake(0, 10, self.screenWidth, self.screenHeight - 30), style: UITableViewStyle.Plain)
         // 设置tableView默认的行分隔符为空
         self.tabViewTurnOver!.separatorStyle = UITableViewCellSeparatorStyle.None
         self.tabViewTurnOver!.delegate = self

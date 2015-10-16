@@ -5,11 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlarmViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-            <connections>
-                <outlet property="view" destination="iN0-l3-epB" id="Xji-bg-1dE"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AlarmView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
