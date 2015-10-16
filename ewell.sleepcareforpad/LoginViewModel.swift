@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewModel: NSObject {
+class LoginViewModel: BaseViewModel {
     //属性定义
     var _userName:String?
     dynamic var UserName:String?{
@@ -48,21 +48,32 @@ class LoginViewModel: NSObject {
     
     //自定义方法ß
     func Login() -> RACSignal{
-        var defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        var user_text:NSString = "test@192.168.0.19"
-        var pass_text:NSString = "123"
-        var server_text:NSString = "192.168.0.19"
-        defaults.setObject(user_text,forKey:USERID)
-        defaults.setObject(pass_text,forKey:PASS)
-        defaults.setObject(server_text,forKey:SERVER)
-        defaults.synchronize()
-        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-        let isLogin = xmppMsgManager!.Connect()
-        let testBLL = SleepCareBussiness()
-        let user1 = testBLL.GetPartInfoByPartCode("00001", searchType: "", searchContent: "", from: 1, max: 30)
-
-        var user:User = testBLL.GetLoginInfo("yuanzhang", LoginPassword: "123456")
-        Session.SetSession(user)
+        try {
+            ({
+                var defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                var user_text:NSString = "test@192.168.0.19"
+                var pass_text:NSString = "123"
+                var server_text:NSString = "192.168.0.19"
+                defaults.setObject(user_text,forKey:USERID)
+                defaults.setObject(pass_text,forKey:PASS)
+                defaults.setObject(server_text,forKey:SERVER)
+                defaults.synchronize()
+                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+                let isLogin = xmppMsgManager!.Connect()
+                let testBLL = SleepCareBussiness()
+                var user:User = testBLL.GetLoginInfo("yuanzhang", LoginPassword: "123456")
+                Session.SetSession(user)
+                let controller = SleepcareMainController(nibName:"MainView", bundle:nil)
+                self.JumpPage(controller)
+                },
+                catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+                },
+                finally: {
+                    
+                }
+            )}
         
         return RACSignal.empty()
     }
