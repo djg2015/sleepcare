@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 // 睡眠质量总览
-class SleepQualityPandectViewModel: NSObject{
+class SleepcareQualityPandectViewModel: NSObject{
     // 属性定义
     var _sleepQualityList:Array<SleepPandectItemViewModel> = Array<SleepPandectItemViewModel>()
     // 当前功能选项卡选择的索引
