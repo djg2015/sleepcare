@@ -20,6 +20,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     @IBOutlet weak var lblBindBedCount: UILabel!
     @IBOutlet weak var txtSearchType: UITextField!
     @IBOutlet weak var imgSearch: UIImageView!
+    @IBOutlet weak var btnLogout: UIButton!
     
     
     //类字段
@@ -73,7 +74,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     
     //查询按钮事件
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
-    
+        
     }
     
     //床位点击事件
@@ -93,7 +94,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
                     
                 }
             )}
-
+        
     }
     
     //属性绑定
@@ -108,7 +109,13 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         RACObserve(self.sleepcareMainViewModel, "BedCount") ~> RAC(self.lblBedCount, "text")
         RACObserve(self.sleepcareMainViewModel, "BindBedCount") ~> RAC(self.lblBindBedCount, "text")
         RACObserve(self.sleepcareMainViewModel, "SearchType") ~> RAC(self.txtSearchType, "text")
+        self.btnLogout!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
+            .subscribeNext {
+                _ in
+                self.presentViewController(LoginController(nibName:"LoginView", bundle:nil), animated: true, completion: nil)
 
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

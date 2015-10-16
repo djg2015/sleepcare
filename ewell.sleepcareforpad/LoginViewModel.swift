@@ -23,7 +23,7 @@ class LoginViewModel: BaseViewModel {
     }
     
     var _userPwd:String?
-    var UserPwd:String?{
+    dynamic var UserPwd:String?{
         get
         {
             return self._userPwd
@@ -34,7 +34,38 @@ class LoginViewModel: BaseViewModel {
         }
     }
     
+    var _isCheched:UIImage?
+    dynamic var IsCheched:UIImage?{
+        get
+        {
+            return self._isCheched
+        }
+        set(value)
+        {
+            self._isCheched=value
+        }
+    }
+    
+    var _ischechedBool:Bool = false
+    var IschechedBool:Bool{
+        get
+        {
+            return self._ischechedBool
+        }
+        set(value)
+        {
+            self._ischechedBool = value
+            if(self._ischechedBool){
+                self.IsCheched = UIImage(named: "checkboxchoosed.png")
+            }
+            else{
+                self.IsCheched = UIImage(named: "checkbox.png")
+            }
+        }
+    }
+    
     var login: RACCommand?
+    var remeberChecked: RACCommand?
     
     //构造函数
     override init(){
@@ -44,20 +75,17 @@ class LoginViewModel: BaseViewModel {
             (any:AnyObject!) -> RACSignal in
             return self.Login()
         }
+        
+        remeberChecked = RACCommand() {
+            (any:AnyObject!) -> RACSignal in
+            return self.RemeberPwd()
+        }
     }
     
     //自定义方法ß
     func Login() -> RACSignal{
         try {
-            ({
-                var defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-                var user_text:NSString = "test@192.168.0.19"
-                var pass_text:NSString = "123"
-                var server_text:NSString = "192.168.0.19"
-                defaults.setObject(user_text,forKey:USERID)
-                defaults.setObject(pass_text,forKey:PASS)
-                defaults.setObject(server_text,forKey:SERVER)
-                defaults.synchronize()
+            ({                
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 let isLogin = xmppMsgManager!.Connect()
                 if(!isLogin){
@@ -79,8 +107,31 @@ class LoginViewModel: BaseViewModel {
                     
                 }
             )}
-        
+        //记住用户名密码处理
+        if(self.IschechedBool){
+            SetValueIntoPlist("loginusername", self.UserName!)
+            SetValueIntoPlist("loginuserpwd", self.UserPwd!)
+        }
         return RACSignal.empty()
+    }
+    
+    func RemeberPwd() -> RACSignal{
+        self.IschechedBool = !self.IschechedBool
+        return RACSignal.empty()
+
+    }
+    
+    func loadInitData(){
+        
+        //初始加载记住密码的相关配置数据
+        self.UserName = GetValueFromPlist("loginusername")
+        self.UserPwd = GetValueFromPlist("loginuserpwd")
+        if(self.UserName?.isEmpty == true){
+            self.IschechedBool = false
+        }
+        else{
+            self.IschechedBool = true
+        }
     }
     
     func ChoosedItem(downListModel:DownListModel){

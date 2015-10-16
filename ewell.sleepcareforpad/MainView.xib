@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SleepcareMainController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <connections>
+                <outlet property="btnLogout" destination="Tvl-ui-K8Y" id="IQc-6I-mkY"/>
                 <outlet property="curPager" destination="EBH-ju-ae7" id="519-00-ind"/>
                 <outlet property="imgSearch" destination="QvA-m0-ZDr" id="pux-Cu-IW5"/>
                 <outlet property="lblBedCount" destination="9Iu-rn-zpU" id="YFb-cA-C1p"/>
@@ -155,6 +156,10 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tvl-ui-K8Y">
+                    <rect key="frame" x="970" y="25" width="46" height="30"/>
+                    <state key="normal" title="注销"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>

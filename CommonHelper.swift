@@ -7,9 +7,10 @@
 //
 
 import Foundation
-let USERID:String = "userId"
-let PASS:String = "Pass"
-let SERVER:String = "Server"
+let USERID:String = "xmppusername"
+let PASS:String = "xmppuserpwd"
+let SERVER:String = "xmppserver"
+let PORT:String = "xmppport"
 //获取当前时间
 func getCurrentTime() -> String{
     
@@ -39,6 +40,55 @@ func handleException(ex:NSObject, showDialog:Bool = false,msg:String = ""){
         }
         else{
             showDialogMsg(msg)
+        }
+    }
+}
+
+//从plist读取键值
+func GetValueFromPlist(key:String) -> String{
+    var path = NSBundle.mainBundle().pathForResource("sleepcare", ofType: "plist")
+    var fileManager = NSFileManager.defaultManager()
+    var fileExists:Bool = fileManager.fileExistsAtPath(path!)
+    var data :NSMutableDictionary?
+    if(fileExists){
+        data=NSMutableDictionary(contentsOfFile: path!)
+        return data?.valueForKey(key) as! String
+    }
+    return ""
+    
+}
+
+//写plist键值
+func SetValueIntoPlist(key:String, value:String){
+    var path = NSBundle.mainBundle().pathForResource("sleepcare", ofType: "plist")
+    var fileManager = NSFileManager.defaultManager()
+    var fileExists:Bool = fileManager.fileExistsAtPath(path!)
+    var data :NSMutableDictionary?
+    if(fileExists){
+        data=NSMutableDictionary(contentsOfFile: path!)
+    }
+    else{
+        data=NSMutableDictionary()
+    }
+    
+    data?.setValue(value, forKey:key)
+    data?.writeToFile(path!, atomically:true)
+}
+
+extension String {
+    func toUInt() -> UInt? {
+        if contains(self, "-") {
+            return nil
+        }
+        return self.withCString { cptr -> UInt? in
+            var endPtr : UnsafeMutablePointer<Int8> = nil
+            errno = 0
+            let result = strtoul(cptr, &endPtr, 10)
+            if errno != 0 || endPtr.memory != 0 {
+                return nil
+            } else {
+                return result
+            }
         }
     }
 }
