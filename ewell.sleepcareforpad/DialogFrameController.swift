@@ -39,14 +39,14 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         self.mainScroll.addSubview(mainview1)
         self.mainScroll.bringSubviewToFront(mainview1)
 
-        //监测日志
-        let mainview2 = NSBundle.mainBundle().loadNibNamed("SleepcareList", owner: self, options: nil).last as! SleepCareListView
+        //睡眠质量总览
+        let mainview2 = NSBundle.mainBundle().loadNibNamed("SleepQualityPandectView", owner: self, options: nil).last as! SleepQualityPandectView
         mainview2.frame = CGRectMake(1024, 0, 1024, self.mainScroll.frame.size.height)
-        mainview2.backgroundColor = UIColor.greenColor()
+        mainview2.backgroundColor = UIColor.whiteColor()
         self.mainScroll.addSubview(mainview2)
         self.mainScroll.bringSubviewToFront(mainview2)
         
-        //报警日志
+        //监测日志
         let mainview3 = NSBundle.mainBundle().loadNibNamed("AlarmView", owner: self, options: nil).last as! AlarmView
         println(self.mainScroll.frame.size.height)
         mainview3.frame = CGRectMake(1024*2, 0, 1024, self.mainScroll.frame.size.height)
