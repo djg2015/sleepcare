@@ -98,6 +98,8 @@
 		3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12EE1BC789C6008EC314 /* onBed.png */; };
 		3A9C13001BC789C6008EC314 /* onBedView.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12EF1BC789C6008EC314 /* onBedView.png */; };
 		3A9C13011BC789C6008EC314 /* transbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12F01BC789C6008EC314 /* transbg.png */; };
+		3AA3161B1BD0CFA500FC3C40 /* checkboxchoosed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA3161A1BD0CFA500FC3C40 /* checkboxchoosed.png */; };
+		3AA3161D1BD0DD8500FC3C40 /* sleepcare.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AA3161C1BD0DD8500FC3C40 /* sleepcare.plist */; };
 		3AA4A7781BB2BF3F00B214C7 /* SleepCareReportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4A7771BB2BF3F00B214C7 /* SleepCareReportList.swift */; };
 		3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB93881BCF96F200042AF1 /* loginBack.png */; };
 		3AFB93901BCF96F200042AF1 /* loginBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB93891BCF96F200042AF1 /* loginBtn.png */; };
@@ -219,6 +221,8 @@
 		3A9C12EE1BC789C6008EC314 /* onBed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onBed.png; sourceTree = "<group>"; };
 		3A9C12EF1BC789C6008EC314 /* onBedView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onBedView.png; sourceTree = "<group>"; };
 		3A9C12F01BC789C6008EC314 /* transbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transbg.png; sourceTree = "<group>"; };
+		3AA3161A1BD0CFA500FC3C40 /* checkboxchoosed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkboxchoosed.png; sourceTree = "<group>"; };
+		3AA3161C1BD0DD8500FC3C40 /* sleepcare.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = sleepcare.plist; path = ../sleepcare.plist; sourceTree = "<group>"; };
 		3AA4A7771BB2BF3F00B214C7 /* SleepCareReportList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareReportList.swift; sourceTree = "<group>"; };
 		3AFB93881BCF96F200042AF1 /* loginBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBack.png; sourceTree = "<group>"; };
 		3AFB93891BCF96F200042AF1 /* loginBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBtn.png; sourceTree = "<group>"; };
@@ -318,6 +322,7 @@
 		3A41ADBE1BA7A65A000C109B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3AA3161C1BD0DD8500FC3C40 /* sleepcare.plist */,
 				3A41ADBF1BA7A65A000C109B /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -481,6 +486,7 @@
 		3AFF67A61BBA2F2500C9CA20 /* Pad */ = {
 			isa = PBXGroup;
 			children = (
+				3AA3161A1BD0CFA500FC3C40 /* checkboxchoosed.png */,
 				3AFB93881BCF96F200042AF1 /* loginBack.png */,
 				3AFB93891BCF96F200042AF1 /* loginBtn.png */,
 				3AFB938A1BCF96F200042AF1 /* checkbox.png */,
@@ -617,6 +623,7 @@
 				3A9C12FE1BC789C6008EC314 /* pagerselected.png in Resources */,
 				3AFB93901BCF96F200042AF1 /* loginBtn.png in Resources */,
 				3AFB93931BCF96F200042AF1 /* textboxBorder.png in Resources */,
+				3AA3161B1BD0CFA500FC3C40 /* checkboxchoosed.png in Resources */,
 				2C4814E31BCCD8E500663B08 /* AlarmTableViewCell.xib in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
 				3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */,
@@ -631,6 +638,7 @@
 				3A8759D51BB9362600535B3D /* SleepCareCollectionViewCell.xib in Resources */,
 				3A9C12F51BC789C6008EC314 /* unlineView.png in Resources */,
 				3AFB93921BCF96F200042AF1 /* loginTitle.png in Resources */,
+				3AA3161D1BD0DD8500FC3C40 /* sleepcare.plist in Resources */,
 				2C4F5FDA1BCE2C70004FE6C3 /* TurnOverTableViewCell.xib in Resources */,
 				3A9C13011BC789C6008EC314 /* transbg.png in Resources */,
 				3A9C12F71BC789C6008EC314 /* search.png in Resources */,

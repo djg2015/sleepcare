@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <connections>
+                <outlet property="btnRemeber" destination="lrV-pt-3m3" id="iGf-ee-4O9"/>
                 <outlet property="btnSubmit" destination="hMN-Nf-Zdh" id="USG-uk-blY"/>
                 <outlet property="txtloginName" destination="wB9-Bc-lqW" id="bFJ-UI-S5K"/>
                 <outlet property="txtloginPwd" destination="tcr-39-XAd" id="8L2-QU-aAf"/>

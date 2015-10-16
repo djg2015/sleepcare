@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>loginusername</key>
+	<string>yuanzhang</string>
+	<key>loginuserpwd</key>
+	<string>123456</string>
+	<key>xmppserver</key>
+	<string>192.168.0.19</string>
+	<key>xmppport</key>
+	<string>5222</string>
+	<key>xmppusername</key>
+	<string>test@192.168.0.19</string>
+	<key>xmppuserpwd</key>
+	<string>123</string>
+</dict>
+</plist>
