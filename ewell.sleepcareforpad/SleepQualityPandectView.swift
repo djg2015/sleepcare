@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
- {
+{
     // 控件定义
     // 分析起始时间
     @IBOutlet weak var txtAnalysTimeBegin: UITextField!
@@ -18,41 +18,108 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var txtAnalysTimeEnd: UITextField!
     // 查询按钮
     @IBOutlet weak var btnSearch: UIButton!
-    // 右侧分页
-    @IBOutlet weak var viewPageInfo: UIView!
-    
-    var btnPreview:UIButton = UIButton()
-    var lblCurrentPageIndex:UILabel = UILabel()
-    var btnNext:UIButton = UIButton()
-    var lblTotalPageCount:UILabel = UILabel()
+    // 上一页按钮
+    @IBOutlet weak var btnPreview: UIButton!
+    // 下一页按钮
+    @IBOutlet weak var btnNext: UIButton!
+    // 当前页码
+    @IBOutlet weak var lblCurrentPageIndex: UILabel!
+    // 总页数
+    @IBOutlet weak var lblTotalPageCount: UILabel!
+    // 睡眠质量总览View
+    @IBOutlet weak var viewSleepQuality: UIView!
     // 属性
-    var qualityViewMode:SleepcareQualityPandectViewModel = SleepcareQualityPandectViewModel()
+    var qualityViewModel:SleepcareQualityPandectViewModel = SleepcareQualityPandectViewModel()
+    
+    let identifier = "CellIdentifier"
+    var tabViewSleepQuality: UITableView!
+    var screenWidth:CGFloat = 0.0
+    var screenHeight:CGFloat = 0.0
     
     // 界面初始化
     func viewInit()
     {
-        // 绘制右上角分页
-        btnPreview = UIButton(frame: CGRectMake(0,0,60,50))
-        btnPreview.setTitle("上一页", forState: UIControlState.Normal)
-        lblCurrentPageIndex = UILabel(frame: CGRectMake(60,0,20,50))
-        // 绑定元素
+        //属性绑定
+        self.txtAnalysTimeBegin.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeBegin")
+        self.txtAnalysTimeEnd.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeEnd")
+        RACObserve(self.qualityViewModel, "CurrentPageIndex") ~> RAC(self.lblCurrentPageIndex, "text")
+        RACObserve(self.qualityViewModel, "TotalPageCount") ~> RAC(self.lblTotalPageCount, "text")
         
-        btnNext = UIButton(frame: CGRectMake(80,0,60,50))
-        btnNext.setTitle("下一页", forState: UIControlState.Normal)
-        lblTotalPageCount = UILabel(frame: CGRectMake(140,0,60,50))
+        self.btnSearch.rac_command = qualityViewModel.searchCommand
+        self.btnPreview.rac_command = qualityViewModel.previewCommand
+        self.btnNext.rac_command = qualityViewModel.nextCommand
         
+        // 初始化TableView
+        self.screenWidth = self.frame.width - 20
+        self.screenHeight = self.frame.height
         
-        viewPageInfo.addSubview(btnPreview)
-        viewPageInfo.addSubview(lblCurrentPageIndex)
-        viewPageInfo.addSubview(btnNext)
-        viewPageInfo.addSubview(lblTotalPageCount)
-
+        // 实例当前的睡眠质量总览tableView
+        self.tabViewSleepQuality = UITableView(frame: CGRectMake(10, 10, self.screenWidth, self.screenHeight - 30), style: UITableViewStyle.Plain)
+        // 设置tableView默认的行分隔符为空
+        self.tabViewSleepQuality!.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.tabViewSleepQuality!.delegate = self
+        self.tabViewSleepQuality!.dataSource = self
+        self.tabViewSleepQuality!.tag = 1
+        // 注册自定义的TableCell
+        //        self.tabViewSleepQuality!.registerNib(UINib(nibName: "AlarmTableViewCell", bundle:nil), forCellReuseIdentifier: identifier)
+        
+        // 创建睡眠质量总览tableView的列头
+        var headViewSleepQuality:UIView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 40))
+        var lblNumber = UILabel(frame: CGRectMake(0, 0,  100, 44))
+        lblNumber.text = "序号"
+        lblNumber.font = UIFont.boldSystemFontOfSize(18)
+        lblNumber.textAlignment = .Center
+        lblNumber.layer.borderWidth = 1
+        lblNumber.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
+        lblNumber.backgroundColor = UIColor.whiteColor()
+        
+        var lblAnalysTime = UILabel(frame: CGRectMake(100, 0, self.screenWidth - 100 - 120 * 3, 44))
+        lblAnalysTime.text = "分析时段"
+        lblAnalysTime.font = UIFont.boldSystemFontOfSize(18)
+        lblAnalysTime.textAlignment = .Center
+        lblAnalysTime.layer.borderWidth = 1
+        lblAnalysTime.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
+        lblAnalysTime.backgroundColor = UIColor.whiteColor()
+        
+        var lblAvgHR = UILabel(frame: CGRectMake(self.screenWidth - 120 * 3, 0, 120, 44))
+        lblAvgHR.text = "平均心率"
+        lblAvgHR.font = UIFont.boldSystemFontOfSize(18)
+        lblAvgHR.textAlignment = .Center
+        lblAvgHR.layer.borderWidth = 1
+        lblAvgHR.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
+        lblAvgHR.backgroundColor = UIColor.whiteColor()
+        
+        var lblAvgRR = UILabel(frame: CGRectMake(self.screenWidth - 120 * 2, 0, 120, 44))
+        lblAvgRR.text = "平均呼吸"
+        lblAvgRR.font = UIFont.boldSystemFontOfSize(18)
+        lblAvgRR.textAlignment = .Center
+        lblAvgRR.layer.borderWidth = 1
+        lblAvgRR.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
+        lblAvgRR.backgroundColor = UIColor.whiteColor()
+        
+        var lblTurnOverTimes = UILabel(frame: CGRectMake(self.screenWidth - 120, 0, 120, 44))
+        lblTurnOverTimes.text = "翻身次数"
+        lblTurnOverTimes.font = UIFont.boldSystemFontOfSize(18)
+        lblTurnOverTimes.textAlignment = .Center
+        lblTurnOverTimes.layer.borderWidth = 1
+        lblTurnOverTimes.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
+        lblTurnOverTimes.backgroundColor = UIColor.whiteColor()
+        
+        headViewSleepQuality.addSubview(lblNumber)
+        headViewSleepQuality.addSubview(lblAnalysTime)
+        headViewSleepQuality.addSubview(lblAvgHR)
+        headViewSleepQuality.addSubview(lblAvgRR)
+        headViewSleepQuality.addSubview(lblTurnOverTimes)
+        self.tabViewSleepQuality!.tableHeaderView = headViewSleepQuality
+        
+        self.viewSleepQuality.addSubview(self.tabViewSleepQuality)
+        self.qualityViewModel.tableView = self.tabViewSleepQuality
     }
     
     
     // 返回Table的行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return qualityViewMode.SleepQualityList.count
+        return qualityViewModel.SleepQualityList.count
     }
     // 返回Table的分组
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -62,11 +129,61 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-            return UITableViewCell()
-        }
-   
+        var cell :UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(identifier) as? UITableViewCell
+        
+        cell = UITableViewCell(style: .Default, reuseIdentifier: identifier)
+        
+        var lblNumber = UILabel(frame: CGRectMake(0, 0,  100, 44))
+        lblNumber.text = String(self.qualityViewModel.SleepQualityList[indexPath.row].Number)
+        lblNumber.font = UIFont.boldSystemFontOfSize(18)
+        lblNumber.textAlignment = .Center
+        lblNumber.layer.borderWidth = 1
+        lblNumber.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
+        lblNumber.backgroundColor = UIColor.whiteColor()
+        
+        var lblAnalysTime = UILabel(frame: CGRectMake(100, 0, self.screenWidth - 100 - 120 * 3, 44))
+        lblAnalysTime.text = self.qualityViewModel.SleepQualityList[indexPath.row].AnalysisTimeSpan
+        lblAnalysTime.font = UIFont.boldSystemFontOfSize(18)
+        lblAnalysTime.textAlignment = .Center
+        lblAnalysTime.layer.borderWidth = 1
+        lblAnalysTime.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
+        lblAnalysTime.backgroundColor = UIColor.whiteColor()
+        
+        var lblAvgHR = UILabel(frame: CGRectMake(self.screenWidth - 120 * 3, 0, 120, 44))
+        lblAvgHR.text = self.qualityViewModel.SleepQualityList[indexPath.row].AvgHR
+        lblAvgHR.font = UIFont.boldSystemFontOfSize(18)
+        lblAvgHR.textAlignment = .Center
+        lblAvgHR.layer.borderWidth = 1
+        lblAvgHR.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
+        lblAvgHR.backgroundColor = UIColor.whiteColor()
+        
+        var lblAvgRR = UILabel(frame: CGRectMake(self.screenWidth - 120 * 2, 0, 120, 44))
+        lblAvgRR.text = self.qualityViewModel.SleepQualityList[indexPath.row].AvgRR
+        lblAvgRR.font = UIFont.boldSystemFontOfSize(18)
+        lblAvgRR.textAlignment = .Center
+        lblAvgRR.layer.borderWidth = 1
+        lblAvgRR.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
+        lblAvgRR.backgroundColor = UIColor.whiteColor()
+        
+         var lblTurnOverTimes = UILabel(frame: CGRectMake(self.screenWidth - 120, 0, 120, 44))
+        lblTurnOverTimes.text = self.qualityViewModel.SleepQualityList[indexPath.row].TurnTimes
+        lblTurnOverTimes.font = UIFont.boldSystemFontOfSize(18)
+        lblTurnOverTimes.textAlignment = .Center
+        lblTurnOverTimes.layer.borderWidth = 1
+        lblTurnOverTimes.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
+        lblTurnOverTimes.backgroundColor = UIColor.whiteColor()
+        
+        cell?.addSubview(lblNumber)
+        cell?.addSubview(lblAnalysTime)
+        cell?.addSubview(lblAvgHR)
+        cell?.addSubview(lblAvgRR)
+        cell?.addSubview(lblTurnOverTimes)
+        
+        return cell!
+    }
+    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
- 
+        
     }
- }
+}

@@ -220,7 +220,6 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
         RACObserve(self.alarmViewModel, "FuncSelectedIndex") ~> RAC(self.tabAlarm, "selectedSegmentIndex")
         self.tabAlarm!.rac_signalForControlEvents(UIControlEvents.ValueChanged).subscribeNext{
             _ in
-            var v = 0
             self.alarmViewModel.SelectChange(self.tabAlarm.selectedSegmentIndex)
             if(self.alarmViewModel.FuncSelectedIndex == 0)
             {

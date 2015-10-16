@@ -37,7 +37,33 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t8h-Fl-v1v">
-                            <rect key="frame" x="700" y="0.0" width="300" height="50"/>
+                            <rect key="frame" x="780" y="0.0" width="221" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMS-R1-Lou">
+                                    <rect key="frame" x="1" y="12" width="46" height="30"/>
+                                    <state key="normal" title="上一页">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXs-I1-fRS">
+                                    <rect key="frame" x="49" y="16" width="30" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="共6页" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zs8-Ka-paK">
+                                    <rect key="frame" x="132" y="16" width="80" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVv-eI-HW7">
+                                    <rect key="frame" x="80" y="12" width="46" height="30"/>
+                                    <state key="normal" title="下一页">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="分析时段" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnB-ZM-YDU">
@@ -56,10 +82,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="btnNext" destination="kVv-eI-HW7" id="uq8-fd-cdw"/>
+                <outlet property="btnPreview" destination="kMS-R1-Lou" id="jK9-DW-Ngt"/>
                 <outlet property="btnSearch" destination="xZp-g2-qcn" id="SS5-ox-gUU"/>
+                <outlet property="lblCurrentPageIndex" destination="oXs-I1-fRS" id="ale-E0-P60"/>
+                <outlet property="lblTotalPageCount" destination="Zs8-Ka-paK" id="wp4-vh-YqN"/>
                 <outlet property="txtAnalysTimeBegin" destination="zrp-aq-nLU" id="TVB-nx-9rs"/>
                 <outlet property="txtAnalysTimeEnd" destination="xji-kW-ibi" id="3hW-Nw-rnM"/>
-                <outlet property="viewPageInfo" destination="t8h-Fl-v1v" id="aYK-qQ-gGv"/>
+                <outlet property="viewSleepQuality" destination="BHn-MD-EnX" id="Njj-kh-cNG"/>
             </connections>
         </view>
     </objects>
