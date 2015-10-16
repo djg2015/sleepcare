@@ -17,6 +17,7 @@
 		2C3BAF171BCBA4C3003A2F48 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BAF161BCBA4C3003A2F48 /* AlarmView.swift */; };
 		2C4814E21BCCD8E500663B08 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4814E01BCCD8E500663B08 /* AlarmTableViewCell.swift */; };
 		2C4814E31BCCD8E500663B08 /* AlarmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C4814E11BCCD8E500663B08 /* AlarmTableViewCell.xib */; };
+		2C4911BD1BD0A15400A167A9 /* SleepQualityPandectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4911BC1BD0A15400A167A9 /* SleepQualityPandectView.swift */; };
 		2C4F5FD91BCE2C70004FE6C3 /* TurnOverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F5FD71BCE2C70004FE6C3 /* TurnOverTableViewCell.swift */; };
 		2C4F5FDA1BCE2C70004FE6C3 /* TurnOverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C4F5FD81BCE2C70004FE6C3 /* TurnOverTableViewCell.xib */; };
 		2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AEC471BB397130096DF3F /* RoleList.swift */; };
@@ -128,6 +129,7 @@
 		2C3BAF161BCBA4C3003A2F48 /* AlarmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		2C4814E01BCCD8E500663B08 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		2C4814E11BCCD8E500663B08 /* AlarmTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmTableViewCell.xib; sourceTree = "<group>"; };
+		2C4911BC1BD0A15400A167A9 /* SleepQualityPandectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepQualityPandectView.swift; sourceTree = "<group>"; };
 		2C4F5FD71BCE2C70004FE6C3 /* TurnOverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnOverTableViewCell.swift; sourceTree = "<group>"; };
 		2C4F5FD81BCE2C70004FE6C3 /* TurnOverTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TurnOverTableViewCell.xib; sourceTree = "<group>"; };
 		2C5AEC471BB397130096DF3F /* RoleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleList.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			children = (
 				2C3BAF161BCBA4C3003A2F48 /* AlarmView.swift */,
 				3A3756231BCB5E7600182DE4 /* SleepCareListView.swift */,
+				2C4911BC1BD0A15400A167A9 /* SleepQualityPandectView.swift */,
 			);
 			name = CustomView;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				3A376E461BABBB1200D70953 /* User.swift in Sources */,
 				3A376E481BABD54200D70953 /* Role.swift in Sources */,
 				2C3150A71BCDFB4500EC749E /* LeaveBedReport.swift in Sources */,
+				2C4911BD1BD0A15400A167A9 /* SleepQualityPandectView.swift in Sources */,
 				3A376E4A1BABD9F400D70953 /* PartInfo.swift in Sources */,
 				3AFB93971BCF999400042AF1 /* BackgroundCommon.swift in Sources */,
 				2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */,
