@@ -21,7 +21,8 @@ class SleepcareQualityPandectViewModel: NSObject{
         }
         set(value)
         {
-            self._sleepQualityList=value
+            self._sleepQualityList = value
+            TotalPageCount = "共" + String(self._sleepQualityList.count) + "页"
         }
     }
     
@@ -63,9 +64,21 @@ class SleepcareQualityPandectViewModel: NSObject{
             self._currentPageIndex=value
         }
     }
+    // 一页显示的条数
+    let _pageSize:Int32 = 10
     
-    var _pageSize:Int32 = 10
-    
+    var _totalPageCount:String = ""
+    // 一共多少页
+    dynamic var TotalPageCount:String{
+        get
+        {
+            return self._totalPageCount
+        }
+        set(value)
+        {
+            self._totalPageCount=value
+        }
+    }
 
     // Command定义
     // 查询
