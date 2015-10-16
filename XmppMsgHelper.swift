@@ -95,9 +95,7 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
     func xmppStreamDidConnect(sender:XMPPStream ){
         println("xmppStreamDidConnect \(xmppStream!.isConnected())")
         isOpen = true;
-        var error:NSError? ;
-        //验证密码
-        println(password)
+        var error:NSError?
         xmppStream!.authenticateWithPassword(password ,error:&error);
         if error != nil {
             println(error!)
@@ -120,7 +118,7 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         
         
         if message != nil {
-            println(message)
+//            println(message)
             var sub:String = message!.elementForName("subject").stringValue();
             var cont:String = message!.elementForName("body").stringValue();
             var from:String = message!.attributeForName("from").stringValue();

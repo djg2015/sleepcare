@@ -16,7 +16,7 @@ class BaseViewController: UIViewController {
         UIDevice.currentDevice().setValue(UIInterfaceOrientation.LandscapeLeft.rawValue, forKey: "orientation")
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         var width = UIScreen.mainScreen().bounds.size.width
     }
 

@@ -26,11 +26,11 @@ class LoginViewModel: BaseViewModel {
     var UserPwd:String?{
         get
         {
-            return self._userName
+            return self._userPwd
         }
         set(value)
         {
-            self._userName=value
+            self._userPwd=value
         }
     }
     
@@ -60,11 +60,16 @@ class LoginViewModel: BaseViewModel {
                 defaults.synchronize()
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 let isLogin = xmppMsgManager!.Connect()
-                let testBLL = SleepCareBussiness()
-                var user:User = testBLL.GetLoginInfo("yuanzhang", LoginPassword: "123456")
-                Session.SetSession(user)
-                let controller = SleepcareMainController(nibName:"MainView", bundle:nil)
-                self.JumpPage(controller)
+                if(!isLogin){
+                    showDialogMsg("远程通讯服务器连接不上！")
+                }
+                else{
+                    let testBLL = SleepCareBussiness()
+                    var user:User = testBLL.GetLoginInfo(self.UserName!, LoginPassword: self.UserPwd!)
+                    Session.SetSession(user)
+                    let controller = SleepcareMainController(nibName:"MainView", bundle:nil)
+                    self.JumpPage(controller)
+                }
                 },
                 catch: { ex in
                     //异常处理

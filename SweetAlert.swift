@@ -21,8 +21,8 @@ public class SweetAlert: UIViewController {
     let KTopMargin: CGFloat = 20.0
     let kWidthMargin: CGFloat = 10.0
     let kAnimatedViewHeight: CGFloat = 70.0
-    let kMaxHeight: CGFloat = 300.0
-    var kContentWidth: CGFloat = 300.0
+    let kMaxHeight: CGFloat = 500.0
+    var kContentWidth: CGFloat = 500.0
     let kButtonHeight: CGFloat = 35.0
     var textViewHeight: CGFloat = 90.0
     let kTitleHeight:CGFloat = 30.0
