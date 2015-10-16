@@ -22,10 +22,9 @@ class BaseMessage:NSObject{
         //消息类型
         mes.addAttributeWithName("type",stringValue:"normal")
         //发送给谁
-        mes.addAttributeWithName("to" ,stringValue:"ewell@192.168.0.19")
-        
+        mes.addAttributeWithName("to" ,stringValue: GetValueFromPlist(SERVERJID))
         //由谁发送
-        mes.addAttributeWithName("from" ,stringValue:NSUserDefaults.standardUserDefaults().stringForKey(USERID))
+        mes.addAttributeWithName("from" ,stringValue:GetValueFromPlist(USERID))
         //组合
         mes.addChild(self.messageSubject.ParseSubjectToXml())
         mes.addChild(body)
@@ -57,7 +56,7 @@ class BaseMessage:NSObject{
         //组合
         mes.addChild(self.messageSubject.ParseSubjectToXml())
         return mes
-
+        
     }
     
     class func XmlToMessage(subjectXml:String,bodyXMl:String) -> BaseMessage{

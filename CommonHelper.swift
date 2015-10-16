@@ -11,6 +11,7 @@ let USERID:String = "xmppusername"
 let PASS:String = "xmppuserpwd"
 let SERVER:String = "xmppserver"
 let PORT:String = "xmppport"
+let SERVERJID:String = "serverjid"
 //获取当前时间
 func getCurrentTime() -> String{
     

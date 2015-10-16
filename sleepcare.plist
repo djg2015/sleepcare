@@ -2,16 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>serverjid</key>
+	<string>ewell@60.191.39.142</string>
 	<key>loginusername</key>
 	<string>yuanzhang</string>
 	<key>loginuserpwd</key>
-	<string>123456</string>
+	<string>123</string>
 	<key>xmppserver</key>
-	<string>192.168.0.19</string>
+	<string>60.191.39.142</string>
 	<key>xmppport</key>
-	<string>5222</string>
+	<string>7018</string>
 	<key>xmppusername</key>
-	<string>test@192.168.0.19</string>
+	<string>pad@60.191.39.142</string>
 	<key>xmppuserpwd</key>
 	<string>123</string>
 </dict>
