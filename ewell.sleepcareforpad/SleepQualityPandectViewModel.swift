@@ -109,7 +109,7 @@ class SleepcareQualityPandectViewModel: NSObject{
         previewCommand = RACCommand() {
             (any:AnyObject!) -> RACSignal in
             
-            if(Int32(self.CurrentPageIndex.toInt()!) < Int32(self.SleepQualityList.count))
+            if(Int32(self.CurrentPageIndex.toInt()!) < Int32(self._totalNum))
             {
                 self.CurrentPageIndex = String(Int32(self.CurrentPageIndex.toInt()!) + 1)
                 
@@ -138,6 +138,10 @@ class SleepcareQualityPandectViewModel: NSObject{
                 var sleepCareBLL = SleepCareBussiness()
                 
                 var sleepCareReportList:SleepCareReportList = sleepCareBLL.GetSleepCareReportByUser("00001", userCode: "00000001", analysTimeBegin: self.AnalysisTimeBegin, analysTimeEnd: self.AnalysisTimeEnd, from:(Int32(self.CurrentPageIndex.toInt()!) - 1) * self._pageSize + 1 , max: self._pageSize)
+                
+                 var totalSleepCareReportList:SleepCareReportList = sleepCareBLL.GetSleepCareReportByUser("00001", userCode: "00000001", analysTimeBegin: self.AnalysisTimeBegin, analysTimeEnd: self.AnalysisTimeEnd, from:nil, max: nil)
+                self._totalNum = Int32(totalSleepCareReportList.sleepCareReportList.count)
+                
                 var index:Int = 1;
                 for sleepCare in sleepCareReportList.sleepCareReportList
                 {
@@ -150,11 +154,7 @@ class SleepcareQualityPandectViewModel: NSObject{
                     
                     self.SleepQualityList.append(itemVM)
                 }
-                
-                sleepCareReportList = sleepCareBLL.GetSleepCareReportByUser("00001", userCode: "00000001", analysTimeBegin: self.AnalysisTimeBegin, analysTimeEnd: self.AnalysisTimeEnd, from:nil, max: nil)
 
-                self._totalNum = Int32(sleepCareReportList.sleepCareReportList.count)
-                
                 self.tableView.reloadData()
                 },
                 catch: { ex in
