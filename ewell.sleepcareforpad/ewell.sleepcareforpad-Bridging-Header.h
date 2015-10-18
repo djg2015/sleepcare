@@ -6,3 +6,4 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <XMPPFramework/XMPPFramework.h>
 #import "OSSExceptionHelper.h"
+#import "PNChart.h"

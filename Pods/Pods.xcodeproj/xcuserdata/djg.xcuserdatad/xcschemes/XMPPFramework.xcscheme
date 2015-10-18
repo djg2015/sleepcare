@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8E2F123DF1F6B73010374909"
+               BlueprintIdentifier = "795EE254ACE3AB7D73A53EB6"
                BuildableName = "libXMPPFramework.a"
                BlueprintName = "XMPPFramework"
                ReferencedContainer = "container:Pods.xcodeproj">
