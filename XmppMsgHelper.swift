@@ -122,16 +122,18 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         
         
         if message != nil {
-            //            println(message)
-            var sub:String = message!.elementForName("subject").stringValue();
-            var cont:String = message!.elementForName("body").stringValue();
-            var from:String = message!.attributeForName("from").stringValue();
-            
-            var msg:Message = Message(subject:sub,content:cont,sender:from,ctime:getCurrentTime())
-            
-            
-            //消息委托(这个后面讲)
-            _messageDelegate?.newMessageReceived(msg);
+            println(message)
+            if(message!.elementForName("error") == nil){
+                var sub:String = message!.elementForName("subject").stringValue();
+                var cont:String = message!.elementForName("body").stringValue();
+                var from:String = message!.attributeForName("from").stringValue();
+                
+                var msg:Message = Message(subject:sub,content:cont,sender:from,ctime:getCurrentTime())
+                
+                
+                //消息委托(这个后面讲)
+                _messageDelegate?.newMessageReceived(msg)
+            }
         }
         
     }
