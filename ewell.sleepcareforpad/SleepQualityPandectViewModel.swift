@@ -11,6 +11,9 @@ import UIKit
 
 // 睡眠质量总览
 class SleepcareQualityPandectViewModel: NSObject{
+    
+    var tableView:UITableView = UITableView()
+    
     // 属性定义
     var _sleepQualityList:Array<SleepPandectItemViewModel> = Array<SleepPandectItemViewModel>()
     // 当前功能选项卡选择的索引
@@ -22,7 +25,14 @@ class SleepcareQualityPandectViewModel: NSObject{
         set(value)
         {
             self._sleepQualityList = value
-            TotalPageCount = "共" + String(self._sleepQualityList.count) + "页"
+            if(Int32(self._totalNum) % self._pageSize != 0)
+            {
+                TotalPageCount = "共" + String(Int32(self._totalNum)/self._pageSize + 1) + "页"
+            }
+            else
+            {
+                TotalPageCount = "共" + String(Int32(self._sleepQualityList.count)/self._pageSize) + "页"
+            }
         }
     }
     
@@ -52,9 +62,9 @@ class SleepcareQualityPandectViewModel: NSObject{
         }
     }
     
-    var _currentPageIndex:Int32 = 1
+    var _currentPageIndex:String = "1"
     // 当前页码
-    dynamic var CurrentPageIndex:Int32{
+    dynamic var CurrentPageIndex:String{
         get
         {
             return self._currentPageIndex
@@ -66,8 +76,9 @@ class SleepcareQualityPandectViewModel: NSObject{
     }
     // 一页显示的条数
     let _pageSize:Int32 = 10
+    var _totalNum:Int32 = 0;
     
-    var _totalPageCount:String = ""
+    var _totalPageCount:String = "共0页"
     // 一共多少页
     dynamic var TotalPageCount:String{
         get
@@ -79,7 +90,7 @@ class SleepcareQualityPandectViewModel: NSObject{
             self._totalPageCount=value
         }
     }
-
+    
     // Command定义
     // 查询
     var searchCommand: RACCommand?
@@ -91,31 +102,69 @@ class SleepcareQualityPandectViewModel: NSObject{
     override init()
     {
         super.init()
-//        login = RACCommand() {
-//            (any:AnyObject!) -> RACSignal in
-//            return self.Login()
-//        }
+        searchCommand = RACCommand() {
+            (any:AnyObject!) -> RACSignal in
+            return self.Search()
+        }
+        previewCommand = RACCommand() {
+            (any:AnyObject!) -> RACSignal in
+            
+            if(Int32(self.CurrentPageIndex.toInt()!) < Int32(self._totalNum))
+            {
+                self.CurrentPageIndex = String(Int32(self.CurrentPageIndex.toInt()!) + 1)
+                
+            }
+            return self.Search()
+        }
+        nextCommand = RACCommand() {
+            (any:AnyObject!) -> RACSignal in
+            if(Int32(self.CurrentPageIndex.toInt()!) > 1)
+            {
+                self.CurrentPageIndex = String(Int32(self.CurrentPageIndex.toInt()!) - 1)
+            }
+            return self.Search()
+        }
+        
+        // 加载数据
+        //        self.Search()
     }
     
     
     func Search() -> RACSignal{
         
-        var sleepCareBLL = SleepCareBussiness()
-        
-        var sleepCareReportList:SleepCareReportList = sleepCareBLL.GetSleepCareReportByUser("00001", userCode: "00000001", analysTimeBegin: "", analysTimeEnd: "", from:self.CurrentPageIndex , max: self._pageSize)
-        var index:Int = 1;
-        for sleepCare in sleepCareReportList.sleepCareReportList
-        {
-            var itemVM:SleepPandectItemViewModel = SleepPandectItemViewModel()
-            itemVM.Number = index++
-            itemVM.AnalysisTimeSpan = sleepCare.AnalysisDateSection
-            itemVM.AvgRR = sleepCare.AVGRR
-            itemVM.AvgHR = sleepCare.AVGHR
-            itemVM.TurnTimes = sleepCare.TurnOverTime
-            
-            self.SleepQualityList.append(itemVM)
-        }
-        
+        self.SleepQualityList = Array<SleepPandectItemViewModel>()
+        try {
+            ({
+                var sleepCareBLL = SleepCareBussiness()
+                
+                var sleepCareReportList:SleepCareReportList = sleepCareBLL.GetSleepCareReportByUser("00001", userCode: "00000001", analysTimeBegin: self.AnalysisTimeBegin, analysTimeEnd: self.AnalysisTimeEnd, from:(Int32(self.CurrentPageIndex.toInt()!) - 1) * self._pageSize + 1 , max: self._pageSize)
+                
+                 var totalSleepCareReportList:SleepCareReportList = sleepCareBLL.GetSleepCareReportByUser("00001", userCode: "00000001", analysTimeBegin: self.AnalysisTimeBegin, analysTimeEnd: self.AnalysisTimeEnd, from:nil, max: nil)
+                self._totalNum = Int32(totalSleepCareReportList.sleepCareReportList.count)
+                
+                var index:Int = 1;
+                for sleepCare in sleepCareReportList.sleepCareReportList
+                {
+                    var itemVM:SleepPandectItemViewModel = SleepPandectItemViewModel()
+                    itemVM.Number = index++
+                    itemVM.AnalysisTimeSpan = sleepCare.AnalysisDateSection
+                    itemVM.AvgRR = sleepCare.AVGRR
+                    itemVM.AvgHR = sleepCare.AVGHR
+                    itemVM.TurnTimes = sleepCare.TurnOverTime
+                    
+                    self.SleepQualityList.append(itemVM)
+                }
+
+                self.tableView.reloadData()
+                },
+                catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+                },
+                finally: {
+                    
+                }
+            )}
         
         return RACSignal.empty()
     }
@@ -141,7 +190,7 @@ class SleepPandectItemViewModel:NSObject
     var _analysisTimeSpan:String = ""
     // 分析时段
     dynamic var AnalysisTimeSpan:String
-    {
+        {
         get
         {
             return self._analysisTimeSpan
@@ -193,7 +242,7 @@ class SleepPandectItemViewModel:NSObject
             self._turnTimes = value
         }
     }
-
+    
     override init() {
         super.init()
     }
