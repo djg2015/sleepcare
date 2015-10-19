@@ -24,6 +24,19 @@ class SleepCareCollectionViewCell: UICollectionViewCell {
     //类字段
     var _bindModel:BedModel?
     
+    var _userNametest:String?
+    dynamic var UserNametest:String?{
+        get
+        {
+            return self._userNametest
+        }
+        set(value)
+        {
+            self._userNametest=value
+            //self.reloadInputViews()
+        }
+    }
+    
     //汇至床位界面
     func rebuilderUserInterface(bedModel:BedModel){
         self._bindModel = bedModel
@@ -35,8 +48,8 @@ class SleepCareCollectionViewCell: UICollectionViewCell {
         RACObserve(self._bindModel, "BedImageStatus") ~> RAC(self.imgBedStatus, "image")
         RACObserve(self._bindModel, "BedImage") ~> RAC(self.imgBed, "image")
         RACObserve(self._bindModel, "HeadImageView") ~> RAC(self.imgHeadView, "image")
+         RACObserve(self._bindModel, "HR") ~> RAC(self, "UserNametest")
         self.backgroundColor = UIColor.clearColor()
-        
     }
     
 }

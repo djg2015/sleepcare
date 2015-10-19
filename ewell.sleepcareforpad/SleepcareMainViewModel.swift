@@ -35,9 +35,12 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
         //实时数据处理代理设置
         var xmppMsgManager = XmppMsgManager.GetInstance()
         xmppMsgManager?._realTimeDelegate = self
+        self.realTimeCaches = Dictionary<String,RealTimeReport>()
+        setRealTime()
     }
     
     //属性定义
+    var realTimeCaches:Dictionary<String,RealTimeReport>?
     //医院/养老院名称
     var _mainName:String?
     dynamic var MainName:String?{
@@ -204,27 +207,43 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
         var timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
         timer.fire()
     }
+    
     func timerFireMethod(timer: NSTimer) {
         self.CurTime = getCurrentTime()
     }
     
-    //实时数据处理
-    func GetRealTimeDelegate(realTimeReport:RealTimeReport){
-        if(!self.BedModelList.isEmpty){
-            var bed = self.BedModelList.filter(
-                {$0.BedCode == realTimeReport.BedCode})
-            if(bed.count > 0){
-                let curBed:BedModel = bed[0]
-                curBed.HR = realTimeReport.HR
-                curBed.RR = realTimeReport.RR
-                if(realTimeReport.OnBedStatus == "在床"){
-                    curBed.BedStatus = BedStatusType.onbed
-                }
-                else if(realTimeReport.OnBedStatus == "离床"){
-                    curBed.BedStatus = BedStatusType.leavebed
+    //实时数据显示
+    func setRealTime(){
+        var realtimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "realtimerFireMethod:", userInfo: nil, repeats:true);
+        realtimer.fire()
+    }
+    
+    func realtimerFireMethod(timer: NSTimer) {
+        
+        for realTimeReport in self.realTimeCaches!.values{
+            if(!self.BedModelList.isEmpty){
+                var bed = self.BedModelList.filter(
+                    {$0.BedCode == realTimeReport.BedCode})
+                if(bed.count > 0){
+                    let curBed:BedModel = bed[0]
+                    curBed.HR = realTimeReport.HR
+                    curBed.RR = realTimeReport.RR
+                    if(realTimeReport.OnBedStatus == "在床"){
+                        curBed.BedStatus = BedStatusType.onbed
+                    }
+                    else if(realTimeReport.OnBedStatus == "离床"){
+                        curBed.BedStatus = BedStatusType.leavebed
+                    }
                 }
             }
         }
+        
+    }
+    
+    //实时数据处理
+    func GetRealTimeDelegate(realTimeReport:RealTimeReport){
+        let key = realTimeReport.BedCode
+        self.realTimeCaches?[key] = realTimeReport
     }
     
     //房间床位查询设置
