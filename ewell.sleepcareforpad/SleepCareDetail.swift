@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SleepCareListView: UIView {
+class SleepCareDetail: UIView {
 
    func SetView(){
     let a:Int = 1
