@@ -76,7 +76,13 @@ class SleepCareDetail: UIView {
             curdate = d.description(format: "yyyy-MM-dd")
         }
         sleepcareDetailViewModel = SleepcareDetailViewModel(userCode: userCode, date: curdate)
+        RACObserve(self.sleepcareDetailViewModel, "SignReports") ~> RAC(self, "SignReports")
+
     }
     
+    //根据查询条件重新加载界面
+    func ReloadView(date:String){
+      sleepcareDetailViewModel = SleepcareDetailViewModel(userCode:sleepcareDetailViewModel!.userCode, date: date)
+    }
     
 }
