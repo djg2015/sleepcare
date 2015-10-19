@@ -26,6 +26,9 @@ class SleepCareReport:BaseMessage{
     var MaxLeaveTimeSpan:String = ""
     var LeaveBedSuggest:String = ""
     var SignReports = Array<SignReport>()
+    var HR:String = ""
+    var RR:String = ""
+    var TurnOverRate:String = ""
     
     override init(messageSubject: MessageSubject) {
         super.init(messageSubject: messageSubject)
@@ -59,7 +62,10 @@ class SleepCareReport:BaseMessage{
             {
                 result.AnalysisDateSection = sleepCareReport.elementForName("AnalysisDateSection").stringValue()
             }
-            
+            result.AVGHR = sleepCareReport.elementForName("HR").stringValue()
+            result.AVGRR = sleepCareReport.elementForName("RR").stringValue()
+            result.TurnOverTime = sleepCareReport.elementForName("TurnOverRate").stringValue()
+
             
             //获取按小时体征节点的子节点
             let signReportList = sleepCareReport.nodesForXPath("//SignReport", error:nil) as! [DDXMLElement]

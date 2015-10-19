@@ -36,6 +36,7 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         //睡眠质量列表
         let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepcareDetail", owner: self, options: nil).last as! SleepCareDetail
         mainview1.frame = CGRectMake(0, 0, 1024, self.mainScroll.frame.size.height)
+        mainview1.viewInit("00000017")
         self.mainScroll.addSubview(mainview1)
         self.mainScroll.bringSubviewToFront(mainview1)
 

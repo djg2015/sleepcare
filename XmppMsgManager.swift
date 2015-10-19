@@ -64,8 +64,7 @@ class XmppMsgManager:MessageDelegate{
             
         }
         
-        var result:BaseMessage = requsetQuene[baseMessage.messageSubject.requestID!]!
-        requsetQuene[baseMessage.messageSubject.requestID!] = nil
+        var result:BaseMessage = requsetQuene.removeValueForKey(baseMessage.messageSubject.requestID!)!
         return result
     }
     
