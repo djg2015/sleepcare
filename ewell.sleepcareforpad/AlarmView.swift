@@ -146,7 +146,8 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
             if(indexPath.row % 2 == 0)
             {
                 alarmTableCell!.lblCellLeaveTimespan.layer.backgroundColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 0.5).CGColor
-                alarmTableCell!.lblCellLeaveTime.layer.backgroundColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 0.5).CGColor            }
+                alarmTableCell!.lblCellLeaveTime.layer.backgroundColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 0.5).CGColor
+            }
             else
             {
                 alarmTableCell!.lblCellLeaveTimespan.layer.backgroundColor = UIColor.whiteColor().CGColor
