@@ -8,11 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SleepQualityPandectView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="605"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z4z-jo-oxK">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                    <rect key="frame" x="0.0" y="5" width="1024" height="50"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zrp-aq-nLU">
                             <rect key="frame" x="98" y="11" width="97" height="30"/>
@@ -24,9 +24,9 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZp-g2-qcn">
-                            <rect key="frame" x="330" y="10" width="46" height="30"/>
-                            <state key="normal" title="查询">
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZp-g2-qcn">
+                            <rect key="frame" x="330" y="5" width="73" height="43"/>
+                            <state key="normal" backgroundImage="searchBtn.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
@@ -76,11 +76,12 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHn-MD-EnX">
-                    <rect key="frame" x="0.0" y="50" width="600" height="550"/>
+                    <rect key="frame" x="0.0" y="55" width="1024" height="550"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="btnNext" destination="kVv-eI-HW7" id="uq8-fd-cdw"/>
                 <outlet property="btnPreview" destination="kMS-R1-Lou" id="jK9-DW-Ngt"/>
@@ -91,6 +92,10 @@
                 <outlet property="txtAnalysTimeEnd" destination="xji-kW-ibi" id="3hW-Nw-rnM"/>
                 <outlet property="viewSleepQuality" destination="BHn-MD-EnX" id="Njj-kh-cNG"/>
             </connections>
+            <point key="canvasLocation" x="399.5" y="174.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="searchBtn.png" width="73" height="43"/>
+    </resources>
 </document>
