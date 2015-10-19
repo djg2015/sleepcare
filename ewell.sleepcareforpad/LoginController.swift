@@ -33,7 +33,7 @@ class LoginController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.rac_settings()
-        
+        var chart:PNLineChart
         
     }
     
