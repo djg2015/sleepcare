@@ -56,6 +56,7 @@
 		3A3C377D1BD48F0B00080D03 /* sleepcareblock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37771BD48F0B00080D03 /* sleepcareblock.png */; };
 		3A3C377E1BD48F0B00080D03 /* hrrr.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37781BD48F0B00080D03 /* hrrr.png */; };
 		3A3C37801BD4987800080D03 /* SleepcareDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C377F1BD4987800080D03 /* SleepcareDetailViewModel.swift */; };
+		3A3C37821BD4D89A00080D03 /* comming.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37811BD4D89A00080D03 /* comming.png */; };
 		3A3D65E41BAA8E1100CEFB25 /* MessageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */; };
 		3A41856C1BC6618900DE6F5F /* Pager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41856B1BC6618900DE6F5F /* Pager.swift */; };
 		3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADC01BA7A65A000C109B /* AppDelegate.swift */; };
@@ -181,6 +182,7 @@
 		3A3C37771BD48F0B00080D03 /* sleepcareblock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleepcareblock.png; sourceTree = "<group>"; };
 		3A3C37781BD48F0B00080D03 /* hrrr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hrrr.png; sourceTree = "<group>"; };
 		3A3C377F1BD4987800080D03 /* SleepcareDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepcareDetailViewModel.swift; sourceTree = "<group>"; };
+		3A3C37811BD4D89A00080D03 /* comming.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comming.png; sourceTree = "<group>"; };
 		3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageFactory.swift; sourceTree = "<group>"; };
 		3A3D65E71BAAB67C00CEFB25 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		3A41856B1BC6618900DE6F5F /* Pager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pager.swift; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 		3AFF67A61BBA2F2500C9CA20 /* Pad */ = {
 			isa = PBXGroup;
 			children = (
+				3A3C37811BD4D89A00080D03 /* comming.png */,
 				3A3C37731BD48F0A00080D03 /* sleepofThisWeek.png */,
 				3A3C37741BD48F0B00080D03 /* trunrecord.png */,
 				3A3C37751BD48F0B00080D03 /* leaverecord.png */,
@@ -685,6 +688,7 @@
 				3A9C12F41BC789C6008EC314 /* leaveView.png in Resources */,
 				3A9C12F11BC789C6008EC314 /* maintop.png in Resources */,
 				3A3C377B1BD48F0B00080D03 /* leaverecord.png in Resources */,
+				3A3C37821BD4D89A00080D03 /* comming.png in Resources */,
 				3A2F02781BCBA4E4000B16B5 /* infoHeadred.png in Resources */,
 				3A3C377D1BD48F0B00080D03 /* sleepcareblock.png in Resources */,
 				3A9C12F81BC789C6008EC314 /* dropdown.png in Resources */,
