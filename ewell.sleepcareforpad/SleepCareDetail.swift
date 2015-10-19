@@ -69,7 +69,8 @@ class SleepCareDetail: UIView {
     var sleepcareDetailViewModel:SleepcareDetailViewModel?
     //界面初始化
     func viewInit(userCode:String,date:String = ""){
-        if(date.isEmpty){
+        let date = "2015-10-16"
+        if(date == ""){
            let date = getCurrentTime("yyyy-MM-dd")
         }
        sleepcareDetailViewModel = SleepcareDetailViewModel(userCode: userCode, date: date)
