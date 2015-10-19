@@ -51,7 +51,7 @@
                     <rect key="frame" x="58" y="93" width="438" height="224"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hrrr.png" translatesAutoresizingMaskIntoConstraints="NO" id="WNv-oj-Mof">
-                            <rect key="frame" x="8" y="0.0" width="46" height="66"/>
+                            <rect key="frame" x="12" y="4" width="46" height="66"/>
                         </imageView>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="122-Pt-UbS">
                             <rect key="frame" x="79" y="10" width="163" height="38"/>
@@ -118,7 +118,7 @@
                             <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="sleepcareblock.png"/>
                     </userDefinedRuntimeAttributes>
@@ -127,7 +127,7 @@
                     <rect key="frame" x="532" y="93" width="438" height="224"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="leaverecord.png" translatesAutoresizingMaskIntoConstraints="NO" id="HOE-tO-4gp">
-                            <rect key="frame" x="8" y="0.0" width="46" height="66"/>
+                            <rect key="frame" x="12" y="4" width="46" height="66"/>
                         </imageView>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="48c-xZ-rBU">
                             <rect key="frame" x="79" y="10" width="163" height="38"/>
@@ -178,7 +178,7 @@
                             <color key="backgroundColor" red="0.83529411760000005" green="0.92941176469999998" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="sleepcareblock.png"/>
                     </userDefinedRuntimeAttributes>
@@ -187,7 +187,7 @@
                     <rect key="frame" x="58" y="336" width="438" height="224"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="trunrecord.png" translatesAutoresizingMaskIntoConstraints="NO" id="z1j-1W-neh">
-                            <rect key="frame" x="8" y="0.0" width="46" height="66"/>
+                            <rect key="frame" x="12" y="4" width="46" height="66"/>
                         </imageView>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ryS-aY-OGN">
                             <rect key="frame" x="79" y="10" width="163" height="38"/>
@@ -230,7 +230,7 @@
                             <color key="backgroundColor" red="0.93725490199999995" green="0.55294117649999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="sleepcareblock.png"/>
                     </userDefinedRuntimeAttributes>
@@ -239,14 +239,14 @@
                     <rect key="frame" x="532" y="336" width="438" height="224"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sleepofThisWeek.png" translatesAutoresizingMaskIntoConstraints="NO" id="MV0-qs-8QZ">
-                            <rect key="frame" x="8" y="0.0" width="46" height="66"/>
+                            <rect key="frame" x="12" y="4" width="46" height="66"/>
                         </imageView>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKb-Jp-MJc">
                             <rect key="frame" x="79" y="8" width="334" height="192"/>
                             <color key="backgroundColor" red="0.52941176470588236" green="0.8666666666666667" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="sleepcareblock.png"/>
                     </userDefinedRuntimeAttributes>
