@@ -21,6 +21,8 @@
 		2C4F5FD91BCE2C70004FE6C3 /* TurnOverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F5FD71BCE2C70004FE6C3 /* TurnOverTableViewCell.swift */; };
 		2C4F5FDA1BCE2C70004FE6C3 /* TurnOverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C4F5FD81BCE2C70004FE6C3 /* TurnOverTableViewCell.xib */; };
 		2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AEC471BB397130096DF3F /* RoleList.swift */; };
+		2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1151BD48713006FC007 /* searchBtn.png */; };
+		2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1161BD48713006FC007 /* searchBtnChecked.png */; };
 		3A2F02781BCBA4E4000B16B5 /* infoHeadred.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2F02771BCBA4E4000B16B5 /* infoHeadred.png */; };
 		3A309C551BC607050005F475 /* SleepCareCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A309C541BC607050005F475 /* SleepCareCollectionView.xib */; };
 		3A325A341BD08B7B00DE4E78 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A325A331BD08B7B00DE4E78 /* BaseViewModel.swift */; };
@@ -135,6 +137,8 @@
 		2C4F5FD71BCE2C70004FE6C3 /* TurnOverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnOverTableViewCell.swift; sourceTree = "<group>"; };
 		2C4F5FD81BCE2C70004FE6C3 /* TurnOverTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TurnOverTableViewCell.xib; sourceTree = "<group>"; };
 		2C5AEC471BB397130096DF3F /* RoleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleList.swift; sourceTree = "<group>"; };
+		2C6AE1151BD48713006FC007 /* searchBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtn.png; sourceTree = "<group>"; };
+		2C6AE1161BD48713006FC007 /* searchBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtnChecked.png; sourceTree = "<group>"; };
 		3A2F02771BCBA4E4000B16B5 /* infoHeadred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoHeadred.png; sourceTree = "<group>"; };
 		3A309C541BC607050005F475 /* SleepCareCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepCareCollectionView.xib; sourceTree = "<group>"; };
 		3A325A331BD08B7B00DE4E78 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -488,6 +492,8 @@
 		3AFF67A61BBA2F2500C9CA20 /* Pad */ = {
 			isa = PBXGroup;
 			children = (
+				2C6AE1151BD48713006FC007 /* searchBtn.png */,
+				2C6AE1161BD48713006FC007 /* searchBtnChecked.png */,
 				3AA3161A1BD0CFA500FC3C40 /* checkboxchoosed.png */,
 				3AFB93881BCF96F200042AF1 /* loginBack.png */,
 				3AFB93891BCF96F200042AF1 /* loginBtn.png */,
@@ -615,6 +621,7 @@
 				3A9C12FC1BC789C6008EC314 /* BedFrame.png in Resources */,
 				3A41ADC61BA7A65A000C109B /* Main.storyboard in Resources */,
 				3A41ADE31BA7B3D1000C109B /* LoginView.xib in Resources */,
+				2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */,
 				3A9C12FD1BC789C6008EC314 /* pagerunselected.png in Resources */,
 				3A41ADCB1BA7A65A000C109B /* LaunchScreen.xib in Resources */,
 				3A3756201BCB589600182DE4 /* DialogFrame.xib in Resources */,
@@ -622,6 +629,7 @@
 				3A9C13001BC789C6008EC314 /* onBedView.png in Resources */,
 				2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */,
 				3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */,
+				2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */,
 				3A9C12FE1BC789C6008EC314 /* pagerselected.png in Resources */,
 				3AFB93901BCF96F200042AF1 /* loginBtn.png in Resources */,
 				3AFB93931BCF96F200042AF1 /* textboxBorder.png in Resources */,

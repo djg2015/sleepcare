@@ -24,9 +24,9 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZp-g2-qcn">
-                            <rect key="frame" x="330" y="10" width="46" height="30"/>
-                            <state key="normal" title="查询">
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZp-g2-qcn">
+                            <rect key="frame" x="330" y="5" width="73" height="43"/>
+                            <state key="normal" backgroundImage="searchBtn.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
@@ -95,4 +95,7 @@
             <point key="canvasLocation" x="399.5" y="174.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="searchBtn.png" width="73" height="43"/>
+    </resources>
 </document>
