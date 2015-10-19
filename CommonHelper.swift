@@ -27,6 +27,21 @@ func getCurrentTime() -> String{
     
 }
 
+//获取指定格式时间
+func getCurrentTime(dateFormat:String) -> String{
+    
+    var nowUTC:NSDate  = NSDate()
+    
+    var dateFormatter:NSDateFormatter  = NSDateFormatter()
+    dateFormatter.dateFormat = dateFormat
+    //    dateFormatter.timeZone = NSTimeZone.localTimeZone()
+    //    dateFormatter.dateStyle = .MediumStyle
+    //    dateFormatter.timeStyle = .MediumStyle
+    
+    return dateFormatter.stringFromDate(nowUTC)
+    
+}
+
 var alert = SweetAlert()
 //弹窗
 func showDialogMsg(msg:String){

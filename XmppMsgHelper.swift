@@ -122,7 +122,7 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         
         
         if message != nil {
-            println(message)
+            //println(message)
             if(message!.elementForName("error") == nil){
                 var sub:String = message!.elementForName("subject").stringValue();
                 var cont:String = message!.elementForName("body").stringValue();

@@ -48,13 +48,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zdl-Xc-txJ" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="58" y="93" width="438" height="224"/>
+                    <rect key="frame" x="58" y="73" width="458" height="270"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hrrr.png" translatesAutoresizingMaskIntoConstraints="NO" id="WNv-oj-Mof">
-                            <rect key="frame" x="12" y="4" width="46" height="66"/>
+                            <rect key="frame" x="14" y="6" width="46" height="66"/>
                         </imageView>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="122-Pt-UbS">
-                            <rect key="frame" x="79" y="10" width="163" height="38"/>
+                            <rect key="frame" x="79" y="10" width="173" height="38"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="心率/HR:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWw-zM-5c8">
                                     <rect key="frame" x="8" y="0.0" width="64" height="21"/>
@@ -84,7 +84,7 @@
                             <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ocb-l1-bTC">
-                            <rect key="frame" x="250" y="10" width="163" height="38"/>
+                            <rect key="frame" x="260" y="10" width="173" height="38"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="呼吸/RR:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLr-pT-KqU">
                                     <rect key="frame" x="8" y="0.0" width="64" height="21"/>
@@ -114,7 +114,7 @@
                             <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oFA-BM-Nga">
-                            <rect key="frame" x="79" y="60" width="334" height="140"/>
+                            <rect key="frame" x="79" y="60" width="354" height="180"/>
                             <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
@@ -124,13 +124,13 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7qZ-PO-GeG" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="532" y="93" width="438" height="224"/>
+                    <rect key="frame" x="532" y="73" width="458" height="270"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="leaverecord.png" translatesAutoresizingMaskIntoConstraints="NO" id="HOE-tO-4gp">
-                            <rect key="frame" x="12" y="4" width="46" height="66"/>
+                            <rect key="frame" x="14" y="6" width="46" height="66"/>
                         </imageView>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="48c-xZ-rBU">
-                            <rect key="frame" x="79" y="10" width="163" height="38"/>
+                            <rect key="frame" x="79" y="10" width="173" height="38"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="离床次数:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDL-jt-GAq">
                                     <rect key="frame" x="8" y="10" width="64" height="21"/>
@@ -148,7 +148,7 @@
                             <color key="backgroundColor" red="0.83529411764705885" green="0.92941176470588238" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Kx-tt-fBq">
-                            <rect key="frame" x="250" y="10" width="163" height="38"/>
+                            <rect key="frame" x="260" y="10" width="173" height="38"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="最长离床时间:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogz-bA-5au">
                                     <rect key="frame" x="8" y="10" width="82" height="21"/>
@@ -166,7 +166,7 @@
                             <color key="backgroundColor" red="0.83529411760000005" green="0.92941176469999998" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P10-gC-Vrc">
-                            <rect key="frame" x="79" y="60" width="334" height="140"/>
+                            <rect key="frame" x="79" y="60" width="354" height="180"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="离床建议:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81V-v9-ey8">
                                     <rect key="frame" x="8" y="0.0" width="64" height="21"/>
@@ -184,13 +184,13 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Xx-vp-yeU" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="58" y="336" width="438" height="224"/>
+                    <rect key="frame" x="58" y="346" width="458" height="270"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="trunrecord.png" translatesAutoresizingMaskIntoConstraints="NO" id="z1j-1W-neh">
-                            <rect key="frame" x="12" y="4" width="46" height="66"/>
+                            <rect key="frame" x="14" y="6" width="46" height="66"/>
                         </imageView>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ryS-aY-OGN">
-                            <rect key="frame" x="79" y="10" width="163" height="38"/>
+                            <rect key="frame" x="79" y="10" width="173" height="38"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="翻身次数:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6w1-Ja-l7r">
                                     <rect key="frame" x="8" y="10" width="64" height="21"/>
@@ -208,7 +208,7 @@
                             <color key="backgroundColor" red="0.93725490196078431" green="0.55294117647058827" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FxN-8i-zXH">
-                            <rect key="frame" x="250" y="10" width="163" height="38"/>
+                            <rect key="frame" x="260" y="10" width="173" height="38"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="翻身频率:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObJ-9r-WRF">
                                     <rect key="frame" x="8" y="10" width="82" height="21"/>
@@ -226,7 +226,7 @@
                             <color key="backgroundColor" red="0.93725490199999995" green="0.55294117649999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eTK-cG-UTD">
-                            <rect key="frame" x="79" y="60" width="334" height="140"/>
+                            <rect key="frame" x="79" y="60" width="354" height="180"/>
                             <color key="backgroundColor" red="0.93725490199999995" green="0.55294117649999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
@@ -236,13 +236,13 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7mF-3O-osu" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="532" y="336" width="438" height="224"/>
+                    <rect key="frame" x="532" y="346" width="458" height="270"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sleepofThisWeek.png" translatesAutoresizingMaskIntoConstraints="NO" id="MV0-qs-8QZ">
-                            <rect key="frame" x="12" y="4" width="46" height="66"/>
+                            <rect key="frame" x="14" y="6" width="46" height="66"/>
                         </imageView>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKb-Jp-MJc">
-                            <rect key="frame" x="79" y="8" width="334" height="192"/>
+                            <rect key="frame" x="79" y="14" width="354" height="228"/>
                             <color key="backgroundColor" red="0.52941176470588236" green="0.8666666666666667" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
@@ -255,6 +255,12 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="lblDeepSleepSpan" destination="fe8-LE-HPq" id="mY9-DD-5kd"/>
+                <outlet property="lblLightSleepSpan" destination="JGz-sj-EBa" id="QHP-Ti-6Ej"/>
+                <outlet property="lblOnBedSpan" destination="38e-NC-DYn" id="ITk-sD-WiV"/>
+                <outlet property="uiHRRR" destination="oFA-BM-Nga" id="kap-aq-TKO"/>
+            </connections>
         </view>
     </objects>
     <resources>
