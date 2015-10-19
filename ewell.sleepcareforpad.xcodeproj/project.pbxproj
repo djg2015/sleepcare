@@ -49,6 +49,12 @@
 		3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E4B1BABDA3B00D70953 /* Bed.swift */; };
 		3A376E4E1BABDE3500D70953 /* SignReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E4D1BABDE3500D70953 /* SignReport.swift */; };
 		3A3C37721BD48BC000080D03 /* SleepcareDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37711BD48BC000080D03 /* SleepcareDetail.xib */; };
+		3A3C37791BD48F0B00080D03 /* sleepofThisWeek.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37731BD48F0A00080D03 /* sleepofThisWeek.png */; };
+		3A3C377A1BD48F0B00080D03 /* trunrecord.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37741BD48F0B00080D03 /* trunrecord.png */; };
+		3A3C377B1BD48F0B00080D03 /* leaverecord.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37751BD48F0B00080D03 /* leaverecord.png */; };
+		3A3C377C1BD48F0B00080D03 /* dateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37761BD48F0B00080D03 /* dateIcon.png */; };
+		3A3C377D1BD48F0B00080D03 /* sleepcareblock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37771BD48F0B00080D03 /* sleepcareblock.png */; };
+		3A3C377E1BD48F0B00080D03 /* hrrr.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37781BD48F0B00080D03 /* hrrr.png */; };
 		3A3D65E41BAA8E1100CEFB25 /* MessageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */; };
 		3A41856C1BC6618900DE6F5F /* Pager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41856B1BC6618900DE6F5F /* Pager.swift */; };
 		3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADC01BA7A65A000C109B /* AppDelegate.swift */; };
@@ -167,6 +173,12 @@
 		3A376E4B1BABDA3B00D70953 /* Bed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bed.swift; sourceTree = "<group>"; };
 		3A376E4D1BABDE3500D70953 /* SignReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignReport.swift; sourceTree = "<group>"; };
 		3A3C37711BD48BC000080D03 /* SleepcareDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepcareDetail.xib; sourceTree = "<group>"; };
+		3A3C37731BD48F0A00080D03 /* sleepofThisWeek.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleepofThisWeek.png; sourceTree = "<group>"; };
+		3A3C37741BD48F0B00080D03 /* trunrecord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trunrecord.png; sourceTree = "<group>"; };
+		3A3C37751BD48F0B00080D03 /* leaverecord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaverecord.png; sourceTree = "<group>"; };
+		3A3C37761BD48F0B00080D03 /* dateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dateIcon.png; sourceTree = "<group>"; };
+		3A3C37771BD48F0B00080D03 /* sleepcareblock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleepcareblock.png; sourceTree = "<group>"; };
+		3A3C37781BD48F0B00080D03 /* hrrr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hrrr.png; sourceTree = "<group>"; };
 		3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageFactory.swift; sourceTree = "<group>"; };
 		3A3D65E71BAAB67C00CEFB25 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		3A41856B1BC6618900DE6F5F /* Pager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pager.swift; sourceTree = "<group>"; };
@@ -495,6 +507,12 @@
 		3AFF67A61BBA2F2500C9CA20 /* Pad */ = {
 			isa = PBXGroup;
 			children = (
+				3A3C37731BD48F0A00080D03 /* sleepofThisWeek.png */,
+				3A3C37741BD48F0B00080D03 /* trunrecord.png */,
+				3A3C37751BD48F0B00080D03 /* leaverecord.png */,
+				3A3C37761BD48F0B00080D03 /* dateIcon.png */,
+				3A3C37771BD48F0B00080D03 /* sleepcareblock.png */,
+				3A3C37781BD48F0B00080D03 /* hrrr.png */,
 				2C6AE1151BD48713006FC007 /* searchBtn.png */,
 				2C6AE1161BD48713006FC007 /* searchBtnChecked.png */,
 				3AA3161A1BD0CFA500FC3C40 /* checkboxchoosed.png */,
@@ -622,9 +640,11 @@
 			files = (
 				3AFB93941BCF96F200042AF1 /* pwdIcon.png in Resources */,
 				3A9C12FC1BC789C6008EC314 /* BedFrame.png in Resources */,
+				3A3C377E1BD48F0B00080D03 /* hrrr.png in Resources */,
 				3A41ADC61BA7A65A000C109B /* Main.storyboard in Resources */,
 				3A41ADE31BA7B3D1000C109B /* LoginView.xib in Resources */,
 				2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */,
+				3A3C377C1BD48F0B00080D03 /* dateIcon.png in Resources */,
 				3A9C12FD1BC789C6008EC314 /* pagerunselected.png in Resources */,
 				3A41ADCB1BA7A65A000C109B /* LaunchScreen.xib in Resources */,
 				3A3756201BCB589600182DE4 /* DialogFrame.xib in Resources */,
@@ -632,6 +652,7 @@
 				3A9C13001BC789C6008EC314 /* onBedView.png in Resources */,
 				2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */,
 				3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */,
+				3A3C37791BD48F0B00080D03 /* sleepofThisWeek.png in Resources */,
 				2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */,
 				3A9C12FE1BC789C6008EC314 /* pagerselected.png in Resources */,
 				3AFB93901BCF96F200042AF1 /* loginBtn.png in Resources */,
@@ -643,6 +664,7 @@
 				3A9C12F91BC789C6008EC314 /* infoHead.png in Resources */,
 				3A8604511BBA6327005FC117 /* topbg.png in Resources */,
 				3A9C12F21BC789C6008EC314 /* emptyBed.png in Resources */,
+				3A3C377A1BD48F0B00080D03 /* trunrecord.png in Resources */,
 				3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */,
 				3AFB93951BCF96F200042AF1 /* userIcon.png in Resources */,
 				3A3452941BC63A5000292107 /* MainView.xib in Resources */,
@@ -659,7 +681,9 @@
 				3A3756261BCB5E9600182DE4 /* SleepcareList.xib in Resources */,
 				3A9C12F41BC789C6008EC314 /* leaveView.png in Resources */,
 				3A9C12F11BC789C6008EC314 /* maintop.png in Resources */,
+				3A3C377B1BD48F0B00080D03 /* leaverecord.png in Resources */,
 				3A2F02781BCBA4E4000B16B5 /* infoHeadred.png in Resources */,
+				3A3C377D1BD48F0B00080D03 /* sleepcareblock.png in Resources */,
 				3A9C12F81BC789C6008EC314 /* dropdown.png in Resources */,
 				3A309C551BC607050005F475 /* SleepCareCollectionView.xib in Resources */,
 				3A9C12F31BC789C6008EC314 /* leaveBed.png in Resources */,

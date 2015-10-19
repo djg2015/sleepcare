@@ -34,7 +34,7 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         
         //加载弹窗的界面
         //睡眠质量列表
-        let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepcareList", owner: self, options: nil).last as! SleepCareListView
+        let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepcareDetail", owner: self, options: nil).last as! SleepCareDetail
         mainview1.frame = CGRectMake(0, 0, 1024, self.mainScroll.frame.size.height)
         self.mainScroll.addSubview(mainview1)
         self.mainScroll.bringSubviewToFront(mainview1)
