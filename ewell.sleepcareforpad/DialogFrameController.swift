@@ -43,7 +43,7 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         //睡眠质量总览
         let mainview2 = NSBundle.mainBundle().loadNibNamed("SleepQualityPandect", owner: self, options: nil).last as! SleepQualityPandectView
         mainview2.frame = CGRectMake(1024, 0, 1024, self.mainScroll.frame.size.height)
-        mainview2.backgroundColor = UIColor.whiteColor()
+        mainview2.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 0.5)
         mainview2.viewInit()
         self.mainScroll.addSubview(mainview2)
         self.mainScroll.bringSubviewToFront(mainview2)
@@ -52,7 +52,7 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         let mainview3 = NSBundle.mainBundle().loadNibNamed("AlarmView", owner: self, options: nil).last as! AlarmView
         println(self.mainScroll.frame.size.height)
         mainview3.frame = CGRectMake(1024*2, 0, 1024, self.mainScroll.frame.size.height)
-        mainview3.backgroundColor = UIColor.whiteColor()
+        mainview3.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 0.5)
         mainview3.viewLoaded();
         self.mainScroll.addSubview(mainview3)
         self.mainScroll.bringSubviewToFront(mainview3)
