@@ -25,14 +25,6 @@ class SleepcareQualityPandectViewModel: NSObject{
         set(value)
         {
             self._sleepQualityList = value
-            if(Int32(self._totalNum) % self._pageSize != 0)
-            {
-                TotalPageCount = "共" + String(Int32(self._totalNum)/self._pageSize + 1) + "页"
-            }
-            else
-            {
-                TotalPageCount = "共" + String(Int32(self._sleepQualityList.count)/self._pageSize) + "页"
-            }
         }
     }
     
@@ -108,19 +100,19 @@ class SleepcareQualityPandectViewModel: NSObject{
         }
         previewCommand = RACCommand() {
             (any:AnyObject!) -> RACSignal in
-            
-            if(Int32(self.CurrentPageIndex.toInt()!) < Int32(self._totalNum))
+            if(Int32(self.CurrentPageIndex.toInt()!) > 1)
             {
-                self.CurrentPageIndex = String(Int32(self.CurrentPageIndex.toInt()!) + 1)
-                
+                self.CurrentPageIndex = String(Int32(self.CurrentPageIndex.toInt()!) - 1)
             }
+            
             return self.Search()
         }
         nextCommand = RACCommand() {
             (any:AnyObject!) -> RACSignal in
-            if(Int32(self.CurrentPageIndex.toInt()!) > 1)
+            if(Int32(self.CurrentPageIndex.toInt()!) < Int32(self._totalNum))
             {
-                self.CurrentPageIndex = String(Int32(self.CurrentPageIndex.toInt()!) - 1)
+                self.CurrentPageIndex = String(Int32(self.CurrentPageIndex.toInt()!) + 1)
+                
             }
             return self.Search()
         }
@@ -154,7 +146,16 @@ class SleepcareQualityPandectViewModel: NSObject{
                     
                     self.SleepQualityList.append(itemVM)
                 }
-
+                
+                if(Int32(self._totalNum) % self._pageSize != 0)
+                {
+                    self.TotalPageCount = "共" + String(Int32(self._totalNum)/self._pageSize + 1) + "页"
+                }
+                else
+                {
+                    self.TotalPageCount = "共" + String(Int32(self._totalNum)/self._pageSize) + "页"
+                }
+                
                 self.tableView.reloadData()
                 },
                 catch: { ex in
