@@ -11,7 +11,12 @@ import UIKit
 class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDelegate {
     //界面控件
     @IBOutlet weak var curPage: Pager!
+    @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var lblTitle: UILabel!
     
+    @IBAction func btnBackClick(sender: AnyObject) {
+        self.presentViewController(SleepcareMainController(nibName: "MainView",  bundle:nil), animated: true, completion: nil)
+    }
     //类字段
     var mainScroll:UIScrollView!
     var _userCode:String = ""
@@ -44,15 +49,15 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         self.view.addSubview(self.mainScroll)
         
         self.mainScroll.contentSize = CGSize(width: self.view.bounds.size.width * 3, height: 660)
-        
+        self.curPage.detegate = self
         //加载弹窗的界面
         //睡眠质量列表
-//        let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepcareDetail", owner: self, options: nil).first as! SleepCareDetail
-//        mainview1.frame = CGRectMake(0, 0, 1024, self.mainScroll.frame.size.height)
-//        mainview1.viewInit("00000017")
-//        self.mainScroll.addSubview(mainview1)
-//        self.mainScroll.bringSubviewToFront(mainview1)
-
+                let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepcareDetail", owner: self, options: nil).first as! SleepCareDetail
+                mainview1.frame = CGRectMake(0, 0, 1024, self.mainScroll.frame.size.height)
+                mainview1.viewInit("00000017")
+                self.mainScroll.addSubview(mainview1)
+                self.mainScroll.bringSubviewToFront(mainview1)
+        
         //睡眠质量总览
         let mainview2 = NSBundle.mainBundle().loadNibNamed("SleepQualityPandect", owner: self, options: nil).first as! SleepQualityPandectView
         mainview2.frame = CGRectMake(1024, 0, 1024, self.mainScroll.frame.size.height)
@@ -72,15 +77,56 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         
         //设置分页控件
         self.curPage.pageCount = 3
-        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if(scrollView.contentOffset.x == 0)
+        {
+            self.JumpPage(1)
+        }
+        else if(scrollView.contentOffset.x == 1024)
+        {
+            self.JumpPage(2)
+        }
+        else if(scrollView.contentOffset.x == 1024*2)
+        {
+            self.JumpPage(3)
+        }
+    }
+    
     func JumpPage(pageIndex:NSInteger){
+        if(pageIndex == 1)
+        {
+            self.lblTitle.text = "睡眠质量明细"
+            self.mainScroll.contentOffset.x = 0
+        }
+        else if(pageIndex == 2)
+        {
+            self.lblTitle.text = "睡眠质量总览"
+            self.mainScroll.contentOffset.x = 1024
+        }
+        else
+        {
+            self.lblTitle.text = "检测日志"
+            self.mainScroll.contentOffset.x = 1024 * 2
+        }
+        
+        for page in self.curPage.subviews
+        {
+            if(page.tag == pageIndex)
+            {
+                page.setBackgroundImage(UIImage(named: "pagerselected"), forState:.Normal)
+            }
+            else
+            {
+                page.setBackgroundImage(UIImage(named: "pagerunselected"), forState:.Normal)
+            }
+        }
         
     }
 }
