@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
+class SleepQualityPandectView:UIView,UITableViewDelegate,UITableViewDataSource
 {
     // 控件定义
     // 分析起始时间
@@ -92,6 +92,16 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
         
         self.txtAnalysTimeBegin.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeBegin")
         self.txtAnalysTimeEnd.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeEnd")
+        self.txtAnalysTimeBegin.rac_signalForControlEvents(UIControlEvents.TouchDown).subscribeNext
+        {
+            _ in
+            self.initDatePicker(1)
+        }
+        self.txtAnalysTimeEnd.rac_signalForControlEvents(UIControlEvents.TouchDown).subscribeNext
+            {
+                _ in
+                self.initDatePicker(2)
+        }
         
         // 初始化TableView
         self.screenWidth = self.frame.width - 60
@@ -241,16 +251,8 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
     var datePicker:UIDatePicker = UIDatePicker()
     var alertview:UIView! = UIView()
     var dateButton : UIButton = UIButton()
-    @IBAction func txtBeginTimeFocus(sender: AnyObject) {
-        initDatePicker()
-    }
-    
-    @IBAction func txtEndTimeFocus(sender: AnyObject) {
-        initDatePicker()
-    }
-    
-    
-    func initDatePicker()
+
+    func initDatePicker(timeTag:Int)
     {
         var screen:UIScreen = UIScreen.mainScreen()
         var devicebounds:CGRect = screen.bounds
@@ -265,19 +267,53 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
         
         //设置datepicker
         datePicker.datePickerMode = .Date
+        datePicker.tag = timeTag
+        datePicker.locale = NSLocale(localeIdentifier: "Chinese")
         datePicker.backgroundColor = UIColor.whiteColor()
-        datePicker.frame = CGRect(x:10,y:deviceHeight-297,width:deviceWidth-10*2,height:216)
+        datePicker.frame = CGRect(x:(deviceWidth - 300)/2,y:100,width:300,height:216)
         
         //设置 确定 和 取消 按钮
         var li_common:Li_common = Li_common()
-        var selectedButton:UIButton = li_common.Li_createButton("确定",x:10,y:deviceHeight-80,width:deviceWidth-10*2,height:35,target:self, action: Selector("selectedAction"))
-        var cancelButton:UIButton = li_common.Li_createButton("取消",x:10,y:deviceHeight-50,width:deviceWidth-10*2,height:35,target:self, action: Selector("cancelAction"))
+        var selectedButton:UIButton = li_common.Li_createButton("确定",x:(deviceWidth - 300)/2,y:317,width:150,height:35,target:self, action: Selector("selectedAction"))
+        var cancelButton:UIButton = li_common.Li_createButton("取消",x:(deviceWidth - 300)/2 + 150,y:317,width:150,height:35,target:self, action: Selector("cancelAction"))
         
         alertview.addSubview(datePicker)
         alertview.addSubview(selectedButton)
         alertview.addSubview(cancelButton)
         
-        self.viewSleepQuality.addSubview(alertview)
+        self.addSubview(alertview)
+    }
+    
+    //选择日期
+    func selectedAction(){
+        var dateString:String = self.dateString(datePicker.date)
+        dateButton.setTitle(dateString, forState: UIControlState.Normal)
+        removeAlertview()
+        if(datePicker.tag == 1)
+        {
+            self.qualityViewModel.AnalysisTimeBegin = dateString
+        }
+        else
+        {
+            self.qualityViewModel.AnalysisTimeEnd = dateString
+        }
+    }
+    
+    func cancelAction(){
+        removeAlertview()
+        //        println("取消")
+    }
+    
+    func removeAlertview(){
+        alertview.removeFromSuperview()
+    }
+    
+    //返回2014-06-19格式的日期
+    func dateString(date:NSDate) ->String{
+        var dateFormatter:NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        var dateString:String = dateFormatter.stringFromDate(date)
+        return dateString
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
