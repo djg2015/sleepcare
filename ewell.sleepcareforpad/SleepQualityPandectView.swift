@@ -67,7 +67,7 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
     // 界面初始化
     func viewInit(userCode:String)
     {
-        self.qualityViewModel.UserCode = userCode
+        self.qualityViewModel = SleepcareQualityPandectViewModel(userCode: userCode)
         // 按钮定义
         self.btnSearch.rac_command = qualityViewModel.searchCommand
         self.btnPreview.rac_command = qualityViewModel.previewCommand
@@ -83,12 +83,15 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
         self.btnNext.setImage(UIImage(named:"nextBtnChecked"), forState: UIControlState.Highlighted)
         
         //属性绑定
-        self.txtAnalysTimeBegin.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeBegin")
-        self.txtAnalysTimeEnd.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeEnd")
+        RACObserve(self.qualityViewModel, "AnalysisTimeBegin") ~> RAC(self.txtAnalysTimeBegin, "text")
+        RACObserve(self.qualityViewModel, "AnalysisTimeEnd") ~> RAC(self.txtAnalysTimeEnd, "text")
         RACObserve(self.qualityViewModel, "CurrentPageIndex") ~> RAC(self.lblCurrentPageIndex, "text")
         RACObserve(self.qualityViewModel, "TotalPageCount") ~> RAC(self.lblTotalPageCount, "text")
         RACObserve(self.qualityViewModel, "PreviewBtnEnable") ~> RAC(self, "PreviewBtnEnable")
         RACObserve(self.qualityViewModel, "NextBtnEnable") ~> RAC(self, "NextBtnEnable")
+        
+        self.txtAnalysTimeBegin.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeBegin")
+        self.txtAnalysTimeEnd.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeEnd")
         
         // 初始化TableView
         self.screenWidth = self.frame.width - 60
@@ -235,6 +238,46 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
         return cell!
     }
     
+    var datePicker:UIDatePicker = UIDatePicker()
+    var alertview:UIView! = UIView()
+    var dateButton : UIButton = UIButton()
+    @IBAction func txtBeginTimeFocus(sender: AnyObject) {
+        initDatePicker()
+    }
+    
+    @IBAction func txtEndTimeFocus(sender: AnyObject) {
+        initDatePicker()
+    }
+    
+    func initDatePicker()
+    {
+        var screen:UIScreen = UIScreen.mainScreen()
+        var devicebounds:CGRect = screen.bounds
+        var deviceWidth:CGFloat = devicebounds.width
+        var deviceHeight:CGFloat = devicebounds.height
+        var viewColor:UIColor = UIColor(white:0, alpha: 0.6)
+        
+        //设置日期弹出窗口
+        alertview = UIView(frame:devicebounds)
+        alertview.backgroundColor = viewColor
+        alertview.userInteractionEnabled = true
+        
+        //设置datepicker
+        datePicker.datePickerMode = .Date
+        datePicker.backgroundColor = UIColor.whiteColor()
+        datePicker.frame = CGRect(x:10,y:deviceHeight-297,width:deviceWidth-10*2,height:216)
+        
+        //设置 确定 和 取消 按钮
+        var li_common:Li_common = Li_common()
+        var selectedButton:UIButton = li_common.Li_createButton("确定",x:10,y:deviceHeight-80,width:deviceWidth-10*2,height:35,target:self, action: Selector("selectedAction"))
+        var cancelButton:UIButton = li_common.Li_createButton("取消",x:10,y:deviceHeight-50,width:deviceWidth-10*2,height:35,target:self, action: Selector("cancelAction"))
+        
+        alertview.addSubview(datePicker)
+        alertview.addSubview(selectedButton)
+        alertview.addSubview(cancelButton)
+        
+        self.viewSleepQuality.addSubview(alertview)
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         

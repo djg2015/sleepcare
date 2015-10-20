@@ -131,9 +131,14 @@
         // 下一页
         var nextCommand: RACCommand?
         
-        override init()
+        override init() {
+            super.init()
+        }
+        
+        required init(userCode:String)
         {
             super.init()
+            self.UserCode = userCode
             searchCommand = RACCommand() {
                 (any:AnyObject!) -> RACSignal in
                 return self.Search()
@@ -146,9 +151,10 @@
                 (any:AnyObject!) -> RACSignal in
                 return self.Next()
             }
-            
             // 加载数据
-            //        self.Search()
+            self.AnalysisTimeBegin = Date.today().addDays(-7).description(format: "yyyy-MM-dd")
+            self.AnalysisTimeEnd = Date.today().description(format: "yyyy-MM-dd")
+            self.Search()
         }
         
         
