@@ -65,8 +65,9 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
     }
     
     // 界面初始化
-    func viewInit()
+    func viewInit(userCode:String)
     {
+        self.qualityViewModel.UserCode = userCode
         // 按钮定义
         self.btnSearch.rac_command = qualityViewModel.searchCommand
         self.btnPreview.rac_command = qualityViewModel.previewCommand

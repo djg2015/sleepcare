@@ -14,6 +14,19 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
     
     //类字段
     var mainScroll:UIScrollView!
+    var _userCode:String = ""
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    required init(nibName nibNameOrNil: String?, userCode:String) {
+        super.init(nibName: nibNameOrNil, bundle: nil)
+        self._userCode = userCode
+    }
     
     //界面初始设置
     override func viewDidLoad() {
@@ -44,7 +57,7 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         let mainview2 = NSBundle.mainBundle().loadNibNamed("SleepQualityPandect", owner: self, options: nil).last as! SleepQualityPandectView
         mainview2.frame = CGRectMake(1024, 0, 1024, self.mainScroll.frame.size.height)
         mainview2.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 0.5)
-        mainview2.viewInit()
+        mainview2.viewInit(self._userCode)
         self.mainScroll.addSubview(mainview2)
         self.mainScroll.bringSubviewToFront(mainview2)
         

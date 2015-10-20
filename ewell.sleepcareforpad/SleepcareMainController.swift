@@ -82,7 +82,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         try {
             ({
                 //正常业务处理
-                self.presentViewController(DialogFrameController(nibName:"DialogFrame", bundle:nil), animated: true, completion: nil)
+                self.presentViewController(DialogFrameController(nibName: "DialogFrame", userCode: "00000001"), animated: true, completion: nil)
                 //抛出异常
                 //throw("0", "账户名不存在")
                 },
