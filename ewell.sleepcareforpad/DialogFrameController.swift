@@ -112,7 +112,7 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         }
         else
         {
-            self.lblTitle.text = "检测日志"
+            self.lblTitle.text = "监测日志"
             self.mainScroll.contentOffset.x = 1024 * 2
         }
         

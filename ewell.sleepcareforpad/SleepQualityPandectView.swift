@@ -67,7 +67,7 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
     // 界面初始化
     func viewInit(userCode:String)
     {
-        self.qualityViewModel.UserCode = userCode
+        self.qualityViewModel = SleepcareQualityPandectViewModel(userCode: userCode)
         // 按钮定义
         self.btnSearch.rac_command = qualityViewModel.searchCommand
         self.btnPreview.rac_command = qualityViewModel.previewCommand
@@ -83,12 +83,15 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
         self.btnNext.setImage(UIImage(named:"nextBtnChecked"), forState: UIControlState.Highlighted)
         
         //属性绑定
-        self.txtAnalysTimeBegin.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeBegin")
-        self.txtAnalysTimeEnd.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeEnd")
+        RACObserve(self.qualityViewModel, "AnalysisTimeBegin") ~> RAC(self.txtAnalysTimeBegin, "text")
+        RACObserve(self.qualityViewModel, "AnalysisTimeEnd") ~> RAC(self.txtAnalysTimeEnd, "text")
         RACObserve(self.qualityViewModel, "CurrentPageIndex") ~> RAC(self.lblCurrentPageIndex, "text")
         RACObserve(self.qualityViewModel, "TotalPageCount") ~> RAC(self.lblTotalPageCount, "text")
         RACObserve(self.qualityViewModel, "PreviewBtnEnable") ~> RAC(self, "PreviewBtnEnable")
         RACObserve(self.qualityViewModel, "NextBtnEnable") ~> RAC(self, "NextBtnEnable")
+        
+        self.txtAnalysTimeBegin.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeBegin")
+        self.txtAnalysTimeEnd.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeEnd")
         
         // 初始化TableView
         self.screenWidth = self.frame.width - 60
