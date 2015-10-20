@@ -115,4 +115,16 @@ extension String {
             }
         }
     }
+    
+    //分割字符
+    func split(s:String)->[String]{
+        if s.isEmpty{
+            var x=[String]()
+            for y in self{
+                x.append(String(y))
+            }
+            return x
+        }
+        return self.componentsSeparatedByString(s)
+    }
 }

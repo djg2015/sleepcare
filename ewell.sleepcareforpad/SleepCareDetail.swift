@@ -33,23 +33,7 @@ class SleepCareDetail: UIView {
     var _signReports:Array<SignReport>?
     dynamic var SignReports:Array<SignReport>?{
         didSet{
-            //设置心率呼吸图表
-            var lineChart:PNLineChart = PNLineChart(frame: CGRectMake(0, 10, self.uiHRRR.frame.width, self.uiHRRR.frame.height))
-            lineChart.yLabelFormat = "%1.1f"
-            lineChart.yFixedValueMin = 10
-            lineChart.showLabel = true
-            lineChart.backgroundColor = UIColor.clearColor()
-            lineChart.xLabels = []
-            for(var i = self.SignReports!.count - 1 ;i >= 0;i--){
-                var xlable = self.SignReports![i].ReportHour.subString(11, length: 2)
-                if(xlable.hasPrefix("0")){
-                    xlable = xlable.subString(1, length: 1)
-                }
-                xlable = xlable + "点"
-                lineChart.xLabels.append(xlable)
-            }
-            //lineChart.xLabels = ["08:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00"]
-            lineChart.showCoordinateAxis = true
+            
             
             
             //设置心率曲线
@@ -82,18 +66,49 @@ class SleepCareDetail: UIView {
                 return item
             })
             
-            lineChart.chartData = [data01,data02]
-            lineChart.strokeChart()
-            self.uiHRRR.addSubview(lineChart)
+            var lineChart:PNLineChart? = PNLineChart(frame: CGRectMake(0, 10, self.uiHRRR.frame.width, self.uiHRRR.frame.height))
+            if( self.uiHRRR.subviews.count != 0){
+                lineChart = self.uiHRRR.subviews[0] as? PNLineChart
+            }
             
-            lineChart.legendStyle = PNLegendItemStyle.Stacked
-            lineChart.legendFontSize = 12
-            let legend = lineChart.getLegendWithMaxWidth(self.uiHRRR.frame.width)
+            lineChart!.yLabelFormat = "%1.1f"
+            lineChart!.yFixedValueMin = 10
+            lineChart!.showLabel = true
+            lineChart!.backgroundColor = UIColor.clearColor()
+            lineChart!.xLabels = []
+            for(var i = self.SignReports!.count - 1 ;i >= 0;i--){
+                var xlable = self.SignReports![i].ReportHour.subString(11, length: 2)
+                if(xlable.hasPrefix("0")){
+                    xlable = xlable.subString(1, length: 1)
+                }
+                xlable = xlable + "点"
+                lineChart!.xLabels.append(xlable)
+            }
+            //lineChart.xLabels = ["08:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00"]
+            lineChart!.showCoordinateAxis = true
+            
+            if( self.uiHRRR.subviews.count == 0){
+                lineChart!.chartData = [data01,data02]
+                lineChart!.strokeChart()
+                self.uiHRRR.addSubview(lineChart!)
+            }
+            else{
+                lineChart!.updateChartData([data01,data02])
+            }
+            
+            
+            
+            lineChart!.legendStyle = PNLegendItemStyle.Stacked
+            lineChart!.legendFontSize = 12
+            let legend = lineChart!.getLegendWithMaxWidth(self.uiHRRR.frame.width)
             legend.frame = CGRectMake(self.uiHRRR.frame.width - 65, 5, self.uiHRRR.frame.width, self.uiHRRR.frame.height)
             self.uiHRRR.addSubview(legend)
             
             //设置翻身
-            var trunlineChart:PNLineChart = PNLineChart(frame: CGRectMake(0, 10, self.uiHRRR.frame.width, self.uiHRRR.frame.height))
+            var trunlineChart:PNLineChart = PNLineChart(frame: CGRectMake(0, 10, self.uiTrun.frame.width, self.uiTrun.frame.height))
+            if(self.uiTrun.subviews.count != 0){
+                trunlineChart = (self.uiTrun.subviews[0] as? PNLineChart)!
+            }
             //trunlineChart.yLabelFormat = "%1.1f"
             trunlineChart.showLabel = true
             trunlineChart.yFixedValueMin = 1
@@ -125,15 +140,90 @@ class SleepCareDetail: UIView {
                 return item
             })
             
-            trunlineChart.chartData = [data03]
-            trunlineChart.strokeChart()
-            self.uiTrun.addSubview(trunlineChart)
+            if( self.uiTrun.subviews.count == 0){
+                trunlineChart.chartData = [data03]
+                trunlineChart.strokeChart()
+                self.uiTrun.addSubview(trunlineChart)
+            }
+            else{
+                trunlineChart.updateChartData([data03])
+            }
+
             
             trunlineChart.legendStyle = PNLegendItemStyle.Stacked
             trunlineChart.legendFontSize = 12
             let trunlegend = trunlineChart.getLegendWithMaxWidth(self.uiTrun.frame.width)
             trunlegend.frame = CGRectMake(self.uiTrun.frame.width - 90, 5, self.uiTrun.frame.width, self.uiTrun.frame.height)
             self.uiTrun.addSubview(trunlegend)
+        }
+    }
+    
+    var _sleepCareReports:Array<SleepCareReport>?
+    dynamic var SleepCareReports:Array<SleepCareReport>?{
+        didSet{
+            
+            //设置周睡眠图表
+            var lineChart:PNLineChart = PNLineChart(frame: CGRectMake(10, 10, self.uiSleep.frame.width, self.uiSleep.frame.height))
+            if(self.uiSleep.subviews.count != 0){
+                lineChart = (self.uiSleep.subviews[0] as? PNLineChart)!
+            }
+            lineChart.yFixedValueMin = 1
+            lineChart.showLabel = true
+            lineChart.backgroundColor = UIColor.clearColor()
+            lineChart.xLabels = []
+            for(var i = self.SleepCareReports!.count - 1 ;i >= 0;i--){
+                var xlable = self.SleepCareReports![i].ReportDate
+                lineChart.xLabels.append(xlable)
+            }
+            //lineChart.xLabels = ["08:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00"]
+            lineChart.showCoordinateAxis = true
+            
+            
+            //设置在床曲线
+            var data01Array: [CGFloat] = []
+            for(var i = self.SleepCareReports!.count - 1 ;i >= 0;i--){
+                data01Array.append(CGFloat(self.SleepCareReports![i].onBedTimeSpanALL))
+            }
+            var data01:PNLineChartData = PNLineChartData()
+            data01.color = PNGreenColor
+            data01.itemCount = UInt(data01Array.count)
+            data01.dataTitle = "在床时长"
+            data01.getData = ({(index: UInt)  in
+                var yValue:CGFloat = data01Array[Int(index)]
+                var item = PNLineChartDataItem(y: yValue)
+                return item
+            })
+            
+            //设置睡眠曲线
+            var data02Array: [CGFloat] = []
+            for(var i = self.SleepCareReports!.count - 1 ;i >= 0;i--){
+                data02Array.append(CGFloat(self.SleepCareReports![i].SleepTimeSpanALL))
+            }
+            var data02:PNLineChartData = PNLineChartData()
+            data02.color = PNGreyColor
+            data02.itemCount = UInt(data02Array.count)
+            data02.dataTitle = "睡眠时长"
+            data02.getData = ({(index: UInt)  in
+                var yValue:CGFloat = data02Array[Int(index)]
+                var item = PNLineChartDataItem(y: yValue)
+                return item
+            })
+            
+            if( self.uiSleep.subviews.count == 0){
+                lineChart.chartData = [data01,data02]
+                lineChart.strokeChart()
+                self.uiSleep.addSubview(lineChart)
+            }
+            else{
+                lineChart.updateChartData([data01,data02])
+            }
+
+            
+            lineChart.legendStyle = PNLegendItemStyle.Serial
+            lineChart.legendFontSize = 12
+            let legend = lineChart.getLegendWithMaxWidth(self.uiSleep.frame.width)
+            legend.frame = CGRectMake(65, 5, self.uiSleep.frame.width, self.uiSleep.frame.height)
+            self.uiSleep.addSubview(legend)
         }
     }
     
@@ -149,6 +239,7 @@ class SleepCareDetail: UIView {
         
         sleepcareDetailViewModel = SleepcareDetailViewModel(userCode: userCode, date: curdate)
         RACObserve(self.sleepcareDetailViewModel, "SignReports") ~> RAC(self, "SignReports")
+        RACObserve(self.sleepcareDetailViewModel, "SleepCareReports") ~> RAC(self, "SleepCareReports")
         RACObserve(self.sleepcareDetailViewModel, "DeepSleepSpan") ~> RAC(self.lblDeepSleepSpan, "text")
         RACObserve(self.sleepcareDetailViewModel, "LightSleepSpan") ~> RAC(self.lblLightSleepSpan, "text")
         RACObserve(self.sleepcareDetailViewModel, "OnbedSpan") ~> RAC(self.lblOnBedSpan, "text")
@@ -165,7 +256,7 @@ class SleepCareDetail: UIView {
     
     //根据查询条件重新加载界面
     func ReloadView(date:String){
-        sleepcareDetailViewModel = SleepcareDetailViewModel(userCode:sleepcareDetailViewModel!.userCode, date: date)
+        self.sleepcareDetailViewModel!.loadData(sleepcareDetailViewModel!.userCode, date: date)
     }
     
 }

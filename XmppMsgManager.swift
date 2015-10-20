@@ -63,8 +63,10 @@ class XmppMsgManager:MessageDelegate{
         while requsetQuene[baseMessage.messageSubject.requestID!] == nil {
             
         }
-        
-        var result:BaseMessage = requsetQuene.removeValueForKey(baseMessage.messageSubject.requestID!)!
+        var result:BaseMessage?
+        if(requsetQuene.count > 0){
+            result = requsetQuene.removeValueForKey(baseMessage.messageSubject.requestID!)!
+        }
         return result
     }
     
