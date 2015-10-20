@@ -1,5 +1,5 @@
 //
-//  SleepcareDetailViewModel.swift
+//
 //  ewell.sleepcareforpad
 //
 //  Created by djg on 15/10/19.
@@ -183,6 +183,17 @@ class SleepcareDetailViewModel: BaseViewModel {
         }
     }
     
+    var _sleepCareReports:Array<SleepCareReport>?
+    dynamic var SleepCareReports:Array<SleepCareReport>?{
+        get
+        {
+            return self._sleepCareReports
+        }
+        set(value)
+        {
+            self._sleepCareReports=value
+        }
+    }
     //自定义方法
     //加载初始数据
     func loadData(userCode:String, date:String){
@@ -203,6 +214,28 @@ class SleepcareDetailViewModel: BaseViewModel {
                 self.TrunTimes = sleepCareReport.TurnOverTime
                 self.TurnOverRate = sleepCareReport.TurnOverRate
                 self.SignReports = sleepCareReport.SignReports
+                //获取查询日期对应的自然周开始日期
+                let begin = self.GetStartOfWeekForDate(date)
+                let end  = begin.addDays(6)
+                println( begin.description(format: "yyyy-MM-dd"))
+                println( end.description(format: "yyyy-MM-dd"))
+                
+                var sleepcareList = sleepCareBussiness.GetSleepCareReportByUser("00001", userCode: userCode, analysTimeBegin: begin.description(format: "yyyy-MM-dd"), analysTimeEnd: end.description(format: "yyyy-MM-dd"), from: 1, max: 7)
+                
+                if(sleepcareList.sleepCareReportList.count > 0){
+                    self.SleepCareReports = sleepcareList.sleepCareReportList
+                    for i in 0...(self.SleepCareReports!.count - 1){
+                        self.SleepCareReports![i].ReportDate = self.GetChineseWeekDay(self.SleepCareReports![i].ReportDate)
+                        var bedSource = self.SleepCareReports![i].OnBedTimeSpan
+                        self.SleepCareReports![i].onBedTimeSpanALL = (bedSource.split(":")[0] as NSString).doubleValue + (bedSource.split(":")[1] as NSString).doubleValue / 60
+                        var sleepSource1 = (self.SleepCareReports![i].DeepSleepTimeSpan.split(":")[0]  as NSString).doubleValue
+                            + (self.SleepCareReports![i].LightSleepTimeSpan.split(":")[0]  as NSString).doubleValue
+                        var sleepsource2 = (self.SleepCareReports![i].DeepSleepTimeSpan.split(":")[1]  as NSString).doubleValue
+                            + (self.SleepCareReports![i].LightSleepTimeSpan.split(":")[1]  as NSString).doubleValue
+                        self.SleepCareReports![i].SleepTimeSpanALL = sleepSource1 + sleepsource2 / 60
+                        println(self.SleepCareReports![i].SleepTimeSpanALL)
+                    }
+                }
                 },
                 catch: { ex in
                     //异常处理
@@ -213,5 +246,50 @@ class SleepcareDetailViewModel: BaseViewModel {
                 }
             )}
         
+    }
+    
+    //获取查询日期对应的自然周开始日期
+    func GetStartOfWeekForDate(date:String) -> Date{
+        var curDate = Date(string: date)
+        var curindexofWeek = curDate.weekday()
+        var span:Int = 0
+        switch curindexofWeek{
+        case Weekday.Sunday:
+            span = 0
+        case Weekday.Monday:
+            span = 1
+        case Weekday.Tuesday:
+            span = 2
+        case Weekday.Wednesday:
+            span = 3
+        case Weekday.Thursday:
+            span = 4
+        case Weekday.Friday:
+            span = 5
+        case Weekday.Saturday:
+            span = 6
+        }
+        return curDate.addDays(-1 * span)
+    }
+    
+    func GetChineseWeekDay(date:String) -> String{
+        var curDate = Date(string: date)
+        var curindexofWeek = curDate.weekday()
+        switch curindexofWeek{
+        case Weekday.Sunday:
+            return "日"
+        case Weekday.Monday:
+            return "一"
+        case Weekday.Tuesday:
+            return "二"
+        case Weekday.Wednesday:
+            return "三"
+        case Weekday.Thursday:
+            return "四"
+        case Weekday.Friday:
+            return "五"
+        case Weekday.Saturday:
+            return "六"
+        }
     }
 }

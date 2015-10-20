@@ -18,6 +18,8 @@ class SleepCareReport:BaseMessage{
     var AVGRR:String = ""
     var TurnOverTime:String = ""
     var LightSleepTimeSpan:String = ""
+    var SleepTimeSpanALL:Double = 0
+    var onBedTimeSpanALL:Double = 0
     var DeepSleepTimeSpan:String = ""
     var OnBedTimeSpan:String = ""
     var AnalysisDateSection:String = ""

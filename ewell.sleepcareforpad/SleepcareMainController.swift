@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchBarDelegate {
+class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchBarDelegate,JumpPageDelegate {
     //界面控件
     @IBOutlet weak var curPager: Pager!
     @IBOutlet weak var search: UISearchBar!
@@ -69,6 +69,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
             }
         }
         self.search.delegate = self
+        self.curPager.detegate = self
         rac_setting()
     }
     
@@ -123,6 +124,15 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         // Dispose of any resources that can be recreated.
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        var page = Int(scrollView.contentOffset.x / self.mainScroll.frame.width) + 1
+        self.curPager.jump(page)
+    }
+    
+    func JumpPage(pageIndex:NSInteger){
+        self.mainScroll.contentOffset.x = CGFloat(pageIndex - 1) * self.mainScroll.frame.width       
+        
+    }
     
     func TestDate() -> Array<BedModel> {
         var data:Array<BedModel> = Array<BedModel>()
