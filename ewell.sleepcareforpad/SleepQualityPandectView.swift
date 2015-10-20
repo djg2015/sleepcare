@@ -238,6 +238,46 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
         return cell!
     }
     
+    var datePicker:UIDatePicker = UIDatePicker()
+    var alertview:UIView! = UIView()
+    var dateButton : UIButton = UIButton()
+    @IBAction func txtBeginTimeFocus(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func txtEndTimeFocus(sender: AnyObject) {
+        
+    }
+    
+    func initDatePicker()
+    {
+        var screen:UIScreen = UIScreen.mainScreen()
+        var devicebounds:CGRect = screen.bounds
+        var deviceWidth:CGFloat = devicebounds.width
+        var deviceHeight:CGFloat = devicebounds.height
+        var viewColor:UIColor = UIColor(white:0, alpha: 0.6)
+        
+        //设置日期弹出窗口
+        alertview = UIView(frame:devicebounds)
+        alertview.backgroundColor = viewColor
+        alertview.userInteractionEnabled = true
+        
+        //设置datepicker
+        datePicker.datePickerMode = .Date
+        datePicker.backgroundColor = UIColor.whiteColor()
+        datePicker.frame = CGRect(x:10,y:deviceHeight-297,width:deviceWidth-10*2,height:216)
+        
+        //设置 确定 和 取消 按钮
+//        var li_common:Li_common = Li_common()
+//        var selectedButton:UIButton = li_common.Li_createButton("确定",x:10,y:deviceHeight-80,width:deviceWidth-10*2,height:35,target:self, action: Selector("selectedAction"))
+//        var cancelButton:UIButton = li_common.Li_createButton("取消",x:10,y:deviceHeight-50,width:deviceWidth-10*2,height:35,target:self, action: Selector("cancelAction"))
+//        
+//        alertview.addSubview(datePicker)
+//        alertview.addSubview(selectedButton)
+//        alertview.addSubview(cancelButton)
+        
+        self.viewSleepQuality.addSubview(alertview)
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         

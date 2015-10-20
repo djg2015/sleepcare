@@ -50,7 +50,7 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
         lblLeaveTimespan.textAlignment = .Center
         lblLeaveTimespan.layer.borderWidth = 1
         lblLeaveTimespan.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
-        lblLeaveTimespan.backgroundColor = UIColor.whiteColor()
+        lblLeaveTimespan.backgroundColor = UIColor(red: 190/255, green: 236/255, blue: 255/255, alpha: 0.5)
         
         var lblLeaveTime = UILabel(frame: CGRectMake((self.screenWidth - 40)/2, 0, (self.screenWidth - 40)/2, 40))
         lblLeaveTime.text = "离床时间"
@@ -58,7 +58,7 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
         lblLeaveTime.textAlignment = .Center
         lblLeaveTime.layer.borderWidth = 1
         lblLeaveTime.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
-        lblLeaveTime.backgroundColor = UIColor.whiteColor()
+        lblLeaveTime.backgroundColor = UIColor(red: 190/255, green: 236/255, blue: 255/255, alpha: 0.5)
         
         headViewAlarm.addSubview(lblLeaveTimespan)
         headViewAlarm.addSubview(lblLeaveTime)
