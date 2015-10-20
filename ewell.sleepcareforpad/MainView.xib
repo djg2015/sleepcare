@@ -106,8 +106,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EBH-ju-ae7" customClass="Pager" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="622" width="1024" height="46"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBH-ju-ae7" customClass="Pager" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="722" width="1024" height="46"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <searchBar contentMode="redraw" fixedFrame="YES" placeholder="请输入内容搜索" translatesAutoresizingMaskIntoConstraints="NO" id="Svk-kA-1lf">
@@ -162,6 +162,12 @@
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="EBH-ju-ae7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="722" id="0ii-ZO-ckL"/>
+                <constraint firstAttribute="trailing" secondItem="EBH-ju-ae7" secondAttribute="trailing" id="RRX-Vt-rOu"/>
+                <constraint firstAttribute="bottom" secondItem="EBH-ju-ae7" secondAttribute="bottom" id="Rss-Hi-wj7"/>
+                <constraint firstItem="EBH-ju-ae7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yAy-wl-aCd"/>
+            </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
             <point key="canvasLocation" x="487" y="384"/>
