@@ -264,7 +264,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
             bed.BedCode = partInfo.BedList[i].BedCode
             bed.BedNumber = partInfo.BedList[i].BedNumber
             bed.BedStatus = BedStatusType.unline
-            
+            bed.UserCode = partInfo.BedList[i].UserCode
             beds.append(bed)
         }
         self.BedModelList = beds

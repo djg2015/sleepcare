@@ -18,6 +18,18 @@ class SleepCareDetail: UIView {
     @IBOutlet weak var lblLightSleepSpan: UILabel!
     @IBOutlet weak var lblOnBedSpan: UILabel!
     @IBOutlet weak var uiHRRR: UIView!
+    @IBOutlet var lblHR: UILabel!
+    @IBOutlet var lblAvgHR: UILabel!
+    @IBOutlet var lblRR: UILabel!
+    @IBOutlet var lblAvgRR: UILabel!
+    @IBOutlet var lblLeaveBedTimes: UILabel!
+    @IBOutlet var lblMaxLeaveSpan: UILabel!
+    @IBOutlet var lblLeaveSugest: UILabel!
+    @IBOutlet var lblTurnTimes: UILabel!
+    @IBOutlet var lblTrunRate: UILabel!
+    @IBOutlet var uiTrun: UIView!
+    @IBOutlet var uiSleep: UIView!
+    
     
     var _signReports:Array<SignReport>?
     dynamic var SignReports:Array<SignReport>?{
@@ -26,12 +38,18 @@ class SleepCareDetail: UIView {
             lineChart.yLabelFormat = "%1.1f"
             lineChart.showLabel = true
             lineChart.backgroundColor = UIColor.clearColor()
-            lineChart.xLabels = ["08:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00"]
+            for i in 0...(self.SignReports!.count - 1){
+                lineChart.xLabels[i] = self.SignReports![i].ReportHour
+            }
+            //lineChart.xLabels = ["08:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00"]
             lineChart.showCoordinateAxis = true
             
             
-            // Line Chart Nr.1
-            var data01Array: [CGFloat] = [60.1, 160.1, 126.4, 262.2, 186.2, 127.2, 176.2,90,100,110]
+            //设置心率曲线
+            var data01Array: [CGFloat] = []
+            for i in 0...(self.SignReports!.count - 1){
+                data01Array[i] = CGFloat((self.SignReports![i].AVGHR as NSString).floatValue)
+            }
             var data01:PNLineChartData = PNLineChartData()
             data01.color = PNGreenColor
             data01.itemCount = UInt(data01Array.count)
@@ -42,10 +60,14 @@ class SleepCareDetail: UIView {
                 return item
             })
             
-            var data02Array: [CGFloat] = [11, 30, 70, 8, 12, 13, 20,12,20,30]
+            //设置呼吸曲线
+            var data02Array: [CGFloat] = []
+            for i in 0...(self.SignReports!.count - 1){
+                data02Array[i] = CGFloat((self.SignReports![i].AVGRR as NSString).floatValue)
+            }
             var data02:PNLineChartData = PNLineChartData()
             data02.color = PNGreyColor
-            data02.itemCount = UInt(data01Array.count)
+            data02.itemCount = UInt(data02Array.count)
             data02.dataTitle = "呼吸"
             data02.getData = ({(index: UInt)  in
                 var yValue:CGFloat = data02Array[Int(index)]
@@ -77,12 +99,23 @@ class SleepCareDetail: UIView {
         }
         sleepcareDetailViewModel = SleepcareDetailViewModel(userCode: userCode, date: curdate)
         RACObserve(self.sleepcareDetailViewModel, "SignReports") ~> RAC(self, "SignReports")
-
+        RACObserve(self.sleepcareDetailViewModel, "DeepSleepSpan") ~> RAC(self.lblDeepSleepSpan, "text")
+        RACObserve(self.sleepcareDetailViewModel, "LightSleepSpan") ~> RAC(self.lblLightSleepSpan, "text")
+        RACObserve(self.sleepcareDetailViewModel, "OnbedSpan") ~> RAC(self.lblOnBedSpan, "text")
+        RACObserve(self.sleepcareDetailViewModel, "HR") ~> RAC(self.lblHR, "text")
+        RACObserve(self.sleepcareDetailViewModel, "AvgHR") ~> RAC(self.lblAvgHR, "text")
+        RACObserve(self.sleepcareDetailViewModel, "RR") ~> RAC(self.lblRR, "text")
+        RACObserve(self.sleepcareDetailViewModel, "AvgRR") ~> RAC(self.lblAvgRR, "text")
+        RACObserve(self.sleepcareDetailViewModel, "LeaveBedTimes") ~> RAC(self.lblLeaveBedTimes, "text")
+        RACObserve(self.sleepcareDetailViewModel, "MaxLeaveBedSpan") ~> RAC(self.lblMaxLeaveSpan, "text")
+        RACObserve(self.sleepcareDetailViewModel, "LeaveSuggest") ~> RAC(self.lblLeaveSugest, "text")
+        RACObserve(self.sleepcareDetailViewModel, "TrunTimes") ~> RAC(self.lblTurnTimes, "text")
+        RACObserve(self.sleepcareDetailViewModel, "TurnOverRate") ~> RAC(self.lblTrunRate, "text")
     }
     
     //根据查询条件重新加载界面
     func ReloadView(date:String){
-      sleepcareDetailViewModel = SleepcareDetailViewModel(userCode:sleepcareDetailViewModel!.userCode, date: date)
+        sleepcareDetailViewModel = SleepcareDetailViewModel(userCode:sleepcareDetailViewModel!.userCode, date: date)
     }
     
 }

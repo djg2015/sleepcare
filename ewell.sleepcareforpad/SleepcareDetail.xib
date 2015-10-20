@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <objects>
@@ -174,6 +173,12 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="离床建议内容1231232133333333333333333333332211111111111112333333333333333333333333333333333333333333333333333312" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLL-1q-kCG">
+                                    <rect key="frame" x="8" y="20" width="338" height="28"/>
+                                    <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.83529411760000005" green="0.92941176469999998" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
@@ -256,10 +261,21 @@
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="lblAvgHR" destination="DGJ-88-Xqg" id="FmK-jd-uxx"/>
+                <outlet property="lblAvgRR" destination="Ljh-Kj-Pfl" id="WpY-ej-zQw"/>
                 <outlet property="lblDeepSleepSpan" destination="fe8-LE-HPq" id="mY9-DD-5kd"/>
+                <outlet property="lblHR" destination="tHy-ld-tyV" id="Gzc-ms-zXw"/>
+                <outlet property="lblLeaveBedTimes" destination="fLo-9w-GQL" id="NhY-Kp-FX8"/>
+                <outlet property="lblLeaveSugest" destination="bLL-1q-kCG" id="s9G-I9-hkQ"/>
                 <outlet property="lblLightSleepSpan" destination="JGz-sj-EBa" id="QHP-Ti-6Ej"/>
+                <outlet property="lblMaxLeaveSpan" destination="xYC-nc-Gc9" id="xyv-XX-hpX"/>
                 <outlet property="lblOnBedSpan" destination="38e-NC-DYn" id="ITk-sD-WiV"/>
+                <outlet property="lblRR" destination="lNa-GK-sgC" id="jYB-yc-NZ8"/>
+                <outlet property="lblTrunRate" destination="Vem-Ix-pTG" id="XOQ-W4-hrd"/>
+                <outlet property="lblTurnTimes" destination="DcU-g4-ZnY" id="Lms-iT-3cM"/>
                 <outlet property="uiHRRR" destination="oFA-BM-Nga" id="kap-aq-TKO"/>
+                <outlet property="uiSleep" destination="AKb-Jp-MJc" id="anq-qE-sYk"/>
+                <outlet property="uiTrun" destination="eTK-cG-UTD" id="jtp-Vo-mr6"/>
             </connections>
         </view>
     </objects>

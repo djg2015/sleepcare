@@ -43,6 +43,19 @@ class SleepCareCollectionViewCell: UICollectionViewCell {
 class BedModel:NSObject{
     //属性定义
     //床位用户名
+    var _userCode:String?
+    dynamic var UserCode:String?{
+        get
+        {
+            return self._userCode
+        }
+        set(value)
+        {
+            self._userCode=value
+        }
+    }
+    
+    //床位用户名
     var _userName:String?
     dynamic var UserName:String?{
         get
