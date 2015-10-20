@@ -11,6 +11,10 @@
 		2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */; };
 		2C2F83851BD5DE2F008CD92B /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F83841BD5DE2F008CD92B /* back.png */; };
 		2C2F83891BD63160008CD92B /* Li_common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2F83881BD63160008CD92B /* Li_common.swift */; };
+		2C2F838E1BD63A19008CD92B /* nextBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F838A1BD63A19008CD92B /* nextBtnChecked.png */; };
+		2C2F838F1BD63A19008CD92B /* nextBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F838B1BD63A19008CD92B /* nextBtnNormal.png */; };
+		2C2F83901BD63A19008CD92B /* previewBtnDisable.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F838C1BD63A19008CD92B /* previewBtnDisable.png */; };
+		2C2F83911BD63A19008CD92B /* previewBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F838D1BD63A19008CD92B /* previewBtnNormal.png */; };
 		2C3150A51BCDFAF300EC749E /* LeaveBedReportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3150A41BCDFAF300EC749E /* LeaveBedReportList.swift */; };
 		2C3150A71BCDFB4500EC749E /* LeaveBedReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3150A61BCDFB4500EC749E /* LeaveBedReport.swift */; };
 		2C37F1391BD093280034D9F1 /* SleepQualityPandectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37F1381BD093280034D9F1 /* SleepQualityPandectViewModel.swift */; };
@@ -144,6 +148,10 @@
 		2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepQualityPandect.xib; sourceTree = "<group>"; };
 		2C2F83841BD5DE2F008CD92B /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		2C2F83881BD63160008CD92B /* Li_common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Li_common.swift; sourceTree = "<group>"; };
+		2C2F838A1BD63A19008CD92B /* nextBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextBtnChecked.png; sourceTree = "<group>"; };
+		2C2F838B1BD63A19008CD92B /* nextBtnNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextBtnNormal.png; sourceTree = "<group>"; };
+		2C2F838C1BD63A19008CD92B /* previewBtnDisable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previewBtnDisable.png; sourceTree = "<group>"; };
+		2C2F838D1BD63A19008CD92B /* previewBtnNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previewBtnNormal.png; sourceTree = "<group>"; };
 		2C3150A41BCDFAF300EC749E /* LeaveBedReportList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveBedReportList.swift; sourceTree = "<group>"; };
 		2C3150A61BCDFB4500EC749E /* LeaveBedReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveBedReport.swift; sourceTree = "<group>"; };
 		2C37F1381BD093280034D9F1 /* SleepQualityPandectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepQualityPandectViewModel.swift; sourceTree = "<group>"; };
@@ -543,6 +551,10 @@
 		3AFF67A61BBA2F2500C9CA20 /* Pad */ = {
 			isa = PBXGroup;
 			children = (
+				2C2F838A1BD63A19008CD92B /* nextBtnChecked.png */,
+				2C2F838B1BD63A19008CD92B /* nextBtnNormal.png */,
+				2C2F838C1BD63A19008CD92B /* previewBtnDisable.png */,
+				2C2F838D1BD63A19008CD92B /* previewBtnNormal.png */,
 				2C2F83841BD5DE2F008CD92B /* back.png */,
 				3AB43E741BD4DB53005023D3 /* nextBtnDisable.png */,
 				3AB43E721BD4DB45005023D3 /* previewBtnChecked.png */,
@@ -687,11 +699,13 @@
 				3A41ADE31BA7B3D1000C109B /* LoginView.xib in Resources */,
 				2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */,
 				3A3C377C1BD48F0B00080D03 /* dateIcon.png in Resources */,
+				2C2F83901BD63A19008CD92B /* previewBtnDisable.png in Resources */,
 				3A9C12FD1BC789C6008EC314 /* pagerunselected.png in Resources */,
 				3A3756201BCB589600182DE4 /* DialogFrame.xib in Resources */,
 				2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */,
 				3A9C13001BC789C6008EC314 /* onBedView.png in Resources */,
 				2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */,
+				2C2F838F1BD63A19008CD92B /* nextBtnNormal.png in Resources */,
 				3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */,
 				3AB43E731BD4DB45005023D3 /* previewBtnChecked.png in Resources */,
 				2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */,
@@ -702,6 +716,7 @@
 				2C4814E31BCCD8E500663B08 /* AlarmTableViewCell.xib in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
 				3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */,
+				2C2F838E1BD63A19008CD92B /* nextBtnChecked.png in Resources */,
 				3A9C12F91BC789C6008EC314 /* infoHead.png in Resources */,
 				3A8604511BBA6327005FC117 /* topbg.png in Resources */,
 				3A9C12F21BC789C6008EC314 /* emptyBed.png in Resources */,
@@ -727,6 +742,7 @@
 				3AB43E751BD4DB53005023D3 /* nextBtnDisable.png in Resources */,
 				3A2F02781BCBA4E4000B16B5 /* infoHeadred.png in Resources */,
 				3A3C377D1BD48F0B00080D03 /* sleepcareblock.png in Resources */,
+				2C2F83911BD63A19008CD92B /* previewBtnNormal.png in Resources */,
 				3A9C12F81BC789C6008EC314 /* dropdown.png in Resources */,
 				3A309C551BC607050005F475 /* SleepCareCollectionView.xib in Resources */,
 				3A9C12F31BC789C6008EC314 /* leaveBed.png in Resources */,
