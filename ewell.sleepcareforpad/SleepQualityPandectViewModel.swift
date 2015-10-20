@@ -66,6 +66,20 @@
                 self._currentPageIndex=value
             }
         }
+        
+        var _userCode:String = ""
+        // 用户编码
+        var UserCode:String{
+            get
+            {
+                return self._userCode
+            }
+            set(value)
+            {
+                self._userCode=value
+            }
+        }
+        
         // 一页显示的条数
         let _pageSize:Int32 = 12
         var _totalNum:Int32 = 0;
@@ -145,9 +159,9 @@
                 ({
                     var sleepCareBLL = SleepCareBussiness()
                     
-                    var sleepCareReportList:SleepCareReportList = sleepCareBLL.GetSleepCareReportByUser("00001", userCode: "00000001", analysTimeBegin: self.AnalysisTimeBegin, analysTimeEnd: self.AnalysisTimeEnd, from:(Int32(self.CurrentPageIndex.toInt()!) - 1) * self._pageSize + 1 , max: self._pageSize)
+                    var sleepCareReportList:SleepCareReportList = sleepCareBLL.GetSleepCareReportByUser("00001", userCode: self.UserCode, analysTimeBegin: self.AnalysisTimeBegin, analysTimeEnd: self.AnalysisTimeEnd, from:(Int32(self.CurrentPageIndex.toInt()!) - 1) * self._pageSize + 1 , max: self._pageSize)
                     
-                    var totalSleepCareReportList:SleepCareReportList = sleepCareBLL.GetSleepCareReportByUser("00001", userCode: "00000001", analysTimeBegin: self.AnalysisTimeBegin, analysTimeEnd: self.AnalysisTimeEnd, from:nil, max: nil)
+                    var totalSleepCareReportList:SleepCareReportList = sleepCareBLL.GetSleepCareReportByUser("00001", userCode: self.UserCode, analysTimeBegin: self.AnalysisTimeBegin, analysTimeEnd: self.AnalysisTimeEnd, from:nil, max: nil)
                     self._totalNum = Int32(totalSleepCareReportList.sleepCareReportList.count)
                     
                     var index:Int = 1;
@@ -207,7 +221,7 @@
                         
                         var sleepCareBLL = SleepCareBussiness()
                         
-                        var sleepCareReportList:SleepCareReportList = sleepCareBLL.GetSleepCareReportByUser("00001", userCode: "00000001", analysTimeBegin: self.AnalysisTimeBegin, analysTimeEnd: self.AnalysisTimeEnd, from:(Int32(self.CurrentPageIndex.toInt()!) - 1) * self._pageSize + 1 , max: self._pageSize)
+                        var sleepCareReportList:SleepCareReportList = sleepCareBLL.GetSleepCareReportByUser("00001", userCode: self.UserCode, analysTimeBegin: self.AnalysisTimeBegin, analysTimeEnd: self.AnalysisTimeEnd, from:(Int32(self.CurrentPageIndex.toInt()!) - 1) * self._pageSize + 1 , max: self._pageSize)
                         var index:Int = 1;
                         for sleepCare in sleepCareReportList.sleepCareReportList
                         {
@@ -274,7 +288,7 @@
                         
                         var sleepCareBLL = SleepCareBussiness()
                         
-                        var sleepCareReportList:SleepCareReportList = sleepCareBLL.GetSleepCareReportByUser("00001", userCode: "00000001", analysTimeBegin: self.AnalysisTimeBegin, analysTimeEnd: self.AnalysisTimeEnd, from:(Int32(self.CurrentPageIndex.toInt()!) - 1) * self._pageSize + 1 , max: self._pageSize)
+                        var sleepCareReportList:SleepCareReportList = sleepCareBLL.GetSleepCareReportByUser("00001", userCode: self.UserCode, analysTimeBegin: self.AnalysisTimeBegin, analysTimeEnd: self.AnalysisTimeEnd, from:(Int32(self.CurrentPageIndex.toInt()!) - 1) * self._pageSize + 1 , max: self._pageSize)
                         var index:Int = 1;
                         for sleepCare in sleepCareReportList.sleepCareReportList
                         {

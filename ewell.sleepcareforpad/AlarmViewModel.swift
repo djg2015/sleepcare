@@ -23,32 +23,46 @@ class AlarmViewModel:NSObject{
             self._funcSelectedIndex=value        }
     }
     
+    var _userCode:String = ""
+    // 用户编码
+    dynamic var UserCode:String{
+        get
+        {
+            return self._userCode
+        }
+        set(value)
+        {
+            self._userCode=value
+            var sleepCareBLL = SleepCareBussiness()
+            // 返回在离床报警
+            var reportList:LeaveBedReportList = sleepCareBLL.GetLeaveBedReport("00001", userCode: self.UserCode, userNameLike: "", bedNumberLike: "", leaveBedTimeBegin: "", leaveBedTimeEnd: "", from: 1, max: 20)
+            for report in reportList.reportList
+            {
+                var alarmVM:OnBedAlarmViewModel = OnBedAlarmViewModel();
+                alarmVM.LeaveBedTime = report.StartTime;
+                alarmVM.LeaveBedTimeSpan = report.LeaveBedTimespan;
+                AlarmInfoList.append(alarmVM)
+            }
+            // 返回体动/翻身
+            var turnList:TurnOverAnalysList = sleepCareBLL.GetTurnOverAnalysByUser(self.UserCode, analysDateBegin: "", analysDateEnd: "", from: nil, max: nil)
+            
+            for report in turnList.turnOverAnalysReportList
+            {
+                var turnOverVM:TurnOverViewModel = TurnOverViewModel();
+                turnOverVM.Date = report.ReportDate;
+                turnOverVM.TurnOverTimes = report.TurnOverTime;
+                turnOverVM.TurnOverRate = report.TurnOverRate;
+                TurnOverList.append(turnOverVM)
+            }
+        }
+    }
+
+    
     // 初始化
     override init()
     {
         self._funcSelectedIndex = 0
         super.init()
-        var sleepCareBLL = SleepCareBussiness()
-        // 返回在离床报警
-        var reportList:LeaveBedReportList = sleepCareBLL.GetLeaveBedReport("00001", userCode: "00000001", userNameLike: "", bedNumberLike: "", leaveBedTimeBegin: "", leaveBedTimeEnd: "", from: 1, max: 20)
-        for report in reportList.reportList
-        {
-            var alarmVM:OnBedAlarmViewModel = OnBedAlarmViewModel();
-            alarmVM.LeaveBedTime = report.StartTime;
-            alarmVM.LeaveBedTimeSpan = report.LeaveBedTimespan;
-            AlarmInfoList.append(alarmVM)
-        }
-        // 返回体动/翻身
-        var turnList:TurnOverAnalysList = sleepCareBLL.GetTurnOverAnalysByUser("00000001", analysDateBegin: "", analysDateEnd: "", from: nil, max: nil)
-        
-        for report in turnList.turnOverAnalysReportList
-        {
-            var turnOverVM:TurnOverViewModel = TurnOverViewModel();
-            turnOverVM.Date = report.ReportDate;
-            turnOverVM.TurnOverTimes = report.TurnOverTime;
-            turnOverVM.TurnOverRate = report.TurnOverRate;
-            TurnOverList.append(turnOverVM)
-        }
     }
     
     var _alarmList:Array<OnBedAlarmViewModel> =  Array<OnBedAlarmViewModel>();
@@ -167,9 +181,5 @@ class AlarmViewModel:NSObject{
             }
         }
         
-        override init()
-        {
-            super.init();
-        }
     }
 }

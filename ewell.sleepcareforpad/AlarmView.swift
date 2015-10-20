@@ -26,15 +26,14 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
     var screenWidth:CGFloat = 0.0
     var screenHeight:CGFloat = 0.0
     
-    func viewLoaded()
+    func viewLoaded(userCode:String)
     {
-        tabAlarm.frame.size.height = 40
         
         self.screenWidth = self.frame.width
         self.screenHeight = self.frame.height
         
         // 实例当前的报警tableView
-        self.tabViewAlarm = UITableView(frame: CGRectMake(0, 10, self.screenWidth, self.screenHeight - 30), style: UITableViewStyle.Plain)
+        self.tabViewAlarm = UITableView(frame: CGRectMake(20, 10, self.screenWidth - 40, self.screenHeight - 30), style: UITableViewStyle.Plain)
         // 设置tableView默认的行分隔符为空
         self.tabViewAlarm!.separatorStyle = UITableViewCellSeparatorStyle.None
         self.tabViewAlarm!.delegate = self
@@ -44,8 +43,8 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
         self.tabViewAlarm!.registerNib(UINib(nibName: "AlarmTableViewCell", bundle:nil), forCellReuseIdentifier: identifier)
         
         // 创建报警tableView的列头
-        var headViewAlarm:UIView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 40))
-        var lblLeaveTimespan = UILabel(frame: CGRectMake(0, 0,  self.screenWidth / 2 + 1, 40))
+        var headViewAlarm:UIView = UIView(frame: CGRectMake(20, 0, UIScreen.mainScreen().bounds.size.width, 40))
+        var lblLeaveTimespan = UILabel(frame: CGRectMake(0, 0,  (self.screenWidth - 40)/2 + 1, 40))
         lblLeaveTimespan.text = "离床时长"
         lblLeaveTimespan.font = UIFont.boldSystemFontOfSize(18)
         lblLeaveTimespan.textAlignment = .Center
@@ -53,7 +52,7 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
         lblLeaveTimespan.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
         lblLeaveTimespan.backgroundColor = UIColor.whiteColor()
         
-        var lblLeaveTime = UILabel(frame: CGRectMake(self.screenWidth/2, 0, self.screenWidth/2, 40))
+        var lblLeaveTime = UILabel(frame: CGRectMake((self.screenWidth - 40)/2, 0, (self.screenWidth - 40)/2, 40))
         lblLeaveTime.text = "离床时间"
         lblLeaveTime.font = UIFont.boldSystemFontOfSize(18)
         lblLeaveTime.textAlignment = .Center
@@ -66,7 +65,7 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
         self.tabViewAlarm!.tableHeaderView = headViewAlarm
         
         
-        self.tabViewTurnOver = UITableView(frame: CGRectMake(0, 10, self.screenWidth, self.screenHeight - 30), style: UITableViewStyle.Plain)
+        self.tabViewTurnOver = UITableView(frame: CGRectMake(20, 10, self.screenWidth - 40, self.screenHeight - 30), style: UITableViewStyle.Plain)
         // 设置tableView默认的行分隔符为空
         self.tabViewTurnOver!.separatorStyle = UITableViewCellSeparatorStyle.None
         self.tabViewTurnOver!.delegate = self
@@ -75,7 +74,7 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
         self.tabViewTurnOver!.registerNib(UINib(nibName: "TurnOverTableViewCell", bundle:nil), forCellReuseIdentifier: identifier)
         
         var headViewTurnOver:UIView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 40))
-        var lblDate = UILabel(frame: CGRectMake(0, 0,  self.screenWidth / 3 - 1, 40))
+        var lblDate = UILabel(frame: CGRectMake(0, 0,  (self.screenWidth - 40) / 3, 40))
         lblDate.text = "日期"
         lblDate.font = UIFont.boldSystemFontOfSize(18)
         lblDate.textAlignment = .Center
@@ -83,7 +82,7 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
         lblDate.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
         lblDate.backgroundColor = UIColor.whiteColor()
         
-        var lblCount = UILabel(frame: CGRectMake(self.screenWidth/3 - 1, 0, self.screenWidth/3 - 2, 40))
+        var lblCount = UILabel(frame: CGRectMake((self.screenWidth - 40)/3, 0, (self.screenWidth - 40)/3, 40))
         lblCount.text = "次数"
         lblCount.font = UIFont.boldSystemFontOfSize(18)
         lblCount.textAlignment = .Center
@@ -91,7 +90,7 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
         lblCount.layer.borderColor = UIColor(red: 30/255, green: 144/255, blue: 255/255, alpha: 0.5).CGColor
         lblCount.backgroundColor = UIColor.whiteColor()
         
-        var lblRate = UILabel(frame: CGRectMake((self.screenWidth/3 - 1) * 2 - 1, 0, self.screenWidth/3 - 1, 40))
+        var lblRate = UILabel(frame: CGRectMake(((self.screenWidth - 40)/3) * 2 - 1, 0, (self.screenWidth - 40)/3 + 1, 40))
         lblRate.text = "频率"
         lblRate.font = UIFont.boldSystemFontOfSize(18)
         lblRate.textAlignment = .Center
@@ -108,6 +107,7 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
         self.viewAlarm.addSubview(self.tabViewTurnOver)
         
         // 加载数据
+        self.alarmViewModel.UserCode = userCode
         self.rac_settings();
         
         self.tabViewAlarm.hidden = false
