@@ -110,6 +110,12 @@
 		3AA4A7781BB2BF3F00B214C7 /* SleepCareReportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4A7771BB2BF3F00B214C7 /* SleepCareReportList.swift */; };
 		3AB43E731BD4DB45005023D3 /* previewBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB43E721BD4DB45005023D3 /* previewBtnChecked.png */; };
 		3AB43E751BD4DB53005023D3 /* nextBtnDisable.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB43E741BD4DB53005023D3 /* nextBtnDisable.png */; };
+		3AB43E781BD4E17B005023D3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E771BD4E17B005023D3 /* Date.swift */; };
+		3AB43E8A1BD4E1B9005023D3 /* BizDayRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E7C1BD4E1B9005023D3 /* BizDayRule.swift */; };
+		3AB43E8B1BD4E1B9005023D3 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E7D1BD4E1B9005023D3 /* Calendar.swift */; };
+		3AB43E8C1BD4E1B9005023D3 /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E7E1BD4E1B9005023D3 /* DateHelpers.swift */; };
+		3AB43E8D1BD4E1B9005023D3 /* DayCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E7F1BD4E1B9005023D3 /* DayCounter.swift */; };
+		3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E831BD4E1B9005023D3 /* Term.swift */; };
 		3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB93881BCF96F200042AF1 /* loginBack.png */; };
 		3AFB93901BCF96F200042AF1 /* loginBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB93891BCF96F200042AF1 /* loginBtn.png */; };
 		3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB938A1BCF96F200042AF1 /* checkbox.png */; };
@@ -188,7 +194,6 @@
 		3A41ADBF1BA7A65A000C109B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A41ADC01BA7A65A000C109B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A41ADC21BA7A65A000C109B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3A41ADC51BA7A65A000C109B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A41ADC71BA7A65A000C109B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3A41ADCA1BA7A65A000C109B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3A41ADD01BA7A65A000C109B /* ewell.sleepcareforpadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ewell.sleepcareforpadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +252,12 @@
 		3AA4A7771BB2BF3F00B214C7 /* SleepCareReportList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareReportList.swift; sourceTree = "<group>"; };
 		3AB43E721BD4DB45005023D3 /* previewBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previewBtnChecked.png; sourceTree = "<group>"; };
 		3AB43E741BD4DB53005023D3 /* nextBtnDisable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextBtnDisable.png; sourceTree = "<group>"; };
+		3AB43E771BD4E17B005023D3 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		3AB43E7C1BD4E1B9005023D3 /* BizDayRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BizDayRule.swift; sourceTree = "<group>"; };
+		3AB43E7D1BD4E1B9005023D3 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		3AB43E7E1BD4E1B9005023D3 /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
+		3AB43E7F1BD4E1B9005023D3 /* DayCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCounter.swift; sourceTree = "<group>"; };
+		3AB43E831BD4E1B9005023D3 /* Term.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
 		3AFB93881BCF96F200042AF1 /* loginBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBack.png; sourceTree = "<group>"; };
 		3AFB93891BCF96F200042AF1 /* loginBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBtn.png; sourceTree = "<group>"; };
 		3AFB938A1BCF96F200042AF1 /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
@@ -334,7 +345,6 @@
 				3A41ADE01BA7B396000C109B /* ViewModel */,
 				3A41ADC01BA7A65A000C109B /* AppDelegate.swift */,
 				3A41ADC21BA7A65A000C109B /* ViewController.swift */,
-				3A41ADC41BA7A65A000C109B /* Main.storyboard */,
 				3A41ADC71BA7A65A000C109B /* Images.xcassets */,
 				3A41ADC91BA7A65A000C109B /* LaunchScreen.xib */,
 				3A41ADBE1BA7A65A000C109B /* Supporting Files */,
@@ -412,6 +422,7 @@
 		3A4CD3F51BA80408002C8A1A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3AB43E761BD4E16B005023D3 /* Date */,
 				3A35AB641BCCE8B000ED3293 /* SweetAlert.swift */,
 				3A3262DD1BB912180002687B /* OSSExceptionHelper.h */,
 				3A3262DE1BB912180002687B /* OSSExceptionHelper.m */,
@@ -499,6 +510,19 @@
 				3AFB93961BCF999400042AF1 /* BackgroundCommon.swift */,
 			);
 			name = UILib;
+			sourceTree = "<group>";
+		};
+		3AB43E761BD4E16B005023D3 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				3AB43E7C1BD4E1B9005023D3 /* BizDayRule.swift */,
+				3AB43E7D1BD4E1B9005023D3 /* Calendar.swift */,
+				3AB43E7E1BD4E1B9005023D3 /* DateHelpers.swift */,
+				3AB43E7F1BD4E1B9005023D3 /* DayCounter.swift */,
+				3AB43E831BD4E1B9005023D3 /* Term.swift */,
+				3AB43E771BD4E17B005023D3 /* Date.swift */,
+			);
+			name = Date;
 			sourceTree = "<group>";
 		};
 		3AFF67A51BBA2F1D00C9CA20 /* Images */ = {
@@ -615,6 +639,7 @@
 				TargetAttributes = {
 					3A41ADBA1BA7A65A000C109B = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = YU3566C3NH;
 					};
 					3A41ADCF1BA7A65A000C109B = {
 						CreatedOnToolsVersion = 6.3;
@@ -754,6 +779,7 @@
 				3A41ADF01BA7B45D000C109B /* MessageDelegate.swift in Sources */,
 				3A4B85C61BB14D34006E4CF1 /* SleepCareBussinessManager.swift in Sources */,
 				3A3D65E41BAA8E1100CEFB25 /* MessageFactory.swift in Sources */,
+				3AB43E8B1BD4E1B9005023D3 /* Calendar.swift in Sources */,
 				3A41ADC31BA7A65A000C109B /* ViewController.swift in Sources */,
 				3A4B85CA1BB14F28006E4CF1 /* SleepCareBussiness.swift in Sources */,
 				2C3BAF171BCBA4C3003A2F48 /* AlarmView.swift in Sources */,
@@ -771,6 +797,9 @@
 				3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */,
 				3A325A341BD08B7B00DE4E78 /* BaseViewModel.swift in Sources */,
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
+				3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */,
+				3AB43E8A1BD4E1B9005023D3 /* BizDayRule.swift in Sources */,
+				3AB43E781BD4E17B005023D3 /* Date.swift in Sources */,
 				3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */,
 				3A4D17FB1BAFE17D00E0B862 /* AlarmInfo.swift in Sources */,
 				3A4D17F91BAFDF4800E0B862 /* TurnOverAnalysList.swift in Sources */,
@@ -781,11 +810,13 @@
 				3AA4A7781BB2BF3F00B214C7 /* SleepCareReportList.swift in Sources */,
 				3A4CD3FA1BA80536002C8A1A /* CommonHelper.swift in Sources */,
 				3A4B85CC1BB150C1006E4CF1 /* Constants.swift in Sources */,
+				3AB43E8C1BD4E1B9005023D3 /* DateHelpers.swift in Sources */,
 				3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */,
 				2C3150A51BCDFAF300EC749E /* LeaveBedReportList.swift in Sources */,
 				3A41ADEA1BA7B438000C109B /* LoginViewModel.swift in Sources */,
 				2C4814E21BCCD8E500663B08 /* AlarmTableViewCell.swift in Sources */,
 				3A4880C71BBBA61A00C60FD2 /* Popover.swift in Sources */,
+				3AB43E8D1BD4E1B9005023D3 /* DayCounter.swift in Sources */,
 				3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */,
 				3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */,
 				3A35AB651BCCE8B000ED3293 /* SweetAlert.swift in Sources */,
@@ -827,14 +858,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3A41ADC41BA7A65A000C109B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A41ADC51BA7A65A000C109B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3A41ADC91BA7A65A000C109B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -934,6 +957,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ewell.common/build/Debug-iphoneos",
@@ -964,6 +989,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -977,6 +1003,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ewell.common/build/Debug-iphoneos",
@@ -1007,6 +1035,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -33,7 +33,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
             self.mainScroll.contentSize = CGSize(width: self.view.bounds.size.width * CGFloat(pageCount), height: 500)
             
             for i in 1...pageCount{
-                let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepCareCollectionView", owner: self, options: nil).last as! SleepCareCollectionView
+                let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepCareCollectionView", owner: self, options: nil).first as! SleepCareCollectionView
                 mainview1.frame = CGRectMake(CGFloat((i-1) * 1024), 0, 1024, self.mainScroll.frame.size.height)
                 mainview1.didSelecteBedHandler = self.BedSelected
                 var bedList = self.sleepcareMainViewModel?.GetBedsOfPage(i, count: 8)

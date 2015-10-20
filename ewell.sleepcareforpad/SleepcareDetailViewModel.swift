@@ -12,6 +12,7 @@ class SleepcareDetailViewModel: BaseViewModel {
     //初始化
     required init(userCode:String,date:String) {
         super.init()
+        self.userCode = userCode
         loadData(userCode,date: date)
     }
     
@@ -19,6 +20,7 @@ class SleepcareDetailViewModel: BaseViewModel {
         super.init()
     }
     //属性定义
+    var userCode:String = ""
     //深睡时长
     var _deepSleepSpan:String?
     dynamic var DeepSleepSpan:String?{
