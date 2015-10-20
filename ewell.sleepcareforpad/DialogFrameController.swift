@@ -47,11 +47,11 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         
         //加载弹窗的界面
         //睡眠质量列表
-        let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepcareDetail", owner: self, options: nil).first as! SleepCareDetail
-        mainview1.frame = CGRectMake(0, 0, 1024, self.mainScroll.frame.size.height)
-        mainview1.viewInit("00000017")
-        self.mainScroll.addSubview(mainview1)
-        self.mainScroll.bringSubviewToFront(mainview1)
+//        let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepcareDetail", owner: self, options: nil).first as! SleepCareDetail
+//        mainview1.frame = CGRectMake(0, 0, 1024, self.mainScroll.frame.size.height)
+//        mainview1.viewInit("00000017")
+//        self.mainScroll.addSubview(mainview1)
+//        self.mainScroll.bringSubviewToFront(mainview1)
 
         //睡眠质量总览
         let mainview2 = NSBundle.mainBundle().loadNibNamed("SleepQualityPandect", owner: self, options: nil).first as! SleepQualityPandectView
@@ -66,7 +66,7 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         println(self.mainScroll.frame.size.height)
         mainview3.frame = CGRectMake(1024*2, 0, 1024, self.mainScroll.frame.size.height)
         mainview3.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 0.5)
-        mainview3.viewLoaded();
+        mainview3.viewLoaded(self._userCode);
         self.mainScroll.addSubview(mainview3)
         self.mainScroll.bringSubviewToFront(mainview3)
         

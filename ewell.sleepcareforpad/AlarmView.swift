@@ -26,9 +26,8 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
     var screenWidth:CGFloat = 0.0
     var screenHeight:CGFloat = 0.0
     
-    func viewLoaded()
+    func viewLoaded(userCode:String)
     {
-        
         
         self.screenWidth = self.frame.width
         self.screenHeight = self.frame.height
@@ -108,6 +107,7 @@ class AlarmView:UIView,UITableViewDelegate,UITableViewDataSource
         self.viewAlarm.addSubview(self.tabViewTurnOver)
         
         // 加载数据
+        self.alarmViewModel.UserCode = userCode
         self.rac_settings();
         
         self.tabViewAlarm.hidden = false
