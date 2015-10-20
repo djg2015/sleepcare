@@ -18,18 +18,17 @@ class SleepCareDetail: UIView {
     @IBOutlet weak var lblLightSleepSpan: UILabel!
     @IBOutlet weak var lblOnBedSpan: UILabel!
     @IBOutlet weak var uiHRRR: UIView!
-    @IBOutlet var lblHR: UILabel!
-    @IBOutlet var lblAvgHR: UILabel!
-    @IBOutlet var lblRR: UILabel!
-    @IBOutlet var lblAvgRR: UILabel!
-    @IBOutlet var lblLeaveBedTimes: UILabel!
-    @IBOutlet var lblMaxLeaveSpan: UILabel!
-    @IBOutlet var lblLeaveSugest: UILabel!
-    @IBOutlet var lblTurnTimes: UILabel!
-    @IBOutlet var lblTrunRate: UILabel!
-    @IBOutlet var uiTrun: UIView!
-    @IBOutlet var uiSleep: UIView!
-    
+    @IBOutlet weak var lblHR: UILabel!
+    @IBOutlet weak var lblAvgHR: UILabel!
+    @IBOutlet weak var lblRR: UILabel!
+    @IBOutlet weak var lblAvgRR: UILabel!
+    @IBOutlet weak var lblLeaveBedTimes: UILabel!
+    @IBOutlet weak var lblMaxLeaveSpan: UILabel!
+    @IBOutlet weak var lblLeaveSugest: UILabel!
+    @IBOutlet weak var lblTurnTimes: UILabel!
+    @IBOutlet weak var lblTrunRate: UILabel!
+    @IBOutlet weak var uiTrun: UIView!
+    @IBOutlet weak var uiSleep: UIView!
     
     var _signReports:Array<SignReport>?
     dynamic var SignReports:Array<SignReport>?{
@@ -38,8 +37,14 @@ class SleepCareDetail: UIView {
             lineChart.yLabelFormat = "%1.1f"
             lineChart.showLabel = true
             lineChart.backgroundColor = UIColor.clearColor()
-            for i in 0...(self.SignReports!.count - 1){
-                lineChart.xLabels[i] = self.SignReports![i].ReportHour
+            lineChart.xLabels = []
+            for(var i = self.SignReports!.count - 1 ;i >= 0;i--){
+                var xlable = self.SignReports![i].ReportHour.subString(11, length: 2)
+                if(xlable.hasPrefix("0")){
+                    xlable = xlable.subString(1, length: 1)
+                }
+                xlable = xlable + "点"
+                lineChart.xLabels.append(xlable)
             }
             //lineChart.xLabels = ["08:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00"]
             lineChart.showCoordinateAxis = true
@@ -47,8 +52,8 @@ class SleepCareDetail: UIView {
             
             //设置心率曲线
             var data01Array: [CGFloat] = []
-            for i in 0...(self.SignReports!.count - 1){
-                data01Array[i] = CGFloat((self.SignReports![i].AVGHR as NSString).floatValue)
+            for(var i = self.SignReports!.count - 1 ;i >= 0;i--){
+                data01Array.append(CGFloat((self.SignReports![i].AVGHR as NSString).floatValue))
             }
             var data01:PNLineChartData = PNLineChartData()
             data01.color = PNGreenColor
@@ -62,8 +67,8 @@ class SleepCareDetail: UIView {
             
             //设置呼吸曲线
             var data02Array: [CGFloat] = []
-            for i in 0...(self.SignReports!.count - 1){
-                data02Array[i] = CGFloat((self.SignReports![i].AVGRR as NSString).floatValue)
+            for(var i = self.SignReports!.count - 1 ;i >= 0;i--){
+                data02Array.append(CGFloat((self.SignReports![i].AVGRR as NSString).floatValue))
             }
             var data02:PNLineChartData = PNLineChartData()
             data02.color = PNGreyColor
@@ -82,7 +87,7 @@ class SleepCareDetail: UIView {
             lineChart.legendStyle = PNLegendItemStyle.Stacked
             lineChart.legendFontSize = 12
             let legend = lineChart.getLegendWithMaxWidth(self.uiHRRR.frame.width)
-            legend.frame = CGRectMake(self.uiHRRR.frame.width - 70, 20, self.uiHRRR.frame.width, self.uiHRRR.frame.height)
+            legend.frame = CGRectMake(self.uiHRRR.frame.width - 65, 5, self.uiHRRR.frame.width, self.uiHRRR.frame.height)
             self.uiHRRR.addSubview(legend)
             
         }
@@ -97,6 +102,7 @@ class SleepCareDetail: UIView {
             d = d.addDays(-1)
             curdate = d.description(format: "yyyy-MM-dd")
         }
+        
         sleepcareDetailViewModel = SleepcareDetailViewModel(userCode: userCode, date: curdate)
         RACObserve(self.sleepcareDetailViewModel, "SignReports") ~> RAC(self, "SignReports")
         RACObserve(self.sleepcareDetailViewModel, "DeepSleepSpan") ~> RAC(self.lblDeepSleepSpan, "text")

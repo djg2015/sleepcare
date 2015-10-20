@@ -19,9 +19,9 @@ func getCurrentTime() -> String{
     
     var dateFormatter:NSDateFormatter  = NSDateFormatter()
     dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
-//    dateFormatter.timeZone = NSTimeZone.localTimeZone()
-//    dateFormatter.dateStyle = .MediumStyle
-//    dateFormatter.timeStyle = .MediumStyle
+    //    dateFormatter.timeZone = NSTimeZone.localTimeZone()
+    //    dateFormatter.dateStyle = .MediumStyle
+    //    dateFormatter.timeStyle = .MediumStyle
     
     return dateFormatter.stringFromDate(nowUTC)
     
@@ -89,6 +89,14 @@ func SetValueIntoPlist(key:String, value:String){
     
     data?.setValue(value, forKey:key)
     data?.writeToFile(path!, atomically:true)
+}
+
+//截取指定参数字符串
+extension String {
+    func subString(begin:Int,length:Int) -> String{
+        var s = self as NSString
+        return s.substringWithRange(NSMakeRange(begin,length))
+    }
 }
 
 extension String {

@@ -116,6 +116,8 @@
 		3AB43E8C1BD4E1B9005023D3 /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E7E1BD4E1B9005023D3 /* DateHelpers.swift */; };
 		3AB43E8D1BD4E1B9005023D3 /* DayCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E7F1BD4E1B9005023D3 /* DayCounter.swift */; };
 		3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E831BD4E1B9005023D3 /* Term.swift */; };
+		3ADA58431BD5FC7C0066D23A /* SleepcareDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37711BD48BC000080D03 /* SleepcareDetail.xib */; };
+		3ADA58441BD5FE550066D23A /* sleepofThisWeek.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37731BD48F0A00080D03 /* sleepofThisWeek.png */; };
 		3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB93881BCF96F200042AF1 /* loginBack.png */; };
 		3AFB93901BCF96F200042AF1 /* loginBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB93891BCF96F200042AF1 /* loginBtn.png */; };
 		3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB938A1BCF96F200042AF1 /* checkbox.png */; };
@@ -671,6 +673,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADA58441BD5FE550066D23A /* sleepofThisWeek.png in Resources */,
+				3ADA58431BD5FC7C0066D23A /* SleepcareDetail.xib in Resources */,
 				3AFB93941BCF96F200042AF1 /* pwdIcon.png in Resources */,
 				3A9C12FC1BC789C6008EC314 /* BedFrame.png in Resources */,
 				3A3C377E1BD48F0B00080D03 /* hrrr.png in Resources */,

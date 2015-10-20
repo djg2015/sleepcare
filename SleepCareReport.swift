@@ -62,9 +62,9 @@ class SleepCareReport:BaseMessage{
             {
                 result.AnalysisDateSection = sleepCareReport.elementForName("AnalysisDateSection").stringValue()
             }
-            result.AVGHR = sleepCareReport.elementForName("HR").stringValue()
-            result.AVGRR = sleepCareReport.elementForName("RR").stringValue()
-            result.TurnOverTime = sleepCareReport.elementForName("TurnOverRate").stringValue()
+            result.HR = sleepCareReport.elementForName("HR").stringValue()
+            result.RR = sleepCareReport.elementForName("RR").stringValue()
+            result.TurnOverRate = sleepCareReport.elementForName("TurnOverRate").stringValue()
 
             
             //获取按小时体征节点的子节点
