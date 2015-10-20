@@ -192,13 +192,13 @@ class SleepcareDetailViewModel: BaseViewModel {
                 var sleepCareReport:SleepCareReport = sleepCareBussiness.QuerySleepQulityDetail(userCode, analysDate: date)
                 self.DeepSleepSpan = sleepCareReport.DeepSleepTimeSpan
                 self.LightSleepSpan = sleepCareReport.LightSleepTimeSpan
-                self.OnbedSpan = sleepCareReport.OnBedTimeSpan
+                self.OnbedSpan = sleepCareReport.OnBedTimeSpan.subString(0, length: 5)
                 self.HR = sleepCareReport.HR
                 self.RR = sleepCareReport.RR
                 self.AvgHR = sleepCareReport.AVGHR
                 self.AvgRR = sleepCareReport.AVGRR
                 self.LeaveBedTimes = sleepCareReport.LeaveBedCount
-                self.MaxLeaveBedSpan = sleepCareReport.LightSleepTimeSpan
+                self.MaxLeaveBedSpan = sleepCareReport.MaxLeaveTimeSpan
                 self.LeaveSuggest = sleepCareReport.LeaveBedSuggest
                 self.TrunTimes = sleepCareReport.TurnOverTime
                 self.TurnOverRate = sleepCareReport.TurnOverRate

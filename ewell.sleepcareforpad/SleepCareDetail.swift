@@ -33,8 +33,10 @@ class SleepCareDetail: UIView {
     var _signReports:Array<SignReport>?
     dynamic var SignReports:Array<SignReport>?{
         didSet{
+            //设置心率呼吸图表
             var lineChart:PNLineChart = PNLineChart(frame: CGRectMake(0, 10, self.uiHRRR.frame.width, self.uiHRRR.frame.height))
             lineChart.yLabelFormat = "%1.1f"
+            lineChart.yFixedValueMin = 10
             lineChart.showLabel = true
             lineChart.backgroundColor = UIColor.clearColor()
             lineChart.xLabels = []
@@ -90,6 +92,48 @@ class SleepCareDetail: UIView {
             legend.frame = CGRectMake(self.uiHRRR.frame.width - 65, 5, self.uiHRRR.frame.width, self.uiHRRR.frame.height)
             self.uiHRRR.addSubview(legend)
             
+            //设置翻身
+            var trunlineChart:PNLineChart = PNLineChart(frame: CGRectMake(0, 10, self.uiHRRR.frame.width, self.uiHRRR.frame.height))
+            //trunlineChart.yLabelFormat = "%1.1f"
+            trunlineChart.showLabel = true
+            trunlineChart.yFixedValueMin = 1
+            trunlineChart.backgroundColor = UIColor.clearColor()
+            trunlineChart.xLabels = []
+            for(var i = self.SignReports!.count - 1 ;i >= 0;i--){
+                var xlable = self.SignReports![i].ReportHour.subString(11, length: 2)
+                if(xlable.hasPrefix("0")){
+                    xlable = xlable.subString(1, length: 1)
+                }
+                xlable = xlable + "点"
+                trunlineChart.xLabels.append(xlable)
+            }
+            trunlineChart.showCoordinateAxis = true
+            
+            
+            //设置翻身曲线
+            var data03Array: [CGFloat] = []
+            for(var i = self.SignReports!.count - 1 ;i >= 0;i--){
+                data03Array.append(CGFloat((self.SignReports![i].TurnOverTime as NSString).floatValue))
+            }
+            var data03:PNLineChartData = PNLineChartData()
+            data03.color = UIColor.blueColor()
+            data03.itemCount = UInt(data03Array.count)
+            data03.dataTitle = "翻身次数"
+            data03.getData = ({(index: UInt)  in
+                var yValue:CGFloat = data03Array[Int(index)]
+                var item = PNLineChartDataItem(y: yValue)
+                return item
+            })
+            
+            trunlineChart.chartData = [data03]
+            trunlineChart.strokeChart()
+            self.uiTrun.addSubview(trunlineChart)
+            
+            trunlineChart.legendStyle = PNLegendItemStyle.Stacked
+            trunlineChart.legendFontSize = 12
+            let trunlegend = trunlineChart.getLegendWithMaxWidth(self.uiTrun.frame.width)
+            trunlegend.frame = CGRectMake(self.uiTrun.frame.width - 90, 5, self.uiTrun.frame.width, self.uiTrun.frame.height)
+            self.uiTrun.addSubview(trunlegend)
         }
     }
     
