@@ -249,6 +249,7 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
         initDatePicker()
     }
     
+    
     func initDatePicker()
     {
         var screen:UIScreen = UIScreen.mainScreen()
