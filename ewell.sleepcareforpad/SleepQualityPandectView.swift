@@ -242,11 +242,11 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
     var alertview:UIView! = UIView()
     var dateButton : UIButton = UIButton()
     @IBAction func txtBeginTimeFocus(sender: AnyObject) {
-        
+        initDatePicker()
     }
     
     @IBAction func txtEndTimeFocus(sender: AnyObject) {
-        
+        initDatePicker()
     }
     
     func initDatePicker()
@@ -268,13 +268,13 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
         datePicker.frame = CGRect(x:10,y:deviceHeight-297,width:deviceWidth-10*2,height:216)
         
         //设置 确定 和 取消 按钮
-//        var li_common:Li_common = Li_common()
-//        var selectedButton:UIButton = li_common.Li_createButton("确定",x:10,y:deviceHeight-80,width:deviceWidth-10*2,height:35,target:self, action: Selector("selectedAction"))
-//        var cancelButton:UIButton = li_common.Li_createButton("取消",x:10,y:deviceHeight-50,width:deviceWidth-10*2,height:35,target:self, action: Selector("cancelAction"))
-//        
-//        alertview.addSubview(datePicker)
-//        alertview.addSubview(selectedButton)
-//        alertview.addSubview(cancelButton)
+        var li_common:Li_common = Li_common()
+        var selectedButton:UIButton = li_common.Li_createButton("确定",x:10,y:deviceHeight-80,width:deviceWidth-10*2,height:35,target:self, action: Selector("selectedAction"))
+        var cancelButton:UIButton = li_common.Li_createButton("取消",x:10,y:deviceHeight-50,width:deviceWidth-10*2,height:35,target:self, action: Selector("cancelAction"))
+        
+        alertview.addSubview(datePicker)
+        alertview.addSubview(selectedButton)
+        alertview.addSubview(cancelButton)
         
         self.viewSleepQuality.addSubview(alertview)
     }
