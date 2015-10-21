@@ -34,7 +34,7 @@ class PopDownList:NSObject,UITableViewDelegate,UITableViewDataSource{
     }
     
     func Show(width:CGFloat,uiElement:UIView){
-        let height:CGFloat = CGFloat(self._dataSource.count * 40)
+        let height:CGFloat = CGFloat(self._dataSource.count * 45)
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         tableView.delegate = self
         tableView.dataSource = self
