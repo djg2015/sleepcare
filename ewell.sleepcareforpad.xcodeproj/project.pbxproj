@@ -95,6 +95,7 @@
 		3A697CC31BB3DA3000F02EF3 /* SleepCareTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A697CC21BB3DA3000F02EF3 /* SleepCareTableView.swift */; };
 		3A697CC51BB3E13B00F02EF3 /* SleepCareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A697CC41BB3E13B00F02EF3 /* SleepCareTableViewCell.swift */; };
 		3A8604511BBA6327005FC117 /* topbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8604501BBA6327005FC117 /* topbg.png */; };
+		3A8680641BD7396500F22016 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADC91BA7A65A000C109B /* LaunchScreen.xib */; };
 		3A8759D51BB9362600535B3D /* SleepCareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8759D41BB9362600535B3D /* SleepCareCollectionViewCell.xib */; };
 		3A9C12F11BC789C6008EC314 /* maintop.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E01BC789C6008EC314 /* maintop.png */; };
 		3A9C12F21BC789C6008EC314 /* emptyBed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E11BC789C6008EC314 /* emptyBed.png */; };
@@ -694,6 +695,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A8680641BD7396500F22016 /* LaunchScreen.xib in Resources */,
 				3ADA58441BD5FE550066D23A /* sleepofThisWeek.png in Resources */,
 				3ADA58431BD5FC7C0066D23A /* SleepcareDetail.xib in Resources */,
 				3AFB93941BCF96F200042AF1 /* pwdIcon.png in Resources */,
@@ -986,7 +988,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E7856675DBD0F8296CBE665 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = ipadicon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1032,7 +1034,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8E709AD7A0D77B12CA43D3D0 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = ipadicon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
