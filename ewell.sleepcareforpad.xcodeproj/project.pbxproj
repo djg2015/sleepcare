@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
 		2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */; };
+		2C2CB4761BD75DF600A6DB65 /* ServerSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2CB4751BD75DF600A6DB65 /* ServerSettingView.xib */; };
 		2C2F23631BD7247E00A3E9AC /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2F23621BD7247E00A3E9AC /* DatePickerView.swift */; };
 		2C2F83851BD5DE2F008CD92B /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F83841BD5DE2F008CD92B /* back.png */; };
 		2C2F83891BD63160008CD92B /* Li_common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2F83881BD63160008CD92B /* Li_common.swift */; };
@@ -148,6 +149,7 @@
 
 /* Begin PBXFileReference section */
 		2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepQualityPandect.xib; sourceTree = "<group>"; };
+		2C2CB4751BD75DF600A6DB65 /* ServerSettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerSettingView.xib; sourceTree = "<group>"; };
 		2C2F23621BD7247E00A3E9AC /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		2C2F83841BD5DE2F008CD92B /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		2C2F83881BD63160008CD92B /* Li_common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Li_common.swift; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				3A3756251BCB5E9600182DE4 /* SleepcareList.xib */,
 				2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */,
 				3A3C37711BD48BC000080D03 /* SleepcareDetail.xib */,
+				2C2CB4751BD75DF600A6DB65 /* ServerSettingView.xib */,
 			);
 			name = pad;
 			sourceTree = "<group>";
@@ -727,6 +730,7 @@
 				3A9C12F21BC789C6008EC314 /* emptyBed.png in Resources */,
 				3A3C377A1BD48F0B00080D03 /* trunrecord.png in Resources */,
 				2C2F83851BD5DE2F008CD92B /* back.png in Resources */,
+				2C2CB4761BD75DF600A6DB65 /* ServerSettingView.xib in Resources */,
 				3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */,
 				3AFB93951BCF96F200042AF1 /* userIcon.png in Resources */,
 				3A3452941BC63A5000292107 /* MainView.xib in Resources */,

@@ -37,7 +37,7 @@ class AlarmViewModel:BaseViewModel{
                 ({
                     var sleepCareBLL = SleepCareBussiness()
                     // 返回在离床报警
-                    var reportList:LeaveBedReportList = sleepCareBLL.GetLeaveBedReport("00001", userCode: self.UserCode, userNameLike: "", bedNumberLike: "", leaveBedTimeBegin: "", leaveBedTimeEnd: "", from: 1, max: 20)
+                    var reportList:LeaveBedReportList = sleepCareBLL.GetLeaveBedReport(Session.GetSession().CurPartCode!, userCode: self.UserCode, userNameLike: "", bedNumberLike: "", leaveBedTimeBegin: "", leaveBedTimeEnd: "", from: 1, max: 20)
                     for report in reportList.reportList
                     {
                         var alarmVM:OnBedAlarmViewModel = OnBedAlarmViewModel();
