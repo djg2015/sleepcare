@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import UIKit
+
+class ServerSettingController:BaseViewController {
+    
+    //-----------界面事件定义----------------
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+}
