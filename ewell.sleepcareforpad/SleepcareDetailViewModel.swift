@@ -217,9 +217,6 @@ class SleepcareDetailViewModel: BaseViewModel {
                 //获取查询日期对应的自然周开始日期
                 let begin = self.GetStartOfWeekForDate(date)
                 let end  = begin.addDays(6)
-                println( begin.description(format: "yyyy-MM-dd"))
-                println( end.description(format: "yyyy-MM-dd"))
-                
                 var session = Session.GetSession()
                 var sleepcareList = sleepCareBussiness.GetSleepCareReportByUser(session.CurPartCode, userCode: userCode, analysTimeBegin: begin.description(format: "yyyy-MM-dd"), analysTimeEnd: end.description(format: "yyyy-MM-dd"), from: 1, max: 7)
                 
