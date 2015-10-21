@@ -10,7 +10,7 @@
     import UIKit
     
     // 睡眠质量总览
-    class SleepcareQualityPandectViewModel: NSObject{
+    class SleepcareQualityPandectViewModel: BaseViewModel{
         
         var tableView:UITableView = UITableView()
         

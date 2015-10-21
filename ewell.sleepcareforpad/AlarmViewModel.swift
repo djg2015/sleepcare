@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlarmViewModel:NSObject{
+class AlarmViewModel:BaseViewModel{
     
     //属性定义
     var _funcSelectedIndex:Int
