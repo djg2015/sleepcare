@@ -24,6 +24,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     
     //类字段
     var popDownList:PopDownList?
+    var partDownList:PopDownList?
     var mainScroll:UIScrollView!
     var sleepcareMainViewModel:SleepcareMainViewModel?
     var BedViews:Array<BedModel>?{
@@ -138,13 +139,31 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         dataSource.append(item)
         self.popDownList = PopDownList(datasource: dataSource, dismissHandler: self.ChoosedItem)
         
+        var session = Session.GetSession()
+        var partdataSource = Array<DownListModel>()
+        for(var i = 0;i < session.PartCodes.count;i++){
+            item = DownListModel()
+            item.key = session.PartCodes[i].PartCode
+            item.value = session.PartCodes[i].RoleName
+            partdataSource.append(item)
+        }
+        self.partDownList = PopDownList(datasource: partdataSource, dismissHandler: self.ChoosedPartItem)
         
+        self.lblMainName.userInteractionEnabled = true
+        var choosePart:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "mainNameTouch")
+        self.lblMainName .addGestureRecognizer(choosePart)
+
     }
     
     //点击查询类型
     func imageViewTouch(){
         
         self.popDownList!.Show(150, height: 80, uiElement: self.imgSearch)
+    }
+    
+    //选择科室
+    func mainNameTouch(){
+        self.partDownList!.Show(200, uiElement: self.lblMainName)
     }
     
     override func didReceiveMemoryWarning() {
@@ -165,6 +184,13 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     //选中查询类型
     func ChoosedItem(downListModel:DownListModel){
         self.sleepcareMainViewModel?.ChoosedSearchType = downListModel.value
+    }
+    
+    //选中科室/楼层
+    func ChoosedPartItem(downListModel:DownListModel){
+        var session = Session.GetSession()
+        session.CurPartCode = downListModel.key
+        self.sleepcareMainViewModel?.SearchByBedOrRoom("")
     }
     
     func TestDate() -> Array<BedModel> {

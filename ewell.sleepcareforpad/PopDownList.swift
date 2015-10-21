@@ -33,6 +33,16 @@ class PopDownList:NSObject,UITableViewDelegate,UITableViewDataSource{
         self.popover.show(tableView, fromView: uiElement)
     }
     
+    func Show(width:CGFloat,uiElement:UIView){
+        let height:CGFloat = CGFloat(self._dataSource.count * 40)
+        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.scrollEnabled = false
+        self.popover = Popover(options: self.popoverOptions, showHandler: nil, dismissHandler: nil)
+        self.popover.show(tableView, fromView: uiElement)
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        
         self.popover.dismiss()
         if(self.didDismissHandler != nil){
