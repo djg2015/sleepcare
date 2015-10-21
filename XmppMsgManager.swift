@@ -59,10 +59,11 @@ class XmppMsgManager:MessageDelegate{
         _xmppMsgHelper?.sendElement(baseMessage.ToXml())
         
         requsetQuene[baseMessage.messageSubject.requestID!] = nil
-        
+       
         while requsetQuene[baseMessage.messageSubject.requestID!] == nil {
             
         }
+        
         var result:BaseMessage?
         if(requsetQuene.count > 0){
             result = requsetQuene.removeValueForKey(baseMessage.messageSubject.requestID!)!
