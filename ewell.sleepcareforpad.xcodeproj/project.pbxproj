@@ -872,6 +872,7 @@
 				2C4F5FD91BCE2C70004FE6C3 /* TurnOverTableViewCell.swift in Sources */,
 				2C3BAF131BCBA387003A2F48 /* AlarmViewModel.swift in Sources */,
 				3A3262DC1BB90AF40002687B /* SleepCareCollectionViewCell.swift in Sources */,
+				2C2CB4781BD7607D00A6DB65 /* ServerSettingController.swift in Sources */,
 				3A3262DA1BB90AD00002687B /* SleepCareCollectionView.swift in Sources */,
 				3A3756241BCB5E7600182DE4 /* SleepCareDetail.swift in Sources */,
 				3A376E461BABBB1200D70953 /* User.swift in Sources */,
