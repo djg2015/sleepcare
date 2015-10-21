@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
+class SleepQualityPandectView:UIView,UITableViewDelegate,UITableViewDataSource,SelectDateEndDelegate
 {
     // 控件定义
     // 分析起始时间
@@ -92,6 +92,16 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
         
         self.txtAnalysTimeBegin.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeBegin")
         self.txtAnalysTimeEnd.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeEnd")
+        self.txtAnalysTimeBegin.rac_signalForControlEvents(UIControlEvents.TouchDown).subscribeNext
+        {
+            _ in
+            self.initDatePicker(1)
+        }
+        self.txtAnalysTimeEnd.rac_signalForControlEvents(UIControlEvents.TouchDown).subscribeNext
+            {
+                _ in
+                self.initDatePicker(2)
+        }
         
         // 初始化TableView
         self.screenWidth = self.frame.width - 60
@@ -238,45 +248,28 @@ class SleepQualityPandectView: UIView,UITableViewDelegate,UITableViewDataSource
         return cell!
     }
     
-    var datePicker:UIDatePicker = UIDatePicker()
-    var alertview:UIView! = UIView()
-    var dateButton : UIButton = UIButton()
-    @IBAction func txtBeginTimeFocus(sender: AnyObject) {
-        initDatePicker()
-    }
-    
-    @IBAction func txtEndTimeFocus(sender: AnyObject) {
-        initDatePicker()
-    }
-    
-    func initDatePicker()
+    func initDatePicker(timeTag:Int)
     {
         var screen:UIScreen = UIScreen.mainScreen()
         var devicebounds:CGRect = screen.bounds
-        var deviceWidth:CGFloat = devicebounds.width
-        var deviceHeight:CGFloat = devicebounds.height
-        var viewColor:UIColor = UIColor(white:0, alpha: 0.6)
         
         //设置日期弹出窗口
-        alertview = UIView(frame:devicebounds)
-        alertview.backgroundColor = viewColor
-        alertview.userInteractionEnabled = true
-        
-        //设置datepicker
-        datePicker.datePickerMode = .Date
-        datePicker.backgroundColor = UIColor.whiteColor()
-        datePicker.frame = CGRect(x:10,y:deviceHeight-297,width:deviceWidth-10*2,height:216)
-        
-        //设置 确定 和 取消 按钮
-        var li_common:Li_common = Li_common()
-        var selectedButton:UIButton = li_common.Li_createButton("确定",x:10,y:deviceHeight-80,width:deviceWidth-10*2,height:35,target:self, action: Selector("selectedAction"))
-        var cancelButton:UIButton = li_common.Li_createButton("取消",x:10,y:deviceHeight-50,width:deviceWidth-10*2,height:35,target:self, action: Selector("cancelAction"))
-        
-        alertview.addSubview(datePicker)
-        alertview.addSubview(selectedButton)
-        alertview.addSubview(cancelButton)
-        
-        self.viewSleepQuality.addSubview(alertview)
+        var alertview:DatePickerView = DatePickerView(frame:devicebounds)
+        alertview.detegate = self
+        alertview.tag = timeTag
+        self.addSubview(alertview)
+    }
+    
+    func SelectDateEnd(sender:UIView,dateString:String)
+    {
+        if(sender.tag == 1)
+        {
+            self.qualityViewModel.AnalysisTimeBegin = dateString
+        }
+        else
+        {
+            self.qualityViewModel.AnalysisTimeEnd = dateString
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

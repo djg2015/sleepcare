@@ -89,11 +89,11 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         {
             self.JumpPage(1)
         }
-        else if(scrollView.contentOffset.x == 1024)
+        else if(scrollView.contentOffset.x == scrollView.frame.width)
         {
             self.JumpPage(2)
         }
-        else if(scrollView.contentOffset.x == 1024*2)
+        else if(scrollView.contentOffset.x == scrollView.frame.width*2)
         {
             self.JumpPage(3)
         }
@@ -108,12 +108,12 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         else if(pageIndex == 2)
         {
             self.lblTitle.text = "睡眠质量总览"
-            self.mainScroll.contentOffset.x = 1024
+            self.mainScroll.contentOffset.x = self.mainScroll.frame.width
         }
         else
         {
             self.lblTitle.text = "监测日志"
-            self.mainScroll.contentOffset.x = 1024 * 2
+            self.mainScroll.contentOffset.x = self.mainScroll.frame.width * 2
         }
         
         for page in self.curPage.subviews

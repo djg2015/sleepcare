@@ -161,6 +161,7 @@
         func Search() -> RACSignal{
             
             self.SleepQualityList = Array<SleepPandectItemViewModel>()
+            self.CurrentPageIndex = "1"
             try {
                 ({
                     var sleepCareBLL = SleepCareBussiness()
