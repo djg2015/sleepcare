@@ -96,6 +96,8 @@
 		3A697CC51BB3E13B00F02EF3 /* SleepCareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A697CC41BB3E13B00F02EF3 /* SleepCareTableViewCell.swift */; };
 		3A8604511BBA6327005FC117 /* topbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8604501BBA6327005FC117 /* topbg.png */; };
 		3A8680641BD7396500F22016 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADC91BA7A65A000C109B /* LaunchScreen.xib */; };
+		3A8680661BD75EA900F22016 /* ChoosePart.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8680651BD75EA800F22016 /* ChoosePart.xib */; };
+		3A8680681BD75EE000F22016 /* ChoosePartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8680671BD75EE000F22016 /* ChoosePartController.swift */; };
 		3A8759D51BB9362600535B3D /* SleepCareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8759D41BB9362600535B3D /* SleepCareCollectionViewCell.xib */; };
 		3A9C12F11BC789C6008EC314 /* maintop.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E01BC789C6008EC314 /* maintop.png */; };
 		3A9C12F21BC789C6008EC314 /* emptyBed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E11BC789C6008EC314 /* emptyBed.png */; };
@@ -247,6 +249,8 @@
 		3A697CC21BB3DA3000F02EF3 /* SleepCareTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareTableView.swift; sourceTree = "<group>"; };
 		3A697CC41BB3E13B00F02EF3 /* SleepCareTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareTableViewCell.swift; sourceTree = "<group>"; };
 		3A8604501BBA6327005FC117 /* topbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbg.png; sourceTree = "<group>"; };
+		3A8680651BD75EA800F22016 /* ChoosePart.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoosePart.xib; sourceTree = "<group>"; };
+		3A8680671BD75EE000F22016 /* ChoosePartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePartController.swift; sourceTree = "<group>"; };
 		3A8759D41BB9362600535B3D /* SleepCareCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepCareCollectionViewCell.xib; sourceTree = "<group>"; };
 		3A9C12E01BC789C6008EC314 /* maintop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maintop.png; sourceTree = "<group>"; };
 		3A9C12E11BC789C6008EC314 /* emptyBed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyBed.png; sourceTree = "<group>"; };
@@ -424,6 +428,7 @@
 				3A41ADE61BA7B425000C109B /* LoginController.swift */,
 				3A6360281BB2900300F7F953 /* SleepcareMainController.swift */,
 				3A3756211BCB58F700182DE4 /* DialogFrameController.swift */,
+				3A8680671BD75EE000F22016 /* ChoosePartController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -504,6 +509,7 @@
 				3A3756251BCB5E9600182DE4 /* SleepcareList.xib */,
 				2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */,
 				3A3C37711BD48BC000080D03 /* SleepcareDetail.xib */,
+				3A8680651BD75EA800F22016 /* ChoosePart.xib */,
 			);
 			name = pad;
 			sourceTree = "<group>";
@@ -745,6 +751,7 @@
 				3A3C377B1BD48F0B00080D03 /* leaverecord.png in Resources */,
 				3A3C37821BD4D89A00080D03 /* comming.png in Resources */,
 				3AB43E751BD4DB53005023D3 /* nextBtnDisable.png in Resources */,
+				3A8680661BD75EA900F22016 /* ChoosePart.xib in Resources */,
 				3A2F02781BCBA4E4000B16B5 /* infoHeadred.png in Resources */,
 				3A3C377D1BD48F0B00080D03 /* sleepcareblock.png in Resources */,
 				2C2F83911BD63A19008CD92B /* previewBtnNormal.png in Resources */,
@@ -828,6 +835,7 @@
 				2C2F23631BD7247E00A3E9AC /* DatePickerView.swift in Sources */,
 				3A4D17F11BAFB07400E0B862 /* BedUser.swift in Sources */,
 				3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */,
+				3A8680681BD75EE000F22016 /* ChoosePartController.swift in Sources */,
 				3A325A341BD08B7B00DE4E78 /* BaseViewModel.swift in Sources */,
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
 				3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */,
