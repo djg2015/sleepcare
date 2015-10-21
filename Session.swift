@@ -21,6 +21,28 @@ class Session {
         }
     }
 
+    //当前选中的场景code
+    private var _curPartCode:String?
+    var CurPartCode:String?{
+        get{
+            return self._curPartCode
+        }
+        set(value){
+            self._curPartCode=value
+        }
+    }
+    
+    //当前选中的场景code
+    private var _PartCodes:Array<String>?
+    var PartCodes:Array<String>?{
+        get{
+            return self._PartCodes
+        }
+        set(value){
+            self._PartCodes=value
+        }
+    }
+
     
     private static var instance:Session? = nil
     

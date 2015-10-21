@@ -18,9 +18,6 @@ class LoginController: BaseViewController {
     
     //属性变量定义
     var loginModel:LoginViewModel?
-    var xmppMsgManager:XmppMsgManager?=nil
-    var popDownList:PopDownList?
-    
     var RemberImage:UIImage?{
         didSet{
           self.btnRemeber.setImage(self.RemberImage, forState: UIControlState.Normal)
@@ -56,21 +53,6 @@ class LoginController: BaseViewController {
         //事件绑定
         self.btnSubmit.rac_command = loginModel!.login
         self.btnRemeber.rac_command = loginModel!.remeberChecked
-        //        self.btnReset!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
-        //            .subscribeNext {
-        //                _ in
-        ////                var dataSource = Array<DownListModel>()
-        ////                var item = DownListModel()
-        ////                item.key = "1"
-        ////                item.value = "科室"
-        ////                dataSource.append(item)
-        ////                item = DownListModel()
-        ////                item.key = "2"
-        ////                item.value = "病房"
-        ////                dataSource.append(item)
-        ////                self.popDownList = PopDownList(datasource: dataSource, dismissHandler: self.ChoosedItem)
-        ////                self.popDownList!.Show(300, height: 200, uiElement: self.btnReset)
-        //
     }
     
     /*

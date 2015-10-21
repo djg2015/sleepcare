@@ -21,7 +21,7 @@ import UIKit
     //初始化分页控件
     func setView(){
         for(var i = 0 ; i < self.subviews.count; i++) {
-            self.subviews[i].removeFromSuperview()            
+            self.subviews[i].removeFromSuperview()
         }
         let width:CGFloat = 20.0
         let height:CGFloat = 20.0
@@ -29,22 +29,24 @@ import UIKit
         let top = (self.frame.height / 2) - (height / 2)
         let pagerWidth = width * CGFloat(pageCount) + span * (CGFloat(pageCount) - 1)
         let firLeft = (self.frame.width / 2) - (pagerWidth / 2)
-        for i in 1...self.pageCount{
-            var pager = UIButton()
-            let left = firLeft + span * CGFloat(i - 1) + (width * CGFloat(i))
-            pager.frame = (CGRect(origin: CGPointMake(left, top), size: CGSizeMake(width,height)))
-            pager.backgroundColor = UIColor.clearColor()
-            if(i == 1){
-                pager.setBackgroundImage(UIImage(named: "pagerselected"), forState:.Normal)
-                selectedButton = pager
+        if(self.pageCount > 0){
+            for i in 1...self.pageCount{
+                var pager = UIButton()
+                let left = firLeft + span * CGFloat(i - 1) + (width * CGFloat(i))
+                pager.frame = (CGRect(origin: CGPointMake(left, top), size: CGSizeMake(width,height)))
+                pager.backgroundColor = UIColor.clearColor()
+                if(i == 1){
+                    pager.setBackgroundImage(UIImage(named: "pagerselected"), forState:.Normal)
+                    selectedButton = pager
+                }
+                else{
+                    pager.setBackgroundImage(UIImage(named: "pagerunselected"), forState:.Normal)
+                }
+                pager.addTarget(self, action:"jumpPage:", forControlEvents: UIControlEvents.TouchUpInside)
+                pager.tag = i
+                self.addSubview(pager)
+                
             }
-            else{
-                pager.setBackgroundImage(UIImage(named: "pagerunselected"), forState:.Normal)
-            }
-            pager.addTarget(self, action:"jumpPage:", forControlEvents: UIControlEvents.TouchUpInside)
-            pager.tag = i
-            self.addSubview(pager)
-            
         }
     }
     

@@ -95,6 +95,8 @@ class LoginViewModel: BaseViewModel {
                     let testBLL = SleepCareBussiness()
                     var user:User = testBLL.GetLoginInfo(self.UserName!, LoginPassword: self.UserPwd!)
                     Session.SetSession(user)
+                    var session = Session.GetSession()
+                    session.CurPartCode = "00001"
                     let controller = SleepcareMainController(nibName:"MainView", bundle:nil)
                     self.JumpPage(controller)
                 }

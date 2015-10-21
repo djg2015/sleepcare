@@ -108,7 +108,7 @@ class BedModel:NSObject{
     }
     
     //心率
-    var _hr:String = "0"
+    var _hr:String = ""
     dynamic var HR:String{
         get
         {
@@ -121,7 +121,7 @@ class BedModel:NSObject{
     }
     
     //呼吸
-    var _rr:String = "0"
+    var _rr:String = ""
     dynamic var RR:String{
         get
         {
