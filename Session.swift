@@ -22,8 +22,8 @@ class Session {
     }
 
     //当前选中的场景code
-    private var _curPartCode:String?
-    var CurPartCode:String?{
+    private var _curPartCode:String = "00001"
+    var CurPartCode:String{
         get{
             return self._curPartCode
         }
@@ -33,8 +33,8 @@ class Session {
     }
     
     //当前选中的场景code
-    private var _PartCodes:Array<String>?
-    var PartCodes:Array<String>?{
+    private var _PartCodes:Array<Role> = Array<Role>()
+    var PartCodes:Array<Role>{
         get{
             return self._PartCodes
         }

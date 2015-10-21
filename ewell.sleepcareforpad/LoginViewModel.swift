@@ -82,7 +82,7 @@ class LoginViewModel: BaseViewModel {
         }
     }
     
-    //自定义方法ß
+    //自定义方法
     func Login() -> RACSignal{
         try {
             ({                
@@ -95,8 +95,17 @@ class LoginViewModel: BaseViewModel {
                     let testBLL = SleepCareBussiness()
                     var user:User = testBLL.GetLoginInfo(self.UserName!, LoginPassword: self.UserPwd!)
                     Session.SetSession(user)
-                    var session = Session.GetSession()
-                    session.CurPartCode = "00001"
+                    //加载当前用户所有的科室信息
+                    var roleList:RoleList = testBLL.ListRolesByParentCode(user.role!.RoleCode)
+                     var session = Session.GetSession()
+                    for(var i = 0;i < roleList.roleList.count; i++){
+                        if(roleList.roleList[i].RoleType == "Floor"){
+                            session.PartCodes.append(roleList.roleList[i])
+                        }
+                    }
+                    if(session.PartCodes.count > 0){
+                        var curPartCode = session.PartCodes[0].RoleCode
+                    }
                     let controller = SleepcareMainController(nibName:"MainView", bundle:nil)
                     self.JumpPage(controller)
                 }
