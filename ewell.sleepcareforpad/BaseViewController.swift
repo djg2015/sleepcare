@@ -28,5 +28,6 @@ class BaseViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
 
 }

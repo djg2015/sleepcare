@@ -38,7 +38,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
             if(pageCount > 0){
                 for i in 1...pageCount{
                     let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepCareCollectionView", owner: self, options: nil).first as! SleepCareCollectionView
-                    mainview1.frame = CGRectMake(CGFloat((i-1) * 1024), 0, 1024, self.mainScroll.frame.size.height)
+                    mainview1.frame = CGRectMake(CGFloat((i-1) * 1024) + 10, 0, 1024, self.mainScroll.frame.size.height)
                     mainview1.didSelecteBedHandler = self.BedSelected
                     var bedList = self.sleepcareMainViewModel?.GetBedsOfPage(i, count: 8)
                     mainview1.reloadData(bedList!)
