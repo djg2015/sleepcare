@@ -15,7 +15,7 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
     @IBOutlet weak var lblTitle: UILabel!
     
     @IBAction func btnBackClick(sender: AnyObject) {
-        self.presentViewController(SleepcareMainController(nibName: "MainView",  bundle:nil), animated: true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     //类字段
     var mainScroll:UIScrollView!
