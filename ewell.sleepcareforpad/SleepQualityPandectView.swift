@@ -93,9 +93,9 @@ class SleepQualityPandectView:UIView,UITableViewDelegate,UITableViewDataSource,S
         self.txtAnalysTimeBegin.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeBegin")
         self.txtAnalysTimeEnd.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeEnd")
         self.txtAnalysTimeBegin.rac_signalForControlEvents(UIControlEvents.TouchDown).subscribeNext
-        {
-            _ in
-            self.initDatePicker(1)
+            {
+                _ in
+                self.initDatePicker(1)
         }
         self.txtAnalysTimeEnd.rac_signalForControlEvents(UIControlEvents.TouchDown).subscribeNext
             {
@@ -117,55 +117,6 @@ class SleepQualityPandectView:UIView,UITableViewDelegate,UITableViewDataSource,S
         self.tabViewSleepQuality!.backgroundColor = UIColor.clearColor()
         // 注册自定义的TableCell
         //        self.tabViewSleepQuality!.registerNib(UINib(nibName: "AlarmTableViewCell", bundle:nil), forCellReuseIdentifier: identifier)
-        
-        // 创建睡眠质量总览tableView的列头
-        var headViewSleepQuality:UIView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 44))
-        var lblNumber = UILabel(frame: CGRectMake(0, 0,  100, 44))
-        lblNumber.text = "序号"
-        lblNumber.font = UIFont.boldSystemFontOfSize(18)
-        lblNumber.textAlignment = .Center
-        lblNumber.layer.borderWidth = 1
-        lblNumber.layer.borderColor = UIColor.blackColor().CGColor
-        lblNumber.backgroundColor = UIColor(red: 190/255, green: 236/255, blue: 255/255, alpha: 0.5)
-        
-        var lblAnalysTime = UILabel(frame: CGRectMake(100, 0, self.screenWidth - 100 - 120 * 3, 44))
-        lblAnalysTime.text = "分析时段"
-        lblAnalysTime.font = UIFont.boldSystemFontOfSize(18)
-        lblAnalysTime.textAlignment = .Center
-        lblAnalysTime.layer.borderWidth = 1
-        lblAnalysTime.layer.borderColor = UIColor.blackColor().CGColor
-        lblAnalysTime.backgroundColor = UIColor(red: 190/255, green: 236/255, blue: 255/255, alpha: 0.5)
-        
-        var lblAvgHR = UILabel(frame: CGRectMake(self.screenWidth - 120 * 3, 0, 120, 44))
-        lblAvgHR.text = "平均心率"
-        lblAvgHR.font = UIFont.boldSystemFontOfSize(18)
-        lblAvgHR.textAlignment = .Center
-        lblAvgHR.layer.borderWidth = 1
-        lblAvgHR.layer.borderColor = UIColor.blackColor().CGColor
-        lblAvgHR.backgroundColor = UIColor(red: 190/255, green: 236/255, blue: 255/255, alpha: 0.5)
-        
-        var lblAvgRR = UILabel(frame: CGRectMake(self.screenWidth - 120 * 2, 0, 120, 44))
-        lblAvgRR.text = "平均呼吸"
-        lblAvgRR.font = UIFont.boldSystemFontOfSize(18)
-        lblAvgRR.textAlignment = .Center
-        lblAvgRR.layer.borderWidth = 1
-        lblAvgRR.layer.borderColor = UIColor.blackColor().CGColor
-        lblAvgRR.backgroundColor = UIColor(red: 190/255, green: 236/255, blue: 255/255, alpha: 0.5)
-        
-        var lblTurnOverTimes = UILabel(frame: CGRectMake(self.screenWidth - 120, 0, 120, 44))
-        lblTurnOverTimes.text = "翻身次数"
-        lblTurnOverTimes.font = UIFont.boldSystemFontOfSize(18)
-        lblTurnOverTimes.textAlignment = .Center
-        lblTurnOverTimes.layer.borderWidth = 1
-        lblTurnOverTimes.layer.borderColor = UIColor.blackColor().CGColor
-        lblTurnOverTimes.backgroundColor = UIColor(red: 190/255, green: 236/255, blue: 255/255, alpha: 0.5)
-        headViewSleepQuality.addSubview(lblNumber)
-        headViewSleepQuality.addSubview(lblAnalysTime)
-        headViewSleepQuality.addSubview(lblAvgHR)
-        headViewSleepQuality.addSubview(lblAvgRR)
-        headViewSleepQuality.addSubview(lblTurnOverTimes)
-        self.tabViewSleepQuality!.tableHeaderView = headViewSleepQuality
-        
         self.viewSleepQuality.addSubview(self.tabViewSleepQuality)
         self.qualityViewModel.tableView = self.tabViewSleepQuality
     }
@@ -187,6 +138,59 @@ class SleepQualityPandectView:UIView,UITableViewDelegate,UITableViewDataSource,S
         return 1;
     }
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        // 创建睡眠质量总览tableView的列头
+        var headViewSleepQuality:UIView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 44))
+        var lblNumber = UILabel(frame: CGRectMake(0, 0,  100, 44))
+        lblNumber.text = "序号"
+        lblNumber.font = UIFont.boldSystemFontOfSize(18)
+        lblNumber.textAlignment = .Center
+        lblNumber.layer.borderWidth = 1
+        lblNumber.layer.borderColor = UIColor.blackColor().CGColor
+        lblNumber.backgroundColor = UIColor(red: 190/255, green: 236/255, blue: 255/255, alpha: 1)
+        
+        var lblAnalysTime = UILabel(frame: CGRectMake(100, 0, self.screenWidth - 100 - 120 * 3, 44))
+        lblAnalysTime.text = "分析时段"
+        lblAnalysTime.font = UIFont.boldSystemFontOfSize(18)
+        lblAnalysTime.textAlignment = .Center
+        lblAnalysTime.layer.borderWidth = 1
+        lblAnalysTime.layer.borderColor = UIColor.blackColor().CGColor
+        lblAnalysTime.backgroundColor = UIColor(red: 190/255, green: 236/255, blue: 255/255, alpha: 1)
+        
+        var lblAvgHR = UILabel(frame: CGRectMake(self.screenWidth - 120 * 3, 0, 120, 44))
+        lblAvgHR.text = "平均心率"
+        lblAvgHR.font = UIFont.boldSystemFontOfSize(18)
+        lblAvgHR.textAlignment = .Center
+        lblAvgHR.layer.borderWidth = 1
+        lblAvgHR.layer.borderColor = UIColor.blackColor().CGColor
+        lblAvgHR.backgroundColor = UIColor(red: 190/255, green: 236/255, blue: 255/255, alpha: 1)
+        
+        var lblAvgRR = UILabel(frame: CGRectMake(self.screenWidth - 120 * 2, 0, 120, 44))
+        lblAvgRR.text = "平均呼吸"
+        lblAvgRR.font = UIFont.boldSystemFontOfSize(18)
+        lblAvgRR.textAlignment = .Center
+        lblAvgRR.layer.borderWidth = 1
+        lblAvgRR.layer.borderColor = UIColor.blackColor().CGColor
+        lblAvgRR.backgroundColor = UIColor(red: 190/255, green: 236/255, blue: 255/255, alpha: 1)
+        
+        var lblTurnOverTimes = UILabel(frame: CGRectMake(self.screenWidth - 120, 0, 120, 44))
+        lblTurnOverTimes.text = "翻身次数"
+        lblTurnOverTimes.font = UIFont.boldSystemFontOfSize(18)
+        lblTurnOverTimes.textAlignment = .Center
+        lblTurnOverTimes.layer.borderWidth = 1
+        lblTurnOverTimes.layer.borderColor = UIColor.blackColor().CGColor
+        lblTurnOverTimes.backgroundColor = UIColor(red: 190/255, green: 236/255, blue: 255/255, alpha: 1)
+        headViewSleepQuality.addSubview(lblNumber)
+        headViewSleepQuality.addSubview(lblAnalysTime)
+        headViewSleepQuality.addSubview(lblAvgHR)
+        headViewSleepQuality.addSubview(lblAvgRR)
+        headViewSleepQuality.addSubview(lblTurnOverTimes)
+        return headViewSleepQuality
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
