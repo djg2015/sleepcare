@@ -17,7 +17,7 @@
                 <outlet property="lblPart" destination="Xzr-9F-qmm" id="qgs-u0-3fI"/>
                 <outlet property="lblRoomCount" destination="BFa-fp-H02" id="NkQ-yk-WNs"/>
                 <outlet property="search" destination="Svk-kA-1lf" id="Z21-eV-ONu"/>
-                <outlet property="txtSearchType" destination="eyb-48-PtV" id="T84-HH-mKr"/>
+                <outlet property="txtSearchChoosed" destination="eyb-48-PtV" id="4dA-pu-ipq"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Ovn-Fg-wSk"/>
             </connections>
         </placeholder>

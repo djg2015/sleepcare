@@ -14,14 +14,15 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
         super.init()
         //定时器
         self.CurTime = getCurrentTime()
-        self.SearchType = self.searchSource[0] as String
+        self.ChoosedSearchType = SearchType.byBedNum as String
         doTimer()
         var beds = Array<BedModel>()
         try {
             ({
-                let loginUser = Session.GetSession()
-                self.MainName = loginUser.LoginUser?.role?.RoleName
-                self.PartBedsSearch("00001", searchType: "", searchContent: "")
+                var session = Session.GetSession()
+                let loginUser = session.LoginUser
+                self.MainName = loginUser!.role?.RoleName
+                self.PartBedsSearch(session.CurPartCode!, searchType: "", searchContent: "")
                 },
                 catch: { ex in
                     //异常处理
@@ -134,7 +135,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
     
     //查询类型
     var _searchType:String?
-    dynamic var SearchType:String?{
+    dynamic var ChoosedSearchType:String?{
         get
         {
             return self._searchType
@@ -183,7 +184,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
             self._pageCount=value
         }
     }
-    var searchSource = ["按房间号","按床位号"]
+    
     //界面命令
     
     
@@ -243,11 +244,30 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
     //实时数据处理
     func GetRealTimeDelegate(realTimeReport:RealTimeReport){
         let key = realTimeReport.BedCode
-        self.realTimeCaches?[key] = realTimeReport
+        var keys = self.realTimeCaches?.keys.filter({$0 == key})
+        if(keys?.array.count > 0)
+        {
+            self.realTimeCaches?[key] = realTimeReport
+        }
+        else
+        {
+            self.realTimeCaches?.updateValue(realTimeReport, forKey: key)
+        }
+        
+    }
+    
+    //按房间号或床位号搜索
+    func SearchByBedOrRoom(searchContent:String){
+        var session = Session.GetSession()
+        var searcgType = "1"
+        if(self.ChoosedSearchType == SearchType.byRoomNum){
+            searcgType = "2"
+        }
+        self.PartBedsSearch(session.CurPartCode!, searchType: searcgType, searchContent: searchContent)
     }
     
     //房间床位查询设置
-    func PartBedsSearch(partCode:String,searchType:String,searchContent:String){
+    private func PartBedsSearch(partCode:String,searchType:String,searchContent:String){
         let sleepCareBussiness = SleepCareBussiness()
         //获取医院下的床位信
         var partInfo:PartInfo = sleepCareBussiness.GetPartInfoByPartCode(partCode, searchType: searchType, searchContent: searchContent, from: nil, max: nil)
@@ -269,4 +289,9 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
         }
         self.BedModelList = beds
     }
+}
+
+struct SearchType{
+    static var byBedNum = "按床位号"
+    static var byRoomNum = "按房间号"
 }

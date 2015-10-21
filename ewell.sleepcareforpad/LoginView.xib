@@ -20,34 +20,34 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入用户名" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wB9-Bc-lqW" userLabel="11222">
-                    <rect key="frame" x="426" y="227" width="332" height="64"/>
+                    <rect key="frame" x="394" y="234" width="332" height="64"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginTitle.png" translatesAutoresizingMaskIntoConstraints="NO" id="XT6-iI-g3U">
-                    <rect key="frame" x="343" y="140" width="424" height="31"/>
+                    <rect key="frame" x="311" y="147" width="424" height="31"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMN-Nf-Zdh">
-                    <rect key="frame" x="630" y="369" width="109" height="53"/>
+                    <rect key="frame" x="598" y="376" width="109" height="53"/>
                     <state key="normal" backgroundImage="loginBtn.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="GAn-5x-IGi">
-                    <rect key="frame" x="353" y="233" width="45" height="48"/>
+                    <rect key="frame" x="321" y="240" width="45" height="48"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pwdIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="30D-Zo-4hi">
-                    <rect key="frame" x="353" y="292" width="45" height="54"/>
+                    <rect key="frame" x="321" y="299" width="45" height="54"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textboxBorder.png" translatesAutoresizingMaskIntoConstraints="NO" id="MxW-FR-bA5">
-                    <rect key="frame" x="406" y="226" width="361" height="65"/>
+                    <rect key="frame" x="374" y="233" width="361" height="65"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textboxBorder.png" translatesAutoresizingMaskIntoConstraints="NO" id="yjL-CL-MLO">
-                    <rect key="frame" x="406" y="292" width="361" height="59"/>
+                    <rect key="frame" x="374" y="299" width="361" height="59"/>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tcr-39-XAd">
-                    <rect key="frame" x="426" y="292" width="332" height="64"/>
+                    <rect key="frame" x="394" y="299" width="332" height="64"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <connections>
@@ -55,7 +55,7 @@
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrV-pt-3m3">
-                    <rect key="frame" x="417" y="371" width="123" height="50"/>
+                    <rect key="frame" x="385" y="378" width="123" height="50"/>
                     <state key="normal" title="记住密码" image="checkbox.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

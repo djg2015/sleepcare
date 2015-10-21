@@ -18,28 +18,33 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     @IBOutlet weak var lblRoomCount: UILabel!
     @IBOutlet weak var lblBedCount: UILabel!
     @IBOutlet weak var lblBindBedCount: UILabel!
-    @IBOutlet weak var txtSearchType: UITextField!
     @IBOutlet weak var imgSearch: UIImageView!
     @IBOutlet weak var btnLogout: UIButton!
-    
+    @IBOutlet weak var txtSearchChoosed: UITextField!
     
     //类字段
+    var popDownList:PopDownList?
     var mainScroll:UIScrollView!
     var sleepcareMainViewModel:SleepcareMainViewModel?
     var BedViews:Array<BedModel>?{
         didSet{
+            for(var i = 0 ; i < self.mainScroll.subviews.count; i++) {
+                self.mainScroll.subviews[i].removeFromSuperview()
+            }
             let pageCount:Int = (self.BedViews!.count / 8) + ((self.BedViews!.count % 8) > 0 ? 1 : 0)
             self.sleepcareMainViewModel?.PageCount = pageCount
             self.mainScroll.contentSize = CGSize(width: self.view.bounds.size.width * CGFloat(pageCount), height: 500)
-            
-            for i in 1...pageCount{
-                let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepCareCollectionView", owner: self, options: nil).first as! SleepCareCollectionView
-                mainview1.frame = CGRectMake(CGFloat((i-1) * 1024), 0, 1024, self.mainScroll.frame.size.height)
-                mainview1.didSelecteBedHandler = self.BedSelected
-                var bedList = self.sleepcareMainViewModel?.GetBedsOfPage(i, count: 8)
-                mainview1.reloadData(bedList!)
-                self.mainScroll.addSubview(mainview1)
-                self.mainScroll.bringSubviewToFront(mainview1)
+            self.mainScroll.contentOffset.x = 0
+            if(pageCount > 0){
+                for i in 1...pageCount{
+                    let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepCareCollectionView", owner: self, options: nil).first as! SleepCareCollectionView
+                    mainview1.frame = CGRectMake(CGFloat((i-1) * 1024), 0, 1024, self.mainScroll.frame.size.height)
+                    mainview1.didSelecteBedHandler = self.BedSelected
+                    var bedList = self.sleepcareMainViewModel?.GetBedsOfPage(i, count: 8)
+                    mainview1.reloadData(bedList!)
+                    self.mainScroll.addSubview(mainview1)
+                    self.mainScroll.bringSubviewToFront(mainview1)
+                }
             }
             
         }
@@ -53,7 +58,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         self.mainScroll.backgroundColor = UIColor.clearColor()
         self.mainScroll.frame = self.view.frame
         self.mainScroll.frame.origin.y = 170
-        self.mainScroll.frame.size.height = 500
+        self.mainScroll.frame.size.height = 600
         self.mainScroll.pagingEnabled = true
         self.mainScroll.showsHorizontalScrollIndicator = false
         self.mainScroll.delegate = self
@@ -70,12 +75,13 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         }
         self.search.delegate = self
         self.curPager.detegate = self
+        
         rac_setting()
     }
     
     //查询按钮事件
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
-        
+        self.sleepcareMainViewModel?.SearchByBedOrRoom(searchText)
     }
     
     //床位点击事件
@@ -109,14 +115,36 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         RACObserve(self.sleepcareMainViewModel, "RoomCount") ~> RAC(self.lblRoomCount, "text")
         RACObserve(self.sleepcareMainViewModel, "BedCount") ~> RAC(self.lblBedCount, "text")
         RACObserve(self.sleepcareMainViewModel, "BindBedCount") ~> RAC(self.lblBindBedCount, "text")
-        RACObserve(self.sleepcareMainViewModel, "SearchType") ~> RAC(self.txtSearchType, "text")
+        RACObserve(self.sleepcareMainViewModel, "ChoosedSearchType") ~> RAC(self.txtSearchChoosed, "text")
         self.btnLogout!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
                 self.presentViewController(LoginController(nibName:"LoginView", bundle:nil), animated: true, completion: nil)
-
+                
         }
         
+        self.imgSearch.userInteractionEnabled = true
+        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
+        self.imgSearch .addGestureRecognizer(singleTap)
+        
+        var dataSource = Array<DownListModel>()
+        var item = DownListModel()
+        item.key = SearchType.byBedNum
+        item.value = SearchType.byBedNum
+        dataSource.append(item)
+        item = DownListModel()
+        item.key = SearchType.byRoomNum
+        item.value = SearchType.byRoomNum
+        dataSource.append(item)
+        self.popDownList = PopDownList(datasource: dataSource, dismissHandler: self.ChoosedItem)
+        
+        
+    }
+    
+    //点击查询类型
+    func imageViewTouch(){
+        
+        self.popDownList!.Show(150, height: 80, uiElement: self.imgSearch)
     }
     
     override func didReceiveMemoryWarning() {
@@ -130,8 +158,13 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     }
     
     func JumpPage(pageIndex:NSInteger){
-        self.mainScroll.contentOffset.x = CGFloat(pageIndex - 1) * self.mainScroll.frame.width       
+        self.mainScroll.contentOffset.x = CGFloat(pageIndex - 1) * self.mainScroll.frame.width
         
+    }
+    
+    //选中查询类型
+    func ChoosedItem(downListModel:DownListModel){
+        self.sleepcareMainViewModel?.ChoosedSearchType = downListModel.value
     }
     
     func TestDate() -> Array<BedModel> {

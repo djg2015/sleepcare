@@ -618,11 +618,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/SleepcareMainController.swift"
-            timestampString = "466677047.569962"
+            timestampString = "467086664.437324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "SleepcareMainController"
             landmarkType = "3">
          </BreakpointContent>
@@ -634,11 +634,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/LoginController.swift"
-            timestampString = "466670564.63178"
+            timestampString = "467084216.204617"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -816,11 +816,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/Pager.swift"
-            timestampString = "466501208.61814"
+            timestampString = "467085693.324002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "setView()"
             landmarkType = "5">
          </BreakpointContent>
@@ -832,11 +832,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/Pager.swift"
-            timestampString = "466501208.61814"
+            timestampString = "467085693.324002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "setView()"
             landmarkType = "5">
          </BreakpointContent>
@@ -864,11 +864,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/SleepcareMainController.swift"
-            timestampString = "467023190.862056"
+            timestampString = "467086664.437324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -880,13 +880,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/SleepcareMainController.swift"
-            timestampString = "467023190.862056"
+            timestampString = "467086664.437324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "SleepcareMainController"
-            landmarkType = "3">
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "imageViewTouch()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -928,11 +928,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/SleepcareMainController.swift"
-            timestampString = "466677047.569962"
+            timestampString = "467086664.437324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "SleepcareMainController"
             landmarkType = "3">
          </BreakpointContent>
@@ -944,11 +944,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/SleepcareMainViewModel.swift"
-            timestampString = "466502685.972061"
+            timestampString = "467085439.518843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -960,11 +960,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/SleepcareMainController.swift"
-            timestampString = "466677047.569962"
+            timestampString = "467085693.324002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "SleepcareMainController"
             landmarkType = "3">
          </BreakpointContent>
@@ -1088,11 +1088,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/SleepcareMainController.swift"
-            timestampString = "467023190.862056"
+            timestampString = "467086664.437324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1120,11 +1120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/LoginViewModel.swift"
-            timestampString = "466676376.395716"
+            timestampString = "467085439.518843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "Login()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1136,11 +1136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/LoginViewModel.swift"
-            timestampString = "466676376.395716"
+            timestampString = "467085439.518843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "Login()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1200,11 +1200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/LoginViewModel.swift"
-            timestampString = "466676531.107926"
+            timestampString = "467085439.518843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "RemeberPwd()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1216,27 +1216,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/LoginViewModel.swift"
-            timestampString = "466676531.107926"
+            timestampString = "467085439.518843"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "RemeberPwd()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ewell.sleepcareforpad/LoginViewModel.swift"
+            timestampString = "467085439.518843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
             endingLineNumber = "121"
-            landmarkName = "RemeberPwd()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ewell.sleepcareforpad/LoginViewModel.swift"
-            timestampString = "466676531.107926"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
             landmarkName = "RemeberPwd()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1280,11 +1280,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/LoginController.swift"
-            timestampString = "466671929.128299"
+            timestampString = "467084216.204617"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "LoginController"
             landmarkType = "3">
          </BreakpointContent>
@@ -1328,11 +1328,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/LoginViewModel.swift"
-            timestampString = "466676511.020753"
+            timestampString = "467085439.518843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "Login()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1504,13 +1504,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/SleepcareMainViewModel.swift"
-            timestampString = "466913592.12941"
+            timestampString = "467086216.795674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "GetRealTimeDelegate(_:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ewell_sleepcareforpad.SleepcareMainViewModel.GetRealTimeDelegate (ewell_sleepcareforpad.SleepcareMainViewModel)(ewell_sleepcareforpad.RealTimeReport) -&gt; ()"
+                  moduleName = "ewell.sleepcareforpad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/djg/Desktop/IOS/ewell.sleepcareforpad/ewell.sleepcareforpad/SleepcareMainViewModel.swift"
+                  timestampString = "467086243.102004"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "247"
+                  endingLineNumber = "247"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ewell_sleepcareforpad.SleepcareMainViewModel.(GetRealTimeDelegate (ewell_sleepcareforpad.SleepcareMainViewModel) -&gt; (ewell_sleepcareforpad.RealTimeReport) -&gt; ()).(closure #1)"
+                  moduleName = "ewell.sleepcareforpad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/djg/Desktop/IOS/ewell.sleepcareforpad/ewell.sleepcareforpad/SleepcareMainViewModel.swift"
+                  timestampString = "467086243.102196"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "247"
+                  endingLineNumber = "247"
+                  offsetFromSymbolStart = "45">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1520,11 +1552,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/SleepcareMainViewModel.swift"
-            timestampString = "466913482.599179"
+            timestampString = "467085439.518843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "realtimerFireMethod(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1536,11 +1568,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/SleepcareMainViewModel.swift"
-            timestampString = "466932306.04477"
+            timestampString = "467086216.795674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "GetRealTimeDelegate(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1696,11 +1728,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/LoginController.swift"
-            timestampString = "467009302.858887"
+            timestampString = "467084216.204617"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "rac_settings()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1840,11 +1872,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/Pager.swift"
-            timestampString = "467023236.074865"
+            timestampString = "467085693.324002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "jumpPage(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1856,11 +1888,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/SleepcareMainController.swift"
-            timestampString = "467023528.757005"
+            timestampString = "467086664.437324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "scrollViewDidScroll(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1872,12 +1904,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/SleepcareMainController.swift"
-            timestampString = "467023530.479108"
+            timestampString = "467086664.437324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "JumpPage(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ewell.sleepcareforpad/SleepcareMainController.swift"
+            timestampString = "467086664.437324"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "rac_setting()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ewell.sleepcareforpad/SleepcareMainController.swift"
+            timestampString = "467086664.437324"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ewell.sleepcareforpad/SleepcareMainViewModel.swift"
+            timestampString = "467086262.824759"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "GetRealTimeDelegate(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
