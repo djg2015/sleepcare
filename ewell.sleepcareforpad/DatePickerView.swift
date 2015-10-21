@@ -55,7 +55,7 @@ import UIKit
         dateButton.setTitle(dateString, forState: UIControlState.Normal)
         removeAlertview()
         if(self.detegate != nil){
-            self.detegate.SelectDateEnd()
+            self.detegate.SelectDateEnd(self,dateString: dateString)
         }
     }
     
@@ -78,5 +78,5 @@ import UIKit
 }
 
 protocol SelectDateEndDelegate{
-    func SelectDateEnd()
+    func SelectDateEnd(sender:UIView,dateString:String)
 }
