@@ -220,7 +220,8 @@ class SleepcareDetailViewModel: BaseViewModel {
                 println( begin.description(format: "yyyy-MM-dd"))
                 println( end.description(format: "yyyy-MM-dd"))
                 
-                var sleepcareList = sleepCareBussiness.GetSleepCareReportByUser("00001", userCode: userCode, analysTimeBegin: begin.description(format: "yyyy-MM-dd"), analysTimeEnd: end.description(format: "yyyy-MM-dd"), from: 1, max: 7)
+                var session = Session.GetSession()
+                var sleepcareList = sleepCareBussiness.GetSleepCareReportByUser(session.CurPartCode, userCode: userCode, analysTimeBegin: begin.description(format: "yyyy-MM-dd"), analysTimeEnd: end.description(format: "yyyy-MM-dd"), from: 1, max: 7)
                 
                 if(sleepcareList.sleepCareReportList.count > 0){
                     self.SleepCareReports = sleepcareList.sleepCareReportList
