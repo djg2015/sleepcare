@@ -54,7 +54,7 @@ class ServerSettingController:BaseViewController {
                     handleException(ex,showDialog: true)
                 },
                 finally: {
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                   
                 }
             )}
     }
