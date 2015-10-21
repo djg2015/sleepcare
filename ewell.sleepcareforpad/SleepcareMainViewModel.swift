@@ -22,7 +22,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
                 var session = Session.GetSession()
                 let loginUser = session.LoginUser
                 self.MainName = loginUser!.role?.RoleName
-                self.PartBedsSearch(session.CurPartCode!, searchType: "", searchContent: "")
+                self.PartBedsSearch(session.CurPartCode, searchType: "", searchContent: "")
                 },
                 catch: { ex in
                     //异常处理
@@ -263,7 +263,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
         if(self.ChoosedSearchType == SearchType.byRoomNum){
             searcgType = "2"
         }
-        self.PartBedsSearch(session.CurPartCode!, searchType: searcgType, searchContent: searchContent)
+        self.PartBedsSearch(session.CurPartCode, searchType: searcgType, searchContent: searchContent)
     }
     
     //房间床位查询设置
