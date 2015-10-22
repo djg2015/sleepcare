@@ -25,6 +25,10 @@
 		2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AEC471BB397130096DF3F /* RoleList.swift */; };
 		2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1151BD48713006FC007 /* searchBtn.png */; };
 		2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1161BD48713006FC007 /* searchBtnChecked.png */; };
+		3A2BD8A81BD8AE78007BBD01 /* 29pt@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2BD8A41BD8AE78007BBD01 /* 29pt@1x.png */; };
+		3A2BD8A91BD8AE78007BBD01 /* 50pt@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2BD8A51BD8AE78007BBD01 /* 50pt@1x.png */; };
+		3A2BD8AA1BD8AE78007BBD01 /* 72pt@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2BD8A61BD8AE78007BBD01 /* 72pt@1x.png */; };
+		3A2BD8AB1BD8AE78007BBD01 /* 76pt@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2BD8A71BD8AE78007BBD01 /* 76pt@1x.png */; };
 		3A2F02781BCBA4E4000B16B5 /* infoHeadred.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2F02771BCBA4E4000B16B5 /* infoHeadred.png */; };
 		3A325A341BD08B7B00DE4E78 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A325A331BD08B7B00DE4E78 /* BaseViewModel.swift */; };
 		3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262DE1BB912180002687B /* OSSExceptionHelper.m */; };
@@ -168,6 +172,10 @@
 		2C5AEC471BB397130096DF3F /* RoleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleList.swift; sourceTree = "<group>"; };
 		2C6AE1151BD48713006FC007 /* searchBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtn.png; sourceTree = "<group>"; };
 		2C6AE1161BD48713006FC007 /* searchBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtnChecked.png; sourceTree = "<group>"; };
+		3A2BD8A41BD8AE78007BBD01 /* 29pt@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29pt@1x.png"; sourceTree = "<group>"; };
+		3A2BD8A51BD8AE78007BBD01 /* 50pt@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "50pt@1x.png"; sourceTree = "<group>"; };
+		3A2BD8A61BD8AE78007BBD01 /* 72pt@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "72pt@1x.png"; sourceTree = "<group>"; };
+		3A2BD8A71BD8AE78007BBD01 /* 76pt@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "76pt@1x.png"; sourceTree = "<group>"; };
 		3A2F02771BCBA4E4000B16B5 /* infoHeadred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoHeadred.png; sourceTree = "<group>"; };
 		3A325A331BD08B7B00DE4E78 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		3A3262DD1BB912180002687B /* OSSExceptionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSExceptionHelper.h; sourceTree = "<group>"; };
@@ -567,6 +575,10 @@
 		3AFF67A61BBA2F2500C9CA20 /* Pad */ = {
 			isa = PBXGroup;
 			children = (
+				3A2BD8A41BD8AE78007BBD01 /* 29pt@1x.png */,
+				3A2BD8A51BD8AE78007BBD01 /* 50pt@1x.png */,
+				3A2BD8A61BD8AE78007BBD01 /* 72pt@1x.png */,
+				3A2BD8A71BD8AE78007BBD01 /* 76pt@1x.png */,
 				2C2F838A1BD63A19008CD92B /* nextBtnChecked.png */,
 				2C2F838B1BD63A19008CD92B /* nextBtnNormal.png */,
 				2C2F838C1BD63A19008CD92B /* previewBtnDisable.png */,
@@ -716,12 +728,14 @@
 				3A41ADE31BA7B3D1000C109B /* LoginView.xib in Resources */,
 				2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */,
 				3A3C377C1BD48F0B00080D03 /* dateIcon.png in Resources */,
+				3A2BD8A81BD8AE78007BBD01 /* 29pt@1x.png in Resources */,
 				2C2F83901BD63A19008CD92B /* previewBtnDisable.png in Resources */,
 				3A9C12FD1BC789C6008EC314 /* pagerunselected.png in Resources */,
 				3AB3CB1D1BD762FE0067F9D4 /* SleepCareCollectionView.xib in Resources */,
 				3A3756201BCB589600182DE4 /* DialogFrame.xib in Resources */,
 				2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */,
 				3A9C13001BC789C6008EC314 /* onBedView.png in Resources */,
+				3A2BD8A91BD8AE78007BBD01 /* 50pt@1x.png in Resources */,
 				3AB3CB1F1BD762FE0067F9D4 /* SleepCareCollectionViewCell.xib in Resources */,
 				3AB3CB231BD762FE0067F9D4 /* TurnOverTableViewCell.xib in Resources */,
 				2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */,
@@ -737,6 +751,7 @@
 				3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */,
 				2C2F838E1BD63A19008CD92B /* nextBtnChecked.png in Resources */,
 				3A9C12F91BC789C6008EC314 /* infoHead.png in Resources */,
+				3A2BD8AB1BD8AE78007BBD01 /* 76pt@1x.png in Resources */,
 				3AB3CB181BD762FE0067F9D4 /* AlarmTableViewCell.xib in Resources */,
 				3A8604511BBA6327005FC117 /* topbg.png in Resources */,
 				3A9C12F21BC789C6008EC314 /* emptyBed.png in Resources */,
@@ -751,6 +766,7 @@
 				3A9C12F51BC789C6008EC314 /* unlineView.png in Resources */,
 				3AFB93921BCF96F200042AF1 /* loginTitle.png in Resources */,
 				3AA3161D1BD0DD8500FC3C40 /* sleepcare.plist in Resources */,
+				3A2BD8AA1BD8AE78007BBD01 /* 72pt@1x.png in Resources */,
 				3A9C13011BC789C6008EC314 /* transbg.png in Resources */,
 				3A9C12F71BC789C6008EC314 /* search.png in Resources */,
 				3A3756261BCB5E9600182DE4 /* SleepcareList.xib in Resources */,

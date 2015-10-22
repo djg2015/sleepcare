@@ -268,6 +268,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
     
     //房间床位查询设置
     private func PartBedsSearch(partCode:String,searchType:String,searchContent:String){
+        self.BedModelList = Array<BedModel>()
         let sleepCareBussiness = SleepCareBussiness()
         //获取医院下的床位信
         var partInfo:PartInfo = sleepCareBussiness.GetPartInfoByPartCode(partCode, searchType: searchType, searchContent: searchContent, from: nil, max: nil)

@@ -139,19 +139,19 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         dataSource.append(item)
         self.popDownList = PopDownList(datasource: dataSource, dismissHandler: self.ChoosedItem)
         
-//        var session = Session.GetSession()
-//        var partdataSource = Array<DownListModel>()
-//        for(var i = 0;i < session.PartCodes.count;i++){
-//            item = DownListModel()
-//            item.key = session.PartCodes[i].PartCode
-//            item.value = session.PartCodes[i].RoleName
-//            partdataSource.append(item)
-//        }
-//        self.partDownList = PopDownList(datasource: partdataSource, dismissHandler: self.ChoosedPartItem)
-//        
-//        self.lblMainName.userInteractionEnabled = true
-//        var choosePart:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "mainNameTouch")
-//        self.lblMainName .addGestureRecognizer(choosePart)
+        var session = Session.GetSession()
+        var partdataSource = Array<DownListModel>()
+        for(var i = 0;i < session.PartCodes.count;i++){
+            item = DownListModel()
+            item.key = session.PartCodes[i].PartCode
+            item.value = session.PartCodes[i].RoleName
+            partdataSource.append(item)
+        }
+        self.partDownList = PopDownList(datasource: partdataSource, dismissHandler: self.ChoosedPartItem)
+        
+        self.lblMainName.userInteractionEnabled = true
+        var choosePart:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "mainNameTouch")
+        self.lblMainName .addGestureRecognizer(choosePart)
 
     }
     
