@@ -22,6 +22,9 @@ import UIKit
     func setView(){
         for(var i = 0 ; i < self.subviews.count; i++) {
             self.subviews[i].removeFromSuperview()
+            if(i < self.subviews.count){
+                (self.subviews[i] as! UIButton).hidden = true
+            }
         }
         let width:CGFloat = 20.0
         let height:CGFloat = 20.0
@@ -48,6 +51,8 @@ import UIKit
                 
             }
         }
+        println(self.subviews.count)
+        
     }
     
     //往前滚动一页

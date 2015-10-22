@@ -74,7 +74,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
                 self.search.subviews[0].subviews[i].removeFromSuperview()
             }
         }
-        self.search.delegate = self
+    self.search.delegate = self
         self.curPager.detegate = self
         
         rac_setting()

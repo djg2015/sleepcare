@@ -245,7 +245,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
     func GetRealTimeDelegate(realTimeReport:RealTimeReport){
         let key = realTimeReport.BedCode
         var keys = self.realTimeCaches?.keys.filter({$0 == key})
-        if(keys?.array.count > 0)
+        if(keys?.array.count == 0)
         {
             self.realTimeCaches?[key] = realTimeReport
         }
@@ -268,6 +268,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
     
     //房间床位查询设置
     private func PartBedsSearch(partCode:String,searchType:String,searchContent:String){
+        self.BedModelList = Array<BedModel>()
         let sleepCareBussiness = SleepCareBussiness()
         //获取医院下的床位信
         var partInfo:PartInfo = sleepCareBussiness.GetPartInfoByPartCode(partCode, searchType: searchType, searchContent: searchContent, from: nil, max: nil)

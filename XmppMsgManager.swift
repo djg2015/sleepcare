@@ -16,7 +16,7 @@ class XmppMsgManager:MessageDelegate{
     private var _timeout:NSTimeInterval=100
     private var _xmppMsgHelper:XmppMsgHelper?=nil
     private static var _xmppMsgManager:XmppMsgManager?=nil
-    private var requsetQuene = Dictionary<String,BaseMessage>()
+    private var requsetQuene = Dictionary<String,AnyObject>()
     var _realTimeDelegate:RealTimeDelegate?=nil
     private init(){
         
@@ -58,16 +58,14 @@ class XmppMsgManager:MessageDelegate{
         
         _xmppMsgHelper?.sendElement(baseMessage.ToXml())
         
-        requsetQuene[baseMessage.messageSubject.requestID!] = nil
+        requsetQuene[baseMessage.messageSubject.requestID!] = self
        
-        while requsetQuene[baseMessage.messageSubject.requestID!] == nil {
+        while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {
             
         }
         
-        var result:BaseMessage?
-        if(requsetQuene.count > 0){
-            result = requsetQuene.removeValueForKey(baseMessage.messageSubject.requestID!)!
-        }
+        var result:BaseMessage = requsetQuene.removeValueForKey(baseMessage.messageSubject.requestID!) as! BaseMessage
+        
         return result
     }
     
@@ -87,7 +85,7 @@ class XmppMsgManager:MessageDelegate{
         }
         else
         {
-            println(object)
+            //println(object)
             requsetQuene[object.messageSubject.requestID!] = object
         }
     }
