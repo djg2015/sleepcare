@@ -14,18 +14,6 @@
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z4z-jo-oxK">
                     <rect key="frame" x="20" y="15" width="980" height="50"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zrp-aq-nLU">
-                            <rect key="frame" x="98" y="12" width="97" height="30"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
-                        </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xji-kW-ibi">
-                            <rect key="frame" x="213" y="12" width="97" height="30"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
-                        </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZp-g2-qcn">
                             <rect key="frame" x="330" y="5" width="73" height="43"/>
                             <state key="normal">
@@ -72,6 +60,19 @@
                                 </label>
                             </subviews>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMU-en-Jqw">
+                            <rect key="frame" x="92" y="9" width="100" height="35"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYl-ZK-Pb1">
+                            <rect key="frame" x="225" y="9" width="100" height="35"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHn-MD-EnX">
@@ -84,10 +85,10 @@
                 <outlet property="btnNext" destination="kVv-eI-HW7" id="uq8-fd-cdw"/>
                 <outlet property="btnPreview" destination="kMS-R1-Lou" id="jK9-DW-Ngt"/>
                 <outlet property="btnSearch" destination="xZp-g2-qcn" id="SS5-ox-gUU"/>
+                <outlet property="lblAnalysTimeBegin" destination="UMU-en-Jqw" id="Dqs-z1-PRW"/>
+                <outlet property="lblAnalysTimeEnd" destination="XYl-ZK-Pb1" id="QYB-Bd-MJR"/>
                 <outlet property="lblCurrentPageIndex" destination="oXs-I1-fRS" id="ale-E0-P60"/>
                 <outlet property="lblTotalPageCount" destination="Zs8-Ka-paK" id="wp4-vh-YqN"/>
-                <outlet property="txtAnalysTimeBegin" destination="zrp-aq-nLU" id="TVB-nx-9rs"/>
-                <outlet property="txtAnalysTimeEnd" destination="xji-kW-ibi" id="3hW-Nw-rnM"/>
                 <outlet property="viewSleepQuality" destination="BHn-MD-EnX" id="Njj-kh-cNG"/>
             </connections>
             <point key="canvasLocation" x="399" y="174.5"/>

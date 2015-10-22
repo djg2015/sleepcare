@@ -13,9 +13,9 @@ class SleepQualityPandectView:UIView,UITableViewDelegate,UITableViewDataSource,S
 {
     // 控件定义
     // 分析起始时间
-    @IBOutlet weak var txtAnalysTimeBegin: UITextField!
+    @IBOutlet weak var lblAnalysTimeBegin: UILabel!
     // 分析结束时间
-    @IBOutlet weak var txtAnalysTimeEnd: UITextField!
+    @IBOutlet weak var lblAnalysTimeEnd: UILabel!
     // 查询按钮
     @IBOutlet weak var btnSearch: UIButton!
     // 上一页按钮
@@ -83,25 +83,25 @@ class SleepQualityPandectView:UIView,UITableViewDelegate,UITableViewDataSource,S
         self.btnNext.setImage(UIImage(named:"nextBtnChecked"), forState: UIControlState.Highlighted)
         
         //属性绑定
-        RACObserve(self.qualityViewModel, "AnalysisTimeBegin") ~> RAC(self.txtAnalysTimeBegin, "text")
-        RACObserve(self.qualityViewModel, "AnalysisTimeEnd") ~> RAC(self.txtAnalysTimeEnd, "text")
+        RACObserve(self.qualityViewModel, "AnalysisTimeBegin") ~> RAC(self.lblAnalysTimeBegin, "text")
+        RACObserve(self.qualityViewModel, "AnalysisTimeEnd") ~> RAC(self.lblAnalysTimeEnd, "text")
         RACObserve(self.qualityViewModel, "CurrentPageIndex") ~> RAC(self.lblCurrentPageIndex, "text")
         RACObserve(self.qualityViewModel, "TotalPageCount") ~> RAC(self.lblTotalPageCount, "text")
         RACObserve(self.qualityViewModel, "PreviewBtnEnable") ~> RAC(self, "PreviewBtnEnable")
         RACObserve(self.qualityViewModel, "NextBtnEnable") ~> RAC(self, "NextBtnEnable")
         
-        self.txtAnalysTimeBegin.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeBegin")
-        self.txtAnalysTimeEnd.rac_textSignal() ~> RAC(self.qualityViewModel, "AnalysisTimeEnd")
-        self.txtAnalysTimeBegin.rac_signalForControlEvents(UIControlEvents.TouchDown).subscribeNext
-            {
-                _ in
-                self.initDatePicker(1)
-        }
-        self.txtAnalysTimeEnd.rac_signalForControlEvents(UIControlEvents.TouchDown).subscribeNext
-            {
-                _ in
-                self.initDatePicker(2)
-        }
+        self.lblAnalysTimeBegin.userInteractionEnabled = true
+        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "initDatePicker")
+        self.lblAnalysTimeBegin .addGestureRecognizer(singleTap)
+        
+        self.lblAnalysTimeEnd.userInteractionEnabled = true
+        var singleTap1:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "initDatePicker1")
+        self.lblAnalysTimeEnd .addGestureRecognizer(singleTap1)
+        
+        self.lblAnalysTimeBegin.layer.borderColor = UIColor.blackColor().CGColor
+        self.lblAnalysTimeBegin.layer.borderWidth = 1
+        self.lblAnalysTimeEnd.layer.borderColor = UIColor.blackColor().CGColor
+        self.lblAnalysTimeEnd.layer.borderWidth = 1
         
         // 初始化TableView
         self.screenWidth = self.frame.width - 60
@@ -251,6 +251,17 @@ class SleepQualityPandectView:UIView,UITableViewDelegate,UITableViewDataSource,S
         
         return cell!
     }
+    
+    func initDatePicker()
+    {
+        self.initDatePicker(1)
+    }
+    
+    func initDatePicker1()
+    {
+        self.initDatePicker(2)
+    }
+
     
     func initDatePicker(timeTag:Int)
     {

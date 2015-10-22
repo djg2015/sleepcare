@@ -65,7 +65,7 @@ import UIKit
     }
     
     func removeAlertview(){
-        self.removeFromSuperview()
+        self.hidden = true
     }
 
     //返回2014-06-19格式的日期
