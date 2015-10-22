@@ -40,6 +40,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+        let isLogin = xmppMsgManager!.Connect()
+        if(!isLogin){
+            showDialogMsg("远程通讯服务器连接不上，请关闭重新登录！")
+        }
     }
 
     func applicationWillTerminate(application: UIApplication) {
