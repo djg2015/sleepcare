@@ -58,6 +58,10 @@ class MessageFactory {
         {
             return EMServiceException.XmlToMessage(message.subject, bodyXMl: message.content)
         }
+        else
+        {
+          throw("-1", "请求发生错误，请重试！")
+        }
         return BaseMessage.XmlToMessage(message.subject, bodyXMl: message.content)
     }
 }

@@ -245,7 +245,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
     func GetRealTimeDelegate(realTimeReport:RealTimeReport){
         let key = realTimeReport.BedCode
         var keys = self.realTimeCaches?.keys.filter({$0 == key})
-        if(keys?.array.count > 0)
+        if(keys?.array.count == 0)
         {
             self.realTimeCaches?[key] = realTimeReport
         }
