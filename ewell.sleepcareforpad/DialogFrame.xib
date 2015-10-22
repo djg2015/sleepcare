@@ -9,6 +9,8 @@
             <connections>
                 <outlet property="btnBack" destination="t5a-YA-0WM" id="zTH-e1-MKg"/>
                 <outlet property="curPage" destination="DW2-1b-e5U" id="SOr-9i-rJ5"/>
+                <outlet property="imgDate" destination="csZ-5g-Xjd" id="kvn-LN-jNH"/>
+                <outlet property="lblDate" destination="jcg-U1-KvB" id="Gwn-FJ-YPH"/>
                 <outlet property="lblTitle" destination="mpS-ug-RcG" id="iGT-vr-R9B"/>
                 <outlet property="view" destination="iN0-l3-epB" id="3Um-RK-1MG"/>
             </connections>
@@ -40,6 +42,15 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dateIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="csZ-5g-Xjd">
+                    <rect key="frame" x="908" y="4" width="50" height="47"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2015-10-22" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcg-U1-KvB">
+                    <rect key="frame" x="829" y="30" width="78" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -48,6 +59,7 @@
     </objects>
     <resources>
         <image name="back.png" width="27" height="30"/>
+        <image name="dateIcon.png" width="52" height="50"/>
         <image name="maintop.png" width="1600" height="110"/>
     </resources>
 </document>

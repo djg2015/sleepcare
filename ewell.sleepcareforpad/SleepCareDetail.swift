@@ -97,12 +97,13 @@ class SleepCareDetail: UIView {
             }
             
             
-            
-            lineChart!.legendStyle = PNLegendItemStyle.Stacked
-            lineChart!.legendFontSize = 12
-            let legend = lineChart!.getLegendWithMaxWidth(self.uiHRRR.frame.width)
-            legend.frame = CGRectMake(self.uiHRRR.frame.width - 65, 5, self.uiHRRR.frame.width, self.uiHRRR.frame.height)
-            self.uiHRRR.addSubview(legend)
+            if( self.uiHRRR.subviews.count == 0){
+                lineChart!.legendStyle = PNLegendItemStyle.Stacked
+                lineChart!.legendFontSize = 12
+                let legend = lineChart!.getLegendWithMaxWidth(self.uiHRRR.frame.width)
+                legend.frame = CGRectMake(self.uiHRRR.frame.width - 65, 5, self.uiHRRR.frame.width, self.uiHRRR.frame.height)
+                self.uiHRRR.addSubview(legend)
+            }
             
             //设置翻身
             var trunlineChart:PNLineChart = PNLineChart(frame: CGRectMake(0, 10, self.uiTrun.frame.width, self.uiTrun.frame.height))
@@ -148,13 +149,14 @@ class SleepCareDetail: UIView {
             else{
                 trunlineChart.updateChartData([data03])
             }
-
             
-            trunlineChart.legendStyle = PNLegendItemStyle.Stacked
-            trunlineChart.legendFontSize = 12
-            let trunlegend = trunlineChart.getLegendWithMaxWidth(self.uiTrun.frame.width)
-            trunlegend.frame = CGRectMake(self.uiTrun.frame.width - 90, 5, self.uiTrun.frame.width, self.uiTrun.frame.height)
-            self.uiTrun.addSubview(trunlegend)
+            if( self.uiTrun.subviews.count == 0){
+                trunlineChart.legendStyle = PNLegendItemStyle.Stacked
+                trunlineChart.legendFontSize = 12
+                let trunlegend = trunlineChart.getLegendWithMaxWidth(self.uiTrun.frame.width)
+                trunlegend.frame = CGRectMake(self.uiTrun.frame.width - 90, 5, self.uiTrun.frame.width, self.uiTrun.frame.height)
+                self.uiTrun.addSubview(trunlegend)
+            }
         }
     }
     
@@ -217,13 +219,14 @@ class SleepCareDetail: UIView {
             else{
                 lineChart.updateChartData([data01,data02])
             }
-
             
-            lineChart.legendStyle = PNLegendItemStyle.Serial
-            lineChart.legendFontSize = 12
-            let legend = lineChart.getLegendWithMaxWidth(self.uiSleep.frame.width)
-            legend.frame = CGRectMake(65, 5, self.uiSleep.frame.width, self.uiSleep.frame.height)
-            self.uiSleep.addSubview(legend)
+            if( self.uiSleep.subviews.count == 0){
+                lineChart.legendStyle = PNLegendItemStyle.Serial
+                lineChart.legendFontSize = 12
+                let legend = lineChart.getLegendWithMaxWidth(self.uiSleep.frame.width)
+                legend.frame = CGRectMake(65, 5, self.uiSleep.frame.width, self.uiSleep.frame.height)
+                self.uiSleep.addSubview(legend)
+            }
         }
     }
     

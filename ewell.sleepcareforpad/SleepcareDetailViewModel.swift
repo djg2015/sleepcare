@@ -219,20 +219,20 @@ class SleepcareDetailViewModel: BaseViewModel {
                 let end  = begin.addDays(6)
                 var session = Session.GetSession()
                 var sleepcareList = sleepCareBussiness.GetSleepCareReportByUser(session.CurPartCode, userCode: userCode, analysTimeBegin: begin.description(format: "yyyy-MM-dd"), analysTimeEnd: end.description(format: "yyyy-MM-dd"), from: 1, max: 7)
-                
+                self.SleepCareReports = Array<SleepCareReport>()
                 if(sleepcareList.sleepCareReportList.count > 0){
-                    self.SleepCareReports = sleepcareList.sleepCareReportList
-                    for i in 0...(self.SleepCareReports!.count - 1){
-                        self.SleepCareReports![i].ReportDate = self.GetChineseWeekDay(self.SleepCareReports![i].ReportDate)
-                        var bedSource = self.SleepCareReports![i].OnBedTimeSpan
-                        self.SleepCareReports![i].onBedTimeSpanALL = (bedSource.split(":")[0] as NSString).doubleValue + (bedSource.split(":")[1] as NSString).doubleValue / 60
-                        var sleepSource1 = (self.SleepCareReports![i].DeepSleepTimeSpan.split(":")[0]  as NSString).doubleValue
-                            + (self.SleepCareReports![i].LightSleepTimeSpan.split(":")[0]  as NSString).doubleValue
-                        var sleepsource2 = (self.SleepCareReports![i].DeepSleepTimeSpan.split(":")[1]  as NSString).doubleValue
-                            + (self.SleepCareReports![i].LightSleepTimeSpan.split(":")[1]  as NSString).doubleValue
-                        self.SleepCareReports![i].SleepTimeSpanALL = sleepSource1 + sleepsource2 / 60
-                        println(self.SleepCareReports![i].SleepTimeSpanALL)
+                    var curSleepCareReports = sleepcareList.sleepCareReportList
+                    for i in 0...(curSleepCareReports.count - 1){
+                        curSleepCareReports[i].ReportDate = self.GetChineseWeekDay(curSleepCareReports[i].ReportDate)
+                        var bedSource = curSleepCareReports[i].OnBedTimeSpan
+                        curSleepCareReports[i].onBedTimeSpanALL = (bedSource.split(":")[0] as NSString).doubleValue + (bedSource.split(":")[1] as NSString).doubleValue / 60
+                        var sleepSource1 = (curSleepCareReports[i].DeepSleepTimeSpan.split(":")[0]  as NSString).doubleValue
+                            + (curSleepCareReports[i].LightSleepTimeSpan.split(":")[0]  as NSString).doubleValue
+                        var sleepsource2 = (curSleepCareReports[i].DeepSleepTimeSpan.split(":")[1]  as NSString).doubleValue
+                            + (curSleepCareReports[i].LightSleepTimeSpan.split(":")[1]  as NSString).doubleValue
+                        curSleepCareReports[i].SleepTimeSpanALL = sleepSource1 + sleepsource2 / 60
                     }
+                    self.SleepCareReports = curSleepCareReports
                 }
                 },
                 catch: { ex in

@@ -74,7 +74,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
                 self.search.subviews[0].subviews[i].removeFromSuperview()
             }
         }
-    self.search.delegate = self
+        self.search.delegate = self
         self.curPager.detegate = self
         
         rac_setting()
@@ -152,7 +152,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         self.lblMainName.userInteractionEnabled = true
         var choosePart:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "mainNameTouch")
         self.lblMainName .addGestureRecognizer(choosePart)
-
+        
     }
     
     //点击查询类型

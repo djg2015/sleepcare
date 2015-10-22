@@ -8,11 +8,13 @@
 
 import UIKit
 //内页弹窗框架界面
-class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDelegate {
+class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDelegate,SelectDateEndDelegate {
     //界面控件
     @IBOutlet weak var curPage: Pager!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var imgDate: UIImageView!
+    @IBOutlet weak var lblDate: UILabel!
     
     @IBAction func btnBackClick(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -33,6 +35,7 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         self._userCode = userCode
     }
     
+    var sleepCareDetail:SleepCareDetail?
     //界面初始设置
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +60,7 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         mainview1.viewInit(self._userCode)
         self.mainScroll.addSubview(mainview1)
         self.mainScroll.bringSubviewToFront(mainview1)
-        
+        sleepCareDetail = mainview1
         //睡眠质量总览
         let mainview2 = NSBundle.mainBundle().loadNibNamed("SleepQualityPandect", owner: self, options: nil).first as! SleepQualityPandectView
         mainview2.frame = CGRectMake(1024, 0, 1024, self.mainScroll.frame.size.height)
@@ -77,6 +80,31 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         
         //设置分页控件
         self.curPage.pageCount = 3
+        var d = Date(string: getCurrentTime("yyyy-MM-dd"))
+        d = d.addDays(-1)
+        self.lblDate.text = d.description(format: "yyyy-MM-dd")
+        
+        self.imgDate.userInteractionEnabled = true
+        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
+        self.imgDate .addGestureRecognizer(singleTap)
+        
+    }
+    
+    //点击日历查询类型
+    func imageViewTouch(){
+        var screen:UIScreen = UIScreen.mainScreen()
+        var devicebounds:CGRect = screen.bounds
+        
+        //设置日期弹出窗口
+        var alertview:DatePickerView = DatePickerView(frame:devicebounds)
+        alertview.detegate = self
+        self.view.addSubview(alertview)
+    }
+    
+    func SelectDateEnd(sender:UIView,dateString:String)
+    {
+        self.lblDate.text = dateString
+        self.sleepCareDetail!.ReloadView(dateString)
     }
     
     override func didReceiveMemoryWarning() {
@@ -104,16 +132,22 @@ class DialogFrameController: BaseViewController,UIScrollViewDelegate,JumpPageDel
         {
             self.lblTitle.text = "睡眠质量明细"
             self.mainScroll.contentOffset.x = 0
+            self.imgDate.hidden = false
+            self.lblDate.hidden = false
         }
         else if(pageIndex == 2)
         {
             self.lblTitle.text = "睡眠质量总览"
             self.mainScroll.contentOffset.x = self.mainScroll.frame.width
+            self.imgDate.hidden = true
+            self.lblDate.hidden = true
         }
         else
         {
             self.lblTitle.text = "监测日志"
             self.mainScroll.contentOffset.x = self.mainScroll.frame.width * 2
+            self.imgDate.hidden = true
+            self.lblDate.hidden = true
         }
         
         for page in self.curPage.subviews
