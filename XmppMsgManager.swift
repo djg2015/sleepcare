@@ -22,6 +22,8 @@ class XmppMsgManager:MessageDelegate{
         
     }
     
+    var isInstance = false
+    
     //获取xmpp通讯实例
     class func GetInstance(timeout:NSTimeInterval=100)->XmppMsgManager?{
         if(self._xmppMsgManager == nil){
@@ -35,6 +37,7 @@ class XmppMsgManager:MessageDelegate{
     
     //是否能够连接
     func Connect() -> Bool{
+        
         //_xmppMsgHelper!.connect(_timeout)
         let curTime = NSDate()
         if(_xmppMsgHelper!.connect(_timeout))
@@ -46,13 +49,20 @@ class XmppMsgManager:MessageDelegate{
                     return false
                 }
             }
-            
+            if(_xmppMsgHelper!.loginFlag == 1){
+                isInstance = true
+            }
             return _xmppMsgHelper!.loginFlag == 1 ? true : false
         }
         return false
         
     }
     
+    //关闭连接
+    func Close(){
+        isInstance = false
+        _xmppMsgHelper?.disconnect()
+    }
     //发送数据--等待数据响应
     func SendData(baseMessage:BaseMessage)->BaseMessage?{
         
