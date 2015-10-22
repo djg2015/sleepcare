@@ -15,7 +15,7 @@ class LoginController: BaseViewController {
     @IBOutlet weak var txtloginPwd: UITextField!
     @IBOutlet weak var btnSubmit: UIButton!
     @IBOutlet weak var btnRemeber: UIButton!
-    
+    @IBOutlet weak var imgLoginTitle: UIImageView!
     //属性变量定义
     var loginModel:LoginViewModel?
     var RemberImage:UIImage?{
@@ -53,6 +53,15 @@ class LoginController: BaseViewController {
         //事件绑定
         self.btnSubmit.rac_command = loginModel!.login
         self.btnRemeber.rac_command = loginModel!.remeberChecked
+        
+        self.imgLoginTitle.userInteractionEnabled = true
+        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
+        self.imgLoginTitle .addGestureRecognizer(singleTap)
+    }
+    
+    //点击查询类型
+    func imageViewTouch(){
+        self.presentViewController(ServerSettingController(nibName:"ServerSettingView", bundle:nil), animated: true, completion: nil)
     }
     
     /*
