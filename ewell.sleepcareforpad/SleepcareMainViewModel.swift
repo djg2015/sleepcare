@@ -259,9 +259,9 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
     //按房间号或床位号搜索
     func SearchByBedOrRoom(searchContent:String){
         var session = Session.GetSession()
-        var searcgType = "1"
+        var searcgType = "2"
         if(self.ChoosedSearchType == SearchType.byRoomNum){
-            searcgType = "2"
+            searcgType = "1"
         }
         self.PartBedsSearch(session.CurPartCode, searchType: searcgType, searchContent: searchContent)
     }
