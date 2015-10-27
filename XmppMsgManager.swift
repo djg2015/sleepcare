@@ -18,6 +18,7 @@ class XmppMsgManager:MessageDelegate{
     private static var _xmppMsgManager:XmppMsgManager?=nil
     private var requsetQuene = Dictionary<String,AnyObject>()
     var _realTimeDelegate:RealTimeDelegate?=nil
+    var _waringAttentionDelegate:WaringAttentionDelegate?=nil
     private init(){
         
     }

@@ -11,3 +11,7 @@ import Foundation
 protocol RealTimeDelegate{
     func GetRealTimeDelegate(realTimeReport:RealTimeReport);
 }
+
+protocol WaringAttentionDelegate{
+    func GetWaringAttentionDelegate(realTimeReport:RealTimeReport);
+}
