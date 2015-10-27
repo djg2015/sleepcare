@@ -54,6 +54,10 @@ class Session {
         self.instance!._user = user
     }
     
+    class func ClearSession(){
+        self.instance = nil
+    }
+    
     class func GetSession() -> Session {
         return self.instance!
     }

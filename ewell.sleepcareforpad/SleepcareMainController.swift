@@ -120,8 +120,10 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         self.btnLogout!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
+                self.sleepcareMainViewModel?.CloseWaringAttention()
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                xmppMsgManager?.Close()
+                xmppMsgManager?.Close()                
+                Session.ClearSession()
                 self.dismissViewControllerAnimated(true, completion: nil)
                 
         }

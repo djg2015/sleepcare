@@ -59,6 +59,8 @@
 		3A3C37801BD4987800080D03 /* SleepcareDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C377F1BD4987800080D03 /* SleepcareDetailViewModel.swift */; };
 		3A3C37821BD4D89A00080D03 /* comming.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37811BD4D89A00080D03 /* comming.png */; };
 		3A3D65E41BAA8E1100CEFB25 /* MessageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */; };
+		3A3EF7C01BDE05A800CDDAED /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3EF7BE1BDE05A800CDDAED /* TodoItem.swift */; };
+		3A3EF7C11BDE05A800CDDAED /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3EF7BF1BDE05A800CDDAED /* TodoList.swift */; };
 		3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADC01BA7A65A000C109B /* AppDelegate.swift */; };
 		3A41ADC31BA7A65A000C109B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADC21BA7A65A000C109B /* ViewController.swift */; };
 		3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADC71BA7A65A000C109B /* Images.xcassets */; };
@@ -210,6 +212,8 @@
 		3A3C37811BD4D89A00080D03 /* comming.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comming.png; sourceTree = "<group>"; };
 		3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageFactory.swift; sourceTree = "<group>"; };
 		3A3D65E71BAAB67C00CEFB25 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		3A3EF7BE1BDE05A800CDDAED /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		3A3EF7BF1BDE05A800CDDAED /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		3A41ADBB1BA7A65A000C109B /* ewell.sleepcareforpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ewell.sleepcareforpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A41ADBF1BA7A65A000C109B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A41ADC01BA7A65A000C109B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -342,6 +346,15 @@
 			name = CustomView;
 			sourceTree = "<group>";
 		};
+		3A3EF7BD1BDE058100CDDAED /* Notify */ = {
+			isa = PBXGroup;
+			children = (
+				3A3EF7BE1BDE05A800CDDAED /* TodoItem.swift */,
+				3A3EF7BF1BDE05A800CDDAED /* TodoList.swift */,
+			);
+			name = Notify;
+			sourceTree = "<group>";
+		};
 		3A41ADB21BA7A65A000C109B = {
 			isa = PBXGroup;
 			children = (
@@ -457,6 +470,7 @@
 		3A4CD3F51BA80408002C8A1A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3A3EF7BD1BDE058100CDDAED /* Notify */,
 				3AB43E761BD4E16B005023D3 /* Date */,
 				3A35AB641BCCE8B000ED3293 /* SweetAlert.swift */,
 				3A3262DD1BB912180002687B /* OSSExceptionHelper.h */,
@@ -877,6 +891,7 @@
 				3AA4A7781BB2BF3F00B214C7 /* SleepCareReportList.swift in Sources */,
 				3A4CD3FA1BA80536002C8A1A /* CommonHelper.swift in Sources */,
 				3A4B85CC1BB150C1006E4CF1 /* Constants.swift in Sources */,
+				3A3EF7C01BDE05A800CDDAED /* TodoItem.swift in Sources */,
 				3AB43E8C1BD4E1B9005023D3 /* DateHelpers.swift in Sources */,
 				3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */,
 				3AB3CB191BD762FE0067F9D4 /* Pager.swift in Sources */,
@@ -891,6 +906,7 @@
 				3A41ADE71BA7B425000C109B /* BaseViewController.swift in Sources */,
 				3A346BF81BCCD36200E75E4E /* SleepcareMainViewModel.swift in Sources */,
 				3A4B85C81BB14DFD006E4CF1 /* Worktask.swift in Sources */,
+				3A3EF7C11BDE05A800CDDAED /* TodoList.swift in Sources */,
 				3AB3CB171BD762FE0067F9D4 /* AlarmTableViewCell.swift in Sources */,
 				2C3BAF131BCBA387003A2F48 /* AlarmViewModel.swift in Sources */,
 				3AB3CB271BD763690067F9D4 /* BackgroundCommon.swift in Sources */,

@@ -91,18 +91,16 @@ class SleepCareDetail: UIView {
                 lineChart!.chartData = [data01,data02]
                 lineChart!.strokeChart()
                 self.uiHRRR.addSubview(lineChart!)
-            }
-            else{
-                lineChart!.updateChartData([data01,data02])
-            }
-            
-            
-            if( self.uiHRRR.subviews.count == 0){
+                
+                
                 lineChart!.legendStyle = PNLegendItemStyle.Stacked
                 lineChart!.legendFontSize = 12
                 let legend = lineChart!.getLegendWithMaxWidth(self.uiHRRR.frame.width)
                 legend.frame = CGRectMake(self.uiHRRR.frame.width - 65, 5, self.uiHRRR.frame.width, self.uiHRRR.frame.height)
                 self.uiHRRR.addSubview(legend)
+            }
+            else{
+                lineChart!.updateChartData([data01,data02])
             }
             
             //设置翻身
@@ -145,17 +143,15 @@ class SleepCareDetail: UIView {
                 trunlineChart.chartData = [data03]
                 trunlineChart.strokeChart()
                 self.uiTrun.addSubview(trunlineChart)
-            }
-            else{
-                trunlineChart.updateChartData([data03])
-            }
-            
-            if( self.uiTrun.subviews.count == 0){
+                
                 trunlineChart.legendStyle = PNLegendItemStyle.Stacked
                 trunlineChart.legendFontSize = 12
                 let trunlegend = trunlineChart.getLegendWithMaxWidth(self.uiTrun.frame.width)
                 trunlegend.frame = CGRectMake(self.uiTrun.frame.width - 90, 5, self.uiTrun.frame.width, self.uiTrun.frame.height)
                 self.uiTrun.addSubview(trunlegend)
+            }
+            else{
+                trunlineChart.updateChartData([data03])
             }
         }
     }
@@ -215,17 +211,16 @@ class SleepCareDetail: UIView {
                 lineChart.chartData = [data01,data02]
                 lineChart.strokeChart()
                 self.uiSleep.addSubview(lineChart)
-            }
-            else{
-                lineChart.updateChartData([data01,data02])
-            }
-            
-            if( self.uiSleep.subviews.count == 0){
+                
+                
                 lineChart.legendStyle = PNLegendItemStyle.Serial
                 lineChart.legendFontSize = 12
                 let legend = lineChart.getLegendWithMaxWidth(self.uiSleep.frame.width)
                 legend.frame = CGRectMake(65, 5, self.uiSleep.frame.width, self.uiSleep.frame.height)
                 self.uiSleep.addSubview(legend)
+            }
+            else{
+                lineChart.updateChartData([data01,data02])
             }
         }
     }

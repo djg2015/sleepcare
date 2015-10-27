@@ -38,6 +38,8 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
         xmppMsgManager?._realTimeDelegate = self
         self.realTimeCaches = Dictionary<String,RealTimeReport>()
         setRealTime()
+        //开启警告信息
+        self.BeginWaringAttention()
     }
     
     //属性定义
@@ -215,7 +217,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
     
     //实时数据显示
     func setRealTime(){
-        var realtimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "realtimerFireMethod:", userInfo: nil, repeats:true);
+        var realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "realtimerFireMethod:", userInfo: nil, repeats:true);
         realtimer.fire()
     }
     
@@ -227,6 +229,9 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
                     {$0.BedCode == realTimeReport.BedCode})
                 if(bed.count > 0){
                     let curBed:BedModel = bed[0]
+                    if(curBed.BedNumber == "107"){
+                        println(realTimeReport)
+                    }
                     curBed.HR = realTimeReport.HR
                     curBed.RR = realTimeReport.RR
                     if(realTimeReport.OnBedStatus == "在床"){
@@ -235,9 +240,39 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
                     else if(realTimeReport.OnBedStatus == "离床"){
                         curBed.BedStatus = BedStatusType.leavebed
                     }
+                    
+                    
+                    
                 }
             }
         }
+        
+    }
+    
+    //开始报警提醒
+    private var IsOpen:Bool = false
+    func BeginWaringAttention(){
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWarining", name: "TodoListShouldRefresh", object: nil)
+        self.IsOpen = true
+        
+//        if(self.IsOpen){
+//            let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 1), title: "报警信息", UUID: NSUUID().UUIDString)
+//            TodoList.sharedInstance.addItem(todoItem)
+//        }
+        
+    }
+    
+    
+    //关闭报警提醒
+    func CloseWaringAttention(){
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        self.IsOpen = false
+        TodoList.sharedInstance.removeItemAll()
+    }
+    
+    //点击报警通知直接打开报警界面
+    func showWarining() {
+        
         
     }
     

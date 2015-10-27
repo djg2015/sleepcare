@@ -14,8 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        //延时启动界面
         NSThread.sleepForTimeInterval(1)
+        //隐藏状态栏
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
+        //设置消息推送
+       application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
+        
+        //设置启动界面
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
@@ -25,8 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     }
     
     func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+        var todoItems: [TodoItem] = TodoList.sharedInstance.allItems() // retrieve list of all to-do items
+        var overdueItems = todoItems.filter({ (todoItem) -> Bool in
+            return todoItem.deadline.compare(NSDate()) != .OrderedDescending
+        })
+        UIApplication.sharedApplication().applicationIconBadgeNumber = overdueItems.count
     }
     
     func applicationDidEnterBackground(application: UIApplication) {
@@ -53,6 +62,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func application(application: UIApplication,
+        didReceiveLocalNotification notification: UILocalNotification) {
+        NSNotificationCenter.defaultCenter().postNotificationName("TodoListShouldRefresh", object: self)
+    }
+    
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void){
+    
+    }
 }
 
 
