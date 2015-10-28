@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
+class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDelegate {
     //初始化
     override init() {
         super.init()
@@ -36,6 +36,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
         //实时数据处理代理设置
         var xmppMsgManager = XmppMsgManager.GetInstance()
         xmppMsgManager?._realTimeDelegate = self
+        xmppMsgManager?._waringAttentionDelegate = self
         self.realTimeCaches = Dictionary<String,RealTimeReport>()
         setRealTime()
         //开启警告信息
@@ -288,6 +289,12 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate {
         {
             self.realTimeCaches?.updateValue(realTimeReport, forKey: key)
         }
+        
+    }
+    
+    //报警数据处理
+    func GetWaringAttentionDelegate(alarmList:AlarmList){
+        
         
     }
     
