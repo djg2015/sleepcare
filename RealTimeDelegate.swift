@@ -13,5 +13,5 @@ protocol RealTimeDelegate{
 }
 
 protocol WaringAttentionDelegate{
-    func GetWaringAttentionDelegate(realTimeReport:RealTimeReport);
+    func GetWaringAttentionDelegate(alarmList:AlarmList);
 }
