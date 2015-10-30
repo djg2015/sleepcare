@@ -16,7 +16,7 @@ class TodoList {
         }
         return Static.instance
     }
-
+    
     private let ITEMS_KEY = "todoItems"
     
     func allItems() -> [TodoItem] {
@@ -28,9 +28,13 @@ class TodoList {
     }
     
     func addItem(item: TodoItem) {
-        self.removeItemByID(item.UUID)
         // persist a representation of this todo item in NSUserDefaults
         var todoDictionary = NSUserDefaults.standardUserDefaults().dictionaryForKey(ITEMS_KEY) ?? Dictionary() // if todoItems hasn't been set in user defaults, initialize todoDictionary to an empty dictionary using nil-coalescing operator (??)
+        
+        var keys = todoDictionary.keys.filter({$0 == item.UUID})
+        if(keys.array.count > 0){
+        return
+        }
         todoDictionary[item.UUID] = ["deadline": item.deadline, "title": item.title, "UUID": item.UUID] // store NSData representation of todo item in dictionary with UUID as key
         NSUserDefaults.standardUserDefaults().setObject(todoDictionary, forKey: ITEMS_KEY) // save/overwrite todo item list
         
@@ -44,7 +48,7 @@ class TodoList {
         notification.category = "TODO_CATEGORY"
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
-
+        
         self.setBadgeNumbers()
     }
     
