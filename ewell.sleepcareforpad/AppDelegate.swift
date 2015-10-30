@@ -11,7 +11,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     
     var window: UIWindow?
-    
+    //后台任务
+    var backgroundTask:UIBackgroundTaskIdentifier! = nil
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //延时启动界面
@@ -19,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         //隐藏状态栏
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
         //设置消息推送
-       application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
         
         //设置启动界面
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -39,8 +40,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     }
     
     func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        //如果已存在后台任务，先将其设为完成
+        if self.backgroundTask != nil {
+            application.endBackgroundTask(self.backgroundTask)
+            self.backgroundTask = UIBackgroundTaskInvalid
+        }
+        
+        //如果要后台运行
+        //注册后台任务
+        self.backgroundTask = application.beginBackgroundTaskWithExpirationHandler({
+            () -> Void in
+            //如果没有调用endBackgroundTask，时间耗尽时应用程序将被终止
+            application.endBackgroundTask(self.backgroundTask)
+            self.backgroundTask = UIBackgroundTaskInvalid
+        })
+        
     }
     
     func applicationWillEnterForeground(application: UIApplication) {
@@ -60,15 +74,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        TodoList.sharedInstance.removeItemAll()
     }
     
     func application(application: UIApplication,
         didReceiveLocalNotification notification: UILocalNotification) {
-        NSNotificationCenter.defaultCenter().postNotificationName("TodoListShouldRefresh", object: self)
+            NSNotificationCenter.defaultCenter().postNotificationName("TodoListShouldRefresh", object: self)
     }
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void){
-    
+        
     }
 }
 

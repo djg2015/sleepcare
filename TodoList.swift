@@ -28,6 +28,7 @@ class TodoList {
     }
     
     func addItem(item: TodoItem) {
+        self.removeItemByID(item.UUID)
         // persist a representation of this todo item in NSUserDefaults
         var todoDictionary = NSUserDefaults.standardUserDefaults().dictionaryForKey(ITEMS_KEY) ?? Dictionary() // if todoItems hasn't been set in user defaults, initialize todoDictionary to an empty dictionary using nil-coalescing operator (??)
         todoDictionary[item.UUID] = ["deadline": item.deadline, "title": item.title, "UUID": item.UUID] // store NSData representation of todo item in dictionary with UUID as key
@@ -87,15 +88,9 @@ class TodoList {
     func setBadgeNumbers() {
         var notifications = UIApplication.sharedApplication().scheduledLocalNotifications as! [UILocalNotification] // all scheduled notifications
         var todoItems: [TodoItem] = self.allItems()
-        
-        for notification in notifications {
-            var overdueItems = todoItems.filter({ (todoItem) -> Bool in // array of to-do items...
-                return (todoItem.deadline.compare(notification.fireDate!) != .OrderedDescending) // ...where item deadline is before or on notification fire date
-            })
-        
-            UIApplication.sharedApplication().cancelLocalNotification(notification) // cancel old notification
-            notification.applicationIconBadgeNumber = overdueItems.count // set new badge number
-            UIApplication.sharedApplication().scheduleLocalNotification(notification) // reschedule notification
-        }
+        var overdueItems = todoItems.filter({ (todoItem) -> Bool in
+            return todoItem.deadline.compare(NSDate()) != .OrderedDescending
+        })
+        UIApplication.sharedApplication().applicationIconBadgeNumber = overdueItems.count
     }
 }

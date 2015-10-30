@@ -38,13 +38,15 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
         xmppMsgManager?._realTimeDelegate = self
         xmppMsgManager?._waringAttentionDelegate = self
         self.realTimeCaches = Dictionary<String,RealTimeReport>()
-        setRealTime()
+        self.setRealTimer()
         //开启警告信息
+        self.wariningCaches = Array<AlarmInfo>()
         self.BeginWaringAttention()
     }
     
     //属性定义
     var realTimeCaches:Dictionary<String,RealTimeReport>?
+    var wariningCaches:Array<AlarmInfo>!
     //医院/养老院名称
     var _mainName:String?
     dynamic var MainName:String?{
@@ -217,7 +219,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
     }
     
     //实时数据显示
-    func setRealTime(){
+    func setRealTimer(){
         var realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "realtimerFireMethod:", userInfo: nil, repeats:true);
         realtimer.fire()
     }
@@ -241,9 +243,8 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
                     else if(realTimeReport.OnBedStatus == "离床"){
                         curBed.BedStatus = BedStatusType.leavebed
                     }
-                    
-                    
-                    
+//                            let todoItem1 = TodoItem(deadline: NSDate(timeIntervalSinceNow: 1), title: "111", UUID: NSUUID().UUIDString)
+//                            TodoList.sharedInstance.addItem(todoItem1)
                 }
             }
         }
@@ -253,14 +254,9 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
     //开始报警提醒
     private var IsOpen:Bool = false
     func BeginWaringAttention(){
-         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWarining", name: "TodoListShouldRefresh", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWarining", name: "TodoListShouldRefresh", object: nil)
         self.IsOpen = true
-        
-//        if(self.IsOpen){
-//            let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 1), title: "报警信息", UUID: NSUUID().UUIDString)
-//            TodoList.sharedInstance.addItem(todoItem)
-//        }
-        
+        self.setWarningTimer()
     }
     
     
@@ -269,6 +265,25 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
         NSNotificationCenter.defaultCenter().removeObserver(self)
         self.IsOpen = false
         TodoList.sharedInstance.removeItemAll()
+    }
+    
+    //实时报警处理线程
+    func setWarningTimer(){
+        var realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "warningTimerFireMethod:", userInfo: nil, repeats:true);
+        realtimer.fire()
+    }
+    
+    //线程处理报警信息
+    func warningTimerFireMethod(timer: NSTimer) {
+//        let todoItem1 = TodoItem(deadline: NSDate(timeIntervalSinceNow: 1), title: "111", UUID: NSUUID().UUIDString)
+//        TodoList.sharedInstance.addItem(todoItem1)
+        
+        if(self.wariningCaches.count > 0){
+            let alarmInfo:AlarmInfo = self.wariningCaches[0] as AlarmInfo
+            let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.SchemaContent, UUID: NSUUID().UUIDString)
+            TodoList.sharedInstance.addItem(todoItem)
+            self.wariningCaches.removeAtIndex(0)
+        }
     }
     
     //点击报警通知直接打开报警界面
@@ -280,21 +295,31 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
     //实时数据处理
     func GetRealTimeDelegate(realTimeReport:RealTimeReport){
         let key = realTimeReport.BedCode
-        var keys = self.realTimeCaches?.keys.filter({$0 == key})
-        if(keys?.array.count == 0)
-        {
-            self.realTimeCaches?[key] = realTimeReport
+        if(self.realTimeCaches?.count > 0){
+            var keys = self.realTimeCaches?.keys.filter({$0 == key})
+            if(keys?.array.count == 0)
+            {
+                self.realTimeCaches?[key] = realTimeReport
+            }
+            else
+            {
+                self.realTimeCaches?.updateValue(realTimeReport, forKey: key)
+            }
         }
-        else
-        {
-            self.realTimeCaches?.updateValue(realTimeReport, forKey: key)
+        else{
+            self.realTimeCaches?[key] = realTimeReport
         }
         
     }
     
     //报警数据处理
     func GetWaringAttentionDelegate(alarmList:AlarmList){
-        
+        if(self.IsOpen){
+            for(var i = 0;i < alarmList.alarmInfoList.count;i++){
+                self.wariningCaches.append(alarmList.alarmInfoList[i])
+            }
+            
+        }
         
     }
     
