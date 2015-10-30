@@ -22,11 +22,26 @@ class AlarmList:BaseMessage {
             newalarmInfo.AlarmCode = alarmInfo.elementForName("AlarmCode").stringValue()
             newalarmInfo.UserCode = alarmInfo.elementForName("UserCode").stringValue()
             newalarmInfo.UserName = alarmInfo.elementForName("UserName").stringValue()
-            newalarmInfo.UserSex = alarmInfo.elementForName("UserSex").stringValue()
-            newalarmInfo.PartCode = alarmInfo.elementForName("PartCode").stringValue()
-            newalarmInfo.PartName = alarmInfo.elementForName("PartName").stringValue()
-            newalarmInfo.BedCode = alarmInfo.elementForName("BedCode").stringValue()
-            newalarmInfo.BedNumber = alarmInfo.elementForName("BedNumber").stringValue()
+            if(nil != alarmInfo.elementForName("UserSex"))
+            {
+                newalarmInfo.UserSex = alarmInfo.elementForName("UserSex").stringValue()
+            }
+            if(nil != alarmInfo.elementForName("PartCode"))
+            {
+                newalarmInfo.PartCode = alarmInfo.elementForName("PartCode").stringValue()
+            }
+            if(nil != alarmInfo.elementForName("PartName"))
+            {
+                newalarmInfo.PartName = alarmInfo.elementForName("PartName").stringValue()
+            }
+            if(nil != alarmInfo.elementForName("BedCode"))
+            {
+                newalarmInfo.BedCode = alarmInfo.elementForName("BedCode").stringValue()
+            }
+            if(nil != alarmInfo.elementForName("BedNumber"))
+            {
+                newalarmInfo.BedNumber = alarmInfo.elementForName("BedNumber").stringValue()
+            }
             newalarmInfo.SchemaCode = alarmInfo.elementForName("SchemaCode").stringValue()
             newalarmInfo.SchemaContent = alarmInfo.elementForName("SchemaContent").stringValue()
             newalarmInfo.AlarmDate = alarmInfo.elementForName("AlarmDate").stringValue()
