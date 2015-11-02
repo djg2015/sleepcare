@@ -94,7 +94,7 @@ class XmppMsgManager:MessageDelegate{
                 self._realTimeDelegate?.GetRealTimeDelegate(object as! RealTimeReport)
             }
         }
-        else if(object.isKindOfClass(AlarmList))
+        else if(object.isKindOfClass(AlarmList) && "GetAlarmByUser" != object.messageSubject.operate)
         {
             if(self._waringAttentionDelegate != nil){
                 self._waringAttentionDelegate?.GetWaringAttentionDelegate(object as! AlarmList)
