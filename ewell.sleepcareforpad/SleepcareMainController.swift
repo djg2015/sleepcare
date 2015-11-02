@@ -22,6 +22,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     @IBOutlet weak var btnLogout: UIButton!
     @IBOutlet weak var txtSearchChoosed: UITextField!
     
+    @IBOutlet weak var btnRefresh: UIButton!
     //类字段
     var popDownList:PopDownList?
     var partDownList:PopDownList?
@@ -122,10 +123,21 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
                 _ in
                 self.sleepcareMainViewModel?.CloseWaringAttention()
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                xmppMsgManager?.Close()                
+                xmppMsgManager?.Close()
                 Session.ClearSession()
                 self.dismissViewControllerAnimated(true, completion: nil)
                 
+        }
+        
+        self.btnRefresh!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
+            .subscribeNext {
+                _ in
+                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+                let isLogin = xmppMsgManager!.Connect()
+                if(!isLogin){
+                    showDialogMsg("远程通讯服务器连接不上，请关闭重新登录！")
+                }
+                self.sleepcareMainViewModel?.SearchByBedOrRoom("")
         }
         
         self.imgSearch.userInteractionEnabled = true
