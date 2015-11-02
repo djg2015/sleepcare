@@ -17,6 +17,10 @@ class QueryAlarmViewModel:BaseViewModel
     {
         super.init()
         
+        // 初始化时间
+        self.AlarmDateBeginCondition = Date.today().addDays(-7).description(format: "yyyy-MM-dd")
+        self.AlarmDateEndCondition = Date.today().description(format: "yyyy-MM-dd")
+        
         self.searchAlarm = RACCommand(){
             
             (any:AnyObject!) -> RACSignal in
@@ -28,7 +32,10 @@ class QueryAlarmViewModel:BaseViewModel
     func SearchAlarm() -> RACSignal{
         try {
             ({
-                
+                var sleepCareBLL = SleepCareBussiness()
+                // 返回在离床报警
+                var alarmList:AlarmList = sleepCareBLL.GetAlarmByUser("00001", userCode: "00000001", userNameLike: "", bedNumberLike: "", schemaCode: "", alarmTimeBegin:"2015-09-01", alarmTimeEnd: "2015-10-01", from: 1, max: 10)
+                var x:Int = 0
                 
                 },
                 catch: { ex in
@@ -69,6 +76,32 @@ class QueryAlarmViewModel:BaseViewModel
         }
     }
     
+    var _alarmDateBeginCondition:String = ""
+    // 报警日期起始查询条件
+    dynamic var AlarmDateBeginCondition:String{
+        get
+        {
+            return self._alarmDateBeginCondition
+        }
+        set(value)
+        {
+            self._alarmDateBeginCondition = value
+        }
+    }
+    
+    var _alarmDateEndCondition:String = ""
+    // 报警日期结束查询条件
+    dynamic var AlarmDateEndCondition:String{
+        get
+        {
+            return self._alarmDateEndCondition
+        }
+        set(value)
+        {
+            self._alarmDateEndCondition = value
+        }
+    }
+    
     var _selectedAlarmType:String = ""
     // 选择的报警类型编号
     dynamic var SelectedAlarmType:String{
@@ -83,16 +116,16 @@ class QueryAlarmViewModel:BaseViewModel
     }
     
     // 属性定义
-    var _alarmList:Array<QueryAlarmItem> = Array<QueryAlarmItem>()
+    var _alarmInfoList:Array<QueryAlarmItem> = Array<QueryAlarmItem>()
     // 报警信息列表
-    dynamic var AlarmList:Array<QueryAlarmItem>{
+    dynamic var AlarmInfoList:Array<QueryAlarmItem>{
         get
         {
-            return self._alarmList
+            return self._alarmInfoList
         }
         set(value)
         {
-            self._alarmList = value
+            self._alarmInfoList = value
         }
     }
     
