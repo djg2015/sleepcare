@@ -19,6 +19,7 @@ class AlarmInfo{
     var SchemaCode:String = ""
     var SchemaContent:String = ""
     var AlarmDate:String = ""
+    var AlarmTime:String = ""
     var FoobLevelCode:String = ""
     var BedSoreLevelCode:String = ""
 }

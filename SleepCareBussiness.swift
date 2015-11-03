@@ -241,4 +241,22 @@ class SleepCareBussiness: SleepCareBussinessManager {
         }
         return message as! LeaveBedReportList
     }
+    
+    // 处理报警信息
+    // 参数：alarmCode-> 报警编号
+    //      transferType-> 处理类型 002:处理 003:误警报
+    func HandleAlarm(alarmCode:String,transferType:String)
+    {
+        var subject = MessageSubject(opera: "TransferAlarmMessage")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("alarmCode", value: alarmCode)
+        post.AddKeyValue("transferType", value: transferType)
+        
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+    }
 }

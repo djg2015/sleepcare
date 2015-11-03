@@ -8,6 +8,7 @@
 
 import Foundation
 class AlarmList:BaseMessage {
+    
     var alarmInfoList = Array<AlarmInfo>()
     
     //解析响应的message
@@ -45,6 +46,7 @@ class AlarmList:BaseMessage {
             newalarmInfo.SchemaCode = alarmInfo.elementForName("SchemaCode").stringValue()
             newalarmInfo.SchemaContent = alarmInfo.elementForName("SchemaContent").stringValue()
             newalarmInfo.AlarmDate = alarmInfo.elementForName("AlarmDate").stringValue()
+            newalarmInfo.AlarmTime = alarmInfo.elementForName("AlarmTime").stringValue()
             if(alarmInfo.elementForName("FoobLevelCode") != nil)
             {
                 newalarmInfo.FoobLevelCode = alarmInfo.elementForName("FoobLevelCode").stringValue()

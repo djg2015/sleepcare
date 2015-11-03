@@ -19,6 +19,7 @@ let tag_turnOverAnalysList:String="<EPTurnOverAnalysList"
 let tag_alarmList:String="<EPAlarmInfoList"
 let tag_bedReportList:String="<EPBedReportList"
 let tag_EMServiceException:String="<EMServiceException"
+let tag_Result:String="<Result"
 
 class MessageFactory {
     //xmpp字符串节点
@@ -57,6 +58,10 @@ class MessageFactory {
         else if(message.content.hasPrefix(tag_EMServiceException))
         {
             return EMServiceException.XmlToMessage(message.subject, bodyXMl: message.content)
+        }
+        else if(message.content.hasPrefix(tag_Result))
+        {
+            return ServerResult.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         else
         {
