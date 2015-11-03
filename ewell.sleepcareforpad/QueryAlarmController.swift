@@ -276,21 +276,23 @@ class QueryAlarmController:BaseViewController,UITableViewDelegate,UITableViewDat
             lblAlarmTime.text = self._queryAlarmViewModel.AlarmInfoList[indexPath.row].AlarmTime
             lblAlarmContent.text = self._queryAlarmViewModel.AlarmInfoList[indexPath.row].AlarmContent
             
-            var btnHandle = UIButton(frame: CGRectMake(5, 0, 50, 35))
+            var btnHandle = UIButton(frame: CGRectMake(5, 7, 50, 30))
             btnHandle.setTitle("处理", forState: UIControlState.Normal)
-            btnHandle.setTitleColor(UIColor.blackColor(), forState: .Normal)
-            btnHandle.setTitleShadowColor(UIColor.grayColor(), forState: .Normal)
-            btnHandle.backgroundColor = UIColor.yellowColor()
+            btnHandle.setTitleColor(UIColor.blueColor(), forState: .Normal)
+            btnHandle.titleLabel?.font = UIFont.systemFontOfSize(16)
+            btnHandle.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
+            btnHandle.backgroundColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
             btnHandle.userInteractionEnabled = true
             var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleAlarm:")
             singleTap.view?.tag = self._queryAlarmViewModel.AlarmInfoList[indexPath.row].Number
             btnHandle.addGestureRecognizer(singleTap)
             
-            var btnFalse = UIButton(frame: CGRectMake(60, 0, 50, 35))
+            var btnFalse = UIButton(frame: CGRectMake(60, 7, 55, 30))
             btnFalse.setTitle("误警报", forState: UIControlState.Normal)
-            btnFalse.setTitleColor(UIColor.blackColor(), forState: .Normal)
-            btnFalse.setTitleShadowColor(UIColor.grayColor(), forState: .Normal)
-            btnFalse.backgroundColor = UIColor.yellowColor()
+            btnFalse.setTitleColor(UIColor.blueColor(), forState: .Normal)
+            btnFalse.titleLabel?.font = UIFont.systemFontOfSize(16)
+            btnFalse.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
+            btnFalse.backgroundColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
             btnFalse.userInteractionEnabled = true
             var singleTap1:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleFalseAlarm:")
             singleTap1.view?.tag = self._queryAlarmViewModel.AlarmInfoList[indexPath.row].Number
