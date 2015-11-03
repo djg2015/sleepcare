@@ -307,9 +307,9 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
     
     //点击报警通知直接打开报警界面
     func showWarining() {
-        self.WariningCount = 0
         let controller = QueryAlarmController(nibName:"QueryAlarmView", bundle:nil)
-        self.JumpPage(controller)
+        self.JumpPage(controller)        
+        self.WariningCount = 0
     }
     
     //实时数据处理

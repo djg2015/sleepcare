@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        self.isBackRun = false
+       
     }
     
     func applicationDidBecomeActive(application: UIApplication) {
@@ -83,6 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         didReceiveLocalNotification notification: UILocalNotification) {
             if(self.isBackRun){
                 NSNotificationCenter.defaultCenter().postNotificationName("TodoListShouldRefresh", object: self)
+                 self.isBackRun = false
             }
     }
     
