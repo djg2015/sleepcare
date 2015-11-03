@@ -288,8 +288,5 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func btnAlarmClick(sender: AnyObject) {
-        self.presentViewController(QueryAlarmController(nibName:"QueryAlarmView", bundle:nil), animated: true, completion: nil)
-    }
     
 }
