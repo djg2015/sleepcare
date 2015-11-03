@@ -76,4 +76,8 @@ protocol SleepCareBussinessManager{
     //      max->查询的最大记录条数
     func GetLeaveBedReport(partCode:String,userCode:String,userNameLike:String,bedNumberLike:String,leaveBedTimeBegin:String,leaveBedTimeEnd:String,from:Int32?,max:Int32?)-> LeaveBedReportList
     
+    // 处理报警信息
+    // 参数：alarmCode-> 报警编号
+    //      transferType-> 处理类型 002:处理 003:误警报
+    func HandleAlarm(alarmCode:String,transferType:String)
 }

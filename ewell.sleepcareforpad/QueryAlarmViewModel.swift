@@ -12,7 +12,7 @@ import UIKit
 class QueryAlarmViewModel:BaseViewModel
 {
     var searchAlarm: RACCommand?
-    
+    var tableView:UITableView = UITableView()
     override init()
     {
         super.init()
@@ -26,17 +26,35 @@ class QueryAlarmViewModel:BaseViewModel
             (any:AnyObject!) -> RACSignal in
             return self.SearchAlarm()
         }
+        // 初始加载数据
+        self.SearchAlarm()
     }
     
     //自定义方法
     func SearchAlarm() -> RACSignal{
         try {
             ({
+                self.AlarmInfoList.removeAll(keepCapacity: true)
                 var sleepCareBLL = SleepCareBussiness()
                 // 返回在离床报警
-                var alarmList:AlarmList = sleepCareBLL.GetAlarmByUser("00001", userCode: "00000001", userNameLike: "", bedNumberLike: "", schemaCode: "", alarmTimeBegin:"2015-09-01", alarmTimeEnd: "2015-10-01", from: 1, max: 10)
-                var x:Int = 0
+                var alarmList:AlarmList = sleepCareBLL.GetAlarmByUser(Session.GetSession().CurPartCode, userCode: "", userNameLike: self.UserNameCondition, bedNumberLike: self.BedNumberCondition, schemaCode: self.SelectedAlarmTypeCode
+                    , alarmTimeBegin:self.AlarmDateBeginCondition, alarmTimeEnd: self.AlarmDateEndCondition, from: nil, max: nil)
                 
+                var index:Int = 1
+                for alarmItem in alarmList.alarmInfoList
+                {
+                    var item:QueryAlarmItem = QueryAlarmItem()
+                    item.UserName = alarmItem.UserName
+                    item.BedNumber = alarmItem.BedNumber
+                    item.Number = index
+                    item.SchemaCode = alarmItem.SchemaCode
+                    item.AlarmTime = (alarmItem.AlarmTime as NSString).substringFromIndex(5)
+                    item.AlarmContent = alarmItem.SchemaContent
+                    item.AlarmCode = alarmItem.AlarmCode
+                    index++
+                    self.AlarmInfoList.append(item)
+                }
+                self.tableView.reloadData()
                 },
                 catch: { ex in
                     //异常处理
@@ -49,6 +67,23 @@ class QueryAlarmViewModel:BaseViewModel
         return RACSignal.empty()
     }
     
+    func HandleAlarm(alarmCode:String,handType:String)
+    {
+        try {
+            ({
+                var sleepCareBLL = SleepCareBussiness()
+                sleepCareBLL.HandleAlarm(alarmCode, transferType: handType)
+                self.SearchAlarm()
+                },
+                catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+                },
+                finally: {
+                    
+                }
+            )}
+    }
     
     var _userNameCondition:String = ""
     // 用户姓名查询条件
@@ -114,6 +149,20 @@ class QueryAlarmViewModel:BaseViewModel
             self._selectedAlarmType = value
         }
     }
+    
+    var _selectedAlarmTypeCode:String = ""
+    // 选择的报警类型编号
+    dynamic var SelectedAlarmTypeCode:String{
+        get
+        {
+            return self._selectedAlarmTypeCode
+        }
+        set(value)
+        {
+            self._selectedAlarmTypeCode = value
+        }
+    }
+
     
     // 属性定义
     var _alarmInfoList:Array<QueryAlarmItem> = Array<QueryAlarmItem>()
@@ -189,6 +238,19 @@ class QueryAlarmItem
         }
     }
     
+    var _alarmCode:String = ""
+    // 报警编号
+    dynamic var AlarmCode:String{
+        get
+        {
+            return self._alarmCode
+        }
+        set(value)
+        {
+            self._alarmCode = value
+        }
+    }
+    
     var _schemaCode:String = ""
     // 报警类型
     dynamic var SchemaCode:String{
@@ -238,6 +300,19 @@ class QueryAlarmItem
         set(value)
         {
             self._userName = value
+        }
+    }
+    
+    var _bedNumber:String = ""
+    // 床位号
+    dynamic var BedNumber:String{
+        get
+        {
+            return self._bedNumber
+        }
+        set(value)
+        {
+            self._bedNumber = value
         }
     }
     

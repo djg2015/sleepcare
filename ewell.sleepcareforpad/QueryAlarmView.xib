@@ -15,6 +15,7 @@
                 <outlet property="txtBedNumberCondition" destination="5cP-r3-ruo" id="x4T-yU-3R0"/>
                 <outlet property="txtUserNameCondition" destination="4yT-JH-ToB" id="rmC-8c-QIG"/>
                 <outlet property="view" destination="iN0-l3-epB" id="7Xj-1p-CRg"/>
+                <outlet property="viewAlarm" destination="Q2F-0E-uyT" id="jAX-Zp-IQx"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -48,7 +49,6 @@
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" background="InfoHead.png" translatesAutoresizingMaskIntoConstraints="NO" id="4yT-JH-ToB">
                     <rect key="frame" x="408" y="71" width="100" height="30"/>
-                    <color key="textColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -83,10 +83,6 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nLk-IX-vWe">
-                    <rect key="frame" x="0.0" y="114" width="1024" height="654"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="报警时间：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5k1-Fg-ek1">
                     <rect key="frame" x="20" y="74" width="90" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -111,6 +107,10 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q2F-0E-uyT">
+                    <rect key="frame" x="0.0" y="109" width="1024" height="659"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
