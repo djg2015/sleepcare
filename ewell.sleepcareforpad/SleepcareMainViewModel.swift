@@ -297,7 +297,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
             let alarmInfo:AlarmInfo = self.wariningCaches[0] as AlarmInfo
             var session = Session.GetSession()
             if(session.CurPartCode == alarmInfo.PartCode){
-                let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.UserName + alarmInfo.SchemaContent, UUID: NSUUID().UUIDString)
+                let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.UserName + alarmInfo.SchemaContent, UUID: alarmInfo.AlarmCode)
                 TodoList.sharedInstance.addItem(todoItem)
                 self.WariningCount++
             }
