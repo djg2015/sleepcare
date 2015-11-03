@@ -33,7 +33,7 @@ class TodoList {
         
         var keys = todoDictionary.keys.filter({$0 == item.UUID})
         if(keys.array.count > 0){
-        return
+            return
         }
         todoDictionary[item.UUID] = ["deadline": item.deadline, "title": item.title, "UUID": item.UUID] // store NSData representation of todo item in dictionary with UUID as key
         NSUserDefaults.standardUserDefaults().setObject(todoDictionary, forKey: ITEMS_KEY) // save/overwrite todo item list
@@ -75,6 +75,7 @@ class TodoList {
     func removeItemAll() {
         NSUserDefaults.standardUserDefaults().removeObjectForKey(ITEMS_KEY)
         //UIApplication.sharedApplication().cancelAllLocalNotifications()
+         self.setBadgeNumbers()
     }
     
     func scheduleReminderforItem(item: TodoItem) {

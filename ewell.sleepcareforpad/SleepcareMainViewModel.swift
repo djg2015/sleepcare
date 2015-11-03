@@ -299,7 +299,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
             if(session.CurPartCode == alarmInfo.PartCode){
                 let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.UserName + alarmInfo.SchemaContent, UUID: alarmInfo.AlarmCode)
                 TodoList.sharedInstance.addItem(todoItem)
-                self.WariningCount++
+                self.WariningCount = TodoList.sharedInstance.allItems().count
             }
             self.wariningCaches.removeAtIndex(0)
         }
@@ -310,6 +310,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
         let controller = QueryAlarmController(nibName:"QueryAlarmView", bundle:nil)
         self.JumpPage(controller)        
         self.WariningCount = 0
+        TodoList.sharedInstance.removeItemAll()
     }
     
     //实时数据处理
