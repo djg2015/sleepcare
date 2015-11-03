@@ -21,6 +21,8 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     @IBOutlet weak var imgSearch: UIImageView!
     @IBOutlet weak var btnLogout: UIButton!
     @IBOutlet weak var txtSearchChoosed: UITextField!
+    @IBOutlet weak var uiWariningShow: UIView!
+    @IBOutlet weak var lblWarining: UILabel!
     
     @IBOutlet weak var btnRefresh: UIButton!
     //类字段
@@ -49,6 +51,18 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
                 }
             }
             
+        }
+    }
+    
+    var WarningSet:Int = 0{
+        didSet{
+            if(self.WarningSet > 0){
+                self.uiWariningShow.hidden = false
+                self.lblWarining.text = "当前有" + self.WarningSet.description + "条报警,点击查看"
+            }
+            else{
+                self.uiWariningShow.hidden = true
+            }
         }
     }
     
@@ -109,6 +123,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     //属性绑定
     func rac_setting(){
         sleepcareMainViewModel = SleepcareMainViewModel()
+        sleepcareMainViewModel?.controller = self
         RACObserve(self.sleepcareMainViewModel, "BedModelList") ~> RAC(self, "BedViews")
         RACObserve(self.sleepcareMainViewModel, "PageCount") ~> RAC(self.curPager, "pageCount")
         RACObserve(self.sleepcareMainViewModel, "MainName") ~> RAC(self.lblMainName, "text")
@@ -118,6 +133,9 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         RACObserve(self.sleepcareMainViewModel, "BedCount") ~> RAC(self.lblBedCount, "text")
         RACObserve(self.sleepcareMainViewModel, "BindBedCount") ~> RAC(self.lblBindBedCount, "text")
         RACObserve(self.sleepcareMainViewModel, "ChoosedSearchType") ~> RAC(self.txtSearchChoosed, "text")
+        RACObserve(self.sleepcareMainViewModel, "WariningCount") ~> RAC(self, "WarningSet")
+        
+        
         self.btnLogout!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
@@ -140,6 +158,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
                 self.sleepcareMainViewModel?.SearchByBedOrRoom("")
         }
         
+        //设置选择查找类型
         self.imgSearch.userInteractionEnabled = true
         var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
         self.imgSearch .addGestureRecognizer(singleTap)
@@ -155,6 +174,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         dataSource.append(item)
         self.popDownList = PopDownList(datasource: dataSource, dismissHandler: self.ChoosedItem)
         
+        //设置选择科室
         var session = Session.GetSession()
         var partdataSource = Array<DownListModel>()
         for(var i = 0;i < session.PartCodes.count;i++){
@@ -168,6 +188,11 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         self.lblMainName.userInteractionEnabled = true
         var choosePart:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "mainNameTouch")
         self.lblMainName .addGestureRecognizer(choosePart)
+        
+        //查看报警明细
+        self.lblWarining.userInteractionEnabled = true
+        var showWarining:UITapGestureRecognizer = UITapGestureRecognizer(target: self.sleepcareMainViewModel!, action: "showWarining")
+        self.lblWarining .addGestureRecognizer(showWarining)
         
     }
     
@@ -266,5 +291,5 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     @IBAction func btnAlarmClick(sender: AnyObject) {
         self.presentViewController(QueryAlarmController(nibName:"QueryAlarmView", bundle:nil), animated: true, completion: nil)
     }
-
+    
 }

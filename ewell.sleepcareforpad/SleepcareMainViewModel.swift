@@ -190,6 +190,20 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
         }
     }
     
+    //警告数
+    var _wariningCount:Int = 0
+    dynamic var WariningCount:Int{
+        get
+        {
+            return self._wariningCount
+        }
+        set(value)
+        {
+            self._wariningCount=value
+        }
+    }
+    
+    
     //界面命令
     
     
@@ -243,8 +257,8 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
                     else if(realTimeReport.OnBedStatus == "离床"){
                         curBed.BedStatus = BedStatusType.leavebed
                     }
-//                            let todoItem1 = TodoItem(deadline: NSDate(timeIntervalSinceNow: 1), title: "111", UUID: NSUUID().UUIDString)
-//                            TodoList.sharedInstance.addItem(todoItem1)
+                    //                            let todoItem1 = TodoItem(deadline: NSDate(timeIntervalSinceNow: 1), title: "111", UUID: NSUUID().UUIDString)
+                    //                            TodoList.sharedInstance.addItem(todoItem1)
                 }
             }
         }
@@ -255,6 +269,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
     private var IsOpen:Bool = false
     func BeginWaringAttention(){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWarining", name: "TodoListShouldRefresh", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "CloseWaringAttention", name: "WarningClose", object: nil)
         self.IsOpen = true
         self.setWarningTimer()
     }
@@ -262,6 +277,9 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
     
     //关闭报警提醒
     func CloseWaringAttention(){
+        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+        xmppMsgManager?.Close()
+        
         NSNotificationCenter.defaultCenter().removeObserver(self)
         self.IsOpen = false
         TodoList.sharedInstance.removeItemAll()
@@ -275,21 +293,23 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
     
     //线程处理报警信息
     func warningTimerFireMethod(timer: NSTimer) {
-//        let todoItem1 = TodoItem(deadline: NSDate(timeIntervalSinceNow: 1), title: "111", UUID: NSUUID().UUIDString)
-//        TodoList.sharedInstance.addItem(todoItem1)
-        
         if(self.wariningCaches.count > 0){
             let alarmInfo:AlarmInfo = self.wariningCaches[0] as AlarmInfo
-            let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.SchemaContent, UUID: NSUUID().UUIDString)
-            TodoList.sharedInstance.addItem(todoItem)
+            var session = Session.GetSession()
+            if(session.CurPartCode == alarmInfo.PartCode){
+                let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.UserName + alarmInfo.SchemaContent, UUID: NSUUID().UUIDString)
+                TodoList.sharedInstance.addItem(todoItem)
+                self.WariningCount++
+            }
             self.wariningCaches.removeAtIndex(0)
         }
     }
     
     //点击报警通知直接打开报警界面
     func showWarining() {
-        
-        
+        self.WariningCount = 0
+        let controller = QueryAlarmController(nibName:"QueryAlarmView", bundle:nil)
+        self.JumpPage(controller)
     }
     
     //实时数据处理

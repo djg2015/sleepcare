@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -17,8 +17,10 @@
                 <outlet property="lblMainName" destination="3wo-zQ-1yz" id="5Bw-BN-Qe6"/>
                 <outlet property="lblPart" destination="Xzr-9F-qmm" id="qgs-u0-3fI"/>
                 <outlet property="lblRoomCount" destination="BFa-fp-H02" id="NkQ-yk-WNs"/>
+                <outlet property="lblWarining" destination="TMY-l3-WLP" id="vX4-M3-ZSp"/>
                 <outlet property="search" destination="Svk-kA-1lf" id="Z21-eV-ONu"/>
                 <outlet property="txtSearchChoosed" destination="eyb-48-PtV" id="4dA-pu-ipq"/>
+                <outlet property="uiWariningShow" destination="p1u-K6-RPQ" id="Kns-Mb-YgW"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Ovn-Fg-wSk"/>
             </connections>
         </placeholder>
@@ -174,6 +176,18 @@
                         <action selector="btnAlarmClick:" destination="-1" eventType="touchDown" id="gDG-yg-Tg3"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p1u-K6-RPQ">
+                    <rect key="frame" x="231" y="121" width="272" height="33"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="当前有233条报警信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMY-l3-WLP">
+                            <rect key="frame" x="8" y="7" width="251" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
