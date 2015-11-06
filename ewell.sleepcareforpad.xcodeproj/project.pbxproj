@@ -344,6 +344,72 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3A28CA9B1BEC489F007D9A3A /* ipad */ = {
+			isa = PBXGroup;
+			children = (
+				3AA4A7771BB2BF3F00B214C7 /* SleepCareReportList.swift */,
+				3A376E451BABBB1200D70953 /* User.swift */,
+				3A376E471BABD54200D70953 /* Role.swift */,
+				3A376E491BABD9F400D70953 /* PartInfo.swift */,
+				3A376E4B1BABDA3B00D70953 /* Bed.swift */,
+				3A376E4D1BABDE3500D70953 /* SignReport.swift */,
+				3A4D17F01BAFB07400E0B862 /* BedUser.swift */,
+				3A4D17F21BAFB83500E0B862 /* SleepCareReport.swift */,
+				3A4D17F61BAFDEFF00E0B862 /* TurnOverAnalysReport.swift */,
+				3A4D17F81BAFDF4800E0B862 /* TurnOverAnalysList.swift */,
+				3A4D17FA1BAFE17D00E0B862 /* AlarmInfo.swift */,
+				3A4D17FC1BAFE20A00E0B862 /* AlarmList.swift */,
+				3A4B85C71BB14DFD006E4CF1 /* Worktask.swift */,
+				2C5AEC471BB397130096DF3F /* RoleList.swift */,
+				2C3150A41BCDFAF300EC749E /* LeaveBedReportList.swift */,
+				2C3150A61BCDFB4500EC749E /* LeaveBedReport.swift */,
+				2C28CA131BE87D3D000C46C4 /* ServerResult.swift */,
+			);
+			name = ipad;
+			sourceTree = "<group>";
+		};
+		3A28CA9C1BEC49BD007D9A3A /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iphone;
+			sourceTree = "<group>";
+		};
+		3A28CA9D1BEC49E7007D9A3A /* ipad */ = {
+			isa = PBXGroup;
+			children = (
+				2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */,
+				3A41ADE51BA7B425000C109B /* BaseViewController.swift */,
+				3A41ADE61BA7B425000C109B /* LoginController.swift */,
+				3A6360281BB2900300F7F953 /* SleepcareMainController.swift */,
+				3A3756211BCB58F700182DE4 /* DialogFrameController.swift */,
+				3A8680671BD75EE000F22016 /* ChoosePartController.swift */,
+				2C555B4A1BE341B8008A3AC9 /* QueryAlarmController.swift */,
+			);
+			name = ipad;
+			sourceTree = "<group>";
+		};
+		3A28CA9E1BEC4A19007D9A3A /* ipad */ = {
+			isa = PBXGroup;
+			children = (
+				2C37F1381BD093280034D9F1 /* SleepQualityPandectViewModel.swift */,
+				2C3BAF121BCBA387003A2F48 /* AlarmViewModel.swift */,
+				3A41ADE91BA7B438000C109B /* LoginViewModel.swift */,
+				3A346BF71BCCD36200E75E4E /* SleepcareMainViewModel.swift */,
+				3A325A331BD08B7B00DE4E78 /* BaseViewModel.swift */,
+				3A3C377F1BD4987800080D03 /* SleepcareDetailViewModel.swift */,
+				2C555B461BE31763008A3AC9 /* QueryAlarmViewModel.swift */,
+			);
+			name = ipad;
+			sourceTree = "<group>";
+		};
+		3A28CA9F1BEC4A27007D9A3A /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iphone;
+			sourceTree = "<group>";
+		};
 		3A3646021BCB843E007C65EF /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,13 +502,7 @@
 		3A41ADE01BA7B396000C109B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				2C37F1381BD093280034D9F1 /* SleepQualityPandectViewModel.swift */,
-				2C3BAF121BCBA387003A2F48 /* AlarmViewModel.swift */,
-				3A41ADE91BA7B438000C109B /* LoginViewModel.swift */,
-				3A346BF71BCCD36200E75E4E /* SleepcareMainViewModel.swift */,
-				3A325A331BD08B7B00DE4E78 /* BaseViewModel.swift */,
-				3A3C377F1BD4987800080D03 /* SleepcareDetailViewModel.swift */,
-				2C555B461BE31763008A3AC9 /* QueryAlarmViewModel.swift */,
+				3A28CA9E1BEC4A19007D9A3A /* ipad */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -450,7 +510,8 @@
 		3A41ADE11BA7B3A2000C109B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A4D17EF1BAF921300E0B862 /* pad */,
+				3A28CA9F1BEC4A27007D9A3A /* iphone */,
+				3A4D17EF1BAF921300E0B862 /* ipad */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -458,13 +519,7 @@
 		3A41ADE41BA7B3E9000C109B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */,
-				3A41ADE51BA7B425000C109B /* BaseViewController.swift */,
-				3A41ADE61BA7B425000C109B /* LoginController.swift */,
-				3A6360281BB2900300F7F953 /* SleepcareMainController.swift */,
-				3A3756211BCB58F700182DE4 /* DialogFrameController.swift */,
-				3A8680671BD75EE000F22016 /* ChoosePartController.swift */,
-				2C555B4A1BE341B8008A3AC9 /* QueryAlarmController.swift */,
+				3A28CA9D1BEC49E7007D9A3A /* ipad */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -508,36 +563,21 @@
 		3A4CD3FB1BA80826002C8A1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3AA4A7771BB2BF3F00B214C7 /* SleepCareReportList.swift */,
+				3A28CA9C1BEC49BD007D9A3A /* iphone */,
+				3A28CA9B1BEC489F007D9A3A /* ipad */,
 				3A4CD3FC1BA80852002C8A1A /* BaseMessage.swift */,
-				3A36B0221BA96648000F4AED /* RealTimeReport.swift */,
 				3A33EF841BAA56D700D82A4D /* MessageSubject.swift */,
+				3A36B0221BA96648000F4AED /* RealTimeReport.swift */,
 				3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */,
 				3A376E411BABB3B700D70953 /* EMString.swift */,
 				3A376E431BABB81100D70953 /* EMProperties.swift */,
-				3A376E451BABBB1200D70953 /* User.swift */,
-				3A376E471BABD54200D70953 /* Role.swift */,
-				3A376E491BABD9F400D70953 /* PartInfo.swift */,
-				3A376E4B1BABDA3B00D70953 /* Bed.swift */,
-				3A376E4D1BABDE3500D70953 /* SignReport.swift */,
-				3A4D17F01BAFB07400E0B862 /* BedUser.swift */,
-				3A4D17F21BAFB83500E0B862 /* SleepCareReport.swift */,
-				3A4D17F61BAFDEFF00E0B862 /* TurnOverAnalysReport.swift */,
-				3A4D17F81BAFDF4800E0B862 /* TurnOverAnalysList.swift */,
-				3A4D17FA1BAFE17D00E0B862 /* AlarmInfo.swift */,
-				3A4D17FC1BAFE20A00E0B862 /* AlarmList.swift */,
 				3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */,
-				3A4B85C71BB14DFD006E4CF1 /* Worktask.swift */,
 				3A4B85CB1BB150C1006E4CF1 /* Constants.swift */,
-				2C5AEC471BB397130096DF3F /* RoleList.swift */,
-				2C3150A41BCDFAF300EC749E /* LeaveBedReportList.swift */,
-				2C3150A61BCDFB4500EC749E /* LeaveBedReport.swift */,
-				2C28CA131BE87D3D000C46C4 /* ServerResult.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
-		3A4D17EF1BAF921300E0B862 /* pad */ = {
+		3A4D17EF1BAF921300E0B862 /* ipad */ = {
 			isa = PBXGroup;
 			children = (
 				3AB3CB051BD761600067F9D4 /* ServerSettingView.xib */,
@@ -551,7 +591,7 @@
 				3A8680651BD75EA800F22016 /* ChoosePart.xib */,
 				2C555B481BE341A0008A3AC9 /* QueryAlarmView.xib */,
 			);
-			name = pad;
+			name = ipad;
 			sourceTree = "<group>";
 		};
 		3AB3CB091BD762C50067F9D4 /* UILib */ = {
@@ -593,12 +633,12 @@
 		3AFF67A51BBA2F1D00C9CA20 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				3AFF67A61BBA2F2500C9CA20 /* Pad */,
+				3AFF67A61BBA2F2500C9CA20 /* ipad */,
 			);
 			name = Images;
 			sourceTree = "<group>";
 		};
-		3AFF67A61BBA2F2500C9CA20 /* Pad */ = {
+		3AFF67A61BBA2F2500C9CA20 /* ipad */ = {
 			isa = PBXGroup;
 			children = (
 				3A2BD8A41BD8AE78007BBD01 /* 29pt@1x.png */,
@@ -648,7 +688,7 @@
 				3A9C12F01BC789C6008EC314 /* transbg.png */,
 				3A8604501BBA6327005FC117 /* topbg.png */,
 			);
-			name = Pad;
+			name = ipad;
 			sourceTree = "<group>";
 		};
 		3F28D28F10171C3606C8ADEE /* Frameworks */ = {

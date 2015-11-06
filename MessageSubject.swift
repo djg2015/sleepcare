@@ -16,9 +16,11 @@ class MessageSubject{
     var operate:String? = nil
     var requestID:String? = nil
     var random = ["1","2","3","4","5","6","7","8","9","0","a","b","c","d","e","f","g","h"]
-    init(opera:String){
+    init(opera:String,bizcode:String = "sleepcareforpad"){
         self.operate = opera
+        self.biz = bizcode
     }
+    
     //根据XML获取对应的Subject模型
     class func ParseXmlToSubject(subjectXml:String)-> MessageSubject{
         var subject = subjectXml.componentsSeparatedByString(":")

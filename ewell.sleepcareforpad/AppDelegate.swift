@@ -15,6 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     var backgroundTask:UIBackgroundTaskIdentifier! = nil
     var isBackRun:Bool = false
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+//         if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
+//            println(1)
+//        }
+//         else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
+//         println(2)
+//        }
         //延时启动界面
         NSThread.sleepForTimeInterval(1)
         //隐藏状态栏
