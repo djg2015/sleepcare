@@ -15,25 +15,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     var backgroundTask:UIBackgroundTaskIdentifier! = nil
     var isBackRun:Bool = false
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-//         if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
-//            println(1)
-//        }
-//         else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
-//         println(2)
-//        }
         //延时启动界面
         NSThread.sleepForTimeInterval(1)
-        //隐藏状态栏
-        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
+        
         //设置消息推送
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
         
-        //设置启动界面
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window!.backgroundColor = UIColor.whiteColor()
-        self.window!.makeKeyAndVisible()
-        
-        self.window!.rootViewController = UINavigationController(rootViewController:LoginController(nibName:"LoginView", bundle:nil))
+        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
+     
+            
+            //设置启动界面
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            self.window!.backgroundColor = UIColor.whiteColor()
+            self.window!.makeKeyAndVisible()
+            
+            self.window!.rootViewController = UINavigationController(rootViewController:ILoginController(nibName:"ILogin", bundle:nil))
+        }
+        else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
+            
+            //隐藏状态栏
+            UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
+            
+            //设置启动界面
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            self.window!.backgroundColor = UIColor.whiteColor()
+            self.window!.makeKeyAndVisible()
+            
+            self.window!.rootViewController = UINavigationController(rootViewController:LoginController(nibName:"LoginView", bundle:nil))
+        }
         return true
     }
     
@@ -66,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-       
+        
     }
     
     func applicationDidBecomeActive(application: UIApplication) {
@@ -89,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         didReceiveLocalNotification notification: UILocalNotification) {
             if(self.isBackRun){
                 NSNotificationCenter.defaultCenter().postNotificationName("TodoListShouldRefresh", object: self)
-                 self.isBackRun = false
+                self.isBackRun = false
             }
     }
     

@@ -14,6 +14,7 @@ class BaseViewController: UIViewController {
         
         //横屏显示
         UIDevice.currentDevice().setValue(UIInterfaceOrientation.LandscapeLeft.rawValue, forKey: "orientation")
+         UIDevice.currentDevice().setValue(UIInterfaceOrientation.LandscapeRight.rawValue, forKey: "orientation")
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.navigationController?.setNavigationBarHidden(true, animated: false)

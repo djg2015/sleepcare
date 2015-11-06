@@ -29,6 +29,9 @@
 		2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AEC471BB397130096DF3F /* RoleList.swift */; };
 		2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1151BD48713006FC007 /* searchBtn.png */; };
 		2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1161BD48713006FC007 /* searchBtnChecked.png */; };
+		3A2158721BEC8C090089CC01 /* ILogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2158711BEC8C090089CC01 /* ILogin.xib */; };
+		3A2158751BEC8C460089CC01 /* ILoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2158741BEC8C460089CC01 /* ILoginController.swift */; };
+		3A2158771BEC8D580089CC01 /* IBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2158761BEC8D580089CC01 /* IBaseViewController.swift */; };
 		3A2BD8A81BD8AE78007BBD01 /* 29pt@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2BD8A41BD8AE78007BBD01 /* 29pt@1x.png */; };
 		3A2BD8A91BD8AE78007BBD01 /* 50pt@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2BD8A51BD8AE78007BBD01 /* 50pt@1x.png */; };
 		3A2BD8AA1BD8AE78007BBD01 /* 72pt@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2BD8A61BD8AE78007BBD01 /* 72pt@1x.png */; };
@@ -182,6 +185,9 @@
 		2C5AEC471BB397130096DF3F /* RoleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleList.swift; sourceTree = "<group>"; };
 		2C6AE1151BD48713006FC007 /* searchBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtn.png; sourceTree = "<group>"; };
 		2C6AE1161BD48713006FC007 /* searchBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtnChecked.png; sourceTree = "<group>"; };
+		3A2158711BEC8C090089CC01 /* ILogin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ILogin.xib; sourceTree = "<group>"; };
+		3A2158741BEC8C460089CC01 /* ILoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginController.swift; sourceTree = "<group>"; };
+		3A2158761BEC8D580089CC01 /* IBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBaseViewController.swift; sourceTree = "<group>"; };
 		3A2BD8A41BD8AE78007BBD01 /* 29pt@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29pt@1x.png"; sourceTree = "<group>"; };
 		3A2BD8A51BD8AE78007BBD01 /* 50pt@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "50pt@1x.png"; sourceTree = "<group>"; };
 		3A2BD8A61BD8AE78007BBD01 /* 72pt@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "72pt@1x.png"; sourceTree = "<group>"; };
@@ -344,6 +350,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3A2158731BEC8C140089CC01 /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+				3A2158741BEC8C460089CC01 /* ILoginController.swift */,
+				3A2158761BEC8D580089CC01 /* IBaseViewController.swift */,
+			);
+			name = iphone;
+			sourceTree = "<group>";
+		};
 		3A28CA9B1BEC489F007D9A3A /* ipad */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +419,37 @@
 			sourceTree = "<group>";
 		};
 		3A28CA9F1BEC4A27007D9A3A /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+				3A2158711BEC8C090089CC01 /* ILogin.xib */,
+			);
+			name = iphone;
+			sourceTree = "<group>";
+		};
+		3A31CE6F1BEC67340039DFD0 /* ipad */ = {
+			isa = PBXGroup;
+			children = (
+				3AB3CB281BD763890067F9D4 /* Li_common.swift */,
+				3AB3CB261BD763690067F9D4 /* BackgroundCommon.swift */,
+				3AB3CB241BD7633B0067F9D4 /* DatePickerView.swift */,
+				3AB3CB0A1BD762FE0067F9D4 /* AlarmTableViewCell.swift */,
+				3AB3CB0B1BD762FE0067F9D4 /* AlarmTableViewCell.xib */,
+				3AB3CB0C1BD762FE0067F9D4 /* Pager.swift */,
+				3AB3CB0D1BD762FE0067F9D4 /* PopDownList.swift */,
+				3AB3CB0E1BD762FE0067F9D4 /* Popover.swift */,
+				3AB3CB0F1BD762FE0067F9D4 /* SleepCareCollectionView.swift */,
+				3AB3CB101BD762FE0067F9D4 /* SleepCareCollectionView.xib */,
+				3AB3CB111BD762FE0067F9D4 /* SleepCareCollectionViewCell.swift */,
+				3AB3CB121BD762FE0067F9D4 /* SleepCareCollectionViewCell.xib */,
+				3AB3CB131BD762FE0067F9D4 /* SleepCareTableView.swift */,
+				3AB3CB141BD762FE0067F9D4 /* SleepCareTableViewCell.swift */,
+				3AB3CB151BD762FE0067F9D4 /* TurnOverTableViewCell.swift */,
+				3AB3CB161BD762FE0067F9D4 /* TurnOverTableViewCell.xib */,
+			);
+			name = ipad;
+			sourceTree = "<group>";
+		};
+		3A31CE701BEC67440039DFD0 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -519,6 +565,7 @@
 		3A41ADE41BA7B3E9000C109B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3A2158731BEC8C140089CC01 /* iphone */,
 				3A28CA9D1BEC49E7007D9A3A /* ipad */,
 			);
 			name = ViewController;
@@ -597,22 +644,8 @@
 		3AB3CB091BD762C50067F9D4 /* UILib */ = {
 			isa = PBXGroup;
 			children = (
-				3AB3CB281BD763890067F9D4 /* Li_common.swift */,
-				3AB3CB261BD763690067F9D4 /* BackgroundCommon.swift */,
-				3AB3CB241BD7633B0067F9D4 /* DatePickerView.swift */,
-				3AB3CB0A1BD762FE0067F9D4 /* AlarmTableViewCell.swift */,
-				3AB3CB0B1BD762FE0067F9D4 /* AlarmTableViewCell.xib */,
-				3AB3CB0C1BD762FE0067F9D4 /* Pager.swift */,
-				3AB3CB0D1BD762FE0067F9D4 /* PopDownList.swift */,
-				3AB3CB0E1BD762FE0067F9D4 /* Popover.swift */,
-				3AB3CB0F1BD762FE0067F9D4 /* SleepCareCollectionView.swift */,
-				3AB3CB101BD762FE0067F9D4 /* SleepCareCollectionView.xib */,
-				3AB3CB111BD762FE0067F9D4 /* SleepCareCollectionViewCell.swift */,
-				3AB3CB121BD762FE0067F9D4 /* SleepCareCollectionViewCell.xib */,
-				3AB3CB131BD762FE0067F9D4 /* SleepCareTableView.swift */,
-				3AB3CB141BD762FE0067F9D4 /* SleepCareTableViewCell.swift */,
-				3AB3CB151BD762FE0067F9D4 /* TurnOverTableViewCell.swift */,
-				3AB3CB161BD762FE0067F9D4 /* TurnOverTableViewCell.xib */,
+				3A31CE701BEC67440039DFD0 /* iphone */,
+				3A31CE6F1BEC67340039DFD0 /* ipad */,
 			);
 			name = UILib;
 			sourceTree = "<group>";
@@ -846,6 +879,7 @@
 				3A2F02781BCBA4E4000B16B5 /* infoHeadred.png in Resources */,
 				3A3C377D1BD48F0B00080D03 /* sleepcareblock.png in Resources */,
 				2C2F83911BD63A19008CD92B /* previewBtnNormal.png in Resources */,
+				3A2158721BEC8C090089CC01 /* ILogin.xib in Resources */,
 				3A9C12F81BC789C6008EC314 /* dropdown.png in Resources */,
 				3A9C12F31BC789C6008EC314 /* leaveBed.png in Resources */,
 			);
@@ -898,6 +932,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A2158751BEC8C460089CC01 /* ILoginController.swift in Sources */,
 				3A376E441BABB81100D70953 /* EMProperties.swift in Sources */,
 				3A4D17FD1BAFE20A00E0B862 /* AlarmList.swift in Sources */,
 				3A4D17F71BAFDEFF00E0B862 /* TurnOverAnalysReport.swift in Sources */,
@@ -964,6 +999,7 @@
 				3A4B85C81BB14DFD006E4CF1 /* Worktask.swift in Sources */,
 				3A3EF7C11BDE05A800CDDAED /* TodoList.swift in Sources */,
 				3AB3CB171BD762FE0067F9D4 /* AlarmTableViewCell.swift in Sources */,
+				3A2158771BEC8D580089CC01 /* IBaseViewController.swift in Sources */,
 				2C3BAF131BCBA387003A2F48 /* AlarmViewModel.swift in Sources */,
 				3AB3CB271BD763690067F9D4 /* BackgroundCommon.swift in Sources */,
 				3A3756241BCB5E7600182DE4 /* SleepCareDetail.swift in Sources */,
