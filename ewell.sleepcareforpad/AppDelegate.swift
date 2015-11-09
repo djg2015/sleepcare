@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
         
         if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
-     
             
             //设置启动界面
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -32,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             self.window!.rootViewController = UINavigationController(rootViewController:ILoginController(nibName:"ILogin", bundle:nil))
         }
         else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
-            
             //隐藏状态栏
             UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
             
@@ -44,6 +42,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             self.window!.rootViewController = UINavigationController(rootViewController:LoginController(nibName:"LoginView", bundle:nil))
         }
         return true
+    }
+    
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> Int {
+        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
+            return (Int)(UIInterfaceOrientationMask.Portrait.rawValue)
+        }
+        
+        return (Int)(UIInterfaceOrientationMask.Landscape.rawValue)
     }
     
     func applicationWillResignActive(application: UIApplication) {

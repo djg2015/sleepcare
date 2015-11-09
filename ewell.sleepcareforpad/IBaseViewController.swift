@@ -11,9 +11,7 @@ import UIKit
 class IBaseViewController: UIViewController {
 
     override func viewDidLoad() {
-        //横屏显示
-        UIDevice.currentDevice().setValue(UIInterfaceOrientation.PortraitUpsideDown.rawValue, forKey: "orientation")
-        super.viewDidLoad()
+       super.viewDidLoad()
     }
 
     override func didReceiveMemoryWarning() {
