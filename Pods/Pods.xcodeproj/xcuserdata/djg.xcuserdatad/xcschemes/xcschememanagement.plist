@@ -4,17 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>CocoaAsyncSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>CocoaLumberjack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>KNSemiModalViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,42 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>02F8DEDD540516B1EC216A24D1C53C41</key>
+		<key>11929A53A8AD141288485C2968E5803E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>19E4A14EA3111D13D465374CCE600452</key>
+		<key>1202792D148845AB36891CA85B39AD72</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6951DA9871DA259A9AAA6EFC68AEF8EB</key>
+		<key>2F382E491D2B289695C94822CE0F9C6E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>69638DC4A4AB2BCA8D220F54316A6FB5</key>
+		<key>7CEEB7F4CD0B847C8524FB6C3FD41570</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>740D3A75C1EB5AC262A9714F20039B5E</key>
+		<key>B8D2DE1872B7F2CED2DE3DDA95536564</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8937AD42611DD9062D71E1DD1AF77EDA</key>
+		<key>CBBCAF44B580AA86A090EFA8F6163CDB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF6B62D79728EF0641BA03AAAE9C576B</key>
+		<key>D7AA66D729900C35B691CC395159A704</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F6938BA1C225C5EB9FEA877CBDAC9ACA</key>
+		<key>ECFE0958DDB7FEC79B3AA1C9337BC941</key>
 		<dict>
 			<key>primary</key>
 			<true/>

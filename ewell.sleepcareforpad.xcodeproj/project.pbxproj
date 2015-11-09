@@ -97,6 +97,33 @@
 		3A8604511BBA6327005FC117 /* topbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8604501BBA6327005FC117 /* topbg.png */; };
 		3A8680661BD75EA900F22016 /* ChoosePart.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8680651BD75EA800F22016 /* ChoosePart.xib */; };
 		3A8680681BD75EE000F22016 /* ChoosePartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8680671BD75EE000F22016 /* ChoosePartController.swift */; };
+		3A91F0971BF0475400C470D4 /* arrow_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F07B1BF0475400C470D4 /* arrow_left.png */; };
+		3A91F0981BF0475400C470D4 /* arrow_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F07C1BF0475400C470D4 /* arrow_left@2x.png */; };
+		3A91F0991BF0475400C470D4 /* arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F07D1BF0475400C470D4 /* arrow_right.png */; };
+		3A91F09A1BF0475400C470D4 /* arrow_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F07E1BF0475400C470D4 /* arrow_right@2x.png */; };
+		3A91F09B1BF0475400C470D4 /* calendar_clear-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F07F1BF0475400C470D4 /* calendar_clear-disabled.png */; };
+		3A91F09C1BF0475400C470D4 /* calendar_clear-disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F0801BF0475400C470D4 /* calendar_clear-disabled@2x.png */; };
+		3A91F09D1BF0475400C470D4 /* calendar_littledot-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F0811BF0475400C470D4 /* calendar_littledot-disabled.png */; };
+		3A91F09E1BF0475400C470D4 /* calendar_littledot-disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F0821BF0475400C470D4 /* calendar_littledot-disabled@2x.png */; };
+		3A91F09F1BF0475400C470D4 /* calendar_littledot.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F0831BF0475400C470D4 /* calendar_littledot.png */; };
+		3A91F0A01BF0475400C470D4 /* calendar_littledot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F0841BF0475400C470D4 /* calendar_littledot@2x.png */; };
+		3A91F0A11BF0475400C470D4 /* calendar_ok-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F0851BF0475400C470D4 /* calendar_ok-disabled.png */; };
+		3A91F0A21BF0475400C470D4 /* calendar_ok-disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F0861BF0475400C470D4 /* calendar_ok-disabled@2x.png */; };
+		3A91F0A31BF0475400C470D4 /* dialog_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F0871BF0475400C470D4 /* dialog_cancel.png */; };
+		3A91F0A41BF0475400C470D4 /* dialog_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F0881BF0475400C470D4 /* dialog_cancel@2x.png */; };
+		3A91F0A51BF0475400C470D4 /* dialog_clear-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F0891BF0475400C470D4 /* dialog_clear-disabled.png */; };
+		3A91F0A61BF0475400C470D4 /* dialog_clear-disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F08A1BF0475400C470D4 /* dialog_clear-disabled@2x.png */; };
+		3A91F0A71BF0475400C470D4 /* dialog_clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F08B1BF0475400C470D4 /* dialog_clear.png */; };
+		3A91F0A81BF0475400C470D4 /* dialog_clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F08C1BF0475400C470D4 /* dialog_clear@2x.png */; };
+		3A91F0A91BF0475400C470D4 /* dialog_ok-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F08D1BF0475400C470D4 /* dialog_ok-disabled.png */; };
+		3A91F0AA1BF0475400C470D4 /* dialog_ok-disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F08E1BF0475400C470D4 /* dialog_ok-disabled@2x.png */; };
+		3A91F0AB1BF0475400C470D4 /* dialog_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F08F1BF0475400C470D4 /* dialog_ok.png */; };
+		3A91F0AC1BF0475400C470D4 /* dialog_ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F0901BF0475400C470D4 /* dialog_ok@2x.png */; };
+		3A91F0AD1BF0475400C470D4 /* THDateDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91F0921BF0475400C470D4 /* THDateDay.m */; };
+		3A91F0AE1BF0475400C470D4 /* THDateDay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F0931BF0475400C470D4 /* THDateDay.xib */; };
+		3A91F0AF1BF0475400C470D4 /* THDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91F0951BF0475400C470D4 /* THDatePickerViewController.m */; };
+		3A91F0B01BF0475400C470D4 /* THDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F0961BF0475400C470D4 /* THDatePickerViewController.xib */; };
+		3A91F0B31BF066F500C470D4 /* THDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A91F0B21BF066F500C470D4 /* THDate.swift */; };
 		3A9C12F11BC789C6008EC314 /* maintop.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E01BC789C6008EC314 /* maintop.png */; };
 		3A9C12F21BC789C6008EC314 /* emptyBed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E11BC789C6008EC314 /* emptyBed.png */; };
 		3A9C12F31BC789C6008EC314 /* leaveBed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C12E21BC789C6008EC314 /* leaveBed.png */; };
@@ -266,6 +293,35 @@
 		3A8604501BBA6327005FC117 /* topbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbg.png; sourceTree = "<group>"; };
 		3A8680651BD75EA800F22016 /* ChoosePart.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoosePart.xib; sourceTree = "<group>"; };
 		3A8680671BD75EE000F22016 /* ChoosePartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePartController.swift; sourceTree = "<group>"; };
+		3A91F07B1BF0475400C470D4 /* arrow_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_left.png; sourceTree = "<group>"; };
+		3A91F07C1BF0475400C470D4 /* arrow_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_left@2x.png"; sourceTree = "<group>"; };
+		3A91F07D1BF0475400C470D4 /* arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_right.png; sourceTree = "<group>"; };
+		3A91F07E1BF0475400C470D4 /* arrow_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_right@2x.png"; sourceTree = "<group>"; };
+		3A91F07F1BF0475400C470D4 /* calendar_clear-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar_clear-disabled.png"; sourceTree = "<group>"; };
+		3A91F0801BF0475400C470D4 /* calendar_clear-disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar_clear-disabled@2x.png"; sourceTree = "<group>"; };
+		3A91F0811BF0475400C470D4 /* calendar_littledot-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar_littledot-disabled.png"; sourceTree = "<group>"; };
+		3A91F0821BF0475400C470D4 /* calendar_littledot-disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar_littledot-disabled@2x.png"; sourceTree = "<group>"; };
+		3A91F0831BF0475400C470D4 /* calendar_littledot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_littledot.png; sourceTree = "<group>"; };
+		3A91F0841BF0475400C470D4 /* calendar_littledot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar_littledot@2x.png"; sourceTree = "<group>"; };
+		3A91F0851BF0475400C470D4 /* calendar_ok-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar_ok-disabled.png"; sourceTree = "<group>"; };
+		3A91F0861BF0475400C470D4 /* calendar_ok-disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar_ok-disabled@2x.png"; sourceTree = "<group>"; };
+		3A91F0871BF0475400C470D4 /* dialog_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dialog_cancel.png; sourceTree = "<group>"; };
+		3A91F0881BF0475400C470D4 /* dialog_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog_cancel@2x.png"; sourceTree = "<group>"; };
+		3A91F0891BF0475400C470D4 /* dialog_clear-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog_clear-disabled.png"; sourceTree = "<group>"; };
+		3A91F08A1BF0475400C470D4 /* dialog_clear-disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog_clear-disabled@2x.png"; sourceTree = "<group>"; };
+		3A91F08B1BF0475400C470D4 /* dialog_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dialog_clear.png; sourceTree = "<group>"; };
+		3A91F08C1BF0475400C470D4 /* dialog_clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog_clear@2x.png"; sourceTree = "<group>"; };
+		3A91F08D1BF0475400C470D4 /* dialog_ok-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog_ok-disabled.png"; sourceTree = "<group>"; };
+		3A91F08E1BF0475400C470D4 /* dialog_ok-disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog_ok-disabled@2x.png"; sourceTree = "<group>"; };
+		3A91F08F1BF0475400C470D4 /* dialog_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dialog_ok.png; sourceTree = "<group>"; };
+		3A91F0901BF0475400C470D4 /* dialog_ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dialog_ok@2x.png"; sourceTree = "<group>"; };
+		3A91F0911BF0475400C470D4 /* THDateDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THDateDay.h; sourceTree = "<group>"; };
+		3A91F0921BF0475400C470D4 /* THDateDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THDateDay.m; sourceTree = "<group>"; };
+		3A91F0931BF0475400C470D4 /* THDateDay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THDateDay.xib; sourceTree = "<group>"; };
+		3A91F0941BF0475400C470D4 /* THDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THDatePickerViewController.h; sourceTree = "<group>"; };
+		3A91F0951BF0475400C470D4 /* THDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THDatePickerViewController.m; sourceTree = "<group>"; };
+		3A91F0961BF0475400C470D4 /* THDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THDatePickerViewController.xib; sourceTree = "<group>"; };
+		3A91F0B21BF066F500C470D4 /* THDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THDate.swift; sourceTree = "<group>"; };
 		3A9C12E01BC789C6008EC314 /* maintop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maintop.png; sourceTree = "<group>"; };
 		3A9C12E11BC789C6008EC314 /* emptyBed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyBed.png; sourceTree = "<group>"; };
 		3A9C12E21BC789C6008EC314 /* leaveBed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaveBed.png; sourceTree = "<group>"; };
@@ -452,6 +508,7 @@
 		3A31CE701BEC67440039DFD0 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				3A91F0B11BF066C400C470D4 /* Date */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -641,6 +698,50 @@
 			name = ipad;
 			sourceTree = "<group>";
 		};
+		3A91F07A1BF0475400C470D4 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3A91F07B1BF0475400C470D4 /* arrow_left.png */,
+				3A91F07C1BF0475400C470D4 /* arrow_left@2x.png */,
+				3A91F07D1BF0475400C470D4 /* arrow_right.png */,
+				3A91F07E1BF0475400C470D4 /* arrow_right@2x.png */,
+				3A91F07F1BF0475400C470D4 /* calendar_clear-disabled.png */,
+				3A91F0801BF0475400C470D4 /* calendar_clear-disabled@2x.png */,
+				3A91F0811BF0475400C470D4 /* calendar_littledot-disabled.png */,
+				3A91F0821BF0475400C470D4 /* calendar_littledot-disabled@2x.png */,
+				3A91F0831BF0475400C470D4 /* calendar_littledot.png */,
+				3A91F0841BF0475400C470D4 /* calendar_littledot@2x.png */,
+				3A91F0851BF0475400C470D4 /* calendar_ok-disabled.png */,
+				3A91F0861BF0475400C470D4 /* calendar_ok-disabled@2x.png */,
+				3A91F0871BF0475400C470D4 /* dialog_cancel.png */,
+				3A91F0881BF0475400C470D4 /* dialog_cancel@2x.png */,
+				3A91F0891BF0475400C470D4 /* dialog_clear-disabled.png */,
+				3A91F08A1BF0475400C470D4 /* dialog_clear-disabled@2x.png */,
+				3A91F08B1BF0475400C470D4 /* dialog_clear.png */,
+				3A91F08C1BF0475400C470D4 /* dialog_clear@2x.png */,
+				3A91F08D1BF0475400C470D4 /* dialog_ok-disabled.png */,
+				3A91F08E1BF0475400C470D4 /* dialog_ok-disabled@2x.png */,
+				3A91F08F1BF0475400C470D4 /* dialog_ok.png */,
+				3A91F0901BF0475400C470D4 /* dialog_ok@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		3A91F0B11BF066C400C470D4 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				3A91F07A1BF0475400C470D4 /* Images */,
+				3A91F0911BF0475400C470D4 /* THDateDay.h */,
+				3A91F0921BF0475400C470D4 /* THDateDay.m */,
+				3A91F0931BF0475400C470D4 /* THDateDay.xib */,
+				3A91F0941BF0475400C470D4 /* THDatePickerViewController.h */,
+				3A91F0951BF0475400C470D4 /* THDatePickerViewController.m */,
+				3A91F0961BF0475400C470D4 /* THDatePickerViewController.xib */,
+				3A91F0B21BF066F500C470D4 /* THDate.swift */,
+			);
+			name = Date;
+			sourceTree = "<group>";
+		};
 		3AB3CB091BD762C50067F9D4 /* UILib */ = {
 			isa = PBXGroup;
 			children = (
@@ -747,6 +848,7 @@
 				3A41ADB81BA7A65A000C109B /* Frameworks */,
 				3A41ADB91BA7A65A000C109B /* Resources */,
 				8C7EF80D5231F3785268B921 /* Copy Pods Resources */,
+				0D2F0140C68F05F12F6A88CA /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -818,44 +920,61 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A91F09F1BF0475400C470D4 /* calendar_littledot.png in Resources */,
 				3AB3CB2A1BD763F10067F9D4 /* LaunchScreen.xib in Resources */,
 				3ADA58441BD5FE550066D23A /* sleepofThisWeek.png in Resources */,
 				3ADA58431BD5FC7C0066D23A /* SleepcareDetail.xib in Resources */,
 				3AFB93941BCF96F200042AF1 /* pwdIcon.png in Resources */,
 				3A9C12FC1BC789C6008EC314 /* BedFrame.png in Resources */,
 				3A3C377E1BD48F0B00080D03 /* hrrr.png in Resources */,
+				3A91F0AE1BF0475400C470D4 /* THDateDay.xib in Resources */,
 				3A41ADE31BA7B3D1000C109B /* LoginView.xib in Resources */,
 				2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */,
 				3A3C377C1BD48F0B00080D03 /* dateIcon.png in Resources */,
 				3A2BD8A81BD8AE78007BBD01 /* 29pt@1x.png in Resources */,
+				3A91F09E1BF0475400C470D4 /* calendar_littledot-disabled@2x.png in Resources */,
 				2C2F83901BD63A19008CD92B /* previewBtnDisable.png in Resources */,
 				3A9C12FD1BC789C6008EC314 /* pagerunselected.png in Resources */,
+				3A91F0A31BF0475400C470D4 /* dialog_cancel.png in Resources */,
 				3AB3CB1D1BD762FE0067F9D4 /* SleepCareCollectionView.xib in Resources */,
 				3A3756201BCB589600182DE4 /* DialogFrame.xib in Resources */,
+				3A91F0A51BF0475400C470D4 /* dialog_clear-disabled.png in Resources */,
+				3A91F0A81BF0475400C470D4 /* dialog_clear@2x.png in Resources */,
 				2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */,
 				3A9C13001BC789C6008EC314 /* onBedView.png in Resources */,
 				3A2BD8A91BD8AE78007BBD01 /* 50pt@1x.png in Resources */,
 				3AB3CB1F1BD762FE0067F9D4 /* SleepCareCollectionViewCell.xib in Resources */,
 				3AB3CB231BD762FE0067F9D4 /* TurnOverTableViewCell.xib in Resources */,
+				3A91F0981BF0475400C470D4 /* arrow_left@2x.png in Resources */,
+				3A91F0A11BF0475400C470D4 /* calendar_ok-disabled.png in Resources */,
 				2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */,
 				2C2F838F1BD63A19008CD92B /* nextBtnNormal.png in Resources */,
 				3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */,
+				3A91F0991BF0475400C470D4 /* arrow_right.png in Resources */,
+				3A91F0AC1BF0475400C470D4 /* dialog_ok@2x.png in Resources */,
 				3AB43E731BD4DB45005023D3 /* previewBtnChecked.png in Resources */,
+				3A91F0A21BF0475400C470D4 /* calendar_ok-disabled@2x.png in Resources */,
 				2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */,
 				3A9C12FE1BC789C6008EC314 /* pagerselected.png in Resources */,
 				3AFB93901BCF96F200042AF1 /* loginBtn.png in Resources */,
 				3AFB93931BCF96F200042AF1 /* textboxBorder.png in Resources */,
 				3AA3161B1BD0CFA500FC3C40 /* checkboxchoosed.png in Resources */,
+				3A91F0A61BF0475400C470D4 /* dialog_clear-disabled@2x.png in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
 				3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */,
 				2C2F838E1BD63A19008CD92B /* nextBtnChecked.png in Resources */,
+				3A91F0A41BF0475400C470D4 /* dialog_cancel@2x.png in Resources */,
 				3A9C12F91BC789C6008EC314 /* infoHead.png in Resources */,
+				3A91F0A01BF0475400C470D4 /* calendar_littledot@2x.png in Resources */,
 				3A2BD8AB1BD8AE78007BBD01 /* 76pt@1x.png in Resources */,
 				3AB3CB181BD762FE0067F9D4 /* AlarmTableViewCell.xib in Resources */,
 				3A8604511BBA6327005FC117 /* topbg.png in Resources */,
+				3A91F0971BF0475400C470D4 /* arrow_left.png in Resources */,
 				3A9C12F21BC789C6008EC314 /* emptyBed.png in Resources */,
+				3A91F0A91BF0475400C470D4 /* dialog_ok-disabled.png in Resources */,
 				3A3C377A1BD48F0B00080D03 /* trunrecord.png in Resources */,
 				2C2F83851BD5DE2F008CD92B /* back.png in Resources */,
+				3A91F0B01BF0475400C470D4 /* THDatePickerViewController.xib in Resources */,
 				2C555B491BE341A0008A3AC9 /* QueryAlarmView.xib in Resources */,
 				3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */,
 				3AB3CB061BD761600067F9D4 /* ServerSettingView.xib in Resources */,
@@ -864,6 +983,7 @@
 				3A9C12FB1BC789C6008EC314 /* infoHeadblue.png in Resources */,
 				3A9C12F61BC789C6008EC314 /* clock.png in Resources */,
 				3A9C12F51BC789C6008EC314 /* unlineView.png in Resources */,
+				3A91F0AB1BF0475400C470D4 /* dialog_ok.png in Resources */,
 				3AFB93921BCF96F200042AF1 /* loginTitle.png in Resources */,
 				3AA3161D1BD0DD8500FC3C40 /* sleepcare.plist in Resources */,
 				3A2BD8AA1BD8AE78007BBD01 /* 72pt@1x.png in Resources */,
@@ -871,6 +991,8 @@
 				3A9C12F71BC789C6008EC314 /* search.png in Resources */,
 				3A3756261BCB5E9600182DE4 /* SleepcareList.xib in Resources */,
 				3A9C12F41BC789C6008EC314 /* leaveView.png in Resources */,
+				3A91F09D1BF0475400C470D4 /* calendar_littledot-disabled.png in Resources */,
+				3A91F0AA1BF0475400C470D4 /* dialog_ok-disabled@2x.png in Resources */,
 				3A9C12F11BC789C6008EC314 /* maintop.png in Resources */,
 				3A3C377B1BD48F0B00080D03 /* leaverecord.png in Resources */,
 				3A3C37821BD4D89A00080D03 /* comming.png in Resources */,
@@ -878,6 +1000,10 @@
 				3A8680661BD75EA900F22016 /* ChoosePart.xib in Resources */,
 				3A2F02781BCBA4E4000B16B5 /* infoHeadred.png in Resources */,
 				3A3C377D1BD48F0B00080D03 /* sleepcareblock.png in Resources */,
+				3A91F0A71BF0475400C470D4 /* dialog_clear.png in Resources */,
+				3A91F09A1BF0475400C470D4 /* arrow_right@2x.png in Resources */,
+				3A91F09C1BF0475400C470D4 /* calendar_clear-disabled@2x.png in Resources */,
+				3A91F09B1BF0475400C470D4 /* calendar_clear-disabled.png in Resources */,
 				2C2F83911BD63A19008CD92B /* previewBtnNormal.png in Resources */,
 				3A2158721BEC8C090089CC01 /* ILogin.xib in Resources */,
 				3A9C12F81BC789C6008EC314 /* dropdown.png in Resources */,
@@ -895,6 +1021,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0D2F0140C68F05F12F6A88CA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8C7EF80D5231F3785268B921 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -962,6 +1103,7 @@
 				3A4CD3FD1BA80852002C8A1A /* BaseMessage.swift in Sources */,
 				3A35AB671BCCECF000ED3293 /* Session.swift in Sources */,
 				3A4D17F11BAFB07400E0B862 /* BedUser.swift in Sources */,
+				3A91F0AF1BF0475400C470D4 /* THDatePickerViewController.m in Sources */,
 				3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */,
 				3A8680681BD75EE000F22016 /* ChoosePartController.swift in Sources */,
 				3A325A341BD08B7B00DE4E78 /* BaseViewModel.swift in Sources */,
@@ -969,6 +1111,7 @@
 				3AB3CB211BD762FE0067F9D4 /* SleepCareTableViewCell.swift in Sources */,
 				3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */,
 				2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */,
+				3A91F0AD1BF0475400C470D4 /* THDateDay.m in Sources */,
 				3AB43E8A1BD4E1B9005023D3 /* BizDayRule.swift in Sources */,
 				3AB43E781BD4E17B005023D3 /* Date.swift in Sources */,
 				3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */,
@@ -990,6 +1133,7 @@
 				3A41ADEA1BA7B438000C109B /* LoginViewModel.swift in Sources */,
 				3AB3CB1B1BD762FE0067F9D4 /* Popover.swift in Sources */,
 				3AB43E8D1BD4E1B9005023D3 /* DayCounter.swift in Sources */,
+				3A91F0B31BF066F500C470D4 /* THDate.swift in Sources */,
 				3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */,
 				3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */,
 				3A35AB651BCCE8B000ED3293 /* SweetAlert.swift in Sources */,

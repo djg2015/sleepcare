@@ -47,6 +47,9 @@
 @property (nonatomic) CGFloat chartCavanWidth;
 @property (nonatomic) CGFloat chartMargin;
 @property (nonatomic) BOOL showLabel;
+@property (nonatomic) BOOL showGenYLabels;
+@property (nonatomic) BOOL thousandsSeparator;
+
 
 /**
  * Controls whether to show the coordinate axis. Default is NO.
@@ -62,6 +65,11 @@
  * String formatter for float values in y-axis labels. If not set, defaults to @"%1.f"
  */
 @property (nonatomic, strong) NSString *yLabelFormat;
+
+/**
+ * Block formatter for custom string in y-axis labels. If not set, defaults to yLabelFormat
+ */
+@property (nonatomic, copy) NSString* (^yLabelBlockFormatter)(CGFloat);
 
 - (void)setXLabels:(NSArray *)xLabels withWidth:(CGFloat)width;
 

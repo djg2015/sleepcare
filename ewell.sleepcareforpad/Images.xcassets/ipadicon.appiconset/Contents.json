@@ -19,7 +19,7 @@
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "50pt@1x-1.png",
+      "filename" : "40pt@1x.png",
       "scale" : "2x"
     },
     {
@@ -30,7 +30,7 @@
     {
       "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "72pt@1x-1.png",
+      "filename" : "57pt@1x.png",
       "scale" : "1x"
     },
     {
@@ -41,7 +41,7 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "76pt@1x-1.png",
+      "filename" : "60pt@1x.png",
       "scale" : "2x"
     },
     {

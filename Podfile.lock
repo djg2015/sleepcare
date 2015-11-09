@@ -1,33 +1,13 @@
 PODS:
-  - AFNetworking (2.5.4):
-    - AFNetworking/NSURLConnection (= 2.5.4)
-    - AFNetworking/NSURLSession (= 2.5.4)
-    - AFNetworking/Reachability (= 2.5.4)
-    - AFNetworking/Security (= 2.5.4)
-    - AFNetworking/Serialization (= 2.5.4)
-    - AFNetworking/UIKit (= 2.5.4)
-  - AFNetworking/NSURLConnection (2.5.4):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.4):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.4)
-  - AFNetworking/Security (2.5.4)
-  - AFNetworking/Serialization (2.5.4)
-  - AFNetworking/UIKit (2.5.4):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
   - CocoaAsyncSocket (7.4.2)
   - CocoaLumberjack (1.9.2):
     - CocoaLumberjack/Extensions (= 1.9.2)
   - CocoaLumberjack/Core (1.9.2)
   - CocoaLumberjack/Extensions (1.9.2):
     - CocoaLumberjack/Core
-  - PNChart (0.8):
-    - UICountingLabel (~> 1.0.0)
+  - KNSemiModalViewController (0.3)
+  - PNChart (0.8.7):
+    - UICountingLabel (~> 1.2.0)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -35,7 +15,7 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - UICountingLabel (1.0.0)
+  - UICountingLabel (1.2.0)
   - XMPPFramework (3.6.6):
     - XMPPFramework/Authentication (= 3.6.6)
     - XMPPFramework/BandwidthMonitor (= 3.6.6)
@@ -180,18 +160,18 @@ PODS:
     - XMPPFramework/Core
 
 DEPENDENCIES:
-  - AFNetworking
+  - KNSemiModalViewController
   - PNChart
   - ReactiveCocoa
   - XMPPFramework
 
 SPEC CHECKSUMS:
-  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   CocoaAsyncSocket: f5783bdedd232d91b89769bc4b5a1580aed518ad
   CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
-  PNChart: d62a59b248e890ea688252a03a276f9805244148
+  KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
+  PNChart: c1755716bbd45386d2035b2bf2ce73e6d3f8cb22
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  UICountingLabel: 540feeca6bbb78be892c8ab75b6ad02313cb2b10
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
   XMPPFramework: b06c210b0b71c08aa41a646bffd2021fa43bb43b
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

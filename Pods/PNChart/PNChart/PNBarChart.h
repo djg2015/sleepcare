@@ -11,10 +11,10 @@
 #import "PNChartDelegate.h"
 #import "PNBar.h"
 
-#define xLabelMargin 15
-#define yLabelMargin 15
-#define yLabelHeight 11
-#define xLabelHeight 20
+#define kXLabelMargin 15
+#define kYLabelMargin 15
+#define kYLabelHeight 11
+#define kXLabelHeight 20
 
 typedef NSString *(^PNYLabelFormatter)(CGFloat yLabelValue);
 
@@ -32,7 +32,7 @@ typedef NSString *(^PNYLabelFormatter)(CGFloat yLabelValue);
 @property (nonatomic) NSMutableArray * bars;
 
 @property (nonatomic) CGFloat xLabelWidth;
-@property (nonatomic) int yValueMax;
+@property (nonatomic) float yValueMax;
 @property (nonatomic) UIColor *strokeColor;
 @property (nonatomic) NSArray *strokeColors;
 
@@ -46,7 +46,16 @@ typedef NSString *(^PNYLabelFormatter)(CGFloat yLabelValue);
 /** Formats the ylabel text. */
 @property (copy) PNYLabelFormatter yLabelFormatter;
 
-@property (nonatomic) CGFloat chartMargin;
+/** Prefix to y label values, none if unset. */
+@property (nonatomic) NSString *yLabelPrefix;
+
+/** Suffix to y label values, none if unset. */
+@property (nonatomic) NSString *yLabelSuffix;
+
+@property (nonatomic) CGFloat chartMarginLeft;
+@property (nonatomic) CGFloat chartMarginRight;
+@property (nonatomic) CGFloat chartMarginTop;
+@property (nonatomic) CGFloat chartMarginBottom;
 
 /** Controls whether labels should be displayed. */
 @property (nonatomic) BOOL showLabel;
@@ -54,8 +63,14 @@ typedef NSString *(^PNYLabelFormatter)(CGFloat yLabelValue);
 /** Controls whether the chart border line should be displayed. */
 @property (nonatomic) BOOL showChartBorder;
 
+/** Controls whether the chart Horizontal separator should be displayed. */
+@property (nonatomic, assign) BOOL showLevelLine;
+
 /** Chart bottom border, co-linear with the x-axis. */
 @property (nonatomic) CAShapeLayer * chartBottomLine;
+
+/** Chart bottom border, level separator-linear with the x-axis. */
+@property (nonatomic) CAShapeLayer * chartLevelLine;
 
 /** Chart left border, co-linear with the y-axis. */
 @property (nonatomic) CAShapeLayer * chartLeftLine;
@@ -96,5 +111,11 @@ typedef NSString *(^PNYLabelFormatter)(CGFloat yLabelValue);
 @property (nonatomic) BOOL rotateForXAxisText;
 
 @property (nonatomic, weak) id<PNChartDelegate> delegate;
+
+/**whether show gradient bar*/
+@property (nonatomic, assign) BOOL isGradientShow;
+
+/** whether show numbers*/
+@property (nonatomic, assign) BOOL isShowNumbers;
 
 @end
