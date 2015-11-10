@@ -26,6 +26,7 @@
 		2C5181F91BF18E7E007DC2A3 /* ILoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181F81BF18E7E007DC2A3 /* ILoginUser.swift */; };
 		2C5181FB1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181FA1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift */; };
 		2C5181FD1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181FC1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift */; };
+		2C5181FF1BF1AB5F007DC2A3 /* IMainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181FE1BF1AB5F007DC2A3 /* IMainInfo.swift */; };
 		2C555B471BE31763008A3AC9 /* QueryAlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C555B461BE31763008A3AC9 /* QueryAlarmViewModel.swift */; };
 		2C555B491BE341A0008A3AC9 /* QueryAlarmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C555B481BE341A0008A3AC9 /* QueryAlarmView.xib */; };
 		2C555B4B1BE341B8008A3AC9 /* QueryAlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C555B4A1BE341B8008A3AC9 /* QueryAlarmController.swift */; };
@@ -212,6 +213,7 @@
 		2C5181F81BF18E7E007DC2A3 /* ILoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginUser.swift; sourceTree = "<group>"; };
 		2C5181FA1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareForIPhoneBussinessManager.swift; sourceTree = "<group>"; };
 		2C5181FC1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareForIPhoneBussiness.swift; sourceTree = "<group>"; };
+		2C5181FE1BF1AB5F007DC2A3 /* IMainInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMainInfo.swift; sourceTree = "<group>"; };
 		2C555B461BE31763008A3AC9 /* QueryAlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryAlarmViewModel.swift; sourceTree = "<group>"; };
 		2C555B481BE341A0008A3AC9 /* QueryAlarmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QueryAlarmView.xib; sourceTree = "<group>"; };
 		2C555B4A1BE341B8008A3AC9 /* QueryAlarmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryAlarmController.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 		3A28CA9C1BEC49BD007D9A3A /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				2C5181FE1BF1AB5F007DC2A3 /* IMainInfo.swift */,
 				2C5181F81BF18E7E007DC2A3 /* ILoginUser.swift */,
 			);
 			name = iphone;
@@ -1164,6 +1167,7 @@
 				3AB3CB1E1BD762FE0067F9D4 /* SleepCareCollectionViewCell.swift in Sources */,
 				2C3150A71BCDFB4500EC749E /* LeaveBedReport.swift in Sources */,
 				2C4911BD1BD0A15400A167A9 /* SleepQualityPandectView.swift in Sources */,
+				2C5181FF1BF1AB5F007DC2A3 /* IMainInfo.swift in Sources */,
 				3A376E4A1BABD9F400D70953 /* PartInfo.swift in Sources */,
 				2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */,
 			);
