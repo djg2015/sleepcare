@@ -101,4 +101,22 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
         }
         return message as! ServerResult
     }
+    
+    // 移除已关注的床位用户
+    // 参数：loginName->登录账户
+    //      bedUserCode->床位用户编码
+    func RemoveFollowBedUser(loginName:String,bedUserCode:String)-> ServerResult{
+        
+        var subject = MessageSubject(opera: "FollowBedUser")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("loginName", value: loginName)
+        post.AddKeyValue("bedUserCode", value: bedUserCode)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! ServerResult
+    }
 }

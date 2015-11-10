@@ -13,7 +13,7 @@ class IMainInfo: BaseMessage {
     
     //解析响应的message
     override class func XmlToMessage(subjectXml:String,bodyXMl:String) -> BaseMessage{
-        let a:Int = 1
+        
         let result = IMainInfo(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
         //构造XML文档
         var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
