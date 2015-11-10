@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             return (Int)(UIInterfaceOrientationMask.Portrait.rawValue)
         }
         
-        return (Int)(UIInterfaceOrientationMask.Landscape.rawValue)
+        return (Int)(UIInterfaceOrientationMask.LandscapeLeft.rawValue)
     }
     
     func applicationWillResignActive(application: UIApplication) {
