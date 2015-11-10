@@ -35,4 +35,9 @@ protocol SleepCareForIPhoneBussinessManager{
     //      bedUserCode->床位用户编码
     //      mainCode->医院/养老院编号
     func FollowBedUser(loginName:String,bedUserCode:String,mainCode:String)-> ServerResult
+    
+    // 移除已关注的床位用户
+    // 参数：loginName->登录账户
+    //      bedUserCode->床位用户编码
+    func RemoveFollowBedUser(loginName:String,bedUserCode:String)-> ServerResult
 }

@@ -27,6 +27,12 @@
 		2C5181FB1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181FA1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift */; };
 		2C5181FD1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181FC1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift */; };
 		2C5181FF1BF1AB5F007DC2A3 /* IMainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181FE1BF1AB5F007DC2A3 /* IMainInfo.swift */; };
+		2C5182011BF1B5DF007DC2A3 /* IBedUserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5182001BF1B5DF007DC2A3 /* IBedUserList.swift */; };
+		2C5182031BF1B7DA007DC2A3 /* IHRRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5182021BF1B7DA007DC2A3 /* IHRRange.swift */; };
+		2C5182051BF1B8D6007DC2A3 /* IRRRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5182041BF1B8D6007DC2A3 /* IRRRange.swift */; };
+		2C5182071BF1B941007DC2A3 /* ISleepQualityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5182061BF1B941007DC2A3 /* ISleepQualityReport.swift */; };
+		2C5182091BF1BA83007DC2A3 /* IEquipmentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5182081BF1BA83007DC2A3 /* IEquipmentInfo.swift */; };
+		2C51820B1BF1BAF3007DC2A3 /* IMainInfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51820A1BF1BAF3007DC2A3 /* IMainInfoList.swift */; };
 		2C555B471BE31763008A3AC9 /* QueryAlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C555B461BE31763008A3AC9 /* QueryAlarmViewModel.swift */; };
 		2C555B491BE341A0008A3AC9 /* QueryAlarmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C555B481BE341A0008A3AC9 /* QueryAlarmView.xib */; };
 		2C555B4B1BE341B8008A3AC9 /* QueryAlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C555B4A1BE341B8008A3AC9 /* QueryAlarmController.swift */; };
@@ -214,6 +220,12 @@
 		2C5181FA1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareForIPhoneBussinessManager.swift; sourceTree = "<group>"; };
 		2C5181FC1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareForIPhoneBussiness.swift; sourceTree = "<group>"; };
 		2C5181FE1BF1AB5F007DC2A3 /* IMainInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMainInfo.swift; sourceTree = "<group>"; };
+		2C5182001BF1B5DF007DC2A3 /* IBedUserList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBedUserList.swift; sourceTree = "<group>"; };
+		2C5182021BF1B7DA007DC2A3 /* IHRRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IHRRange.swift; sourceTree = "<group>"; };
+		2C5182041BF1B8D6007DC2A3 /* IRRRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRRRange.swift; sourceTree = "<group>"; };
+		2C5182061BF1B941007DC2A3 /* ISleepQualityReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISleepQualityReport.swift; sourceTree = "<group>"; };
+		2C5182081BF1BA83007DC2A3 /* IEquipmentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEquipmentInfo.swift; sourceTree = "<group>"; };
+		2C51820A1BF1BAF3007DC2A3 /* IMainInfoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMainInfoList.swift; sourceTree = "<group>"; };
 		2C555B461BE31763008A3AC9 /* QueryAlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryAlarmViewModel.swift; sourceTree = "<group>"; };
 		2C555B481BE341A0008A3AC9 /* QueryAlarmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QueryAlarmView.xib; sourceTree = "<group>"; };
 		2C555B4A1BE341B8008A3AC9 /* QueryAlarmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryAlarmController.swift; sourceTree = "<group>"; };
@@ -452,6 +464,12 @@
 			children = (
 				2C5181FE1BF1AB5F007DC2A3 /* IMainInfo.swift */,
 				2C5181F81BF18E7E007DC2A3 /* ILoginUser.swift */,
+				2C5182001BF1B5DF007DC2A3 /* IBedUserList.swift */,
+				2C5182021BF1B7DA007DC2A3 /* IHRRange.swift */,
+				2C5182041BF1B8D6007DC2A3 /* IRRRange.swift */,
+				2C5182061BF1B941007DC2A3 /* ISleepQualityReport.swift */,
+				2C5182081BF1BA83007DC2A3 /* IEquipmentInfo.swift */,
+				2C51820A1BF1BAF3007DC2A3 /* IMainInfoList.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1085,8 +1103,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C5182091BF1BA83007DC2A3 /* IEquipmentInfo.swift in Sources */,
 				3A2158751BEC8C460089CC01 /* ILoginController.swift in Sources */,
 				3A376E441BABB81100D70953 /* EMProperties.swift in Sources */,
+				2C5182031BF1B7DA007DC2A3 /* IHRRange.swift in Sources */,
+				2C5182011BF1B5DF007DC2A3 /* IBedUserList.swift in Sources */,
 				3A4D17FD1BAFE20A00E0B862 /* AlarmList.swift in Sources */,
 				3A4D17F71BAFDEFF00E0B862 /* TurnOverAnalysReport.swift in Sources */,
 				2C5181FB1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift in Sources */,
@@ -1110,6 +1131,7 @@
 				3A3262E11BB912180002687B /* OSSTry.swift in Sources */,
 				3AB3CB201BD762FE0067F9D4 /* SleepCareTableView.swift in Sources */,
 				3A41ADE81BA7B425000C109B /* LoginController.swift in Sources */,
+				2C5182071BF1B941007DC2A3 /* ISleepQualityReport.swift in Sources */,
 				2C555B471BE31763008A3AC9 /* QueryAlarmViewModel.swift in Sources */,
 				2C37F1391BD093280034D9F1 /* SleepQualityPandectViewModel.swift in Sources */,
 				3A3C37801BD4987800080D03 /* SleepcareDetailViewModel.swift in Sources */,
@@ -1118,6 +1140,8 @@
 				3A35AB671BCCECF000ED3293 /* Session.swift in Sources */,
 				3A4D17F11BAFB07400E0B862 /* BedUser.swift in Sources */,
 				3A91F0AF1BF0475400C470D4 /* THDatePickerViewController.m in Sources */,
+				2C51820B1BF1BAF3007DC2A3 /* IMainInfoList.swift in Sources */,
+				2C5182051BF1B8D6007DC2A3 /* IRRRange.swift in Sources */,
 				3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */,
 				3A8680681BD75EE000F22016 /* ChoosePartController.swift in Sources */,
 				3A325A341BD08B7B00DE4E78 /* BaseViewModel.swift in Sources */,
