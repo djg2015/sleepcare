@@ -38,6 +38,7 @@ static int FIRST_WEEKDAY = 2;
 @property (weak, nonatomic) IBOutlet UIButton *okBtn;
 @property (strong, nonatomic) IBOutlet UIView *calendarDaysView;
 @property (weak, nonatomic) IBOutlet UIView *weekdaysView;
+@property (strong, nonatomic) IBOutlet UIView *mainView;
 
 - (IBAction)nextMonthPressed:(id)sender;
 - (IBAction)prevMonthPressed:(id)sender;
@@ -90,6 +91,16 @@ static int FIRST_WEEKDAY = 2;
     self.okBtn.enabled = [self shouldOkBeEnabled];
     [self.okBtn setImage:[UIImage imageNamed:(_autoCloseOnSelectDate ? @"dialog_clear.png" : @"dialog_ok.png")] forState:UIControlStateNormal];
     [self redraw];
+    
+    UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(event:)];
+    [self.mainView addGestureRecognizer:tapGesture];
+    
+    
+}
+
+- (void)event:(UITapGestureRecognizer *)gesture
+{
+    [self.delegate datePickerCancelPressed:self];
 }
 
 - (void)addSwipeGestures{

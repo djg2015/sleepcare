@@ -29,16 +29,16 @@
 }
 
 -(void)setLightText:(BOOL)light {
-    if(light) {
-        UIColor * color = [UIColor colorWithWhite:.84 alpha:1];
-        [self.dateButton setTitleColor:color forState:UIControlStateNormal];
-        self.hasItemsIndicator.image = [UIImage imageNamed:@"calendar_littledot-disabled"];
-    }
-    else {
-        UIColor * color = [UIColor colorWithWhite:.3 alpha:1];
-        [self.dateButton setTitleColor:color forState:UIControlStateNormal];
-        self.hasItemsIndicator.image = [UIImage imageNamed:@"calendar_littledot"];
-    }
+//    if(light) {
+//        UIColor * color = [UIColor colorWithWhite:.84 alpha:1];
+//        [self.dateButton setTitleColor:color forState:UIControlStateNormal];
+//        self.hasItemsIndicator.image = [UIImage imageNamed:@"calendar_littledot-disabled"];
+//    }
+//    else {
+//        UIColor * color = [UIColor colorWithWhite:.3 alpha:1];
+//        [self.dateButton setTitleColor:color forState:UIControlStateNormal];
+//        self.hasItemsIndicator.image = [UIImage imageNamed:@"calendar_littledot"];
+//    }
 }
 
 - (IBAction)dateButtonTapped:(id)sender {
@@ -62,7 +62,7 @@
 }
 
 -(void)indicateDayHasItems:(BOOL)indicate {
-    self.hasItemsIndicator.hidden = !indicate;
+    self.hasItemsIndicator.hidden = true;
 }
 
 - (BOOL)isToday
