@@ -14,7 +14,7 @@ class ILoginController: IBaseViewController,THDateChoosedDelegate {
     @IBOutlet weak var btnTest: UIButton!
     @IBAction func TouchButton(sender: AnyObject) {
         self.datapicker?.ShowDate()
-        
+         self.presentViewController(IMainFrameViewController(nibName:"IMainFrame", bundle:nil), animated: true, completion: nil)
     }
     
     func ChoosedDate(choosedDate:String?){
