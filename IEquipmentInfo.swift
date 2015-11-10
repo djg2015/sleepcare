@@ -18,6 +18,12 @@ class IEquipmentInfo: BaseMessage {
         
         let result = IEquipmentInfo(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
         
+        //构造XML文档
+        var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
+        var equipment = doc.rootElement() as DDXMLElement!
+        result.EquipmentID = equipment.elementForName("EquipmentID").stringValue()
+        result.Status = equipment.elementForName("Status").stringValue()  
+        
         return result
     }
 

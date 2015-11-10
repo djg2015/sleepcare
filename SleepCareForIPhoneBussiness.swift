@@ -15,7 +15,7 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
     //      loginPassword->登录密码
     func Login(loginName:String,loginPassword:String) -> ILoginUser{
 
-        var subject = MessageSubject(opera: "Login")
+        var subject = MessageSubject(opera: "Login", bizcode: "sleepcareforiphone")
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("loginName", value: loginName)
         post.AddKeyValue("loginPassword", value: loginPassword)
@@ -34,7 +34,7 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
     //      mainCode->医院/养老院编号
     func Regist(loginName:String,loginPassword:String,mainCode:String)-> ServerResult{
         
-        var subject = MessageSubject(opera: "Regist")
+        var subject = MessageSubject(opera: "Regist", bizcode: "sleepcareforiphone")
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("loginName", value: loginName)
         post.AddKeyValue("loginPassword", value: loginPassword)
@@ -53,7 +53,7 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
     //      userType->用户类型
     func SaveUserType(loginName:String,userType:String)-> ServerResult{
         
-        var subject = MessageSubject(opera: "SaveUserType")
+        var subject = MessageSubject(opera: "SaveUserType", bizcode: "sleepcareforiphone")
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("loginName", value: loginName)
         post.AddKeyValue("userType", value: userType)
@@ -70,7 +70,7 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
     // 参数：mainCode->医院/养老院编号
     func GetPartInfoByMainCode(mainCode:String)->IMainInfo{
         
-        var subject = MessageSubject(opera: "GetPartInfoByMainCode")
+        var subject = MessageSubject(opera: "GetPartInfoByMainCode", bizcode: "sleepcareforiphone")
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("mainCode", value: mainCode)
         var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
@@ -88,7 +88,7 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
     //      mainCode->医院/养老院编号
     func FollowBedUser(loginName:String,bedUserCode:String,mainCode:String)-> ServerResult{
         
-        var subject = MessageSubject(opera: "FollowBedUser")
+        var subject = MessageSubject(opera: "FollowBedUser", bizcode: "sleepcareforiphone")
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("loginName", value: loginName)
         post.AddKeyValue("bedUserCode", value: bedUserCode)
@@ -107,7 +107,7 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
     //      bedUserCode->床位用户编码
     func RemoveFollowBedUser(loginName:String,bedUserCode:String)-> ServerResult{
         
-        var subject = MessageSubject(opera: "FollowBedUser")
+        var subject = MessageSubject(opera: "RemoveFollowBedUser", bizcode: "sleepcareforiphone")
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("loginName", value: loginName)
         post.AddKeyValue("bedUserCode", value: bedUserCode)
@@ -118,5 +118,145 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
             throw((message as! EMServiceException).code, (message as! EMServiceException).message)
         }
         return message as! ServerResult
+    }
+    
+    // 根据当前登录用户获取所关注的床位用户
+    // 参数：loginName->登录账户
+    //      mainCode->医院/养老院编号
+    func GetBedUsersByLoginName(loginName:String,mainCode:String)->IBedUserList{
+        
+        var subject = MessageSubject(opera: "GetBedUsersByLoginName", bizcode: "sleepcareforiphone")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("loginName", value: loginName)
+        post.AddKeyValue("mainCode", value: mainCode)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! IBedUserList
+    }
+    
+    // 根据床位用户编码获取心率曲线图(往前推12个小时)
+    // 参数：bedUserCode->床位用户编号
+    func GetHRTimeReport(bedUserCode:String)->IHRRange{
+        
+        var subject = MessageSubject(opera: "GetHRTimeReport", bizcode: "sleepcareforiphone")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("bedUserCode", value: bedUserCode)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! IHRRange
+    }
+    
+    // 根据床位用户编码获取呼吸曲线图(往前推12个小时)
+    // 参数：bedUserCode->床位用户编号
+    func GetRRTimeReport(bedUserCode:String)->IRRRange{
+        
+        var subject = MessageSubject(opera: "GetRRTimeReport", bizcode: "sleepcareforiphone")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("bedUserCode", value: bedUserCode)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! IRRRange
+    }
+    
+    // 根据床位用户编码分析日期查询用户的睡眠质量
+    // 参数：bedUserCode->床位用户编号
+    //      reportDate->报告日期
+    func GetSleepQualityByUser(bedUserCode:String,reportDate:String)->ISleepQualityReport{
+        
+        var subject = MessageSubject(opera: "GetSleepQualityByUser", bizcode: "sleepcareforiphone")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("bedUserCode", value: bedUserCode)
+        post.AddKeyValue("reportDate", value: reportDate)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! ISleepQualityReport
+    }
+    
+    // 根据床位用户编码和邮箱信息发送邮件(指定日期所在周的报表)
+    // 参数：bedUserCode->床位用户编号
+    //      sleepDate->分析日期
+    //      email->要发送的邮箱地址
+    func SendEmail(bedUserCode:String,sleepDate:String,email:String)->ServerResult{
+        
+        var subject = MessageSubject(opera: "SendEmail", bizcode: "sleepcareforiphone")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("bedUserCode", value: bedUserCode)
+        post.AddKeyValue("sleepDate", value: sleepDate)
+        post.AddKeyValue("email", value: email)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! ServerResult
+    }
+    
+    // 修改登录用户密码和所属医院/养老院
+    // 参数：loginName->登录账户
+    //      oldPassword->旧的登录密码
+    //      newPassword->新的登录密码
+    //      mainCode->医院/养老院编码
+    func ModifyLoginUser(loginName:String,oldPassword:String,newPassword:String,mainCode:String)->ServerResult{
+        
+        var subject = MessageSubject(opera: "ModifyLoginUser", bizcode: "sleepcareforiphone")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("loginName", value: loginName)
+        post.AddKeyValue("oldPassword", value: oldPassword)
+        post.AddKeyValue("newPassword", value: newPassword)
+        post.AddKeyValue("mainCode", value: mainCode)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! ServerResult
+    }
+    
+    // 根据设备ID查询设备的状态
+    // 参数：equipmentID->设备ID
+    func GetEquipmentInfo(equipmentID:String)->IEquipmentInfo{
+        
+        var subject = MessageSubject(opera: "GetEquipmentInfo", bizcode: "sleepcareforiphone")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("equipmentID", value: equipmentID)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! IEquipmentInfo
+    }
+    
+    // 获取所有的医院/养老院
+    func GetAllMainInfo()->IMainInfoList{
+        
+        var subject = MessageSubject(opera: "GetAllMainInfo", bizcode: "sleepcareforiphone")
+        var post = EMProperties(messageSubject: subject)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! IMainInfoList
     }
 }

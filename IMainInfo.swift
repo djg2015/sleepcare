@@ -21,8 +21,8 @@ class IMainInfo: BaseMessage {
         for partInfo in partInfoList {
             var part = IPartInfo(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
             part.PartCode = partInfo.elementForName("PartCode").stringValue()
-            part.PartName = partInfo.elementForName("PartName").stringValue()
-            var bedInfoList = partInfo.elementsForName("BedInfo") as! [DDXMLElement]
+            part.PartName = partInfo.elementForName("PartName") == nil ? "" : partInfo.elementForName("PartName").stringValue()
+            var bedInfoList = partInfo.elementForName("BedInfoList").elementsForName("BedInfo") as! [DDXMLElement]
             for bedInfo in bedInfoList{
                 var bed:IBedInfo = IBedInfo()
                 bed.RoomCode = bedInfo.elementForName("RoomCode").stringValue()
