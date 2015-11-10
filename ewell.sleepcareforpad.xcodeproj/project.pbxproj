@@ -23,6 +23,9 @@
 		2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3BAF141BCBA481003A2F48 /* AlarmView.xib */; };
 		2C3BAF171BCBA4C3003A2F48 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BAF161BCBA4C3003A2F48 /* AlarmView.swift */; };
 		2C4911BD1BD0A15400A167A9 /* SleepQualityPandectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4911BC1BD0A15400A167A9 /* SleepQualityPandectView.swift */; };
+		2C5181F91BF18E7E007DC2A3 /* ILoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181F81BF18E7E007DC2A3 /* ILoginUser.swift */; };
+		2C5181FB1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181FA1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift */; };
+		2C5181FD1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181FC1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift */; };
 		2C555B471BE31763008A3AC9 /* QueryAlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C555B461BE31763008A3AC9 /* QueryAlarmViewModel.swift */; };
 		2C555B491BE341A0008A3AC9 /* QueryAlarmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C555B481BE341A0008A3AC9 /* QueryAlarmView.xib */; };
 		2C555B4B1BE341B8008A3AC9 /* QueryAlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C555B4A1BE341B8008A3AC9 /* QueryAlarmController.swift */; };
@@ -206,6 +209,9 @@
 		2C3BAF141BCBA481003A2F48 /* AlarmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmView.xib; sourceTree = "<group>"; };
 		2C3BAF161BCBA4C3003A2F48 /* AlarmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		2C4911BC1BD0A15400A167A9 /* SleepQualityPandectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepQualityPandectView.swift; sourceTree = "<group>"; };
+		2C5181F81BF18E7E007DC2A3 /* ILoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginUser.swift; sourceTree = "<group>"; };
+		2C5181FA1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareForIPhoneBussinessManager.swift; sourceTree = "<group>"; };
+		2C5181FC1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareForIPhoneBussiness.swift; sourceTree = "<group>"; };
 		2C555B461BE31763008A3AC9 /* QueryAlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryAlarmViewModel.swift; sourceTree = "<group>"; };
 		2C555B481BE341A0008A3AC9 /* QueryAlarmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QueryAlarmView.xib; sourceTree = "<group>"; };
 		2C555B4A1BE341B8008A3AC9 /* QueryAlarmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryAlarmController.swift; sourceTree = "<group>"; };
@@ -442,6 +448,7 @@
 		3A28CA9C1BEC49BD007D9A3A /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				2C5181F81BF18E7E007DC2A3 /* ILoginUser.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -632,6 +639,7 @@
 			isa = PBXGroup;
 			children = (
 				3A4B85C51BB14D34006E4CF1 /* SleepCareBussinessManager.swift */,
+				2C5181FA1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift */,
 			);
 			name = IBLL;
 			sourceTree = "<group>";
@@ -660,6 +668,7 @@
 			isa = PBXGroup;
 			children = (
 				3A4B85C91BB14F28006E4CF1 /* SleepCareBussiness.swift */,
+				2C5181FC1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift */,
 			);
 			name = BLL;
 			sourceTree = "<group>";
@@ -1077,8 +1086,10 @@
 				3A376E441BABB81100D70953 /* EMProperties.swift in Sources */,
 				3A4D17FD1BAFE20A00E0B862 /* AlarmList.swift in Sources */,
 				3A4D17F71BAFDEFF00E0B862 /* TurnOverAnalysReport.swift in Sources */,
+				2C5181FB1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift in Sources */,
 				3A4D17F31BAFB83500E0B862 /* SleepCareReport.swift in Sources */,
 				3A4CD3F81BA804D2002C8A1A /* XmppMsgManager.swift in Sources */,
+				2C5181F91BF18E7E007DC2A3 /* ILoginUser.swift in Sources */,
 				3AB3CB251BD7633B0067F9D4 /* DatePickerView.swift in Sources */,
 				3A4CD3FF1BA808C1002C8A1A /* XmppMsgHelper.swift in Sources */,
 				3AB3CB1A1BD762FE0067F9D4 /* PopDownList.swift in Sources */,
@@ -1110,6 +1121,7 @@
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
 				3AB3CB211BD762FE0067F9D4 /* SleepCareTableViewCell.swift in Sources */,
 				3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */,
+				2C5181FD1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift in Sources */,
 				2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */,
 				3A91F0AD1BF0475400C470D4 /* THDateDay.m in Sources */,
 				3AB43E8A1BD4E1B9005023D3 /* BizDayRule.swift in Sources */,
