@@ -23,6 +23,7 @@ class ISleepQualityReport: BaseMessage {
         for report in reportList {
             var dateReport = ISleepDateReport(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
             dateReport.ReportDate = report.elementForName("ReportDate").stringValue()
+            dateReport.WeekDay = report.elementForName("WeekDay").stringValue()
             dateReport.DeepSleepTimespan = report.elementForName("DeepSleepTimespan").stringValue()
             dateReport.LightSleepTimespan = report.elementForName("LightSleepTimespan").stringValue()
             
@@ -35,6 +36,7 @@ class ISleepQualityReport: BaseMessage {
 class ISleepDateReport:BaseMessage {
     
     var ReportDate:String = ""
+    var WeekDay:String = ""
     var DeepSleepTimespan:String = ""
     var LightSleepTimespan:String = ""
 }

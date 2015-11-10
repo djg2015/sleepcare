@@ -20,6 +20,15 @@ let tag_alarmList:String="<EPAlarmInfoList"
 let tag_bedReportList:String="<EPBedReportList"
 let tag_EMServiceException:String="<EMServiceException"
 let tag_Result:String="<Result"
+let tag_IP_loginUser:String="<LoginUser"
+let tag_IP_serverResult:String="<ServerResult"
+let tag_IP_mainInfo:String="<MainInfo"
+let tag_IP_bedUserList:String="<EPBedUserList"
+let tag_IP_hrRange:String="<EPHRRange"
+let tag_IP_rrRange:String="<EPRRRange"
+let tag_IP_sleepQuality:String="<SleepQualityReport"
+let tag_IP_equipmentInfo:String="<EquipmentInfo"
+let tag_IP_mainInfoList:String="<EPMainInfoList"
 
 class MessageFactory {
     //xmpp字符串节点
@@ -62,6 +71,42 @@ class MessageFactory {
         else if(message.content.hasPrefix(tag_Result))
         {
             return ServerResult.XmlToMessage(message.subject, bodyXMl: message.content)
+        }
+        else if(message.content.hasPrefix(tag_IP_loginUser))
+        {
+            return ILoginUser.XmlToMessage(message.subject, bodyXMl: message.content)
+        }
+        else if(message.content.hasPrefix(tag_IP_serverResult))
+        {
+            return ServerResult.XmlToMessage(message.subject, bodyXMl: message.content)
+        }
+        else if(message.content.hasPrefix(tag_IP_mainInfo))
+        {
+            return IMainInfo.XmlToMessage(message.subject, bodyXMl: message.content)
+        }
+        else if(message.content.hasPrefix(tag_IP_bedUserList))
+        {
+            return IBedUserList.XmlToMessage(message.subject, bodyXMl: message.content)
+        }
+        else if(message.content.hasPrefix(tag_IP_hrRange))
+        {
+            return IHRRange.XmlToMessage(message.subject, bodyXMl: message.content)
+        }
+        else if(message.content.hasPrefix(tag_IP_rrRange))
+        {
+            return IRRRange.XmlToMessage(message.subject, bodyXMl: message.content)
+        }
+        else if(message.content.hasPrefix(tag_IP_sleepQuality))
+        {
+            return ISleepQualityReport.XmlToMessage(message.subject, bodyXMl: message.content)
+        }
+        else if(message.content.hasPrefix(tag_IP_equipmentInfo))
+        {
+            return IEquipmentInfo.XmlToMessage(message.subject, bodyXMl: message.content)
+        }
+        else if(message.content.hasPrefix(tag_IP_mainInfoList))
+        {
+            return IMainInfoList.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         else
         {

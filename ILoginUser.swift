@@ -19,6 +19,16 @@ class ILoginUser: BaseMessage {
     //解析响应的message
     override class func XmlToMessage(subjectXml:String,bodyXMl:String) -> BaseMessage{
         let result = ILoginUser(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
+        
+        //构造XML文档
+        var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
+        var loginUser = doc.rootElement() as DDXMLElement!
+        result.LoginName = loginUser.elementForName("LoginName").stringValue()
+        result.LoginPassword = loginUser.elementForName("LoginPassword").stringValue()
+        result.UserType = loginUser.elementForName("UserType").stringValue()
+        result.Status = loginUser.elementForName("Status") == nil ? "" : loginUser.elementForName("Status").stringValue()
+        result.HeadFace = loginUser.elementForName("HeadFace") == nil ? "" : loginUser.elementForName("HeadFace").stringValue()
+
         return result
     }
 

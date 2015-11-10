@@ -14,6 +14,11 @@ class ServerResult: BaseMessage {
     override class func XmlToMessage(subjectXml:String,bodyXMl:String) -> BaseMessage{
         let result = ServerResult(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
         
+        //构造XML文档
+        var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
+        var serverResult = doc.rootElement() as DDXMLElement!
+        result.Result = serverResult.elementForName("IsSuccessful").stringValue() == "true" ? true : false
+        
         return result
     }
 }
