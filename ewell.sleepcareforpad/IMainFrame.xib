@@ -39,14 +39,11 @@
                                 </button>
                             </subviews>
                             <animations/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.85490196078431369" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="centerY" secondItem="FIf-KA-XRx" secondAttribute="centerY" id="Jzc-kE-dZS"/>
                                 <constraint firstAttribute="centerX" secondItem="FIf-KA-XRx" secondAttribute="centerX" id="bDF-kG-Ehk"/>
                             </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="toolBar_shade.png"/>
-                            </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZh-lY-C7C" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                             <rect key="frame" x="80" y="0.0" width="80" height="46"/>
@@ -64,14 +61,11 @@
                                 </button>
                             </subviews>
                             <animations/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="centerX" secondItem="ba3-0k-MEB" secondAttribute="centerX" id="AGo-9I-uJM"/>
                                 <constraint firstAttribute="centerY" secondItem="ba3-0k-MEB" secondAttribute="centerY" id="yIZ-Ii-JDH"/>
                             </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="toolBar_shade.png"/>
-                            </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGA-eU-kS8" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                             <rect key="frame" x="160" y="0.0" width="80" height="46"/>
@@ -160,7 +154,6 @@
         <image name="tabBar_1.png" width="62" height="62"/>
         <image name="tabBar_2.png" width="62" height="62"/>
         <image name="tabBar_3.png" width="62" height="62"/>
-        <image name="toolBar_shade.png" width="160" height="98"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
