@@ -20,6 +20,7 @@ class ILoginController: IBaseViewController,THDateChoosedDelegate {
             showDialogMsg("远程通讯服务器连接不上！")
         }
         var scBLL:SleepCareForIPhoneBussiness = SleepCareForIPhoneBussiness()
+         self.presentViewController(IMainFrameViewController(nibName:"IMainFrame", bundle:nil), animated: true, completion: nil)
 //        var loginUser:ILoginUser = scBLL.Login("李四", loginPassword: "111111")
 //        var v = scBLL.Regist("李四", loginPassword: "123456", mainCode: "0001")
 //        var v1 = scBLL.SaveUserType("李四", userType: "2")

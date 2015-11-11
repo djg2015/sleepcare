@@ -8,8 +8,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IMainFrameViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <connections>
+                <outlet property="btnHR" destination="FIf-KA-XRx" id="kuh-nu-WlF"/>
+                <outlet property="btnMe" destination="hGK-79-fv5" id="eOA-Wv-YK4"/>
+                <outlet property="btnRR" destination="ba3-0k-MEB" id="nfp-qZ-mYW"/>
+                <outlet property="btnSleep" destination="3kN-Bp-8NA" id="VI1-KA-1rp"/>
+                <outlet property="svMain" destination="bxr-Yh-Ke0" id="WjB-hz-XBk"/>
                 <outlet property="uiHR" destination="k2g-pn-WN1" id="ZzN-FJ-rSM"/>
                 <outlet property="uiMe" destination="zbp-yZ-Chc" id="m7j-Jz-jit"/>
+                <outlet property="uiMenu" destination="X0g-J8-7mf" id="Faw-cj-IZE"/>
                 <outlet property="uiRR" destination="QZh-lY-C7C" id="qWV-24-XUi"/>
                 <outlet property="uiSleepCare" destination="hGA-eU-kS8" id="x2U-sH-dlG"/>
                 <outlet property="view" destination="iN0-l3-epB" id="tlZ-xp-83W"/>
@@ -25,7 +31,7 @@
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </scrollView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X0g-J8-7mf">
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="X0g-J8-7mf" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="522" width="320" height="46"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2g-pn-WN1" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
@@ -38,7 +44,7 @@
                                         <constraint firstAttribute="width" constant="42" id="ihT-B6-Bch"/>
                                         <constraint firstAttribute="height" constant="38" id="tzs-ea-afO"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="tabBar_0.png">
+                                    <state key="normal" backgroundImage="hrmenu.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
@@ -60,7 +66,7 @@
                                         <constraint firstAttribute="width" constant="42" id="iUh-KE-LwL"/>
                                         <constraint firstAttribute="height" constant="38" id="uDW-rv-gyW"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="tabBar_1.png">
+                                    <state key="normal" backgroundImage="rrmenu.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
@@ -82,7 +88,7 @@
                                         <constraint firstAttribute="height" constant="38" id="eiH-38-jvN"/>
                                         <constraint firstAttribute="width" constant="42" id="iNu-dL-d3L"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="tabBar_2.png">
+                                    <state key="normal" backgroundImage="sleepmenu.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
@@ -104,7 +110,7 @@
                                         <constraint firstAttribute="width" constant="42" id="X23-C4-Dew"/>
                                         <constraint firstAttribute="height" constant="38" id="gi8-JJ-CQJ"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="tabBar_3.png">
+                                    <state key="normal" backgroundImage="memenu.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
@@ -155,10 +161,10 @@
         </view>
     </objects>
     <resources>
-        <image name="tabBar_0.png" width="62" height="62"/>
-        <image name="tabBar_1.png" width="62" height="62"/>
-        <image name="tabBar_2.png" width="62" height="62"/>
-        <image name="tabBar_3.png" width="62" height="62"/>
+        <image name="hrmenu.png" width="55" height="76"/>
+        <image name="memenu.png" width="55" height="76"/>
+        <image name="rrmenu.png" width="55" height="76"/>
+        <image name="sleepmenu.png" width="55" height="76"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

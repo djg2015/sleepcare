@@ -13,35 +13,73 @@ class IMainFrameViewController: IBaseViewController {
     @IBOutlet weak var uiRR: BackgroundCommon!
     @IBOutlet weak var uiSleepCare: BackgroundCommon!
     @IBOutlet weak var uiMe: BackgroundCommon!
+    @IBOutlet weak var svMain: UIScrollView!
+    @IBOutlet weak var uiMenu: UIView!
+    @IBOutlet weak var btnHR: UIButton!
+    @IBOutlet weak var btnRR: UIButton!
+    @IBOutlet weak var btnSleep: UIButton!
+    @IBOutlet weak var btnMe: UIButton!
+    
+    
+    var _curMenu:BackgroundCommon?
+    var curMenu:BackgroundCommon?{
+        get{
+            return self._curMenu
+        }
+        set(value){
+            if(self._curMenu != nil){
+                self._curMenu?.backgroundColor = UIColor.clearColor()
+            }
+            self._curMenu = value
+            self._curMenu?.backgroundColor = UIColor(red: 0.85490196078431369, green: 0.85490196078431369, blue: 0.85490196078431369, alpha: 1)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //添加主菜单点击事件
-        self.uiHR.userInteractionEnabled = true
-        var choosePart:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "menuTouch")
-        self.uiHR .addGestureRecognizer(choosePart)
+       //设置按钮事件
+        self.btnHR!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
+            .subscribeNext {
+                _ in
+                self.curMenu = self.uiHR
+                 let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
+                self.showBody(iHRMonitorView)
+        }
+        self.btnRR!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
+            .subscribeNext {
+                _ in
+                self.curMenu = self.uiRR
+                let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
+                self.showBody(iHRMonitorView)
+        }
+        self.btnSleep!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
+            .subscribeNext {
+                _ in
+                self.curMenu = self.uiSleepCare
+                let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
+                self.showBody(iHRMonitorView)
+        }
+        self.btnMe!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
+            .subscribeNext {
+                _ in
+                self.curMenu = self.uiMe
+                let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
+                self.showBody(iHRMonitorView)
+        }
         
-        self.uiRR.userInteractionEnabled = true
-        var choosePart1:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "menuTouch1")
-        self.uiRR .addGestureRecognizer(choosePart1)
-        
-        self.uiSleepCare.userInteractionEnabled = true
-        var choosePart2:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "menuTouch2")
-        self.uiSleepCare .addGestureRecognizer(choosePart2)
-        
-        self.uiMe.userInteractionEnabled = true
-        var choosePart3:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "menuTouch3")
-        self.uiMe .addGestureRecognizer(choosePart3)
-    }
-    
-    //菜单点击
-    func menuTouch(){
-    
+        //设置主体界面
+        self.curMenu = self.uiHR
+        let firstVew = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
+        showBody(firstVew)
     }
     
     //显示菜单界面
-    func showBody(view:UIView){
-    
+    func showBody(jumpview:UIView){
+//        for(var i = 0 ; i < self.svMain.subviews.count; i++) {
+//            self.svMain.subviews[i].removeFromSuperview()
+//        }
+        jumpview.frame = CGRectMake(0, 0, self.svMain.frame.width, self.svMain.frame.height)
+        self.svMain.addSubview(jumpview)
     }
     
     override func didReceiveMemoryWarning() {

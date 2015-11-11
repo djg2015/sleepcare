@@ -2,7 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7706"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="522"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="32p-Bd-mdk" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="32p-Bd-mdk" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="316"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -19,7 +20,7 @@
                         <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="blueback.png"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L3k-D5-Y14" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="L3k-D5-Y14" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="316" width="320" height="206"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -29,7 +30,17 @@
                 </view>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="L3k-D5-Y14" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0VZ-B9-IYt"/>
+                <constraint firstItem="32p-Bd-mdk" firstAttribute="height" secondItem="L3k-D5-Y14" secondAttribute="height" multiplier="316:206" id="7At-dt-OdO"/>
+                <constraint firstItem="32p-Bd-mdk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="N0J-7Z-R5x"/>
+                <constraint firstAttribute="trailing" secondItem="L3k-D5-Y14" secondAttribute="trailing" id="SUD-RE-4U3"/>
+                <constraint firstItem="32p-Bd-mdk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="UvT-2U-Xun"/>
+                <constraint firstAttribute="bottom" secondItem="L3k-D5-Y14" secondAttribute="bottom" id="g6m-VF-YCo"/>
+                <constraint firstItem="L3k-D5-Y14" firstAttribute="top" secondItem="32p-Bd-mdk" secondAttribute="bottom" id="nQg-AE-hGr"/>
+                <constraint firstAttribute="trailing" secondItem="32p-Bd-mdk" secondAttribute="trailing" id="oL7-EW-a6h"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="280" y="312"/>
         </view>
