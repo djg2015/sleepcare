@@ -39,6 +39,11 @@
 		2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AEC471BB397130096DF3F /* RoleList.swift */; };
 		2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1151BD48713006FC007 /* searchBtn.png */; };
 		2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1161BD48713006FC007 /* searchBtnChecked.png */; };
+		3A13C9841BF2DBDA00061CCF /* IHRMonitor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */; };
+		3A13C9881BF2DD2800061CCF /* IHRMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */; };
+		3A13C98C1BF2E44A00061CCF /* blueback.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13C9891BF2E44A00061CCF /* blueback.png */; };
+		3A13C98D1BF2E44A00061CCF /* grayback.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13C98A1BF2E44A00061CCF /* grayback.png */; };
+		3A13C98E1BF2E44A00061CCF /* garyboxback.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A13C98B1BF2E44A00061CCF /* garyboxback.png */; };
 		3A2158721BEC8C090089CC01 /* ILogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2158711BEC8C090089CC01 /* ILogin.xib */; };
 		3A2158751BEC8C460089CC01 /* ILoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2158741BEC8C460089CC01 /* ILoginController.swift */; };
 		3A2158771BEC8D580089CC01 /* IBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2158761BEC8D580089CC01 /* IBaseViewController.swift */; };
@@ -239,6 +244,11 @@
 		2C5AEC471BB397130096DF3F /* RoleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleList.swift; sourceTree = "<group>"; };
 		2C6AE1151BD48713006FC007 /* searchBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtn.png; sourceTree = "<group>"; };
 		2C6AE1161BD48713006FC007 /* searchBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtnChecked.png; sourceTree = "<group>"; };
+		3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IHRMonitor.xib; sourceTree = "<group>"; };
+		3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IHRMonitor.swift; sourceTree = "<group>"; };
+		3A13C9891BF2E44A00061CCF /* blueback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueback.png; sourceTree = "<group>"; };
+		3A13C98A1BF2E44A00061CCF /* grayback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayback.png; sourceTree = "<group>"; };
+		3A13C98B1BF2E44A00061CCF /* garyboxback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = garyboxback.png; sourceTree = "<group>"; };
 		3A2158711BEC8C090089CC01 /* ILogin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ILogin.xib; sourceTree = "<group>"; };
 		3A2158741BEC8C460089CC01 /* ILoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginController.swift; sourceTree = "<group>"; };
 		3A2158761BEC8D580089CC01 /* IBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBaseViewController.swift; sourceTree = "<group>"; };
@@ -440,6 +450,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3A13C9851BF2DBF400061CCF /* ipad */ = {
+			isa = PBXGroup;
+			children = (
+				2C3BAF161BCBA4C3003A2F48 /* AlarmView.swift */,
+				3A3756231BCB5E7600182DE4 /* SleepCareDetail.swift */,
+				2C4911BC1BD0A15400A167A9 /* SleepQualityPandectView.swift */,
+			);
+			name = ipad;
+			sourceTree = "<group>";
+		};
+		3A13C9861BF2DC0800061CCF /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+				3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */,
+			);
+			name = iphone;
+			sourceTree = "<group>";
+		};
 		3A2158731BEC8C140089CC01 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +550,7 @@
 			children = (
 				3A2158711BEC8C090089CC01 /* ILogin.xib */,
 				3A8563691BF1C28600E74B27 /* IMainFrame.xib */,
+				3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -560,9 +589,8 @@
 		3A3646021BCB843E007C65EF /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				2C3BAF161BCBA4C3003A2F48 /* AlarmView.swift */,
-				3A3756231BCB5E7600182DE4 /* SleepCareDetail.swift */,
-				2C4911BC1BD0A15400A167A9 /* SleepQualityPandectView.swift */,
+				3A13C9861BF2DC0800061CCF /* iphone */,
+				3A13C9851BF2DBF400061CCF /* ipad */,
 			);
 			name = CustomView;
 			sourceTree = "<group>";
@@ -747,6 +775,9 @@
 		3A8563EA1BF1D78E00E74B27 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				3A13C9891BF2E44A00061CCF /* blueback.png */,
+				3A13C98A1BF2E44A00061CCF /* grayback.png */,
+				3A13C98B1BF2E44A00061CCF /* garyboxback.png */,
 				3A8563F41BF1D83400E74B27 /* toolBar_shade.png */,
 				3A8563EB1BF1D7AE00E74B27 /* tabBar_0.png */,
 				3A8563EC1BF1D7AE00E74B27 /* tabBar_1.png */,
@@ -1016,6 +1047,7 @@
 				3AB43E731BD4DB45005023D3 /* previewBtnChecked.png in Resources */,
 				3A91F0A21BF0475400C470D4 /* calendar_ok-disabled@2x.png in Resources */,
 				2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */,
+				3A13C9841BF2DBDA00061CCF /* IHRMonitor.xib in Resources */,
 				3A9C12FE1BC789C6008EC314 /* pagerselected.png in Resources */,
 				3AFB93901BCF96F200042AF1 /* loginBtn.png in Resources */,
 				3AFB93931BCF96F200042AF1 /* textboxBorder.png in Resources */,
@@ -1030,6 +1062,7 @@
 				3A91F0A01BF0475400C470D4 /* calendar_littledot@2x.png in Resources */,
 				3A2BD8AB1BD8AE78007BBD01 /* 76pt@1x.png in Resources */,
 				3AB3CB181BD762FE0067F9D4 /* AlarmTableViewCell.xib in Resources */,
+				3A13C98C1BF2E44A00061CCF /* blueback.png in Resources */,
 				3A8604511BBA6327005FC117 /* topbg.png in Resources */,
 				3A91F0971BF0475400C470D4 /* arrow_left.png in Resources */,
 				3A9C12F21BC789C6008EC314 /* emptyBed.png in Resources */,
@@ -1057,7 +1090,9 @@
 				3A9C12F41BC789C6008EC314 /* leaveView.png in Resources */,
 				3A91F09D1BF0475400C470D4 /* calendar_littledot-disabled.png in Resources */,
 				3A91F0AA1BF0475400C470D4 /* dialog_ok-disabled@2x.png in Resources */,
+				3A13C98E1BF2E44A00061CCF /* garyboxback.png in Resources */,
 				3A9C12F11BC789C6008EC314 /* maintop.png in Resources */,
+				3A13C98D1BF2E44A00061CCF /* grayback.png in Resources */,
 				3A3C377B1BD48F0B00080D03 /* leaverecord.png in Resources */,
 				3A3C37821BD4D89A00080D03 /* comming.png in Resources */,
 				3AB43E751BD4DB53005023D3 /* nextBtnDisable.png in Resources */,
@@ -1220,6 +1255,7 @@
 				3AB3CB171BD762FE0067F9D4 /* AlarmTableViewCell.swift in Sources */,
 				3A2158771BEC8D580089CC01 /* IBaseViewController.swift in Sources */,
 				2C3BAF131BCBA387003A2F48 /* AlarmViewModel.swift in Sources */,
+				3A13C9881BF2DD2800061CCF /* IHRMonitor.swift in Sources */,
 				3AB3CB271BD763690067F9D4 /* BackgroundCommon.swift in Sources */,
 				3A3756241BCB5E7600182DE4 /* SleepCareDetail.swift in Sources */,
 				3A376E461BABBB1200D70953 /* User.swift in Sources */,

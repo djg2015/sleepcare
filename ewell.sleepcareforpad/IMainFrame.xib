@@ -19,6 +19,7 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxr-Yh-Ke0">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="522"/>
                     <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X0g-J8-7mf">
                     <rect key="frame" x="0.0" y="522" width="320" height="46"/>
@@ -61,7 +62,7 @@
                                 </button>
                             </subviews>
                             <animations/>
-                            <color key="backgroundColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="centerX" secondItem="ba3-0k-MEB" secondAttribute="centerX" id="AGo-9I-uJM"/>
                                 <constraint firstAttribute="centerY" secondItem="ba3-0k-MEB" secondAttribute="centerY" id="yIZ-Ii-JDH"/>
@@ -83,7 +84,7 @@
                                 </button>
                             </subviews>
                             <animations/>
-                            <color key="backgroundColor" red="1" green="0.19059880609999999" blue="0.11152205129999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="centerX" secondItem="3kN-Bp-8NA" secondAttribute="centerX" id="LBl-TD-kYU"/>
                                 <constraint firstAttribute="centerY" secondItem="3kN-Bp-8NA" secondAttribute="centerY" id="vqR-t1-Wl8"/>
@@ -105,7 +106,7 @@
                                 </button>
                             </subviews>
                             <animations/>
-                            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="centerX" secondItem="hGK-79-fv5" secondAttribute="centerX" id="ARU-w2-ZjP"/>
                                 <constraint firstAttribute="centerY" secondItem="hGK-79-fv5" secondAttribute="centerY" id="Kaf-Di-FBw"/>
