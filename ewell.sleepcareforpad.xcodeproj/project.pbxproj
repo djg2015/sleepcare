@@ -106,6 +106,14 @@
 		3A4D17FD1BAFE20A00E0B862 /* AlarmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17FC1BAFE20A00E0B862 /* AlarmList.swift */; };
 		3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */; };
 		3A6360291BB2900300F7F953 /* SleepcareMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6360281BB2900300F7F953 /* SleepcareMainController.swift */; };
+		3A85636A1BF1C28600E74B27 /* IMainFrame.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8563691BF1C28600E74B27 /* IMainFrame.xib */; };
+		3A85636C1BF1C2B500E74B27 /* IMainFrameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A85636B1BF1C2B500E74B27 /* IMainFrameViewController.swift */; };
+		3A8563C11BF1D3B600E74B27 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADC91BA7A65A000C109B /* LaunchScreen.xib */; };
+		3A8563EF1BF1D7AE00E74B27 /* tabBar_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8563EB1BF1D7AE00E74B27 /* tabBar_0.png */; };
+		3A8563F01BF1D7AE00E74B27 /* tabBar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8563EC1BF1D7AE00E74B27 /* tabBar_1.png */; };
+		3A8563F11BF1D7AE00E74B27 /* tabBar_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8563ED1BF1D7AE00E74B27 /* tabBar_2.png */; };
+		3A8563F21BF1D7AE00E74B27 /* tabBar_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8563EE1BF1D7AE00E74B27 /* tabBar_3.png */; };
+		3A8563F61BF1D83400E74B27 /* toolBar_shade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8563F41BF1D83400E74B27 /* toolBar_shade.png */; };
 		3A8604511BBA6327005FC117 /* topbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8604501BBA6327005FC117 /* topbg.png */; };
 		3A8680661BD75EA900F22016 /* ChoosePart.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8680651BD75EA800F22016 /* ChoosePart.xib */; };
 		3A8680681BD75EE000F22016 /* ChoosePartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8680671BD75EE000F22016 /* ChoosePartController.swift */; };
@@ -172,7 +180,6 @@
 		3AB3CB251BD7633B0067F9D4 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3CB241BD7633B0067F9D4 /* DatePickerView.swift */; };
 		3AB3CB271BD763690067F9D4 /* BackgroundCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3CB261BD763690067F9D4 /* BackgroundCommon.swift */; };
 		3AB3CB291BD763890067F9D4 /* Li_common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3CB281BD763890067F9D4 /* Li_common.swift */; };
-		3AB3CB2A1BD763F10067F9D4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADC91BA7A65A000C109B /* LaunchScreen.xib */; };
 		3AB43E731BD4DB45005023D3 /* previewBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB43E721BD4DB45005023D3 /* previewBtnChecked.png */; };
 		3AB43E751BD4DB53005023D3 /* nextBtnDisable.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB43E741BD4DB53005023D3 /* nextBtnDisable.png */; };
 		3AB43E781BD4E17B005023D3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E771BD4E17B005023D3 /* Date.swift */; };
@@ -314,6 +321,13 @@
 		3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMServiceException.swift; sourceTree = "<group>"; };
 		3A6360281BB2900300F7F953 /* SleepcareMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepcareMainController.swift; sourceTree = "<group>"; };
 		3A66E2861BD39AB900C9B6E6 /* 证书.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "证书.p12"; sourceTree = "<group>"; };
+		3A8563691BF1C28600E74B27 /* IMainFrame.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IMainFrame.xib; sourceTree = "<group>"; };
+		3A85636B1BF1C2B500E74B27 /* IMainFrameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMainFrameViewController.swift; sourceTree = "<group>"; };
+		3A8563EB1BF1D7AE00E74B27 /* tabBar_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBar_0.png; sourceTree = "<group>"; };
+		3A8563EC1BF1D7AE00E74B27 /* tabBar_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBar_1.png; sourceTree = "<group>"; };
+		3A8563ED1BF1D7AE00E74B27 /* tabBar_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBar_2.png; sourceTree = "<group>"; };
+		3A8563EE1BF1D7AE00E74B27 /* tabBar_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBar_3.png; sourceTree = "<group>"; };
+		3A8563F41BF1D83400E74B27 /* toolBar_shade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolBar_shade.png; sourceTree = "<group>"; };
 		3A8604501BBA6327005FC117 /* topbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbg.png; sourceTree = "<group>"; };
 		3A8680651BD75EA800F22016 /* ChoosePart.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoosePart.xib; sourceTree = "<group>"; };
 		3A8680671BD75EE000F22016 /* ChoosePartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePartController.swift; sourceTree = "<group>"; };
@@ -441,6 +455,7 @@
 		3A2158731BEC8C140089CC01 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				3A85636B1BF1C2B500E74B27 /* IMainFrameViewController.swift */,
 				3A2158741BEC8C460089CC01 /* ILoginController.swift */,
 				3A2158761BEC8D580089CC01 /* IBaseViewController.swift */,
 			);
@@ -518,6 +533,7 @@
 			isa = PBXGroup;
 			children = (
 				3A2158711BEC8C090089CC01 /* ILogin.xib */,
+				3A8563691BF1C28600E74B27 /* IMainFrame.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -739,6 +755,18 @@
 				2C555B481BE341A0008A3AC9 /* QueryAlarmView.xib */,
 			);
 			name = ipad;
+			sourceTree = "<group>";
+		};
+		3A8563EA1BF1D78E00E74B27 /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+				3A8563F41BF1D83400E74B27 /* toolBar_shade.png */,
+				3A8563EB1BF1D7AE00E74B27 /* tabBar_0.png */,
+				3A8563EC1BF1D7AE00E74B27 /* tabBar_1.png */,
+				3A8563ED1BF1D7AE00E74B27 /* tabBar_2.png */,
+				3A8563EE1BF1D7AE00E74B27 /* tabBar_3.png */,
+			);
+			name = iphone;
 			sourceTree = "<group>";
 		};
 		3A91F07A1BF0475400C470D4 /* Images */ = {
@@ -964,14 +992,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A8563C11BF1D3B600E74B27 /* LaunchScreen.xib in Resources */,
 				3A91F09F1BF0475400C470D4 /* calendar_littledot.png in Resources */,
-				3AB3CB2A1BD763F10067F9D4 /* LaunchScreen.xib in Resources */,
 				3ADA58441BD5FE550066D23A /* sleepofThisWeek.png in Resources */,
 				3ADA58431BD5FC7C0066D23A /* SleepcareDetail.xib in Resources */,
 				3AFB93941BCF96F200042AF1 /* pwdIcon.png in Resources */,
 				3A9C12FC1BC789C6008EC314 /* BedFrame.png in Resources */,
 				3A3C377E1BD48F0B00080D03 /* hrrr.png in Resources */,
 				3A91F0AE1BF0475400C470D4 /* THDateDay.xib in Resources */,
+				3A85636A1BF1C28600E74B27 /* IMainFrame.xib in Resources */,
 				3A41ADE31BA7B3D1000C109B /* LoginView.xib in Resources */,
 				2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */,
 				3A3C377C1BD48F0B00080D03 /* dateIcon.png in Resources */,
@@ -982,6 +1011,7 @@
 				3A91F0A31BF0475400C470D4 /* dialog_cancel.png in Resources */,
 				3AB3CB1D1BD762FE0067F9D4 /* SleepCareCollectionView.xib in Resources */,
 				3A3756201BCB589600182DE4 /* DialogFrame.xib in Resources */,
+				3A8563F61BF1D83400E74B27 /* toolBar_shade.png in Resources */,
 				3A91F0A51BF0475400C470D4 /* dialog_clear-disabled.png in Resources */,
 				3A91F0A81BF0475400C470D4 /* dialog_clear@2x.png in Resources */,
 				2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */,
@@ -1003,6 +1033,7 @@
 				3AFB93901BCF96F200042AF1 /* loginBtn.png in Resources */,
 				3AFB93931BCF96F200042AF1 /* textboxBorder.png in Resources */,
 				3AA3161B1BD0CFA500FC3C40 /* checkboxchoosed.png in Resources */,
+				3A8563F21BF1D7AE00E74B27 /* tabBar_3.png in Resources */,
 				3A91F0A61BF0475400C470D4 /* dialog_clear-disabled@2x.png in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
 				3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */,
@@ -1019,6 +1050,8 @@
 				3A3C377A1BD48F0B00080D03 /* trunrecord.png in Resources */,
 				2C2F83851BD5DE2F008CD92B /* back.png in Resources */,
 				3A91F0B01BF0475400C470D4 /* THDatePickerViewController.xib in Resources */,
+				3A8563F11BF1D7AE00E74B27 /* tabBar_2.png in Resources */,
+				3A8563F01BF1D7AE00E74B27 /* tabBar_1.png in Resources */,
 				2C555B491BE341A0008A3AC9 /* QueryAlarmView.xib in Resources */,
 				3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */,
 				3AB3CB061BD761600067F9D4 /* ServerSettingView.xib in Resources */,
@@ -1052,6 +1085,7 @@
 				2C2F83911BD63A19008CD92B /* previewBtnNormal.png in Resources */,
 				3A2158721BEC8C090089CC01 /* ILogin.xib in Resources */,
 				3A9C12F81BC789C6008EC314 /* dropdown.png in Resources */,
+				3A8563EF1BF1D7AE00E74B27 /* tabBar_0.png in Resources */,
 				3A9C12F31BC789C6008EC314 /* leaveBed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1188,6 +1222,7 @@
 				3AB3CB1B1BD762FE0067F9D4 /* Popover.swift in Sources */,
 				2C34482C1BF2D93A0068BD74 /* BlueButtonForPhone.swift in Sources */,
 				3AB43E8D1BD4E1B9005023D3 /* DayCounter.swift in Sources */,
+				3A85636C1BF1C2B500E74B27 /* IMainFrameViewController.swift in Sources */,
 				3A91F0B31BF066F500C470D4 /* THDate.swift in Sources */,
 				3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */,
 				3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */,

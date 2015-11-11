@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IMainFrameViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="tlZ-xp-83W"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxr-Yh-Ke0">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="522"/>
+                    <animations/>
+                </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X0g-J8-7mf">
+                    <rect key="frame" x="0.0" y="522" width="320" height="46"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2g-pn-WN1" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="80" height="46"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIf-KA-XRx">
+                                    <rect key="frame" x="19" y="4" width="42" height="38"/>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="42" id="ihT-B6-Bch"/>
+                                        <constraint firstAttribute="height" constant="38" id="tzs-ea-afO"/>
+                                    </constraints>
+                                    <state key="normal" backgroundImage="tabBar_0.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="centerY" secondItem="FIf-KA-XRx" secondAttribute="centerY" id="Jzc-kE-dZS"/>
+                                <constraint firstAttribute="centerX" secondItem="FIf-KA-XRx" secondAttribute="centerX" id="bDF-kG-Ehk"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="toolBar_shade.png"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZh-lY-C7C" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                            <rect key="frame" x="80" y="0.0" width="80" height="46"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ba3-0k-MEB">
+                                    <rect key="frame" x="19" y="4" width="42" height="38"/>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="42" id="iUh-KE-LwL"/>
+                                        <constraint firstAttribute="height" constant="38" id="uDW-rv-gyW"/>
+                                    </constraints>
+                                    <state key="normal" backgroundImage="tabBar_1.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="centerX" secondItem="ba3-0k-MEB" secondAttribute="centerX" id="AGo-9I-uJM"/>
+                                <constraint firstAttribute="centerY" secondItem="ba3-0k-MEB" secondAttribute="centerY" id="yIZ-Ii-JDH"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="toolBar_shade.png"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGA-eU-kS8" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                            <rect key="frame" x="160" y="0.0" width="80" height="46"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kN-Bp-8NA">
+                                    <rect key="frame" x="19" y="4" width="42" height="38"/>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="38" id="eiH-38-jvN"/>
+                                        <constraint firstAttribute="width" constant="42" id="iNu-dL-d3L"/>
+                                    </constraints>
+                                    <state key="normal" backgroundImage="tabBar_2.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" red="1" green="0.19059880609999999" blue="0.11152205129999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="centerX" secondItem="3kN-Bp-8NA" secondAttribute="centerX" id="LBl-TD-kYU"/>
+                                <constraint firstAttribute="centerY" secondItem="3kN-Bp-8NA" secondAttribute="centerY" id="vqR-t1-Wl8"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbp-yZ-Chc" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                            <rect key="frame" x="240" y="0.0" width="80" height="46"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGK-79-fv5">
+                                    <rect key="frame" x="19" y="4" width="42" height="38"/>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="42" id="X23-C4-Dew"/>
+                                        <constraint firstAttribute="height" constant="38" id="gi8-JJ-CQJ"/>
+                                    </constraints>
+                                    <state key="normal" backgroundImage="tabBar_3.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="centerX" secondItem="hGK-79-fv5" secondAttribute="centerX" id="ARU-w2-ZjP"/>
+                                <constraint firstAttribute="centerY" secondItem="hGK-79-fv5" secondAttribute="centerY" id="Kaf-Di-FBw"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="k2g-pn-WN1" firstAttribute="width" secondItem="X0g-J8-7mf" secondAttribute="width" multiplier="1:4" id="3qO-8y-e8d"/>
+                        <constraint firstAttribute="height" constant="46" id="6tB-IK-aNX"/>
+                        <constraint firstAttribute="bottom" secondItem="zbp-yZ-Chc" secondAttribute="bottom" id="Dpu-tp-8oj"/>
+                        <constraint firstItem="hGA-eU-kS8" firstAttribute="width" secondItem="X0g-J8-7mf" secondAttribute="width" multiplier="1:4" id="F2G-M5-TYj"/>
+                        <constraint firstItem="k2g-pn-WN1" firstAttribute="leading" secondItem="X0g-J8-7mf" secondAttribute="leading" id="FIw-vL-CoB"/>
+                        <constraint firstItem="QZh-lY-C7C" firstAttribute="leading" secondItem="k2g-pn-WN1" secondAttribute="trailing" id="JEd-hg-25X"/>
+                        <constraint firstAttribute="bottom" secondItem="k2g-pn-WN1" secondAttribute="bottom" id="LDK-Hb-PZl"/>
+                        <constraint firstItem="hGA-eU-kS8" firstAttribute="top" secondItem="X0g-J8-7mf" secondAttribute="top" id="Nte-an-LzD"/>
+                        <constraint firstItem="QZh-lY-C7C" firstAttribute="width" secondItem="X0g-J8-7mf" secondAttribute="width" multiplier="1:4" id="Wda-q9-YES"/>
+                        <constraint firstItem="zbp-yZ-Chc" firstAttribute="leading" secondItem="hGA-eU-kS8" secondAttribute="trailing" id="WzO-U5-IFi"/>
+                        <constraint firstItem="zbp-yZ-Chc" firstAttribute="top" secondItem="X0g-J8-7mf" secondAttribute="top" id="c3H-6v-4yi"/>
+                        <constraint firstAttribute="bottom" secondItem="hGA-eU-kS8" secondAttribute="bottom" id="cYg-6f-MVO"/>
+                        <constraint firstItem="k2g-pn-WN1" firstAttribute="top" secondItem="X0g-J8-7mf" secondAttribute="top" id="etO-M2-CK2"/>
+                        <constraint firstAttribute="bottom" secondItem="QZh-lY-C7C" secondAttribute="bottom" id="gft-NS-qFf"/>
+                        <constraint firstItem="hGA-eU-kS8" firstAttribute="leading" secondItem="QZh-lY-C7C" secondAttribute="trailing" id="k2h-o7-c9S"/>
+                        <constraint firstItem="zbp-yZ-Chc" firstAttribute="width" secondItem="X0g-J8-7mf" secondAttribute="width" multiplier="1:4" id="m12-Zy-2sS"/>
+                        <constraint firstItem="QZh-lY-C7C" firstAttribute="top" secondItem="X0g-J8-7mf" secondAttribute="top" id="ra5-vX-Ib9"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="bxr-Yh-Ke0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0lb-c1-Onr"/>
+                <constraint firstItem="X0g-J8-7mf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="93u-uo-0Tk"/>
+                <constraint firstAttribute="bottom" secondItem="X0g-J8-7mf" secondAttribute="bottom" id="Vwl-LF-plQ"/>
+                <constraint firstItem="bxr-Yh-Ke0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mgE-Dx-38A"/>
+                <constraint firstAttribute="trailing" secondItem="bxr-Yh-Ke0" secondAttribute="trailing" id="oHW-Lq-pnW"/>
+                <constraint firstAttribute="trailing" secondItem="X0g-J8-7mf" secondAttribute="trailing" id="pzq-Cl-EDj"/>
+                <constraint firstAttribute="bottom" secondItem="bxr-Yh-Ke0" secondAttribute="bottom" constant="46" id="uoD-bS-iZt"/>
+            </constraints>
+            <point key="canvasLocation" x="280" y="240"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tabBar_0.png" width="62" height="62"/>
+        <image name="tabBar_1.png" width="62" height="62"/>
+        <image name="tabBar_2.png" width="62" height="62"/>
+        <image name="tabBar_3.png" width="62" height="62"/>
+        <image name="toolBar_shade.png" width="160" height="98"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
