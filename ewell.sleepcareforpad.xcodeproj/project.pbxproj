@@ -596,9 +596,9 @@
 		3A31CE701BEC67440039DFD0 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
-				2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */,
 				3A91F0B11BF066C400C470D4 /* Date */,
 				2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */,
+				2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
