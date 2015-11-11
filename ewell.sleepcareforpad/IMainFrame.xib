@@ -8,6 +8,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IMainFrameViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <connections>
+                <outlet property="uiHR" destination="k2g-pn-WN1" id="ZzN-FJ-rSM"/>
+                <outlet property="uiMe" destination="zbp-yZ-Chc" id="m7j-Jz-jit"/>
+                <outlet property="uiRR" destination="QZh-lY-C7C" id="qWV-24-XUi"/>
+                <outlet property="uiSleepCare" destination="hGA-eU-kS8" id="x2U-sH-dlG"/>
                 <outlet property="view" destination="iN0-l3-epB" id="tlZ-xp-83W"/>
             </connections>
         </placeholder>

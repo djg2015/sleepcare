@@ -9,7 +9,11 @@
 import UIKit
 
 class IMainFrameViewController: IBaseViewController {
+    @IBOutlet weak var uiHR: BackgroundCommon!
+    @IBOutlet weak var uiRR: BackgroundCommon!
+    @IBOutlet weak var uiSleepCare: BackgroundCommon!
     
+    @IBOutlet weak var uiMe: BackgroundCommon!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
