@@ -40,6 +40,7 @@
 		2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AEC471BB397130096DF3F /* RoleList.swift */; };
 		2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1151BD48713006FC007 /* searchBtn.png */; };
 		2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1161BD48713006FC007 /* searchBtnChecked.png */; };
+		2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */; };
 		3A13C9841BF2DBDA00061CCF /* IHRMonitor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */; };
 		3A13C9881BF2DD2800061CCF /* IHRMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */; };
 		3A2158721BEC8C090089CC01 /* ILogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2158711BEC8C090089CC01 /* ILogin.xib */; };
@@ -251,6 +252,7 @@
 		2C5AEC471BB397130096DF3F /* RoleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleList.swift; sourceTree = "<group>"; };
 		2C6AE1151BD48713006FC007 /* searchBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtn.png; sourceTree = "<group>"; };
 		2C6AE1161BD48713006FC007 /* searchBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtnChecked.png; sourceTree = "<group>"; };
+		2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
 		3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IHRMonitor.xib; sourceTree = "<group>"; };
 		3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IHRMonitor.swift; sourceTree = "<group>"; };
 		3A2158711BEC8C090089CC01 /* ILogin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ILogin.xib; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 		3A31CE701BEC67440039DFD0 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */,
 				3A91F0B11BF066C400C470D4 /* Date */,
 				2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */,
 			);
@@ -1249,6 +1252,7 @@
 				3AB43E8A1BD4E1B9005023D3 /* BizDayRule.swift in Sources */,
 				3AB43E781BD4E17B005023D3 /* Date.swift in Sources */,
 				3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */,
+				2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */,
 				3A4D17FB1BAFE17D00E0B862 /* AlarmInfo.swift in Sources */,
 				3A4D17F91BAFDF4800E0B862 /* TurnOverAnalysList.swift in Sources */,
 				3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */,
