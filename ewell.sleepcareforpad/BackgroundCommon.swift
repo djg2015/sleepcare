@@ -12,10 +12,8 @@ import UIKit
 
     @IBInspectable var backgroundImage:UIImage? {
         didSet{
-            var backColorImage = UIImageView(frame: CGRectMake(0, 0, self.frame.width, self.frame.height))
-            backColorImage.image = backgroundImage
-            self.addSubview(backColorImage)
-            self.sendSubviewToBack(backColorImage)
+            self.layer.contents = backgroundImage?.CGImage
+            self.backgroundColor = UIColor.clearColor()
         }
         
     }
