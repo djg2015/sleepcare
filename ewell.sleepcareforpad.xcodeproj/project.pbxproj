@@ -426,6 +426,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2C34482A1BF2D7450068BD74 /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iphone;
+			sourceTree = "<group>";
+		};
 		3A2158731BEC8C140089CC01 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
@@ -797,6 +804,7 @@
 		3AFF67A51BBA2F1D00C9CA20 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2C34482A1BF2D7450068BD74 /* iphone */,
 				3AFF67A61BBA2F2500C9CA20 /* ipad */,
 			);
 			name = Images;
