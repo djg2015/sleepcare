@@ -18,6 +18,8 @@
 		2C2F83911BD63A19008CD92B /* previewBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F838D1BD63A19008CD92B /* previewBtnNormal.png */; };
 		2C3150A51BCDFAF300EC749E /* LeaveBedReportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3150A41BCDFAF300EC749E /* LeaveBedReportList.swift */; };
 		2C3150A71BCDFB4500EC749E /* LeaveBedReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3150A61BCDFB4500EC749E /* LeaveBedReport.swift */; };
+		2C34482C1BF2D93A0068BD74 /* BlueButtonForPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */; };
+		2C34482E1BF2DCD40068BD74 /* waneBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C34482D1BF2DCD40068BD74 /* waneBg.png */; };
 		2C37F1391BD093280034D9F1 /* SleepQualityPandectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37F1381BD093280034D9F1 /* SleepQualityPandectViewModel.swift */; };
 		2C3BAF131BCBA387003A2F48 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BAF121BCBA387003A2F48 /* AlarmViewModel.swift */; };
 		2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3BAF141BCBA481003A2F48 /* AlarmView.xib */; };
@@ -211,6 +213,8 @@
 		2C2F838D1BD63A19008CD92B /* previewBtnNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previewBtnNormal.png; sourceTree = "<group>"; };
 		2C3150A41BCDFAF300EC749E /* LeaveBedReportList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveBedReportList.swift; sourceTree = "<group>"; };
 		2C3150A61BCDFB4500EC749E /* LeaveBedReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveBedReport.swift; sourceTree = "<group>"; };
+		2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueButtonForPhone.swift; sourceTree = "<group>"; };
+		2C34482D1BF2DCD40068BD74 /* waneBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waneBg.png; sourceTree = "<group>"; };
 		2C37F1381BD093280034D9F1 /* SleepQualityPandectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepQualityPandectViewModel.swift; sourceTree = "<group>"; };
 		2C3BAF121BCBA387003A2F48 /* AlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
 		2C3BAF141BCBA481003A2F48 /* AlarmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmView.xib; sourceTree = "<group>"; };
@@ -429,6 +433,7 @@
 		2C34482A1BF2D7450068BD74 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				2C34482D1BF2DCD40068BD74 /* waneBg.png */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -544,6 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				3A91F0B11BF066C400C470D4 /* Date */,
+				2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1031,6 +1037,7 @@
 				3A9C12F41BC789C6008EC314 /* leaveView.png in Resources */,
 				3A91F09D1BF0475400C470D4 /* calendar_littledot-disabled.png in Resources */,
 				3A91F0AA1BF0475400C470D4 /* dialog_ok-disabled@2x.png in Resources */,
+				2C34482E1BF2DCD40068BD74 /* waneBg.png in Resources */,
 				3A9C12F11BC789C6008EC314 /* maintop.png in Resources */,
 				3A3C377B1BD48F0B00080D03 /* leaverecord.png in Resources */,
 				3A3C37821BD4D89A00080D03 /* comming.png in Resources */,
@@ -1179,6 +1186,7 @@
 				2C2CB47A1BD7654100A6DB65 /* ServerSettingController.swift in Sources */,
 				3A41ADEA1BA7B438000C109B /* LoginViewModel.swift in Sources */,
 				3AB3CB1B1BD762FE0067F9D4 /* Popover.swift in Sources */,
+				2C34482C1BF2D93A0068BD74 /* BlueButtonForPhone.swift in Sources */,
 				3AB43E8D1BD4E1B9005023D3 /* DayCounter.swift in Sources */,
 				3A91F0B31BF066F500C470D4 /* THDate.swift in Sources */,
 				3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */,
