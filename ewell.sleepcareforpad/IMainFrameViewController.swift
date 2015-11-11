@@ -12,10 +12,36 @@ class IMainFrameViewController: IBaseViewController {
     @IBOutlet weak var uiHR: BackgroundCommon!
     @IBOutlet weak var uiRR: BackgroundCommon!
     @IBOutlet weak var uiSleepCare: BackgroundCommon!
-    
     @IBOutlet weak var uiMe: BackgroundCommon!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //添加主菜单点击事件
+        self.uiHR.userInteractionEnabled = true
+        var choosePart:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "menuTouch")
+        self.uiHR .addGestureRecognizer(choosePart)
+        
+        self.uiRR.userInteractionEnabled = true
+        var choosePart1:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "menuTouch1")
+        self.uiRR .addGestureRecognizer(choosePart1)
+        
+        self.uiSleepCare.userInteractionEnabled = true
+        var choosePart2:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "menuTouch2")
+        self.uiSleepCare .addGestureRecognizer(choosePart2)
+        
+        self.uiMe.userInteractionEnabled = true
+        var choosePart3:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "menuTouch3")
+        self.uiMe .addGestureRecognizer(choosePart3)
+    }
+    
+    //菜单点击
+    func menuTouch(){
+    
+    }
+    
+    //显示菜单界面
+    func showBody(view:UIView){
+    
     }
     
     override func didReceiveMemoryWarning() {
