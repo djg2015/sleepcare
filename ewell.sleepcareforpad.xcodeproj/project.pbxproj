@@ -13,6 +13,10 @@
 		2C0615531BF4660A00A3F90C /* loginname.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06154F1BF4660A00A3F90C /* loginname.png */; };
 		2C0615541BF4660A00A3F90C /* loginpwd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615501BF4660A00A3F90C /* loginpwd.png */; };
 		2C0615551BF4660A00A3F90C /* LOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615511BF4660A00A3F90C /* LOGO.png */; };
+		2C0615571BF46A2A00A3F90C /* IMySelfSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615561BF46A2A00A3F90C /* IMySelfSettingView.xib */; };
+		2C0615591BF46A5A00A3F90C /* IMySelfSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0615581BF46A5A00A3F90C /* IMySelfSettingController.swift */; };
+		2C06155B1BF4733000A3F90C /* settingBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06155A1BF4733000A3F90C /* settingBottom.png */; };
+		2C06155D1BF47A3200A3F90C /* backBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06155C1BF47A3200A3F90C /* backBtn.png */; };
 		2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28CA131BE87D3D000C46C4 /* ServerResult.swift */; };
 		2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */; };
 		2C2CB47A1BD7654100A6DB65 /* ServerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */; };
@@ -245,6 +249,10 @@
 		2C06154F1BF4660A00A3F90C /* loginname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginname.png; sourceTree = "<group>"; };
 		2C0615501BF4660A00A3F90C /* loginpwd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginpwd.png; sourceTree = "<group>"; };
 		2C0615511BF4660A00A3F90C /* LOGO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LOGO.png; sourceTree = "<group>"; };
+		2C0615561BF46A2A00A3F90C /* IMySelfSettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IMySelfSettingView.xib; sourceTree = "<group>"; };
+		2C0615581BF46A5A00A3F90C /* IMySelfSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMySelfSettingController.swift; sourceTree = "<group>"; };
+		2C06155A1BF4733000A3F90C /* settingBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingBottom.png; sourceTree = "<group>"; };
+		2C06155C1BF47A3200A3F90C /* backBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backBtn.png; sourceTree = "<group>"; };
 		2C28CA131BE87D3D000C46C4 /* ServerResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResult.swift; sourceTree = "<group>"; };
 		2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepQualityPandect.xib; sourceTree = "<group>"; };
 		2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSettingController.swift; sourceTree = "<group>"; };
@@ -531,6 +539,7 @@
 				3A85636B1BF1C2B500E74B27 /* IMainFrameViewController.swift */,
 				3A2158741BEC8C460089CC01 /* ILoginController.swift */,
 				3A2158761BEC8D580089CC01 /* IBaseViewController.swift */,
+				2C0615581BF46A5A00A3F90C /* IMySelfSettingController.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -609,6 +618,7 @@
 				3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */,
 				2C2EA2E81BF422890023D458 /* IMySelfConfiguration.xib */,
 				3AC7B0F11BF4551B002DE94C /* IRegist.xib */,
+				2C0615561BF46A2A00A3F90C /* IMySelfSettingView.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -659,6 +669,8 @@
 		3A39C9F61BF2FC750024DD3E /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				2C06155C1BF47A3200A3F90C /* backBtn.png */,
+				2C06155A1BF4733000A3F90C /* settingBottom.png */,
 				2C06154E1BF4660A00A3F90C /* logininputborder.png */,
 				2C06154F1BF4660A00A3F90C /* loginname.png */,
 				2C0615501BF4660A00A3F90C /* loginpwd.png */,
@@ -1108,6 +1120,7 @@
 				3A91F09F1BF0475400C470D4 /* calendar_littledot.png in Resources */,
 				3ADA58441BD5FE550066D23A /* sleepofThisWeek.png in Resources */,
 				3ADA58431BD5FC7C0066D23A /* SleepcareDetail.xib in Resources */,
+				2C0615571BF46A2A00A3F90C /* IMySelfSettingView.xib in Resources */,
 				3AFB93941BCF96F200042AF1 /* pwdIcon.png in Resources */,
 				3A9C12FC1BC789C6008EC314 /* BedFrame.png in Resources */,
 				3A3C377E1BD48F0B00080D03 /* hrrr.png in Resources */,
@@ -1118,6 +1131,7 @@
 				2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */,
 				3A3C377C1BD48F0B00080D03 /* dateIcon.png in Resources */,
 				3A2BD8A81BD8AE78007BBD01 /* 29pt@1x.png in Resources */,
+				2C06155D1BF47A3200A3F90C /* backBtn.png in Resources */,
 				3A91F09E1BF0475400C470D4 /* calendar_littledot-disabled@2x.png in Resources */,
 				2C2F83901BD63A19008CD92B /* previewBtnDisable.png in Resources */,
 				3A39CA021BF2FCA70024DD3E /* grayback.png in Resources */,
@@ -1211,6 +1225,7 @@
 				3A2F02781BCBA4E4000B16B5 /* infoHeadred.png in Resources */,
 				3A3C377D1BD48F0B00080D03 /* sleepcareblock.png in Resources */,
 				3A91F0A71BF0475400C470D4 /* dialog_clear.png in Resources */,
+				2C06155B1BF4733000A3F90C /* settingBottom.png in Resources */,
 				3A91F09A1BF0475400C470D4 /* arrow_right@2x.png in Resources */,
 				2CB951331BF45AD100C31EC2 /* myElder.png in Resources */,
 				3A91F09C1BF0475400C470D4 /* calendar_clear-disabled@2x.png in Resources */,
@@ -1329,6 +1344,7 @@
 				3A8680681BD75EE000F22016 /* ChoosePartController.swift in Sources */,
 				3A325A341BD08B7B00DE4E78 /* BaseViewModel.swift in Sources */,
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
+				2C0615591BF46A5A00A3F90C /* IMySelfSettingController.swift in Sources */,
 				3AB3CB211BD762FE0067F9D4 /* SleepCareTableViewCell.swift in Sources */,
 				3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */,
 				2C5181FD1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift in Sources */,

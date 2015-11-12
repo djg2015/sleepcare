@@ -37,6 +37,7 @@ class IMySelfConfiguration: UIView{
             menu = ConfigurationViewModel()
             menu.imageName = "settingMenu"
             menu.titleName = "设置"
+            menu.configrationController = IMySelfSettingController(nibName:"IMySelfSettingView", bundle:nil)
             source.append(menu)
         }
         else
