@@ -9,35 +9,64 @@
 import Foundation
 import UIKit
 
-class IMySelfConfiguration: UIView, UITableViewDelegate,UITableViewDataSource{
+class IMySelfConfiguration: UIView{
     
-    @IBOutlet weak var viewConfiguration: UITableView!
+    @IBOutlet weak var menuTableView: ConfiurationTabeView!
+    
+    var parentController:IBaseViewController!
     
     // 界面初始化
-    func viewInit()
+    func viewInit(parentController:IBaseViewController?)
     {
-        
+        self.parentController = parentController
+        var source = Array<ConfigurationViewModel>()
+        var menu:ConfigurationViewModel = ConfigurationViewModel()
+        // 根据用户类型(监护人/使用者)设置对应的菜单
+        if(true)
+        {
+            menu = ConfigurationViewModel()
+            menu.imageName = "myElder"
+            menu.titleName = "我的老人"
+            source.append(menu)
+            
+            menu = ConfigurationViewModel()
+            menu.imageName = "rankingListMenu"
+            menu.titleName = "排行榜"
+            source.append(menu)
+            
+            menu = ConfigurationViewModel()
+            menu.imageName = "settingMenu"
+            menu.titleName = "设置"
+            source.append(menu)
+        }
+        else
+        {
+            menu = ConfigurationViewModel()
+            menu.imageName = "myRequipment"
+            menu.titleName = "我的设备"
+            source.append(menu)
+            
+            menu = ConfigurationViewModel()
+            menu.imageName = "trendMenu"
+            menu.titleName = "趋势"
+            source.append(menu)
+            
+            menu = ConfigurationViewModel()
+            menu.imageName = "rankingListMenu"
+            menu.titleName = "排行榜"
+            source.append(menu)
+            
+            menu = ConfigurationViewModel()
+            menu.imageName = "settingMenu"
+            menu.titleName = "设置"
+            source.append(menu)
+        }
+
+        self.menuTableView.parentController = self.parentController
+        self.menuTableView.backgroundColor = UIColor(red: 223/255, green: 223/255, blue: 223/255, alpha: 1)
+        self.menuTableView.tableViewDataSource = source
+        self.menuTableView.reloadData()
     }
     
-    // 返回Table的行数
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    // 返回Table的分组
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
-    }
-    
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-         return UITableViewCell()
-        
-    }
 }

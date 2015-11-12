@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="522"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="C71-dD-46f">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="C71-dD-46f" customClass="ConfiurationTabeView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="200" width="320" height="322"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
@@ -26,7 +26,7 @@
                                 <constraint firstAttribute="height" constant="90" id="Zb5-Hd-y9m"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="manHeadFace.png" translatesAutoresizingMaskIntoConstraints="NO" id="ImA-Ww-FNl">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manHeadFace.png" translatesAutoresizingMaskIntoConstraints="NO" id="ImA-Ww-FNl">
                             <rect key="frame" x="123" y="53" width="75" height="75"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="75" id="kyp-nc-rGa"/>
@@ -71,7 +71,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="viewConfiguration" destination="C71-dD-46f" id="0d2-fQ-qKu"/>
+                <outlet property="menuTableView" destination="C71-dD-46f" id="Lou-W7-eak"/>
             </connections>
             <point key="canvasLocation" x="215" y="327"/>
         </view>
