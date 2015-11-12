@@ -11,6 +11,7 @@
 		2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28CA131BE87D3D000C46C4 /* ServerResult.swift */; };
 		2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */; };
 		2C2CB47A1BD7654100A6DB65 /* ServerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */; };
+		2C2EA2E91BF422890023D458 /* IMySelfConfiguration.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2EA2E81BF422890023D458 /* IMySelfConfiguration.xib */; };
 		2C2F83851BD5DE2F008CD92B /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F83841BD5DE2F008CD92B /* back.png */; };
 		2C2F838E1BD63A19008CD92B /* nextBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F838A1BD63A19008CD92B /* nextBtnChecked.png */; };
 		2C2F838F1BD63A19008CD92B /* nextBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F838B1BD63A19008CD92B /* nextBtnNormal.png */; };
@@ -223,6 +224,7 @@
 		2C28CA131BE87D3D000C46C4 /* ServerResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResult.swift; sourceTree = "<group>"; };
 		2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepQualityPandect.xib; sourceTree = "<group>"; };
 		2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSettingController.swift; sourceTree = "<group>"; };
+		2C2EA2E81BF422890023D458 /* IMySelfConfiguration.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IMySelfConfiguration.xib; sourceTree = "<group>"; };
 		2C2F83841BD5DE2F008CD92B /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		2C2F838A1BD63A19008CD92B /* nextBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextBtnChecked.png; sourceTree = "<group>"; };
 		2C2F838B1BD63A19008CD92B /* nextBtnNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextBtnNormal.png; sourceTree = "<group>"; };
@@ -566,6 +568,7 @@
 				3A2158711BEC8C090089CC01 /* ILogin.xib */,
 				3A8563691BF1C28600E74B27 /* IMainFrame.xib */,
 				3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */,
+				2C2EA2E81BF422890023D458 /* IMySelfConfiguration.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1075,6 +1078,7 @@
 				3AB43E731BD4DB45005023D3 /* previewBtnChecked.png in Resources */,
 				3A91F0A21BF0475400C470D4 /* calendar_ok-disabled@2x.png in Resources */,
 				3A39CA071BF2FCA70024DD3E /* toolBar_shade.png in Resources */,
+				2C2EA2E91BF422890023D458 /* IMySelfConfiguration.xib in Resources */,
 				2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */,
 				3A39CA061BF2FCA70024DD3E /* tabBar_3.png in Resources */,
 				3A13C9841BF2DBDA00061CCF /* IHRMonitor.xib in Resources */,
