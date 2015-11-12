@@ -718,6 +718,7 @@
 		3A41ADE01BA7B396000C109B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3AC7B0E21BF42E4B002DE94C /* iphone */,
 				3A28CA9E1BEC4A19007D9A3A /* ipad */,
 			);
 			name = ViewModel;
@@ -877,6 +878,13 @@
 				3AB43E771BD4E17B005023D3 /* Date.swift */,
 			);
 			name = Date;
+			sourceTree = "<group>";
+		};
+		3AC7B0E21BF42E4B002DE94C /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iphone;
 			sourceTree = "<group>";
 		};
 		3AFF67A51BBA2F1D00C9CA20 /* Images */ = {
