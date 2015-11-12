@@ -13,6 +13,8 @@ class IMySelfSettingController: IBaseViewController {
     
     @IBOutlet weak var menuTableView: ConfiurationTabeView!
     
+    @IBOutlet weak var imgBack: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,6 +45,10 @@ class IMySelfSettingController: IBaseViewController {
         self.menuTableView.backgroundColor = UIColor.whiteColor()
         self.menuTableView.tableViewDataSource = source
         self.menuTableView.reloadData()
+        
+        self.imgBack.userInteractionEnabled = true
+        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "backToController:")
+        self.imgBack.addGestureRecognizer(singleTap)
 
     }
     
@@ -51,4 +57,13 @@ class IMySelfSettingController: IBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func btnExitLoginClick(sender: AnyObject) {
+        self.presentViewController(ILoginController(nibName:"ILogin", bundle:nil), animated: true, completion: nil)
+    }
+    
+    func backToController(sender:UITapGestureRecognizer)
+    {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

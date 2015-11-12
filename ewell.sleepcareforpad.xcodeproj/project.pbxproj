@@ -29,6 +29,11 @@
 		2C0615781BF4825400A3F90C /* loginpwd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615501BF4660A00A3F90C /* loginpwd.png */; };
 		2C0615791BF4825400A3F90C /* LOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615511BF4660A00A3F90C /* LOGO.png */; };
 		2C06157A1BF4825400A3F90C /* loginbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06154C1BF465CC00A3F90C /* loginbackground.png */; };
+		2C06157C1BF4885000A3F90C /* ISleepQualityMonitor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C06157B1BF4885000A3F90C /* ISleepQualityMonitor.xib */; };
+		2C06157E1BF488D200A3F90C /* ISleepQualityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06157D1BF488D200A3F90C /* ISleepQualityMonitor.swift */; };
+		2C0615801BF48C4900A3F90C /* sleepQualitySelector.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06157F1BF48C4900A3F90C /* sleepQualitySelector.png */; };
+		2C0615831BF48D5900A3F90C /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615811BF48D5900A3F90C /* calendar.png */; };
+		2C0615841BF48D5900A3F90C /* downLoad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615821BF48D5900A3F90C /* downLoad.png */; };
 		2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28CA131BE87D3D000C46C4 /* ServerResult.swift */; };
 		2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */; };
 		2C2CB47A1BD7654100A6DB65 /* ServerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */; };
@@ -274,6 +279,11 @@
 		2C0615671BF4813600A3F90C /* trendMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trendMenu.png; sourceTree = "<group>"; };
 		2C0615721BF481D100A3F90C /* regisrinputdownborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = regisrinputdownborder.png; sourceTree = "<group>"; };
 		2C0615731BF481D100A3F90C /* registinputborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registinputborder.png; sourceTree = "<group>"; };
+		2C06157B1BF4885000A3F90C /* ISleepQualityMonitor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ISleepQualityMonitor.xib; sourceTree = "<group>"; };
+		2C06157D1BF488D200A3F90C /* ISleepQualityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISleepQualityMonitor.swift; sourceTree = "<group>"; };
+		2C06157F1BF48C4900A3F90C /* sleepQualitySelector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleepQualitySelector.png; sourceTree = "<group>"; };
+		2C0615811BF48D5900A3F90C /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		2C0615821BF48D5900A3F90C /* downLoad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downLoad.png; sourceTree = "<group>"; };
 		2C28CA131BE87D3D000C46C4 /* ServerResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResult.swift; sourceTree = "<group>"; };
 		2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepQualityPandect.xib; sourceTree = "<group>"; };
 		2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSettingController.swift; sourceTree = "<group>"; };
@@ -548,6 +558,7 @@
 			children = (
 				2C2EA2EA1BF427B90023D458 /* IMySelfConfiguration.swift */,
 				3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */,
+				2C06157D1BF488D200A3F90C /* ISleepQualityMonitor.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -639,6 +650,7 @@
 				2C2EA2E81BF422890023D458 /* IMySelfConfiguration.xib */,
 				3AC7B0F11BF4551B002DE94C /* IRegist.xib */,
 				2C0615561BF46A2A00A3F90C /* IMySelfSettingView.xib */,
+				2C06157B1BF4885000A3F90C /* ISleepQualityMonitor.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -690,6 +702,7 @@
 		3A39C9F61BF2FC750024DD3E /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				2C06157F1BF48C4900A3F90C /* sleepQualitySelector.png */,
 				2C0615721BF481D100A3F90C /* regisrinputdownborder.png */,
 				2C0615731BF481D100A3F90C /* registinputborder.png */,
 				2C06155E1BF4813600A3F90C /* detailBtn.png */,
@@ -710,6 +723,8 @@
 				2C0615511BF4660A00A3F90C /* LOGO.png */,
 				2C06154C1BF465CC00A3F90C /* loginbackground.png */,
 				3A39CA0F1BF2FF010024DD3E /* menuBack.png */,
+				2C0615811BF48D5900A3F90C /* calendar.png */,
+				2C0615821BF48D5900A3F90C /* downLoad.png */,
 				3A39CA091BF2FEF40024DD3E /* sleepmenu.png */,
 				3A39CA0A1BF2FEF40024DD3E /* memenu.png */,
 				3A39CA0B1BF2FEF40024DD3E /* hrmenu.png */,
@@ -1152,6 +1167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0615831BF48D5900A3F90C /* calendar.png in Resources */,
 				2C0615761BF4825400A3F90C /* logininputborder.png in Resources */,
 				2C0615771BF4825400A3F90C /* loginname.png in Resources */,
 				2C0615781BF4825400A3F90C /* loginpwd.png in Resources */,
@@ -1169,6 +1185,7 @@
 				3A3C377E1BD48F0B00080D03 /* hrrr.png in Resources */,
 				3A91F0AE1BF0475400C470D4 /* THDateDay.xib in Resources */,
 				3A85636A1BF1C28600E74B27 /* IMainFrame.xib in Resources */,
+				2C0615841BF48D5900A3F90C /* downLoad.png in Resources */,
 				3A41ADE31BA7B3D1000C109B /* LoginView.xib in Resources */,
 				2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */,
 				2C06156A1BF4813700A3F90C /* logotm.png in Resources */,
@@ -1180,6 +1197,7 @@
 				2C2F83901BD63A19008CD92B /* previewBtnDisable.png in Resources */,
 				2C0615711BF4813700A3F90C /* trendMenu.png in Resources */,
 				3A39CA021BF2FCA70024DD3E /* grayback.png in Resources */,
+				2C06157C1BF4885000A3F90C /* ISleepQualityMonitor.xib in Resources */,
 				3A9C12FD1BC789C6008EC314 /* pagerunselected.png in Resources */,
 				3A91F0A31BF0475400C470D4 /* dialog_cancel.png in Resources */,
 				2C0615681BF4813700A3F90C /* detailBtn.png in Resources */,
@@ -1249,6 +1267,7 @@
 				3A3452941BC63A5000292107 /* MainView.xib in Resources */,
 				3A9C12FB1BC789C6008EC314 /* infoHeadblue.png in Resources */,
 				3A9C12F61BC789C6008EC314 /* clock.png in Resources */,
+				2C0615801BF48C4900A3F90C /* sleepQualitySelector.png in Resources */,
 				3A9C12F51BC789C6008EC314 /* unlineView.png in Resources */,
 				3A91F0AB1BF0475400C470D4 /* dialog_ok.png in Resources */,
 				3AFB93921BCF96F200042AF1 /* loginTitle.png in Resources */,
@@ -1368,6 +1387,7 @@
 				3A4B85CA1BB14F28006E4CF1 /* SleepCareBussiness.swift in Sources */,
 				3AC7B0F41BF4554D002DE94C /* IRegistViewController.swift in Sources */,
 				2C3BAF171BCBA4C3003A2F48 /* AlarmView.swift in Sources */,
+				2C06157E1BF488D200A3F90C /* ISleepQualityMonitor.swift in Sources */,
 				3A6360291BB2900300F7F953 /* SleepcareMainController.swift in Sources */,
 				3A376E4E1BABDE3500D70953 /* SignReport.swift in Sources */,
 				3A3262E11BB912180002687B /* OSSTry.swift in Sources */,
