@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,24 +12,24 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="522"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3B-eg-0Dk" userLabel="topView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3B-eg-0Dk" userLabel="topView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="316"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZD-b6-fjw">
+                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZD-b6-fjw">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sleepQualitySelector.png" translatesAutoresizingMaskIntoConstraints="NO" id="CeD-fE-jJS">
                                     <rect key="frame" x="20" y="20" width="30" height="25"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="30" id="8oz-Rv-X8j"/>
-                                        <constraint firstAttribute="height" constant="25" id="N2B-1G-0g6"/>
+                                        <constraint firstAttribute="width" constant="30" id="Oow-L9-2uO"/>
+                                        <constraint firstAttribute="height" constant="25" id="oQ6-Js-oiJ"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数据查看" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YI-fu-ch0">
                                     <rect key="frame" x="60" y="20" width="80" height="25"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="80" id="0fu-bE-pyZ"/>
-                                        <constraint firstAttribute="height" constant="25" id="esE-kb-Ew8"/>
+                                        <constraint firstAttribute="height" constant="25" id="7vJ-gG-Ckd"/>
+                                        <constraint firstAttribute="width" constant="80" id="IT9-6G-Kd7"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,51 +38,55 @@
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="4wi-Sy-TlT">
                                     <rect key="frame" x="242" y="20" width="25" height="25"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="7Dn-Cw-ixp"/>
-                                        <constraint firstAttribute="width" constant="25" id="Qtx-0h-Jwa"/>
+                                        <constraint firstAttribute="height" constant="25" id="N3l-YT-Iua"/>
+                                        <constraint firstAttribute="width" constant="25" id="td3-RW-AX7"/>
                                     </constraints>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downLoad.png" translatesAutoresizingMaskIntoConstraints="NO" id="sHf-ah-bcC">
                                     <rect key="frame" x="275" y="20" width="25" height="25"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="7vG-pp-FKi"/>
-                                        <constraint firstAttribute="width" constant="25" id="ift-fj-JYf"/>
+                                        <constraint firstAttribute="width" constant="25" id="68c-bz-K41"/>
+                                        <constraint firstAttribute="height" constant="25" id="mC0-ql-QHL"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="320" id="1eC-zV-0l0"/>
-                                <constraint firstItem="4YI-fu-ch0" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="20" id="9Pa-V5-fjp"/>
-                                <constraint firstItem="CeD-fE-jJS" firstAttribute="leading" secondItem="cZD-b6-fjw" secondAttribute="leading" constant="20" id="L4v-h7-TmT"/>
-                                <constraint firstItem="4wi-Sy-TlT" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="20" id="Stt-AS-7O0"/>
-                                <constraint firstItem="sHf-ah-bcC" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="20" id="Wz6-Fj-DEB"/>
-                                <constraint firstItem="CeD-fE-jJS" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="20" id="bWf-od-V4e"/>
-                                <constraint firstItem="sHf-ah-bcC" firstAttribute="leading" secondItem="4wi-Sy-TlT" secondAttribute="trailing" constant="8" id="guZ-IX-X2B"/>
-                                <constraint firstItem="4YI-fu-ch0" firstAttribute="leading" secondItem="CeD-fE-jJS" secondAttribute="trailing" constant="10" id="pJe-er-N2p"/>
-                                <constraint firstAttribute="trailing" secondItem="sHf-ah-bcC" secondAttribute="trailing" constant="20" id="sdX-ap-HZ9"/>
+                                <constraint firstItem="CeD-fE-jJS" firstAttribute="leading" secondItem="cZD-b6-fjw" secondAttribute="leading" constant="20" id="6k4-TG-sZN"/>
+                                <constraint firstItem="4YI-fu-ch0" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="20" id="APM-6Z-PSN"/>
+                                <constraint firstItem="4wi-Sy-TlT" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="20" id="Ix5-un-wdn"/>
+                                <constraint firstItem="sHf-ah-bcC" firstAttribute="leading" secondItem="4wi-Sy-TlT" secondAttribute="trailing" constant="8" id="RXg-2s-PND"/>
+                                <constraint firstItem="CeD-fE-jJS" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="20" id="YDi-kh-1kN"/>
+                                <constraint firstItem="sHf-ah-bcC" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="20" id="k6B-jf-M39"/>
+                                <constraint firstAttribute="height" constant="50" id="k91-cv-RoY"/>
+                                <constraint firstItem="4YI-fu-ch0" firstAttribute="leading" secondItem="CeD-fE-jJS" secondAttribute="trailing" constant="10" id="oUl-n7-8Lz"/>
+                                <constraint firstAttribute="trailing" secondItem="sHf-ah-bcC" secondAttribute="trailing" constant="20" id="xDG-DN-Tbk"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1n-Oo-Zfx" customClass="CircularLoaderView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                            <rect key="frame" x="80" y="88" width="160" height="160"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="160" id="Ipm-YF-Ffo"/>
+                                <constraint firstAttribute="height" constant="160" id="lds-WX-yIv"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="320" id="8im-pt-vRT"/>
-                        <constraint firstItem="cZD-b6-fjw" firstAttribute="leading" secondItem="E3B-eg-0Dk" secondAttribute="leading" id="Ws5-Wj-58l"/>
-                        <constraint firstAttribute="bottom" secondItem="cZD-b6-fjw" secondAttribute="bottom" constant="266" id="dwg-kv-Ydw"/>
-                        <constraint firstAttribute="trailing" secondItem="cZD-b6-fjw" secondAttribute="trailing" id="hPf-Oc-79a"/>
-                        <constraint firstItem="cZD-b6-fjw" firstAttribute="top" secondItem="E3B-eg-0Dk" secondAttribute="top" id="qCQ-Ax-fdR"/>
+                        <constraint firstAttribute="centerX" secondItem="A1n-Oo-Zfx" secondAttribute="centerX" id="Hfv-ma-mfx"/>
+                        <constraint firstAttribute="centerY" secondItem="A1n-Oo-Zfx" secondAttribute="centerY" constant="-10" id="TZm-G8-m9G"/>
+                        <constraint firstItem="cZD-b6-fjw" firstAttribute="leading" secondItem="E3B-eg-0Dk" secondAttribute="leading" id="aHi-QH-1nn"/>
+                        <constraint firstItem="cZD-b6-fjw" firstAttribute="top" secondItem="E3B-eg-0Dk" secondAttribute="top" id="tgj-ax-rrZ"/>
+                        <constraint firstAttribute="trailing" secondItem="cZD-b6-fjw" secondAttribute="trailing" id="xVx-JW-aIe"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="blueback.png"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZT-fF-b1Q" userLabel="bottomView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZT-fF-b1Q" userLabel="bottomView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="316" width="320" height="206"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="206" id="1cl-t0-knB"/>
-                        <constraint firstAttribute="width" constant="320" id="LJL-M3-6ZV"/>
-                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="garyboxback.png"/>
                     </userDefinedRuntimeAttributes>
@@ -89,15 +94,19 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="EZT-fF-b1Q" secondAttribute="trailing" id="Hdp-Tv-kp1"/>
-                <constraint firstAttribute="trailing" secondItem="E3B-eg-0Dk" secondAttribute="trailing" id="KbM-Yp-WFM"/>
-                <constraint firstItem="EZT-fF-b1Q" firstAttribute="top" secondItem="E3B-eg-0Dk" secondAttribute="bottom" id="Roj-gl-zj5"/>
-                <constraint firstItem="E3B-eg-0Dk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Zse-aE-VcV"/>
-                <constraint firstAttribute="bottom" secondItem="EZT-fF-b1Q" secondAttribute="bottom" id="cGP-sa-KtC"/>
-                <constraint firstItem="E3B-eg-0Dk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="h5f-a3-UGG"/>
-                <constraint firstItem="EZT-fF-b1Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ohl-i8-ukg"/>
+                <constraint firstItem="E3B-eg-0Dk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3IJ-uy-fEQ"/>
+                <constraint firstAttribute="bottom" secondItem="EZT-fF-b1Q" secondAttribute="bottom" id="3d6-Bj-f0o"/>
+                <constraint firstAttribute="trailing" secondItem="E3B-eg-0Dk" secondAttribute="trailing" id="53z-So-lRy"/>
+                <constraint firstAttribute="trailing" secondItem="EZT-fF-b1Q" secondAttribute="trailing" id="JyA-P0-uGK"/>
+                <constraint firstItem="EZT-fF-b1Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="LZZ-iE-edc"/>
+                <constraint firstItem="EZT-fF-b1Q" firstAttribute="top" secondItem="E3B-eg-0Dk" secondAttribute="bottom" id="R15-sQ-42w"/>
+                <constraint firstItem="E3B-eg-0Dk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Xz6-45-1Mb"/>
+                <constraint firstItem="EZT-fF-b1Q" firstAttribute="height" secondItem="E3B-eg-0Dk" secondAttribute="height" multiplier="206:316" id="yyB-7V-3FC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="process" destination="A1n-Oo-Zfx" id="Bik-xX-Xu7"/>
+            </connections>
             <point key="canvasLocation" x="243" y="181"/>
         </view>
     </objects>

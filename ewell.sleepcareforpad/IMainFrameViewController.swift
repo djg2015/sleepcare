@@ -57,6 +57,7 @@ class IMainFrameViewController: IBaseViewController {
                 _ in
                 self.curMenu = self.uiSleepCare
                 let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("ISleepQualityMonitor", owner: self, options: nil).first as! ISleepQualityMonitor
+                iHRMonitorView.viewInit()
                 self.showBody(iHRMonitorView)
         }
         self.btnMe!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
