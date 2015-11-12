@@ -63,7 +63,7 @@ class IMainFrameViewController: IBaseViewController {
             .subscribeNext {
                 _ in
                 self.curMenu = self.uiMe
-                let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
+                let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IMySelfConfigurationController", owner: self, options: nil).first as! IMySelfConfigurationController
                 self.showBody(iHRMonitorView)
         }
         
