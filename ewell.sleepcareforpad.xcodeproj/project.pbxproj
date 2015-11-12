@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
+		2C06154D1BF465CC00A3F90C /* loginbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06154C1BF465CC00A3F90C /* loginbackground.png */; };
+		2C0615521BF4660A00A3F90C /* logininputborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06154E1BF4660A00A3F90C /* logininputborder.png */; };
+		2C0615531BF4660A00A3F90C /* loginname.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06154F1BF4660A00A3F90C /* loginname.png */; };
+		2C0615541BF4660A00A3F90C /* loginpwd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615501BF4660A00A3F90C /* loginpwd.png */; };
+		2C0615551BF4660A00A3F90C /* LOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615511BF4660A00A3F90C /* LOGO.png */; };
 		2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28CA131BE87D3D000C46C4 /* ServerResult.swift */; };
 		2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */; };
 		2C2CB47A1BD7654100A6DB65 /* ServerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */; };
 		2C2EA2E91BF422890023D458 /* IMySelfConfiguration.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2EA2E81BF422890023D458 /* IMySelfConfiguration.xib */; };
+		2C2EA2EB1BF427B90023D458 /* IMySelfConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2EA2EA1BF427B90023D458 /* IMySelfConfiguration.swift */; };
 		2C2F83851BD5DE2F008CD92B /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F83841BD5DE2F008CD92B /* back.png */; };
 		2C2F838E1BD63A19008CD92B /* nextBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F838A1BD63A19008CD92B /* nextBtnChecked.png */; };
 		2C2F838F1BD63A19008CD92B /* nextBtnNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F838B1BD63A19008CD92B /* nextBtnNormal.png */; };
@@ -42,6 +48,15 @@
 		2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1151BD48713006FC007 /* searchBtn.png */; };
 		2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1161BD48713006FC007 /* searchBtnChecked.png */; };
 		2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */; };
+		2CB951251BF436E300C31EC2 /* headfaceBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB951241BF436E300C31EC2 /* headfaceBg.png */; };
+		2CB951271BF4377F00C31EC2 /* manHeadFace.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB951261BF4377F00C31EC2 /* manHeadFace.png */; };
+		2CB951291BF4510A00C31EC2 /* ConfiurationTabeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */; };
+		2CB9512E1BF4599500C31EC2 /* rankingListMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9512A1BF4599500C31EC2 /* rankingListMenu.png */; };
+		2CB9512F1BF4599500C31EC2 /* trendMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9512B1BF4599500C31EC2 /* trendMenu.png */; };
+		2CB951301BF4599500C31EC2 /* settingMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9512C1BF4599500C31EC2 /* settingMenu.png */; };
+		2CB951311BF4599500C31EC2 /* myRequipment.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB9512D1BF4599500C31EC2 /* myRequipment.png */; };
+		2CB951331BF45AD100C31EC2 /* myElder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB951321BF45AD100C31EC2 /* myElder.png */; };
+		2CB951351BF45BC400C31EC2 /* detailBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB951341BF45BC400C31EC2 /* detailBtn.png */; };
 		3A13C9841BF2DBDA00061CCF /* IHRMonitor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */; };
 		3A13C9881BF2DD2800061CCF /* IHRMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */; };
 		3A2158721BEC8C090089CC01 /* ILogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2158711BEC8C090089CC01 /* ILogin.xib */; };
@@ -200,11 +215,6 @@
 		3AB43E8D1BD4E1B9005023D3 /* DayCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E7F1BD4E1B9005023D3 /* DayCounter.swift */; };
 		3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E831BD4E1B9005023D3 /* Term.swift */; };
 		3AC7B0E41BF42EFB002DE94C /* IloginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B0E31BF42EFB002DE94C /* IloginViewModel.swift */; };
-		3AC7B0EB1BF4351A002DE94C /* loginbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B0E51BF4351A002DE94C /* loginbackground.png */; };
-		3AC7B0EC1BF4351A002DE94C /* loginpwd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B0E61BF4351A002DE94C /* loginpwd.png */; };
-		3AC7B0ED1BF4351A002DE94C /* logininputborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B0E71BF4351A002DE94C /* logininputborder.png */; };
-		3AC7B0EF1BF4351A002DE94C /* loginname.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B0E91BF4351A002DE94C /* loginname.png */; };
-		3AC7B0F01BF4351A002DE94C /* LOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B0EA1BF4351A002DE94C /* LOGO.png */; };
 		3AC7B0F21BF4551B002DE94C /* IRegist.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F11BF4551B002DE94C /* IRegist.xib */; };
 		3AC7B0F41BF4554D002DE94C /* IRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F31BF4554D002DE94C /* IRegistViewController.swift */; };
 		3AC7B0F61BF45575002DE94C /* IRegistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F51BF45575002DE94C /* IRegistViewModel.swift */; };
@@ -239,10 +249,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C06154C1BF465CC00A3F90C /* loginbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbackground.png; sourceTree = "<group>"; };
+		2C06154E1BF4660A00A3F90C /* logininputborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logininputborder.png; sourceTree = "<group>"; };
+		2C06154F1BF4660A00A3F90C /* loginname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginname.png; sourceTree = "<group>"; };
+		2C0615501BF4660A00A3F90C /* loginpwd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginpwd.png; sourceTree = "<group>"; };
+		2C0615511BF4660A00A3F90C /* LOGO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LOGO.png; sourceTree = "<group>"; };
 		2C28CA131BE87D3D000C46C4 /* ServerResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResult.swift; sourceTree = "<group>"; };
 		2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepQualityPandect.xib; sourceTree = "<group>"; };
 		2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSettingController.swift; sourceTree = "<group>"; };
 		2C2EA2E81BF422890023D458 /* IMySelfConfiguration.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IMySelfConfiguration.xib; sourceTree = "<group>"; };
+		2C2EA2EA1BF427B90023D458 /* IMySelfConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMySelfConfiguration.swift; sourceTree = "<group>"; };
 		2C2F83841BD5DE2F008CD92B /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		2C2F838A1BD63A19008CD92B /* nextBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextBtnChecked.png; sourceTree = "<group>"; };
 		2C2F838B1BD63A19008CD92B /* nextBtnNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextBtnNormal.png; sourceTree = "<group>"; };
@@ -273,6 +289,15 @@
 		2C6AE1151BD48713006FC007 /* searchBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtn.png; sourceTree = "<group>"; };
 		2C6AE1161BD48713006FC007 /* searchBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtnChecked.png; sourceTree = "<group>"; };
 		2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
+		2CB951241BF436E300C31EC2 /* headfaceBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headfaceBg.png; sourceTree = "<group>"; };
+		2CB951261BF4377F00C31EC2 /* manHeadFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = manHeadFace.png; sourceTree = "<group>"; };
+		2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiurationTabeView.swift; sourceTree = "<group>"; };
+		2CB9512A1BF4599500C31EC2 /* rankingListMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rankingListMenu.png; sourceTree = "<group>"; };
+		2CB9512B1BF4599500C31EC2 /* trendMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trendMenu.png; sourceTree = "<group>"; };
+		2CB9512C1BF4599500C31EC2 /* settingMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingMenu.png; sourceTree = "<group>"; };
+		2CB9512D1BF4599500C31EC2 /* myRequipment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myRequipment.png; sourceTree = "<group>"; };
+		2CB951321BF45AD100C31EC2 /* myElder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myElder.png; sourceTree = "<group>"; };
+		2CB951341BF45BC400C31EC2 /* detailBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detailBtn.png; sourceTree = "<group>"; };
 		3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IHRMonitor.xib; sourceTree = "<group>"; };
 		3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IHRMonitor.swift; sourceTree = "<group>"; };
 		3A2158711BEC8C090089CC01 /* ILogin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ILogin.xib; sourceTree = "<group>"; };
@@ -446,11 +471,6 @@
 		3AB43E7F1BD4E1B9005023D3 /* DayCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCounter.swift; sourceTree = "<group>"; };
 		3AB43E831BD4E1B9005023D3 /* Term.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
 		3AC7B0E31BF42EFB002DE94C /* IloginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IloginViewModel.swift; sourceTree = "<group>"; };
-		3AC7B0E51BF4351A002DE94C /* loginbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbackground.png; sourceTree = "<group>"; };
-		3AC7B0E61BF4351A002DE94C /* loginpwd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginpwd.png; sourceTree = "<group>"; };
-		3AC7B0E71BF4351A002DE94C /* logininputborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logininputborder.png; sourceTree = "<group>"; };
-		3AC7B0E91BF4351A002DE94C /* loginname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginname.png; sourceTree = "<group>"; };
-		3AC7B0EA1BF4351A002DE94C /* LOGO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LOGO.png; sourceTree = "<group>"; };
 		3AC7B0F11BF4551B002DE94C /* IRegist.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IRegist.xib; sourceTree = "<group>"; };
 		3AC7B0F31BF4554D002DE94C /* IRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRegistViewController.swift; sourceTree = "<group>"; };
 		3AC7B0F51BF45575002DE94C /* IRegistViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRegistViewModel.swift; sourceTree = "<group>"; };
@@ -518,6 +538,7 @@
 		3A13C9861BF2DC0800061CCF /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				2C2EA2EA1BF427B90023D458 /* IMySelfConfiguration.swift */,
 				3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */,
 			);
 			name = iphone;
@@ -642,6 +663,7 @@
 				3A91F0B11BF066C400C470D4 /* Date */,
 				2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */,
 				2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */,
+				2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1111,6 +1133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A39CA051BF2FCA70024DD3E /* tabBar_2.png in Resources */,
+				2C06154D1BF465CC00A3F90C /* loginbackground.png in Resources */,
 				3A39CA031BF2FCA70024DD3E /* tabBar_0.png in Resources */,
 				3A91F09F1BF0475400C470D4 /* calendar_littledot.png in Resources */,
 				3ADA58441BD5FE550066D23A /* sleepofThisWeek.png in Resources */,
@@ -1120,6 +1143,7 @@
 				3A3C377E1BD48F0B00080D03 /* hrrr.png in Resources */,
 				3A91F0AE1BF0475400C470D4 /* THDateDay.xib in Resources */,
 				3A85636A1BF1C28600E74B27 /* IMainFrame.xib in Resources */,
+				2CB951351BF45BC400C31EC2 /* detailBtn.png in Resources */,
 				3A41ADE31BA7B3D1000C109B /* LoginView.xib in Resources */,
 				3AC7B0FD1BF4577B002DE94C /* registdownarrow.png in Resources */,
 				2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */,
@@ -1130,13 +1154,13 @@
 				2C2F83901BD63A19008CD92B /* previewBtnDisable.png in Resources */,
 				3A39CA021BF2FCA70024DD3E /* grayback.png in Resources */,
 				3A9C12FD1BC789C6008EC314 /* pagerunselected.png in Resources */,
-				3AC7B0ED1BF4351A002DE94C /* logininputborder.png in Resources */,
 				3A91F0A31BF0475400C470D4 /* dialog_cancel.png in Resources */,
 				3AB3CB1D1BD762FE0067F9D4 /* SleepCareCollectionView.xib in Resources */,
 				3A3756201BCB589600182DE4 /* DialogFrame.xib in Resources */,
 				3A91F0A51BF0475400C470D4 /* dialog_clear-disabled.png in Resources */,
 				3A91F0A81BF0475400C470D4 /* dialog_clear@2x.png in Resources */,
 				3A39CA121BF2FF0A0024DD3E /* rrmenu.png in Resources */,
+				2C0615541BF4660A00A3F90C /* loginpwd.png in Resources */,
 				2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */,
 				3A9C13001BC789C6008EC314 /* onBedView.png in Resources */,
 				3A2BD8A91BD8AE78007BBD01 /* 50pt@1x.png in Resources */,
@@ -1150,23 +1174,26 @@
 				2C2F838F1BD63A19008CD92B /* nextBtnNormal.png in Resources */,
 				3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */,
 				3A91F0991BF0475400C470D4 /* arrow_right.png in Resources */,
+				2CB951311BF4599500C31EC2 /* myRequipment.png in Resources */,
 				3A39CA001BF2FCA70024DD3E /* blueback.png in Resources */,
 				3A39CA101BF2FF010024DD3E /* menuBack.png in Resources */,
 				3A39CA011BF2FCA70024DD3E /* garyboxback.png in Resources */,
+				2C0615531BF4660A00A3F90C /* loginname.png in Resources */,
+				2C0615551BF4660A00A3F90C /* LOGO.png in Resources */,
+				2CB9512E1BF4599500C31EC2 /* rankingListMenu.png in Resources */,
 				3A91F0AC1BF0475400C470D4 /* dialog_ok@2x.png in Resources */,
 				3AB43E731BD4DB45005023D3 /* previewBtnChecked.png in Resources */,
-				3AC7B0EB1BF4351A002DE94C /* loginbackground.png in Resources */,
 				3A91F0A21BF0475400C470D4 /* calendar_ok-disabled@2x.png in Resources */,
 				3A39CA071BF2FCA70024DD3E /* toolBar_shade.png in Resources */,
 				2C2EA2E91BF422890023D458 /* IMySelfConfiguration.xib in Resources */,
 				2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */,
+				2C0615521BF4660A00A3F90C /* logininputborder.png in Resources */,
 				3A39CA061BF2FCA70024DD3E /* tabBar_3.png in Resources */,
 				3A13C9841BF2DBDA00061CCF /* IHRMonitor.xib in Resources */,
 				3A9C12FE1BC789C6008EC314 /* pagerselected.png in Resources */,
 				3AFB93901BCF96F200042AF1 /* loginBtn.png in Resources */,
 				3AFB93931BCF96F200042AF1 /* textboxBorder.png in Resources */,
 				3AA3161B1BD0CFA500FC3C40 /* checkboxchoosed.png in Resources */,
-				3AC7B0F01BF4351A002DE94C /* LOGO.png in Resources */,
 				3A91F0A61BF0475400C470D4 /* dialog_clear-disabled@2x.png in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
 				3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */,
@@ -1176,6 +1203,7 @@
 				3A39CA0D1BF2FEF40024DD3E /* memenu.png in Resources */,
 				3A9C12F91BC789C6008EC314 /* infoHead.png in Resources */,
 				3A39CA041BF2FCA70024DD3E /* tabBar_1.png in Resources */,
+				2CB951301BF4599500C31EC2 /* settingMenu.png in Resources */,
 				3A91F0A01BF0475400C470D4 /* calendar_littledot@2x.png in Resources */,
 				3A2BD8AB1BD8AE78007BBD01 /* 76pt@1x.png in Resources */,
 				3AB3CB181BD762FE0067F9D4 /* AlarmTableViewCell.xib in Resources */,
@@ -1191,7 +1219,6 @@
 				3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */,
 				3A39CA0E1BF2FEF40024DD3E /* hrmenu.png in Resources */,
 				3AB3CB061BD761600067F9D4 /* ServerSettingView.xib in Resources */,
-				3AC7B0EC1BF4351A002DE94C /* loginpwd.png in Resources */,
 				3AFB93951BCF96F200042AF1 /* userIcon.png in Resources */,
 				3A3452941BC63A5000292107 /* MainView.xib in Resources */,
 				3A9C12FB1BC789C6008EC314 /* infoHeadblue.png in Resources */,
@@ -1209,16 +1236,18 @@
 				3A91F09D1BF0475400C470D4 /* calendar_littledot-disabled.png in Resources */,
 				3A91F0AA1BF0475400C470D4 /* dialog_ok-disabled@2x.png in Resources */,
 				3A9C12F11BC789C6008EC314 /* maintop.png in Resources */,
+				2CB9512F1BF4599500C31EC2 /* trendMenu.png in Resources */,
 				3A3C377B1BD48F0B00080D03 /* leaverecord.png in Resources */,
 				3A3C37821BD4D89A00080D03 /* comming.png in Resources */,
 				3AC7B0FC1BF4577B002DE94C /* regisrinputdownborder.png in Resources */,
 				3AB43E751BD4DB53005023D3 /* nextBtnDisable.png in Resources */,
+				2CB951271BF4377F00C31EC2 /* manHeadFace.png in Resources */,
 				3A8680661BD75EA900F22016 /* ChoosePart.xib in Resources */,
 				3A2F02781BCBA4E4000B16B5 /* infoHeadred.png in Resources */,
 				3A3C377D1BD48F0B00080D03 /* sleepcareblock.png in Resources */,
 				3A91F0A71BF0475400C470D4 /* dialog_clear.png in Resources */,
 				3A91F09A1BF0475400C470D4 /* arrow_right@2x.png in Resources */,
-				3AC7B0EF1BF4351A002DE94C /* loginname.png in Resources */,
+				2CB951331BF45AD100C31EC2 /* myElder.png in Resources */,
 				3A91F09C1BF0475400C470D4 /* calendar_clear-disabled@2x.png in Resources */,
 				3A91F09B1BF0475400C470D4 /* calendar_clear-disabled.png in Resources */,
 				2C2F83911BD63A19008CD92B /* previewBtnNormal.png in Resources */,
@@ -1344,6 +1373,7 @@
 				3AB43E781BD4E17B005023D3 /* Date.swift in Sources */,
 				3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */,
 				2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */,
+				2C2EA2EB1BF427B90023D458 /* IMySelfConfiguration.swift in Sources */,
 				3A4D17FB1BAFE17D00E0B862 /* AlarmInfo.swift in Sources */,
 				3A4D17F91BAFDF4800E0B862 /* TurnOverAnalysList.swift in Sources */,
 				3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */,
@@ -1353,6 +1383,7 @@
 				3A376E421BABB3B700D70953 /* EMString.swift in Sources */,
 				3AA4A7781BB2BF3F00B214C7 /* SleepCareReportList.swift in Sources */,
 				3A4CD3FA1BA80536002C8A1A /* CommonHelper.swift in Sources */,
+				2CB951291BF4510A00C31EC2 /* ConfiurationTabeView.swift in Sources */,
 				3A4B85CC1BB150C1006E4CF1 /* Constants.swift in Sources */,
 				3A3EF7C01BDE05A800CDDAED /* TodoItem.swift in Sources */,
 				3AB43E8C1BD4E1B9005023D3 /* DateHelpers.swift in Sources */,

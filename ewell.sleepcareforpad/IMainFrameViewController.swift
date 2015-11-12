@@ -63,8 +63,9 @@ class IMainFrameViewController: IBaseViewController {
             .subscribeNext {
                 _ in
                 self.curMenu = self.uiMe
-                let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
-                self.showBody(iHRMonitorView)
+                let selfConfiguration = NSBundle.mainBundle().loadNibNamed("IMySelfConfiguration", owner: self, options: nil).first as! IMySelfConfiguration
+                selfConfiguration.viewInit(self)
+                self.showBody(selfConfiguration)
         }
         
         //设置主体界面
