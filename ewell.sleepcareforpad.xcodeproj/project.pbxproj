@@ -208,6 +208,15 @@
 		3AC7B0F21BF4551B002DE94C /* IRegist.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F11BF4551B002DE94C /* IRegist.xib */; };
 		3AC7B0F41BF4554D002DE94C /* IRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F31BF4554D002DE94C /* IRegistViewController.swift */; };
 		3AC7B0F61BF45575002DE94C /* IRegistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F51BF45575002DE94C /* IRegistViewModel.swift */; };
+		3AC7B0FB1BF4577B002DE94C /* registinputborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F71BF4577B002DE94C /* registinputborder.png */; };
+		3AC7B0FC1BF4577B002DE94C /* regisrinputdownborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F81BF4577B002DE94C /* regisrinputdownborder.png */; };
+		3AC7B0FD1BF4577B002DE94C /* registdownarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F91BF4577B002DE94C /* registdownarrow.png */; };
+		3AC7B0FE1BF4577B002DE94C /* logotm.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B0FA1BF4577B002DE94C /* logotm.png */; };
+		3AC7B1021BF45BD4002DE94C /* fs_main_login_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B1001BF45BD4002DE94C /* fs_main_login_normal.png */; };
+		3AC7B1031BF45BD4002DE94C /* fs_main_login_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B1011BF45BD4002DE94C /* fs_main_login_selected.png */; };
+		3AC7B1091BF45CB9002DE94C /* ZSYPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B1081BF45CB9002DE94C /* ZSYPopoverListView.m */; };
+		3AC7B10B1BF45D00002DE94C /* PopDownListForIphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B10A1BF45D00002DE94C /* PopDownListForIphone.swift */; };
+		3AC7B10D1BF464D2002DE94C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC7B10C1BF464D2002DE94C /* Foundation.framework */; };
 		3ADA58431BD5FC7C0066D23A /* SleepcareDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37711BD48BC000080D03 /* SleepcareDetail.xib */; };
 		3ADA58441BD5FE550066D23A /* sleepofThisWeek.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37731BD48F0A00080D03 /* sleepofThisWeek.png */; };
 		3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB93881BCF96F200042AF1 /* loginBack.png */; };
@@ -445,6 +454,16 @@
 		3AC7B0F11BF4551B002DE94C /* IRegist.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IRegist.xib; sourceTree = "<group>"; };
 		3AC7B0F31BF4554D002DE94C /* IRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRegistViewController.swift; sourceTree = "<group>"; };
 		3AC7B0F51BF45575002DE94C /* IRegistViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRegistViewModel.swift; sourceTree = "<group>"; };
+		3AC7B0F71BF4577B002DE94C /* registinputborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registinputborder.png; sourceTree = "<group>"; };
+		3AC7B0F81BF4577B002DE94C /* regisrinputdownborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = regisrinputdownborder.png; sourceTree = "<group>"; };
+		3AC7B0F91BF4577B002DE94C /* registdownarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registdownarrow.png; sourceTree = "<group>"; };
+		3AC7B0FA1BF4577B002DE94C /* logotm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logotm.png; sourceTree = "<group>"; };
+		3AC7B1001BF45BD4002DE94C /* fs_main_login_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fs_main_login_normal.png; sourceTree = "<group>"; };
+		3AC7B1011BF45BD4002DE94C /* fs_main_login_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fs_main_login_selected.png; sourceTree = "<group>"; };
+		3AC7B1071BF45CB9002DE94C /* ZSYPopoverListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSYPopoverListView.h; sourceTree = "<group>"; };
+		3AC7B1081BF45CB9002DE94C /* ZSYPopoverListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSYPopoverListView.m; sourceTree = "<group>"; };
+		3AC7B10A1BF45D00002DE94C /* PopDownListForIphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDownListForIphone.swift; sourceTree = "<group>"; };
+		3AC7B10C1BF464D2002DE94C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3AFB93881BCF96F200042AF1 /* loginBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBack.png; sourceTree = "<group>"; };
 		3AFB93891BCF96F200042AF1 /* loginBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBtn.png; sourceTree = "<group>"; };
 		3AFB938A1BCF96F200042AF1 /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
@@ -462,6 +481,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AC7B10D1BF464D2002DE94C /* Foundation.framework in Frameworks */,
 				014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -618,6 +638,7 @@
 		3A31CE701BEC67440039DFD0 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				3AC7B0FF1BF45BB8002DE94C /* PopDownList */,
 				3A91F0B11BF066C400C470D4 /* Date */,
 				2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */,
 				2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */,
@@ -637,6 +658,10 @@
 		3A39C9F61BF2FC750024DD3E /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				3AC7B0F71BF4577B002DE94C /* registinputborder.png */,
+				3AC7B0F81BF4577B002DE94C /* regisrinputdownborder.png */,
+				3AC7B0F91BF4577B002DE94C /* registdownarrow.png */,
+				3AC7B0FA1BF4577B002DE94C /* logotm.png */,
 				3AC7B0E51BF4351A002DE94C /* loginbackground.png */,
 				3AC7B0E61BF4351A002DE94C /* loginpwd.png */,
 				3AC7B0E71BF4351A002DE94C /* logininputborder.png */,
@@ -914,6 +939,18 @@
 			name = iphone;
 			sourceTree = "<group>";
 		};
+		3AC7B0FF1BF45BB8002DE94C /* PopDownList */ = {
+			isa = PBXGroup;
+			children = (
+				3AC7B1071BF45CB9002DE94C /* ZSYPopoverListView.h */,
+				3AC7B1081BF45CB9002DE94C /* ZSYPopoverListView.m */,
+				3AC7B1001BF45BD4002DE94C /* fs_main_login_normal.png */,
+				3AC7B1011BF45BD4002DE94C /* fs_main_login_selected.png */,
+				3AC7B10A1BF45D00002DE94C /* PopDownListForIphone.swift */,
+			);
+			name = PopDownList;
+			sourceTree = "<group>";
+		};
 		3AFF67A51BBA2F1D00C9CA20 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -979,6 +1016,7 @@
 		3F28D28F10171C3606C8ADEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AC7B10C1BF464D2002DE94C /* Foundation.framework */,
 				3A3D65E71BAAB67C00CEFB25 /* libxml2.2.dylib */,
 				3A4CD3EF1BA802E6002C8A1A /* common.framework */,
 				3A41AE1C1BA7C121000C109B /* ewell.common.framework */,
@@ -1083,10 +1121,12 @@
 				3A91F0AE1BF0475400C470D4 /* THDateDay.xib in Resources */,
 				3A85636A1BF1C28600E74B27 /* IMainFrame.xib in Resources */,
 				3A41ADE31BA7B3D1000C109B /* LoginView.xib in Resources */,
+				3AC7B0FD1BF4577B002DE94C /* registdownarrow.png in Resources */,
 				2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */,
 				3A3C377C1BD48F0B00080D03 /* dateIcon.png in Resources */,
 				3A2BD8A81BD8AE78007BBD01 /* 29pt@1x.png in Resources */,
 				3A91F09E1BF0475400C470D4 /* calendar_littledot-disabled@2x.png in Resources */,
+				3AC7B0FB1BF4577B002DE94C /* registinputborder.png in Resources */,
 				2C2F83901BD63A19008CD92B /* previewBtnDisable.png in Resources */,
 				3A39CA021BF2FCA70024DD3E /* grayback.png in Resources */,
 				3A9C12FD1BC789C6008EC314 /* pagerunselected.png in Resources */,
@@ -1105,6 +1145,7 @@
 				3A91F0981BF0475400C470D4 /* arrow_left@2x.png in Resources */,
 				3A91F0A11BF0475400C470D4 /* calendar_ok-disabled.png in Resources */,
 				2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */,
+				3AC7B0FE1BF4577B002DE94C /* logotm.png in Resources */,
 				3AC7B0F21BF4551B002DE94C /* IRegist.xib in Resources */,
 				2C2F838F1BD63A19008CD92B /* nextBtnNormal.png in Resources */,
 				3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */,
@@ -1141,6 +1182,7 @@
 				3A8604511BBA6327005FC117 /* topbg.png in Resources */,
 				3A91F0971BF0475400C470D4 /* arrow_left.png in Resources */,
 				3A9C12F21BC789C6008EC314 /* emptyBed.png in Resources */,
+				3AC7B1021BF45BD4002DE94C /* fs_main_login_normal.png in Resources */,
 				3A91F0A91BF0475400C470D4 /* dialog_ok-disabled.png in Resources */,
 				3A3C377A1BD48F0B00080D03 /* trunrecord.png in Resources */,
 				2C2F83851BD5DE2F008CD92B /* back.png in Resources */,
@@ -1158,6 +1200,7 @@
 				3A91F0AB1BF0475400C470D4 /* dialog_ok.png in Resources */,
 				3AFB93921BCF96F200042AF1 /* loginTitle.png in Resources */,
 				3AA3161D1BD0DD8500FC3C40 /* sleepcare.plist in Resources */,
+				3AC7B1031BF45BD4002DE94C /* fs_main_login_selected.png in Resources */,
 				3A2BD8AA1BD8AE78007BBD01 /* 72pt@1x.png in Resources */,
 				3A9C13011BC789C6008EC314 /* transbg.png in Resources */,
 				3A9C12F71BC789C6008EC314 /* search.png in Resources */,
@@ -1168,6 +1211,7 @@
 				3A9C12F11BC789C6008EC314 /* maintop.png in Resources */,
 				3A3C377B1BD48F0B00080D03 /* leaverecord.png in Resources */,
 				3A3C37821BD4D89A00080D03 /* comming.png in Resources */,
+				3AC7B0FC1BF4577B002DE94C /* regisrinputdownborder.png in Resources */,
 				3AB43E751BD4DB53005023D3 /* nextBtnDisable.png in Resources */,
 				3A8680661BD75EA900F22016 /* ChoosePart.xib in Resources */,
 				3A2F02781BCBA4E4000B16B5 /* infoHeadred.png in Resources */,
@@ -1324,6 +1368,7 @@
 				3A91F0B31BF066F500C470D4 /* THDate.swift in Sources */,
 				3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */,
 				3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */,
+				3AC7B1091BF45CB9002DE94C /* ZSYPopoverListView.m in Sources */,
 				3A35AB651BCCE8B000ED3293 /* SweetAlert.swift in Sources */,
 				3A41ADE71BA7B425000C109B /* BaseViewController.swift in Sources */,
 				3A346BF81BCCD36200E75E4E /* SleepcareMainViewModel.swift in Sources */,
@@ -1344,6 +1389,7 @@
 				2C5181FF1BF1AB5F007DC2A3 /* IMainInfo.swift in Sources */,
 				3A376E4A1BABD9F400D70953 /* PartInfo.swift in Sources */,
 				3AC7B0E41BF42EFB002DE94C /* IloginViewModel.swift in Sources */,
+				3AC7B10B1BF45D00002DE94C /* PopDownListForIphone.swift in Sources */,
 				2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,10 +8,13 @@
 
 import UIKit
 
-class ILoginController: IBaseViewController,THDateChoosedDelegate {
+class ILoginController: IBaseViewController {
     var datapicker:THDate?
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var btnTest: UIButton!
+    @IBOutlet weak var btnLogin: BlueButtonForPhone!
+    @IBOutlet weak var btnRegist: BlueButtonForPhone!
+    
     @IBAction func TouchButton(sender: AnyObject) {
 //        self.datapicker?.ShowDate()
         var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
@@ -37,15 +40,12 @@ class ILoginController: IBaseViewController,THDateChoosedDelegate {
 //        var v12 = scBLL.GetAllMainInfo()
     }
     
-    func ChoosedDate(choosedDate:String?){
-        self.lblDate.text = choosedDate
-    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         datapicker = THDate(parentControl: self)
-        datapicker?.delegate = self
-        // Do any additional setup after loading the view.
+        rac_settings()
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,14 +54,13 @@ class ILoginController: IBaseViewController,THDateChoosedDelegate {
     }
     
     
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+    //-------------自定义方法处理---------------
+    func rac_settings(){
+        
+        self.btnRegist!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
+            .subscribeNext {
+                _ in
+             self.presentViewController(IRegistViewController(nibName: "IRegist", bundle: nil), animated: true, completion: nil)   
+        }
     }
-    */
-    
 }
