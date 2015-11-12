@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IRegistViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <connections>
+                <outlet property="btnBack" destination="wnd-xb-TPq" id="mbP-iP-7RO"/>
+                <outlet property="btnChooseRole" destination="KOP-hJ-Z4a" id="Igg-wk-XLF"/>
+                <outlet property="btnRegist" destination="CDC-Iz-THK" id="xLX-DT-oMP"/>
                 <outlet property="view" destination="iN0-l3-epB" id="rue-X1-hrW"/>
             </connections>
         </placeholder>
@@ -14,8 +17,150 @@
         <view contentMode="scaleAspectFill" id="iN0-l3-epB" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logotm.png" translatesAutoresizingMaskIntoConstraints="NO" id="yjY-Du-nww">
+                    <rect key="frame" x="38" y="50" width="151" height="49"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="151" id="PTF-6q-YZN"/>
+                        <constraint firstAttribute="height" constant="49" id="tNS-5p-kQH"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户注册" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBZ-38-r8W">
+                    <rect key="frame" x="187" y="62" width="85" height="25"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="PuZ-qd-HaV"/>
+                        <constraint firstAttribute="width" constant="85" id="SBo-oR-Vcm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNl-06-l6S" userLabel="loginname" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="51" y="127" width="218" height="43"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="设置账户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IQl-LX-zcl">
+                            <rect key="frame" x="8" y="7" width="202" height="30"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="lah-Qg-irg"/>
+                        <constraint firstAttribute="width" constant="218" id="mXI-wJ-XCW"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="registinputborder.png"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LzP-IC-MEf" userLabel="pwd" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="51" y="189" width="218" height="43"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="设置密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jEY-Nw-OT8">
+                            <rect key="frame" x="8" y="7" width="202" height="30"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="218" id="CJE-ia-3ZU"/>
+                        <constraint firstAttribute="height" constant="43" id="xcV-DY-sjn"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="registinputborder.png"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcw-t4-fXC" userLabel="repwd" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="51" y="249" width="218" height="43"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="确认密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TQe-uk-Jhh">
+                            <rect key="frame" x="8" y="7" width="202" height="30"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="NTA-D1-x2W"/>
+                        <constraint firstAttribute="width" constant="218" id="kTf-qt-1bt"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="registinputborder.png"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tez-bd-O4P" userLabel="role" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="51" y="306" width="218" height="43"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择养老院" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ZE-Hb-9hQ">
+                            <rect key="frame" x="8" y="7" width="169" height="30"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOP-hJ-Z4a">
+                            <rect key="frame" x="174" y="5" width="41" height="35"/>
+                            <animations/>
+                            <state key="normal" image="registdownarrow.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="218" id="gTN-wg-QYR"/>
+                        <constraint firstAttribute="height" constant="43" id="r6x-1J-tGs"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="regisrinputdownborder.png"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDC-Iz-THK" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="55" y="402" width="86" height="46"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="9bW-Pt-LLW"/>
+                        <constraint firstAttribute="width" constant="86" id="rud-51-R5S"/>
+                    </constraints>
+                    <state key="normal" title="注册">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnd-xb-TPq" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="180" y="402" width="86" height="46"/>
+                    <animations/>
+                    <state key="normal" title="返回">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="LzP-IC-MEf" secondAttribute="centerX" id="942-iw-ssT"/>
+                <constraint firstAttribute="centerX" secondItem="Tez-bd-O4P" secondAttribute="centerX" id="D7i-IK-fJN"/>
+                <constraint firstAttribute="centerX" secondItem="yjY-Du-nww" secondAttribute="centerX" constant="46.5" id="JH7-jI-LkU"/>
+                <constraint firstItem="CDC-Iz-THK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="402" id="NNT-42-qeA"/>
+                <constraint firstItem="SNl-06-l6S" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="127" id="TvA-Sh-e7y"/>
+                <constraint firstItem="LzP-IC-MEf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="189" id="dIO-XU-I6T"/>
+                <constraint firstItem="RBZ-38-r8W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="62" id="fJk-xe-SPI"/>
+                <constraint firstItem="Tez-bd-O4P" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="306" id="fvX-DV-AAN"/>
+                <constraint firstAttribute="centerX" secondItem="CDC-Iz-THK" secondAttribute="centerX" constant="62" id="gES-yj-5qf"/>
+                <constraint firstAttribute="centerX" secondItem="RBZ-38-r8W" secondAttribute="centerX" constant="-69.5" id="hiq-3E-tQx"/>
+                <constraint firstItem="hcw-t4-fXC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="249" id="xMb-U2-LKg"/>
+                <constraint firstAttribute="centerX" secondItem="SNl-06-l6S" secondAttribute="centerX" id="yeC-mn-Nnb"/>
+                <constraint firstItem="yjY-Du-nww" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="z8h-HZ-qia"/>
+                <constraint firstAttribute="centerX" secondItem="hcw-t4-fXC" secondAttribute="centerX" id="zID-EC-Lit"/>
+            </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="loginbackground.png"/>
             </userDefinedRuntimeAttributes>
@@ -24,6 +169,10 @@
     </objects>
     <resources>
         <image name="loginbackground.png" width="640" height="1136"/>
+        <image name="logotm.png" width="300" height="60"/>
+        <image name="regisrinputdownborder.png" width="460" height="88"/>
+        <image name="registdownarrow.png" width="52" height="52"/>
+        <image name="registinputborder.png" width="460" height="88"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
