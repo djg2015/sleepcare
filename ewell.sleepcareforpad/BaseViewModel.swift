@@ -16,8 +16,12 @@ class BaseViewModel: NSObject {
         if(controller != nil){
             self.controller!.presentViewController(jumpedViewController, animated: true, completion: nil)
         }
+    }
+    
+    func JumpPageForIpone(jumpedViewController:IBaseViewController){
+       
         if(controllerForIphone != nil){
-            self.controller!.presentViewController(jumpedViewController, animated: true, completion: nil)
+            self.controllerForIphone!.presentViewController(jumpedViewController, animated: true, completion: nil)
         }
     }
 }
