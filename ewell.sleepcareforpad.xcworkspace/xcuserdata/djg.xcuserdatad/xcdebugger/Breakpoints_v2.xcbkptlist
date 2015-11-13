@@ -1262,11 +1262,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CommonHelper.swift"
-            timestampString = "469075808.914012"
+            timestampString = "469095213.171955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "GetValueFromPlist(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2775,11 +2775,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/IRegistViewController.swift"
-            timestampString = "469087712.539019"
+            timestampString = "469094649.471144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "rac_settings()"
             landmarkType = "5">
          </BreakpointContent>
@@ -2791,27 +2791,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/IRegistViewController.swift"
-            timestampString = "469087712.539019"
+            timestampString = "469094649.471144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "rac_settings()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ewell.sleepcareforpad/IRegistViewController.swift"
-            timestampString = "469087712.539019"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "rac_settings()"
             landmarkType = "5">
          </BreakpointContent>
@@ -2823,11 +2807,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/IRegistViewController.swift"
-            timestampString = "469087712.539019"
+            timestampString = "469094649.471144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "IRegistViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -2845,6 +2829,54 @@
             startingLineNumber = "228"
             endingLineNumber = "228"
             landmarkName = "showAlert(_:subTitle:style:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ewell.sleepcareforpad/IRegistViewController.swift"
+            timestampString = "469094649.471144"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "rac_settings()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ewell.sleepcareforpad/IRegistViewModel.swift"
+            timestampString = "469094217.517546"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "init()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ewell.sleepcareforpad/IRegistViewModel.swift"
+            timestampString = "469095383.905233"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "Regist()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

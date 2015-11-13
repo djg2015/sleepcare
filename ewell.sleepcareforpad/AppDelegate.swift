@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
         
         if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
-            
+            deviceType = "iphone"
             //设置启动界面
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
             self.window!.backgroundColor = UIColor.whiteColor()

@@ -75,13 +75,13 @@ class IRegistViewModel:BaseViewModel {
     }
     
     //界面处理命令
-    var regist: RACCommand?
+    var registCommand: RACCommand?
     
     //构造函数
     override init(){
         super.init()
         
-        regist = RACCommand() {
+        registCommand = RACCommand() {
             (any:AnyObject!) -> RACSignal in
             return self.Regist()
         }
@@ -91,10 +91,17 @@ class IRegistViewModel:BaseViewModel {
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 let isLogin = xmppMsgManager!.Connect()
                 if(!isLogin){
-                    showDialogMsg("远程通讯服务器连接不上，请重新连接！")
+                    showDialogMsg("远程通讯服务器连接不上，返回后请重新连接！", "错误", buttonTitle: "确定", action: self.ConnectLost)
                 }
                 else{
-                    
+                    var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+                    var mainInfoList:IMainInfoList =  sleepCareForIPhoneBussinessManager.GetAllMainInfo()
+                    for(var i=0;i<mainInfoList.mainInfoList.count;i++){
+                        var item:PopDownListItem = PopDownListItem()
+                        item.key = mainInfoList.mainInfoList[i].MainCode
+                        item.value = mainInfoList.mainInfoList[i].MainName
+                        self.MainBusinesses.append(item)
+                    }
                     
                 }
                 },
@@ -112,11 +119,11 @@ class IRegistViewModel:BaseViewModel {
     //自定义处理----------------------
     //失去连接后处理
     func ConnectLost(isOtherButton: Bool){
-        self.controller?.dismissViewControllerAnimated(true, completion: nil)
+        self.controllerForIphone?.dismissViewControllerAnimated(true, completion: nil)
     }
     //注册成功后处理
     func RegistSuccess(isOtherButton: Bool){
-        self.controller?.dismissViewControllerAnimated(true, completion: nil)
+        self.controllerForIphone?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     //注册
@@ -127,8 +134,12 @@ class IRegistViewModel:BaseViewModel {
                     showDialogMsg("账户名不能为空！")
                     return
                 }
+                if(self.Pwd == ""){
+                    showDialogMsg("密码不能为空！")
+                    return
+                }
                 if(self.Pwd != self.RePwd){
-                    showDialogMsg("二次密码不一样，请重新输入！")
+                    showDialogMsg("二次输入的密码不一样，请重新输入！")
                     self.RePwd = ""
                     return
                 }
@@ -136,8 +147,9 @@ class IRegistViewModel:BaseViewModel {
                     showDialogMsg("请选择所属养老院/医院！")
                     return
                 }
-                
-                
+                var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+                sleepCareForIPhoneBussinessManager.Regist(self.LoginName, loginPassword: self.Pwd, mainCode: self.MainCode)
+                 showDialogMsg("注册成功！", "提示", buttonTitle: "确定", action: self.RegistSuccess)
                 },
                 catch: { ex in
                     //异常处理

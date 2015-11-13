@@ -25,7 +25,7 @@ public class SweetAlert: UIViewController {
     var kContentWidth: CGFloat = 500.0
     let kButtonHeight: CGFloat = 35.0
     var textViewHeight: CGFloat = 90.0
-    let kTitleHeight:CGFloat = 30.0
+    let kTitleHeight:CGFloat = 60.0
     var strongSelf:SweetAlert?
     var contentView = UIView()
     var titleLabel: UILabel = UILabel()
@@ -79,7 +79,7 @@ public class SweetAlert: UIViewController {
     
     private func setupTitleLabel() {
         titleLabel.text = ""
-        titleLabel.numberOfLines = 1
+        titleLabel.numberOfLines = 2
         titleLabel.textAlignment = .Center
         titleLabel.font = UIFont(name: kFont, size:25)
         titleLabel.textColor = UIColor.colorFromRGB(0x575757)

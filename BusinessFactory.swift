@@ -7,12 +7,12 @@
 //
 
 import Foundation
-class BusinessFactory{
-    class func GetBusinessInstance(name:String) -> AnyObject{
-        if("SleepCareBussinessManager" == name){
-            return SleepCareForIPhoneBussiness()
+class BusinessFactory<T>{
+    class func GetBusinessInstance(name:String) -> T{
+        if("SleepCareForIPhoneBussinessManager" == name){
+            return SleepCareForIPhoneBussiness() as! T
         }
         
-        return SleepCareBussiness()
+        return SleepCareBussiness() as! T
     }
 }

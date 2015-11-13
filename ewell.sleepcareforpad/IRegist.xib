@@ -10,6 +10,10 @@
                 <outlet property="btnBack" destination="wnd-xb-TPq" id="mbP-iP-7RO"/>
                 <outlet property="btnChooseRole" destination="KOP-hJ-Z4a" id="Igg-wk-XLF"/>
                 <outlet property="btnRegist" destination="CDC-Iz-THK" id="xLX-DT-oMP"/>
+                <outlet property="txtLoginName" destination="IQl-LX-zcl" id="rrf-xi-n21"/>
+                <outlet property="txtMain" destination="5ZE-Hb-9hQ" id="CcJ-ZB-bHT"/>
+                <outlet property="txtPwd" destination="jEY-Nw-OT8" id="o6O-Ef-1ue"/>
+                <outlet property="txtRePwd" destination="TQe-uk-Jhh" id="cWO-eb-CqO"/>
                 <outlet property="view" destination="iN0-l3-epB" id="rue-X1-hrW"/>
             </connections>
         </placeholder>
@@ -64,7 +68,7 @@
                             <rect key="frame" x="8" y="7" width="202" height="30"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
                     </subviews>
                     <animations/>
@@ -84,7 +88,7 @@
                             <rect key="frame" x="8" y="7" width="202" height="30"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
                     </subviews>
                     <animations/>
@@ -100,7 +104,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tez-bd-O4P" userLabel="role" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="51" y="306" width="218" height="43"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择养老院" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ZE-Hb-9hQ">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择养老院" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ZE-Hb-9hQ">
                             <rect key="frame" x="8" y="7" width="169" height="30"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -135,9 +139,13 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnd-xb-TPq" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnd-xb-TPq" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="180" y="402" width="86" height="46"/>
                     <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="KhH-7w-IiV"/>
+                        <constraint firstAttribute="width" constant="86" id="t8a-iM-MAB"/>
+                    </constraints>
                     <state key="normal" title="返回">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -148,6 +156,7 @@
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="LzP-IC-MEf" secondAttribute="centerX" id="942-iw-ssT"/>
                 <constraint firstAttribute="centerX" secondItem="Tez-bd-O4P" secondAttribute="centerX" id="D7i-IK-fJN"/>
+                <constraint firstItem="wnd-xb-TPq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="402" id="GXU-nH-538"/>
                 <constraint firstAttribute="centerX" secondItem="yjY-Du-nww" secondAttribute="centerX" constant="46.5" id="JH7-jI-LkU"/>
                 <constraint firstItem="CDC-Iz-THK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="402" id="NNT-42-qeA"/>
                 <constraint firstItem="SNl-06-l6S" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="127" id="TvA-Sh-e7y"/>
@@ -156,6 +165,7 @@
                 <constraint firstItem="Tez-bd-O4P" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="306" id="fvX-DV-AAN"/>
                 <constraint firstAttribute="centerX" secondItem="CDC-Iz-THK" secondAttribute="centerX" constant="62" id="gES-yj-5qf"/>
                 <constraint firstAttribute="centerX" secondItem="RBZ-38-r8W" secondAttribute="centerX" constant="-69.5" id="hiq-3E-tQx"/>
+                <constraint firstAttribute="centerX" secondItem="wnd-xb-TPq" secondAttribute="centerX" constant="-63" id="o1Y-UW-t4z"/>
                 <constraint firstItem="hcw-t4-fXC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="249" id="xMb-U2-LKg"/>
                 <constraint firstAttribute="centerX" secondItem="SNl-06-l6S" secondAttribute="centerX" id="yeC-mn-Nnb"/>
                 <constraint firstItem="yjY-Du-nww" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="z8h-HZ-qia"/>

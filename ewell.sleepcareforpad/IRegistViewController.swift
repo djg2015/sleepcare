@@ -8,11 +8,17 @@
 
 import UIKit
 
-class IRegistViewController: UIViewController,PopDownListItemChoosed {
+class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
+    @IBOutlet weak var txtLoginName: UITextField!
+    @IBOutlet weak var txtPwd: UITextField!
+    @IBOutlet weak var txtRePwd: UITextField!
+    @IBOutlet weak var txtMain: UITextField!
+    
     @IBOutlet weak var btnBack: BlueButtonForPhone!
     @IBOutlet weak var btnRegist: BlueButtonForPhone!
     @IBOutlet weak var btnChooseRole: UIButton!
     var popDownListForIphone:PopDownListForIphone?
+    var iRegistViewModel:IRegistViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         rac_settings()
@@ -26,11 +32,12 @@ class IRegistViewController: UIViewController,PopDownListItemChoosed {
     
     //-------------自定义方法处理---------------
     func rac_settings(){
-        self.btnRegist!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
-            .subscribeNext {
-                _ in
-                
-        }
+        self.iRegistViewModel = IRegistViewModel()
+        self.iRegistViewModel.controllerForIphone = self
+        self.btnRegist!.rac_command = self.iRegistViewModel?.registCommand
+        self.txtLoginName.rac_textSignal() ~> RAC(self.iRegistViewModel, "LoginName")
+        self.txtPwd.rac_textSignal() ~> RAC(self.iRegistViewModel, "Pwd")
+        self.txtRePwd.rac_textSignal() ~> RAC(self.iRegistViewModel, "RePwd")
         
         self.btnBack!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
@@ -41,28 +48,20 @@ class IRegistViewController: UIViewController,PopDownListItemChoosed {
         self.btnChooseRole!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-                var source:Array<PopDownListItem> = Array<PopDownListItem>()
-                var item1 = PopDownListItem()
-                item1.key = "1"
-                item1.value = "养老院1"
-                source.append(item1)
-                var item2 = PopDownListItem()
-                item2.key = "1"
-                item2.value = "养老院1"
-                source.append(item2)
                 if(self.popDownListForIphone == nil){
                     
                     self.popDownListForIphone = PopDownListForIphone()
                     self.popDownListForIphone?.delegate = self
                 }
-                self.popDownListForIphone?.Show("选择养老院/医院", source: source)
+                self.popDownListForIphone?.Show("选择养老院/医院", source:self.iRegistViewModel!.MainBusinesses)
         }
     }
-   
+    
     func ChoosedItem(item:PopDownListItem){
-        
+        self.iRegistViewModel.MainCode = item.key!
+        self.txtMain.text = item.value
     }
-
+    
     
     
 }
