@@ -80,12 +80,42 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-09-22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cs-Lp-kRt">
+                            <rect key="frame" x="120" y="283" width="80" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="91Z-Iu-xzh"/>
+                                <constraint firstAttribute="width" constant="80" id="wXm-pe-Mcs"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moveLeft.png" translatesAutoresizingMaskIntoConstraints="NO" id="9QF-DF-R7H">
+                            <rect key="frame" x="88" y="281" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="dxh-ho-4au"/>
+                                <constraint firstAttribute="height" constant="25" id="ors-R9-VaY"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moveRight.png" translatesAutoresizingMaskIntoConstraints="NO" id="G1t-jZ-5SL">
+                            <rect key="frame" x="208" y="281" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="dGL-mM-s6L"/>
+                                <constraint firstAttribute="height" constant="25" id="i9g-sK-frH"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="centerX" secondItem="A1n-Oo-Zfx" secondAttribute="centerX" id="Hfv-ma-mfx"/>
+                        <constraint firstAttribute="centerX" secondItem="9QF-DF-R7H" secondAttribute="centerX" constant="60" id="Klz-2A-vIF"/>
+                        <constraint firstAttribute="bottom" secondItem="8cs-Lp-kRt" secondAttribute="bottom" constant="12" id="OKB-2C-khn"/>
+                        <constraint firstAttribute="bottom" secondItem="9QF-DF-R7H" secondAttribute="bottom" constant="10" id="TUp-xS-wRq"/>
                         <constraint firstAttribute="centerY" secondItem="A1n-Oo-Zfx" secondAttribute="centerY" constant="-10" id="TZm-G8-m9G"/>
                         <constraint firstItem="cZD-b6-fjw" firstAttribute="leading" secondItem="E3B-eg-0Dk" secondAttribute="leading" id="aHi-QH-1nn"/>
+                        <constraint firstAttribute="centerX" secondItem="G1t-jZ-5SL" secondAttribute="centerX" constant="-60" id="dlO-Cf-alv"/>
+                        <constraint firstAttribute="bottom" secondItem="G1t-jZ-5SL" secondAttribute="bottom" constant="10" id="dnY-Kd-t0l"/>
+                        <constraint firstAttribute="centerX" secondItem="8cs-Lp-kRt" secondAttribute="centerX" id="fEn-vx-OtM"/>
                         <constraint firstItem="cZD-b6-fjw" firstAttribute="top" secondItem="E3B-eg-0Dk" secondAttribute="top" id="tgj-ax-rrZ"/>
                         <constraint firstAttribute="trailing" secondItem="cZD-b6-fjw" secondAttribute="trailing" id="xVx-JW-aIe"/>
                     </constraints>
@@ -114,6 +144,9 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="imgMoveLeft" destination="9QF-DF-R7H" id="N8p-gc-rXI"/>
+                <outlet property="imgMoveRight" destination="G1t-jZ-5SL" id="Bei-ss-GyF"/>
+                <outlet property="lblSelectDate" destination="8cs-Lp-kRt" id="7TZ-yt-rp3"/>
                 <outlet property="process" destination="A1n-Oo-Zfx" id="Bik-xX-Xu7"/>
             </connections>
             <point key="canvasLocation" x="243" y="181"/>
@@ -124,6 +157,8 @@
         <image name="calendar.png" width="38" height="38"/>
         <image name="downLoad.png" width="38" height="38"/>
         <image name="garyboxback.png" width="640" height="370"/>
+        <image name="moveLeft.png" width="34" height="30"/>
+        <image name="moveRight.png" width="34" height="30"/>
         <image name="sleepQualitySelector.png" width="61" height="41"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

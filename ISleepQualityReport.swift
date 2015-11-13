@@ -24,11 +24,11 @@ class ISleepQualityReport: BaseMessage {
         //构造XML文档
         var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
         var qualityReport = doc.rootElement() as DDXMLElement!
-        result.SleepQuality = qualityReport.elementForName("SleepQuality").stringValue()
-        result.OnBedTimespan = qualityReport.elementForName("OnBedTimespan").stringValue()
-        result.DeepSleepTimespan = qualityReport.elementForName("DeepSleepTimespan").stringValue()
-        result.LightSleepTimespan = qualityReport.elementForName("LightSleepTimespan").stringValue()
-        result.AwakeningTimespan = qualityReport.elementForName("AwakeningTimespan").stringValue()
+        result.SleepQuality = qualityReport.elementForName("SleepQuality") == nil ? "" : qualityReport.elementForName("SleepQuality").stringValue()
+        result.OnBedTimespan = qualityReport.elementForName("OnBedTimespan") == nil ? "" : qualityReport.elementForName("OnBedTimespan").stringValue()
+        result.DeepSleepTimespan = qualityReport.elementForName("DeepSleepTimespan") == nil ? "" : qualityReport.elementForName("DeepSleepTimespan").stringValue()
+        result.LightSleepTimespan = qualityReport.elementForName("LightSleepTimespan") == nil ? "" : qualityReport.elementForName("LightSleepTimespan").stringValue()
+        result.AwakeningTimespan = qualityReport.elementForName("AwakeningTimespan") == nil ? "" : qualityReport.elementForName("AwakeningTimespan").stringValue()
         
         var reportList = doc.nodesForXPath("//SleepDateReport", error:nil) as! [DDXMLElement]
         for report in reportList {
