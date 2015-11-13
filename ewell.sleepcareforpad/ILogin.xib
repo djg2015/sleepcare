@@ -9,6 +9,8 @@
             <connections>
                 <outlet property="btnLogin" destination="SmM-Zh-scF" id="jCY-ci-l5n"/>
                 <outlet property="btnRegist" destination="EJT-0R-t5j" id="0OK-lp-OWb"/>
+                <outlet property="txtLoginName" destination="FTp-wq-ssc" id="3Rp-5k-xld"/>
+                <outlet property="txtPwd" destination="fPV-Lu-uDO" id="6ZC-uI-5qe"/>
                 <outlet property="view" destination="iN0-l3-epB" id="iry-rU-ppn"/>
             </connections>
         </placeholder>
@@ -60,7 +62,7 @@
                             <rect key="frame" x="48" y="5" width="171" height="30"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
                     </subviews>
                     <animations/>
