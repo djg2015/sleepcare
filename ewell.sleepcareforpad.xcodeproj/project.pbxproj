@@ -71,6 +71,8 @@
 		2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1161BD48713006FC007 /* searchBtnChecked.png */; };
 		2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */; };
 		2CB951291BF4510A00C31EC2 /* ConfiurationTabeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */; };
+		2CDF94101BF5C2BD00FCFAF7 /* moveRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */; };
+		2CDF94111BF5C2BD00FCFAF7 /* moveLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF940F1BF5C2BD00FCFAF7 /* moveLeft.png */; };
 		3A0B97171BF5791F00409AD9 /* SessionForIphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */; };
 		3A13C9841BF2DBDA00061CCF /* IHRMonitor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */; };
 		3A13C9881BF2DD2800061CCF /* IHRMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */; };
@@ -323,6 +325,8 @@
 		2C6AE1161BD48713006FC007 /* searchBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtnChecked.png; sourceTree = "<group>"; };
 		2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
 		2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiurationTabeView.swift; sourceTree = "<group>"; };
+		2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveRight.png; sourceTree = "<group>"; };
+		2CDF940F1BF5C2BD00FCFAF7 /* moveLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveLeft.png; sourceTree = "<group>"; };
 		3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionForIphone.swift; sourceTree = "<group>"; };
 		3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IHRMonitor.xib; sourceTree = "<group>"; };
 		3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IHRMonitor.swift; sourceTree = "<group>"; };
@@ -706,6 +710,8 @@
 		3A39C9F61BF2FC750024DD3E /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */,
+				2CDF940F1BF5C2BD00FCFAF7 /* moveLeft.png */,
 				2C06157F1BF48C4900A3F90C /* sleepQualitySelector.png */,
 				2C0615721BF481D100A3F90C /* regisrinputdownborder.png */,
 				2C0615731BF481D100A3F90C /* registinputborder.png */,
@@ -1173,6 +1179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CDF94101BF5C2BD00FCFAF7 /* moveRight.png in Resources */,
 				2C0615831BF48D5900A3F90C /* calendar.png in Resources */,
 				2C0615761BF4825400A3F90C /* logininputborder.png in Resources */,
 				2C0615771BF4825400A3F90C /* loginname.png in Resources */,
@@ -1287,6 +1294,7 @@
 				3A9C12F41BC789C6008EC314 /* leaveView.png in Resources */,
 				3A91F09D1BF0475400C470D4 /* calendar_littledot-disabled.png in Resources */,
 				3A91F0AA1BF0475400C470D4 /* dialog_ok-disabled@2x.png in Resources */,
+				2CDF94111BF5C2BD00FCFAF7 /* moveLeft.png in Resources */,
 				3A9C12F11BC789C6008EC314 /* maintop.png in Resources */,
 				3A3C377B1BD48F0B00080D03 /* leaverecord.png in Resources */,
 				3A3C37821BD4D89A00080D03 /* comming.png in Resources */,

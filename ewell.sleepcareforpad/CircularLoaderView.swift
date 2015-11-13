@@ -22,24 +22,34 @@ class CircularLoaderView: UIView {
     var strokeColor:CGColor = UIColor.whiteColor().CGColor
     // 圆中心位置显示的文字
     var centerTitleView:UIView?
+    private var bottomTxt:UILabel?
     // 圆下方位置显示的文字
     @IBInspectable var bottomTitle:String = "当前呼吸" {
         didSet{
-            self.configure()
+            if(nil == bottomTxt)
+            {
+                bottomTxt = UILabel(frame: CGRect(x: self.circleRadius - 60/2, y: bounds.height - 30, width: 60, height: 30))
+                bottomTxt!.adjustsFontSizeToFitWidth = true
+                bottomTxt!.font = UIFont.boldSystemFontOfSize(18)
+                bottomTxt!.textColor = UIColor.whiteColor()
+                
+                self.addSubview(bottomTxt!)
+            }
+            bottomTxt!.text = self.bottomTitle
         }
         
     }
     // 最大长度
     @IBInspectable var maxProcess:CGFloat = 10.0 {
         didSet{
-            self.configure()
+            self.layoutSubviews()
         }
         
     }
     // 当前进度
     @IBInspectable var currentProcess:CGFloat = 0.0 {
         didSet{
-            self.configure()
+            self.layoutSubviews()
         }
         
     }
@@ -56,8 +66,6 @@ class CircularLoaderView: UIView {
     
     // 配置圆
     func configure() {
-        //        self.centerTitleView!.subviews.map({$0.removeFromSuperview()})
-        self.subviews.map({$0.removeFromSuperview()})
         // 当前控件的运行空间
         self.frame = bounds
         // 根据当前控件宽度计算出圆的半径
@@ -94,12 +102,7 @@ class CircularLoaderView: UIView {
         //        centerView.backgroundColor = UIColor.yellowColor()
         self.addSubview(self.centerTitleView!)
         
-        var bottomTxt = UILabel(frame: CGRect(x: self.circleRadius - 60/2, y: bounds.height - 30, width: 60, height: 30))
-        bottomTxt.adjustsFontSizeToFitWidth = true
-        bottomTxt.font = UIFont.boldSystemFontOfSize(18)
-        bottomTxt.textColor = UIColor.whiteColor()
-        bottomTxt.text = self.bottomTitle
-        self.addSubview(bottomTxt)
+        
         
         backgroundColor = UIColor.clearColor()
     }

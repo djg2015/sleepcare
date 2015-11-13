@@ -13,12 +13,18 @@ class ISleepQualityMonitor: UIView {
     
     @IBOutlet weak var process: CircularLoaderView!
     
+    @IBOutlet weak var lblSelectDate: UILabel!
+    @IBOutlet weak var imgMoveRight: UIImageView!
+    @IBOutlet weak var imgMoveLeft: UIImageView!
+    
+    
     var sleepQualityViewModel:ISleepQualityMonitorViewModel = ISleepQualityMonitorViewModel()
     var lblSleepQuality:UILabel?
     var lblOnBedTimespan:UILabel?
     var lblDeepSleepTimespan:UILabel?
     var lblLightSleepTimespan:UILabel?
     var lblAwakeningTimespan:UILabel?
+    
     func viewInit()
     {
         // 画出圆圈中间内容
@@ -88,9 +94,29 @@ class ISleepQualityMonitor: UIView {
         RACObserve(self.sleepQualityViewModel, "DeepSleepTimespan") ~> RAC(self.lblDeepSleepTimespan, "text")
         RACObserve(self.sleepQualityViewModel, "LightSleepTimespan") ~> RAC(self.lblLightSleepTimespan, "text")
         RACObserve(self.sleepQualityViewModel, "AwakeningTimespan") ~> RAC(self.lblAwakeningTimespan, "text")
+        RACObserve(self.sleepQualityViewModel, "SelectedDate") ~> RAC(self.lblSelectDate, "text")
 
         
-        self.sleepQualityViewModel.SelectedDate = "2015-10-11"
+        self.sleepQualityViewModel.SelectedDate = getCurrentTime("yyyy-MM-dd")
+        
+        // 给图片添加手势
+        self.imgMoveLeft.userInteractionEnabled = true
+        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "moveLeft:")
+        self.imgMoveLeft.addGestureRecognizer(singleTap)
+        
+        self.imgMoveRight.userInteractionEnabled = true
+        var singleTap1:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "moveRight:")
+        self.imgMoveRight.addGestureRecognizer(singleTap1)
+    }
+    
+    func moveLeft(sender:UITapGestureRecognizer)
+    {
+        self.sleepQualityViewModel.SelectedDate = Date(string: self.sleepQualityViewModel.SelectedDate, format: "yyyy-MM-dd").addDays(-1).description(format: "yyyy-MM-dd")
+    }
+    
+    func moveRight(sender:UITapGestureRecognizer)
+    {
+        self.sleepQualityViewModel.SelectedDate = Date(string: self.sleepQualityViewModel.SelectedDate, format: "yyyy-MM-dd").addDays(1).description(format: "yyyy-MM-dd")
     }
     
 }
