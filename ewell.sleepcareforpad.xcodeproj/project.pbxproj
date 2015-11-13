@@ -70,6 +70,7 @@
 		2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1161BD48713006FC007 /* searchBtnChecked.png */; };
 		2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */; };
 		2CB951291BF4510A00C31EC2 /* ConfiurationTabeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */; };
+		3A0B97171BF5791F00409AD9 /* SessionForIphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */; };
 		3A13C9841BF2DBDA00061CCF /* IHRMonitor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */; };
 		3A13C9881BF2DD2800061CCF /* IHRMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */; };
 		3A2158721BEC8C090089CC01 /* ILogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2158711BEC8C090089CC01 /* ILogin.xib */; };
@@ -320,6 +321,7 @@
 		2C6AE1161BD48713006FC007 /* searchBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtnChecked.png; sourceTree = "<group>"; };
 		2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
 		2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiurationTabeView.swift; sourceTree = "<group>"; };
+		3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionForIphone.swift; sourceTree = "<group>"; };
 		3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IHRMonitor.xib; sourceTree = "<group>"; };
 		3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IHRMonitor.swift; sourceTree = "<group>"; };
 		3A2158711BEC8C090089CC01 /* ILogin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ILogin.xib; sourceTree = "<group>"; };
@@ -874,6 +876,7 @@
 				3A4CD3FE1BA808C1002C8A1A /* XmppMsgHelper.swift */,
 				3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */,
 				3A35AB661BCCECF000ED3293 /* Session.swift */,
+				3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1377,6 +1380,7 @@
 				3AB3CB251BD7633B0067F9D4 /* DatePickerView.swift in Sources */,
 				3A4CD3FF1BA808C1002C8A1A /* XmppMsgHelper.swift in Sources */,
 				3AB3CB1A1BD762FE0067F9D4 /* PopDownList.swift in Sources */,
+				3A0B97171BF5791F00409AD9 /* SessionForIphone.swift in Sources */,
 				3A41ADF01BA7B45D000C109B /* MessageDelegate.swift in Sources */,
 				3A4B85C61BB14D34006E4CF1 /* SleepCareBussinessManager.swift in Sources */,
 				3A3D65E41BAA8E1100CEFB25 /* MessageFactory.swift in Sources */,
