@@ -70,6 +70,15 @@
                                 <constraint firstAttribute="width" constant="160" id="Ipm-YF-Ffo"/>
                                 <constraint firstAttribute="height" constant="160" id="lds-WX-yIv"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bottomTitle" value="睡眠状态"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="maxProcess">
+                                    <real key="value" value="100"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="currentProcess">
+                                    <real key="value" value="35"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

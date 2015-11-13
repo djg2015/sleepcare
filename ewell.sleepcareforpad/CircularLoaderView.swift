@@ -23,48 +23,67 @@ class CircularLoaderView: UIView {
     // 圆中心位置显示的文字
     var centerTitleView:UIView?
     // 圆下方位置显示的文字
-    var bottomTitle:String = "当前呼吸"
+    @IBInspectable var bottomTitle:String = "当前呼吸" {
+        didSet{
+            self.configure()
+        }
+        
+    }
     // 最大长度
-    var maxProcess:CGFloat = 10.0
+    @IBInspectable var maxProcess:CGFloat = 10.0 {
+        didSet{
+            self.configure()
+        }
+        
+    }
     // 当前进度
-    var currentProcess:CGFloat = 0.0
-    
+    @IBInspectable var currentProcess:CGFloat = 0.0 {
+        didSet{
+            self.configure()
+        }
+        
+    }
     // 构造
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
+        self.configure()
     }
     // 构造
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        configure()
+        self.configure()
     }
     
     // 配置圆
     func configure() {
+        //        self.centerTitleView!.subviews.map({$0.removeFromSuperview()})
+        self.subviews.map({$0.removeFromSuperview()})
         // 当前控件的运行空间
         self.frame = bounds
         // 根据当前控件宽度计算出圆的半径
         self.circleRadius = (CGFloat)(bounds.width / 2)
-        circlePathLayer.frame = bounds
-        circlePathLayer.lineWidth = 2
+        self.circlePathLayer.frame = bounds
+        self.circlePathLayer.lineWidth = 2
         // 线的线边冒改为圆形
-        circlePathLayer.lineCap = kCALineCapRound
+        self.circlePathLayer.lineCap = kCALineCapRound
         // 填充色
-        circlePathLayer.fillColor = self.fillColor
+        self.circlePathLayer.fillColor = self.fillColor
         // 圆的边线色
-        circlePathLayer.strokeColor = self.strokeColor
-        layer.addSublayer(circlePathLayer)
+        self.circlePathLayer.strokeColor = self.strokeColor
+        layer.addSublayer(self.circlePathLayer)
         
-        circlePathLayerBig.frame = bounds
-        circlePathLayerBig.lineWidth = 7
-        circlePathLayerBig.lineCap = kCALineCapRound
-        circlePathLayerBig.fillColor = self.fillColor
-        circlePathLayerBig.strokeColor = self.strokeColor
-        layer.addSublayer(circlePathLayerBig)
+        self.circlePathLayerBig.frame = bounds
+        self.circlePathLayerBig.lineWidth = 7
+        self.circlePathLayerBig.lineCap = kCALineCapRound
+        self.circlePathLayerBig.fillColor = self.fillColor
+        self.circlePathLayerBig.strokeColor = self.strokeColor
+        layer.addSublayer(self.circlePathLayerBig)
         
         // 添加圆中心位置的文字
-        var centerView = UIView(frame: CGRect(x: 0, y: 20, width: bounds.width, height: bounds.height - 30))
+        if(nil == self.centerTitleView)
+        {
+            self.centerTitleView = UIView(frame: CGRect(x: 0, y: 20, width: bounds.width, height: bounds.height - 30))
+        }
         //        var centerTxt = UILabel(frame: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.width - self.circleRadius))
         //        centerTxt.textAlignment = .Center
         //        centerTxt.adjustsFontSizeToFitWidth = true
@@ -73,7 +92,7 @@ class CircularLoaderView: UIView {
         //        centerTxt.text = "12321321"
         //        centerView.addSubview(centerTxt)
         //        centerView.backgroundColor = UIColor.yellowColor()
-        self.addSubview(centerView)
+        self.addSubview(self.centerTitleView!)
         
         var bottomTxt = UILabel(frame: CGRect(x: self.circleRadius - 60/2, y: bounds.height - 30, width: 60, height: 30))
         bottomTxt.adjustsFontSizeToFitWidth = true
@@ -107,10 +126,10 @@ class CircularLoaderView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        circlePathLayer.frame = bounds
-        circlePathLayer.path = circlePath().CGPath
-        circlePathLayer.cornerRadius = 0.5
-        circlePathLayerBig.path = circlePath1().CGPath
-        circlePathLayerBig.cornerRadius = 0.5
+        self.circlePathLayer.frame = bounds
+        self.circlePathLayer.path = circlePath().CGPath
+        self.circlePathLayer.cornerRadius = 0.5
+        self.circlePathLayerBig.path = circlePath1().CGPath
+        self.circlePathLayerBig.cornerRadius = 0.5
     }
 }
