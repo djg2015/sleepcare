@@ -30,7 +30,7 @@ func getCurrentTime() -> String{
 func getDateTime(data:String) -> NSDate{
     
     var dateFormatter:NSDateFormatter  = NSDateFormatter()
-    dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
     
     return dateFormatter.dateFromString(data)!
     
