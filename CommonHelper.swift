@@ -27,6 +27,15 @@ func getCurrentTime() -> String{
     
 }
 
+func getDateTime(data:String) -> NSDate{
+    
+    var dateFormatter:NSDateFormatter  = NSDateFormatter()
+    dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+    
+    return dateFormatter.dateFromString(data)!
+    
+}
+
 //获取指定格式时间
 func getCurrentTime(dateFormat:String) -> String{
     
