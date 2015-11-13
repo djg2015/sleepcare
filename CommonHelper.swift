@@ -42,11 +42,18 @@ func getCurrentTime(dateFormat:String) -> String{
     
 }
 
-var alert = SweetAlert()
-//弹窗
-func showDialogMsg(msg:String){
-    SweetAlert().showAlert(msg)
+
+//基本弹窗
+func showDialogMsg(msg:String,title:String? = "提示"){
+    SweetAlert().showAlert(msg,subTitle: title, style: .None)
 }
+//弹窗带返回处理
+func showDialogMsg(msg:String,title:String?,buttonTitle:String? = "确定", action: ((isOtherButton: Bool) -> Void)? = nil){
+    var inTitle:String?
+    if(title == nil){
+        inTitle = "提示"
+    }
+    SweetAlert(contentHeight: 300).showAlert(msg, subTitle: inTitle, style: .None, buttonTitle: buttonTitle!, action: action)}
 
 //入口处理总入口
 func handleException(ex:NSObject, showDialog:Bool = false,msg:String = ""){

@@ -58,7 +58,7 @@ class IRegistViewController: UIViewController,PopDownListItemChoosed {
                 self.popDownListForIphone?.Show("选择养老院/医院", source: source)
         }
     }
-    
+   
     func ChoosedItem(item:PopDownListItem){
         
     }
