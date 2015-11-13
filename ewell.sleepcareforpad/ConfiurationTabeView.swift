@@ -73,8 +73,8 @@ class ConfiurationTabeView: UITableView, UITableViewDelegate,UITableViewDataSour
         
         cellView.userInteractionEnabled = true
         var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "jumpController:")
-        singleTap.view?.tag = indexPath.row
         cellView.addGestureRecognizer(singleTap)
+        singleTap.view?.tag = indexPath.row      
         
         cell!.addSubview(cellView)
         return cell!
@@ -89,8 +89,10 @@ class ConfiurationTabeView: UITableView, UITableViewDelegate,UITableViewDataSour
     {
         var selectedNumber:Int = sender.view!.tag
         var controller:IBaseViewController = self.tableViewDataSource[selectedNumber].configrationController
-
-    self.parentController!.presentViewController(ServerSettingController(nibName:"ServerSettingView", bundle:nil), animated: true, completion: nil)
+        if(controller.nibName != nil)
+        {
+            self.parentController!.presentViewController(controller, animated: true, completion: nil)
+        }
     }
 }
 

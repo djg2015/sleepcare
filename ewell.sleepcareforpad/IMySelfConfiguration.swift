@@ -22,7 +22,7 @@ class IMySelfConfiguration: UIView{
         var source = Array<ConfigurationViewModel>()
         var menu:ConfigurationViewModel = ConfigurationViewModel()
         // 根据用户类型(监护人/使用者)设置对应的菜单
-        if(true)
+        if(false)
         {
             menu = ConfigurationViewModel()
             menu.imageName = "myElder"
@@ -37,6 +37,7 @@ class IMySelfConfiguration: UIView{
             menu = ConfigurationViewModel()
             menu.imageName = "settingMenu"
             menu.titleName = "设置"
+            menu.configrationController = IMySelfSettingController(nibName:"IMySelfSettingView", bundle:nil)
             source.append(menu)
         }
         else
@@ -59,9 +60,10 @@ class IMySelfConfiguration: UIView{
             menu = ConfigurationViewModel()
             menu.imageName = "settingMenu"
             menu.titleName = "设置"
+            menu.configrationController = IMySelfSettingController(nibName:"IMySelfSettingView", bundle:nil)
             source.append(menu)
         }
-
+        
         self.menuTableView.parentController = self.parentController
         self.menuTableView.backgroundColor = UIColor(red: 223/255, green: 223/255, blue: 223/255, alpha: 1)
         self.menuTableView.tableViewDataSource = source

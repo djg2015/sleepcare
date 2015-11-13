@@ -284,8 +284,8 @@ class QueryAlarmController:BaseViewController,UITableViewDelegate,UITableViewDat
             btnHandle.backgroundColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
             btnHandle.userInteractionEnabled = true
             var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleAlarm:")
-            singleTap.view?.tag = self._queryAlarmViewModel.AlarmInfoList[indexPath.row].Number
             btnHandle.addGestureRecognizer(singleTap)
+            singleTap.view?.tag = self._queryAlarmViewModel.AlarmInfoList[indexPath.row].Number
             
             var btnFalse = UIButton(frame: CGRectMake(60, 7, 55, 30))
             btnFalse.setTitle("误警报", forState: UIControlState.Normal)
@@ -295,9 +295,8 @@ class QueryAlarmController:BaseViewController,UITableViewDelegate,UITableViewDat
             btnFalse.backgroundColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
             btnFalse.userInteractionEnabled = true
             var singleTap1:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleFalseAlarm:")
-            singleTap1.view?.tag = self._queryAlarmViewModel.AlarmInfoList[indexPath.row].Number
             btnFalse.addGestureRecognizer(singleTap1)
-            
+            singleTap1.view?.tag = self._queryAlarmViewModel.AlarmInfoList[indexPath.row].Number
             
             lblOperate.addSubview(btnHandle)
             lblOperate.addSubview(btnFalse)

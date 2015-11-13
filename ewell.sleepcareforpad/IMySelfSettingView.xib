@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IMySelfSettingController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+            <connections>
+                <outlet property="imgBack" destination="SRT-RH-tSV" id="mfR-25-YJt"/>
+                <outlet property="menuTableView" destination="Szt-Ot-IYI" id="XVW-Nq-eND"/>
+                <outlet property="view" destination="iN0-l3-epB" id="O2S-NO-xOu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2a-1q-A0e" userLabel="topView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVd-7M-kaz">
+                            <rect key="frame" x="140" y="28" width="40" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backBtn.png" translatesAutoresizingMaskIntoConstraints="NO" id="SRT-RH-tSV">
+                            <rect key="frame" x="20" y="28" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="MrY-iJ-hwR"/>
+                                <constraint firstAttribute="width" constant="30" id="klv-uv-pdt"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="SRT-RH-tSV" firstAttribute="leading" secondItem="U2a-1q-A0e" secondAttribute="leading" constant="20" id="5VD-vy-1GN"/>
+                        <constraint firstAttribute="centerX" secondItem="WVd-7M-kaz" secondAttribute="centerX" id="D2m-ht-Z25"/>
+                        <constraint firstAttribute="width" constant="320" id="K0A-SP-eTi"/>
+                        <constraint firstAttribute="height" constant="70" id="LZ5-RJ-FaM"/>
+                        <constraint firstAttribute="centerY" secondItem="WVd-7M-kaz" secondAttribute="centerY" constant="-5" id="y32-VX-iLB"/>
+                        <constraint firstItem="SRT-RH-tSV" firstAttribute="top" secondItem="U2a-1q-A0e" secondAttribute="top" constant="28" id="zzg-p8-zK7"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="blueback.png"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAx-rA-ZQh" userLabel="bottomView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="508" width="320" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yht-mN-HWB">
+                            <rect key="frame" x="124" y="13" width="72" height="34"/>
+                            <state key="normal" title="退出登录">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnExitLoginClick:" destination="-1" eventType="touchDown" id="66p-Dq-OUW"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="Blq-33-Ayg"/>
+                        <constraint firstAttribute="height" constant="60" id="BtY-uC-J9M"/>
+                        <constraint firstAttribute="centerY" secondItem="yht-mN-HWB" secondAttribute="centerY" id="kgP-fv-88G"/>
+                        <constraint firstAttribute="centerX" secondItem="yht-mN-HWB" secondAttribute="centerX" id="qsx-iT-Jg2"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="settingBottom.png"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Szt-Ot-IYI" customClass="ConfiurationTabeView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="70" width="320" height="300"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="nA1-go-jZf"/>
+                        <constraint firstAttribute="height" constant="300" id="nnQ-dF-BVN"/>
+                    </constraints>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="OAx-rA-ZQh" secondAttribute="bottom" id="2jS-pv-2b1"/>
+                <constraint firstAttribute="trailing" secondItem="Szt-Ot-IYI" secondAttribute="trailing" id="5a6-aQ-tSD"/>
+                <constraint firstItem="U2a-1q-A0e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AQF-Oo-xfb"/>
+                <constraint firstAttribute="trailing" secondItem="U2a-1q-A0e" secondAttribute="trailing" id="KLk-VK-loq"/>
+                <constraint firstItem="Szt-Ot-IYI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70" id="Nkg-yY-7h6"/>
+                <constraint firstItem="OAx-rA-ZQh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cK0-ZQ-EG1"/>
+                <constraint firstItem="U2a-1q-A0e" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ibC-Iw-y8f"/>
+                <constraint firstAttribute="trailing" secondItem="OAx-rA-ZQh" secondAttribute="trailing" id="vob-6r-7AG"/>
+                <constraint firstItem="Szt-Ot-IYI" firstAttribute="leading" secondItem="U2a-1q-A0e" secondAttribute="leading" id="zXG-qz-COd"/>
+            </constraints>
+            <point key="canvasLocation" x="215" y="262"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backBtn.png" width="54" height="54"/>
+        <image name="blueback.png" width="640" height="669"/>
+        <image name="settingBottom.png" width="640" height="98"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
