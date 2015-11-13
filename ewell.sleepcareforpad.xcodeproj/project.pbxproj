@@ -73,6 +73,7 @@
 		3A0B97171BF5791F00409AD9 /* SessionForIphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */; };
 		3A13C9841BF2DBDA00061CCF /* IHRMonitor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */; };
 		3A13C9881BF2DD2800061CCF /* IHRMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */; };
+		3A1F16FF1BF5A5100051E9AF /* BusinessFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F16FE1BF5A5100051E9AF /* BusinessFactory.swift */; };
 		3A2158721BEC8C090089CC01 /* ILogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2158711BEC8C090089CC01 /* ILogin.xib */; };
 		3A2158751BEC8C460089CC01 /* ILoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2158741BEC8C460089CC01 /* ILoginController.swift */; };
 		3A2158771BEC8D580089CC01 /* IBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2158761BEC8D580089CC01 /* IBaseViewController.swift */; };
@@ -324,6 +325,7 @@
 		3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionForIphone.swift; sourceTree = "<group>"; };
 		3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IHRMonitor.xib; sourceTree = "<group>"; };
 		3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IHRMonitor.swift; sourceTree = "<group>"; };
+		3A1F16FE1BF5A5100051E9AF /* BusinessFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessFactory.swift; sourceTree = "<group>"; };
 		3A2158711BEC8C090089CC01 /* ILogin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ILogin.xib; sourceTree = "<group>"; };
 		3A2158741BEC8C460089CC01 /* ILoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginController.swift; sourceTree = "<group>"; };
 		3A2158761BEC8D580089CC01 /* IBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBaseViewController.swift; sourceTree = "<group>"; };
@@ -877,6 +879,7 @@
 				3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */,
 				3A35AB661BCCECF000ED3293 /* Session.swift */,
 				3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */,
+				3A1F16FE1BF5A5100051E9AF /* BusinessFactory.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1388,6 +1391,7 @@
 				3A41ADC31BA7A65A000C109B /* ViewController.swift in Sources */,
 				3AB3CB221BD762FE0067F9D4 /* TurnOverTableViewCell.swift in Sources */,
 				3AB3CB291BD763890067F9D4 /* Li_common.swift in Sources */,
+				3A1F16FF1BF5A5100051E9AF /* BusinessFactory.swift in Sources */,
 				3A4B85CA1BB14F28006E4CF1 /* SleepCareBussiness.swift in Sources */,
 				3AC7B0F41BF4554D002DE94C /* IRegistViewController.swift in Sources */,
 				2C3BAF171BCBA4C3003A2F48 /* AlarmView.swift in Sources */,

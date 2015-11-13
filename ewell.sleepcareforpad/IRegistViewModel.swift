@@ -47,7 +47,7 @@ class IRegistViewModel:BaseViewModel {
             self._rePwd=value
         }
     }
-
+    
     var _mainCode:String = ""
     //所属养老院/医院
     dynamic var MainCode:String{
@@ -61,6 +61,20 @@ class IRegistViewModel:BaseViewModel {
         }
     }
     
+    var _mainBusinesses:Array<PopDownListItem> = Array<PopDownListItem>()
+    //养老院/医院集合
+    var MainBusinesses:Array<PopDownListItem>{
+        get
+        {
+            return self._mainBusinesses
+        }
+        set(value)
+        {
+            self._mainBusinesses=value
+        }
+    }
+    
+    //界面处理命令
     var regist: RACCommand?
     
     //构造函数
@@ -71,25 +85,15 @@ class IRegistViewModel:BaseViewModel {
             (any:AnyObject!) -> RACSignal in
             return self.Regist()
         }
-    }
-    
-    func Regist() -> RACSignal{
+        
         try {
             ({
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 let isLogin = xmppMsgManager!.Connect()
                 if(!isLogin){
-                    showDialogMsg("远程通讯服务器连接不上！")
+                    showDialogMsg("远程通讯服务器连接不上，请重新连接！")
                 }
                 else{
-                    if(self.LoginName == ""){
-                        showDialogMsg("远程通讯服务器连接不上！")
-                    }
-                    if(self.Pwd != self.RePwd){
-                        showDialogMsg("二次密码不一样，请重新输入！")
-                        self.RePwd = ""
-                        return
-                    }
                     
                     
                 }
@@ -103,7 +107,48 @@ class IRegistViewModel:BaseViewModel {
                 }
             )}
         
+    }
+    
+    //自定义处理----------------------
+    //失去连接后处理
+    func ConnectLost(isOtherButton: Bool){
+        self.controller?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    //注册成功后处理
+    func RegistSuccess(isOtherButton: Bool){
+        self.controller?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //注册
+    func Regist() -> RACSignal{
+        try {
+            ({
+                if(self.LoginName == ""){
+                    showDialogMsg("账户名不能为空！")
+                    return
+                }
+                if(self.Pwd != self.RePwd){
+                    showDialogMsg("二次密码不一样，请重新输入！")
+                    self.RePwd = ""
+                    return
+                }
+                if(self.MainCode == ""){
+                    showDialogMsg("请选择所属养老院/医院！")
+                    return
+                }
+                
+                
+                },
+                catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+                },
+                finally: {
+                    
+                }
+            )}
+        
         return RACSignal.empty()
-
+        
     }
 }
