@@ -11,6 +11,10 @@ import Foundation
 class ISleepQualityReport: BaseMessage {
     
     var SleepQuality:String = ""
+    var OnBedTimespan:String = ""
+    var DeepSleepTimespan:String = ""
+    var LightSleepTimespan:String = ""
+    var AwakeningTimespan:String = ""
     var sleepRange:Array<ISleepDateReport> = Array<ISleepDateReport>()
     
     //解析响应的message
@@ -19,13 +23,20 @@ class ISleepQualityReport: BaseMessage {
         let result = ISleepQualityReport(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
         //构造XML文档
         var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
+        var qualityReport = doc.rootElement() as DDXMLElement!
+        result.SleepQuality = qualityReport.elementForName("SleepQuality").stringValue()
+        result.OnBedTimespan = qualityReport.elementForName("OnBedTimespan").stringValue()
+        result.DeepSleepTimespan = qualityReport.elementForName("DeepSleepTimespan").stringValue()
+        result.LightSleepTimespan = qualityReport.elementForName("LightSleepTimespan").stringValue()
+        result.AwakeningTimespan = qualityReport.elementForName("AwakeningTimespan").stringValue()
+        
         var reportList = doc.nodesForXPath("//SleepDateReport", error:nil) as! [DDXMLElement]
         for report in reportList {
             var dateReport = ISleepDateReport(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
             dateReport.ReportDate = report.elementForName("ReportDate").stringValue()
             dateReport.WeekDay = report.elementForName("WeekDay").stringValue()
-            dateReport.DeepSleepTimespan = report.elementForName("DeepSleepTimespan").stringValue()
-            dateReport.LightSleepTimespan = report.elementForName("LightSleepTimespan").stringValue()
+            dateReport.OnBedTimespan = report.elementForName("OnBedTimespan").stringValue()
+            dateReport.SleepTimespan = report.elementForName("SleepTimespan").stringValue()
             
             result.sleepRange.append(dateReport)
         }
@@ -37,6 +48,6 @@ class ISleepDateReport:BaseMessage {
     
     var ReportDate:String = ""
     var WeekDay:String = ""
-    var DeepSleepTimespan:String = ""
-    var LightSleepTimespan:String = ""
+    var OnBedTimespan:String = ""
+    var SleepTimespan:String = ""
 }
