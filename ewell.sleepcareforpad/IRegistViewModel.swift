@@ -82,6 +82,15 @@ class IRegistViewModel:BaseViewModel {
                     showDialogMsg("远程通讯服务器连接不上！")
                 }
                 else{
+                    if(self.LoginName == ""){
+                        showDialogMsg("远程通讯服务器连接不上！")
+                    }
+                    if(self.Pwd != self.RePwd){
+                        showDialogMsg("二次密码不一样，请重新输入！")
+                        self.RePwd = ""
+                        return
+                    }
+                    
                     
                 }
                 },

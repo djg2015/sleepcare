@@ -48,6 +48,19 @@ public class SweetAlert: UIViewController {
         strongSelf = self
     }
     
+    required public init(contentHeight:CGFloat) {
+        super.init(nibName: nil, bundle: nil)
+        self.kContentWidth = contentHeight
+        self.view.frame = UIScreen.mainScreen().bounds
+        //        self.view.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
+        self.view.autoresizingMask=UIViewAutoresizing.FlexibleHeight
+        self.view.backgroundColor = UIColor(red:0, green:0, blue:0, alpha:kBakcgroundTansperancy)
+        self.view.addSubview(contentView)
+        
+        //Retaining itself strongly so can exist without strong refrence
+        strongSelf = self
+    }
+    
     required public init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -212,7 +225,7 @@ public class SweetAlert: UIViewController {
     }
     
     public func showAlert(title: String, subTitle: String?, style: AlertStyle) -> SweetAlert {
-        self.showAlert(title, subTitle: subTitle, style: style, buttonTitle: "OK")
+        self.showAlert(title, subTitle: subTitle, style: style, buttonTitle: "确定")
         return self
         
     }
