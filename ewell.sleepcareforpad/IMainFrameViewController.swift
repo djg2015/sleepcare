@@ -56,9 +56,9 @@ class IMainFrameViewController: IBaseViewController {
             .subscribeNext {
                 _ in
                 self.curMenu = self.uiSleepCare
-                let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("ISleepQualityMonitor", owner: self, options: nil).first as! ISleepQualityMonitor
-                iHRMonitorView.viewInit()
-                self.showBody(iHRMonitorView)
+                let sleepQualityMonitorView = NSBundle.mainBundle().loadNibNamed("ISleepQualityMonitor", owner: self, options: nil).first as! ISleepQualityMonitor
+                sleepQualityMonitorView.viewInit(self)
+                self.showBody(sleepQualityMonitorView)
         }
         self.btnMe!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
