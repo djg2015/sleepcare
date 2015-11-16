@@ -35,6 +35,8 @@
 		2C0615831BF48D5900A3F90C /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615811BF48D5900A3F90C /* calendar.png */; };
 		2C0615841BF48D5900A3F90C /* downLoad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615821BF48D5900A3F90C /* downLoad.png */; };
 		2C0DC3C51BF9A0930048BEEA /* ILoginUserEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0DC3C41BF9A0930048BEEA /* ILoginUserEdit.xib */; };
+		2C0DC3C71BF9A20F0048BEEA /* IEmailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */; };
+		2C0DC3C91BF9A25F0048BEEA /* IEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0DC3C81BF9A25F0048BEEA /* IEmailViewController.swift */; };
 		2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28CA131BE87D3D000C46C4 /* ServerResult.swift */; };
 		2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */; };
 		2C2CB47A1BD7654100A6DB65 /* ServerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */; };
@@ -296,6 +298,8 @@
 		2C0615811BF48D5900A3F90C /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		2C0615821BF48D5900A3F90C /* downLoad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downLoad.png; sourceTree = "<group>"; };
 		2C0DC3C41BF9A0930048BEEA /* ILoginUserEdit.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ILoginUserEdit.xib; sourceTree = "<group>"; };
+		2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IEmailView.xib; sourceTree = "<group>"; };
+		2C0DC3C81BF9A25F0048BEEA /* IEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEmailViewController.swift; sourceTree = "<group>"; };
 		2C28CA131BE87D3D000C46C4 /* ServerResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResult.swift; sourceTree = "<group>"; };
 		2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepQualityPandect.xib; sourceTree = "<group>"; };
 		2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSettingController.swift; sourceTree = "<group>"; };
@@ -595,6 +599,7 @@
 				3A2158761BEC8D580089CC01 /* IBaseViewController.swift */,
 				2C0615581BF46A5A00A3F90C /* IMySelfSettingController.swift */,
 				2C4D31471BF98395001DB693 /* IServerSettingController.swift */,
+				2C0DC3C81BF9A25F0048BEEA /* IEmailViewController.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -668,6 +673,7 @@
 		3A28CA9F1BEC4A27007D9A3A /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */,
 				2C4D31451BF97E6F001DB693 /* IServerSettingView.xib */,
 				3A2158711BEC8C090089CC01 /* ILogin.xib */,
 				3A8563691BF1C28600E74B27 /* IMainFrame.xib */,
@@ -1213,6 +1219,7 @@
 				3A91F09F1BF0475400C470D4 /* calendar_littledot.png in Resources */,
 				3ADA58441BD5FE550066D23A /* sleepofThisWeek.png in Resources */,
 				3ADA58431BD5FC7C0066D23A /* SleepcareDetail.xib in Resources */,
+				2C0DC3C71BF9A20F0048BEEA /* IEmailView.xib in Resources */,
 				2C0615571BF46A2A00A3F90C /* IMySelfSettingView.xib in Resources */,
 				3AFB93941BCF96F200042AF1 /* pwdIcon.png in Resources */,
 				3A9C12FC1BC789C6008EC314 /* BedFrame.png in Resources */,
@@ -1415,6 +1422,7 @@
 				2C5181F91BF18E7E007DC2A3 /* ILoginUser.swift in Sources */,
 				2C4D31481BF98395001DB693 /* IServerSettingController.swift in Sources */,
 				3AB3CB251BD7633B0067F9D4 /* DatePickerView.swift in Sources */,
+				2C0DC3C91BF9A25F0048BEEA /* IEmailViewController.swift in Sources */,
 				3A4CD3FF1BA808C1002C8A1A /* XmppMsgHelper.swift in Sources */,
 				3AB3CB1A1BD762FE0067F9D4 /* PopDownList.swift in Sources */,
 				3A0B97171BF5791F00409AD9 /* SessionForIphone.swift in Sources */,

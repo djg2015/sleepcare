@@ -21,6 +21,7 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
     
     var parentController:IBaseViewController!
     var calendarControl:THDate!
+    var email:IEmailViewController?
     
     var sleepQualityViewModel:ISleepQualityMonitorViewModel = ISleepQualityMonitorViewModel()
     var lblSleepQuality:UILabel?
@@ -106,6 +107,10 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
         
         self.sleepQualityViewModel.SelectedDate = getCurrentTime("yyyy-MM-dd")
         
+        if(self.email == nil){
+            self.email = IEmailViewController(nibName: "IEmailView", bundle: nil)
+        }
+        
         // 给图片添加手势
         self.imgMoveLeft.userInteractionEnabled = true
         var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "moveLeft:")
@@ -144,9 +149,9 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
     
     func showDownload(sender:UITapGestureRecognizer)
     {
-        var formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-       self.calendarControl.ShowDate(date:getDateTime(self.sleepQualityViewModel.SelectedDate),returnformat: formatter)
+        var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",
+            KNSemiModalOptionKeys.animationDuration:"1.0",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
+        self.parentController.presentSemiViewController(self.email, withOptions: kNSemiModalOptionKeys)
     }
     
     func ChoosedDate(choosedDate:String?){
