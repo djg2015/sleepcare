@@ -75,6 +75,7 @@
 		2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1151BD48713006FC007 /* searchBtn.png */; };
 		2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1161BD48713006FC007 /* searchBtnChecked.png */; };
 		2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */; };
+		2CB427AB1BF9B11A00BF7E15 /* IEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */; };
 		2CB951291BF4510A00C31EC2 /* ConfiurationTabeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */; };
 		2CDF94101BF5C2BD00FCFAF7 /* moveRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */; };
 		2CDF94111BF5C2BD00FCFAF7 /* moveLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF940F1BF5C2BD00FCFAF7 /* moveLeft.png */; };
@@ -339,6 +340,7 @@
 		2C6AE1151BD48713006FC007 /* searchBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtn.png; sourceTree = "<group>"; };
 		2C6AE1161BD48713006FC007 /* searchBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtnChecked.png; sourceTree = "<group>"; };
 		2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
+		2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEmailViewModel.swift; sourceTree = "<group>"; };
 		2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiurationTabeView.swift; sourceTree = "<group>"; };
 		2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveRight.png; sourceTree = "<group>"; };
 		2CDF940F1BF5C2BD00FCFAF7 /* moveLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveLeft.png; sourceTree = "<group>"; };
@@ -1034,6 +1036,7 @@
 				3AC7B0F51BF45575002DE94C /* IRegistViewModel.swift */,
 				2C325CBD1BF5764600DD1DB7 /* ISleepQualityMonitorViewModel.swift */,
 				3AC70CBF1BF9A19600814082 /* IFirstChoosePatientViewModel.swift */,
+				2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1489,6 +1492,7 @@
 				3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */,
 				3AB3CB191BD762FE0067F9D4 /* Pager.swift in Sources */,
 				2C3150A51BCDFAF300EC749E /* LeaveBedReportList.swift in Sources */,
+				2CB427AB1BF9B11A00BF7E15 /* IEmailViewModel.swift in Sources */,
 				2C2CB47A1BD7654100A6DB65 /* ServerSettingController.swift in Sources */,
 				3A41ADEA1BA7B438000C109B /* LoginViewModel.swift in Sources */,
 				3AB3CB1B1BD762FE0067F9D4 /* Popover.swift in Sources */,

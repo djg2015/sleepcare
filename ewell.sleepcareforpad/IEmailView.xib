@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IEmailViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <connections>
+                <outlet property="btnSendEmail" destination="yk3-Ej-LWI" id="ihh-fU-P1K"/>
+                <outlet property="txtEmailAddress" destination="zkc-Bx-2di" id="3Yp-po-p1K"/>
                 <outlet property="view" destination="iN0-l3-epB" id="zKr-ir-Dau"/>
             </connections>
         </placeholder>
