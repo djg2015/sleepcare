@@ -67,32 +67,28 @@
                     <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gE-3v-lMC" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="87" y="299" width="46" height="30"/>
+                    <rect key="frame" x="87" y="299" width="80" height="40"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="46" id="NOL-zm-hHb"/>
-                        <constraint firstAttribute="height" constant="30" id="NdL-yH-f2b"/>
+                        <constraint firstAttribute="width" constant="80" id="NOL-zm-hHb"/>
+                        <constraint firstAttribute="height" constant="40" id="NdL-yH-f2b"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <state key="normal" title="使用者">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="userTypeCilcked:" destination="-1" eventType="touchUpInside" id="hJH-8X-CbA"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6K-X0-HfB" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="87" y="374" width="46" height="30"/>
+                    <rect key="frame" x="87" y="374" width="80" height="40"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="46" id="fO1-gC-BF0"/>
-                        <constraint firstAttribute="height" constant="30" id="tkO-y6-Fbg"/>
+                        <constraint firstAttribute="width" constant="80" id="fO1-gC-BF0"/>
+                        <constraint firstAttribute="height" constant="40" id="tkO-y6-Fbg"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <state key="normal" title="监护人">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="userTypeCilcked:" destination="-1" eventType="touchUpInside" id="niX-FB-bpM"/>
-                    </connections>
                 </button>
             </subviews>
             <animations/>
@@ -100,7 +96,7 @@
             <constraints>
                 <constraint firstItem="XAj-sb-eXz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="89" id="0mI-MM-35c"/>
                 <constraint firstItem="9gE-3v-lMC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="299" id="4ml-KP-NWX"/>
-                <constraint firstAttribute="centerX" secondItem="n6K-X0-HfB" secondAttribute="centerX" constant="50" id="7HR-iN-MPl"/>
+                <constraint firstAttribute="centerX" secondItem="n6K-X0-HfB" secondAttribute="centerX" constant="33" id="7HR-iN-MPl"/>
                 <constraint firstItem="R7V-vx-x4D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="114" id="D4s-x2-7AJ"/>
                 <constraint firstAttribute="centerX" secondItem="S48-Qd-j5t" secondAttribute="centerX" constant="-93" id="DXk-UH-Nkj"/>
                 <constraint firstAttribute="centerX" secondItem="gAC-FC-t8q" secondAttribute="centerX" constant="97" id="Ggl-3I-wiY"/>
@@ -110,7 +106,7 @@
                 <constraint firstItem="S48-Qd-j5t" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="119" id="fMU-fX-k9M"/>
                 <constraint firstAttribute="centerX" secondItem="XAj-sb-eXz" secondAttribute="centerX" constant="55" id="lhi-3t-Kjl"/>
                 <constraint firstAttribute="centerX" secondItem="R7V-vx-x4D" secondAttribute="centerX" constant="24.5" id="nNZ-mL-l5C"/>
-                <constraint firstAttribute="centerX" secondItem="9gE-3v-lMC" secondAttribute="centerX" constant="50" id="npn-TT-jGA"/>
+                <constraint firstAttribute="centerX" secondItem="9gE-3v-lMC" secondAttribute="centerX" constant="33" id="npn-TT-jGA"/>
                 <constraint firstItem="gAC-FC-t8q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="213" id="pDE-Jf-3bE"/>
             </constraints>
             <userDefinedRuntimeAttributes>

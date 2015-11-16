@@ -12,20 +12,14 @@ class IFirstChoosePatientController: IBaseViewController {
 
     @IBOutlet weak var btnMonitor: BlueButtonForPhone!
     @IBOutlet weak var btnUserSelf: BlueButtonForPhone!
+    var viewModel:IFirstChoosePatientViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.viewModel = IFirstChoosePatientViewModel()
+        self.viewModel.controllerForIphone = self
+        self.btnUserSelf.rac_command = self.viewModel.userselfCommand
+        self.btnMonitor.rac_command = self.viewModel.monitorCommand
     }
-
-    //选择用户类型
-    @IBAction func userTypeCilcked(sender: AnyObject) {
-        
-        
-        //更新session
-        
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
