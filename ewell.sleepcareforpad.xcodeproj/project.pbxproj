@@ -240,6 +240,7 @@
 		3AC70CBA1BF9844200814082 /* FirstChoosePatient.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC70CB91BF9844100814082 /* FirstChoosePatient.xib */; };
 		3AC70CBC1BF9982800814082 /* whiteMoveRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC70CBB1BF9982800814082 /* whiteMoveRight.png */; };
 		3AC70CBE1BF99A6700814082 /* IFirstChoosePatientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC70CBD1BF99A6700814082 /* IFirstChoosePatientController.swift */; };
+		3AC70CC01BF9A19600814082 /* IFirstChoosePatientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC70CBF1BF9A19600814082 /* IFirstChoosePatientViewModel.swift */; };
 		3AC7B0E41BF42EFB002DE94C /* IloginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B0E31BF42EFB002DE94C /* IloginViewModel.swift */; };
 		3AC7B0F21BF4551B002DE94C /* IRegist.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F11BF4551B002DE94C /* IRegist.xib */; };
 		3AC7B0F41BF4554D002DE94C /* IRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F31BF4554D002DE94C /* IRegistViewController.swift */; };
@@ -518,6 +519,7 @@
 		3AC70CB91BF9844100814082 /* FirstChoosePatient.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstChoosePatient.xib; sourceTree = "<group>"; };
 		3AC70CBB1BF9982800814082 /* whiteMoveRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteMoveRight.png; sourceTree = "<group>"; };
 		3AC70CBD1BF99A6700814082 /* IFirstChoosePatientController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IFirstChoosePatientController.swift; sourceTree = "<group>"; };
+		3AC70CBF1BF9A19600814082 /* IFirstChoosePatientViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IFirstChoosePatientViewModel.swift; sourceTree = "<group>"; };
 		3AC7B0E31BF42EFB002DE94C /* IloginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IloginViewModel.swift; sourceTree = "<group>"; };
 		3AC7B0F11BF4551B002DE94C /* IRegist.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IRegist.xib; sourceTree = "<group>"; };
 		3AC7B0F31BF4554D002DE94C /* IRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRegistViewController.swift; sourceTree = "<group>"; };
@@ -1031,6 +1033,7 @@
 				3AC7B0E31BF42EFB002DE94C /* IloginViewModel.swift */,
 				3AC7B0F51BF45575002DE94C /* IRegistViewModel.swift */,
 				2C325CBD1BF5764600DD1DB7 /* ISleepQualityMonitorViewModel.swift */,
+				3AC70CBF1BF9A19600814082 /* IFirstChoosePatientViewModel.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1468,6 +1471,7 @@
 				3AB43E781BD4E17B005023D3 /* Date.swift in Sources */,
 				3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */,
 				2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */,
+				3AC70CC01BF9A19600814082 /* IFirstChoosePatientViewModel.swift in Sources */,
 				2C2EA2EB1BF427B90023D458 /* IMySelfConfiguration.swift in Sources */,
 				3A4D17FB1BAFE17D00E0B862 /* AlarmInfo.swift in Sources */,
 				3A4D17F91BAFDF4800E0B862 /* TurnOverAnalysList.swift in Sources */,
