@@ -54,6 +54,11 @@ class IMySelfConfiguration: UIView{
             source.append(menu)
             
             menu = ConfigurationViewModel()
+            menu.imageName = "myElder"
+            menu.titleName = "我的床位"
+            source.append(menu)
+            
+            menu = ConfigurationViewModel()
             menu.imageName = "trendMenu"
             menu.titleName = "趋势"
             source.append(menu)

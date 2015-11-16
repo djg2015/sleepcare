@@ -53,6 +53,8 @@
 		2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3BAF141BCBA481003A2F48 /* AlarmView.xib */; };
 		2C3BAF171BCBA4C3003A2F48 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BAF161BCBA4C3003A2F48 /* AlarmView.swift */; };
 		2C4911BD1BD0A15400A167A9 /* SleepQualityPandectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4911BC1BD0A15400A167A9 /* SleepQualityPandectView.swift */; };
+		2C4D31461BF97E6F001DB693 /* IServerSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C4D31451BF97E6F001DB693 /* IServerSettingView.xib */; };
+		2C4D31481BF98395001DB693 /* IServerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D31471BF98395001DB693 /* IServerSettingController.swift */; };
 		2C5181F91BF18E7E007DC2A3 /* ILoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181F81BF18E7E007DC2A3 /* ILoginUser.swift */; };
 		2C5181FB1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181FA1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift */; };
 		2C5181FD1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181FC1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift */; };
@@ -311,6 +313,8 @@
 		2C3BAF141BCBA481003A2F48 /* AlarmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmView.xib; sourceTree = "<group>"; };
 		2C3BAF161BCBA4C3003A2F48 /* AlarmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		2C4911BC1BD0A15400A167A9 /* SleepQualityPandectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepQualityPandectView.swift; sourceTree = "<group>"; };
+		2C4D31451BF97E6F001DB693 /* IServerSettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IServerSettingView.xib; sourceTree = "<group>"; };
+		2C4D31471BF98395001DB693 /* IServerSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IServerSettingController.swift; sourceTree = "<group>"; };
 		2C5181F81BF18E7E007DC2A3 /* ILoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginUser.swift; sourceTree = "<group>"; };
 		2C5181FA1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareForIPhoneBussinessManager.swift; sourceTree = "<group>"; };
 		2C5181FC1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareForIPhoneBussiness.swift; sourceTree = "<group>"; };
@@ -588,6 +592,7 @@
 				3A2158741BEC8C460089CC01 /* ILoginController.swift */,
 				3A2158761BEC8D580089CC01 /* IBaseViewController.swift */,
 				2C0615581BF46A5A00A3F90C /* IMySelfSettingController.swift */,
+				2C4D31471BF98395001DB693 /* IServerSettingController.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -661,6 +666,7 @@
 		3A28CA9F1BEC4A27007D9A3A /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				2C4D31451BF97E6F001DB693 /* IServerSettingView.xib */,
 				3A2158711BEC8C090089CC01 /* ILogin.xib */,
 				3A8563691BF1C28600E74B27 /* IMainFrame.xib */,
 				3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */,
@@ -1220,6 +1226,7 @@
 				3A2BD8A81BD8AE78007BBD01 /* 29pt@1x.png in Resources */,
 				2C06155D1BF47A3200A3F90C /* backBtn.png in Resources */,
 				3A91F09E1BF0475400C470D4 /* calendar_littledot-disabled@2x.png in Resources */,
+				2C4D31461BF97E6F001DB693 /* IServerSettingView.xib in Resources */,
 				2C2F83901BD63A19008CD92B /* previewBtnDisable.png in Resources */,
 				2C0615711BF4813700A3F90C /* trendMenu.png in Resources */,
 				3A39CA021BF2FCA70024DD3E /* grayback.png in Resources */,
@@ -1402,6 +1409,7 @@
 				3A4D17F31BAFB83500E0B862 /* SleepCareReport.swift in Sources */,
 				3A4CD3F81BA804D2002C8A1A /* XmppMsgManager.swift in Sources */,
 				2C5181F91BF18E7E007DC2A3 /* ILoginUser.swift in Sources */,
+				2C4D31481BF98395001DB693 /* IServerSettingController.swift in Sources */,
 				3AB3CB251BD7633B0067F9D4 /* DatePickerView.swift in Sources */,
 				3A4CD3FF1BA808C1002C8A1A /* XmppMsgHelper.swift in Sources */,
 				3AB3CB1A1BD762FE0067F9D4 /* PopDownList.swift in Sources */,

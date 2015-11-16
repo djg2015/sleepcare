@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IServerSettingController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+            <connections>
+                <outlet property="imgBack" destination="WVW-wp-mMH" id="bWN-Sh-QU6"/>
+                <outlet property="txtServerAddress" destination="3Vk-cS-APh" id="JI2-b2-8hZ"/>
+                <outlet property="txtServerJid" destination="Ke0-jW-4Sl" id="blZ-QF-Yb3"/>
+                <outlet property="txtServerLoginName" destination="h05-MR-Tqf" id="AHV-1i-4wA"/>
+                <outlet property="txtServerPort" destination="EIx-yK-Dsy" id="tkg-Yw-HqH"/>
+                <outlet property="txtServerPwd" destination="oX0-5M-wIW" id="6RO-hv-Vsm"/>
+                <outlet property="view" destination="iN0-l3-epB" id="GGo-sg-GaD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务端通信账号：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXR-yM-UnQ">
+                    <rect key="frame" x="-15" y="123" width="140" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="AmI-KR-cTx"/>
+                        <constraint firstAttribute="width" constant="140" id="r7c-iU-iTM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ke0-jW-4Sl">
+                    <rect key="frame" x="124" y="120" width="180" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="180" id="Sti-jb-HIC"/>
+                        <constraint firstAttribute="height" constant="30" id="aCO-A9-sHq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xmpp服务端地址：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOP-Gy-K2t">
+                    <rect key="frame" x="-23" y="173" width="148" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="6ia-Zf-ETq"/>
+                        <constraint firstAttribute="width" constant="148" id="e9p-IN-dm5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Vk-cS-APh">
+                    <rect key="frame" x="124" y="169" width="180" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="180" id="36J-QV-q2r"/>
+                        <constraint firstAttribute="height" constant="30" id="glX-k9-yPr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xmpp服务端口：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALn-Pv-Ydg">
+                    <rect key="frame" x="-16" y="223" width="141" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Dop-23-bl3"/>
+                        <constraint firstAttribute="width" constant="141" id="Hlk-t5-J55"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EIx-yK-Dsy">
+                    <rect key="frame" x="124" y="220" width="180" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="AjE-IR-cWq"/>
+                        <constraint firstAttribute="width" constant="180" id="uQO-15-YMK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xmpp登录账号：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ct3-m8-HM1">
+                    <rect key="frame" x="-16" y="274" width="141" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="9A7-5w-QbY"/>
+                        <constraint firstAttribute="width" constant="141" id="sYZ-n5-1Gr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xmpp登录密码：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcf-et-4QC">
+                    <rect key="frame" x="-16" y="327" width="141" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="141" id="29v-34-h2Q"/>
+                        <constraint firstAttribute="height" constant="21" id="KRD-FA-Htw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oX0-5M-wIW">
+                    <rect key="frame" x="124" y="323" width="180" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="180" id="UPz-nf-oob"/>
+                        <constraint firstAttribute="height" constant="30" id="zgi-cu-PpV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o45-d9-0eT">
+                    <rect key="frame" x="119" y="384" width="83" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="KSs-Rw-5du"/>
+                        <constraint firstAttribute="width" constant="83" id="ssJ-Bu-SPQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="保存设置">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnSave:" destination="-1" eventType="touchUpInside" id="6kz-Vh-Rsb"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vh6-2g-tdZ" userLabel="topView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backBtn.png" translatesAutoresizingMaskIntoConstraints="NO" id="WVW-wp-mMH">
+                            <rect key="frame" x="15" y="25" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="4vW-qG-kYg"/>
+                                <constraint firstAttribute="width" constant="30" id="yeo-nr-jSg"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器配置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mE4-rU-jYc">
+                            <rect key="frame" x="104" y="28" width="113" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="0dq-vg-sKC"/>
+                                <constraint firstAttribute="width" constant="113" id="VdI-1q-gHE"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="WVW-wp-mMH" secondAttribute="centerX" constant="130" id="4tW-6Y-Gyf"/>
+                        <constraint firstAttribute="centerY" secondItem="mE4-rU-jYc" secondAttribute="centerY" constant="-5" id="Slf-iv-lAC"/>
+                        <constraint firstAttribute="centerY" secondItem="WVW-wp-mMH" secondAttribute="centerY" constant="-5" id="T3z-lK-CdK"/>
+                        <constraint firstAttribute="width" constant="320" id="ct4-FF-PfZ"/>
+                        <constraint firstAttribute="centerX" secondItem="mE4-rU-jYc" secondAttribute="centerX" id="geQ-BQ-Emb"/>
+                        <constraint firstAttribute="height" constant="70" id="nPs-sx-t7u"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="blueback.png"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h05-MR-Tqf">
+                    <rect key="frame" x="124" y="270" width="180" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="8Nf-kI-ufB"/>
+                        <constraint firstAttribute="width" constant="180" id="QU5-1E-TJx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="h05-MR-Tqf" firstAttribute="leading" secondItem="EIx-yK-Dsy" secondAttribute="leading" id="13E-mT-BsP"/>
+                <constraint firstAttribute="centerX" secondItem="Pcf-et-4QC" secondAttribute="centerX" constant="105.5" id="4cg-XS-YlM"/>
+                <constraint firstAttribute="centerX" secondItem="dOP-Gy-K2t" secondAttribute="centerX" constant="109" id="8X8-A7-iAs"/>
+                <constraint firstAttribute="trailing" secondItem="Vh6-2g-tdZ" secondAttribute="trailing" id="AOp-AF-v2p"/>
+                <constraint firstItem="h05-MR-Tqf" firstAttribute="leading" secondItem="ct3-m8-HM1" secondAttribute="trailing" constant="-1" id="Bin-mT-IRv"/>
+                <constraint firstAttribute="centerX" secondItem="oX0-5M-wIW" secondAttribute="centerX" constant="-54" id="CPk-5G-Xiq"/>
+                <constraint firstItem="Vh6-2g-tdZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DMo-ek-UGq"/>
+                <constraint firstAttribute="centerY" secondItem="oX0-5M-wIW" secondAttribute="centerY" constant="-54" id="Iqf-MZ-Yrc"/>
+                <constraint firstAttribute="centerY" secondItem="o45-d9-0eT" secondAttribute="centerY" constant="-115" id="QDZ-aM-A7Y"/>
+                <constraint firstAttribute="centerX" secondItem="EIx-yK-Dsy" secondAttribute="centerX" constant="-54" id="Ty1-O3-UyZ"/>
+                <constraint firstItem="ct3-m8-HM1" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="U7R-py-G68"/>
+                <constraint firstAttribute="centerX" secondItem="Ke0-jW-4Sl" secondAttribute="centerX" constant="-54" id="XBm-ir-r15"/>
+                <constraint firstAttribute="centerY" secondItem="Pcf-et-4QC" secondAttribute="centerY" constant="-53.5" id="XFi-gq-hgS"/>
+                <constraint firstAttribute="centerX" secondItem="o45-d9-0eT" secondAttribute="centerX" id="axG-Qf-57Z"/>
+                <constraint firstItem="Vh6-2g-tdZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eLf-VY-82Y"/>
+                <constraint firstAttribute="centerY" secondItem="JXR-yM-UnQ" secondAttribute="centerY" constant="151" id="g4b-q7-8nB"/>
+                <constraint firstAttribute="centerY" secondItem="EIx-yK-Dsy" secondAttribute="centerY" constant="49" id="hOF-53-vuN"/>
+                <constraint firstAttribute="centerX" secondItem="ALn-Pv-Ydg" secondAttribute="centerX" constant="105.5" id="lfV-cV-Aw0"/>
+                <constraint firstAttribute="centerY" secondItem="3Vk-cS-APh" secondAttribute="centerY" constant="100" id="ovx-KW-rkQ"/>
+                <constraint firstAttribute="centerX" secondItem="JXR-yM-UnQ" secondAttribute="centerX" constant="105" id="pl6-PS-T7C"/>
+                <constraint firstAttribute="centerX" secondItem="3Vk-cS-APh" secondAttribute="centerX" constant="-54" id="puN-Bf-HY0"/>
+                <constraint firstItem="h05-MR-Tqf" firstAttribute="top" secondItem="EIx-yK-Dsy" secondAttribute="bottom" constant="20" id="qNC-RP-7pM"/>
+                <constraint firstAttribute="centerY" secondItem="dOP-Gy-K2t" secondAttribute="centerY" constant="100.5" id="qjf-jI-QFT"/>
+                <constraint firstAttribute="centerY" secondItem="ALn-Pv-Ydg" secondAttribute="centerY" constant="50.5" id="s9f-4u-pe5"/>
+                <constraint firstAttribute="centerY" secondItem="Ke0-jW-4Sl" secondAttribute="centerY" constant="149" id="xZS-At-cv8"/>
+            </constraints>
+            <point key="canvasLocation" x="239" y="327"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backBtn.png" width="54" height="54"/>
+        <image name="blueback.png" width="640" height="669"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
