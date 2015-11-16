@@ -232,6 +232,9 @@
 		3AB43E8C1BD4E1B9005023D3 /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E7E1BD4E1B9005023D3 /* DateHelpers.swift */; };
 		3AB43E8D1BD4E1B9005023D3 /* DayCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E7F1BD4E1B9005023D3 /* DayCounter.swift */; };
 		3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E831BD4E1B9005023D3 /* Term.swift */; };
+		3AC70CBA1BF9844200814082 /* FirstChoosePatient.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC70CB91BF9844100814082 /* FirstChoosePatient.xib */; };
+		3AC70CBC1BF9982800814082 /* whiteMoveRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC70CBB1BF9982800814082 /* whiteMoveRight.png */; };
+		3AC70CBE1BF99A6700814082 /* IFirstChoosePatientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC70CBD1BF99A6700814082 /* IFirstChoosePatientController.swift */; };
 		3AC7B0E41BF42EFB002DE94C /* IloginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B0E31BF42EFB002DE94C /* IloginViewModel.swift */; };
 		3AC7B0F21BF4551B002DE94C /* IRegist.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F11BF4551B002DE94C /* IRegist.xib */; };
 		3AC7B0F41BF4554D002DE94C /* IRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F31BF4554D002DE94C /* IRegistViewController.swift */; };
@@ -502,6 +505,9 @@
 		3AB43E7E1BD4E1B9005023D3 /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		3AB43E7F1BD4E1B9005023D3 /* DayCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCounter.swift; sourceTree = "<group>"; };
 		3AB43E831BD4E1B9005023D3 /* Term.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
+		3AC70CB91BF9844100814082 /* FirstChoosePatient.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstChoosePatient.xib; sourceTree = "<group>"; };
+		3AC70CBB1BF9982800814082 /* whiteMoveRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteMoveRight.png; sourceTree = "<group>"; };
+		3AC70CBD1BF99A6700814082 /* IFirstChoosePatientController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IFirstChoosePatientController.swift; sourceTree = "<group>"; };
 		3AC7B0E31BF42EFB002DE94C /* IloginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IloginViewModel.swift; sourceTree = "<group>"; };
 		3AC7B0F11BF4551B002DE94C /* IRegist.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IRegist.xib; sourceTree = "<group>"; };
 		3AC7B0F31BF4554D002DE94C /* IRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRegistViewController.swift; sourceTree = "<group>"; };
@@ -576,6 +582,7 @@
 		3A2158731BEC8C140089CC01 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				3AC70CBD1BF99A6700814082 /* IFirstChoosePatientController.swift */,
 				3AC7B0F31BF4554D002DE94C /* IRegistViewController.swift */,
 				3A85636B1BF1C2B500E74B27 /* IMainFrameViewController.swift */,
 				3A2158741BEC8C460089CC01 /* ILoginController.swift */,
@@ -661,6 +668,7 @@
 				3AC7B0F11BF4551B002DE94C /* IRegist.xib */,
 				2C0615561BF46A2A00A3F90C /* IMySelfSettingView.xib */,
 				2C06157B1BF4885000A3F90C /* ISleepQualityMonitor.xib */,
+				3AC70CB91BF9844100814082 /* FirstChoosePatient.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -712,6 +720,7 @@
 		3A39C9F61BF2FC750024DD3E /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				3AC70CBB1BF9982800814082 /* whiteMoveRight.png */,
 				2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */,
 				2CDF940F1BF5C2BD00FCFAF7 /* moveLeft.png */,
 				2C06157F1BF48C4900A3F90C /* sleepQualitySelector.png */,
@@ -1201,6 +1210,7 @@
 				3A3C377E1BD48F0B00080D03 /* hrrr.png in Resources */,
 				3A91F0AE1BF0475400C470D4 /* THDateDay.xib in Resources */,
 				3A85636A1BF1C28600E74B27 /* IMainFrame.xib in Resources */,
+				3AC70CBA1BF9844200814082 /* FirstChoosePatient.xib in Resources */,
 				2C0615841BF48D5900A3F90C /* downLoad.png in Resources */,
 				3A41ADE31BA7B3D1000C109B /* LoginView.xib in Resources */,
 				2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */,
@@ -1237,6 +1247,7 @@
 				3A91F0991BF0475400C470D4 /* arrow_right.png in Resources */,
 				3A39CA001BF2FCA70024DD3E /* blueback.png in Resources */,
 				3A39CA101BF2FF010024DD3E /* menuBack.png in Resources */,
+				3AC70CBC1BF9982800814082 /* whiteMoveRight.png in Resources */,
 				3A39CA011BF2FCA70024DD3E /* garyboxback.png in Resources */,
 				3A91F0AC1BF0475400C470D4 /* dialog_ok@2x.png in Resources */,
 				2C06156F1BF4813700A3F90C /* registdownarrow.png in Resources */,
@@ -1461,6 +1472,7 @@
 				3AB43E8D1BD4E1B9005023D3 /* DayCounter.swift in Sources */,
 				3A85636C1BF1C2B500E74B27 /* IMainFrameViewController.swift in Sources */,
 				3A91F0B31BF066F500C470D4 /* THDate.swift in Sources */,
+				3AC70CBE1BF99A6700814082 /* IFirstChoosePatientController.swift in Sources */,
 				3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */,
 				3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */,
 				3AC7B1091BF45CB9002DE94C /* ZSYPopoverListView.m in Sources */,

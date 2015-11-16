@@ -71,13 +71,25 @@ class IloginViewModel: BaseViewModel {
                     }
                     
                     var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-                    var loginUser:ILoginUser? = sleepCareForIPhoneBussinessManager.Login(self.LoginName, loginPassword: self.Pwd)
+                    var loginUser:ILoginUser = sleepCareForIPhoneBussinessManager.Login(self.LoginName, loginPassword: self.Pwd)
                     
-                    if(loginUser != nil){
-                        SessionForIphone.SetSession(loginUser!)
+                    SessionForIphone.SetSession(loginUser)
+                    if(loginUser.UserType == LoginUserType.UnKnow){
+                        let controller = IFirstChoosePatientController(nibName:"FirstChoosePatient", bundle:nil)
+                        self.JumpPageForIpone(controller)
+                        
                     }
-                    let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil)
-                    self.JumpPageForIpone(controller)
+                    else{
+                        //获取当前关注的老人
+                        var iBedUserList:IBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(loginUser.LoginName, mainCode: loginUser.MainCode)
+                        if(iBedUserList.bedUserInfoList.count > 0){
+                            let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil)
+                            self.JumpPageForIpone(controller)
+                        }
+                        else{
+                            //跳转选择我的老人
+                        }
+                    }
                 }
                 },
                 catch: { ex in

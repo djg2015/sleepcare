@@ -35,3 +35,9 @@ class ILoginUser: BaseMessage {
     }
 
 }
+
+struct LoginUserType {
+    static var UserSelf:String = "1"
+    static var Monitor:String = "2"
+    static var UnKnow:String = "0"
+}

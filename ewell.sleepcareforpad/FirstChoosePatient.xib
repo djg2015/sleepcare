@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IFirstChoosePatientController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+            <connections>
+                <outlet property="btnMonitor" destination="n6K-X0-HfB" id="CfF-XQ-7d5"/>
+                <outlet property="btnUserSelf" destination="9gE-3v-lMC" id="td9-1m-vev"/>
+                <outlet property="view" destination="iN0-l3-epB" id="AbI-Ub-3pH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎您使用" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAj-sb-eXz">
+                    <rect key="frame" x="55" y="89" width="100" height="25"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="OlS-BP-3q5"/>
+                        <constraint firstAttribute="width" constant="100" id="Qr1-3T-TMS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logotm.png" translatesAutoresizingMaskIntoConstraints="NO" id="R7V-vx-x4D">
+                    <rect key="frame" x="52" y="114" width="167" height="36"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="167" id="E0m-Cv-jJc"/>
+                        <constraint firstAttribute="height" constant="36" id="aed-jK-MLe"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="智能床" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S48-Qd-j5t">
+                    <rect key="frame" x="220" y="119" width="66" height="25"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="EVt-9v-6cY"/>
+                        <constraint firstAttribute="width" constant="66" id="TOT-ji-6Ox"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteMoveRight.png" translatesAutoresizingMaskIntoConstraints="NO" id="gAC-FC-t8q">
+                    <rect key="frame" x="45" y="213" width="36" height="24"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="TYN-YR-WcI"/>
+                        <constraint firstAttribute="height" constant="24" id="hKB-a6-tJd"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择您的角色" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mK7-Rt-LvP">
+                    <rect key="frame" x="77" y="212" width="140" height="25"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="gXX-9v-4Js"/>
+                        <constraint firstAttribute="height" constant="25" id="o9f-H7-S4o"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gE-3v-lMC" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="87" y="299" width="46" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="NOL-zm-hHb"/>
+                        <constraint firstAttribute="height" constant="30" id="NdL-yH-f2b"/>
+                    </constraints>
+                    <state key="normal" title="使用者">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="userTypeCilcked:" destination="-1" eventType="touchUpInside" id="hJH-8X-CbA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6K-X0-HfB" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="87" y="374" width="46" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="fO1-gC-BF0"/>
+                        <constraint firstAttribute="height" constant="30" id="tkO-y6-Fbg"/>
+                    </constraints>
+                    <state key="normal" title="监护人">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="userTypeCilcked:" destination="-1" eventType="touchUpInside" id="niX-FB-bpM"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="XAj-sb-eXz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="89" id="0mI-MM-35c"/>
+                <constraint firstItem="9gE-3v-lMC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="299" id="4ml-KP-NWX"/>
+                <constraint firstAttribute="centerX" secondItem="n6K-X0-HfB" secondAttribute="centerX" constant="50" id="7HR-iN-MPl"/>
+                <constraint firstItem="R7V-vx-x4D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="114" id="D4s-x2-7AJ"/>
+                <constraint firstAttribute="centerX" secondItem="S48-Qd-j5t" secondAttribute="centerX" constant="-93" id="DXk-UH-Nkj"/>
+                <constraint firstAttribute="centerX" secondItem="gAC-FC-t8q" secondAttribute="centerX" constant="97" id="Ggl-3I-wiY"/>
+                <constraint firstItem="mK7-Rt-LvP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="212" id="H9y-LQ-JXo"/>
+                <constraint firstAttribute="centerX" secondItem="mK7-Rt-LvP" secondAttribute="centerX" constant="13" id="Hl1-Dr-TM6"/>
+                <constraint firstItem="n6K-X0-HfB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="374" id="epn-UW-tSw"/>
+                <constraint firstItem="S48-Qd-j5t" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="119" id="fMU-fX-k9M"/>
+                <constraint firstAttribute="centerX" secondItem="XAj-sb-eXz" secondAttribute="centerX" constant="55" id="lhi-3t-Kjl"/>
+                <constraint firstAttribute="centerX" secondItem="R7V-vx-x4D" secondAttribute="centerX" constant="24.5" id="nNZ-mL-l5C"/>
+                <constraint firstAttribute="centerX" secondItem="9gE-3v-lMC" secondAttribute="centerX" constant="50" id="npn-TT-jGA"/>
+                <constraint firstItem="gAC-FC-t8q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="213" id="pDE-Jf-3bE"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="loginbackground.png"/>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="410" y="312"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="loginbackground.png" width="640" height="1136"/>
+        <image name="logotm.png" width="300" height="60"/>
+        <image name="whiteMoveRight.png" width="48" height="48"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
