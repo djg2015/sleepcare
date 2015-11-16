@@ -19,19 +19,21 @@ func getCurrentTime() -> String{
     
     var dateFormatter:NSDateFormatter  = NSDateFormatter()
     dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
-    //    dateFormatter.timeZone = NSTimeZone.localTimeZone()
-    //    dateFormatter.dateStyle = .MediumStyle
-    //    dateFormatter.timeStyle = .MediumStyle
+    dateFormatter.timeZone = NSTimeZone.localTimeZone()
+    dateFormatter.dateStyle = .MediumStyle
+    dateFormatter.timeStyle = .MediumStyle
     
     return dateFormatter.stringFromDate(nowUTC)
     
 }
 
-func getDateTime(data:String) -> NSDate{
+func getDateTime(data:String,dateFormat:String = "yyyy-MM-dd") -> NSDate{
     
     var dateFormatter:NSDateFormatter  = NSDateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-    
+    dateFormatter.timeZone = NSTimeZone.localTimeZone()
+    dateFormatter.dateStyle = .MediumStyle
+    dateFormatter.timeStyle = .MediumStyle
+    dateFormatter.dateFormat = dateFormat
     return dateFormatter.dateFromString(data)!
     
 }

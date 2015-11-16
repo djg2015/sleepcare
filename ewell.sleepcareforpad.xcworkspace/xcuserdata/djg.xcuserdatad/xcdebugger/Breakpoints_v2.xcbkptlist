@@ -1262,12 +1262,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CommonHelper.swift"
-            timestampString = "469095213.171955"
+            timestampString = "469332210.064332"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "GetValueFromPlist(_:)"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "handleException(_:showDialog:msg:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2598,22 +2598,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ewell.sleepcareforpad/ILoginController.swift"
-            timestampString = "469098048.662335"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "TouchButton(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/THDate.swift"
             timestampString = "468741923.620679"
             startingColumnNumber = "9223372036854775807"
@@ -2663,13 +2647,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ewell.sleepcareforpad/ILoginController.swift"
-            timestampString = "469098048.662335"
+            timestampString = "469332778.515501"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "ILoginController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

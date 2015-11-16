@@ -23,6 +23,16 @@ class SessionForIphone {
         }
     }
     
+    private var _curPatientCode:String?
+    var CurPatientCode:String?{
+        get{
+            return self._curPatientCode
+        }
+        set(value){
+            self._curPatientCode = value
+        }
+    }
+    
     private static var instance:SessionForIphone? = nil
     
     //设置登录用户信息
