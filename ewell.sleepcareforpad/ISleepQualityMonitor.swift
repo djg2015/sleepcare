@@ -9,14 +9,18 @@
 import Foundation
 import UIKit
 
-class ISleepQualityMonitor: UIView {
+class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
     
     @IBOutlet weak var process: CircularLoaderView!
     
+    @IBOutlet weak var imgDownload: UIImageView!
+    @IBOutlet weak var imgCalendar: UIImageView!
     @IBOutlet weak var lblSelectDate: UILabel!
     @IBOutlet weak var imgMoveRight: UIImageView!
     @IBOutlet weak var imgMoveLeft: UIImageView!
     
+    var parentController:IBaseViewController!
+    var calendarControl:THDate!
     
     var sleepQualityViewModel:ISleepQualityMonitorViewModel = ISleepQualityMonitorViewModel()
     var lblSleepQuality:UILabel?
@@ -25,8 +29,11 @@ class ISleepQualityMonitor: UIView {
     var lblLightSleepTimespan:UILabel?
     var lblAwakeningTimespan:UILabel?
     
-    func viewInit()
+    func viewInit(parentController:IBaseViewController?)
     {
+        self.parentController = parentController
+        self.calendarControl = THDate(parentControl: parentController!)
+        self.calendarControl.delegate = self
         // 画出圆圈中间内容
         self.lblSleepQuality = UILabel(frame: CGRect(x: 0, y: 10, width: self.process.bounds.width, height: 40))
         self.lblSleepQuality!.textAlignment = .Center
@@ -107,6 +114,15 @@ class ISleepQualityMonitor: UIView {
         self.imgMoveRight.userInteractionEnabled = true
         var singleTap1:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "moveRight:")
         self.imgMoveRight.addGestureRecognizer(singleTap1)
+        
+        self.imgCalendar.userInteractionEnabled = true
+        var singleTap2:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showCalendar:")
+        self.imgCalendar.addGestureRecognizer(singleTap2)
+        
+        self.imgDownload.userInteractionEnabled = true
+        var singleTap3:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showDownload:")
+        self.imgDownload.addGestureRecognizer(singleTap3)
+
     }
     
     func moveLeft(sender:UITapGestureRecognizer)
@@ -119,4 +135,21 @@ class ISleepQualityMonitor: UIView {
         self.sleepQualityViewModel.SelectedDate = Date(string: self.sleepQualityViewModel.SelectedDate, format: "yyyy-MM-dd").addDays(1).description(format: "yyyy-MM-dd")
     }
     
+    func showCalendar(sender:UITapGestureRecognizer)
+    {
+        var formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        self.calendarControl.ShowDate(date:getDateTime(self.sleepQualityViewModel.SelectedDate),returnformat: formatter)
+    }
+    
+    func showDownload(sender:UITapGestureRecognizer)
+    {
+        var formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+       self.calendarControl.ShowDate(date:getDateTime(self.sleepQualityViewModel.SelectedDate),returnformat: formatter)
+    }
+    
+    func ChoosedDate(choosedDate:String?){
+        self.sleepQualityViewModel.SelectedDate = choosedDate!
+    }
 }

@@ -35,18 +35,18 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="4wi-Sy-TlT">
-                                    <rect key="frame" x="242" y="20" width="25" height="25"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="N3l-YT-Iua"/>
-                                        <constraint firstAttribute="width" constant="25" id="td3-RW-AX7"/>
-                                    </constraints>
-                                </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downLoad.png" translatesAutoresizingMaskIntoConstraints="NO" id="sHf-ah-bcC">
                                     <rect key="frame" x="275" y="20" width="25" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="25" id="68c-bz-K41"/>
                                         <constraint firstAttribute="height" constant="25" id="mC0-ql-QHL"/>
+                                    </constraints>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="4wi-Sy-TlT">
+                                    <rect key="frame" x="242" y="20" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" id="N3l-YT-Iua"/>
+                                        <constraint firstAttribute="width" constant="25" id="td3-RW-AX7"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
@@ -144,6 +144,8 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="imgCalendar" destination="4wi-Sy-TlT" id="5Rz-Gv-xRJ"/>
+                <outlet property="imgDownload" destination="sHf-ah-bcC" id="QkM-Og-tpt"/>
                 <outlet property="imgMoveLeft" destination="9QF-DF-R7H" id="N8p-gc-rXI"/>
                 <outlet property="imgMoveRight" destination="G1t-jZ-5SL" id="Bei-ss-GyF"/>
                 <outlet property="lblSelectDate" destination="8cs-Lp-kRt" id="7TZ-yt-rp3"/>

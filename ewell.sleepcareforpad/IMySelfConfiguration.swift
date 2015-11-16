@@ -13,6 +13,10 @@ class IMySelfConfiguration: UIView{
     
     @IBOutlet weak var menuTableView: ConfiurationTabeView!
     
+    @IBOutlet weak var imgHeadFace: UIImageView!
+    
+    @IBOutlet weak var lblManType: UILabel!
+    
     var parentController:IBaseViewController!
     
     // 界面初始化
@@ -21,8 +25,8 @@ class IMySelfConfiguration: UIView{
         self.parentController = parentController
         var source = Array<ConfigurationViewModel>()
         var menu:ConfigurationViewModel = ConfigurationViewModel()
-        // 根据用户类型(监护人/使用者)设置对应的菜单
-        if(false)
+        // 根据用户类型(监护人/使用者)设置对应的菜单 1.使用者 2.监护人
+        if(SessionForIphone.GetSession().User?.UserType == "2")
         {
             menu = ConfigurationViewModel()
             menu.imageName = "myElder"
@@ -39,8 +43,10 @@ class IMySelfConfiguration: UIView{
             menu.titleName = "设置"
             menu.configrationController = IMySelfSettingController(nibName:"IMySelfSettingView", bundle:nil)
             source.append(menu)
+            self.imgHeadFace.image = UIImage(named: "manHeadFace")
+            self.lblManType.text = "监护人"
         }
-        else
+        else if(SessionForIphone.GetSession().User?.UserType == "1")
         {
             menu = ConfigurationViewModel()
             menu.imageName = "myRequipment"
@@ -62,6 +68,12 @@ class IMySelfConfiguration: UIView{
             menu.titleName = "设置"
             menu.configrationController = IMySelfSettingController(nibName:"IMySelfSettingView", bundle:nil)
             source.append(menu)
+            imgHeadFace.image = UIImage(named: "manHeadFace")
+            self.lblManType.text = "使用者"
+        }
+        else
+        {
+            showDialogMsg("您尚未选择用户类型，无法查看信息！", title: "提示")
         }
         
         self.menuTableView.parentController = self.parentController
