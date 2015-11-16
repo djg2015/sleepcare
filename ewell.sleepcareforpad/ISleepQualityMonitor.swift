@@ -139,14 +139,14 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
     {
         var formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        self.calendarControl.ShowDate(date:nil,returnformat: formatter)
+        self.calendarControl.ShowDate(date:getDateTime(self.sleepQualityViewModel.SelectedDate),returnformat: formatter)
     }
     
     func showDownload(sender:UITapGestureRecognizer)
     {
         var formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        self.calendarControl.ShowDate(date:nil,returnformat: formatter)
+       self.calendarControl.ShowDate(date:getDateTime(self.sleepQualityViewModel.SelectedDate),returnformat: formatter)
     }
     
     func ChoosedDate(choosedDate:String?){

@@ -71,6 +71,8 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="imgHeadFace" destination="ImA-Ww-FNl" id="p6G-b5-cPa"/>
+                <outlet property="lblManType" destination="mz6-PW-uMb" id="Pdr-Oo-Z40"/>
                 <outlet property="menuTableView" destination="C71-dD-46f" id="Lou-W7-eak"/>
             </connections>
             <point key="canvasLocation" x="215" y="327"/>
