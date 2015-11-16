@@ -9,6 +9,8 @@
 import UIKit
 
 class ILoginController: IBaseViewController {
+    
+    @IBOutlet weak var imgTitle: UIImageView!
     var datapicker:THDate?
     @IBOutlet weak var txtLoginName: UITextField!
     @IBOutlet weak var txtPwd: UITextField!
@@ -57,5 +59,13 @@ class ILoginController: IBaseViewController {
                 _ in
                 self.presentViewController(IRegistViewController(nibName: "IRegist", bundle: nil), animated: true, completion: nil)
         }
+        // 给图片添加手势
+        self.imgTitle.userInteractionEnabled = true
+        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
+        self.imgTitle .addGestureRecognizer(singleTap)
+    }
+    
+    func imageViewTouch(){
+        self.presentViewController(IServerSettingController(nibName:"IServerSettingView", bundle:nil), animated: true, completion: nil)
     }
 }

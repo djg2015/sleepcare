@@ -1,15 +1,16 @@
 //
-//  ServerSettingController.swift
+//  IServerSettingController.swift
 //  ewell.sleepcareforpad
 //
-//  Created by zhaoyin on 15/10/21.
+//  Created by zhaoyin on 15/11/16.
 //  Copyright (c) 2015年 djg. All rights reserved.
 //
 
 import Foundation
+
 import UIKit
 
-class ServerSettingController:BaseViewController {
+class IServerSettingController:BaseViewController {
     
     @IBOutlet weak var txtServerJid: UITextField!
     
@@ -21,6 +22,8 @@ class ServerSettingController:BaseViewController {
     
     @IBOutlet weak var txtServerPwd: UITextField!
     
+    @IBOutlet weak var imgBack: UIImageView!
+    
     //-----------界面事件定义----------------
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +33,15 @@ class ServerSettingController:BaseViewController {
         self.txtServerPort.text = GetValueFromPlist("xmppport")
         self.txtServerLoginName.text = GetValueFromPlist("xmppusername")
         self.txtServerPwd.text = GetValueFromPlist("xmppuserpwd")
+        
+        self.imgBack.userInteractionEnabled = true
+        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
+        self.imgBack .addGestureRecognizer(singleTap)
+        
+        
     }
     
-    @IBAction func btnBackClick(sender: AnyObject) {
+    func imageViewTouch(){
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -47,18 +56,14 @@ class ServerSettingController:BaseViewController {
                 
                 showDialogMsg("服务端配置保存成功", "提示", buttonTitle: "确定", action: { (isOtherButton) -> Void in
                     self.clickOK(nil)
-                })
-//                
-//                var alert = UIAlertController(title: "提示", message: "服务端配置保存成功", preferredStyle: UIAlertControllerStyle.Alert)
-//                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler:self.clickOK))
-//                self.presentViewController(alert, animated: true, completion: nil)
+                })  
                 },
                 catch: { ex in
                     //异常处理
                     handleException(ex,showDialog: true)
                 },
                 finally: {
-                   
+                    
                 }
             )}
     }
@@ -67,4 +72,5 @@ class ServerSettingController:BaseViewController {
     {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
 }
