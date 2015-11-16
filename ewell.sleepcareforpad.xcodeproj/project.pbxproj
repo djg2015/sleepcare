@@ -34,6 +34,7 @@
 		2C0615801BF48C4900A3F90C /* sleepQualitySelector.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06157F1BF48C4900A3F90C /* sleepQualitySelector.png */; };
 		2C0615831BF48D5900A3F90C /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615811BF48D5900A3F90C /* calendar.png */; };
 		2C0615841BF48D5900A3F90C /* downLoad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615821BF48D5900A3F90C /* downLoad.png */; };
+		2C0DC3C51BF9A0930048BEEA /* ILoginUserEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0DC3C41BF9A0930048BEEA /* ILoginUserEdit.xib */; };
 		2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28CA131BE87D3D000C46C4 /* ServerResult.swift */; };
 		2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */; };
 		2C2CB47A1BD7654100A6DB65 /* ServerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */; };
@@ -294,6 +295,7 @@
 		2C06157F1BF48C4900A3F90C /* sleepQualitySelector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleepQualitySelector.png; sourceTree = "<group>"; };
 		2C0615811BF48D5900A3F90C /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		2C0615821BF48D5900A3F90C /* downLoad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downLoad.png; sourceTree = "<group>"; };
+		2C0DC3C41BF9A0930048BEEA /* ILoginUserEdit.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ILoginUserEdit.xib; sourceTree = "<group>"; };
 		2C28CA131BE87D3D000C46C4 /* ServerResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResult.swift; sourceTree = "<group>"; };
 		2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepQualityPandect.xib; sourceTree = "<group>"; };
 		2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSettingController.swift; sourceTree = "<group>"; };
@@ -675,6 +677,7 @@
 				2C0615561BF46A2A00A3F90C /* IMySelfSettingView.xib */,
 				2C06157B1BF4885000A3F90C /* ISleepQualityMonitor.xib */,
 				3AC70CB91BF9844100814082 /* FirstChoosePatient.xib */,
+				2C0DC3C41BF9A0930048BEEA /* ILoginUserEdit.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1229,6 +1232,7 @@
 				2C4D31461BF97E6F001DB693 /* IServerSettingView.xib in Resources */,
 				2C2F83901BD63A19008CD92B /* previewBtnDisable.png in Resources */,
 				2C0615711BF4813700A3F90C /* trendMenu.png in Resources */,
+				2C0DC3C51BF9A0930048BEEA /* ILoginUserEdit.xib in Resources */,
 				3A39CA021BF2FCA70024DD3E /* grayback.png in Resources */,
 				2C06157C1BF4885000A3F90C /* ISleepQualityMonitor.xib in Resources */,
 				3A9C12FD1BC789C6008EC314 /* pagerunselected.png in Resources */,
