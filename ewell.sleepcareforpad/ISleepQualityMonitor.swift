@@ -72,6 +72,7 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
                 var item = PNLineChartDataItem(y: yValue)
                 return item
             })
+            data01.inflexionPointStyle = PNLineChartPointStyle.Circle
             
             //设置睡眠曲线
             var data02Array: [CGFloat] = []
@@ -87,9 +88,7 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
                 var item = PNLineChartDataItem(y: yValue)
                 return item
             })
-            
-           
-            
+            data02.inflexionPointStyle = PNLineChartPointStyle.Circle
             
             if(self.viewSleepQuality.subviews.count == 0){
                 lineChart!.chartData = [data01,data02]
