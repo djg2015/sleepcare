@@ -75,7 +75,7 @@ class IloginViewModel: BaseViewModel {
                     
                     SessionForIphone.SetSession(loginUser)
                     if(loginUser.UserType == LoginUserType.UnKnow){
-                        let controller = IFirstChoosePatientController(nibName:"FirstChoosePatient", bundle:nil)
+                        let controller = ISetUserTypeController(nibName:"ISetUserType", bundle:nil)
                         self.JumpPageForIpone(controller)
                         
                     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SleepCareTableViewCell: UITableViewCell {
+class MyPatientsTableViewCell: UITableViewCell {
     var bedNumber:UILabel!
     
     init(data:String,reuseIdentifier cellID:String){

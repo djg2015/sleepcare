@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class IFirstChoosePatientViewModel: BaseViewModel {
+class ISetUserTypeViewModel: BaseViewModel {
     //界面处理命令
     var userselfCommand: RACCommand?
     var monitorCommand: RACCommand?
@@ -39,6 +39,7 @@ class IFirstChoosePatientViewModel: BaseViewModel {
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var loginUser:SessionForIphone = SessionForIphone.GetSession()
                 sleepCareForIPhoneBussinessManager.SaveUserType(loginUser.User!.LoginName, userType: userType)
+                loginUser.User?.UserType = userType
                 let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil)
                 self.JumpPageForIpone(controller)
                 },

@@ -8,12 +8,12 @@
 
 import UIKit
 
-class SleepCareTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
+class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
     
     override init(frame: CGRect) {
         super.init(frame: frame,style:UITableViewStyle.Plain)
         self.backgroundColor = UIColor.clearColor()
-        self.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.delegate = self
         self.dataSource = self
     }
@@ -30,7 +30,7 @@ class SleepCareTableView: UITableView,UITableViewDelegate,UITableViewDataSource 
     
     //返回表格总列数
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     //返回单元格的高度
@@ -42,7 +42,7 @@ class SleepCareTableView: UITableView,UITableViewDelegate,UITableViewDataSource 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cellID = "mycell"
         
-        return SleepCareTableViewCell(data: "hello", reuseIdentifier: cellID)
+        return MyPatientsTableViewCell(data: "hello", reuseIdentifier: cellID)
         
     }
     
