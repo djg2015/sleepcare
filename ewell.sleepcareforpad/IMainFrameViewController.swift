@@ -57,7 +57,7 @@ class IMainFrameViewController: IBaseViewController {
                 _ in
                 self.curMenu = self.uiSleepCare
                 let sleepQualityMonitorView = NSBundle.mainBundle().loadNibNamed("ISleepQualityMonitor", owner: self, options: nil).first as! ISleepQualityMonitor
-                sleepQualityMonitorView.viewInit(self)
+                sleepQualityMonitorView.viewInit(self,bedUserCode: "00000001")
                 self.showBody(sleepQualityMonitorView)
         }
         self.btnMe!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IEmailViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+            <connections>
+                <outlet property="btnSendEmail" destination="yk3-Ej-LWI" id="ihh-fU-P1K"/>
+                <outlet property="txtEmailAddress" destination="zkc-Bx-2di" id="3Yp-po-p1K"/>
+                <outlet property="view" destination="iN0-l3-epB" id="zKr-ir-Dau"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9WF-lc-qRz" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="28" y="214" width="264" height="140"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邮箱地址：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKQ-hT-RbI">
+                            <rect key="frame" x="16" y="33" width="91" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="91" id="9BH-t8-OEI"/>
+                                <constraint firstAttribute="height" constant="21" id="Wfu-Pv-M8G"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zkc-Bx-2di">
+                            <rect key="frame" x="97" y="29" width="150" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="150" id="RLR-jO-Bc3"/>
+                                <constraint firstAttribute="height" constant="30" id="sjX-vC-Nuc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk3-Ej-LWI" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                            <rect key="frame" x="105" y="76" width="58" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="58" id="U2s-eY-ZxW"/>
+                                <constraint firstAttribute="height" constant="30" id="nVK-nu-y8G"/>
+                            </constraints>
+                            <state key="normal" title="发送">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="zkc-Bx-2di" secondAttribute="centerX" constant="-40" id="CGC-zs-lmO"/>
+                        <constraint firstAttribute="centerX" secondItem="aKQ-hT-RbI" secondAttribute="centerX" constant="70.5" id="Fs3-rg-7kj"/>
+                        <constraint firstAttribute="centerY" secondItem="zkc-Bx-2di" secondAttribute="centerY" constant="26" id="OIi-zx-1GB"/>
+                        <constraint firstAttribute="centerX" secondItem="yk3-Ej-LWI" secondAttribute="centerX" constant="-2" id="SLg-zf-R7d"/>
+                        <constraint firstAttribute="width" constant="264" id="bwj-i0-gmF"/>
+                        <constraint firstAttribute="centerY" secondItem="aKQ-hT-RbI" secondAttribute="centerY" constant="26.5" id="clP-gX-Oir"/>
+                        <constraint firstAttribute="centerY" secondItem="yk3-Ej-LWI" secondAttribute="centerY" constant="-21" id="mPR-go-8Ow"/>
+                        <constraint firstAttribute="height" constant="140" id="ojP-Vx-POd"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="loginbackground.png"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="9WF-lc-qRz" secondAttribute="centerX" id="RoS-Fu-vXF"/>
+                <constraint firstAttribute="centerY" secondItem="9WF-lc-qRz" secondAttribute="centerY" id="gNf-x4-c57"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="loginbackground.png"/>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="204" y="183"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="loginbackground.png" width="640" height="1136"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

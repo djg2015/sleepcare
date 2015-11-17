@@ -21,7 +21,7 @@ class ISleepQualityMonitorViewModel: BaseViewModel {
             try {
                 ({
                     var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-                    var report:ISleepQualityReport = sleepCareForIPhoneBLL.GetSleepQualityByUser("00000001", reportDate: self.SelectedDate)
+                    var report:ISleepQualityReport = sleepCareForIPhoneBLL.GetSleepQualityByUser(self.BedUserCode, reportDate: self.SelectedDate)
                     self.SleepQuality = report.SleepQuality
                     if(report.SleepQuality == "优")
                     {
@@ -88,6 +88,17 @@ class ISleepQualityMonitorViewModel: BaseViewModel {
                     }
                 )}
             
+        }
+    }
+    
+    // 要查询的床位用户编码
+    var _bedUserCode:String = "00:00"
+    dynamic var BedUserCode:String{
+        get{
+            return self._bedUserCode
+        }
+        set(value){
+            self._bedUserCode = value
         }
     }
     
