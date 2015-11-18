@@ -48,6 +48,21 @@ class ISleepDateReport:BaseMessage {
     
     var ReportDate:String = ""
     var WeekDay:String = ""
-    var OnBedTimespan:String = ""
-    var SleepTimespan:String = ""
+    var OnBedTimespan:String = ""{
+        didSet{
+            var hours:CGFloat = CGFloat((self.OnBedTimespan.subString(0, length: 2) as NSString).floatValue)
+            var minutes:CGFloat = CGFloat((self.OnBedTimespan.subString(3, length: 2) as NSString).floatValue)
+            self.OnBedTimespanMinutes = hours + minutes/60
+        }
+    }
+    var SleepTimespan:String = ""{
+        didSet{
+            var hours:CGFloat = CGFloat((self.SleepTimespan.subString(0, length: 2) as NSString).floatValue)
+            var minutes:CGFloat = CGFloat((self.SleepTimespan.subString(3, length: 2) as NSString).floatValue)
+            self.SleepTimespanMinutes = hours + minutes/60
+        }
+    }
+    // 在床时长
+    var OnBedTimespanMinutes:CGFloat = 0
+    var SleepTimespanMinutes:CGFloat = 0
 }

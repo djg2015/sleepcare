@@ -18,6 +18,8 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
     @IBOutlet weak var lblSelectDate: UILabel!
     @IBOutlet weak var imgMoveRight: UIImageView!
     @IBOutlet weak var imgMoveLeft: UIImageView!
+    @IBOutlet weak var viewSleepQuality: BackgroundCommon!
+    
     
     var parentController:IBaseViewController!
     var _bedUserCode:String?
@@ -30,6 +32,86 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
     var lblDeepSleepTimespan:UILabel?
     var lblLightSleepTimespan:UILabel?
     var lblAwakeningTimespan:UILabel?
+    
+    // 当前周每天的睡眠质量
+    var _sleepRange:Array<ISleepDateReport> = Array<ISleepDateReport>()
+    var SleepRange:Array<ISleepDateReport> = [] {
+        didSet{
+            //设置周睡眠图表
+            var lineChart:PNLineChart?
+            if(self.viewSleepQuality.subviews.count != 0){
+                lineChart = (self.viewSleepQuality.subviews[0] as? PNLineChart)!
+            }
+            else
+            {
+                lineChart = PNLineChart(frame: CGRectMake(0, 10,  self.viewSleepQuality.bounds.width, self.viewSleepQuality.bounds.height - 30))
+                
+            }
+            
+            lineChart!.yFixedValueMin = 1
+            lineChart!.showLabel = true
+            lineChart!.backgroundColor = UIColor.clearColor()
+            lineChart!.xLabels = []
+            for(var i = self.sleepQualityViewModel.SleepRange.count - 1 ;i >= 0;i--){
+                var xlable = self.sleepQualityViewModel.SleepRange[i].WeekDay
+                lineChart!.xLabels.append(xlable)
+            }
+            lineChart!.showCoordinateAxis = true
+            
+            //设置在床曲线
+            var data01Array: [CGFloat] = []
+            for(var i = self.sleepQualityViewModel.SleepRange.count - 1 ;i >= 0;i--){
+                data01Array.append(self.sleepQualityViewModel.SleepRange[i].OnBedTimespanMinutes)
+            }
+            var data01:PNLineChartData = PNLineChartData()
+            data01.color = PNGreenColor
+            data01.itemCount = UInt(data01Array.count)
+            data01.dataTitle = "在床时间"
+            data01.getData = ({(index: UInt)  in
+                var yValue:CGFloat = data01Array[Int(index)]
+                var item = PNLineChartDataItem(y: yValue)
+                return item
+            })
+            
+            //设置睡眠曲线
+            var data02Array: [CGFloat] = []
+            for(var i = self.sleepQualityViewModel.SleepRange.count - 1 ;i >= 0;i--){
+                data02Array.append(self.sleepQualityViewModel.SleepRange[i].SleepTimespanMinutes)
+            }
+            var data02:PNLineChartData = PNLineChartData()
+            data02.color = PNGreyColor
+            data02.itemCount = UInt(data02Array.count)
+            data02.dataTitle = "睡眠时间"
+            data02.getData = ({(index: UInt)  in
+                var yValue:CGFloat = data02Array[Int(index)]
+                var item = PNLineChartDataItem(y: yValue)
+                return item
+            })
+            
+           
+            
+            
+            if(self.viewSleepQuality.subviews.count == 0){
+                lineChart!.chartData = [data01,data02]
+                lineChart!.strokeChart()
+                self.viewSleepQuality.addSubview(lineChart!)
+                
+                
+                lineChart!.legendStyle = PNLegendItemStyle.Serial
+                //                lineChart.legendFont.fontWithSize(12)
+                let legend = lineChart!.getLegendWithMaxWidth(self.viewSleepQuality.frame.width)
+                legend.frame = CGRectMake(65, 5, self.viewSleepQuality.frame.width - 10, self.viewSleepQuality.frame.height - 10)
+                self.viewSleepQuality.addSubview(legend)
+            }
+            else{
+                if(data01.itemCount > 0 && data02.itemCount > 0)
+                {
+                    lineChart!.updateChartData([data01,data02])
+                }
+            }
+        }
+    }
+    
     
     func viewInit(parentController:IBaseViewController?,bedUserCode:String)
     {
@@ -106,6 +188,7 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
         RACObserve(self.sleepQualityViewModel, "AwakeningTimespan") ~> RAC(self.lblAwakeningTimespan, "text")
         RACObserve(self.sleepQualityViewModel, "SelectedDate") ~> RAC(self.lblSelectDate, "text")
         RACObserve(self, "_bedUserCode") ~> RAC(self.sleepQualityViewModel, "BedUserCode")
+        RACObserve(self.sleepQualityViewModel, "SleepRange") ~> RAC(self, "SleepRange")
         
         self.sleepQualityViewModel.SelectedDate = getCurrentTime("yyyy-MM-dd")
         
@@ -132,7 +215,7 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
         self.imgDownload.userInteractionEnabled = true
         var singleTap3:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showDownload:")
         self.imgDownload.addGestureRecognizer(singleTap3)
-
+        
     }
     
     func moveLeft(sender:UITapGestureRecognizer)
