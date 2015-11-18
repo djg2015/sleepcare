@@ -9,11 +9,9 @@
 import UIKit
 
 class MyPatientsTableViewCell: UITableViewCell {
-    var bedNumber:UILabel!
-    
+ 
     init(data:String,reuseIdentifier cellID:String){
-        self.bedNumber = UILabel(frame:CGRectMake(10, 10, 100, 30))
-       self.bedNumber.text = data
+      
         super.init(style:UITableViewCellStyle.Subtitle, reuseIdentifier: cellID)
         rebuilderUserInterface()
     }
@@ -24,8 +22,7 @@ class MyPatientsTableViewCell: UITableViewCell {
     
     //汇至床位界面
     func rebuilderUserInterface(){
-        self.backgroundColor = UIColor.redColor()
-        self.addSubview(self.bedNumber)
+        
     }
     
     override func awakeFromNib() {

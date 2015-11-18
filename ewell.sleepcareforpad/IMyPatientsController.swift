@@ -8,16 +8,28 @@
 
 import UIKit
 
-class IMyPatientsController: UIViewController {
+class IMyPatientsController: IBaseViewController {
     @IBOutlet weak var imgSmallAdd: UIImageView!
-
     @IBOutlet weak var imgBigAdd: UIImageView!
-    
     @IBOutlet weak var uiNewAdd: UIView!
+    @IBOutlet weak var uiPatientList: UIView!
+    
+    var myPatientsTableView:MyPatientsTableView!
+    @IBOutlet weak var myPatientTable: MyPatientsTableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.myPatientTable.reloadData()
+        
+        //设置添加老人事件
+        self.imgSmallAdd.userInteractionEnabled = true
+        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
+        self.imgSmallAdd .addGestureRecognizer(singleTap)
+        
+//        self.imgBigAdd.userInteractionEnabled = true
+//        self.imgBigAdd .addGestureRecognizer(singleTap)
 
-        // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,15 +37,14 @@ class IMyPatientsController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //弹出添加老人界面
+    func imageViewTouch(){
+        var controller = IChoosePatientsController(nibName:"IChoosePatients", bundle:nil)
+        self.presentViewController(controller, animated: true, completion: nil)
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+
 
 }

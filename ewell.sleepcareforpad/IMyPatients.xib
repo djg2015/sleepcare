@@ -9,7 +9,9 @@
             <connections>
                 <outlet property="imgBigAdd" destination="7SK-2a-ggG" id="4ye-h1-kBR"/>
                 <outlet property="imgSmallAdd" destination="WTR-H1-fm3" id="qTh-4l-Alz"/>
+                <outlet property="myPatientTable" destination="i3Y-6g-lUj" id="JFA-01-F1r"/>
                 <outlet property="uiNewAdd" destination="3Zo-BW-UMe" id="D0l-Wj-T9f"/>
+                <outlet property="uiPatientList" destination="wXQ-C7-ZY0" id="5xt-9p-Azb"/>
                 <outlet property="view" destination="iN0-l3-epB" id="poF-1H-4r3"/>
             </connections>
         </placeholder>
@@ -19,11 +21,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smalladd.png" translatesAutoresizingMaskIntoConstraints="NO" id="WTR-H1-fm3">
-                    <rect key="frame" x="260" y="17" width="36" height="34"/>
+                    <rect key="frame" x="278" y="23" width="33" height="28"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="34" id="Bld-71-70w"/>
-                        <constraint firstAttribute="width" constant="36" id="h4t-Uf-WPt"/>
+                        <constraint firstAttribute="height" constant="28" id="Bld-71-70w"/>
+                        <constraint firstAttribute="width" constant="33" id="h4t-Uf-WPt"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的老人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNy-io-MkJ">
@@ -86,24 +88,38 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXQ-C7-ZY0" userLabel="PatientList">
                     <rect key="frame" x="0.0" y="57" width="320" height="511"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="i3Y-6g-lUj" customClass="MyPatientsTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="511"/>
+                            <animations/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </tableView>
+                    </subviews>
                     <animations/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="i3Y-6g-lUj" secondAttribute="bottom" id="6Wp-X9-DHH"/>
+                        <constraint firstItem="i3Y-6g-lUj" firstAttribute="leading" secondItem="wXQ-C7-ZY0" secondAttribute="leading" id="8y7-Lq-j1Q"/>
+                        <constraint firstItem="i3Y-6g-lUj" firstAttribute="top" secondItem="wXQ-C7-ZY0" secondAttribute="top" id="HBu-Go-qlO"/>
+                        <constraint firstAttribute="trailing" secondItem="i3Y-6g-lUj" secondAttribute="trailing" id="boj-5w-1RV"/>
+                    </constraints>
                 </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="wXQ-C7-ZY0" firstAttribute="top" secondItem="3Zo-BW-UMe" secondAttribute="top" id="0eh-Pn-QeU"/>
-                <constraint firstItem="WTR-H1-fm3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="17" id="4a2-bH-2iB"/>
+                <constraint firstItem="WTR-H1-fm3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="4a2-bH-2iB"/>
                 <constraint firstAttribute="centerX" secondItem="zNy-io-MkJ" secondAttribute="centerX" id="5bk-4j-6Bw"/>
                 <constraint firstAttribute="trailing" secondItem="3Zo-BW-UMe" secondAttribute="trailing" id="Dlv-Ud-GBu"/>
                 <constraint firstItem="3Zo-BW-UMe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EZD-s4-5DA"/>
                 <constraint firstItem="zNy-io-MkJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="MIo-oe-DwZ"/>
-                <constraint firstAttribute="centerX" secondItem="WTR-H1-fm3" secondAttribute="centerX" constant="-118" id="P2f-ZL-AKz"/>
+                <constraint firstAttribute="centerX" secondItem="WTR-H1-fm3" secondAttribute="centerX" constant="-134.5" id="P2f-ZL-AKz"/>
                 <constraint firstAttribute="bottom" secondItem="3Zo-BW-UMe" secondAttribute="bottom" id="UBw-Up-V39"/>
                 <constraint firstAttribute="bottom" secondItem="wXQ-C7-ZY0" secondAttribute="bottom" id="afk-Gj-eKb"/>
                 <constraint firstItem="wXQ-C7-ZY0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ie2-xh-Ufh"/>
                 <constraint firstAttribute="trailing" secondItem="wXQ-C7-ZY0" secondAttribute="trailing" id="wP7-8l-vz2"/>
+                <constraint firstItem="wXQ-C7-ZY0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="57" id="yG8-HB-I3O"/>
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="loginbackground.png"/>

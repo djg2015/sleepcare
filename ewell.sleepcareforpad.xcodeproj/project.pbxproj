@@ -169,6 +169,11 @@
 		3A8604511BBA6327005FC117 /* topbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8604501BBA6327005FC117 /* topbg.png */; };
 		3A8680661BD75EA900F22016 /* ChoosePart.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8680651BD75EA800F22016 /* ChoosePart.xib */; };
 		3A8680681BD75EE000F22016 /* ChoosePartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8680671BD75EE000F22016 /* ChoosePartController.swift */; };
+		3A91B35E1BFB146800DB3514 /* IChoosePatients.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A91B35D1BFB146800DB3514 /* IChoosePatients.xib */; };
+		3A91B3601BFB19E800DB3514 /* CommonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A91B35F1BFB19E800DB3514 /* CommonTableView.swift */; };
+		3A91B3621BFB1D1C00DB3514 /* PartTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A91B3611BFB1D1C00DB3514 /* PartTableCell.xib */; };
+		3A91B3641BFB1DF200DB3514 /* IChoosePatientsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A91B3631BFB1DF200DB3514 /* IChoosePatientsController.swift */; };
+		3A91B3661BFB251700DB3514 /* PartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A91B3651BFB251700DB3514 /* PartTableViewCell.swift */; };
 		3A91F0971BF0475400C470D4 /* arrow_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F07B1BF0475400C470D4 /* arrow_left.png */; };
 		3A91F0981BF0475400C470D4 /* arrow_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F07C1BF0475400C470D4 /* arrow_left@2x.png */; };
 		3A91F0991BF0475400C470D4 /* arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F07D1BF0475400C470D4 /* arrow_right.png */; };
@@ -454,6 +459,11 @@
 		3A8604501BBA6327005FC117 /* topbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbg.png; sourceTree = "<group>"; };
 		3A8680651BD75EA800F22016 /* ChoosePart.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoosePart.xib; sourceTree = "<group>"; };
 		3A8680671BD75EE000F22016 /* ChoosePartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePartController.swift; sourceTree = "<group>"; };
+		3A91B35D1BFB146800DB3514 /* IChoosePatients.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IChoosePatients.xib; sourceTree = "<group>"; };
+		3A91B35F1BFB19E800DB3514 /* CommonTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTableView.swift; sourceTree = "<group>"; };
+		3A91B3611BFB1D1C00DB3514 /* PartTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartTableCell.xib; sourceTree = "<group>"; };
+		3A91B3631BFB1DF200DB3514 /* IChoosePatientsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IChoosePatientsController.swift; sourceTree = "<group>"; };
+		3A91B3651BFB251700DB3514 /* PartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartTableViewCell.swift; sourceTree = "<group>"; };
 		3A91F07B1BF0475400C470D4 /* arrow_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_left.png; sourceTree = "<group>"; };
 		3A91F07C1BF0475400C470D4 /* arrow_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_left@2x.png"; sourceTree = "<group>"; };
 		3A91F07D1BF0475400C470D4 /* arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_right.png; sourceTree = "<group>"; };
@@ -619,6 +629,7 @@
 				2C0615581BF46A5A00A3F90C /* IMySelfSettingController.swift */,
 				2C4D31471BF98395001DB693 /* IServerSettingController.swift */,
 				2C0DC3C81BF9A25F0048BEEA /* IEmailViewController.swift */,
+				3A91B3631BFB1DF200DB3514 /* IChoosePatientsController.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -704,6 +715,7 @@
 				2C06157B1BF4885000A3F90C /* ISleepQualityMonitor.xib */,
 				3AC70CB91BF9844100814082 /* ISetUserType.xib */,
 				2C0DC3C41BF9A0930048BEEA /* ILoginUserEdit.xib */,
+				3A91B35D1BFB146800DB3514 /* IChoosePatients.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -732,6 +744,8 @@
 		3A31CE701BEC67440039DFD0 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				3A91B3671BFB259400DB3514 /* ChoosePatient */,
+				3A91B35F1BFB19E800DB3514 /* CommonTableView.swift */,
 				3AB3CB131BD762FE0067F9D4 /* MyPatientsTableView.swift */,
 				3AB3CB141BD762FE0067F9D4 /* MyPatientsTableViewCell.swift */,
 				3AF652741BFAC50500BA2329 /* MyPatientsTableViewCell.xib */,
@@ -982,6 +996,15 @@
 				2C555B481BE341A0008A3AC9 /* QueryAlarmView.xib */,
 			);
 			name = ipad;
+			sourceTree = "<group>";
+		};
+		3A91B3671BFB259400DB3514 /* ChoosePatient */ = {
+			isa = PBXGroup;
+			children = (
+				3A91B3651BFB251700DB3514 /* PartTableViewCell.swift */,
+				3A91B3611BFB1D1C00DB3514 /* PartTableCell.xib */,
+			);
+			name = ChoosePatient;
 			sourceTree = "<group>";
 		};
 		3A91F07A1BF0475400C470D4 /* Images */ = {
@@ -1286,12 +1309,14 @@
 				3A2BD8A91BD8AE78007BBD01 /* 50pt@1x.png in Resources */,
 				3AB3CB1F1BD762FE0067F9D4 /* SleepCareCollectionViewCell.xib in Resources */,
 				3AB3CB231BD762FE0067F9D4 /* TurnOverTableViewCell.xib in Resources */,
+				3A91B3621BFB1D1C00DB3514 /* PartTableCell.xib in Resources */,
 				3A91F0981BF0475400C470D4 /* arrow_left@2x.png in Resources */,
 				3A91F0A11BF0475400C470D4 /* calendar_ok-disabled.png in Resources */,
 				2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */,
 				3AC7B0F21BF4551B002DE94C /* IRegist.xib in Resources */,
 				2C2F838F1BD63A19008CD92B /* nextBtnNormal.png in Resources */,
 				3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */,
+				3A91B35E1BFB146800DB3514 /* IChoosePatients.xib in Resources */,
 				3A91F0991BF0475400C470D4 /* arrow_right.png in Resources */,
 				3A39CA001BF2FCA70024DD3E /* blueback.png in Resources */,
 				3A39CA101BF2FF010024DD3E /* menuBack.png in Resources */,
@@ -1489,6 +1514,7 @@
 				2C5182051BF1B8D6007DC2A3 /* IRRRange.swift in Sources */,
 				3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */,
 				3A8680681BD75EE000F22016 /* ChoosePartController.swift in Sources */,
+				3A91B3641BFB1DF200DB3514 /* IChoosePatientsController.swift in Sources */,
 				3A325A341BD08B7B00DE4E78 /* BaseViewModel.swift in Sources */,
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
 				2C0615591BF46A5A00A3F90C /* IMySelfSettingController.swift in Sources */,
@@ -1520,6 +1546,8 @@
 				3AF6526F1BFABE2C00BA2329 /* IMyPatientsController.swift in Sources */,
 				3AB3CB191BD762FE0067F9D4 /* Pager.swift in Sources */,
 				2C3150A51BCDFAF300EC749E /* LeaveBedReportList.swift in Sources */,
+				3A91B3601BFB19E800DB3514 /* CommonTableView.swift in Sources */,
+				3A91B3661BFB251700DB3514 /* PartTableViewCell.swift in Sources */,
 				2CB427AB1BF9B11A00BF7E15 /* IEmailViewModel.swift in Sources */,
 				2C2CB47A1BD7654100A6DB65 /* ServerSettingController.swift in Sources */,
 				3A41ADEA1BA7B438000C109B /* LoginViewModel.swift in Sources */,
