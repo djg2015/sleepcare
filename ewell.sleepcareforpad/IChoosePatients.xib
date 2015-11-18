@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IChoosePatientsController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+            <connections>
+                <outlet property="tbParts" destination="zhq-EJ-ghP" id="GpO-pr-fxK"/>
+                <outlet property="tbPatients" destination="Wca-U4-mE5" id="akt-0j-INE"/>
+                <outlet property="view" destination="iN0-l3-epB" id="c1k-kq-EVD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择老人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUc-dH-GtK">
+                    <rect key="frame" x="117" y="8" width="87" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="87" id="B7z-SB-u4M"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Jbd-sa-dYz"/>
+                        <constraint firstAttribute="width" constant="87" id="S2d-zT-et5"/>
+                        <constraint firstAttribute="height" constant="30" id="UH8-Ms-MAd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zhq-EJ-ghP" userLabel="partTable" customClass="CommonTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="53" width="113" height="515"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="113" id="0Lj-f8-NLn"/>
+                    </constraints>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wca-U4-mE5" userLabel="patientTable" customClass="CommonTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="113" y="53" width="207" height="515"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backBtn.png" translatesAutoresizingMaskIntoConstraints="NO" id="iQd-Ty-Xcg">
+                    <rect key="frame" x="16" y="11" width="17" height="28"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="17" id="q65-Pq-OIl"/>
+                        <constraint firstAttribute="height" constant="28" id="wDl-v5-kZM"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Wca-U4-mE5" firstAttribute="leading" secondItem="zhq-EJ-ghP" secondAttribute="trailing" id="1yD-tR-cqX"/>
+                <constraint firstAttribute="bottom" secondItem="Wca-U4-mE5" secondAttribute="bottom" id="2aZ-9K-vzB"/>
+                <constraint firstItem="Wca-U4-mE5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="53" id="3bW-iI-Yvp"/>
+                <constraint firstAttribute="trailing" secondItem="Wca-U4-mE5" secondAttribute="trailing" id="6pM-ue-6kX"/>
+                <constraint firstItem="iQd-Ty-Xcg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="6wY-vz-nLW"/>
+                <constraint firstAttribute="bottom" secondItem="zhq-EJ-ghP" secondAttribute="bottom" id="OMP-ZV-q5i"/>
+                <constraint firstItem="zhq-EJ-ghP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R7G-gi-fNd"/>
+                <constraint firstAttribute="centerX" secondItem="JUc-dH-GtK" secondAttribute="centerX" id="RW9-eW-H3v"/>
+                <constraint firstItem="iQd-Ty-Xcg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="WtZ-xT-MLx"/>
+                <constraint firstAttribute="trailing" secondItem="iQd-Ty-Xcg" secondAttribute="trailing" constant="287" id="ges-c0-EfK"/>
+                <constraint firstItem="JUc-dH-GtK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="tjx-rC-mj7"/>
+                <constraint firstItem="zhq-EJ-ghP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="53" id="zOz-5j-7bs"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="loginbackground.png"/>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="249" y="240"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backBtn.png" width="54" height="54"/>
+        <image name="loginbackground.png" width="640" height="1136"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

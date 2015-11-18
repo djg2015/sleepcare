@@ -75,19 +75,22 @@ class IloginViewModel: BaseViewModel {
                     
                     SessionForIphone.SetSession(loginUser)
                     if(loginUser.UserType == LoginUserType.UnKnow){
-                        let controller = IFirstChoosePatientController(nibName:"FirstChoosePatient", bundle:nil)
+                        let controller = ISetUserTypeController(nibName:"ISetUserType", bundle:nil)
                         self.JumpPageForIpone(controller)
                         
                     }
                     else{
                         //获取当前关注的老人
                         var iBedUserList:IBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(loginUser.LoginName, mainCode: loginUser.MainCode)
+                       
                         if(iBedUserList.bedUserInfoList.count > 0){
                             let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil)
                             self.JumpPageForIpone(controller)
                         }
                         else{
                             //跳转选择我的老人
+                            let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
+                            self.JumpPageForIpone(controller)
                         }
                     }
                 }

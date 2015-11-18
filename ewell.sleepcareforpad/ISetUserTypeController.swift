@@ -8,14 +8,14 @@
 
 import UIKit
 
-class IFirstChoosePatientController: IBaseViewController {
+class ISetUserTypeController: IBaseViewController {
 
     @IBOutlet weak var btnMonitor: BlueButtonForPhone!
     @IBOutlet weak var btnUserSelf: BlueButtonForPhone!
-    var viewModel:IFirstChoosePatientViewModel!
+    var viewModel:ISetUserTypeViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewModel = IFirstChoosePatientViewModel()
+        self.viewModel = ISetUserTypeViewModel()
         self.viewModel.controllerForIphone = self
         self.btnUserSelf.rac_command = self.viewModel.userselfCommand
         self.btnMonitor.rac_command = self.viewModel.monitorCommand

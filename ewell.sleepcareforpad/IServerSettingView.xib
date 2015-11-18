@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IServerSettingController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
@@ -23,6 +23,7 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务端通信账号：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXR-yM-UnQ">
                     <rect key="frame" x="-15" y="123" width="140" height="20"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="AmI-KR-cTx"/>
                         <constraint firstAttribute="width" constant="140" id="r7c-iU-iTM"/>
@@ -33,6 +34,7 @@
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ke0-jW-4Sl">
                     <rect key="frame" x="124" y="120" width="180" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="180" id="Sti-jb-HIC"/>
                         <constraint firstAttribute="height" constant="30" id="aCO-A9-sHq"/>
@@ -42,6 +44,7 @@
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xmpp服务端地址：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOP-Gy-K2t">
                     <rect key="frame" x="-23" y="173" width="148" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="6ia-Zf-ETq"/>
                         <constraint firstAttribute="width" constant="148" id="e9p-IN-dm5"/>
@@ -52,6 +55,7 @@
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Vk-cS-APh">
                     <rect key="frame" x="124" y="169" width="180" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="180" id="36J-QV-q2r"/>
                         <constraint firstAttribute="height" constant="30" id="glX-k9-yPr"/>
@@ -61,6 +65,7 @@
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xmpp服务端口：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALn-Pv-Ydg">
                     <rect key="frame" x="-16" y="223" width="141" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Dop-23-bl3"/>
                         <constraint firstAttribute="width" constant="141" id="Hlk-t5-J55"/>
@@ -71,6 +76,7 @@
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EIx-yK-Dsy">
                     <rect key="frame" x="124" y="220" width="180" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="AjE-IR-cWq"/>
                         <constraint firstAttribute="width" constant="180" id="uQO-15-YMK"/>
@@ -80,6 +86,7 @@
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xmpp登录账号：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ct3-m8-HM1">
                     <rect key="frame" x="-16" y="274" width="141" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="9A7-5w-QbY"/>
                         <constraint firstAttribute="width" constant="141" id="sYZ-n5-1Gr"/>
@@ -90,6 +97,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xmpp登录密码：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcf-et-4QC">
                     <rect key="frame" x="-16" y="327" width="141" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="141" id="29v-34-h2Q"/>
                         <constraint firstAttribute="height" constant="21" id="KRD-FA-Htw"/>
@@ -100,6 +108,7 @@
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oX0-5M-wIW">
                     <rect key="frame" x="124" y="323" width="180" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="180" id="UPz-nf-oob"/>
                         <constraint firstAttribute="height" constant="30" id="zgi-cu-PpV"/>
@@ -109,6 +118,7 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o45-d9-0eT">
                     <rect key="frame" x="119" y="384" width="83" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="KSs-Rw-5du"/>
                         <constraint firstAttribute="width" constant="83" id="ssJ-Bu-SPQ"/>
@@ -126,6 +136,7 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backBtn.png" translatesAutoresizingMaskIntoConstraints="NO" id="WVW-wp-mMH">
                             <rect key="frame" x="15" y="25" width="30" height="30"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="4vW-qG-kYg"/>
                                 <constraint firstAttribute="width" constant="30" id="yeo-nr-jSg"/>
@@ -133,6 +144,7 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器配置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mE4-rU-jYc">
                             <rect key="frame" x="104" y="28" width="113" height="24"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="24" id="0dq-vg-sKC"/>
                                 <constraint firstAttribute="width" constant="113" id="VdI-1q-gHE"/>
@@ -142,6 +154,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="centerX" secondItem="WVW-wp-mMH" secondAttribute="centerX" constant="130" id="4tW-6Y-Gyf"/>
@@ -157,6 +170,7 @@
                 </view>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h05-MR-Tqf">
                     <rect key="frame" x="124" y="270" width="180" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="8Nf-kI-ufB"/>
                         <constraint firstAttribute="width" constant="180" id="QU5-1E-TJx"/>
@@ -165,6 +179,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="h05-MR-Tqf" firstAttribute="leading" secondItem="EIx-yK-Dsy" secondAttribute="leading" id="13E-mT-BsP"/>
