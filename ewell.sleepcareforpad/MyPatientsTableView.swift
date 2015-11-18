@@ -57,6 +57,15 @@ class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource
         
     }
     
+    //显示删除样式
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle{
+        return UITableViewCellEditingStyle.Delete
+    }
+    
+    //提交删除
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+    
+    }
     //根据数据绑定重载当前表格
     override func reloadData() {
         

@@ -89,11 +89,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXQ-C7-ZY0" userLabel="PatientList">
                     <rect key="frame" x="0.0" y="57" width="320" height="511"/>
                     <subviews>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="i3Y-6g-lUj" customClass="MyPatientsTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="i3Y-6g-lUj" customClass="MyPatientsTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="511"/>
                             <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </tableView>
                     </subviews>
                     <animations/>
@@ -109,15 +108,15 @@
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="WTR-H1-fm3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="4a2-bH-2iB"/>
                 <constraint firstAttribute="centerX" secondItem="zNy-io-MkJ" secondAttribute="centerX" id="5bk-4j-6Bw"/>
                 <constraint firstAttribute="trailing" secondItem="3Zo-BW-UMe" secondAttribute="trailing" id="Dlv-Ud-GBu"/>
                 <constraint firstItem="3Zo-BW-UMe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EZD-s4-5DA"/>
                 <constraint firstItem="zNy-io-MkJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="MIo-oe-DwZ"/>
-                <constraint firstAttribute="centerX" secondItem="WTR-H1-fm3" secondAttribute="centerX" constant="-134.5" id="P2f-ZL-AKz"/>
                 <constraint firstAttribute="bottom" secondItem="3Zo-BW-UMe" secondAttribute="bottom" id="UBw-Up-V39"/>
                 <constraint firstAttribute="bottom" secondItem="wXQ-C7-ZY0" secondAttribute="bottom" id="afk-Gj-eKb"/>
                 <constraint firstItem="wXQ-C7-ZY0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ie2-xh-Ufh"/>
+                <constraint firstAttribute="trailing" secondItem="WTR-H1-fm3" secondAttribute="trailing" constant="9" id="j7z-M6-pDg"/>
+                <constraint firstItem="WTR-H1-fm3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="kgh-Ma-ro9"/>
                 <constraint firstAttribute="trailing" secondItem="wXQ-C7-ZY0" secondAttribute="trailing" id="wP7-8l-vz2"/>
                 <constraint firstItem="wXQ-C7-ZY0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="57" id="yG8-HB-I3O"/>
             </constraints>
