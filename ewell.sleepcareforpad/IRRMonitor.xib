@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="IRRMonitor" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="522"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgb-19-V8A" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="316"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFC-HA-Vbk">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sleepQualitySelector.png" translatesAutoresizingMaskIntoConstraints="NO" id="3xK-be-lti">
+                                    <rect key="frame" x="20" y="20" width="30" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="QSa-Pj-eqc"/>
+                                        <constraint firstAttribute="height" constant="25" id="cR1-oi-cbm"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数据查看" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udk-qD-QCd">
+                                    <rect key="frame" x="60" y="20" width="80" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" id="AKa-nK-rc3"/>
+                                        <constraint firstAttribute="width" constant="80" id="KzK-CP-ytH"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KP9-bN-GCk">
+                                    <rect key="frame" x="215" y="20" width="55" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="55" id="Jlm-IO-L5s"/>
+                                        <constraint firstAttribute="height" constant="25" id="Ydt-y3-dK0"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在床" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxp-Iw-4CO">
+                                    <rect key="frame" x="259" y="20" width="45" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="45" id="Gj8-Xa-63b"/>
+                                        <constraint firstAttribute="height" constant="25" id="QsN-Xg-LWe"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="3xK-be-lti" firstAttribute="leading" secondItem="HFC-HA-Vbk" secondAttribute="leading" constant="20" id="3xL-em-ova"/>
+                                <constraint firstItem="3xK-be-lti" firstAttribute="top" secondItem="HFC-HA-Vbk" secondAttribute="top" constant="20" id="AhY-1M-Dqq"/>
+                                <constraint firstItem="kxp-Iw-4CO" firstAttribute="top" secondItem="HFC-HA-Vbk" secondAttribute="top" constant="20" id="NEC-NQ-ecJ"/>
+                                <constraint firstAttribute="height" constant="50" id="eY4-fM-D15"/>
+                                <constraint firstAttribute="trailing" secondItem="kxp-Iw-4CO" secondAttribute="trailing" constant="16" id="iE8-I4-Xri"/>
+                                <constraint firstAttribute="trailing" secondItem="KP9-bN-GCk" secondAttribute="trailing" constant="50" id="lbj-2I-6dV"/>
+                                <constraint firstItem="KP9-bN-GCk" firstAttribute="top" secondItem="HFC-HA-Vbk" secondAttribute="top" constant="20" id="mjm-Ty-uBS"/>
+                                <constraint firstItem="udk-qD-QCd" firstAttribute="top" secondItem="HFC-HA-Vbk" secondAttribute="top" constant="20" id="tCM-6L-DSo"/>
+                                <constraint firstAttribute="width" constant="320" id="v1Y-7w-YTi"/>
+                                <constraint firstItem="udk-qD-QCd" firstAttribute="leading" secondItem="3xK-be-lti" secondAttribute="trailing" constant="10" id="xVu-e3-2hP"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6C-qY-BfF" customClass="CircularLoaderView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                            <rect key="frame" x="80" y="88" width="160" height="160"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="160" id="ZUG-ID-OE1"/>
+                                <constraint firstAttribute="width" constant="160" id="uuC-0I-h6A"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="bottomTitle" value="当前呼吸"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上次平均呼吸" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibj-iK-8ne">
+                            <rect key="frame" x="72" y="251" width="120" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="bze-61-b53"/>
+                                <constraint firstAttribute="width" constant="120" id="eEq-qY-lbe"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15次/分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQt-Vn-KJW">
+                            <rect key="frame" x="187" y="251" width="68" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="68" id="Dwk-Ha-eEs"/>
+                                <constraint firstAttribute="height" constant="25" id="pxc-iE-4Ia"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="VQt-Vn-KJW" secondAttribute="centerY" constant="-105" id="Kzv-zr-FeM"/>
+                        <constraint firstAttribute="centerY" secondItem="Ibj-iK-8ne" secondAttribute="centerY" constant="-105" id="R3c-1U-GGQ"/>
+                        <constraint firstAttribute="trailing" secondItem="HFC-HA-Vbk" secondAttribute="trailing" id="ToK-ke-3Vs"/>
+                        <constraint firstItem="HFC-HA-Vbk" firstAttribute="top" secondItem="fgb-19-V8A" secondAttribute="top" id="Uy5-GG-j51"/>
+                        <constraint firstItem="HFC-HA-Vbk" firstAttribute="leading" secondItem="fgb-19-V8A" secondAttribute="leading" id="YKJ-WR-VXk"/>
+                        <constraint firstAttribute="centerX" secondItem="m6C-qY-BfF" secondAttribute="centerX" id="YRb-fo-MJt"/>
+                        <constraint firstAttribute="centerY" secondItem="m6C-qY-BfF" secondAttribute="centerY" constant="-10" id="aNz-wo-ie5"/>
+                        <constraint firstAttribute="centerX" secondItem="VQt-Vn-KJW" secondAttribute="centerX" constant="-61" id="eiW-4H-Tb7"/>
+                        <constraint firstAttribute="centerX" secondItem="Ibj-iK-8ne" secondAttribute="centerX" constant="28" id="vo9-DH-BTz"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="blueback.png"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O8m-35-XOD" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="316" width="320" height="206"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="garyboxback.png"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="fgb-19-V8A" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2gw-rw-bVs"/>
+                <constraint firstAttribute="trailing" secondItem="O8m-35-XOD" secondAttribute="trailing" id="7JX-Qh-eBx"/>
+                <constraint firstAttribute="trailing" secondItem="fgb-19-V8A" secondAttribute="trailing" id="8ww-oI-o13"/>
+                <constraint firstItem="O8m-35-XOD" firstAttribute="top" secondItem="fgb-19-V8A" secondAttribute="bottom" id="CLa-Ob-Z47"/>
+                <constraint firstItem="fgb-19-V8A" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="KmI-BT-Mfw"/>
+                <constraint firstAttribute="bottom" secondItem="O8m-35-XOD" secondAttribute="bottom" id="Vx8-Lx-V6J"/>
+                <constraint firstItem="O8m-35-XOD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="a8k-CJ-deP"/>
+                <constraint firstItem="fgb-19-V8A" firstAttribute="height" secondItem="O8m-35-XOD" secondAttribute="height" multiplier="316:206" id="bgL-pr-bst"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="lblLastRR" destination="VQt-Vn-KJW" id="cWA-Or-9lG"/>
+                <outlet property="lblOnBedStatus" destination="kxp-Iw-4CO" id="NPg-OU-g75"/>
+                <outlet property="processRR" destination="m6C-qY-BfF" id="fkD-rW-8Yk"/>
+                <outlet property="viewChart" destination="O8m-35-XOD" id="rLF-zo-G07"/>
+            </connections>
+            <point key="canvasLocation" x="230" y="190"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="blueback.png" width="640" height="669"/>
+        <image name="garyboxback.png" width="640" height="370"/>
+        <image name="sleepQualitySelector.png" width="61" height="41"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

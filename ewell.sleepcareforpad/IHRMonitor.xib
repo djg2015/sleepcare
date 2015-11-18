@@ -69,28 +69,18 @@
                                 <constraint firstItem="rFU-WV-cVa" firstAttribute="top" secondItem="37c-Pj-DIO" secondAttribute="top" constant="20" id="osM-LE-UaQ"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上次平均心率" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ef-Yy-eYo">
-                            <rect key="frame" x="72" y="246" width="120" height="25"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="120" id="2cx-EU-T9O"/>
-                                <constraint firstAttribute="height" constant="25" id="LwC-Xt-BaS"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50次/分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyg-fs-BCv">
-                            <rect key="frame" x="187" y="248" width="68" height="21"/>
+                            <rect key="frame" x="187" y="251" width="68" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="68" id="8yl-bz-Avb"/>
-                                <constraint firstAttribute="height" constant="21" id="otb-dw-LZh"/>
+                                <constraint firstAttribute="height" constant="25" id="otb-dw-LZh"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2iZ-Hg-JTR" customClass="CircularLoaderView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                            <rect key="frame" x="80" y="80" width="160" height="160"/>
+                            <rect key="frame" x="80" y="88" width="160" height="160"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="160" id="aVy-cn-uZY"/>
@@ -100,18 +90,28 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="bottomTitle" value="当前心率"/>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上次平均心率" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ef-Yy-eYo">
+                            <rect key="frame" x="72" y="251" width="120" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="2cx-EU-T9O"/>
+                                <constraint firstAttribute="height" constant="25" id="LwC-Xt-BaS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="centerX" secondItem="2iZ-Hg-JTR" secondAttribute="centerX" id="ApO-Ql-2OJ"/>
                         <constraint firstAttribute="centerX" secondItem="2Ef-Yy-eYo" secondAttribute="centerX" constant="28" id="KJL-OL-grN"/>
-                        <constraint firstAttribute="centerY" secondItem="2Ef-Yy-eYo" secondAttribute="centerY" constant="-100" id="LqZ-tv-TrZ"/>
+                        <constraint firstAttribute="centerY" secondItem="2Ef-Yy-eYo" secondAttribute="centerY" constant="-105" id="LqZ-tv-TrZ"/>
                         <constraint firstItem="37c-Pj-DIO" firstAttribute="leading" secondItem="32p-Bd-mdk" secondAttribute="leading" id="VbM-LJ-bwL"/>
-                        <constraint firstAttribute="centerY" secondItem="2iZ-Hg-JTR" secondAttribute="centerY" constant="-2" id="eNQ-js-Fxt"/>
+                        <constraint firstAttribute="centerY" secondItem="2iZ-Hg-JTR" secondAttribute="centerY" constant="-10" id="eNQ-js-Fxt"/>
                         <constraint firstAttribute="centerX" secondItem="Pyg-fs-BCv" secondAttribute="centerX" constant="-61" id="hIa-lO-mGP"/>
                         <constraint firstItem="37c-Pj-DIO" firstAttribute="top" secondItem="32p-Bd-mdk" secondAttribute="top" id="sI9-Sa-plR"/>
-                        <constraint firstAttribute="centerY" secondItem="Pyg-fs-BCv" secondAttribute="centerY" constant="-100" id="sz3-6h-ZyH"/>
+                        <constraint firstAttribute="centerY" secondItem="Pyg-fs-BCv" secondAttribute="centerY" constant="-105" id="sz3-6h-ZyH"/>
                         <constraint firstAttribute="trailing" secondItem="37c-Pj-DIO" secondAttribute="trailing" id="y8L-aT-abl"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>

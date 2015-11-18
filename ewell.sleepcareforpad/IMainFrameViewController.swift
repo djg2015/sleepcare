@@ -50,9 +50,9 @@ class IMainFrameViewController: IBaseViewController {
             .subscribeNext {
                 _ in
                 self.curMenu = self.uiRR
-                let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
-//                iHRMonitorView.viewInit(self, bedUserCode: "00000001", bedCode: "00000001")
-                self.showBody(iHRMonitorView)
+                let iRRMonitorView = NSBundle.mainBundle().loadNibNamed("IRRMonitor", owner: self, options: nil).first as! IRRMonitor
+                iRRMonitorView.viewInit(self, bedUserCode: "00000001", bedCode: "00000001")
+                self.showBody(iRRMonitorView)
         }
         self.btnSleep!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
