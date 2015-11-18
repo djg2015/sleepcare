@@ -52,15 +52,19 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
             lineChart!.showLabel = true
             lineChart!.backgroundColor = UIColor.clearColor()
             lineChart!.xLabels = []
-            for(var i = self.sleepQualityViewModel.SleepRange.count - 1 ;i >= 0;i--){
+            for(var i = 0 ;i < self.sleepQualityViewModel.SleepRange.count;i++){
                 var xlable = self.sleepQualityViewModel.SleepRange[i].WeekDay
                 lineChart!.xLabels.append(xlable)
+                if(self.sleepQualityViewModel.SleepRange[i].ReportDate == self.sleepQualityViewModel.SelectedDate)
+                {
+                    
+                }
             }
             lineChart!.showCoordinateAxis = true
             
             //设置在床曲线
             var data01Array: [CGFloat] = []
-            for(var i = self.sleepQualityViewModel.SleepRange.count - 1 ;i >= 0;i--){
+            for(var i = 0 ;i < self.sleepQualityViewModel.SleepRange.count;i++){
                 data01Array.append(self.sleepQualityViewModel.SleepRange[i].OnBedTimespanMinutes)
             }
             var data01:PNLineChartData = PNLineChartData()
@@ -76,7 +80,7 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
             
             //设置睡眠曲线
             var data02Array: [CGFloat] = []
-            for(var i = self.sleepQualityViewModel.SleepRange.count - 1 ;i >= 0;i--){
+            for(var i = 0 ;i < self.sleepQualityViewModel.SleepRange.count;i++){
                 data02Array.append(self.sleepQualityViewModel.SleepRange[i].SleepTimespanMinutes)
             }
             var data02:PNLineChartData = PNLineChartData()
@@ -86,6 +90,7 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
             data02.getData = ({(index: UInt)  in
                 var yValue:CGFloat = data02Array[Int(index)]
                 var item = PNLineChartDataItem(y: yValue)
+
                 return item
             })
             data02.inflexionPointStyle = PNLineChartPointStyle.Circle

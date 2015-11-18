@@ -34,6 +34,13 @@ class IRRRange:BaseMessage{
 class IRRTimeReport:BaseMessage {
     
     var ReportHour:String = ""
-    var AvgRR:String = ""
+    var AvgRR:String = "" {
+        didSet{
+            self.AvgRRNumber = CGFloat((self.AvgRR.subString(0, length: 2) as NSString).floatValue)
+        }
+    }
+    
+    // 在床时长
+    var AvgRRNumber:CGFloat = 0
     
 }

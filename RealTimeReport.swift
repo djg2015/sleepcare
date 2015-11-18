@@ -19,7 +19,9 @@ class RealTimeReport:BaseMessage{
     var BodyTemperature:String = ""
     var OnBedStatus:String = ""
     var MsgTime:String = ""
-    
+    var LastedLeaveTime:String = ""
+     var LastedAvgHR:String = ""
+     var LastedAvgRR:String = ""
     
     override class func XmlToMessage(subjectXml:String,bodyXMl:String) -> BaseMessage{
         let result = RealTimeReport(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
@@ -39,6 +41,9 @@ class RealTimeReport:BaseMessage{
             result.BodyTemperature = realTimeReport.elementForName("BodyTemperature") != nil ?realTimeReport.elementForName("BodyTemperature").stringValue() : ""
             result.OnBedStatus = realTimeReport.elementForName("OnBedStatus").stringValue()
             result.MsgTime = realTimeReport.elementForName("MsgTime").stringValue()
+            result.LastedLeaveTime = realTimeReport.elementForName("LastedLeaveTime") != nil ?realTimeReport.elementForName("LastedLeaveTime").stringValue() : ""
+            result.LastedAvgHR = realTimeReport.elementForName("LastedAvgHR") != nil ?realTimeReport.elementForName("LastedAvgHR").stringValue() : ""
+            result.LastedAvgRR = realTimeReport.elementForName("LastedAvgRR") != nil ?realTimeReport.elementForName("LastedAvgRR").stringValue() : ""
         }
         
         return result

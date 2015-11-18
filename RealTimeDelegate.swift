@@ -15,11 +15,3 @@ protocol RealTimeDelegate{
 protocol WaringAttentionDelegate{
     func GetWaringAttentionDelegate(alarmList:AlarmList);
 }
-
-protocol HRRangeDelegate{
-    func GetHRRangeDelegate(hrRange:IHRRange)
-}
-
-protocol RRRangeDelegate{
-    func GetRRRangeDelegate(rrRange:IRRRange)
-}

@@ -43,6 +43,7 @@ class IMainFrameViewController: IBaseViewController {
                 _ in
                 self.curMenu = self.uiHR
                  let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
+                 iHRMonitorView.viewInit(self, bedUserCode: "00000001", bedCode: "00000001")
                 self.showBody(iHRMonitorView)
         }
         self.btnRR!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
@@ -50,6 +51,7 @@ class IMainFrameViewController: IBaseViewController {
                 _ in
                 self.curMenu = self.uiRR
                 let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
+//                iHRMonitorView.viewInit(self, bedUserCode: "00000001", bedCode: "00000001")
                 self.showBody(iHRMonitorView)
         }
         self.btnSleep!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
@@ -72,6 +74,7 @@ class IMainFrameViewController: IBaseViewController {
         //设置主体界面
         self.curMenu = self.uiHR
         let firstVew = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
+        firstVew.viewInit(self, bedUserCode: "00000001", bedCode: "00000001")
         showBody(firstVew)
     }
     
