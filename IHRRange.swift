@@ -14,7 +14,7 @@ class IHRRange:BaseMessage{
     
     //解析响应的message
     override class func XmlToMessage(subjectXml:String,bodyXMl:String) -> BaseMessage{
-
+        
         let result = IHRRange(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
         //构造XML文档
         var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
@@ -28,12 +28,18 @@ class IHRRange:BaseMessage{
         }
         return result
     }
-
+    
 }
 
 class IHRTimeReport:BaseMessage {
     
     var ReportHour:String = ""
-    var AvgHR:String = ""
+    var AvgHR:String = "" {
+        didSet{
+            self.AvgHRNumber = CGFloat((self.AvgHR.subString(0, length: 2) as NSString).floatValue)
+        }
+    }
     
+    // 在床时长
+    var AvgHRNumber:CGFloat = 0
 }

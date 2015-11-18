@@ -70,7 +70,7 @@ class XmppMsgManager:MessageDelegate{
         _xmppMsgHelper?.sendElement(baseMessage.ToXml())
         
         requsetQuene[baseMessage.messageSubject.requestID!] = self
-       
+        
         while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {
             
         }
@@ -102,7 +102,7 @@ class XmppMsgManager:MessageDelegate{
         }
         else
         {
-//            println(object)
+            //            println(object)
             requsetQuene[object.messageSubject.requestID!] = object
         }
     }

@@ -1,34 +1,35 @@
 //
-//  IHRMonitor.swift
+//  IRRMonitor.swift
+//  ewell.sleepcareforpad
 //
-//
-//  Created by djg on 15/11/11.
-//
+//  Created by zhaoyin on 15/11/18.
+//  Copyright (c) 2015年 djg. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class IHRMonitor: UIView{
+class IRRMonitor: UIView{
     
     @IBOutlet weak var lblOnBedStatus: UILabel!
     
-    @IBOutlet weak var processHR: CircularLoaderView!
+    @IBOutlet weak var processRR: CircularLoaderView!
     
-    @IBOutlet weak var lblLastHR: UILabel!
+    @IBOutlet weak var lblLastRR: UILabel!
     
     @IBOutlet weak var viewChart: BackgroundCommon!
-    var hrMonitorViewModel:IHRMonitorViewModel = IHRMonitorViewModel()
+    
+    var rrMonitorViewModel:IRRMonitorViewModel = IRRMonitorViewModel()
     var parentController:IBaseViewController!
-    var lblHR:UILabel!
+    var lblRR:UILabel!
     var _bedCode:String = ""
     var _bedUserCode:String = ""
     
-    var _hrTimeReportList:Array<IHRTimeReport> = Array<IHRTimeReport>()
-    var HRTimeReportList:Array<IHRTimeReport> = [] {
+    var _rrTimeReportList:Array<IRRTimeReport> = Array<IRRTimeReport>()
+    var RRTimeReportList:Array<IRRTimeReport> = [] {
         didSet{
             //设置小时心率图表
             var lineChart:PNLineChart?
-            if(self.hrMonitorViewModel.HRTimeReport.count != 0){
+            if(self.rrMonitorViewModel.RRTimeReport.count != 0){
                 lineChart = (self.viewChart.subviews[0] as? PNLineChart)!
             }
             else
@@ -41,21 +42,21 @@ class IHRMonitor: UIView{
             lineChart!.showLabel = true
             lineChart!.backgroundColor = UIColor.clearColor()
             lineChart!.xLabels = []
-            for(var i = 0 ;i < self.hrMonitorViewModel.HRTimeReport.count;i++){
-                var xlable = self.hrMonitorViewModel.HRTimeReport[i].ReportHour
+            for(var i = 0 ;i < self.rrMonitorViewModel.RRTimeReport.count;i++){
+                var xlable = self.rrMonitorViewModel.RRTimeReport[i].ReportHour
                 lineChart!.xLabels.append(xlable)
             }
             lineChart!.showCoordinateAxis = true
             
             //设置心率曲线
             var data01Array: [CGFloat] = []
-            for(var i = 0 ;i < self.hrMonitorViewModel.HRTimeReport.count;i++){
-                data01Array.append(self.hrMonitorViewModel.HRTimeReport[i].AvgHRNumber)
+            for(var i = 0 ;i < self.rrMonitorViewModel.RRTimeReport.count;i++){
+                data01Array.append(self.rrMonitorViewModel.RRTimeReport[i].AvgRRNumber)
             }
             var data01:PNLineChartData = PNLineChartData()
             data01.color = PNGreenColor
             data01.itemCount = UInt(data01Array.count)
-            data01.dataTitle = "心率"
+            data01.dataTitle = "呼吸"
             data01.getData = ({(index: UInt)  in
                 var yValue:CGFloat = data01Array[Int(index)]
                 var item = PNLineChartDataItem(y: yValue)
@@ -93,28 +94,28 @@ class IHRMonitor: UIView{
         self.parentController = parentController
         //        self._bedUserCode = bedUserCode
         // 画出圆圈中间内容
-        self.lblHR = UILabel(frame: CGRect(x: 0, y: 40, width: self.processHR.bounds.width/2 + 20, height: 60))
-        self.lblHR!.textAlignment = .Center
-        self.lblHR!.font = UIFont.systemFontOfSize(60)
-        self.lblHR!.textColor = UIColor.whiteColor()
-        self.processHR.centerTitleView?.addSubview(self.lblHR!)
+        self.lblRR = UILabel(frame: CGRect(x: 0, y: 40, width: self.processRR.bounds.width/2 + 20, height: 60))
+        self.lblRR!.textAlignment = .Center
+        self.lblRR!.font = UIFont.systemFontOfSize(60)
+        self.lblRR!.textColor = UIColor.whiteColor()
+        self.processRR.centerTitleView?.addSubview(self.lblRR!)
         
-        var lbl1 = UILabel(frame: CGRect(x: self.processHR.bounds.width/2 + 25, y: 78, width: self.processHR.bounds.width/2 - 20, height: 12))
+        var lbl1 = UILabel(frame: CGRect(x: self.processRR.bounds.width/2 + 25, y: 78, width: self.processRR.bounds.width/2 - 20, height: 12))
         lbl1.textAlignment = .Left
         lbl1.font = UIFont.systemFontOfSize(16)
         lbl1.textColor = UIColor.whiteColor()
         lbl1.text = "次/分"
-        self.processHR.centerTitleView?.addSubview(lbl1)
+        self.processRR.centerTitleView?.addSubview(lbl1)
         
-        RACObserve(self.hrMonitorViewModel, "OnBedStatus") ~> RAC(self.lblOnBedStatus, "text")
-        RACObserve(self.hrMonitorViewModel, "CurrentHR") ~> RAC(self.lblHR, "text")
-        RACObserve(self.hrMonitorViewModel, "LastAvgHR") ~> RAC(self.lblLastHR, "text")
-        RACObserve(self.hrMonitorViewModel, "ProcessMaxValue") ~> RAC(self.processHR, "maxProcess")
-        RACObserve(self.hrMonitorViewModel, "ProcessValue") ~> RAC(self.processHR, "currentProcess")
+        RACObserve(self.rrMonitorViewModel, "OnBedStatus") ~> RAC(self.lblOnBedStatus, "text")
+        RACObserve(self.rrMonitorViewModel, "CurrentRR") ~> RAC(self.lblRR, "text")
+        RACObserve(self.rrMonitorViewModel, "LastAvgRR") ~> RAC(self.lblLastRR, "text")
+        RACObserve(self.rrMonitorViewModel, "ProcessMaxValue") ~> RAC(self.processRR, "maxProcess")
+        RACObserve(self.rrMonitorViewModel, "ProcessValue") ~> RAC(self.processRR, "currentProcess")
         
-        RACObserve(self, "_bedCode") ~> RAC(self.hrMonitorViewModel, "BedCode")
-        RACObserve(self, "_bedUserCode") ~> RAC(self.hrMonitorViewModel, "BedUserCode")
-        RACObserve(self.hrMonitorViewModel, "HRTimeReport") ~> RAC(self, "HRTimeReportList")
+        RACObserve(self, "_bedCode") ~> RAC(self.rrMonitorViewModel, "BedCode")
+        RACObserve(self, "_bedUserCode") ~> RAC(self.rrMonitorViewModel, "BedUserCode")
+        RACObserve(self.rrMonitorViewModel, "RRTimeReport") ~> RAC(self, "RRTimeReportList")
         
     }
 }

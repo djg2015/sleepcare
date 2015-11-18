@@ -37,6 +37,9 @@
 		2C0DC3C51BF9A0930048BEEA /* ILoginUserEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0DC3C41BF9A0930048BEEA /* ILoginUserEdit.xib */; };
 		2C0DC3C71BF9A20F0048BEEA /* IEmailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */; };
 		2C0DC3C91BF9A25F0048BEEA /* IEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0DC3C81BF9A25F0048BEEA /* IEmailViewController.swift */; };
+		2C1FDB551BFC5CCA00879E14 /* IRRMonitorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1FDB541BFC5CCA00879E14 /* IRRMonitorViewModel.swift */; };
+		2C1FDB571BFC5D9F00879E14 /* IRRMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1FDB561BFC5D9F00879E14 /* IRRMonitor.swift */; };
+		2C1FDB591BFC5F3100879E14 /* IRRMonitor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1FDB581BFC5F3100879E14 /* IRRMonitor.xib */; };
 		2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28CA131BE87D3D000C46C4 /* ServerResult.swift */; };
 		2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */; };
 		2C2CB47A1BD7654100A6DB65 /* ServerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */; };
@@ -75,6 +78,7 @@
 		2C6AE1171BD48713006FC007 /* searchBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1151BD48713006FC007 /* searchBtn.png */; };
 		2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1161BD48713006FC007 /* searchBtnChecked.png */; };
 		2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */; };
+		2C9B56C31BFC1DDC007AEEA9 /* IHRMonitorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B56C21BFC1DDC007AEEA9 /* IHRMonitorViewModel.swift */; };
 		2CB427AB1BF9B11A00BF7E15 /* IEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */; };
 		2CB951291BF4510A00C31EC2 /* ConfiurationTabeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */; };
 		2CDF94101BF5C2BD00FCFAF7 /* moveRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */; };
@@ -320,6 +324,9 @@
 		2C0DC3C41BF9A0930048BEEA /* ILoginUserEdit.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ILoginUserEdit.xib; sourceTree = "<group>"; };
 		2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IEmailView.xib; sourceTree = "<group>"; };
 		2C0DC3C81BF9A25F0048BEEA /* IEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEmailViewController.swift; sourceTree = "<group>"; };
+		2C1FDB541BFC5CCA00879E14 /* IRRMonitorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRRMonitorViewModel.swift; sourceTree = "<group>"; };
+		2C1FDB561BFC5D9F00879E14 /* IRRMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRRMonitor.swift; sourceTree = "<group>"; };
+		2C1FDB581BFC5F3100879E14 /* IRRMonitor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IRRMonitor.xib; sourceTree = "<group>"; };
 		2C28CA131BE87D3D000C46C4 /* ServerResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResult.swift; sourceTree = "<group>"; };
 		2C2C067A1BCF955400AA2C8D /* SleepQualityPandect.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SleepQualityPandect.xib; sourceTree = "<group>"; };
 		2C2CB4791BD7654100A6DB65 /* ServerSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSettingController.swift; sourceTree = "<group>"; };
@@ -358,6 +365,7 @@
 		2C6AE1151BD48713006FC007 /* searchBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtn.png; sourceTree = "<group>"; };
 		2C6AE1161BD48713006FC007 /* searchBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtnChecked.png; sourceTree = "<group>"; };
 		2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
+		2C9B56C21BFC1DDC007AEEA9 /* IHRMonitorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IHRMonitorViewModel.swift; sourceTree = "<group>"; };
 		2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEmailViewModel.swift; sourceTree = "<group>"; };
 		2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiurationTabeView.swift; sourceTree = "<group>"; };
 		2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveRight.png; sourceTree = "<group>"; };
@@ -625,6 +633,7 @@
 				2C2EA2EA1BF427B90023D458 /* IMySelfConfiguration.swift */,
 				3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */,
 				2C06157D1BF488D200A3F90C /* ISleepQualityMonitor.swift */,
+				2C1FDB561BFC5D9F00879E14 /* IRRMonitor.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -728,6 +737,7 @@
 				3AC70CB91BF9844100814082 /* ISetUserType.xib */,
 				2C0DC3C41BF9A0930048BEEA /* ILoginUserEdit.xib */,
 				3A91B35D1BFB146800DB3514 /* IChoosePatients.xib */,
+				2C1FDB581BFC5F3100879E14 /* IRRMonitor.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1331,6 +1341,7 @@
 				3A91F0981BF0475400C470D4 /* arrow_left@2x.png in Resources */,
 				3A91F0A11BF0475400C470D4 /* calendar_ok-disabled.png in Resources */,
 				2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */,
+				2C1FDB591BFC5F3100879E14 /* IRRMonitor.xib in Resources */,
 				3AC7B0F21BF4551B002DE94C /* IRegist.xib in Resources */,
 				2C2F838F1BD63A19008CD92B /* nextBtnNormal.png in Resources */,
 				3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */,
@@ -1531,6 +1542,7 @@
 				3A4CD3FD1BA80852002C8A1A /* BaseMessage.swift in Sources */,
 				3A35AB671BCCECF000ED3293 /* Session.swift in Sources */,
 				3A4D17F11BAFB07400E0B862 /* BedUser.swift in Sources */,
+				2C1FDB571BFC5D9F00879E14 /* IRRMonitor.swift in Sources */,
 				3A91F0AF1BF0475400C470D4 /* THDatePickerViewController.m in Sources */,
 				2C51820B1BF1BAF3007DC2A3 /* IMainInfoList.swift in Sources */,
 				2C5182051BF1B8D6007DC2A3 /* IRRRange.swift in Sources */,
@@ -1539,6 +1551,7 @@
 				3A91B3641BFB1DF200DB3514 /* IChoosePatientsController.swift in Sources */,
 				3A325A341BD08B7B00DE4E78 /* BaseViewModel.swift in Sources */,
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
+				2C9B56C31BFC1DDC007AEEA9 /* IHRMonitorViewModel.swift in Sources */,
 				2C0615591BF46A5A00A3F90C /* IMySelfSettingController.swift in Sources */,
 				3AB3CB211BD762FE0067F9D4 /* MyPatientsTableViewCell.swift in Sources */,
 				3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */,
@@ -1593,6 +1606,7 @@
 				3AB3CB171BD762FE0067F9D4 /* AlarmTableViewCell.swift in Sources */,
 				3A2158771BEC8D580089CC01 /* IBaseViewController.swift in Sources */,
 				2C3BAF131BCBA387003A2F48 /* AlarmViewModel.swift in Sources */,
+				2C1FDB551BFC5CCA00879E14 /* IRRMonitorViewModel.swift in Sources */,
 				3A13C9881BF2DD2800061CCF /* IHRMonitor.swift in Sources */,
 				3AB3CB271BD763690067F9D4 /* BackgroundCommon.swift in Sources */,
 				3A3756241BCB5E7600182DE4 /* SleepCareDetail.swift in Sources */,
