@@ -19,6 +19,8 @@ class XmppMsgManager:MessageDelegate{
     private var requsetQuene = Dictionary<String,AnyObject>()
     var _realTimeDelegate:RealTimeDelegate?=nil
     var _waringAttentionDelegate:WaringAttentionDelegate?=nil
+    var _hrRangeDelegate:HRRangeDelegate?
+    var _rrRangeDelegate:RRRangeDelegate?
     private init(){
         
     }
@@ -70,7 +72,7 @@ class XmppMsgManager:MessageDelegate{
         _xmppMsgHelper?.sendElement(baseMessage.ToXml())
         
         requsetQuene[baseMessage.messageSubject.requestID!] = self
-       
+        
         while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {
             
         }
@@ -100,9 +102,23 @@ class XmppMsgManager:MessageDelegate{
                 self._waringAttentionDelegate?.GetWaringAttentionDelegate(object as! AlarmList)
             }
         }
+        else if(object.isKindOfClass(IHRRange))
+        {
+            if(self._hrRangeDelegate != nil)
+            {
+                self._hrRangeDelegate?.GetHRRangeDelegate(object as! IHRRange)
+            }
+        }
+        else if(object.isKindOfClass(IRRRange))
+        {
+            if(self._rrRangeDelegate != nil)
+            {
+                self._rrRangeDelegate?.GetRRRangeDelegate(object as! IRRRange)
+            }
+        }
         else
         {
-//            println(object)
+            //            println(object)
             requsetQuene[object.messageSubject.requestID!] = object
         }
     }

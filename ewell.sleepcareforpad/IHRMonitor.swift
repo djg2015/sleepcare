@@ -8,14 +8,22 @@
 
 import UIKit
 
-class IHRMonitor: UIView {
+class IHRMonitor: UIView,RealTimeDelegate, HRRangeDelegate,RRRangeDelegate{
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+    
+    
+    
+    func GetRealTimeDelegate(realTimeReport:RealTimeReport){
+        
     }
-    */
+
+
+    func GetHRRangeDelegate(hrRange:IHRRange){
+        
+    }
+    
+    func GetRRRangeDelegate(rrRange:IRRRange){
+        
+    }
 
 }

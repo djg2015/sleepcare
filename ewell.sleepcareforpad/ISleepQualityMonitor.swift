@@ -44,7 +44,7 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
             }
             else
             {
-                lineChart = PNLineChart(frame: CGRectMake(0, 10,  self.viewSleepQuality.bounds.width, self.viewSleepQuality.bounds.height - 30))
+                lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height * 206/522 - 30))
                 
             }
             
