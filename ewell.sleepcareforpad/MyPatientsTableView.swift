@@ -9,7 +9,7 @@
 import UIKit
 
 class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
-    
+    var _source:Array<MyPatientsTableCellViewModel>!
     override init(frame: CGRect) {
         super.init(frame: frame,style:UITableViewStyle.Plain)
         self.backgroundColor = UIColor.whiteColor()
@@ -36,7 +36,10 @@ class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource
     
     //返回指定分区的行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        if(_source == nil){
+            return 0
+        }
+        return _source.count
     }
     
     //返回表格总列数
@@ -51,9 +54,21 @@ class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource
     
     //自定义单元格
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cellID = "patientCell"
-        var cell:MyPatientsTableViewCell = tableView.dequeueReusableCellWithIdentifier("patientCell", forIndexPath: indexPath) as! MyPatientsTableViewCell
+        
+        var cell:MyPatientsTableViewCell! = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath) as! MyPatientsTableViewCell
+        
+        if(cell == nil){
+            cell = MyPatientsTableViewCell()
+        }
+        cell.CellLoadData(self._source[indexPath.row])
         return cell
+        
+    }
+    
+    //选中某行操作
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        var cell:MyPatientsTableViewCell = tableView.cellForRowAtIndexPath(indexPath) as! MyPatientsTableViewCell
+        cell.imageViewTouch()
         
     }
     
@@ -64,8 +79,23 @@ class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource
     
     //提交删除
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
-    
+        
     }
+    
+    var cellNib:UINib?
+    var cellID = "patientCell"
+    //控件显示入口
+    func ShowTableView(source:Array<MyPatientsTableCellViewModel>?){
+        
+        //注册单元格内容
+        if(self.cellNib == nil){
+            cellNib =  UINib(nibName: "MyPatientsTableViewCell", bundle: nil)
+            self.registerNib(cellNib!, forCellReuseIdentifier: cellID)
+        }
+        self._source = source
+        self.reloadData()
+    }
+    
     //根据数据绑定重载当前表格
     override func reloadData() {
         

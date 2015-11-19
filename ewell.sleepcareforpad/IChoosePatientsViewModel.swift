@@ -9,6 +9,8 @@
 import Foundation
 class IChoosePatientsViewModel: BaseViewModel {
     //------------属性定义------------
+    //我的关注老人主体对象
+    var myPatientsViewModel:IMyPatientsViewModel!
     var _partBedUserDic:Dictionary<String,Array<BedPatientViewModel>>!
     //科室床位用户字典集合
     var PartBedUserDic:Dictionary<String,Array<BedPatientViewModel>>{
@@ -87,6 +89,7 @@ class IChoosePatientsViewModel: BaseViewModel {
                     for(var j=0;j<mainInfo.PartInfoList[i].BedInfoList.count;j++){
                         var bedPatientViewModel:BedPatientViewModel = BedPatientViewModel()
                         bedPatientViewModel.PartCode = mainInfo.PartInfoList[i].PartCode
+                        bedPatientViewModel.PartName = mainInfo.PartInfoList[i].PartName
                         bedPatientViewModel.RoomNum = mainInfo.PartInfoList[i].BedInfoList[j].RoomName
                         bedPatientViewModel.BedNum = mainInfo.PartInfoList[i].BedInfoList[j].BedNumber
                         bedPatientViewModel.BedUserCode = mainInfo.PartInfoList[i].BedInfoList[j].BedUserCode
@@ -112,7 +115,28 @@ class IChoosePatientsViewModel: BaseViewModel {
     func commit() -> RACSignal{
         try {
             ({
-                
+                var choosedPatients:Array<MyPatientsTableCellViewModel> = Array<MyPatientsTableCellViewModel>()
+                for value in self.PartBedUserDic.values{
+                    var choosedbedUsers = value.filter(
+                        {$0.IsChoosed})
+                    if(choosedbedUsers.count > 0){
+                        for(var i=0;i<choosedbedUsers.count;i++){
+                            var myPatientsTableCellViewModel:MyPatientsTableCellViewModel = MyPatientsTableCellViewModel()
+                            myPatientsTableCellViewModel.BedUserCode = choosedbedUsers[i].BedUserCode
+                            myPatientsTableCellViewModel.BedUserName = choosedbedUsers[i].BedUserName
+
+                            myPatientsTableCellViewModel.PartCode = choosedbedUsers[i].PartCode
+
+                            myPatientsTableCellViewModel.PartName = choosedbedUsers[i].PartName
+                            myPatientsTableCellViewModel.BedNum = choosedbedUsers[i].BedNum
+                            myPatientsTableCellViewModel.RoomNum = choosedbedUsers[i].RoomNum
+                            choosedPatients.append(myPatientsTableCellViewModel)
+                        }
+                    }
+                    
+                }
+                self.controllerForIphone?.dismissViewControllerAnimated(true, completion: nil)
+                self.myPatientsViewModel.AddPatients(choosedPatients)
                 
                 },
                 catch: { ex in

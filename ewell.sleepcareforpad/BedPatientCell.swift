@@ -14,16 +14,29 @@ class BedPatientCell: CommonTableCell {
     @IBOutlet weak var lblBedUserName: UILabel!
     @IBOutlet weak var imgChecked: UIImageView!
     var source:BedPatientViewModel!
-    var bindFlag:Bool = false
     override func CellLoadData(data:AnyObject){
-        self.source = data as! BedPatientViewModel
-        self.selectionStyle = UITableViewCellSelectionStyle.None
-        if(!self.bindFlag){
-            RACObserve(self.source, "RoomNum") ~> RAC(self.lblRoomNum, "text")
-            RACObserve(self.source, "BedNum") ~> RAC(self.lblBedNum, "text")
-            RACObserve(self.source, "BedUserName") ~> RAC(self.lblBedUserName, "text")
-            self.bindFlag = true
+        self.source = BedPatientViewModel()
+        self.source.BedUserCode = (data as! BedPatientViewModel).BedUserCode
+        self.source.BedUserName = (data as! BedPatientViewModel).BedUserName
+        self.source.BedNum = (data as! BedPatientViewModel).BedNum
+        self.source.RoomNum = (data as! BedPatientViewModel).RoomNum
+        self.source.PartCode = (data as! BedPatientViewModel).PartCode
+        self.source.PartName = (data as! BedPatientViewModel).PartName
+        self.source.IsChoosed = (data as! BedPatientViewModel).IsChoosed
+        if(self.source.IsChoosed){
+            self.imgChecked.image = UIImage(named: "checked.png")
         }
+        else{
+            self.imgChecked.image = UIImage(named: "unchecked.png")
+            
+        }
+        self.selectionStyle = UITableViewCellSelectionStyle.None
+        
+        RACObserve(self.source, "RoomNum") ~> RAC(self.lblRoomNum, "text")
+        RACObserve(self.source, "BedNum") ~> RAC(self.lblBedNum, "text")
+        RACObserve(self.source, "BedUserName") ~> RAC(self.lblBedUserName, "text")
+        RACObserve(self.source, "IsChoosed") ~> RAC((data as! BedPatientViewModel), "IsChoosed")
+        
     }
     
     override func Checked(){
@@ -52,6 +65,18 @@ class BedPatientViewModel:NSObject{
         }
     }
     
+    //场景名称
+    var _partName:String?
+    dynamic var PartName:String?{
+        get
+        {
+            return self._partName
+        }
+        set(value)
+        {
+            self._partName=value
+        }
+    }
     //房间名
     var _roomNum:String?
     dynamic var RoomNum:String?{
@@ -106,7 +131,7 @@ class BedPatientViewModel:NSObject{
     
     
     //是否选中
-    var _isChoosed:Bool!
+    var _isChoosed:Bool = false
     dynamic var IsChoosed:Bool{
         get
         {

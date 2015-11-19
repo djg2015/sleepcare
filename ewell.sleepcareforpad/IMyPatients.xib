@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IMyPatientsController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <connections>
+                <outlet property="btnBack" destination="IIh-hH-QWk" id="w5w-kG-GiL"/>
                 <outlet property="imgBigAdd" destination="7SK-2a-ggG" id="4ye-h1-kBR"/>
                 <outlet property="imgSmallAdd" destination="WTR-H1-fm3" id="qTh-4l-Alz"/>
                 <outlet property="myPatientTable" destination="i3Y-6g-lUj" id="JFA-01-F1r"/>
@@ -20,8 +21,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smalladd.png" translatesAutoresizingMaskIntoConstraints="NO" id="WTR-H1-fm3">
-                    <rect key="frame" x="278" y="23" width="33" height="28"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sleepQualitySelector.png" translatesAutoresizingMaskIntoConstraints="NO" id="WTR-H1-fm3">
+                    <rect key="frame" x="270" y="23" width="33" height="28"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="Bld-71-70w"/>
@@ -29,7 +30,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的老人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNy-io-MkJ">
-                    <rect key="frame" x="118" y="23" width="84" height="21"/>
+                    <rect key="frame" x="118" y="25" width="84" height="21"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="84" id="9bV-zm-VV7"/>
@@ -39,34 +40,34 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Zo-BW-UMe" userLabel="newadd">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Zo-BW-UMe" userLabel="newadd">
                     <rect key="frame" x="0.0" y="57" width="320" height="511"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DU-ot-ppN">
-                            <rect key="frame" x="141" y="103" width="38" height="27"/>
+                            <rect key="frame" x="141" y="113" width="38" height="27"/>
                             <animations/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="27" id="0gG-YV-L08"/>
-                                <constraint firstAttribute="width" constant="38" id="sIl-Xd-O9x"/>
+                                <constraint firstAttribute="height" constant="27" id="avS-Xr-NBc"/>
+                                <constraint firstAttribute="width" constant="38" id="zqf-nd-Y0o"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigadd.png" translatesAutoresizingMaskIntoConstraints="NO" id="7SK-2a-ggG">
-                            <rect key="frame" x="129" y="138" width="62" height="67"/>
+                            <rect key="frame" x="129" y="148" width="62" height="67"/>
                             <animations/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="62" id="4zt-v3-y0U"/>
-                                <constraint firstAttribute="height" constant="67" id="6ec-Ht-636"/>
+                                <constraint firstAttribute="width" constant="62" id="cd3-Zb-g3b"/>
+                                <constraint firstAttribute="height" constant="67" id="hCj-FQ-K5z"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添加要关注的老人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYQ-N2-kDF">
-                            <rect key="frame" x="88" y="213" width="144" height="27"/>
+                            <rect key="frame" x="88" y="223" width="144" height="27"/>
                             <animations/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="144" id="HOo-fC-eBv"/>
-                                <constraint firstAttribute="height" constant="27" id="juQ-nN-vEF"/>
+                                <constraint firstAttribute="width" constant="144" id="ZgW-3V-BHf"/>
+                                <constraint firstAttribute="height" constant="27" id="qwR-cC-4O2"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -76,17 +77,15 @@
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="centerX" secondItem="7SK-2a-ggG" secondAttribute="centerX" id="01N-8o-oMi"/>
-                        <constraint firstAttribute="width" constant="320" id="M1G-SW-WSA"/>
-                        <constraint firstAttribute="height" constant="511" id="Me2-Zu-xmw"/>
-                        <constraint firstItem="mYQ-N2-kDF" firstAttribute="top" secondItem="3Zo-BW-UMe" secondAttribute="top" constant="213" id="X8P-ZB-z99"/>
-                        <constraint firstItem="7SK-2a-ggG" firstAttribute="top" secondItem="3Zo-BW-UMe" secondAttribute="top" constant="138" id="ab1-sY-8pb"/>
-                        <constraint firstAttribute="centerX" secondItem="5DU-ot-ppN" secondAttribute="centerX" id="oyv-GS-jFc"/>
-                        <constraint firstAttribute="centerX" secondItem="mYQ-N2-kDF" secondAttribute="centerX" id="yED-Qz-3so"/>
-                        <constraint firstItem="5DU-ot-ppN" firstAttribute="top" secondItem="3Zo-BW-UMe" secondAttribute="top" constant="103" id="zsp-R5-dYH"/>
+                        <constraint firstAttribute="centerY" secondItem="7SK-2a-ggG" secondAttribute="centerY" constant="74" id="41k-BY-rpV"/>
+                        <constraint firstAttribute="centerX" secondItem="7SK-2a-ggG" secondAttribute="centerX" id="h9T-V0-bBp"/>
+                        <constraint firstAttribute="centerY" secondItem="mYQ-N2-kDF" secondAttribute="centerY" constant="19" id="lZn-6K-pw1"/>
+                        <constraint firstAttribute="centerX" secondItem="5DU-ot-ppN" secondAttribute="centerX" id="qMV-XT-TFK"/>
+                        <constraint firstAttribute="centerX" secondItem="mYQ-N2-kDF" secondAttribute="centerX" id="qcj-TP-qQj"/>
+                        <constraint firstAttribute="centerY" secondItem="5DU-ot-ppN" secondAttribute="centerY" constant="129" id="yCx-gd-Riz"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXQ-C7-ZY0" userLabel="PatientList">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXQ-C7-ZY0" userLabel="PatientList">
                     <rect key="frame" x="0.0" y="57" width="320" height="511"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="i3Y-6g-lUj" customClass="MyPatientsTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
@@ -104,19 +103,33 @@
                         <constraint firstAttribute="trailing" secondItem="i3Y-6g-lUj" secondAttribute="trailing" id="boj-5w-1RV"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIh-hH-QWk">
+                    <rect key="frame" x="15" y="23" width="33" height="28"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="33" id="pLU-Mr-flG"/>
+                        <constraint firstAttribute="height" constant="28" id="z7S-3Q-bMl"/>
+                    </constraints>
+                    <state key="normal" image="backBtn.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="zNy-io-MkJ" secondAttribute="centerX" id="5bk-4j-6Bw"/>
+                <constraint firstItem="IIh-hH-QWk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="8by-pq-0ZL"/>
                 <constraint firstAttribute="trailing" secondItem="3Zo-BW-UMe" secondAttribute="trailing" id="Dlv-Ud-GBu"/>
                 <constraint firstItem="3Zo-BW-UMe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EZD-s4-5DA"/>
-                <constraint firstItem="zNy-io-MkJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="MIo-oe-DwZ"/>
+                <constraint firstItem="zNy-io-MkJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="25" id="MIo-oe-DwZ"/>
                 <constraint firstAttribute="bottom" secondItem="3Zo-BW-UMe" secondAttribute="bottom" id="UBw-Up-V39"/>
                 <constraint firstAttribute="bottom" secondItem="wXQ-C7-ZY0" secondAttribute="bottom" id="afk-Gj-eKb"/>
+                <constraint firstItem="3Zo-BW-UMe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="57" id="fj8-PD-HTo"/>
                 <constraint firstItem="wXQ-C7-ZY0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ie2-xh-Ufh"/>
-                <constraint firstAttribute="trailing" secondItem="WTR-H1-fm3" secondAttribute="trailing" constant="9" id="j7z-M6-pDg"/>
+                <constraint firstAttribute="trailing" secondItem="WTR-H1-fm3" secondAttribute="trailing" constant="17" id="j7z-M6-pDg"/>
                 <constraint firstItem="WTR-H1-fm3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="kgh-Ma-ro9"/>
+                <constraint firstItem="IIh-hH-QWk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="o5w-qm-Z3b"/>
                 <constraint firstAttribute="trailing" secondItem="wXQ-C7-ZY0" secondAttribute="trailing" id="wP7-8l-vz2"/>
                 <constraint firstItem="wXQ-C7-ZY0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="57" id="yG8-HB-I3O"/>
             </constraints>
@@ -127,9 +140,10 @@
         </view>
     </objects>
     <resources>
+        <image name="backBtn.png" width="54" height="54"/>
         <image name="bigadd.png" width="140" height="140"/>
         <image name="loginbackground.png" width="640" height="1136"/>
-        <image name="smalladd.png" width="52" height="52"/>
+        <image name="sleepQualitySelector.png" width="61" height="41"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

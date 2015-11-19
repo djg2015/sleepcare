@@ -82,14 +82,24 @@ class IloginViewModel: BaseViewModel {
                     else{
                         //获取当前关注的老人
                         var iBedUserList:IBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(loginUser.LoginName, mainCode: loginUser.MainCode)
-                       
+                        
                         if(iBedUserList.bedUserInfoList.count > 0){
-                            let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil)
-                            self.JumpPageForIpone(controller)
+                            if(loginUser.UserType == LoginUserType.UserSelf){
+                                let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil)
+                                self.JumpPageForIpone(controller)
+                            }
+                            else{
+                                //跳转选择我的老人
+                                let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
+                                controller.isGoLogin = true
+                                self.JumpPageForIpone(controller)
+                                
+                            }
                         }
                         else{
                             //跳转选择我的老人
                             let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
+                            controller.isGoLogin = true
                             self.JumpPageForIpone(controller)
                         }
                     }

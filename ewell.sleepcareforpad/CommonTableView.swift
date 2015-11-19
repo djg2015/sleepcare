@@ -70,6 +70,12 @@ class CommonTableView: UITableView,UITableViewDelegate,UITableViewDataSource  {
         cell.UnChechked()
     }
     
+    func setExtraCellLineHidden(tableView:UITableView){
+        var view:UIView = UIView()
+        view.backgroundColor = UIColor.clearColor()
+        tableView.tableFooterView = view
+    }
+    
     var cellNib:UINib?
     var cellID:String!
     //控件显示入口

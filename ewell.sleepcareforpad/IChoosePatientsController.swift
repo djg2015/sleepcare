@@ -11,15 +11,26 @@ class IChoosePatientsController: IBaseViewController {
     @IBOutlet weak var tbParts: CommonTableView!
     @IBOutlet weak var tbPatients: CommonTableView!
     @IBOutlet weak var imgBack: UIImageView!
+    @IBOutlet weak var btnConfirm: UIButton!
+    
     
     var viewModel:IChoosePatientsViewModel!
-    
+    var myPatientsViewModel:IMyPatientsViewModel!
     //科室下的床位用户集合
-     var PartBedUserArray:Array<BedPatientViewModel>?{
+    var PartBedUserArray:Array<BedPatientViewModel>?{
         didSet{
             
             self.tbPatients.ShowTableView("BedPatientCell", cellID: "BedPatientCell",source: self.PartBedUserArray, cellHeight: 80)
         }
+    }
+    
+    required init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,myPatientsViewModel:IMyPatientsViewModel) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.myPatientsViewModel = myPatientsViewModel
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -35,9 +46,10 @@ class IChoosePatientsController: IBaseViewController {
     //初始化设置与属性等绑定
     func rac_Setting(){
         self.viewModel = IChoosePatientsViewModel()
+        self.viewModel.myPatientsViewModel = self.myPatientsViewModel
         self.viewModel.controllerForIphone = self
         RACObserve(self.viewModel, "PartBedUserArray") ~> RAC(self, "PartBedUserArray")
-
+        self.btnConfirm.rac_command = self.viewModel.commitCommand
         self.tbParts.ShowTableView("PartTableCell",cellID: "partCell", source: self.viewModel.PartArray, cellHeight: 80)
         
         //设置选择查找类型

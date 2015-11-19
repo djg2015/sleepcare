@@ -275,6 +275,7 @@
 		3AF652721BFABEBE00BA2329 /* bigadd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF652701BFABEBE00BA2329 /* bigadd.png */; };
 		3AF652731BFABEBE00BA2329 /* smalladd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF652711BFABEBE00BA2329 /* smalladd.png */; };
 		3AF652751BFAC50500BA2329 /* MyPatientsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF652741BFAC50500BA2329 /* MyPatientsTableViewCell.xib */; };
+		3AF844C51BFD619E00B5EDE3 /* IMyPatientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF844C41BFD619E00B5EDE3 /* IMyPatientsViewModel.swift */; };
 		3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB93881BCF96F200042AF1 /* loginBack.png */; };
 		3AFB93901BCF96F200042AF1 /* loginBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB93891BCF96F200042AF1 /* loginBtn.png */; };
 		3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB938A1BCF96F200042AF1 /* checkbox.png */; };
@@ -576,6 +577,7 @@
 		3AF652701BFABEBE00BA2329 /* bigadd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigadd.png; sourceTree = "<group>"; };
 		3AF652711BFABEBE00BA2329 /* smalladd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalladd.png; sourceTree = "<group>"; };
 		3AF652741BFAC50500BA2329 /* MyPatientsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPatientsTableViewCell.xib; sourceTree = "<group>"; };
+		3AF844C41BFD619E00B5EDE3 /* IMyPatientsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMyPatientsViewModel.swift; sourceTree = "<group>"; };
 		3AFB93881BCF96F200042AF1 /* loginBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBack.png; sourceTree = "<group>"; };
 		3AFB93891BCF96F200042AF1 /* loginBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBtn.png; sourceTree = "<group>"; };
 		3AFB938A1BCF96F200042AF1 /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
@@ -1111,6 +1113,7 @@
 				3AC70CBF1BF9A19600814082 /* ISetUserTypeViewModel.swift */,
 				2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */,
 				3ACD645D1BFC577A00FB62BB /* IChoosePatientsViewModel.swift */,
+				3AF844C41BFD619E00B5EDE3 /* IMyPatientsViewModel.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1552,6 +1555,7 @@
 				3A376E4C1BABDA3B00D70953 /* Bed.swift in Sources */,
 				3A8680681BD75EE000F22016 /* ChoosePartController.swift in Sources */,
 				3A91B3641BFB1DF200DB3514 /* IChoosePatientsController.swift in Sources */,
+				3AF844C51BFD619E00B5EDE3 /* IMyPatientsViewModel.swift in Sources */,
 				3A325A341BD08B7B00DE4E78 /* BaseViewModel.swift in Sources */,
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
 				2C0615591BF46A5A00A3F90C /* IMySelfSettingController.swift in Sources */,
