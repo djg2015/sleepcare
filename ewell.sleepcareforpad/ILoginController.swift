@@ -29,7 +29,7 @@ class ILoginController: IBaseViewController {
             showDialogMsg("远程通讯服务器连接不上！")
         }
         var scBLL:SleepCareForIPhoneBussiness = SleepCareForIPhoneBussiness()
-        self.presentViewController(IMainFrameViewController(nibName:"IMainFrame", bundle:nil), animated: true, completion: nil)
+        self.presentViewController(IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:""), animated: true, completion: nil)
         
     }
     
