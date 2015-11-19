@@ -48,16 +48,16 @@ class IMySelfConfiguration: UIView{
         }
         else if(SessionForIphone.GetSession().User?.UserType == LoginUserType.UserSelf)
         {
+            menu = ConfigurationViewModel()
+            menu.imageName = "myElder"
+            menu.titleName = "我的老人"
+            source.append(menu)
+            
             if(nil != bedUserCode)
             {
                 menu = ConfigurationViewModel()
                 menu.imageName = "myRequipment"
                 menu.titleName = "我的设备"
-                source.append(menu)
-                
-                menu = ConfigurationViewModel()
-                menu.imageName = "myElder"
-                menu.titleName = "我的床位"
                 source.append(menu)
             }
             

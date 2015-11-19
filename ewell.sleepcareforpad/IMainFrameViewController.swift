@@ -50,35 +50,53 @@ class IMainFrameViewController: IBaseViewController {
         self.btnHR!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-                self.curMenu = self.uiHR
-                let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
                 if(nil != self.bedUserCode)
                 {
+                    self.curMenu = self.uiHR
+                    let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
+                    
                     iHRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!)
+                    
+                    self.showBody(iHRMonitorView)
                 }
-                self.showBody(iHRMonitorView)
+                else
+                {
+                    showDialogMsg("请先到【我】->【我的老人】下选择一位老人再查看！", title: "")
+                }
         }
         self.btnRR!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-                self.curMenu = self.uiRR
-                let iRRMonitorView = NSBundle.mainBundle().loadNibNamed("IRRMonitor", owner: self, options: nil).first as! IRRMonitor
                 if(nil != self.bedUserCode)
                 {
+                    self.curMenu = self.uiRR
+                    let iRRMonitorView = NSBundle.mainBundle().loadNibNamed("IRRMonitor", owner: self, options: nil).first as! IRRMonitor
+                    
                     iRRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!)
+                    
+                    self.showBody(iRRMonitorView)
                 }
-                self.showBody(iRRMonitorView)
+                else
+                {
+                    showDialogMsg("请先到【我】->【我的老人】下选择一位老人再查看！", title: "")
+                }
         }
         self.btnSleep!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-                self.curMenu = self.uiSleepCare
-                let sleepQualityMonitorView = NSBundle.mainBundle().loadNibNamed("ISleepQualityMonitor", owner: self, options: nil).first as! ISleepQualityMonitor
                 if(nil != self.bedUserCode)
                 {
+                    self.curMenu = self.uiSleepCare
+                    let sleepQualityMonitorView = NSBundle.mainBundle().loadNibNamed("ISleepQualityMonitor", owner: self, options: nil).first as! ISleepQualityMonitor
+                    
                     sleepQualityMonitorView.viewInit(self,bedUserCode: self.bedUserCode!)
+                    
+                    self.showBody(sleepQualityMonitorView)
                 }
-                self.showBody(sleepQualityMonitorView)
+                else
+                {
+                    showDialogMsg("请先到【我】->【我的老人】下选择一位老人再查看！", title: "")
+                }
         }
         self.btnMe!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
@@ -98,9 +116,6 @@ class IMainFrameViewController: IBaseViewController {
         }
         else
         {
-            self.uiHR.hidden = true
-            self.uiRR.hidden = true
-            self.uiSleepCare.hidden = true
             self.curMenu = self.uiMe
             let firstVew = NSBundle.mainBundle().loadNibNamed("IMySelfConfiguration", owner: self, options: nil).first as! IMySelfConfiguration
             firstVew.viewInit(self,bedUserCode: nil)
