@@ -79,9 +79,9 @@ public class SweetAlert: UIViewController {
     
     private func setupTitleLabel() {
         titleLabel.text = ""
-        titleLabel.numberOfLines = 2
+        titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .Center
-        titleLabel.font = UIFont(name: kFont, size:25)
+        titleLabel.font = UIFont(name: kFont, size:16)
         titleLabel.textColor = UIColor.colorFromRGB(0x575757)
     }
     

@@ -49,9 +49,10 @@ class IMyPatientsViewModel: BaseViewModel {
                     myPatientsTableCellViewModel.PartCode = bedUserList.bedUserInfoList[i].PartCode
                     myPatientsTableCellViewModel.PartName = bedUserList.bedUserInfoList[i].PartName
                     myPatientsTableCellViewModel.selectedBedUserHandler = self.ShowPatientDetail
+                    myPatientsTableCellViewModel.deleteBedUserHandler = self.RemovePatient
                     curArray.append(myPatientsTableCellViewModel)
                 }
-                 self.MyPatientsArray = curArray
+                self.MyPatientsArray = curArray
                 },
                 catch: { ex in
                     //异常处理
@@ -72,7 +73,27 @@ class IMyPatientsViewModel: BaseViewModel {
     
     //移除指定床位用户
     func RemovePatient(myPatientsTableViewModel:MyPatientsTableCellViewModel){
-    
+        var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModel.BedUserCode})
+        if(exist.count > 0){
+            try {
+                ({
+                    var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+                    var session = SessionForIphone.GetSession()
+                    sleepCareForIPhoneBussinessManager.RemoveFollowBedUser(session.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode!)
+                    },
+                    catch: { ex in
+                        //异常处理
+                        handleException(ex,showDialog: true)
+                    },
+                    finally: {
+                        
+                    }
+                )}
+            
+            var index = find(self.MyPatientsArray, exist[0])!
+            self.MyPatientsArray.removeAtIndex(index)
+        }
+        
     }
     
     //添加指定床位用户
@@ -85,6 +106,8 @@ class IMyPatientsViewModel: BaseViewModel {
                     sleepCareForIPhoneBussinessManager.FollowBedUser(session.User!.LoginName, bedUserCode: myPatientsTableViewModels[i].BedUserCode!, mainCode: session.User!.MainCode)
                     var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModels[i].BedUserCode})
                     if(exist.count == 0){
+                        myPatientsTableViewModels[i].selectedBedUserHandler = self.ShowPatientDetail
+                        myPatientsTableViewModels[i].deleteBedUserHandler = self.RemovePatient
                         self.MyPatientsArray.append(myPatientsTableViewModels[i])
                     }
                     
@@ -100,5 +123,5 @@ class IMyPatientsViewModel: BaseViewModel {
                 }
             )}
     }
-   
+    
 }

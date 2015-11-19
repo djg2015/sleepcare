@@ -10,6 +10,8 @@ import UIKit
 class IChoosePatientsController: IBaseViewController {
     @IBOutlet weak var tbParts: CommonTableView!
     @IBOutlet weak var tbPatients: CommonTableView!
+    
+    @IBOutlet weak var tbPatientsDouble: CommonTableView!
     @IBOutlet weak var imgBack: UIImageView!
     @IBOutlet weak var btnConfirm: UIButton!
     
@@ -19,8 +21,17 @@ class IChoosePatientsController: IBaseViewController {
     //科室下的床位用户集合
     var PartBedUserArray:Array<BedPatientViewModel>?{
         didSet{
-            
-            self.tbPatients.ShowTableView("BedPatientCell", cellID: "BedPatientCell",source: self.PartBedUserArray, cellHeight: 80)
+            var session = SessionForIphone.GetSession()
+            if(session.User?.UserType == LoginUserType.UserSelf){
+                self.tbPatients.ShowTableView("BedPatientCell", cellID: "BedPatientCell",source: self.PartBedUserArray, cellHeight: 80)
+                self.tbPatientsDouble.hidden = true
+                self.tbPatients.hidden = false
+            }
+            else{
+                self.tbPatientsDouble.ShowTableView("BedPatientCell", cellID: "BedPatientCell",source: self.PartBedUserArray, cellHeight: 80)
+                self.tbPatientsDouble.hidden = false
+                self.tbPatients.hidden = true
+            }
         }
     }
     
@@ -56,6 +67,7 @@ class IChoosePatientsController: IBaseViewController {
         self.imgBack.userInteractionEnabled = true
         var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
         self.imgBack .addGestureRecognizer(singleTap)
+        
     }
     
     //返回

@@ -79,7 +79,10 @@ class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource
     
     //提交删除
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
-        
+        if(editingStyle == UITableViewCellEditingStyle.Delete){
+            self._source[indexPath.row].deleteBedUserHandler!(myPatientsTableViewModel: self._source[indexPath.row])
+            //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
     }
     
     var cellNib:UINib?

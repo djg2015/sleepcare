@@ -110,7 +110,7 @@ class IHRMonitor: UIView{
         RACObserve(self.hrMonitorViewModel, "ProcessMaxValue") ~> RAC(self.processHR, "maxProcess")
         RACObserve(self.hrMonitorViewModel, "ProcessValue") ~> RAC(self.processHR, "currentProcess")
         
-        RACObserve(self, "_bedCode") ~> RAC(self.hrMonitorViewModel, "BedCode")
+        //RACObserve(self, "_bedCode") ~> RAC(self.hrMonitorViewModel, "BedCode")
         RACObserve(self, "_bedUserCode") ~> RAC(self.hrMonitorViewModel, "BedUserCode")
         RACObserve(self.hrMonitorViewModel, "HRTimeReport") ~> RAC(self, "HRTimeReportList")
         

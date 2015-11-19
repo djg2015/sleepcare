@@ -51,7 +51,6 @@ class CommonTableView: UITableView,UITableViewDelegate,UITableViewDataSource  {
         return cell
         
     }
-    
     //选中某行操作
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         var cell:CommonTableCell = tableView.cellForRowAtIndexPath(indexPath) as! CommonTableCell
@@ -67,6 +66,7 @@ class CommonTableView: UITableView,UITableViewDelegate,UITableViewDataSource  {
     //当选中的末行变为未选中时的操作
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath){
         var cell:CommonTableCell = tableView.cellForRowAtIndexPath(indexPath) as! CommonTableCell
+        
         cell.UnChechked()
     }
     

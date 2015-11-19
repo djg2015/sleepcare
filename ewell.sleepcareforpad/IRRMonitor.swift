@@ -111,7 +111,7 @@ class IRRMonitor: UIView{
         RACObserve(self.rrMonitorViewModel, "ProcessMaxValue") ~> RAC(self.processRR, "maxProcess")
         RACObserve(self.rrMonitorViewModel, "ProcessValue") ~> RAC(self.processRR, "currentProcess")
         
-        RACObserve(self, "_bedCode") ~> RAC(self.rrMonitorViewModel, "BedCode")
+        //RACObserve(self, "_bedCode") ~> RAC(self.rrMonitorViewModel, "BedCode")
         RACObserve(self, "_bedUserCode") ~> RAC(self.rrMonitorViewModel, "BedUserCode")
         RACObserve(self.rrMonitorViewModel, "RRTimeReport") ~> RAC(self, "RRTimeReportList")
         

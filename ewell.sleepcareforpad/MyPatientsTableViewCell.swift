@@ -23,16 +23,29 @@ class MyPatientsTableViewCell: UITableViewCell {
     
     //数据绑定床位界面
     func CellLoadData(data:MyPatientsTableCellViewModel){
-        self.source = data as MyPatientsTableCellViewModel
+        self.source = MyPatientsTableCellViewModel()
+        
+        self.source.BedUserCode = (data as MyPatientsTableCellViewModel).BedUserCode
+        self.source.BedUserName = (data as MyPatientsTableCellViewModel).BedUserName
+        self.source.RoomNum = (data as MyPatientsTableCellViewModel).RoomNum
+        self.source.BedNum = (data as MyPatientsTableCellViewModel).BedNum
+        self.source.PartCode = (data as MyPatientsTableCellViewModel).PartCode
+        self.source.PartName = (data as MyPatientsTableCellViewModel).PartName
+        
+        RACObserve(data, "HR") ~> RAC(self.source, "HR")
+        RACObserve(data, "RR") ~> RAC(self.source, "RR")
+        RACObserve(data, "BedStatus") ~> RAC(self.source, "BedStatus")
+        
+        RACObserve(self.source, "PartName") ~> RAC(self.lblPartName, "text")
+        RACObserve(self.source, "BedStatus") ~> RAC(self.lblBedStatus, "text")
+        RACObserve(self.source, "HR") ~> RAC(self.lblHR, "text")
+        RACObserve(self.source, "RR") ~> RAC(self.lblRR, "text")
+        RACObserve(self.source, "BedNum") ~> RAC(self.lblBedNum, "text")
+        RACObserve(self.source, "RoomNum") ~> RAC(self.lblRoomNum, "text")
+        RACObserve(self.source, "BedUserName") ~> RAC(self.lblBedUserName, "text")
         
         if(!self.bindFlag){
-            RACObserve(self.source, "PartName") ~> RAC(self.lblPartName, "text")
-            RACObserve(self.source, "BedStatus") ~> RAC(self.lblBedStatus, "text")
-            RACObserve(self.source, "HR") ~> RAC(self.lblHR, "text")
-            RACObserve(self.source, "RR") ~> RAC(self.lblRR, "text")
-            RACObserve(self.source, "BedNum") ~> RAC(self.lblBedNum, "text")
-            RACObserve(self.source, "RoomNum") ~> RAC(self.lblRoomNum, "text")
-            RACObserve(self.source, "BedUserName") ~> RAC(self.lblBedUserName, "text")
+            
             
             //设置箭头点击查看明细
             self.imgDetail.userInteractionEnabled = true
@@ -116,7 +129,7 @@ class MyPatientsTableCellViewModel:NSObject{
     dynamic var RoomNum:String?{
         get
         {
-            return self._roomNum! + "室"
+            return self._roomNum
         }
         set(value)
         {
@@ -129,7 +142,7 @@ class MyPatientsTableCellViewModel:NSObject{
     dynamic var BedNum:String?{
         get
         {
-            return self._bedNum! + "床"
+            return self._bedNum
         }
         set(value)
         {
@@ -178,4 +191,6 @@ class MyPatientsTableCellViewModel:NSObject{
     
     //操作定义
     var selectedBedUserHandler: ((myPatientsTableViewModel:MyPatientsTableCellViewModel) -> ())?
+    var deleteBedUserHandler: ((myPatientsTableViewModel:MyPatientsTableCellViewModel) -> ())?
+    
 }
