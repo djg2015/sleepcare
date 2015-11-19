@@ -10,30 +10,18 @@ import UIKit
 
 class MyPatientsTableViewCell: UITableViewCell {
  
-    init(data:String,reuseIdentifier cellID:String){
-      
-        super.init(style:UITableViewCellStyle.Subtitle, reuseIdentifier: cellID)
-        rebuilderUserInterface()
-    }
-
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    //汇至床位界面
-    func rebuilderUserInterface(){
+    //数据绑定床位界面
+    func CellLoadData(){
         
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

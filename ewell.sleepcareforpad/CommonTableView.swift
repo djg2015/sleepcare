@@ -11,12 +11,11 @@ import UIKit
 class CommonTableView: UITableView,UITableViewDelegate,UITableViewDataSource  {
     var _source:Array<AnyObject>!
     var _cellHeight:CGFloat!
+    var firstCell:CommonTableCell!
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.showsVerticalScrollIndicator = false
-        self.backgroundColor = UIColor.whiteColor()
-        self.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.delegate = self
         self.dataSource = self
     }
@@ -36,7 +35,7 @@ class CommonTableView: UITableView,UITableViewDelegate,UITableViewDataSource  {
     
     //返回单元格的高度
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 195
+        return self._cellHeight
     }
     
     //自定义单元格
@@ -45,9 +44,30 @@ class CommonTableView: UITableView,UITableViewDelegate,UITableViewDataSource  {
         if(cell == nil){
             cell = CommonTableCell()
         }
-        cell.CellLoadData(self._source[indexPath.item])
+        cell.CellLoadData(self._source[indexPath.row])
+        if(indexPath.row == 0){
+            self.firstCell = cell
+        }
         return cell
         
+    }
+    
+    //选中某行操作
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        var cell:CommonTableCell = tableView.cellForRowAtIndexPath(indexPath) as! CommonTableCell
+        cell.Checked()
+        //针对首次代码选中第一行的恢复处理
+        if(!tableView.allowsMultipleSelection){
+            if(indexPath.row != 0){
+                self.firstCell.UnChechked()
+            }
+        }
+    }
+    
+    //当选中的末行变为未选中时的操作
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath){
+        var cell:CommonTableCell = tableView.cellForRowAtIndexPath(indexPath) as! CommonTableCell
+        cell.UnChechked()
     }
     
     var cellNib:UINib?
@@ -77,6 +97,14 @@ class CommonTableView: UITableView,UITableViewDelegate,UITableViewDataSource  {
 
 class CommonTableCell:UITableViewCell{
     func CellLoadData(data:AnyObject){
+        
+    }
+    
+    func Checked(){
+        
+    }
+    
+    func UnChechked(){
         
     }
 }

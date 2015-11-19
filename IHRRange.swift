@@ -28,7 +28,7 @@ class IHRRange:BaseMessage{
         }
         return result
     }
-    
+
 }
 
 class IHRTimeReport:BaseMessage {

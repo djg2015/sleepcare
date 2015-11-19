@@ -10,19 +10,44 @@ import UIKit
 class IChoosePatientsController: IBaseViewController {
     @IBOutlet weak var tbParts: CommonTableView!
     @IBOutlet weak var tbPatients: CommonTableView!
+    @IBOutlet weak var imgBack: UIImageView!
+    
+    var viewModel:IChoosePatientsViewModel!
+    
+    //科室下的床位用户集合
+     var PartBedUserArray:Array<BedPatientViewModel>?{
+        didSet{
+            
+            self.tbPatients.ShowTableView("BedPatientCell", cellID: "BedPatientCell",source: self.PartBedUserArray, cellHeight: 80)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        self.myPatientsTableView = MyPatientsTableView(frame: CGRectMake(0, 0, uiPatientList.frame.width, uiPatientList.accessibilityFrame.height))
-        
-        self.tbParts.ShowTableView("PartTableCell",cellID: "partCell", source: ["1号楼","2号楼","3号楼"], cellHeight: 100)
-        self.tbPatients.ShowTableView("PartTableCell", cellID: "PatientCell",source: ["1号楼","2号楼","3号楼"], cellHeight: 100)
-        //        self.uiPatientList.addSubview(self.myPatientsTableView)
-        // Do any additional setup after loading the view.
+        rac_Setting()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //初始化设置与属性等绑定
+    func rac_Setting(){
+        self.viewModel = IChoosePatientsViewModel()
+        self.viewModel.controllerForIphone = self
+        RACObserve(self.viewModel, "PartBedUserArray") ~> RAC(self, "PartBedUserArray")
+
+        self.tbParts.ShowTableView("PartTableCell",cellID: "partCell", source: self.viewModel.PartArray, cellHeight: 80)
+        
+        //设置选择查找类型
+        self.imgBack.userInteractionEnabled = true
+        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
+        self.imgBack .addGestureRecognizer(singleTap)
+    }
+    
+    //返回
+    func imageViewTouch(){
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
