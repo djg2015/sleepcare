@@ -21,7 +21,6 @@ class IRRMonitor: UIView{
     var rrMonitorViewModel:IRRMonitorViewModel = IRRMonitorViewModel()
     var parentController:IBaseViewController!
     var lblRR:UILabel!
-    var _bedCode:String = ""
     var _bedUserCode:String = ""
     
     var _rrTimeReportList:Array<IRRTimeReport> = Array<IRRTimeReport>()
@@ -86,9 +85,8 @@ class IRRMonitor: UIView{
     }
     
     
-    func viewInit(parentController:IBaseViewController?,bedUserCode:String,bedCode:String)
+    func viewInit(parentController:IBaseViewController?,bedUserCode:String)
     {
-        self._bedCode = bedCode
         self._bedUserCode = bedUserCode
         
         self.parentController = parentController

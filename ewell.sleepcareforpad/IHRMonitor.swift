@@ -20,7 +20,6 @@ class IHRMonitor: UIView{
     var hrMonitorViewModel:IHRMonitorViewModel = IHRMonitorViewModel()
     var parentController:IBaseViewController!
     var lblHR:UILabel!
-    var _bedCode:String = ""
     var _bedUserCode:String = ""
     
     var _hrTimeReportList:Array<IHRTimeReport> = Array<IHRTimeReport>()
@@ -85,9 +84,8 @@ class IHRMonitor: UIView{
     }
     
     
-    func viewInit(parentController:IBaseViewController?,bedUserCode:String,bedCode:String)
+    func viewInit(parentController:IBaseViewController?,bedUserCode:String)
     {
-        self._bedCode = bedCode
         self._bedUserCode = bedUserCode
         
         self.parentController = parentController

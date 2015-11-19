@@ -13,19 +13,7 @@ class IHRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     // 属性
     var realTimeCaches:Array<RealTimeReport>?
     var hrRangeCaches:IHRRange?
-    // 当前用户所在床位号
-    var _bedCode:String = ""
-    dynamic var BedCode:String{
-        get
-        {
-            return self._bedCode
-        }
-        set(value)
-        {
-            self._bedCode = value
-        }
-    }
-    
+
     // 当前用户所在床位号
     var _bedUserCode:String?
     dynamic var BedUserCode:String?{
@@ -149,8 +137,9 @@ class IHRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     }
     
     func GetRealTimeDelegate(realTimeReport:RealTimeReport){
-        let key = realTimeReport.BedCode
-        if(key == self.BedCode)
+        // 根据用户编码获取
+        let key = realTimeReport.UserCode
+        if(key == self.BedUserCode)
         {
             realTimeCaches?.append(realTimeReport)
         }
