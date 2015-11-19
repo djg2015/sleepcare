@@ -46,7 +46,7 @@ class IMainFrameViewController: IBaseViewController {
         super.init(coder: aDecoder)
     }
     
-    required init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,bedUserCode:String) {
+    required init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,bedUserCode:String?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.bedUserCode = bedUserCode
     }

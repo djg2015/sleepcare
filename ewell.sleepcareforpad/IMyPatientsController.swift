@@ -88,15 +88,13 @@ class IMyPatientsController: IBaseViewController {
     //选中菜单
     func ChoosedItem(downListModel:DownListModel){
         if(downListModel.key == "1"){
-            
-            
             var controller = IChoosePatientsController(nibName: "IChoosePatients", bundle: nil, myPatientsViewModel: self.viewModel)
             self.presentViewController(controller, animated: true, completion: nil)
             
-            
         }
         else{
-            
+            let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:nil)
+            self.presentViewController(controller, animated: true, completion: nil)
         }
     }
     
