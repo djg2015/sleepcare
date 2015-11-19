@@ -42,6 +42,15 @@ class IMainFrameViewController: IBaseViewController {
         }
     }
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    required init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,bedUserCode:String) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.bedUserCode = bedUserCode
+    }
+    
     var bedUserCode:String?
     
     override func viewDidLoad() {

@@ -40,7 +40,7 @@ class ISetUserTypeViewModel: BaseViewModel {
                 var loginUser:SessionForIphone = SessionForIphone.GetSession()
                 sleepCareForIPhoneBussinessManager.SaveUserType(loginUser.User!.LoginName, userType: userType)
                 loginUser.User?.UserType = userType
-                let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil)
+                let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:"")
                 self.JumpPageForIpone(controller)
                 },
                 catch: { ex in

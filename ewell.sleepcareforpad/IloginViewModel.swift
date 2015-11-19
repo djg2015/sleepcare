@@ -84,7 +84,7 @@ class IloginViewModel: BaseViewModel {
                         var iBedUserList:IBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(loginUser.LoginName, mainCode: loginUser.MainCode)
                        
                         if(iBedUserList.bedUserInfoList.count > 0){
-                            let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil)
+                            let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:iBedUserList.bedUserInfoList[0].BedUserCode)
                             self.JumpPageForIpone(controller)
                         }
                         else{
