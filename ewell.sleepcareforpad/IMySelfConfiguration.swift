@@ -20,7 +20,7 @@ class IMySelfConfiguration: UIView{
     var parentController:IBaseViewController!
     
     // 界面初始化
-    func viewInit(parentController:IBaseViewController?,bedUserCode:String?)
+    func viewInit(parentController:IBaseViewController?,bedUserCode:String?,equipmentID:String)
     {
         self.parentController = parentController
         var source = Array<ConfigurationViewModel>()

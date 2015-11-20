@@ -31,6 +31,7 @@ class MyPatientsTableViewCell: UITableViewCell {
         self.source.BedNum = (data as MyPatientsTableCellViewModel).BedNum
         self.source.PartCode = (data as MyPatientsTableCellViewModel).PartCode
         self.source.PartName = (data as MyPatientsTableCellViewModel).PartName
+        self.source.EquipmentID = (data as MyPatientsTableCellViewModel).EquipmentID
         
         RACObserve(data, "HR") ~> RAC(self.source, "HR")
         RACObserve(data, "RR") ~> RAC(self.source, "RR")
@@ -186,6 +187,19 @@ class MyPatientsTableCellViewModel:NSObject{
         set(value)
         {
             self._bedStatus=value
+        }
+    }
+    
+    // 设备编号
+    var _equipmentID:String?
+    dynamic var EquipmentID:String?{
+        get
+        {
+            return self._equipmentID
+        }
+        set(value)
+        {
+            self._equipmentID=value
         }
     }
     

@@ -46,12 +46,14 @@ class IMainFrameViewController: IBaseViewController {
         super.init(coder: aDecoder)
     }
     
-    required init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,bedUserCode:String?) {
+    required init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,bedUserCode:String?,equipmentID:String?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.bedUserCode = bedUserCode
+        self.equipmentID = equipmentID
     }
     
     var bedUserCode:String?
+    var equipmentID:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,7 +114,7 @@ class IMainFrameViewController: IBaseViewController {
                 _ in
                 self.curMenu = self.uiMe
                 let selfConfiguration = NSBundle.mainBundle().loadNibNamed("IMySelfConfiguration", owner: self, options: nil).first as! IMySelfConfiguration
-                selfConfiguration.viewInit(self, bedUserCode: self.bedUserCode!)
+                selfConfiguration.viewInit(self, bedUserCode: self.bedUserCode!,equipmentID: self.equipmentID!)
                 self.showBody(selfConfiguration)
         }
         
@@ -127,7 +129,7 @@ class IMainFrameViewController: IBaseViewController {
         {
             self.curMenu = self.uiMe
             let firstVew = NSBundle.mainBundle().loadNibNamed("IMySelfConfiguration", owner: self, options: nil).first as! IMySelfConfiguration
-            firstVew.viewInit(self,bedUserCode: nil)
+            firstVew.viewInit(self,bedUserCode: nil,equipmentID:self.equipmentID!)
             showBody(firstVew)
         }
     }
