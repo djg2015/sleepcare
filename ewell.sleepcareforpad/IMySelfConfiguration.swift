@@ -31,6 +31,7 @@ class IMySelfConfiguration: UIView{
             menu = ConfigurationViewModel()
             menu.imageName = "myElder"
             menu.titleName = "我的老人"
+            menu.configrationController = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
             source.append(menu)
             
             menu = ConfigurationViewModel()
@@ -51,6 +52,7 @@ class IMySelfConfiguration: UIView{
             menu = ConfigurationViewModel()
             menu.imageName = "myElder"
             menu.titleName = "我的老人"
+            menu.configrationController = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
             source.append(menu)
             
             if(nil != bedUserCode)

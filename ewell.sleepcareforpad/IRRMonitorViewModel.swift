@@ -13,18 +13,6 @@ class IRRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     // 属性
     var realTimeCaches:Array<RealTimeReport>?
     var rrRangeCaches:IHRRange?
-    // 当前用户所在床位号
-    var _bedCode:String = ""
-    dynamic var BedCode:String{
-        get
-        {
-            return self._bedCode
-        }
-        set(value)
-        {
-            self._bedCode = value
-        }
-    }
     
     // 当前用户所在床位号
     var _bedUserCode:String?
@@ -112,7 +100,12 @@ class IRRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     
     override init() {
         super.init()
+    }
+    
+    required init(bedUserCode:String) {
+        super.init()
         
+        self.BedUserCode = bedUserCode
         //实时数据处理代理设置
         var xmppMsgManager = XmppMsgManager.GetInstance()
         xmppMsgManager?._realTimeDelegate = self
@@ -149,8 +142,8 @@ class IRRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     }
     
     func GetRealTimeDelegate(realTimeReport:RealTimeReport){
-        let key = realTimeReport.BedCode
-        if(key == self.BedCode)
+        let key = realTimeReport.UserCode
+        if(key == self.BedUserCode)
         {
             realTimeCaches?.append(realTimeReport)
         }
