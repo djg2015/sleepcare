@@ -60,6 +60,7 @@ class IMySelfConfiguration: UIView{
                 menu = ConfigurationViewModel()
                 menu.imageName = "myRequipment"
                 menu.titleName = "我的设备"
+                menu.configrationController = IEquipmentViewController(nibName:"IEquipmentView", bundle:nil,equipmentID:equipmentID)
                 source.append(menu)
             }
             
