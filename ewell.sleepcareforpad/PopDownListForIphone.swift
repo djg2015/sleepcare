@@ -11,6 +11,7 @@ class PopDownListForIphone:NSObject,ZSYPopoverListDatasource, ZSYPopoverListDele
     var _source:Array<PopDownListItem> = Array<PopDownListItem>()
     let identifier:String = "identifier"
     var selectedIndexPath:NSIndexPath!
+    var selectedCode:String!
     var listView:ZSYPopoverListView?
     var delegate:PopDownListItemChoosed!
     func Show(title:String,source:Array<PopDownListItem>){
@@ -21,6 +22,18 @@ class PopDownListForIphone:NSObject,ZSYPopoverListDatasource, ZSYPopoverListDele
             listView!.datasource = self
             listView!.delegate = self
         }        
+        listView!.show()
+    }
+    
+    func Show(title:String,source:Array<PopDownListItem>,selectedCode:String){
+        self._source = source
+        self.selectedCode = selectedCode
+        if(listView == nil){
+            listView = ZSYPopoverListView(frame: CGRectMake(0, 0, 240, 200))
+            listView!.titleName.text = title
+            listView!.datasource = self
+            listView!.delegate = self
+        }
         listView!.show()
     }
     
@@ -42,6 +55,12 @@ class PopDownListForIphone:NSObject,ZSYPopoverListDatasource, ZSYPopoverListDele
         else
         {
             cell!.imageView!.image = UIImage(named: "fs_main_login_normal.png")
+        }
+        
+        if(self.selectedCode != nil){
+            if(self.selectedCode ==  _source[indexPath.row].key){
+                cell!.imageView!.image = UIImage(named: "fs_main_login_selected.png")
+            }
         }
         cell!.textLabel!.text = _source[indexPath.row].value
         return cell!
