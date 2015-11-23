@@ -7,8 +7,9 @@
 //
 
 import Foundation
-class IMyPatientsViewModel: BaseViewModel {
+class IMyPatientsViewModel: BaseViewModel,RealTimeDelegate {
     //------------属性定义------------
+    var realTimeCaches:Dictionary<String,RealTimeReport>?
     
     var _myPatientsArray:Array<MyPatientsTableCellViewModel>!
     //我关注的床位用户集合
@@ -37,7 +38,7 @@ class IMyPatientsViewModel: BaseViewModel {
             ({
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
-                var bedUserList:IBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(session.User!.LoginName, mainCode: session.User!.MainCode)
+                var bedUserList:IBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(session!.User!.LoginName, mainCode: session!.User!.MainCode)
                 self.MyPatientsArray = Array<MyPatientsTableCellViewModel>()
                 var curArray = Array<MyPatientsTableCellViewModel>()
                 for(var i=0;i<bedUserList.bedUserInfoList.count;i++){
@@ -48,6 +49,7 @@ class IMyPatientsViewModel: BaseViewModel {
                     myPatientsTableCellViewModel.BedNum = bedUserList.bedUserInfoList[i].BedNumber
                     myPatientsTableCellViewModel.PartCode = bedUserList.bedUserInfoList[i].PartCode
                     myPatientsTableCellViewModel.PartName = bedUserList.bedUserInfoList[i].PartName
+                    myPatientsTableCellViewModel.EquipmentID = bedUserList.bedUserInfoList[i].EquipmentID
                     myPatientsTableCellViewModel.selectedBedUserHandler = self.ShowPatientDetail
                     myPatientsTableCellViewModel.deleteBedUserHandler = self.RemovePatient
                     curArray.append(myPatientsTableCellViewModel)
@@ -62,6 +64,57 @@ class IMyPatientsViewModel: BaseViewModel {
                     
                 }
             )}
+        
+        //实时数据处理代理设置
+        var xmppMsgManager = XmppMsgManager.GetInstance()
+        xmppMsgManager?._realTimeDelegate = self
+        self.realTimeCaches = Dictionary<String,RealTimeReport>()
+        self.setRealTimer()
+        
+        
+    }
+    
+    //实时数据显示
+    func setRealTimer(){
+        var realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "realtimerFireMethod:", userInfo: nil, repeats:true);
+        realtimer.fire()
+    }
+    
+    func realtimerFireMethod(timer: NSTimer) {
+        
+        for realTimeReport in self.realTimeCaches!.values{
+            if(!self.MyPatientsArray.isEmpty){
+                var bed = self.MyPatientsArray.filter(
+                    {$0.BedUserCode == realTimeReport.UserCode})
+                if(bed.count > 0){
+                    let curBed:MyPatientsTableCellViewModel = bed[0]
+                     curBed.HR = realTimeReport.HR
+                    curBed.RR = realTimeReport.RR
+                    curBed.BedStatus = realTimeReport.OnBedStatus
+              
+                }
+            }
+        }
+        
+    }
+    
+    //实时数据处理
+    func GetRealTimeDelegate(realTimeReport:RealTimeReport){
+        let key = realTimeReport.UserCode
+        if(self.realTimeCaches?.count > 0){
+            var keys = self.realTimeCaches?.keys.filter({$0 == key})
+            if(keys?.array.count == 0)
+            {
+                self.realTimeCaches?[key] = realTimeReport
+            }
+            else
+            {
+                self.realTimeCaches?.updateValue(realTimeReport, forKey: key)
+            }
+        }
+        else{
+            self.realTimeCaches?[key] = realTimeReport
+        }
         
     }
     
@@ -79,7 +132,7 @@ class IMyPatientsViewModel: BaseViewModel {
                 ({
                     var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                     var session = SessionForIphone.GetSession()
-                    sleepCareForIPhoneBussinessManager.RemoveFollowBedUser(session.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode!)
+                    sleepCareForIPhoneBussinessManager.RemoveFollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode!)
                     },
                     catch: { ex in
                         //异常处理
@@ -103,7 +156,7 @@ class IMyPatientsViewModel: BaseViewModel {
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
                 for(var i=0;i<myPatientsTableViewModels.count;i++){
-                    sleepCareForIPhoneBussinessManager.FollowBedUser(session.User!.LoginName, bedUserCode: myPatientsTableViewModels[i].BedUserCode!, mainCode: session.User!.MainCode)
+                    sleepCareForIPhoneBussinessManager.FollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModels[i].BedUserCode!, mainCode: session!.User!.MainCode)
                     var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModels[i].BedUserCode})
                     if(exist.count == 0){
                         myPatientsTableViewModels[i].selectedBedUserHandler = self.ShowPatientDetail

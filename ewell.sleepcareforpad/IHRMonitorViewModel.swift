@@ -13,7 +13,7 @@ class IHRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     // 属性
     var realTimeCaches:Array<RealTimeReport>?
     var hrRangeCaches:IHRRange?
-
+    
     // 当前用户所在床位号
     var _bedUserCode:String?
     dynamic var BedUserCode:String?{
@@ -131,12 +131,14 @@ class IHRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     }
     
     func realtimerFireMethod(timer: NSTimer) {
-        
-        for realTimeReport in self.realTimeCaches!{
+        if(self.realTimeCaches?.count > 0){
+            var realTimeReport:RealTimeReport = self.realTimeCaches![0]
             self.OnBedStatus = realTimeReport.OnBedStatus
             self.CurrentHR = realTimeReport.HR
             self.ProcessValue = CGFloat((realTimeReport.HR as NSString).floatValue)
             self.LastAvgHR = realTimeReport.LastedAvgHR + "次/分"
+            
+            self.realTimeCaches?.removeAtIndex(0)
         }
         
     }

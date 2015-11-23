@@ -23,6 +23,7 @@ class IMySelfSettingController: IBaseViewController {
         
         menu = ConfigurationViewModel()
         menu.titleName = "账号管理"
+        menu.configrationController = IAccountSetController(nibName:"IAccountSet", bundle:nil)
         source.append(menu)
         
         menu = ConfigurationViewModel()
@@ -42,6 +43,7 @@ class IMySelfSettingController: IBaseViewController {
         source.append(menu)
         
         self.menuTableView.showMenuImage = false
+        self.menuTableView.parentController = self
         self.menuTableView.backgroundColor = UIColor.whiteColor()
         self.menuTableView.tableViewDataSource = source
         self.menuTableView.reloadData()

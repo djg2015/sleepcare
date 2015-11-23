@@ -23,6 +23,16 @@ class SessionForIphone {
         }
     }
     
+    private var _oldPwd:String?
+    var OldPwd:String?{
+        get{
+            return self._oldPwd
+        }
+        set(value){
+            self._oldPwd = value
+        }
+    }
+    
     private var _curPatientCode:String?
     var CurPatientCode:String?{
         get{
@@ -47,7 +57,10 @@ class SessionForIphone {
         self.instance = nil
     }
     
-    class func GetSession() -> SessionForIphone {
+    class func GetSession() -> SessionForIphone? {
+        if(self.instance == nil){
+            return nil
+        }
         return self.instance!
     }
 }

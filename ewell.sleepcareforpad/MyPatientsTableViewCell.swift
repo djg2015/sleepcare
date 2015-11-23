@@ -31,8 +31,9 @@ class MyPatientsTableViewCell: UITableViewCell {
         self.source.BedNum = (data as MyPatientsTableCellViewModel).BedNum
         self.source.PartCode = (data as MyPatientsTableCellViewModel).PartCode
         self.source.PartName = (data as MyPatientsTableCellViewModel).PartName
-         self.source.selectedBedUserHandler = (data as MyPatientsTableCellViewModel).selectedBedUserHandler
-         self.source.deleteBedUserHandler = (data as MyPatientsTableCellViewModel).deleteBedUserHandler
+        self.source.selectedBedUserHandler = (data as MyPatientsTableCellViewModel).selectedBedUserHandler
+        self.source.deleteBedUserHandler = (data as MyPatientsTableCellViewModel).deleteBedUserHandler
+        self.source.EquipmentID = (data as MyPatientsTableCellViewModel).EquipmentID
         
         RACObserve(data, "HR") ~> RAC(self.source, "HR")
         RACObserve(data, "RR") ~> RAC(self.source, "RR")
@@ -131,6 +132,11 @@ class MyPatientsTableCellViewModel:NSObject{
     dynamic var RoomNum:String?{
         get
         {
+            if(self._roomNum != nil){
+                if(self._roomNum!.hasSuffix("室") == false){
+                    return self._roomNum! + "室"
+                }
+            }
             return self._roomNum
         }
         set(value)
@@ -144,6 +150,11 @@ class MyPatientsTableCellViewModel:NSObject{
     dynamic var BedNum:String?{
         get
         {
+            if(self._bedNum != nil){
+                if(self._bedNum!.hasSuffix("床") == false){
+                    return self._bedNum! + "床"
+                }
+            }
             return self._bedNum
         }
         set(value)

@@ -26,7 +26,7 @@ class IMySelfConfiguration: UIView{
         var source = Array<ConfigurationViewModel>()
         var menu:ConfigurationViewModel = ConfigurationViewModel()
         // 根据用户类型(监护人/使用者)设置对应的菜单 1.使用者 2.监护人
-        if(SessionForIphone.GetSession().User?.UserType == LoginUserType.Monitor)
+        if(SessionForIphone.GetSession()!.User?.UserType == LoginUserType.Monitor)
         {
             menu = ConfigurationViewModel()
             menu.imageName = "myElder"
@@ -47,7 +47,7 @@ class IMySelfConfiguration: UIView{
             self.imgHeadFace.image = UIImage(named: "manHeadFace")
             self.lblManType.text = "监护人"
         }
-        else if(SessionForIphone.GetSession().User?.UserType == LoginUserType.UserSelf)
+        else if(SessionForIphone.GetSession()!.User?.UserType == LoginUserType.UserSelf)
         {
             menu = ConfigurationViewModel()
             menu.imageName = "myElder"

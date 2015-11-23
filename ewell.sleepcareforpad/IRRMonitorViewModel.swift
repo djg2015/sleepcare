@@ -132,11 +132,15 @@ class IRRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     
     func realtimerFireMethod(timer: NSTimer) {
         
-        for realTimeReport in self.realTimeCaches!{
+        if(self.realTimeCaches?.count > 0){
+            var realTimeReport:RealTimeReport = self.realTimeCaches![0]
+
             self.OnBedStatus = realTimeReport.OnBedStatus
             self.CurrentRR = realTimeReport.RR
             self.ProcessValue = CGFloat((realTimeReport.RR as NSString).floatValue)
             self.LastAvgRR = realTimeReport.LastedAvgRR + "次/分"
+            
+            self.realTimeCaches?.removeAtIndex(0)
         }
         
     }

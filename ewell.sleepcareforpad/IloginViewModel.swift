@@ -74,6 +74,8 @@ class IloginViewModel: BaseViewModel {
                     var loginUser:ILoginUser = sleepCareForIPhoneBussinessManager.Login(self.LoginName, loginPassword: self.Pwd)
                     
                     SessionForIphone.SetSession(loginUser)
+                    var session = SessionForIphone.GetSession()
+                    session!.OldPwd = self.Pwd
                     if(loginUser.UserType == LoginUserType.UnKnow){
                         let controller = ISetUserTypeController(nibName:"ISetUserType", bundle:nil)
                         self.JumpPageForIpone(controller)

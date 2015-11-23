@@ -22,7 +22,7 @@ class IChoosePatientsController: IBaseViewController {
     var PartBedUserArray:Array<BedPatientViewModel>?{
         didSet{
             var session = SessionForIphone.GetSession()
-            if(session.User?.UserType == LoginUserType.UserSelf){
+            if(session!.User?.UserType == LoginUserType.UserSelf){
                 self.tbPatients.ShowTableView("BedPatientCell", cellID: "BedPatientCell",source: self.PartBedUserArray, cellHeight: 80)
                 self.tbPatientsDouble.hidden = true
                 self.tbPatients.hidden = false

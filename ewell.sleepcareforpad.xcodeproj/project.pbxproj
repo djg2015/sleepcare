@@ -167,6 +167,9 @@
 		3A4D17FD1BAFE20A00E0B862 /* AlarmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17FC1BAFE20A00E0B862 /* AlarmList.swift */; };
 		3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */; };
 		3A6360291BB2900300F7F953 /* SleepcareMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6360281BB2900300F7F953 /* SleepcareMainController.swift */; };
+		3A680DBC1C02B81700D77A22 /* IAccountSet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A680DBB1C02B81700D77A22 /* IAccountSet.xib */; };
+		3A680DC01C02BD6800D77A22 /* IAccountSetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A680DBF1C02BD6800D77A22 /* IAccountSetController.swift */; };
+		3A680DC21C02BDEF00D77A22 /* IAccountSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A680DC11C02BDEF00D77A22 /* IAccountSet.swift */; };
 		3A8382D41BFACC7B00E4CC15 /* goright.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8382D21BFACC7B00E4CC15 /* goright.png */; };
 		3A8382D51BFACC7B00E4CC15 /* greenpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8382D31BFACC7B00E4CC15 /* greenpoint.png */; };
 		3A85636A1BF1C28600E74B27 /* IMainFrame.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8563691BF1C28600E74B27 /* IMainFrame.xib */; };
@@ -471,6 +474,9 @@
 		3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMServiceException.swift; sourceTree = "<group>"; };
 		3A6360281BB2900300F7F953 /* SleepcareMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepcareMainController.swift; sourceTree = "<group>"; };
 		3A66E2861BD39AB900C9B6E6 /* 证书.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "证书.p12"; sourceTree = "<group>"; };
+		3A680DBB1C02B81700D77A22 /* IAccountSet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IAccountSet.xib; sourceTree = "<group>"; };
+		3A680DBF1C02BD6800D77A22 /* IAccountSetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAccountSetController.swift; sourceTree = "<group>"; };
+		3A680DC11C02BDEF00D77A22 /* IAccountSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAccountSet.swift; sourceTree = "<group>"; };
 		3A8382D21BFACC7B00E4CC15 /* goright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goright.png; sourceTree = "<group>"; };
 		3A8382D31BFACC7B00E4CC15 /* greenpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenpoint.png; sourceTree = "<group>"; };
 		3A8563691BF1C28600E74B27 /* IMainFrame.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IMainFrame.xib; sourceTree = "<group>"; };
@@ -649,6 +655,7 @@
 		3A2158731BEC8C140089CC01 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				3A680DBF1C02BD6800D77A22 /* IAccountSetController.swift */,
 				3AF6526E1BFABE2C00BA2329 /* IMyPatientsController.swift */,
 				3AC70CBD1BF99A6700814082 /* ISetUserTypeController.swift */,
 				3AC7B0F31BF4554D002DE94C /* IRegistViewController.swift */,
@@ -748,6 +755,7 @@
 				3A91B35D1BFB146800DB3514 /* IChoosePatients.xib */,
 				2C1FDB581BFC5F3100879E14 /* IRRMonitor.xib */,
 				2CC2F1C51BFEB9CF00E14328 /* IEquipmentView.xib */,
+				3A680DBB1C02B81700D77A22 /* IAccountSet.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1123,6 +1131,7 @@
 				3ACD645D1BFC577A00FB62BB /* IChoosePatientsViewModel.swift */,
 				3AF844C41BFD619E00B5EDE3 /* IMyPatientsViewModel.swift */,
 				2CC2F1C91BFEBFC400E14328 /* IEquipmentViewModel.swift */,
+				3A680DC11C02BDEF00D77A22 /* IAccountSet.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1376,6 +1385,7 @@
 				2C06156E1BF4813700A3F90C /* rankingListMenu.png in Resources */,
 				3A39CA061BF2FCA70024DD3E /* tabBar_3.png in Resources */,
 				2C06156D1BF4813700A3F90C /* myRequipment.png in Resources */,
+				3A680DBC1C02B81700D77A22 /* IAccountSet.xib in Resources */,
 				3A13C9841BF2DBDA00061CCF /* IHRMonitor.xib in Resources */,
 				2C0615691BF4813700A3F90C /* headfaceBg.png in Resources */,
 				3A9C12FE1BC789C6008EC314 /* pagerselected.png in Resources */,
@@ -1572,6 +1582,7 @@
 				3AB3CB211BD762FE0067F9D4 /* MyPatientsTableViewCell.swift in Sources */,
 				3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */,
 				2C5181FD1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift in Sources */,
+				3A680DC01C02BD6800D77A22 /* IAccountSetController.swift in Sources */,
 				2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */,
 				3A91F0AD1BF0475400C470D4 /* THDateDay.m in Sources */,
 				3AB43E8A1BD4E1B9005023D3 /* BizDayRule.swift in Sources */,
@@ -1582,6 +1593,7 @@
 				2C2EA2EB1BF427B90023D458 /* IMySelfConfiguration.swift in Sources */,
 				2CC2F1CA1BFEBFC400E14328 /* IEquipmentViewModel.swift in Sources */,
 				3A4D17FB1BAFE17D00E0B862 /* AlarmInfo.swift in Sources */,
+				3A680DC21C02BDEF00D77A22 /* IAccountSet.swift in Sources */,
 				3A4D17F91BAFDF4800E0B862 /* TurnOverAnalysList.swift in Sources */,
 				3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */,
 				3AC7B0F61BF45575002DE94C /* IRegistViewModel.swift in Sources */,

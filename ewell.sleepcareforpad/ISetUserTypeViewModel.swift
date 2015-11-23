@@ -37,7 +37,7 @@ class ISetUserTypeViewModel: BaseViewModel {
                 
                 
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-                var loginUser:SessionForIphone = SessionForIphone.GetSession()
+                var loginUser:SessionForIphone = SessionForIphone.GetSession()!
                 sleepCareForIPhoneBussinessManager.SaveUserType(loginUser.User!.LoginName, userType: userType)
                 loginUser.User?.UserType = userType
                 let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
