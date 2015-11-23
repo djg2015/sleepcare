@@ -18,7 +18,7 @@ class IRRMonitor: UIView{
     
     @IBOutlet weak var viewChart: BackgroundCommon!
     
-    var rrMonitorViewModel:IRRMonitorViewModel = IRRMonitorViewModel()
+    var rrMonitorViewModel:IRRMonitorViewModel?
     var parentController:IBaseViewController!
     var lblRR:UILabel!
     var _bedUserCode:String = ""
@@ -28,7 +28,7 @@ class IRRMonitor: UIView{
         didSet{
             //设置小时心率图表
             var lineChart:PNLineChart?
-            if(self.rrMonitorViewModel.RRTimeReport.count != 0){
+            if(self.viewChart.subviews.count != 0){
                 lineChart = (self.viewChart.subviews[0] as? PNLineChart)!
             }
             else
@@ -41,16 +41,16 @@ class IRRMonitor: UIView{
             lineChart!.showLabel = true
             lineChart!.backgroundColor = UIColor.clearColor()
             lineChart!.xLabels = []
-            for(var i = 0 ;i < self.rrMonitorViewModel.RRTimeReport.count;i++){
-                var xlable = self.rrMonitorViewModel.RRTimeReport[i].ReportHour
+            for(var i = 0 ;i < self.rrMonitorViewModel!.RRTimeReport.count;i++){
+                var xlable = self.rrMonitorViewModel!.RRTimeReport[i].ReportHour
                 lineChart!.xLabels.append(xlable)
             }
             lineChart!.showCoordinateAxis = true
             
             //设置心率曲线
             var data01Array: [CGFloat] = []
-            for(var i = 0 ;i < self.rrMonitorViewModel.RRTimeReport.count;i++){
-                data01Array.append(self.rrMonitorViewModel.RRTimeReport[i].AvgRRNumber)
+            for(var i = 0 ;i < self.rrMonitorViewModel!.RRTimeReport.count;i++){
+                data01Array.append(self.rrMonitorViewModel!.RRTimeReport[i].AvgRRNumber)
             }
             var data01:PNLineChartData = PNLineChartData()
             data01.color = PNGreenColor
@@ -87,6 +87,7 @@ class IRRMonitor: UIView{
     
     func viewInit(parentController:IBaseViewController?,bedUserCode:String)
     {
+        rrMonitorViewModel = IRRMonitorViewModel(bedUserCode: bedUserCode)
         self._bedUserCode = bedUserCode
         
         self.parentController = parentController
@@ -110,8 +111,7 @@ class IRRMonitor: UIView{
         RACObserve(self.rrMonitorViewModel, "LastAvgRR") ~> RAC(self.lblLastRR, "text")
         RACObserve(self.rrMonitorViewModel, "ProcessMaxValue") ~> RAC(self.processRR, "maxProcess")
         RACObserve(self.rrMonitorViewModel, "ProcessValue") ~> RAC(self.processRR, "currentProcess")
-        
-        //RACObserve(self, "_bedCode") ~> RAC(self.rrMonitorViewModel, "BedCode")
+
         RACObserve(self, "_bedUserCode") ~> RAC(self.rrMonitorViewModel, "BedUserCode")
         RACObserve(self.rrMonitorViewModel, "RRTimeReport") ~> RAC(self, "RRTimeReportList")
         

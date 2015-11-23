@@ -191,6 +191,19 @@ class MyPatientsTableCellViewModel:NSObject{
         }
     }
     
+    // 设备编号
+    var _equipmentID:String?
+    dynamic var EquipmentID:String?{
+        get
+        {
+            return self._equipmentID
+        }
+        set(value)
+        {
+            self._equipmentID=value
+        }
+    }
+    
     //操作定义
     var selectedBedUserHandler: ((myPatientsTableViewModel:MyPatientsTableCellViewModel) -> ())?
     var deleteBedUserHandler: ((myPatientsTableViewModel:MyPatientsTableCellViewModel) -> ())?

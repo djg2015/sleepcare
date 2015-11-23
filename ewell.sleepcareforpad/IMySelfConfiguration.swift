@@ -20,7 +20,7 @@ class IMySelfConfiguration: UIView{
     var parentController:IBaseViewController!
     
     // 界面初始化
-    func viewInit(parentController:IBaseViewController?,bedUserCode:String?)
+    func viewInit(parentController:IBaseViewController?,bedUserCode:String?,equipmentID:String)
     {
         self.parentController = parentController
         var source = Array<ConfigurationViewModel>()
@@ -31,6 +31,7 @@ class IMySelfConfiguration: UIView{
             menu = ConfigurationViewModel()
             menu.imageName = "myElder"
             menu.titleName = "我的老人"
+            menu.configrationController = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
             source.append(menu)
             
             menu = ConfigurationViewModel()
@@ -51,6 +52,7 @@ class IMySelfConfiguration: UIView{
             menu = ConfigurationViewModel()
             menu.imageName = "myElder"
             menu.titleName = "我的老人"
+            menu.configrationController = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
             source.append(menu)
             
             if(nil != bedUserCode)
@@ -58,6 +60,7 @@ class IMySelfConfiguration: UIView{
                 menu = ConfigurationViewModel()
                 menu.imageName = "myRequipment"
                 menu.titleName = "我的设备"
+                menu.configrationController = IEquipmentViewController(nibName:"IEquipmentView", bundle:nil,equipmentID:equipmentID)
                 source.append(menu)
             }
             

@@ -79,6 +79,9 @@
 		2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */; };
 		2CB427AB1BF9B11A00BF7E15 /* IEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */; };
 		2CB951291BF4510A00C31EC2 /* ConfiurationTabeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */; };
+		2CC2F1C61BFEB9CF00E14328 /* IEquipmentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CC2F1C51BFEB9CF00E14328 /* IEquipmentView.xib */; };
+		2CC2F1C81BFEBF8300E14328 /* IEquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC2F1C71BFEBF8300E14328 /* IEquipmentViewController.swift */; };
+		2CC2F1CA1BFEBFC400E14328 /* IEquipmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC2F1C91BFEBFC400E14328 /* IEquipmentViewModel.swift */; };
 		2CDF94101BF5C2BD00FCFAF7 /* moveRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */; };
 		2CDF94111BF5C2BD00FCFAF7 /* moveLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF940F1BF5C2BD00FCFAF7 /* moveLeft.png */; };
 		3A0B97171BF5791F00409AD9 /* SessionForIphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */; };
@@ -367,6 +370,9 @@
 		2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
 		2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEmailViewModel.swift; sourceTree = "<group>"; };
 		2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiurationTabeView.swift; sourceTree = "<group>"; };
+		2CC2F1C51BFEB9CF00E14328 /* IEquipmentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IEquipmentView.xib; sourceTree = "<group>"; };
+		2CC2F1C71BFEBF8300E14328 /* IEquipmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEquipmentViewController.swift; sourceTree = "<group>"; };
+		2CC2F1C91BFEBFC400E14328 /* IEquipmentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEquipmentViewModel.swift; sourceTree = "<group>"; };
 		2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveRight.png; sourceTree = "<group>"; };
 		2CDF940F1BF5C2BD00FCFAF7 /* moveLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveLeft.png; sourceTree = "<group>"; };
 		3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionForIphone.swift; sourceTree = "<group>"; };
@@ -653,6 +659,7 @@
 				2C4D31471BF98395001DB693 /* IServerSettingController.swift */,
 				2C0DC3C81BF9A25F0048BEEA /* IEmailViewController.swift */,
 				3A91B3631BFB1DF200DB3514 /* IChoosePatientsController.swift */,
+				2CC2F1C71BFEBF8300E14328 /* IEquipmentViewController.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -740,6 +747,7 @@
 				2C0DC3C41BF9A0930048BEEA /* ILoginUserEdit.xib */,
 				3A91B35D1BFB146800DB3514 /* IChoosePatients.xib */,
 				2C1FDB581BFC5F3100879E14 /* IRRMonitor.xib */,
+				2CC2F1C51BFEB9CF00E14328 /* IEquipmentView.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1114,6 +1122,7 @@
 				2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */,
 				3ACD645D1BFC577A00FB62BB /* IChoosePatientsViewModel.swift */,
 				3AF844C41BFD619E00B5EDE3 /* IMyPatientsViewModel.swift */,
+				2CC2F1C91BFEBFC400E14328 /* IEquipmentViewModel.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1320,6 +1329,7 @@
 				3A2BD8A81BD8AE78007BBD01 /* 29pt@1x.png in Resources */,
 				2C06155D1BF47A3200A3F90C /* backBtn.png in Resources */,
 				3A91F09E1BF0475400C470D4 /* calendar_littledot-disabled@2x.png in Resources */,
+				2CC2F1C61BFEB9CF00E14328 /* IEquipmentView.xib in Resources */,
 				2C4D31461BF97E6F001DB693 /* IServerSettingView.xib in Resources */,
 				2C2F83901BD63A19008CD92B /* previewBtnDisable.png in Resources */,
 				3A8382D51BFACC7B00E4CC15 /* greenpoint.png in Resources */,
@@ -1570,6 +1580,7 @@
 				2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */,
 				3AC70CC01BF9A19600814082 /* ISetUserTypeViewModel.swift in Sources */,
 				2C2EA2EB1BF427B90023D458 /* IMySelfConfiguration.swift in Sources */,
+				2CC2F1CA1BFEBFC400E14328 /* IEquipmentViewModel.swift in Sources */,
 				3A4D17FB1BAFE17D00E0B862 /* AlarmInfo.swift in Sources */,
 				3A4D17F91BAFDF4800E0B862 /* TurnOverAnalysList.swift in Sources */,
 				3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */,
@@ -1604,6 +1615,7 @@
 				3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */,
 				3AC7B1091BF45CB9002DE94C /* ZSYPopoverListView.m in Sources */,
 				3A35AB651BCCE8B000ED3293 /* SweetAlert.swift in Sources */,
+				2CC2F1C81BFEBF8300E14328 /* IEquipmentViewController.swift in Sources */,
 				3A41ADE71BA7B425000C109B /* BaseViewController.swift in Sources */,
 				3A346BF81BCCD36200E75E4E /* SleepcareMainViewModel.swift in Sources */,
 				2C555B4B1BE341B8008A3AC9 /* QueryAlarmController.swift in Sources */,

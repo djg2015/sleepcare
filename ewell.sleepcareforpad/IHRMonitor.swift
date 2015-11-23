@@ -17,7 +17,7 @@ class IHRMonitor: UIView{
     @IBOutlet weak var lblLastHR: UILabel!
     
     @IBOutlet weak var viewChart: BackgroundCommon!
-    var hrMonitorViewModel:IHRMonitorViewModel = IHRMonitorViewModel()
+    var hrMonitorViewModel:IHRMonitorViewModel?
     var parentController:IBaseViewController!
     var lblHR:UILabel!
     var _bedUserCode:String = ""
@@ -27,7 +27,7 @@ class IHRMonitor: UIView{
         didSet{
             //设置小时心率图表
             var lineChart:PNLineChart?
-            if(self.hrMonitorViewModel.HRTimeReport.count != 0){
+            if(self.viewChart.subviews.count != 0){
                 lineChart = (self.viewChart.subviews[0] as? PNLineChart)!
             }
             else
@@ -40,16 +40,16 @@ class IHRMonitor: UIView{
             lineChart!.showLabel = true
             lineChart!.backgroundColor = UIColor.clearColor()
             lineChart!.xLabels = []
-            for(var i = 0 ;i < self.hrMonitorViewModel.HRTimeReport.count;i++){
-                var xlable = self.hrMonitorViewModel.HRTimeReport[i].ReportHour
+            for(var i = 0 ;i < self.hrMonitorViewModel!.HRTimeReport.count;i++){
+                var xlable = self.hrMonitorViewModel!.HRTimeReport[i].ReportHour
                 lineChart!.xLabels.append(xlable)
             }
             lineChart!.showCoordinateAxis = true
             
             //设置心率曲线
             var data01Array: [CGFloat] = []
-            for(var i = 0 ;i < self.hrMonitorViewModel.HRTimeReport.count;i++){
-                data01Array.append(self.hrMonitorViewModel.HRTimeReport[i].AvgHRNumber)
+            for(var i = 0 ;i < self.hrMonitorViewModel!.HRTimeReport.count;i++){
+                data01Array.append(self.hrMonitorViewModel!.HRTimeReport[i].AvgHRNumber)
             }
             var data01:PNLineChartData = PNLineChartData()
             data01.color = PNGreenColor
@@ -86,6 +86,7 @@ class IHRMonitor: UIView{
     
     func viewInit(parentController:IBaseViewController?,bedUserCode:String)
     {
+        hrMonitorViewModel = IHRMonitorViewModel(bedUserCode: bedUserCode)
         self._bedUserCode = bedUserCode
         
         self.parentController = parentController
@@ -110,8 +111,8 @@ class IHRMonitor: UIView{
         RACObserve(self.hrMonitorViewModel, "ProcessMaxValue") ~> RAC(self.processHR, "maxProcess")
         RACObserve(self.hrMonitorViewModel, "ProcessValue") ~> RAC(self.processHR, "currentProcess")
         
-        //RACObserve(self, "_bedCode") ~> RAC(self.hrMonitorViewModel, "BedCode")
-        RACObserve(self, "_bedUserCode") ~> RAC(self.hrMonitorViewModel, "BedUserCode")
+        self.hrMonitorViewModel!.BedUserCode = bedUserCode
+//        RACObserve(self, "_bedUserCode") ~> RAC(self.hrMonitorViewModel, "BedUserCode")
         RACObserve(self.hrMonitorViewModel, "HRTimeReport") ~> RAC(self, "HRTimeReportList")
         
     }

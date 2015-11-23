@@ -21,11 +21,12 @@ class IRRRange:BaseMessage{
         var reportList = doc.nodesForXPath("//RRTimeReport", error:nil) as! [DDXMLElement]
         for report in reportList {
             var timeReport = IRRTimeReport(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
-            timeReport.ReportHour = report.elementForName("ReportHour").stringValue()
+            timeReport.ReportHour = report.elementForName("ReportHour").stringValue().subString(11, length:2)
             timeReport.AvgRR = report.elementForName("AvgRR").stringValue()
             
             result.rrTimeReportList.append(timeReport)
         }
+        result.rrTimeReportList = result.rrTimeReportList.reverse()
         return result
     }
     
@@ -36,7 +37,7 @@ class IRRTimeReport:BaseMessage {
     var ReportHour:String = ""
     var AvgRR:String = "" {
         didSet{
-            self.AvgRRNumber = CGFloat((self.AvgRR.subString(0, length: 2) as NSString).floatValue)
+            self.AvgRRNumber = CGFloat((self.AvgRR as NSString).floatValue)
         }
     }
     

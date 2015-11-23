@@ -19,13 +19,14 @@ class IHRRange:BaseMessage{
         //构造XML文档
         var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
         var reportList = doc.nodesForXPath("//HRTimeReport", error:nil) as! [DDXMLElement]
-        for report in reportList {
+        for report in reportList{
             var timeReport = IHRTimeReport(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
-            timeReport.ReportHour = report.elementForName("ReportHour").stringValue()
+            timeReport.ReportHour = report.elementForName("ReportHour").stringValue().subString(11, length: 2)
             timeReport.AvgHR = report.elementForName("AvgHR").stringValue()
             
             result.hrTimeReportList.append(timeReport)
         }
+        result.hrTimeReportList = result.hrTimeReportList.reverse()
         return result
     }
 
@@ -36,7 +37,7 @@ class IHRTimeReport:BaseMessage {
     var ReportHour:String = ""
     var AvgHR:String = "" {
         didSet{
-            self.AvgHRNumber = CGFloat((self.AvgHR.subString(0, length: 2) as NSString).floatValue)
+            self.AvgHRNumber = CGFloat((self.AvgHR as NSString).floatValue)
         }
     }
     

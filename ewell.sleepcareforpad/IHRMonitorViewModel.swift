@@ -98,9 +98,14 @@ class IHRMonitorViewModel: BaseViewModel,RealTimeDelegate {
         }
     }
     
-    override init() {
+    override init()
+    {
         super.init()
-        
+    }
+    
+    required init(bedUserCode:String) {
+        super.init()
+        self.BedUserCode = bedUserCode
         //实时数据处理代理设置
         var xmppMsgManager = XmppMsgManager.GetInstance()
         xmppMsgManager?._realTimeDelegate = self
