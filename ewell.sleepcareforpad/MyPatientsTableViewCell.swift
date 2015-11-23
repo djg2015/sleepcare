@@ -31,6 +31,8 @@ class MyPatientsTableViewCell: UITableViewCell {
         self.source.BedNum = (data as MyPatientsTableCellViewModel).BedNum
         self.source.PartCode = (data as MyPatientsTableCellViewModel).PartCode
         self.source.PartName = (data as MyPatientsTableCellViewModel).PartName
+         self.source.selectedBedUserHandler = (data as MyPatientsTableCellViewModel).selectedBedUserHandler
+         self.source.deleteBedUserHandler = (data as MyPatientsTableCellViewModel).deleteBedUserHandler
         
         RACObserve(data, "HR") ~> RAC(self.source, "HR")
         RACObserve(data, "RR") ~> RAC(self.source, "RR")
