@@ -98,10 +98,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0次/分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQt-Vn-KJW">
-                            <rect key="frame" x="187" y="251" width="68" height="25"/>
+                            <rect key="frame" x="187" y="251" width="80" height="25"/>
                             <animations/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="68" id="Dwk-Ha-eEs"/>
+                                <constraint firstAttribute="width" constant="80" id="Dwk-Ha-eEs"/>
                                 <constraint firstAttribute="height" constant="25" id="pxc-iE-4Ia"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -119,7 +119,7 @@
                         <constraint firstItem="HFC-HA-Vbk" firstAttribute="leading" secondItem="fgb-19-V8A" secondAttribute="leading" id="YKJ-WR-VXk"/>
                         <constraint firstAttribute="centerX" secondItem="m6C-qY-BfF" secondAttribute="centerX" id="YRb-fo-MJt"/>
                         <constraint firstAttribute="centerY" secondItem="m6C-qY-BfF" secondAttribute="centerY" constant="-10" id="aNz-wo-ie5"/>
-                        <constraint firstAttribute="centerX" secondItem="VQt-Vn-KJW" secondAttribute="centerX" constant="-61" id="eiW-4H-Tb7"/>
+                        <constraint firstAttribute="centerX" secondItem="VQt-Vn-KJW" secondAttribute="centerX" constant="-67" id="eiW-4H-Tb7"/>
                         <constraint firstAttribute="centerX" secondItem="Ibj-iK-8ne" secondAttribute="centerX" constant="28" id="vo9-DH-BTz"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>

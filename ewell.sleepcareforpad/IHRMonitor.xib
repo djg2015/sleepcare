@@ -75,10 +75,10 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0次/分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyg-fs-BCv">
-                            <rect key="frame" x="187" y="251" width="68" height="25"/>
+                            <rect key="frame" x="187" y="251" width="80" height="25"/>
                             <animations/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="68" id="8yl-bz-Avb"/>
+                                <constraint firstAttribute="width" constant="80" id="8yl-bz-Avb"/>
                                 <constraint firstAttribute="height" constant="25" id="otb-dw-LZh"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -117,7 +117,7 @@
                         <constraint firstAttribute="centerY" secondItem="2Ef-Yy-eYo" secondAttribute="centerY" constant="-105" id="LqZ-tv-TrZ"/>
                         <constraint firstItem="37c-Pj-DIO" firstAttribute="leading" secondItem="32p-Bd-mdk" secondAttribute="leading" id="VbM-LJ-bwL"/>
                         <constraint firstAttribute="centerY" secondItem="2iZ-Hg-JTR" secondAttribute="centerY" constant="-10" id="eNQ-js-Fxt"/>
-                        <constraint firstAttribute="centerX" secondItem="Pyg-fs-BCv" secondAttribute="centerX" constant="-61" id="hIa-lO-mGP"/>
+                        <constraint firstAttribute="centerX" secondItem="Pyg-fs-BCv" secondAttribute="centerX" constant="-67" id="hIa-lO-mGP"/>
                         <constraint firstItem="37c-Pj-DIO" firstAttribute="top" secondItem="32p-Bd-mdk" secondAttribute="top" id="sI9-Sa-plR"/>
                         <constraint firstAttribute="centerY" secondItem="Pyg-fs-BCv" secondAttribute="centerY" constant="-105" id="sz3-6h-ZyH"/>
                         <constraint firstAttribute="trailing" secondItem="37c-Pj-DIO" secondAttribute="trailing" id="y8L-aT-abl"/>

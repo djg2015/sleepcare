@@ -41,7 +41,7 @@ class IRRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     }
     
     // 当前呼吸
-    var _currentRR:String? = "0"
+    var _currentRR:String? = ""
     dynamic var CurrentRR:String?{
         get
         {
@@ -54,7 +54,7 @@ class IRRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     }
     
     // 上一次平均呼吸
-    var _lastAvgRR:String? = "0次/分"
+    var _lastAvgRR:String? = "次/分"
     dynamic var LastAvgRR:String?{
         get
         {

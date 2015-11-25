@@ -160,7 +160,9 @@
                 <outlet property="imgDownload" destination="sHf-ah-bcC" id="QkM-Og-tpt"/>
                 <outlet property="imgMoveLeft" destination="9QF-DF-R7H" id="N8p-gc-rXI"/>
                 <outlet property="imgMoveRight" destination="G1t-jZ-5SL" id="Bei-ss-GyF"/>
+                <outlet property="imgWeekSleep" destination="CeD-fE-jJS" id="Kln-Ia-tcR"/>
                 <outlet property="lblSelectDate" destination="8cs-Lp-kRt" id="7TZ-yt-rp3"/>
+                <outlet property="lblWeekSleep" destination="4YI-fu-ch0" id="mAe-Ql-s6D"/>
                 <outlet property="process" destination="A1n-Oo-Zfx" id="Bik-xX-Xu7"/>
                 <outlet property="viewSleepQuality" destination="EZT-fF-b1Q" id="bEH-4G-8JI"/>
             </connections>

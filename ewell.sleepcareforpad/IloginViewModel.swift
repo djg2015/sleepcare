@@ -46,6 +46,9 @@ class IloginViewModel: BaseViewModel {
             (any:AnyObject!) -> RACSignal in
             return self.Login()
         }
+        //初始加载记住密码的相关配置数据
+        self.LoginName = GetValueFromPlist("loginusernamephone")
+        self.Pwd = GetValueFromPlist("loginuserpwdphone")
     }
     
     //自定义处理----------------------
@@ -74,6 +77,9 @@ class IloginViewModel: BaseViewModel {
                     var loginUser:ILoginUser = sleepCareForIPhoneBussinessManager.Login(self.LoginName, loginPassword: self.Pwd)
                     
                     SessionForIphone.SetSession(loginUser)
+                    SetValueIntoPlist("loginusernamephone", self.LoginName)
+                    SetValueIntoPlist("loginuserpwdphone", self.Pwd)
+                    
                     var session = SessionForIphone.GetSession()
                     session!.OldPwd = self.Pwd
                     if(loginUser.UserType == LoginUserType.UnKnow){

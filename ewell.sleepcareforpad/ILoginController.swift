@@ -52,8 +52,12 @@ class ILoginController: IBaseViewController {
         self.iloginViewModel = IloginViewModel()
         self.iloginViewModel.controllerForIphone = self
         self.btnLogin!.rac_command = self.iloginViewModel?.loginCommand
+       
+        RACObserve(self.iloginViewModel, "LoginName") ~> RAC(self.txtLoginName, "text")
+        RACObserve(self.iloginViewModel, "Pwd") ~> RAC(self.txtPwd, "text")
         self.txtLoginName.rac_textSignal() ~> RAC(self.iloginViewModel, "LoginName")
         self.txtPwd.rac_textSignal() ~> RAC(self.iloginViewModel, "Pwd")
+        
         self.btnRegist!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in

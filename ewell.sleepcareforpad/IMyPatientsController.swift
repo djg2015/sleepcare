@@ -16,7 +16,7 @@ class IMyPatientsController: IBaseViewController {
     @IBOutlet weak var myPatientTable: MyPatientsTableView!
     @IBOutlet weak var btnBack: UIButton!
     
-    var viewModel:IMyPatientsViewModel!    
+    var viewModel:IMyPatientsViewModel!
     var popDownList:PopDownList?
     var isGoLogin:Bool = false
     //我关注的老人集合
@@ -88,6 +88,14 @@ class IMyPatientsController: IBaseViewController {
     //选中菜单
     func ChoosedItem(downListModel:DownListModel){
         if(downListModel.key == "1"){
+            var session = SessionForIphone.GetSession()
+            if(session?.User?.UserType != LoginUserType.Monitor){
+                if(self.MyPatientsArray?.count > 0){
+                    showDialogMsg("您是使用者只能添加一位老人，如需更改请先删除当前老人再添加", title: "提示")
+                    return
+                }
+            }
+            
             var controller = IChoosePatientsController(nibName: "IChoosePatients", bundle: nil, myPatientsViewModel: self.viewModel)
             self.presentViewController(controller, animated: true, completion: nil)
             
@@ -105,7 +113,9 @@ class IMyPatientsController: IBaseViewController {
     
     //添加老人
     func imageaddPatientTouch(){
+        
         var controller = IChoosePatientsController(nibName: "IChoosePatients", bundle: nil, myPatientsViewModel: self.viewModel)
         self.presentViewController(controller, animated: true, completion: nil)
+        
     }
 }

@@ -168,7 +168,13 @@ class MyPatientsTableCellViewModel:NSObject{
     dynamic var HR:String?{
         get
         {
-            return self._hr
+            if(self._hr == nil){
+                return ""
+            }
+            if(self._hr!.hasSuffix("次/分") == false){
+                return self._hr! + "次/分"
+            }
+            return self._hr!
         }
         set(value)
         {
@@ -181,7 +187,13 @@ class MyPatientsTableCellViewModel:NSObject{
     dynamic var RR:String?{
         get
         {
-            return self._rr
+            if(self._rr == nil){
+                return ""
+            }
+            if(self._rr!.hasSuffix("次/分") == false){
+                return self._rr! + "次/分"
+            }
+            return self._rr!
         }
         set(value)
         {

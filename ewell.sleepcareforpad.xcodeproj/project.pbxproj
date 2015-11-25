@@ -84,6 +84,8 @@
 		2CC2F1CA1BFEBFC400E14328 /* IEquipmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC2F1C91BFEBFC400E14328 /* IEquipmentViewModel.swift */; };
 		2CDF94101BF5C2BD00FCFAF7 /* moveRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */; };
 		2CDF94111BF5C2BD00FCFAF7 /* moveLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF940F1BF5C2BD00FCFAF7 /* moveLeft.png */; };
+		3A02522E1C055FB700CA7EA3 /* IWeekSleepcare.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A02522D1C055FB700CA7EA3 /* IWeekSleepcare.xib */; };
+		3A0252301C0563A000CA7EA3 /* IWeekSleepcareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A02522F1C0563A000CA7EA3 /* IWeekSleepcareController.swift */; };
 		3A0B97171BF5791F00409AD9 /* SessionForIphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */; };
 		3A13C9841BF2DBDA00061CCF /* IHRMonitor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */; };
 		3A13C9881BF2DD2800061CCF /* IHRMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */; };
@@ -378,6 +380,8 @@
 		2CC2F1C91BFEBFC400E14328 /* IEquipmentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEquipmentViewModel.swift; sourceTree = "<group>"; };
 		2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveRight.png; sourceTree = "<group>"; };
 		2CDF940F1BF5C2BD00FCFAF7 /* moveLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveLeft.png; sourceTree = "<group>"; };
+		3A02522D1C055FB700CA7EA3 /* IWeekSleepcare.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IWeekSleepcare.xib; sourceTree = "<group>"; };
+		3A02522F1C0563A000CA7EA3 /* IWeekSleepcareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IWeekSleepcareController.swift; sourceTree = "<group>"; };
 		3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionForIphone.swift; sourceTree = "<group>"; };
 		3A13C9831BF2DBDA00061CCF /* IHRMonitor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IHRMonitor.xib; sourceTree = "<group>"; };
 		3A13C9871BF2DD2800061CCF /* IHRMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IHRMonitor.swift; sourceTree = "<group>"; };
@@ -655,6 +659,7 @@
 		3A2158731BEC8C140089CC01 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				3A02522F1C0563A000CA7EA3 /* IWeekSleepcareController.swift */,
 				3A680DBF1C02BD6800D77A22 /* IAccountSetController.swift */,
 				3AF6526E1BFABE2C00BA2329 /* IMyPatientsController.swift */,
 				3AC70CBD1BF99A6700814082 /* ISetUserTypeController.swift */,
@@ -756,6 +761,7 @@
 				2C1FDB581BFC5F3100879E14 /* IRRMonitor.xib */,
 				2CC2F1C51BFEB9CF00E14328 /* IEquipmentView.xib */,
 				3A680DBB1C02B81700D77A22 /* IAccountSet.xib */,
+				3A02522D1C055FB700CA7EA3 /* IWeekSleepcare.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1423,6 +1429,7 @@
 				3A3452941BC63A5000292107 /* MainView.xib in Resources */,
 				3A881B651BFC1EF3005F4D07 /* unchecked.png in Resources */,
 				3A9C12FB1BC789C6008EC314 /* infoHeadblue.png in Resources */,
+				3A02522E1C055FB700CA7EA3 /* IWeekSleepcare.xib in Resources */,
 				3A9C12F61BC789C6008EC314 /* clock.png in Resources */,
 				2C0615801BF48C4900A3F90C /* sleepQualitySelector.png in Resources */,
 				3A9C12F51BC789C6008EC314 /* unlineView.png in Resources */,
@@ -1632,6 +1639,7 @@
 				3A346BF81BCCD36200E75E4E /* SleepcareMainViewModel.swift in Sources */,
 				2C555B4B1BE341B8008A3AC9 /* QueryAlarmController.swift in Sources */,
 				3A4B85C81BB14DFD006E4CF1 /* Worktask.swift in Sources */,
+				3A0252301C0563A000CA7EA3 /* IWeekSleepcareController.swift in Sources */,
 				3ACD645E1BFC577A00FB62BB /* IChoosePatientsViewModel.swift in Sources */,
 				3A3EF7C11BDE05A800CDDAED /* TodoList.swift in Sources */,
 				3AB3CB171BD762FE0067F9D4 /* AlarmTableViewCell.swift in Sources */,

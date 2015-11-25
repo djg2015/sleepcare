@@ -41,7 +41,7 @@ class IHRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     }
     
     // 当前心率
-    var _currentHR:String? = "0"
+    var _currentHR:String? = ""
     dynamic var CurrentHR:String?{
         get
         {
@@ -54,7 +54,7 @@ class IHRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     }
     
     // 上一次平均心率
-    var _lastAvgHR:String? = "0次/分"
+    var _lastAvgHR:String? = "次/分"
     dynamic var LastAvgHR:String?{
         get
         {

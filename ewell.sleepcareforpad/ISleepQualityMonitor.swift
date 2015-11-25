@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
+class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
     
     @IBOutlet weak var process: CircularLoaderView!
     
@@ -20,6 +20,8 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
     @IBOutlet weak var imgMoveLeft: UIImageView!
     @IBOutlet weak var viewSleepQuality: BackgroundCommon!
     
+    @IBOutlet weak var imgWeekSleep: UIImageView!
+    @IBOutlet weak var lblWeekSleep: UILabel!
     
     var parentController:IBaseViewController!
     var _bedUserCode:String?
@@ -220,6 +222,35 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate {
         var singleTap3:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showDownload:")
         self.imgDownload.addGestureRecognizer(singleTap3)
         
+        //周睡眠查看
+        self.imgWeekSleep.userInteractionEnabled = true
+        var singleTap4:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showWeekSleep:")
+        self.imgWeekSleep.addGestureRecognizer(singleTap4)
+        
+        self.lblWeekSleep.userInteractionEnabled = true
+        var singleTap5:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showWeekSleep:")
+        self.lblWeekSleep.addGestureRecognizer(singleTap5)
+
+        
+    }
+    
+    //显示周睡眠
+    func showWeekSleep(sender:UITapGestureRecognizer){
+    
+        var screen:UIScreen = UIScreen.mainScreen()
+        var devicebounds:CGRect = screen.bounds
+        
+        //设置日期弹出窗口
+        var alertview:DatePickerView = DatePickerView(frame:devicebounds)
+        alertview.detegate = self
+        self.addSubview(alertview)
+    }
+    
+    //选中某天查看对应的周睡眠
+    func SelectDateEnd(sender:UIView,dateString:String)
+    {
+        let controller = IWeekSleepcareController(nibName:"IWeekSleepcare", bundle:nil,bedusercode:"",searchdate:"")
+        self.parentController.presentViewController(controller, animated: true, completion: nil)
     }
     
     func moveLeft(sender:UITapGestureRecognizer)

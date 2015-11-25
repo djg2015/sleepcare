@@ -129,7 +129,7 @@ class IMainFrameViewController: IBaseViewController {
         {
             self.curMenu = self.uiMe
             let firstVew = NSBundle.mainBundle().loadNibNamed("IMySelfConfiguration", owner: self, options: nil).first as! IMySelfConfiguration
-            firstVew.viewInit(self,bedUserCode: nil,equipmentID:self.equipmentID!)
+            firstVew.viewInit(self,bedUserCode: nil,equipmentID:self.equipmentID)
             showBody(firstVew)
         }
     }
