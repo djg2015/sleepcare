@@ -19,12 +19,12 @@ class IWeekSleepcareController: UIViewController {
     let height6:CGFloat = 140
     let height7:CGFloat = 250
     var uione = UIView()
-     var uitwo = UIView()
-     var uithree = UIView()
-     var uifour = UIView()
-     var uifive = UIView()
-     var uisix = UIView()
-     var uiseven = UIView()
+    var uitwo = UIView()
+    var uithree = UIView()
+    var uifour = UIView()
+    var uifive = UIView()
+    var uisix = UIView()
+    var uiseven = UIView()
     var lblTitle = UILabel()
     var bedUserCode:String!
     var sleepDate:String!
@@ -34,7 +34,7 @@ class IWeekSleepcareController: UIViewController {
         self.bedUserCode = bedusercode
         self.sleepDate = searchdate
     }
-
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -50,7 +50,9 @@ class IWeekSleepcareController: UIViewController {
         self.svSleep.addSubview(lblTitle)
         
         self.uione.frame = CGRectMake(0, 33, screenWidth, height1)
-        self.uione.backgroundColor = UIColor.lightGrayColor()
+        self.uione.backgroundColor = UIColor.clearColor()
+    
+        self.uione.layer.contents = UIImage(named: "garyboxback.png")?.CGImage
         self.svSleep.addSubview(uione)
         
         self.uitwo.frame = CGRectMake(0, height1+33, screenWidth, height2)
@@ -58,7 +60,8 @@ class IWeekSleepcareController: UIViewController {
         self.svSleep.addSubview(uitwo)
         
         self.uithree.frame = CGRectMake(0, height1 + height2+33, screenWidth, height3)
-        self.uithree.backgroundColor = UIColor.lightGrayColor()
+        self.uithree.backgroundColor = UIColor.clearColor()
+        self.uithree.layer.contents = UIImage(named: "garyboxback.png")?.CGImage
         self.svSleep.addSubview(uithree)
         
         self.uifour.frame = CGRectMake(0, height1 + height2 + height3+33, screenWidth, height4)
@@ -66,7 +69,8 @@ class IWeekSleepcareController: UIViewController {
         self.svSleep.addSubview(uifour)
         
         self.uifive.frame = CGRectMake(0, height1 + height2 + height3 + height4+33, screenWidth, height5)
-        self.uifive.backgroundColor = UIColor.lightGrayColor()
+        self.uifive.backgroundColor = UIColor.clearColor()
+        self.uifive.layer.contents = UIImage(named: "garyboxback.png")?.CGImage
         self.svSleep.addSubview(uifive)
         
         self.uisix.frame = CGRectMake(0, height1 + height2 + height3 + height4 + height5+33, screenWidth, height6)
@@ -85,17 +89,18 @@ class IWeekSleepcareController: UIViewController {
         }
         
         Loaddata()
-
+        
     }
     
     //加载初始数据
     func Loaddata(){
-       //实例viewmodel查询底层数据
+        //实例viewmodel查询底层数据
         
-       //设置7个区域显示
-       //区域1
+        //设置7个区域显示
+        //区域1
+        Setchart1()
         
-       //区域2
+        //区域2
         var label2_1 = UILabel()
         label2_1.text = "周最大心率:"
         label2_1.font = label2_1.font.fontWithSize(15)
@@ -169,7 +174,8 @@ class IWeekSleepcareController: UIViewController {
         self.uitwo.addSubview(label2_12)
         
         //区域3
-        
+        Setchart3()
+
         //区域4
         var label4_1 = UILabel()
         label4_1.text = "离床频繁"
@@ -222,7 +228,7 @@ class IWeekSleepcareController: UIViewController {
         label6_6.font = label6_6.font.fontWithSize(17)
         label6_6.frame = CGRectMake(220, 27, 100, 20)
         self.uisix.addSubview(label6_6)
-
+        
         var label6_7 = UILabel()
         label6_7.text = "上床时间"
         label6_7.font = label6_7.font.fontWithSize(15)
@@ -258,14 +264,14 @@ class IWeekSleepcareController: UIViewController {
         label6_12.font = label6_12.font.fontWithSize(17)
         label6_12.frame = CGRectMake(220, 82, 100, 20)
         self.uisix.addSubview(label6_12)
-
+        
         //区域7
         var label7_1 = UILabel()
         label7_1.text = "睡眠建议"
         label7_1.font = UIFont.boldSystemFontOfSize(17)
         label7_1.frame = CGRectMake(10, 5, 100, 20)
         self.uiseven.addSubview(label7_1)
-
+        
         var label7_2 = UILabel()
         label7_2.text = "离床次数"
         label7_2.font = label7_2.font.fontWithSize(15)
@@ -320,7 +326,115 @@ class IWeekSleepcareController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func Setchart1(){
+        //设置心率曲线
+        var data01Array: [CGFloat] = []
+        for(var i = 6;i >= 0;i--){
+            data01Array.append(20)
+        }
+        var data01:PNLineChartData = PNLineChartData()
+        data01.color = UIColor.magentaColor()
+        data01.itemCount = UInt(data01Array.count)
+        data01.dataTitle = "心率"
+        data01.getData = ({(index: UInt)  in
+            var yValue:CGFloat = data01Array[Int(index)]
+            var item = PNLineChartDataItem(y: yValue)
+            return item
+        })
+        
+        //设置呼吸曲线
+        var data02Array: [CGFloat] = []
+        for(var i = 6 ;i >= 0;i--){
+            data02Array.append(5)
+        }
+        var data02:PNLineChartData = PNLineChartData()
+        data02.color = PNGreenColor
+        data02.itemCount = UInt(data02Array.count)
+        data02.dataTitle = "呼吸"
+        data02.getData = ({(index: UInt)  in
+            var yValue:CGFloat = data02Array[Int(index)]
+            var item = PNLineChartDataItem(y: yValue)
+            return item
+        })
+        
+        var lineChart:PNLineChart? = PNLineChart(frame: CGRectMake(0, 10, self.uione.frame.width - 10, self.uione.frame.height))
+        lineChart!.yLabelFormat = "%1.1f"
+        lineChart!.yFixedValueMin = 0
+        lineChart!.showLabel = true
+        lineChart!.backgroundColor = UIColor.clearColor()
+        lineChart!.xLabels = []
+        for(var i = 6 ;i >= 0;i--){
+            //            var xlable = self.SignReports![i].ReportHour.subString(11, length: 2)
+            //            if(xlable.hasPrefix("0")){
+            //                xlable = xlable.subString(1, length: 1)
+            //            }
+            //            xlable = xlable + "点"
+            lineChart!.xLabels.append("日")
+        }
+        //lineChart.xLabels = ["08:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00"]
+        lineChart!.showCoordinateAxis = true
+        
+        
+        lineChart!.chartData = [data01,data02]
+        lineChart!.strokeChart()
+        self.uione.addSubview(lineChart!)
+        
+        
+        lineChart!.legendStyle = PNLegendItemStyle.Serial
+        let legend = lineChart!.getLegendWithMaxWidth(self.uione.frame.width)
+        legend.frame = CGRectMake(80, 3, self.uione.frame.width, self.uione.frame.height)
+        self.uione.addSubview(legend)
+        
+        
+    }
     
+    func Setchart3(){
+        //设置心率曲线
+        var data01Array: [CGFloat] = []
+        for(var i = 6;i >= 0;i--){
+            data01Array.append(20)
+        }
+        var data01:PNLineChartData = PNLineChartData()
+        data01.color = UIColor.redColor()
+        data01.itemCount = UInt(data01Array.count)
+        data01.dataTitle = "离床"
+        data01.getData = ({(index: UInt)  in
+            var yValue:CGFloat = data01Array[Int(index)]
+            var item = PNLineChartDataItem(y: yValue)
+            return item
+        })
+        
+        
+        var lineChart:PNLineChart? = PNLineChart(frame: CGRectMake(0, 10, self.uithree.frame.width - 10, self.uithree.frame.height))
+//        lineChart!.yLabelFormat = "%1.1f"
+//        lineChart!.yFixedValueMin = 0
+//        lineChart!.showLabel = true
+        lineChart!.backgroundColor = UIColor.clearColor()
+        lineChart!.xLabels = []
+        for(var i = 6 ;i >= 0;i--){
+            //            var xlable = self.SignReports![i].ReportHour.subString(11, length: 2)
+            //            if(xlable.hasPrefix("0")){
+            //                xlable = xlable.subString(1, length: 1)
+            //            }
+            //            xlable = xlable + "点"
+            lineChart!.xLabels.append("日")
+        }
+        //lineChart.xLabels = ["08:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00"]
+        lineChart!.showCoordinateAxis = true
+        
+        
+        lineChart!.chartData = [data01]
+        lineChart!.strokeChart()
+        self.uithree.addSubview(lineChart!)
+        
+        
+        lineChart!.legendStyle = PNLegendItemStyle.Serial
+        let legend = lineChart!.getLegendWithMaxWidth(self.uithree.frame.width)
+        legend.frame = CGRectMake(self.uithree.frame.width - 65, 3, self.uithree.frame.width, self.uithree.frame.height)
+        self.uithree.addSubview(legend)
+        
+        
+    }
     /*
     // MARK: - Navigation
     
