@@ -22,9 +22,21 @@ class IEquipmentInfo: BaseMessage {
         var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
         var equipment = doc.rootElement() as DDXMLElement!
         result.EquipmentID = equipment.elementForName("EquipmentID").stringValue()
-        result.Status = equipment.elementForName("Status").stringValue()  
-        
+        var status = equipment.elementForName("Status").stringValue()
+        if(status == EquipmentStatus.Running)
+        {
+            result.Status = "运行中"
+        }
+        else
+        {
+            result.Status = "异常"
+        }
         return result
     }
 
+}
+
+struct EquipmentStatus {
+    static var Error:String = "2"
+    static var Running:String = "1"
 }

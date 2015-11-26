@@ -188,6 +188,25 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
         return message as! ISleepQualityReport
     }
     
+    // 根据床位用户编码分析日期查询用户的周报表
+    // 参数：bedUserCode->床位用户编号
+    //      reportDate->报告日期
+    func GetWeekReportByUser(bedUserCode:String,reportDate:String)->IWeekReport{
+        
+        var subject = MessageSubject(opera: "GetWeekReportByUser", bizcode: "sleepcareforiphone")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("bedUserCode", value: bedUserCode)
+        post.AddKeyValue("reportDate", value: reportDate)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! IWeekReport
+    }
+    
+    
     // 根据床位用户编码和邮箱信息发送邮件(指定日期所在周的报表)
     // 参数：bedUserCode->床位用户编号
     //      sleepDate->分析日期

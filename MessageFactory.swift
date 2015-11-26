@@ -29,6 +29,7 @@ let tag_IP_rrRange:String="<EPRRRange"
 let tag_IP_sleepQuality:String="<SleepQualityReport"
 let tag_IP_equipmentInfo:String="<EquipmentInfo"
 let tag_IP_mainInfoList:String="<EPMainInfoList"
+let tag_IP_weekReport:String="<WeekReport"
 
 class MessageFactory {
     //xmpp字符串节点
@@ -100,6 +101,10 @@ class MessageFactory {
         {
             return ISleepQualityReport.XmlToMessage(message.subject, bodyXMl: message.content)
         }
+        else if(message.content.hasPrefix(tag_IP_weekReport))
+        {
+            return IWeekReport.XmlToMessage(message.subject, bodyXMl: message.content)
+        }
         else if(message.content.hasPrefix(tag_IP_equipmentInfo))
         {
             return IEquipmentInfo.XmlToMessage(message.subject, bodyXMl: message.content)
@@ -110,7 +115,7 @@ class MessageFactory {
         }
         else
         {
-          throw("-1", "请求发生错误，请重试！")
+            throw("-1", "请求发生错误，请重试！")
         }
         return BaseMessage.XmlToMessage(message.subject, bodyXMl: message.content)
     }

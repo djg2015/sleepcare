@@ -59,6 +59,11 @@ protocol SleepCareForIPhoneBussinessManager{
     //      reportDate->报告日期
     func GetSleepQualityByUser(bedUserCode:String,reportDate:String)->ISleepQualityReport
     
+    // 根据床位用户编码分析日期查询用户的周报表
+    // 参数：bedUserCode->床位用户编号
+    //      reportDate->报告日期
+    func GetWeekReportByUser(bedUserCode:String,reportDate:String)->IWeekReport
+    
     // 根据床位用户编码和邮箱信息发送邮件(指定日期所在周的报表)
     // 参数：bedUserCode->床位用户编号
     //      sleepDate->分析日期

@@ -43,4 +43,7 @@ class IEmailViewController: IBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func btnBackClick(sender: AnyObject) {
+        self.ParentController.dismissSemiModalView()
+    }
 }
