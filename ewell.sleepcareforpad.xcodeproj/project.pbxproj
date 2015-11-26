@@ -527,6 +527,7 @@
 		3A91F0951BF0475400C470D4 /* THDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THDatePickerViewController.m; sourceTree = "<group>"; };
 		3A91F0961BF0475400C470D4 /* THDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THDatePickerViewController.xib; sourceTree = "<group>"; };
 		3A91F0B21BF066F500C470D4 /* THDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THDate.swift; sourceTree = "<group>"; };
+		3A98D36F1C06A55200FAD3FF /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		3A9C12E01BC789C6008EC314 /* maintop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maintop.png; sourceTree = "<group>"; };
 		3A9C12E11BC789C6008EC314 /* emptyBed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyBed.png; sourceTree = "<group>"; };
 		3A9C12E21BC789C6008EC314 /* leaveBed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaveBed.png; sourceTree = "<group>"; };
@@ -1219,6 +1220,7 @@
 		3F28D28F10171C3606C8ADEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A98D36F1C06A55200FAD3FF /* libxml2.dylib */,
 				3AC7B10C1BF464D2002DE94C /* Foundation.framework */,
 				3A3D65E71BAAB67C00CEFB25 /* libxml2.2.dylib */,
 				3A4CD3EF1BA802E6002C8A1A /* common.framework */,
@@ -1809,7 +1811,7 @@
 					"$(SDKROOT)/usr/include/libresolv",
 				);
 				INFOPLIST_FILE = ewell.sleepcareforpad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1855,7 +1857,7 @@
 					"$(SDKROOT)/usr/include/libresolv",
 				);
 				INFOPLIST_FILE = ewell.sleepcareforpad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

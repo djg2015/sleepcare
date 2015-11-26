@@ -93,13 +93,21 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="detailBtn.png" translatesAutoresizingMaskIntoConstraints="NO" id="x2J-rt-bLg">
-                    <rect key="frame" x="272" y="84" width="28" height="40"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailBtn.png" translatesAutoresizingMaskIntoConstraints="NO" id="x2J-rt-bLg">
+                    <rect key="frame" x="272" y="77.5" width="28" height="40"/>
                     <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="28" id="KNd-iO-nsz"/>
+                        <constraint firstAttribute="height" constant="40" id="U1Z-yK-NZ6"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="x2J-rt-bLg" secondAttribute="centerY" id="hfl-hP-BE6"/>
+                <constraint firstAttribute="trailing" secondItem="x2J-rt-bLg" secondAttribute="trailing" constant="21" id="uaD-7M-A8h"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
