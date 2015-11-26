@@ -94,7 +94,9 @@ class IWeekSleepcareController: UIViewController {
     
     //加载初始数据
     func Loaddata(){
-        //实例viewmodel查询底层数据
+        //查询底层数据
+        var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+        var weekReport:IWeekReport = sleepCareForIPhoneBussinessManager.GetWeekReportByUser(self.bedUserCode, reportDate: self.sleepDate)
         
         //设置7个区域显示
         //区域1

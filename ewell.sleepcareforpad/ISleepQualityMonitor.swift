@@ -249,7 +249,7 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
     //选中某天查看对应的周睡眠
     func SelectDateEnd(sender:UIView,dateString:String)
     {
-        let controller = IWeekSleepcareController(nibName:"IWeekSleepcare", bundle:nil,bedusercode:"",searchdate:"")
+        let controller = IWeekSleepcareController(nibName:"IWeekSleepcare", bundle:nil,bedusercode:self._bedUserCode!,searchdate:dateString)
         self.parentController.presentViewController(controller, animated: true, completion: nil)
     }
     
