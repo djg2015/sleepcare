@@ -43,7 +43,7 @@
                     </constraints>
                     <color key="sectionIndexBackgroundColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                 </tableView>
-                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wca-U4-mE5" userLabel="patientTable" customClass="CommonTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wca-U4-mE5" userLabel="patientTable" customClass="CommonTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="113" y="53" width="207" height="450"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -12,9 +12,10 @@ class CommonTableView: UITableView,UITableViewDelegate,UITableViewDataSource  {
     var _source:Array<AnyObject>!
     var _cellHeight:CGFloat!
     var firstCell:CommonTableCell!
+    var allCells:Array<CommonTableCell>!
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
+        self.allCells = Array<CommonTableCell>()
         self.showsVerticalScrollIndicator = false
         self.delegate = self
         self.dataSource = self
@@ -40,24 +41,33 @@ class CommonTableView: UITableView,UITableViewDelegate,UITableViewDataSource  {
     
     //自定义单元格
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:CommonTableCell! = tableView.dequeueReusableCellWithIdentifier(self.cellID, forIndexPath: indexPath) as! CommonTableCell
-        if(cell == nil){
-            cell = CommonTableCell()
+//         var cell:CommonTableCell! = NSBundle.mainBundle().loadNibNamed(self.nibName, owner: self, options: nil).first as! CommonTableCell
+//        var cell:CommonTableCell! = tableView.dequeueReusableCellWithIdentifier(self.cellID, forIndexPath: indexPath) as! CommonTableCell
+        if(allCells.count <= indexPath.item ){
+             var cell:CommonTableCell! = NSBundle.mainBundle().loadNibNamed(self.nibName, owner: self, options: nil).first as! CommonTableCell
+            if(cell == nil){
+                cell = CommonTableCell()
+            }
+            cell.CellLoadData(self._source[indexPath.row])
+            if(indexPath.item == 0){
+                self.firstCell = cell
+            }
+            allCells.append(cell)
+            
+            return cell
         }
-        cell.CellLoadData(self._source[indexPath.row])
-        if(indexPath.row == 0){
-            self.firstCell = cell
+        else{
+            return  allCells[indexPath.item]
         }
-        return cell
         
     }
     //选中某行操作
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        var cell:CommonTableCell = tableView.cellForRowAtIndexPath(indexPath) as! CommonTableCell
+        var cell:CommonTableCell = allCells[indexPath.item]
         cell.Checked()
         //针对首次代码选中第一行的恢复处理
         if(!tableView.allowsMultipleSelection){
-            if(indexPath.row != 0){
+            if(cell != self.firstCell){
                 self.firstCell.UnChechked()
             }
         }
@@ -65,9 +75,11 @@ class CommonTableView: UITableView,UITableViewDelegate,UITableViewDataSource  {
     
     //当选中的末行变为未选中时的操作
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath){
-        var cell:CommonTableCell = tableView.cellForRowAtIndexPath(indexPath) as! CommonTableCell
+        var cell:CommonTableCell? = allCells[indexPath.item]
         
-        cell.UnChechked()
+        if(cell != nil){
+            cell!.UnChechked()
+        }
     }
     
     func setExtraCellLineHidden(tableView:UITableView){
@@ -78,17 +90,20 @@ class CommonTableView: UITableView,UITableViewDelegate,UITableViewDataSource  {
     
     var cellNib:UINib?
     var cellID:String!
+    var nibName:String!
     //控件显示入口
     func ShowTableView(nibName:String,cellID:String,source:Array<AnyObject>?,cellHeight:CGFloat){
         
         //注册单元格内容
-        if(self.cellNib == nil){
-            cellNib =  UINib(nibName: nibName, bundle: nil)
-            self.registerNib(cellNib!, forCellReuseIdentifier: cellID)
-        }
+//        if(self.cellNib == nil){
+//            cellNib =  UINib(nibName: nibName, bundle: nil)
+//            self.registerNib(cellNib!, forCellReuseIdentifier: cellID)
+//        }
+        self.nibName = nibName
         self._source = source
         self.cellID = cellID
         self._cellHeight = cellHeight
+        self.allCells = Array<CommonTableCell>()
         self.reloadData()
     }
     

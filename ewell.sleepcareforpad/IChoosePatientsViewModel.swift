@@ -80,7 +80,7 @@ class IChoosePatientsViewModel: BaseViewModel {
                     partTableViewModel.MainCode = session!.User!.MainCode
                     partTableViewModel.PartCode = mainInfo.PartInfoList[i].PartCode
                     partTableViewModel.PartName = mainInfo.PartInfoList[i].PartName
-                    partTableViewModel.selectedPartHandler = self.ChoosedPatient
+                    partTableViewModel.selectedPartHandler = self.ChoosedPart
                     if(i == 0){
                         partTableViewModel.IsChoosed = true
                     }
@@ -93,7 +93,8 @@ class IChoosePatientsViewModel: BaseViewModel {
                         bedPatientViewModel.RoomNum = mainInfo.PartInfoList[i].BedInfoList[j].RoomName
                         bedPatientViewModel.BedNum = mainInfo.PartInfoList[i].BedInfoList[j].BedNumber
                         bedPatientViewModel.BedUserCode = mainInfo.PartInfoList[i].BedInfoList[j].BedUserCode
-                        bedPatientViewModel.BedUserName = mainInfo.PartInfoList[i].BedInfoList[j].BedUserName
+                        bedPatientViewModel.BedUserName = mainInfo.PartInfoList[i].BedInfoList[j].BedUserName                        
+                        bedPatientViewModel.selectedPatientHandler = self.ChoosedPatient
                         curBedUsers.append(bedPatientViewModel)
                     }
                     self.PartBedUserDic[mainInfo.PartInfoList[i].PartCode] = curBedUsers
@@ -151,9 +152,28 @@ class IChoosePatientsViewModel: BaseViewModel {
         return RACSignal.empty()
         
     }
-    
+    var lasedPartCode = ""
     //加载选择的科室对应的床位
-    func ChoosedPatient(partTableViewModel:PartTableViewModel){
+    func ChoosedPart(partTableViewModel:PartTableViewModel){
+        if(self.lasedPartCode == partTableViewModel.PartCode){
+            return
+        }
+        self.lasedPartCode = partTableViewModel.PartCode!
         self.PartBedUserArray = self.PartBedUserDic[partTableViewModel.PartCode!]!
+    }
+    
+    //当时使用者自己时不允许多选病人
+    func ChoosedPatient(bedPatientViewModel:BedPatientViewModel){
+        for value in self.PartBedUserDic.values{
+            var choosedbedUsers = value.filter(
+                {$0.IsChoosed && $0.BedUserCode != bedPatientViewModel.BedUserCode})
+            if(choosedbedUsers.count > 0){
+                for(var i=0;i<choosedbedUsers.count;i++){
+                   choosedbedUsers[i].IsChoosed = false
+                }
+            }
+            
+        }
+
     }
 }

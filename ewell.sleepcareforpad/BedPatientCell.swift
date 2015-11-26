@@ -13,17 +13,19 @@ class BedPatientCell: CommonTableCell {
     @IBOutlet weak var lblBedNum: UILabel!
     @IBOutlet weak var lblBedUserName: UILabel!
     @IBOutlet weak var imgChecked: UIImageView!
-    var source:BedPatientViewModel!
+    var source:BedPatientViewModel?
     override func CellLoadData(data:AnyObject){
+        self.source = nil
         self.source = BedPatientViewModel()
-        self.source.BedUserCode = (data as! BedPatientViewModel).BedUserCode
-        self.source.BedUserName = (data as! BedPatientViewModel).BedUserName
-        self.source.BedNum = (data as! BedPatientViewModel).BedNum
-        self.source.RoomNum = (data as! BedPatientViewModel).RoomNum
-        self.source.PartCode = (data as! BedPatientViewModel).PartCode
-        self.source.PartName = (data as! BedPatientViewModel).PartName
-        self.source.IsChoosed = (data as! BedPatientViewModel).IsChoosed
-        if(self.source.IsChoosed){
+        self.source!.BedUserCode = (data as! BedPatientViewModel).BedUserCode
+        self.source!.BedUserName = (data as! BedPatientViewModel).BedUserName
+        self.source!.BedNum = (data as! BedPatientViewModel).BedNum
+        self.source!.RoomNum = (data as! BedPatientViewModel).RoomNum
+        self.source!.PartCode = (data as! BedPatientViewModel).PartCode
+        self.source!.PartName = (data as! BedPatientViewModel).PartName
+        self.source!.IsChoosed = (data as! BedPatientViewModel).IsChoosed
+        self.source!.selectedPatientHandler = (data as! BedPatientViewModel).selectedPatientHandler
+        if(self.source!.IsChoosed){
             self.imgChecked.image = UIImage(named: "checked.png")
         }
         else{
@@ -41,12 +43,15 @@ class BedPatientCell: CommonTableCell {
     
     override func Checked(){
         self.imgChecked.image = UIImage(named: "checked.png")
-        self.source.IsChoosed = true
+        self.source!.IsChoosed = true
+        if(self.source!.selectedPatientHandler != nil){
+            self.source!.selectedPatientHandler!(bedPatientViewModel: self.source!)
+        }
     }
     
     override func UnChechked(){
         self.imgChecked.image = UIImage(named: "unchecked.png")
-        self.source.IsChoosed = false
+        self.source!.IsChoosed = false
     }
 }
 
@@ -144,6 +149,6 @@ class BedPatientViewModel:NSObject{
     }
     
     //操作定义
-    var selectedPatientHandler: ((partTableViewModel:PartTableViewModel) -> ())?
+    var selectedPatientHandler: ((bedPatientViewModel:BedPatientViewModel) -> ())?
 }
 
