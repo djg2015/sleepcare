@@ -57,6 +57,7 @@ class PopDownList:NSObject,UITableViewDelegate,UITableViewDataSource{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
         cell.textLabel?.text = self._dataSource[indexPath.row].value
+        cell.textLabel?.font =  cell.textLabel?.font.fontWithSize(15)
         return cell
     }
 }
