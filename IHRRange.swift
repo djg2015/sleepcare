@@ -21,7 +21,8 @@ class IHRRange:BaseMessage{
         var reportList = doc.nodesForXPath("//HRTimeReport", error:nil) as! [DDXMLElement]
         for report in reportList{
             var timeReport = IHRTimeReport(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
-            timeReport.ReportHour = report.elementForName("ReportHour").stringValue().subString(11, length: 2)
+            var hour:Int? = String.toInt(report.elementForName("ReportHour").stringValue().subString(11, length: 2))()
+            timeReport.ReportHour = String(hour!) + "点"
             timeReport.AvgHR = report.elementForName("AvgHR").stringValue()
             
             result.hrTimeReportList.append(timeReport)

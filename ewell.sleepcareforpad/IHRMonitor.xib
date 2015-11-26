@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -74,17 +74,6 @@
                                 <constraint firstItem="rFU-WV-cVa" firstAttribute="top" secondItem="37c-Pj-DIO" secondAttribute="top" constant="20" id="osM-LE-UaQ"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0次/分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyg-fs-BCv">
-                            <rect key="frame" x="187" y="251" width="80" height="25"/>
-                            <animations/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="80" id="8yl-bz-Avb"/>
-                                <constraint firstAttribute="height" constant="25" id="otb-dw-LZh"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2iZ-Hg-JTR" customClass="CircularLoaderView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                             <rect key="frame" x="80" y="88" width="160" height="160"/>
                             <animations/>
@@ -108,6 +97,17 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0次/分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyg-fs-BCv">
+                            <rect key="frame" x="175" y="251" width="120" height="25"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="8yl-bz-Avb"/>
+                                <constraint firstAttribute="height" constant="25" id="otb-dw-LZh"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -117,7 +117,7 @@
                         <constraint firstAttribute="centerY" secondItem="2Ef-Yy-eYo" secondAttribute="centerY" constant="-105" id="LqZ-tv-TrZ"/>
                         <constraint firstItem="37c-Pj-DIO" firstAttribute="leading" secondItem="32p-Bd-mdk" secondAttribute="leading" id="VbM-LJ-bwL"/>
                         <constraint firstAttribute="centerY" secondItem="2iZ-Hg-JTR" secondAttribute="centerY" constant="-10" id="eNQ-js-Fxt"/>
-                        <constraint firstAttribute="centerX" secondItem="Pyg-fs-BCv" secondAttribute="centerX" constant="-67" id="hIa-lO-mGP"/>
+                        <constraint firstAttribute="centerX" secondItem="Pyg-fs-BCv" secondAttribute="centerX" constant="-75" id="hIa-lO-mGP"/>
                         <constraint firstItem="37c-Pj-DIO" firstAttribute="top" secondItem="32p-Bd-mdk" secondAttribute="top" id="sI9-Sa-plR"/>
                         <constraint firstAttribute="centerY" secondItem="Pyg-fs-BCv" secondAttribute="centerY" constant="-105" id="sz3-6h-ZyH"/>
                         <constraint firstAttribute="trailing" secondItem="37c-Pj-DIO" secondAttribute="trailing" id="y8L-aT-abl"/>
