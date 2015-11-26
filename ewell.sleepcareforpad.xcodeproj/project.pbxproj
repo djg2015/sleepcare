@@ -78,6 +78,7 @@
 		2C6AE1181BD48713006FC007 /* searchBtnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AE1161BD48713006FC007 /* searchBtnChecked.png */; };
 		2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */; };
 		2CB427AB1BF9B11A00BF7E15 /* IEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */; };
+		2CB435321C069C28000751D1 /* IWeekReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB435311C069C28000751D1 /* IWeekReport.swift */; };
 		2CB951291BF4510A00C31EC2 /* ConfiurationTabeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */; };
 		2CC2F1C61BFEB9CF00E14328 /* IEquipmentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CC2F1C51BFEB9CF00E14328 /* IEquipmentView.xib */; };
 		2CC2F1C81BFEBF8300E14328 /* IEquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC2F1C71BFEBF8300E14328 /* IEquipmentViewController.swift */; };
@@ -374,6 +375,8 @@
 		2C6AE1161BD48713006FC007 /* searchBtnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchBtnChecked.png; sourceTree = "<group>"; };
 		2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
 		2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEmailViewModel.swift; sourceTree = "<group>"; };
+		2CB435311C069C28000751D1 /* IWeekReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IWeekReport.swift; sourceTree = "<group>"; };
+		2CB435331C06A6A9000751D1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiurationTabeView.swift; sourceTree = "<group>"; };
 		2CC2F1C51BFEB9CF00E14328 /* IEquipmentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IEquipmentView.xib; sourceTree = "<group>"; };
 		2CC2F1C71BFEBF8300E14328 /* IEquipmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEquipmentViewController.swift; sourceTree = "<group>"; };
@@ -711,6 +714,7 @@
 				2C5182061BF1B941007DC2A3 /* ISleepQualityReport.swift */,
 				2C5182081BF1BA83007DC2A3 /* IEquipmentInfo.swift */,
 				2C51820A1BF1BAF3007DC2A3 /* IMainInfoList.swift */,
+				2CB435311C069C28000751D1 /* IWeekReport.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1219,6 +1223,7 @@
 		3F28D28F10171C3606C8ADEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2CB435331C06A6A9000751D1 /* libxml2.dylib */,
 				3AC7B10C1BF464D2002DE94C /* Foundation.framework */,
 				3A3D65E71BAAB67C00CEFB25 /* libxml2.2.dylib */,
 				3A4CD3EF1BA802E6002C8A1A /* common.framework */,
@@ -1593,6 +1598,7 @@
 				2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */,
 				3A91F0AD1BF0475400C470D4 /* THDateDay.m in Sources */,
 				3AB43E8A1BD4E1B9005023D3 /* BizDayRule.swift in Sources */,
+				2CB435321C069C28000751D1 /* IWeekReport.swift in Sources */,
 				3AB43E781BD4E17B005023D3 /* Date.swift in Sources */,
 				3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */,
 				2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */,
