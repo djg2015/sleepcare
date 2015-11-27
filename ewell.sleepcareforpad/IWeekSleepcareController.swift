@@ -251,13 +251,17 @@ class IWeekSleepcareController: UIViewController {
         self.uisix.addSubview(label6_9)
         
         var label6_10 = UILabel()
-        label6_10.text = "下午" + weekReport.SleepWeekReport!.SleepBeginTime.split(" ")[1].subString(0, length: 5)
+        if(weekReport.SleepWeekReport!.SleepBeginTime != ""){
+            label6_10.text = "下午" + weekReport.SleepWeekReport!.SleepBeginTime.split(" ")[1].subString(0, length: 5)
+        }
         label6_10.font = label6_10.font.fontWithSize(17)
         label6_10.frame = CGRectMake(10, 82, 100, 20)
         self.uisix.addSubview(label6_10)
         
         var label6_11 = UILabel()
-        label6_11.text = "上午" + weekReport.SleepWeekReport!.SleepEndTime.split(" ")[1].subString(0, length: 5)
+        if(weekReport.SleepWeekReport!.SleepBeginTime != ""){
+            label6_11.text = "上午" + weekReport.SleepWeekReport!.SleepEndTime.split(" ")[1].subString(0, length: 5)
+        }
         label6_11.font = label6_11.font.fontWithSize(17)
         label6_11.frame = CGRectMake(115, 82, 100, 20)
         self.uisix.addSubview(label6_11)
@@ -335,7 +339,7 @@ class IWeekSleepcareController: UIViewController {
         label7_11.font = label7_11.font.fontWithSize(15)
         label7_11.frame = CGRectMake(80, 85, self.uiseven.frame.width - 90, 500)
         self.uiseven.addSubview(label7_11)
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -447,7 +451,7 @@ class IWeekSleepcareController: UIViewController {
         
         lineChart!.legendStyle = PNLegendItemStyle.Serial
         let legend = lineChart!.getLegendWithMaxWidth(self.uithree.frame.width)
-        legend.frame = CGRectMake(self.uithree.frame.width - 85, 3, self.uithree.frame.width, self.uithree.frame.height)
+        legend.frame = CGRectMake(self.uithree.frame.width - 95, 3, self.uithree.frame.width, self.uithree.frame.height)
         self.uithree.addSubview(legend)
         
         

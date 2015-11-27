@@ -114,7 +114,11 @@ class IMainFrameViewController: IBaseViewController {
                 _ in
                 self.curMenu = self.uiMe
                 let selfConfiguration = NSBundle.mainBundle().loadNibNamed("IMySelfConfiguration", owner: self, options: nil).first as! IMySelfConfiguration
-                selfConfiguration.viewInit(self, bedUserCode: self.bedUserCode!,equipmentID: self.equipmentID!)
+                var eqID = ""
+                if(self.equipmentID != nil){
+                   eqID = self.equipmentID!
+                }
+                selfConfiguration.viewInit(self, bedUserCode: self.bedUserCode!,equipmentID: eqID)
                 self.showBody(selfConfiguration)
         }
         
