@@ -46,17 +46,19 @@ class IWeekReport: BaseMessage {
             tempSignWeekReport.WeekMimRR = signWeekReport.elementForName("WeekMimRR") == nil ? "" : signWeekReport.elementForName("WeekMimRR").stringValue()
             tempSignWeekReport.WeekAvgHR = signWeekReport.elementForName("WeekAvgHR") == nil ? "" : signWeekReport.elementForName("WeekAvgHR").stringValue()
             tempSignWeekReport.WeekAvgRR = signWeekReport.elementForName("WeekAvgRR") == nil ? "" : signWeekReport.elementForName("WeekAvgRR").stringValue()
-            
-            var signRange = signWeekReport.elementForName("SignRange").elementsForName("Range")
-            for range in signRange{
-                
-                var tempRange = ISignRange(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
-                tempRange.ReportDate = range.elementForName("ReportDate") == nil ? "" : range.elementForName("ReportDate").stringValue()
-                tempRange.Weekday = range.elementForName("Weekday") == nil ? "" : range.elementForName("Weekday").stringValue()
-                tempRange.AvgHR = range.elementForName("AvgHR") == nil ? "" : range.elementForName("AvgHR").stringValue()
-                tempRange.AvgRR = range.elementForName("AvgRR") == nil ? "" : range.elementForName("AvgRR").stringValue()
-                
-                tempSignRangeList.append(tempRange)
+            if(nil != signWeekReport.elementForName("SignRange"))
+            {
+                var signRange = signWeekReport.elementForName("SignRange").elementsForName("Range")
+                for range in signRange{
+                    
+                    var tempRange = ISignRange(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
+                    tempRange.ReportDate = range.elementForName("ReportDate") == nil ? "" : range.elementForName("ReportDate").stringValue()
+                    tempRange.Weekday = range.elementForName("Weekday") == nil ? "" : range.elementForName("Weekday").stringValue()
+                    tempRange.AvgHR = range.elementForName("AvgHR") == nil ? "" : range.elementForName("AvgHR").stringValue()
+                    tempRange.AvgRR = range.elementForName("AvgRR") == nil ? "" : range.elementForName("AvgRR").stringValue()
+                    
+                    tempSignRangeList.append(tempRange)
+                }
             }
         }
         tempSignWeekReport.SignRangeList = tempSignRangeList
@@ -69,15 +71,18 @@ class IWeekReport: BaseMessage {
         if(nil != leaveBedWeekReport)
         {
             tempLeaveBedWeekReport.MaxWeekday = leaveBedWeekReport.elementForName("MaxWeekday") == nil ? "" : leaveBedWeekReport.elementForName("MaxWeekday").stringValue()
-            var leaveBedRange = leaveBedWeekReport.elementForName("LeaveBedRange").elementsForName("Range")
-            for range in leaveBedRange{
-                
-                var tempRange = ILeaveBedRange(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
-                tempRange.ReportDate = range.elementForName("ReportDate") == nil ? "" : range.elementForName("ReportDate").stringValue()
-                tempRange.Weekday = range.elementForName("Weekday") == nil ? "" : range.elementForName("Weekday").stringValue()
-                tempRange.LeaveBedCount = range.elementForName("LeaveBedCount") == nil ? "" : range.elementForName("LeaveBedCount").stringValue()
-                
-                tempLeaveBedRangeList.append(tempRange)
+            if(nil != leaveBedWeekReport.elementForName("LeaveBedRange"))
+            {
+                var leaveBedRange = leaveBedWeekReport.elementForName("LeaveBedRange").elementsForName("Range")
+                for range in leaveBedRange{
+                    
+                    var tempRange = ILeaveBedRange(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
+                    tempRange.ReportDate = range.elementForName("ReportDate") == nil ? "" : range.elementForName("ReportDate").stringValue()
+                    tempRange.Weekday = range.elementForName("Weekday") == nil ? "" : range.elementForName("Weekday").stringValue()
+                    tempRange.LeaveBedCount = range.elementForName("LeaveBedCount") == nil ? "" : range.elementForName("LeaveBedCount").stringValue()
+                    
+                    tempLeaveBedRangeList.append(tempRange)
+                }
             }
         }
         tempLeaveBedWeekReport.LeaveBedRangeList = tempLeaveBedRangeList
@@ -111,33 +116,36 @@ class IWeekReport: BaseMessage {
             }
             tempSleepWeekReport.Suggest = tempSuggest
             
-            var sleepRange = sleepWeekReport.elementForName("SleepRange").elementsForName("Range")
-            for range in sleepRange{
-                
-                var tempRange = ISleepWeekReport(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
-                tempRange.ReportDate = range.elementForName("ReportDate").stringValue()
-                tempRange.Weekday = range.elementForName("Weekday").stringValue()
-                tempRange.OnBedTimespan = range.elementForName("OnBedTimespan") == nil ? "": range.elementForName("OnBedTimespan").stringValue()
-                tempRange.SleepTimespan = range.elementForName("SleepTimespan") == nil ? "" : range.elementForName("SleepTimespan").stringValue()
-                tempRange.AwakeningTimespan = range.elementForName("AwakeningTimespan") == nil ? "" : range.elementForName("AwakeningTimespan").stringValue()
-                tempRange.DeepSleepTimespan = range.elementForName("DeepSleepTimespan") == nil ? "" : range.elementForName("DeepSleepTimespan").stringValue()
-                tempRange.LightSleepTimespan = range.elementForName("LightSleepTimespan") == nil ? "" : range.elementForName("LightSleepTimespan").stringValue()
-                tempRange.SleepBeginTime = range.elementForName("SleepBeginTime") == nil ? "" : range.elementForName("SleepBeginTime").stringValue()
-                tempRange.SleepEndTime = range.elementForName("SleepEndTime") == nil ? "" : range.elementForName("SleepEndTime").stringValue()
-                
-                var tempSuggest = ISleepSuggest()
-                var sleepSuggest = range.elementForName("SleepSuggest")
-                if(nil != sleepSuggest)
-                {
-                    tempSuggest.LeaveBedCount = sleepSuggest.elementForName("LeaveBedCount") == nil ? "" : sleepSuggest.elementForName("LeaveBedCount").stringValue()
-                    tempSuggest.MaxLeaveBedTimespan = sleepSuggest.elementForName("MaxLeaveBedTimespan") == nil ? "" : sleepSuggest.elementForName("MaxLeaveBedTimespan").stringValue()
-                    tempSuggest.TurnOverCount = sleepSuggest.elementForName("TurnOverCount") == nil ? "" : sleepSuggest.elementForName("TurnOverCount").stringValue()
-                    tempSuggest.TurnOverRate = sleepSuggest.elementForName("TurnOverRate") == nil ? "" : sleepSuggest.elementForName("TurnOverRate").stringValue()
-                    tempSuggest.Suggest = sleepSuggest.elementForName("Suggest") == nil ? "" : sleepSuggest.elementForName("Suggest").stringValue()
+            if(nil != sleepWeekReport.elementForName("SleepRange"))
+            {
+                var sleepRange = sleepWeekReport.elementForName("SleepRange").elementsForName("Range")
+                for range in sleepRange{
+                    
+                    var tempRange = ISleepWeekReport(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
+                    tempRange.ReportDate = range.elementForName("ReportDate").stringValue()
+                    tempRange.Weekday = range.elementForName("Weekday").stringValue()
+                    tempRange.OnBedTimespan = range.elementForName("OnBedTimespan") == nil ? "": range.elementForName("OnBedTimespan").stringValue()
+                    tempRange.SleepTimespan = range.elementForName("SleepTimespan") == nil ? "" : range.elementForName("SleepTimespan").stringValue()
+                    tempRange.AwakeningTimespan = range.elementForName("AwakeningTimespan") == nil ? "" : range.elementForName("AwakeningTimespan").stringValue()
+                    tempRange.DeepSleepTimespan = range.elementForName("DeepSleepTimespan") == nil ? "" : range.elementForName("DeepSleepTimespan").stringValue()
+                    tempRange.LightSleepTimespan = range.elementForName("LightSleepTimespan") == nil ? "" : range.elementForName("LightSleepTimespan").stringValue()
+                    tempRange.SleepBeginTime = range.elementForName("SleepBeginTime") == nil ? "" : range.elementForName("SleepBeginTime").stringValue()
+                    tempRange.SleepEndTime = range.elementForName("SleepEndTime") == nil ? "" : range.elementForName("SleepEndTime").stringValue()
+                    
+                    var tempSuggest = ISleepSuggest()
+                    var sleepSuggest = range.elementForName("SleepSuggest")
+                    if(nil != sleepSuggest)
+                    {
+                        tempSuggest.LeaveBedCount = sleepSuggest.elementForName("LeaveBedCount") == nil ? "" : sleepSuggest.elementForName("LeaveBedCount").stringValue()
+                        tempSuggest.MaxLeaveBedTimespan = sleepSuggest.elementForName("MaxLeaveBedTimespan") == nil ? "" : sleepSuggest.elementForName("MaxLeaveBedTimespan").stringValue()
+                        tempSuggest.TurnOverCount = sleepSuggest.elementForName("TurnOverCount") == nil ? "" : sleepSuggest.elementForName("TurnOverCount").stringValue()
+                        tempSuggest.TurnOverRate = sleepSuggest.elementForName("TurnOverRate") == nil ? "" : sleepSuggest.elementForName("TurnOverRate").stringValue()
+                        tempSuggest.Suggest = sleepSuggest.elementForName("Suggest") == nil ? "" : sleepSuggest.elementForName("Suggest").stringValue()
+                    }
+                    tempRange.Suggest = tempSuggest
+                    
+                    tempSleepRangeList.append(tempRange)
                 }
-                tempRange.Suggest = tempSuggest
-                
-                tempSleepRangeList.append(tempRange)
             }
         }
         tempSleepWeekReport.SleepRangeList = tempSleepRangeList
