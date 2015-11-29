@@ -13,18 +13,10 @@ class BedPatientCell: CommonTableCell {
     @IBOutlet weak var lblBedNum: UILabel!
     @IBOutlet weak var lblBedUserName: UILabel!
     @IBOutlet weak var imgChecked: UIImageView!
-    var source:BedPatientViewModel?
+    var source:BedPatientViewModel!
+    var bindFlag:Bool = false
     override func CellLoadData(data:AnyObject){
-        self.source = nil
-        self.source = BedPatientViewModel()
-        self.source!.BedUserCode = (data as! BedPatientViewModel).BedUserCode
-        self.source!.BedUserName = (data as! BedPatientViewModel).BedUserName
-        self.source!.BedNum = (data as! BedPatientViewModel).BedNum
-        self.source!.RoomNum = (data as! BedPatientViewModel).RoomNum
-        self.source!.PartCode = (data as! BedPatientViewModel).PartCode
-        self.source!.PartName = (data as! BedPatientViewModel).PartName
-        self.source!.IsChoosed = (data as! BedPatientViewModel).IsChoosed
-        self.source!.selectedPatientHandler = (data as! BedPatientViewModel).selectedPatientHandler
+        self.source = data as! BedPatientViewModel
         if(self.source!.IsChoosed){
             self.imgChecked.image = UIImage(named: "checked.png")
         }
@@ -33,11 +25,12 @@ class BedPatientCell: CommonTableCell {
             
         }
         self.selectionStyle = UITableViewCellSelectionStyle.None
-        
-        RACObserve(self.source, "RoomNum") ~> RAC(self.lblRoomNum, "text")
-        RACObserve(self.source, "BedNum") ~> RAC(self.lblBedNum, "text")
-        RACObserve(self.source, "BedUserName") ~> RAC(self.lblBedUserName, "text")
-        RACObserve(self.source, "IsChoosed") ~> RAC((data as! BedPatientViewModel), "IsChoosed")
+        if(!self.bindFlag){
+            RACObserve(self.source, "RoomNum") ~> RAC(self.lblRoomNum, "text")
+            RACObserve(self.source, "BedNum") ~> RAC(self.lblBedNum, "text")
+            RACObserve(self.source, "BedUserName") ~> RAC(self.lblBedUserName, "text")
+            self.bindFlag = true
+        }
         
     }
     
