@@ -15,6 +15,18 @@ class BedPatientCell: CommonTableCell {
     @IBOutlet weak var imgChecked: UIImageView!
     var source:BedPatientViewModel!
     var bindFlag:Bool = false
+    var IsChoosed:Bool = false{
+        didSet{
+            
+            if(self.IsChoosed == true){
+                self.imgChecked.image = UIImage(named: "checked.png")
+            }
+            else{
+                self.imgChecked.image = UIImage(named: "unchecked.png")
+            }
+        }
+        
+    }
     override func CellLoadData(data:AnyObject){
         self.source = data as! BedPatientViewModel
         if(self.source!.IsChoosed){
@@ -29,6 +41,7 @@ class BedPatientCell: CommonTableCell {
             RACObserve(self.source, "RoomNum") ~> RAC(self.lblRoomNum, "text")
             RACObserve(self.source, "BedNum") ~> RAC(self.lblBedNum, "text")
             RACObserve(self.source, "BedUserName") ~> RAC(self.lblBedUserName, "text")
+            RACObserve(self.source, "IsChoosed") ~> RAC(self, "IsChoosed")
             self.bindFlag = true
         }
         

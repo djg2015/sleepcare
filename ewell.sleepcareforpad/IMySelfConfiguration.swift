@@ -55,7 +55,7 @@ class IMySelfConfiguration: UIView{
             menu.configrationController = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
             source.append(menu)
             
-            if(nil != bedUserCode)
+            if(nil != equipmentID)
             {
                 menu = ConfigurationViewModel()
                 menu.imageName = "myRequipment"
