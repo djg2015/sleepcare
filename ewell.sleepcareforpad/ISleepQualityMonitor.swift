@@ -272,6 +272,7 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
     
     func showDownload(sender:UITapGestureRecognizer)
     {
+        self.email?.SleepDate = self.sleepQualityViewModel.SelectedDate
         var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",
             KNSemiModalOptionKeys.animationDuration:"1.0",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
         self.parentController.presentSemiViewController(self.email, withOptions: kNSemiModalOptionKeys)

@@ -93,7 +93,7 @@ class IChoosePatientsViewModel: BaseViewModel {
                         bedPatientViewModel.RoomNum = mainInfo.PartInfoList[i].BedInfoList[j].RoomName
                         bedPatientViewModel.BedNum = mainInfo.PartInfoList[i].BedInfoList[j].BedNumber
                         bedPatientViewModel.BedUserCode = mainInfo.PartInfoList[i].BedInfoList[j].BedUserCode
-                        bedPatientViewModel.BedUserName = mainInfo.PartInfoList[i].BedInfoList[j].BedUserName                        
+                        bedPatientViewModel.BedUserName = mainInfo.PartInfoList[i].BedInfoList[j].BedUserName
                         bedPatientViewModel.selectedPatientHandler = self.ChoosedPatient
                         curBedUsers.append(bedPatientViewModel)
                     }
@@ -125,9 +125,9 @@ class IChoosePatientsViewModel: BaseViewModel {
                             var myPatientsTableCellViewModel:MyPatientsTableCellViewModel = MyPatientsTableCellViewModel()
                             myPatientsTableCellViewModel.BedUserCode = choosedbedUsers[i].BedUserCode
                             myPatientsTableCellViewModel.BedUserName = choosedbedUsers[i].BedUserName
-
+                            
                             myPatientsTableCellViewModel.PartCode = choosedbedUsers[i].PartCode
-
+                            
                             myPatientsTableCellViewModel.PartName = choosedbedUsers[i].PartName
                             myPatientsTableCellViewModel.BedNum = choosedbedUsers[i].BedNum
                             myPatientsTableCellViewModel.RoomNum = choosedbedUsers[i].RoomNum
@@ -164,16 +164,19 @@ class IChoosePatientsViewModel: BaseViewModel {
     
     //当时使用者自己时不允许多选病人
     func ChoosedPatient(bedPatientViewModel:BedPatientViewModel){
-        for value in self.PartBedUserDic.values{
-            var choosedbedUsers = value.filter(
-                {$0.IsChoosed && $0.BedUserCode != bedPatientViewModel.BedUserCode})
-            if(choosedbedUsers.count > 0){
-                for(var i=0;i<choosedbedUsers.count;i++){
-                   choosedbedUsers[i].IsChoosed = false
+        var session = SessionForIphone.GetSession()
+        if(session?.User?.UserType == LoginUserType.UserSelf){
+            for value in self.PartBedUserDic.values{
+                var choosedbedUsers = value.filter(
+                    {$0.IsChoosed && $0.BedUserCode != bedPatientViewModel.BedUserCode})
+                if(choosedbedUsers.count > 0){
+                    for(var i=0;i<choosedbedUsers.count;i++){
+                        choosedbedUsers[i].IsChoosed = false
+                    }
                 }
+                
             }
-            
         }
-
+        
     }
 }
