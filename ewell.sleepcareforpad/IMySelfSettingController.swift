@@ -61,6 +61,9 @@ class IMySelfSettingController: IBaseViewController {
     
     
     @IBAction func btnExitLoginClick(sender: AnyObject) {
+        SessionForIphone.ClearSession()
+        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+        xmppMsgManager?.Close()
         self.presentViewController(ILoginController(nibName:"ILogin", bundle:nil), animated: true, completion: nil)
     }
     

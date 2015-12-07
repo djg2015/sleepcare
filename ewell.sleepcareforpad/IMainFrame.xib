@@ -38,10 +38,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="80" height="46"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIf-KA-XRx">
-                                    <rect key="frame" x="19" y="4" width="42" height="38"/>
+                                    <rect key="frame" x="19" y="4" width="38" height="38"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="42" id="ihT-B6-Bch"/>
+                                        <constraint firstAttribute="width" constant="38" id="ihT-B6-Bch"/>
                                         <constraint firstAttribute="height" constant="38" id="tzs-ea-afO"/>
                                     </constraints>
                                     <state key="normal" backgroundImage="hrmenu.png">
@@ -53,17 +53,17 @@
                             <color key="backgroundColor" red="0.85490196078431369" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="centerY" secondItem="FIf-KA-XRx" secondAttribute="centerY" id="Jzc-kE-dZS"/>
-                                <constraint firstAttribute="centerX" secondItem="FIf-KA-XRx" secondAttribute="centerX" id="bDF-kG-Ehk"/>
+                                <constraint firstAttribute="centerX" secondItem="FIf-KA-XRx" secondAttribute="centerX" constant="2" id="bDF-kG-Ehk"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZh-lY-C7C" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                             <rect key="frame" x="80" y="0.0" width="80" height="46"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ba3-0k-MEB">
-                                    <rect key="frame" x="19" y="4" width="42" height="38"/>
+                                    <rect key="frame" x="19" y="4" width="38" height="38"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="42" id="iUh-KE-LwL"/>
+                                        <constraint firstAttribute="width" constant="38" id="iUh-KE-LwL"/>
                                         <constraint firstAttribute="height" constant="38" id="uDW-rv-gyW"/>
                                     </constraints>
                                     <state key="normal" backgroundImage="rrmenu.png">
@@ -74,7 +74,7 @@
                             <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="centerX" secondItem="ba3-0k-MEB" secondAttribute="centerX" id="AGo-9I-uJM"/>
+                                <constraint firstAttribute="centerX" secondItem="ba3-0k-MEB" secondAttribute="centerX" constant="2" id="AGo-9I-uJM"/>
                                 <constraint firstAttribute="centerY" secondItem="ba3-0k-MEB" secondAttribute="centerY" id="yIZ-Ii-JDH"/>
                             </constraints>
                         </view>
@@ -82,11 +82,11 @@
                             <rect key="frame" x="160" y="0.0" width="80" height="46"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kN-Bp-8NA">
-                                    <rect key="frame" x="19" y="4" width="42" height="38"/>
+                                    <rect key="frame" x="19" y="4" width="38" height="38"/>
                                     <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="38" id="eiH-38-jvN"/>
-                                        <constraint firstAttribute="width" constant="42" id="iNu-dL-d3L"/>
+                                        <constraint firstAttribute="width" constant="38" id="iNu-dL-d3L"/>
                                     </constraints>
                                     <state key="normal" backgroundImage="sleepmenu.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -96,7 +96,7 @@
                             <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="centerX" secondItem="3kN-Bp-8NA" secondAttribute="centerX" id="LBl-TD-kYU"/>
+                                <constraint firstAttribute="centerX" secondItem="3kN-Bp-8NA" secondAttribute="centerX" constant="2" id="LBl-TD-kYU"/>
                                 <constraint firstAttribute="centerY" secondItem="3kN-Bp-8NA" secondAttribute="centerY" id="vqR-t1-Wl8"/>
                             </constraints>
                         </view>
@@ -104,10 +104,10 @@
                             <rect key="frame" x="240" y="0.0" width="80" height="46"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGK-79-fv5">
-                                    <rect key="frame" x="19" y="4" width="42" height="38"/>
+                                    <rect key="frame" x="19" y="4" width="38" height="38"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="42" id="X23-C4-Dew"/>
+                                        <constraint firstAttribute="width" constant="38" id="X23-C4-Dew"/>
                                         <constraint firstAttribute="height" constant="38" id="gi8-JJ-CQJ"/>
                                     </constraints>
                                     <state key="normal" backgroundImage="memenu.png">
@@ -118,7 +118,7 @@
                             <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="centerX" secondItem="hGK-79-fv5" secondAttribute="centerX" id="ARU-w2-ZjP"/>
+                                <constraint firstAttribute="centerX" secondItem="hGK-79-fv5" secondAttribute="centerX" constant="2" id="ARU-w2-ZjP"/>
                                 <constraint firstAttribute="centerY" secondItem="hGK-79-fv5" secondAttribute="centerY" id="Kaf-Di-FBw"/>
                             </constraints>
                         </view>
