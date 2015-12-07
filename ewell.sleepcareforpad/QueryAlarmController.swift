@@ -285,7 +285,7 @@ class QueryAlarmController:BaseViewController,UITableViewDelegate,UITableViewDat
             btnHandle.userInteractionEnabled = true
             var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleAlarm:")
             btnHandle.addGestureRecognizer(singleTap)
-            singleTap.view?.tag = self._queryAlarmViewModel.AlarmInfoList[indexPath.row].Number
+            singleTap.view?.tag = indexPath.row
             
             var btnFalse = UIButton(frame: CGRectMake(60, 7, 55, 30))
             btnFalse.setTitle("误警报", forState: UIControlState.Normal)
@@ -315,14 +315,14 @@ class QueryAlarmController:BaseViewController,UITableViewDelegate,UITableViewDat
 
     func handleAlarm(sender:UITapGestureRecognizer)
     {
-        var selectedNumber:Int = sender.view!.tag
+        var selectedNumber:Int = sender.view!.tag - 1
         var alarmCode:String = self._queryAlarmViewModel.AlarmInfoList[selectedNumber].AlarmCode
         self._queryAlarmViewModel.HandleAlarm(alarmCode, handType: "002")
     }
     
     func handleFalseAlarm(sender:UITapGestureRecognizer)
     {
-        var selectedNumber:Int = sender.view!.tag
+        var selectedNumber:Int = sender.view!.tag - 1
         var alarmCode:String = self._queryAlarmViewModel.AlarmInfoList[selectedNumber].AlarmCode
         self._queryAlarmViewModel.HandleAlarm(alarmCode, handType: "003")
     }

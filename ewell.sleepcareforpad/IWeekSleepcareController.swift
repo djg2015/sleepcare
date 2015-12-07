@@ -46,7 +46,7 @@ class IWeekSleepcareController: UIViewController {
         self.svSleep.contentSize = CGSize(width: screenWidth, height: (height1+height2+height3+height4+height5+height6+height7))
         self.lblTitle.text = "2015-10-11~2015-10-17"
         self.lblTitle.textColor = UIColor.grayColor()
-        self.lblTitle.frame = CGRectMake((screenWidth/2 - 95), 3, 190, 30)
+        self.lblTitle.frame = CGRectMake((screenWidth/2 - 110), 3, 220, 30)
         self.svSleep.addSubview(lblTitle)
         
         self.uione.frame = CGRectMake(0, 33, screenWidth, height1)

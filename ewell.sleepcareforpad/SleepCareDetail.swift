@@ -34,7 +34,15 @@ class SleepCareDetail: UIView {
     dynamic var SignReports:Array<SignReport>?{
         didSet{
             
-            
+            if(self.SignReports == nil){
+                for(var i = 0 ; i < self.uiTrun.subviews.count; i++) {
+                    self.uiTrun.subviews[i].removeFromSuperview()
+                }
+                for(var i = 0 ; i < self.uiHRRR.subviews.count; i++) {
+                    self.uiHRRR.subviews[i].removeFromSuperview()
+                }
+                return
+            }
             
             //设置心率曲线
             var data01Array: [CGFloat] = []
@@ -159,7 +167,12 @@ class SleepCareDetail: UIView {
     var _sleepCareReports:Array<SleepCareReport>?
     dynamic var SleepCareReports:Array<SleepCareReport>?{
         didSet{
-            
+            if(self.SleepCareReports == nil){
+                for(var i = 0 ; i < self.uiSleep.subviews.count; i++) {
+                    self.uiSleep.subviews[i].removeFromSuperview()
+                }
+                return
+            }
             //设置周睡眠图表
             var lineChart:PNLineChart = PNLineChart(frame: CGRectMake(10, 10, self.uiSleep.frame.width, self.uiSleep.frame.height))
             if(self.uiSleep.subviews.count != 0){
