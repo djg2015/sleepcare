@@ -101,7 +101,7 @@ class IMyPatientsController: IBaseViewController {
             
         }
         else{
-            let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:nil,equipmentID:nil)
+            let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:nil,equipmentID:nil,bedUserName:nil)
             self.presentViewController(controller, animated: true, completion: nil)
         }
     }

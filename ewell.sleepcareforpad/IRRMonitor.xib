@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -18,30 +18,11 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFC-HA-Vbk">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                             <subviews>
-                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sleepQualitySelector.png" translatesAutoresizingMaskIntoConstraints="NO" id="3xK-be-lti">
-                                    <rect key="frame" x="20" y="20" width="30" height="25"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KP9-bN-GCk">
+                                    <rect key="frame" x="215" y="20" width="44" height="25"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="30" id="QSa-Pj-eqc"/>
-                                        <constraint firstAttribute="height" constant="25" id="cR1-oi-cbm"/>
-                                    </constraints>
-                                </imageView>
-                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数据查看" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udk-qD-QCd">
-                                    <rect key="frame" x="60" y="20" width="80" height="25"/>
-                                    <animations/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="AKa-nK-rc3"/>
-                                        <constraint firstAttribute="width" constant="80" id="KzK-CP-ytH"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KP9-bN-GCk">
-                                    <rect key="frame" x="215" y="20" width="55" height="25"/>
-                                    <animations/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="55" id="Jlm-IO-L5s"/>
+                                        <constraint firstAttribute="width" constant="44" id="Jlm-IO-L5s"/>
                                         <constraint firstAttribute="height" constant="25" id="Ydt-y3-dK0"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
@@ -59,19 +40,26 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="？？？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbF-Zm-YFQ">
+                                    <rect key="frame" x="89" y="22" width="128" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="128" id="D2q-Bx-PfK"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <animations/>
                             <constraints>
-                                <constraint firstItem="3xK-be-lti" firstAttribute="leading" secondItem="HFC-HA-Vbk" secondAttribute="leading" constant="20" id="3xL-em-ova"/>
-                                <constraint firstItem="3xK-be-lti" firstAttribute="top" secondItem="HFC-HA-Vbk" secondAttribute="top" constant="20" id="AhY-1M-Dqq"/>
                                 <constraint firstItem="kxp-Iw-4CO" firstAttribute="top" secondItem="HFC-HA-Vbk" secondAttribute="top" constant="20" id="NEC-NQ-ecJ"/>
+                                <constraint firstAttribute="centerX" secondItem="xbF-Zm-YFQ" secondAttribute="centerX" constant="7" id="TOc-zb-li0"/>
                                 <constraint firstAttribute="height" constant="50" id="eY4-fM-D15"/>
+                                <constraint firstItem="xbF-Zm-YFQ" firstAttribute="top" secondItem="HFC-HA-Vbk" secondAttribute="top" constant="22" id="gBy-VA-Z6R"/>
                                 <constraint firstAttribute="trailing" secondItem="kxp-Iw-4CO" secondAttribute="trailing" constant="16" id="iE8-I4-Xri"/>
-                                <constraint firstAttribute="trailing" secondItem="KP9-bN-GCk" secondAttribute="trailing" constant="50" id="lbj-2I-6dV"/>
+                                <constraint firstAttribute="trailing" secondItem="KP9-bN-GCk" secondAttribute="trailing" constant="61" id="lbj-2I-6dV"/>
                                 <constraint firstItem="KP9-bN-GCk" firstAttribute="top" secondItem="HFC-HA-Vbk" secondAttribute="top" constant="20" id="mjm-Ty-uBS"/>
-                                <constraint firstItem="udk-qD-QCd" firstAttribute="top" secondItem="HFC-HA-Vbk" secondAttribute="top" constant="20" id="tCM-6L-DSo"/>
                                 <constraint firstAttribute="width" constant="320" id="v1Y-7w-YTi"/>
-                                <constraint firstItem="udk-qD-QCd" firstAttribute="leading" secondItem="3xK-be-lti" secondAttribute="trailing" constant="10" id="xVu-e3-2hP"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6C-qY-BfF" customClass="CircularLoaderView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
@@ -149,6 +137,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="lblBedUserName" destination="xbF-Zm-YFQ" id="Knj-0z-MTO"/>
                 <outlet property="lblLastRR" destination="VQt-Vn-KJW" id="cWA-Or-9lG"/>
                 <outlet property="lblOnBedStatus" destination="kxp-Iw-4CO" id="NPg-OU-g75"/>
                 <outlet property="processRR" destination="m6C-qY-BfF" id="fkD-rW-8Yk"/>
@@ -160,7 +149,6 @@
     <resources>
         <image name="blueback.png" width="640" height="669"/>
         <image name="garyboxback.png" width="640" height="370"/>
-        <image name="sleepQualitySelector.png" width="61" height="41"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

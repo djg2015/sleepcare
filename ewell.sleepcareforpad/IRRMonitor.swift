@@ -18,10 +18,13 @@ class IRRMonitor: UIView{
     
     @IBOutlet weak var viewChart: BackgroundCommon!
     
+    @IBOutlet weak var lblBedUserName: UILabel!
     var rrMonitorViewModel:IRRMonitorViewModel?
     var parentController:IBaseViewController!
     var lblRR:UILabel!
     var _bedUserCode:String = ""
+    
+    var _bedUserName:String = ""
     
     var _rrTimeReportList:Array<IRRTimeReport> = Array<IRRTimeReport>()
     var RRTimeReportList:Array<IRRTimeReport> = [] {
@@ -85,10 +88,11 @@ class IRRMonitor: UIView{
     }
     
     
-    func viewInit(parentController:IBaseViewController?,bedUserCode:String)
+    func viewInit(parentController:IBaseViewController?,bedUserCode:String,bedUserName:String)
     {
         rrMonitorViewModel = IRRMonitorViewModel(bedUserCode: bedUserCode)
         self._bedUserCode = bedUserCode
+        self._bedUserName = bedUserName
         
         self.parentController = parentController
         //        self._bedUserCode = bedUserCode
@@ -114,6 +118,6 @@ class IRRMonitor: UIView{
 
         RACObserve(self, "_bedUserCode") ~> RAC(self.rrMonitorViewModel, "BedUserCode")
         RACObserve(self.rrMonitorViewModel, "RRTimeReport") ~> RAC(self, "RRTimeReportList")
-        
+        RACObserve(self, "_bedUserName") ~> RAC(self.lblBedUserName, "text")
     }
 }

@@ -93,7 +93,7 @@ class IloginViewModel: BaseViewModel {
                         
                         if(iBedUserList.bedUserInfoList.count > 0){
                             if(loginUser.UserType == LoginUserType.UserSelf){
-                                let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:iBedUserList.bedUserInfoList[0].BedUserCode,equipmentID:iBedUserList.bedUserInfoList[0].EquipmentID)
+                                let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:iBedUserList.bedUserInfoList[0].BedUserCode,equipmentID:iBedUserList.bedUserInfoList[0].EquipmentID,bedUserName:iBedUserList.bedUserInfoList[0].BedUserName)
                                 self.JumpPageForIpone(controller)
                             }
                             else{

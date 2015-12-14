@@ -23,8 +23,10 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
     @IBOutlet weak var imgWeekSleep: UIImageView!
     @IBOutlet weak var lblWeekSleep: UILabel!
     
+    @IBOutlet weak var lblBedUserName: UILabel!
     var parentController:IBaseViewController!
     var _bedUserCode:String?
+    var _bedUserName:String = ""
     var calendarControl:THDate!
     var email:IEmailViewController?
     
@@ -119,10 +121,11 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
     }
     
     
-    func viewInit(parentController:IBaseViewController?,bedUserCode:String)
+    func viewInit(parentController:IBaseViewController?,bedUserCode:String,bedUserName:String)
     {
         self.parentController = parentController
         self._bedUserCode = bedUserCode
+        self._bedUserName = bedUserName
         self.calendarControl = THDate(parentControl: parentController!)
         self.calendarControl.delegate = self
         // 画出圆圈中间内容
@@ -195,6 +198,7 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
         RACObserve(self.sleepQualityViewModel, "SelectedDate") ~> RAC(self.lblSelectDate, "text")
         RACObserve(self, "_bedUserCode") ~> RAC(self.sleepQualityViewModel, "BedUserCode")
         RACObserve(self.sleepQualityViewModel, "SleepRange") ~> RAC(self, "SleepRange")
+        RACObserve(self, "_bedUserName") ~> RAC(self.lblBedUserName, "text")
         
         self.sleepQualityViewModel.SelectedDate = getCurrentTime("yyyy-MM-dd")
         

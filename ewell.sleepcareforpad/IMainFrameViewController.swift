@@ -46,14 +46,16 @@ class IMainFrameViewController: IBaseViewController {
         super.init(coder: aDecoder)
     }
     
-    required init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,bedUserCode:String?,equipmentID:String?) {
+    required init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,bedUserCode:String?,equipmentID:String?,bedUserName:String?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.bedUserCode = bedUserCode
         self.equipmentID = equipmentID
+        self.bedUserName = bedUserName
     }
     
     var bedUserCode:String?
     var equipmentID:String?
+    var bedUserName:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +68,7 @@ class IMainFrameViewController: IBaseViewController {
                     self.curMenu = self.uiHR
                     let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
                     
-                    iHRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!)
+                    iHRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
                     
                     self.showBody(iHRMonitorView)
                 }
@@ -83,7 +85,7 @@ class IMainFrameViewController: IBaseViewController {
                     self.curMenu = self.uiRR
                     let iRRMonitorView = NSBundle.mainBundle().loadNibNamed("IRRMonitor", owner: self, options: nil).first as! IRRMonitor
                     
-                    iRRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!)
+                    iRRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!, bedUserName: self.bedUserName!)
                     
                     self.showBody(iRRMonitorView)
                 }
@@ -100,7 +102,7 @@ class IMainFrameViewController: IBaseViewController {
                     self.curMenu = self.uiSleepCare
                     let sleepQualityMonitorView = NSBundle.mainBundle().loadNibNamed("ISleepQualityMonitor", owner: self, options: nil).first as! ISleepQualityMonitor
                     
-                    sleepQualityMonitorView.viewInit(self,bedUserCode: self.bedUserCode!)
+                    sleepQualityMonitorView.viewInit(self,bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
                     
                     self.showBody(sleepQualityMonitorView)
                 }
@@ -123,7 +125,7 @@ class IMainFrameViewController: IBaseViewController {
         if(nil != self.bedUserCode)
         {
             let firstVew = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
-            firstVew.viewInit(self, bedUserCode: self.bedUserCode!)
+            firstVew.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
             showBody(firstVew)
         }
         else

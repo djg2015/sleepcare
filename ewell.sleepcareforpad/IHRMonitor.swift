@@ -17,10 +17,14 @@ class IHRMonitor: UIView{
     @IBOutlet weak var lblLastHR: UILabel!
     
     @IBOutlet weak var viewChart: BackgroundCommon!
+    
+    @IBOutlet weak var lblBedUserName: UILabel!
     var hrMonitorViewModel:IHRMonitorViewModel?
     var parentController:IBaseViewController!
     var lblHR:UILabel!
     var _bedUserCode:String = ""
+    
+    var _bedUserName:String = ""
     
     var _hrTimeReportList:Array<IHRTimeReport> = Array<IHRTimeReport>()
     var HRTimeReportList:Array<IHRTimeReport> = [] {
@@ -84,10 +88,11 @@ class IHRMonitor: UIView{
     }
     
     
-    func viewInit(parentController:IBaseViewController?,bedUserCode:String)
+    func viewInit(parentController:IBaseViewController?,bedUserCode:String,bedUserName:String)
     {
         hrMonitorViewModel = IHRMonitorViewModel(bedUserCode: bedUserCode)
         self._bedUserCode = bedUserCode
+        self._bedUserName = bedUserName
         
         self.parentController = parentController
         //        self._bedUserCode = bedUserCode
@@ -112,8 +117,8 @@ class IHRMonitor: UIView{
         RACObserve(self.hrMonitorViewModel, "ProcessValue") ~> RAC(self.processHR, "currentProcess")
         
         self.hrMonitorViewModel!.BedUserCode = bedUserCode
-//        RACObserve(self, "_bedUserCode") ~> RAC(self.hrMonitorViewModel, "BedUserCode")
+        //        RACObserve(self, "_bedUserCode") ~> RAC(self.hrMonitorViewModel, "BedUserCode")
         RACObserve(self.hrMonitorViewModel, "HRTimeReport") ~> RAC(self, "HRTimeReportList")
-        
+        RACObserve(self, "_bedUserName") ~> RAC(self.lblBedUserName, "text")
     }
 }

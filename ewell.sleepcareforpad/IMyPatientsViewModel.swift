@@ -120,7 +120,7 @@ class IMyPatientsViewModel: BaseViewModel,RealTimeDelegate {
     
     //显示某个床位用户体征明细
     func ShowPatientDetail(myPatientsTableViewModel:MyPatientsTableCellViewModel){
-        let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:myPatientsTableViewModel.BedUserCode!,equipmentID:myPatientsTableViewModel.EquipmentID)
+        let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:myPatientsTableViewModel.BedUserCode!,equipmentID:myPatientsTableViewModel.EquipmentID,bedUserName:myPatientsTableViewModel.BedUserName!)
         self.JumpPageForIpone(controller)
     }
     
