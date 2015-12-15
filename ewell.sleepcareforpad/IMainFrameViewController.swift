@@ -59,18 +59,20 @@ class IMainFrameViewController: IBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.svMain.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-46)
         //设置按钮事件
         self.btnHR!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
                 if(nil != self.bedUserCode)
                 {
-                    self.curMenu = self.uiHR
+                   self.curMenu = self.uiHR
                     let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
                     
                     iHRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
                     
-                    self.showBody(iHRMonitorView)
+                    self.showBody(iHRMonitorView,nibName: "IHRMonitor")
                 }
                 else
                 {
@@ -87,7 +89,7 @@ class IMainFrameViewController: IBaseViewController {
                     
                     iRRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!, bedUserName: self.bedUserName!)
                     
-                    self.showBody(iRRMonitorView)
+                    self.showBody(iRRMonitorView,nibName: "IRRMonitor")
                 }
                 else
                 {
@@ -104,7 +106,7 @@ class IMainFrameViewController: IBaseViewController {
                     
                     sleepQualityMonitorView.viewInit(self,bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
                     
-                    self.showBody(sleepQualityMonitorView)
+                    self.showBody(sleepQualityMonitorView,nibName: "ISleepQualityMonitor")
                 }
                 else
                 {
@@ -118,7 +120,7 @@ class IMainFrameViewController: IBaseViewController {
                 let selfConfiguration = NSBundle.mainBundle().loadNibNamed("IMySelfConfiguration", owner: self, options: nil).first as! IMySelfConfiguration
                 
                 selfConfiguration.viewInit(self, bedUserCode: self.bedUserCode,equipmentID: self.equipmentID)
-                self.showBody(selfConfiguration)
+                self.showBody(selfConfiguration,nibName: "IMySelfConfiguration")
         }
         
         //设置主体界面
@@ -126,24 +128,47 @@ class IMainFrameViewController: IBaseViewController {
         {
             let firstVew = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
             firstVew.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
-            showBody(firstVew)
+            showBody(firstVew, nibName:"IHRMonitor")
         }
         else
         {
             self.curMenu = self.uiMe
             let firstVew = NSBundle.mainBundle().loadNibNamed("IMySelfConfiguration", owner: self, options: nil).first as! IMySelfConfiguration
             firstVew.viewInit(self,bedUserCode: nil,equipmentID:self.equipmentID)
-            showBody(firstVew)
+            showBody(firstVew,nibName: "IMySelfConfiguration")
         }
+        
+    }
+    
+    func LoadingView() {
+        
+        let spinner = JHSpinnerView.showOnView(self.svMain, spinnerColor:UIColor.whiteColor(), overlay:.FullScreen, overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.6), fullCycleTime:4.0, text:"")
+        
+        delay(1.8) { () -> () in
+            spinner.dismiss()
+        }
+        
+    }
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
     }
     
     //显示菜单界面
-    func showBody(jumpview:UIView){
+    func showBody(jumpview:UIView, nibName:String){
         //        for(var i = 0 ; i < self.svMain.subviews.count; i++) {
         //            self.svMain.subviews[i].removeFromSuperview()
         //        }
+      
         jumpview.frame = CGRectMake(0, 0, self.svMain.frame.width, self.svMain.frame.height)
         self.svMain.addSubview(jumpview)
+        if nibName == "IHRMonitor" || nibName == "IRRMonitor"{
+        self.LoadingView()
+        }
     }
     
     override func didReceiveMemoryWarning() {

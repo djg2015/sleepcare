@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
+		0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */; };
+		0DC2280E1C1FD65F00AF4737 /* JHSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */; };
 		2C0615571BF46A2A00A3F90C /* IMySelfSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615561BF46A2A00A3F90C /* IMySelfSettingView.xib */; };
 		2C0615591BF46A5A00A3F90C /* IMySelfSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0615581BF46A5A00A3F90C /* IMySelfSettingController.swift */; };
 		2C06155B1BF4733000A3F90C /* settingBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06155A1BF4733000A3F90C /* settingBottom.png */; };
@@ -305,6 +307,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHSpinnerView.xib; sourceTree = "<group>"; };
+		0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHSpinnerView.swift; sourceTree = "<group>"; };
 		2C06154C1BF465CC00A3F90C /* loginbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbackground.png; sourceTree = "<group>"; };
 		2C06154E1BF4660A00A3F90C /* logininputborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logininputborder.png; sourceTree = "<group>"; };
 		2C06154F1BF4660A00A3F90C /* loginname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginname.png; sourceTree = "<group>"; };
@@ -530,7 +534,6 @@
 		3A91F0951BF0475400C470D4 /* THDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THDatePickerViewController.m; sourceTree = "<group>"; };
 		3A91F0961BF0475400C470D4 /* THDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THDatePickerViewController.xib; sourceTree = "<group>"; };
 		3A91F0B21BF066F500C470D4 /* THDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THDate.swift; sourceTree = "<group>"; };
-		3A98D36F1C06A55200FAD3FF /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		3A9C12E01BC789C6008EC314 /* maintop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maintop.png; sourceTree = "<group>"; };
 		3A9C12E11BC789C6008EC314 /* emptyBed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyBed.png; sourceTree = "<group>"; };
 		3A9C12E21BC789C6008EC314 /* leaveBed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaveBed.png; sourceTree = "<group>"; };
@@ -805,6 +808,8 @@
 				2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */,
 				2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */,
 				2CB951281BF4510A00C31EC2 /* ConfiurationTabeView.swift */,
+				0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */,
+				0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1357,6 +1362,7 @@
 				2C0615711BF4813700A3F90C /* trendMenu.png in Resources */,
 				2C0DC3C51BF9A0930048BEEA /* ILoginUserEdit.xib in Resources */,
 				3AF652751BFAC50500BA2329 /* MyPatientsTableViewCell.xib in Resources */,
+				0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */,
 				3A39CA021BF2FCA70024DD3E /* grayback.png in Resources */,
 				2C06157C1BF4885000A3F90C /* ISleepQualityMonitor.xib in Resources */,
 				3A9C12FD1BC789C6008EC314 /* pagerunselected.png in Resources */,
@@ -1575,6 +1581,7 @@
 				3A41ADE81BA7B425000C109B /* LoginController.swift in Sources */,
 				2C5182071BF1B941007DC2A3 /* ISleepQualityReport.swift in Sources */,
 				2C555B471BE31763008A3AC9 /* QueryAlarmViewModel.swift in Sources */,
+				0DC2280E1C1FD65F00AF4737 /* JHSpinnerView.swift in Sources */,
 				2C37F1391BD093280034D9F1 /* SleepQualityPandectViewModel.swift in Sources */,
 				3A3C37801BD4987800080D03 /* SleepcareDetailViewModel.swift in Sources */,
 				3A3756221BCB58F700182DE4 /* DialogFrameController.swift in Sources */,
