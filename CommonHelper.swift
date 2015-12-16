@@ -88,36 +88,36 @@ func handleException(ex:NSObject, showDialog:Bool = false,msg:String = ""){
     }
 }
 
-//从plist读取键值
-func GetValueFromPlist(key:String) -> String{
-    var path = NSBundle.mainBundle().pathForResource("sleepcare", ofType: "plist")
-    var fileManager = NSFileManager.defaultManager()
-    var fileExists:Bool = fileManager.fileExistsAtPath(path!)
-    var data :NSMutableDictionary?
-    if(fileExists){
-        data=NSMutableDictionary(contentsOfFile: path!)
-        return data?.valueForKey(key) as! String
-    }
-    return ""
-    
-}
-
-//写plist键值
-func SetValueIntoPlist(key:String, value:String){
-    var path = NSBundle.mainBundle().pathForResource("sleepcare", ofType: "plist")
-    var fileManager = NSFileManager.defaultManager()
-    var fileExists:Bool = fileManager.fileExistsAtPath(path!)
-    var data :NSMutableDictionary?
-    if(fileExists){
-        data=NSMutableDictionary(contentsOfFile: path!)
-    }
-    else{
-        data=NSMutableDictionary()
-    }
-    
-    data?.setValue(value, forKey:key)
-    data?.writeToFile(path!, atomically:true)
-}
+////从plist读取键值
+//func GetValueFromPlist(key:String) -> String{
+//    var path = NSBundle.mainBundle().pathForResource("sleepcare", ofType: "plist")
+//    var fileManager = NSFileManager.defaultManager()
+//    var fileExists:Bool = fileManager.fileExistsAtPath(path!)
+//    var data :NSMutableDictionary?
+//    if(fileExists){
+//        data=NSMutableDictionary(contentsOfFile: path!)
+//        return data?.valueForKey(key) as! String
+//    }
+//    return ""
+//    
+//}
+//
+////写plist键值
+//func SetValueIntoPlist(key:String, value:String){
+//    var path = NSBundle.mainBundle().pathForResource("sleepcare", ofType: "plist")
+//    var fileManager = NSFileManager.defaultManager()
+//    var fileExists:Bool = fileManager.fileExistsAtPath(path!)
+//    var data :NSMutableDictionary?
+//    if(fileExists){
+//        data=NSMutableDictionary(contentsOfFile: path!)
+//    }
+//    else{
+//        data=NSMutableDictionary()
+//    }
+//    
+//    data?.setValue(value, forKey:key)
+//    data?.writeToFile(path!, atomically:true)
+//}
 
 //截取指定参数字符串
 extension String {

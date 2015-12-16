@@ -16,6 +16,9 @@ class IMyPatientsController: IBaseViewController {
     @IBOutlet weak var myPatientTable: MyPatientsTableView!
     @IBOutlet weak var btnBack: UIButton!
     
+    var spinner:JHSpinnerView?
+    
+    
     var viewModel:IMyPatientsViewModel!
     var popDownList:PopDownList?
     var isGoLogin:Bool = false
@@ -38,6 +41,10 @@ class IMyPatientsController: IBaseViewController {
         
         rac_Setting()
         
+        myPatientTable.frame = CGRectMake(0, 57, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-57)
+        self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.FullScreen, overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.6), fullCycleTime:4.0, text:"")
+        self.setTimer()
+        //3333333333
     }
     
     override func didReceiveMemoryWarning() {
@@ -116,6 +123,19 @@ class IMyPatientsController: IBaseViewController {
         
         var controller = IChoosePatientsController(nibName: "IChoosePatients", bundle: nil, myPatientsViewModel: self.viewModel)
         self.presentViewController(controller, animated: true, completion: nil)
+        
+    }
+    //定时器查看是否已经载入数据
+    func setTimer(){
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
+        timer.fire()
+    }
+    
+    func timerFireMethod(timer: NSTimer) {
+        if self.viewModel.LoadingFlag{
+            self.spinner!.dismiss()
+            self.viewModel.LoadingFlag = false
+        }
         
     }
 }

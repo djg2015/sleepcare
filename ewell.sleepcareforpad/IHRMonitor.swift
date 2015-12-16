@@ -23,8 +23,10 @@ class IHRMonitor: UIView{
     var parentController:IBaseViewController!
     var lblHR:UILabel!
     var _bedUserCode:String = ""
-    
     var _bedUserName:String = ""
+    
+    var HRdelegate:LoadingHRDelegate!
+    var loadingFlag:Bool = false
     
     var _hrTimeReportList:Array<IHRTimeReport> = Array<IHRTimeReport>()
     var HRTimeReportList:Array<IHRTimeReport> = [] {
@@ -120,5 +122,26 @@ class IHRMonitor: UIView{
         //        RACObserve(self, "_bedUserCode") ~> RAC(self.hrMonitorViewModel, "BedUserCode")
         RACObserve(self.hrMonitorViewModel, "HRTimeReport") ~> RAC(self, "HRTimeReportList")
         RACObserve(self, "_bedUserName") ~> RAC(self.lblBedUserName, "text")
+        
+        RACObserve(self.hrMonitorViewModel, "LoadingFlag") ~> RAC(self, "loadingFlag")
+        self.setTimer()
     }
+    
+    func setTimer(){
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
+        timer.fire()
+    }
+    
+    func timerFireMethod(timer: NSTimer) {
+        if self.loadingFlag && self.HRdelegate != nil{
+      //  self.hrMonitorViewModel!.loadingFlag = true
+            self.HRdelegate.CloseLoadingHR()
+            self.hrMonitorViewModel!.LoadingFlag = false
+        }
+        
+    }
+}
+
+protocol LoadingHRDelegate{
+func CloseLoadingHR()
 }

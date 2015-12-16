@@ -23,8 +23,10 @@ class IRRMonitor: UIView{
     var parentController:IBaseViewController!
     var lblRR:UILabel!
     var _bedUserCode:String = ""
-    
     var _bedUserName:String = ""
+    
+    var RRdelegate:LoadingRRDelegate!
+    var loadingFlag:Bool = false
     
     var _rrTimeReportList:Array<IRRTimeReport> = Array<IRRTimeReport>()
     var RRTimeReportList:Array<IRRTimeReport> = [] {
@@ -119,5 +121,26 @@ class IRRMonitor: UIView{
         RACObserve(self, "_bedUserCode") ~> RAC(self.rrMonitorViewModel, "BedUserCode")
         RACObserve(self.rrMonitorViewModel, "RRTimeReport") ~> RAC(self, "RRTimeReportList")
         RACObserve(self, "_bedUserName") ~> RAC(self.lblBedUserName, "text")
+        
+        RACObserve(self.rrMonitorViewModel, "LoadingFlag") ~> RAC(self, "loadingFlag")
+        self.setTimer()
     }
+    
+    func setTimer(){
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
+        timer.fire()
+    }
+    
+    func timerFireMethod(timer: NSTimer) {
+        if self.loadingFlag && self.RRdelegate != nil{
+        
+            self.RRdelegate.CloseLoadingRR()
+            self.rrMonitorViewModel!.LoadingFlag = false
+        }
+        
+    }
+}
+
+protocol LoadingRRDelegate{
+    func CloseLoadingRR()
 }

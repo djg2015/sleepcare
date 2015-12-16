@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IMainFrameViewController: IBaseViewController {
+class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRDelegate {
     @IBOutlet weak var uiHR: BackgroundCommon!
     @IBOutlet weak var uiRR: BackgroundCommon!
     @IBOutlet weak var uiSleepCare: BackgroundCommon!
@@ -20,6 +20,8 @@ class IMainFrameViewController: IBaseViewController {
     @IBOutlet weak var btnSleep: UIButton!
     @IBOutlet weak var btnMe: UIButton!
     
+    var spinner:JHSpinnerView?
+   
     
     var _curMenu:BackgroundCommon?
     var curMenu:BackgroundCommon?{
@@ -61,6 +63,8 @@ class IMainFrameViewController: IBaseViewController {
         super.viewDidLoad()
         
         self.svMain.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-46)
+        
+   
         //设置按钮事件
         self.btnHR!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
@@ -71,6 +75,8 @@ class IMainFrameViewController: IBaseViewController {
                     let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
                     
                     iHRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
+                    
+                    iHRMonitorView.HRdelegate = self/////////11111111
                     
                     self.showBody(iHRMonitorView,nibName: "IHRMonitor")
                 }
@@ -88,6 +94,7 @@ class IMainFrameViewController: IBaseViewController {
                     let iRRMonitorView = NSBundle.mainBundle().loadNibNamed("IRRMonitor", owner: self, options: nil).first as! IRRMonitor
                     
                     iRRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!, bedUserName: self.bedUserName!)
+                    iRRMonitorView.RRdelegate = self
                     
                     self.showBody(iRRMonitorView,nibName: "IRRMonitor")
                 }
@@ -128,6 +135,9 @@ class IMainFrameViewController: IBaseViewController {
         {
             let firstVew = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
             firstVew.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
+            
+            firstVew.HRdelegate = self  ////////////2222222
+            
             showBody(firstVew, nibName:"IHRMonitor")
         }
         else
@@ -142,22 +152,10 @@ class IMainFrameViewController: IBaseViewController {
     
     func LoadingView() {
         
-        let spinner = JHSpinnerView.showOnView(self.svMain, spinnerColor:UIColor.whiteColor(), overlay:.FullScreen, overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.6), fullCycleTime:4.0, text:"")
-        
-        delay(1.8) { () -> () in
-            spinner.dismiss()
-        }
+          self.spinner  = JHSpinnerView.showOnView(self.svMain, spinnerColor:UIColor.whiteColor(), overlay:.FullScreen, overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.6), fullCycleTime:4.0, text:"")
         
     }
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
-    
+
     //显示菜单界面
     func showBody(jumpview:UIView, nibName:String){
         //        for(var i = 0 ; i < self.svMain.subviews.count; i++) {
@@ -170,6 +168,15 @@ class IMainFrameViewController: IBaseViewController {
         self.LoadingView()
         }
     }
+    
+    func CloseLoadingHR(){
+        self.spinner!.dismiss()
+    }
+    
+    func CloseLoadingRR(){
+        self.spinner!.dismiss()
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -194,6 +201,7 @@ class IMainFrameViewController: IBaseViewController {
     func FourthBtnClick(){
         
     }
+    
     
     /*
     // MARK: - Navigation

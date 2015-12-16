@@ -24,6 +24,19 @@ class IMyPatientsViewModel: BaseViewModel,RealTimeDelegate {
         }
     }
     
+    //实时数据是否已经载入
+    var _loadingFlag:Bool = false
+    dynamic var LoadingFlag:Bool{
+        get
+        {
+            return self._loadingFlag
+        }
+        set(value)
+        {
+            self._loadingFlag = value
+        }
+    }
+
     //构造函数
     override init(){
         super.init()
@@ -94,6 +107,7 @@ class IMyPatientsViewModel: BaseViewModel,RealTimeDelegate {
               
                 }
             }
+            self.LoadingFlag = true
         }
         
     }

@@ -14,6 +14,18 @@ class IHRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     var realTimeCaches:Array<RealTimeReport>?
     var hrRangeCaches:IHRRange?
     
+    //实时数据是否已经载入
+    var _loadingFlag:Bool = false
+    dynamic var LoadingFlag:Bool{
+        get
+        {
+            return self._loadingFlag
+        }
+        set(value)
+        {
+            self._loadingFlag = value
+        }
+    }
     // 当前用户所在床位号
     var _bedUserCode:String?
     dynamic var BedUserCode:String?{
@@ -137,8 +149,10 @@ class IHRMonitorViewModel: BaseViewModel,RealTimeDelegate {
             self.CurrentHR = realTimeReport.HR
             self.ProcessValue = CGFloat((realTimeReport.HR as NSString).floatValue)
             self.LastAvgHR = realTimeReport.LastedAvgHR + "次/分"
-            
             self.realTimeCaches?.removeAtIndex(0)
+            
+            
+            self.LoadingFlag = true
         }
         
     }

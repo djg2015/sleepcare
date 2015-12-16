@@ -42,6 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             
             self.window!.rootViewController = UINavigationController(rootViewController:LoginController(nibName:"LoginView", bundle:nil))
         }
+        
+        InitPlistFile()
+        
         return true
     }
     

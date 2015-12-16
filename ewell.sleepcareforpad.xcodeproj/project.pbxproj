@@ -10,6 +10,7 @@
 		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
 		0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */; };
 		0DC2280E1C1FD65F00AF4737 /* JHSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */; };
+		0DC2284D1C212F0E00AF4737 /* PlistHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */; };
 		2C0615571BF46A2A00A3F90C /* IMySelfSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615561BF46A2A00A3F90C /* IMySelfSettingView.xib */; };
 		2C0615591BF46A5A00A3F90C /* IMySelfSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0615581BF46A5A00A3F90C /* IMySelfSettingController.swift */; };
 		2C06155B1BF4733000A3F90C /* settingBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06155A1BF4733000A3F90C /* settingBottom.png */; };
@@ -309,6 +310,7 @@
 /* Begin PBXFileReference section */
 		0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHSpinnerView.xib; sourceTree = "<group>"; };
 		0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHSpinnerView.swift; sourceTree = "<group>"; };
+		0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistHelper.swift; sourceTree = "<group>"; };
 		2C06154C1BF465CC00A3F90C /* loginbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbackground.png; sourceTree = "<group>"; };
 		2C06154E1BF4660A00A3F90C /* logininputborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logininputborder.png; sourceTree = "<group>"; };
 		2C06154F1BF4660A00A3F90C /* loginname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginname.png; sourceTree = "<group>"; };
@@ -1007,6 +1009,7 @@
 				3A4CD3F91BA80536002C8A1A /* CommonHelper.swift */,
 				3A4CD3FE1BA808C1002C8A1A /* XmppMsgHelper.swift */,
 				3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */,
+				0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */,
 				3A35AB661BCCECF000ED3293 /* Session.swift */,
 				3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */,
 				3A1F16FE1BF5A5100051E9AF /* BusinessFactory.swift */,
@@ -1626,6 +1629,7 @@
 				3A4CD3FA1BA80536002C8A1A /* CommonHelper.swift in Sources */,
 				2CB951291BF4510A00C31EC2 /* ConfiurationTabeView.swift in Sources */,
 				3A4B85CC1BB150C1006E4CF1 /* Constants.swift in Sources */,
+				0DC2284D1C212F0E00AF4737 /* PlistHelper.swift in Sources */,
 				3A3EF7C01BDE05A800CDDAED /* TodoItem.swift in Sources */,
 				3AB43E8C1BD4E1B9005023D3 /* DateHelpers.swift in Sources */,
 				3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */,
