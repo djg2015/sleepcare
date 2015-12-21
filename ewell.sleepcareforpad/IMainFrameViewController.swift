@@ -20,9 +20,9 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     @IBOutlet weak var btnSleep: UIButton!
     @IBOutlet weak var btnMe: UIButton!
     
+    @IBOutlet weak var lblAlarmCount: UILabel!
     var spinner:JHSpinnerView?
    
-    
     var _curMenu:BackgroundCommon?
     var curMenu:BackgroundCommon?{
         get{
@@ -61,6 +61,8 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+      //  RACObserve(TodoList.sharedInstance.allItems(), "count") ~> RAC(self.lblAlarmCount, "text")
         
         self.svMain.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-46)
         
@@ -76,7 +78,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
                     
                     iHRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
                     
-                    iHRMonitorView.HRdelegate = self/////////11111111
+                    iHRMonitorView.HRdelegate = self
                     
                     self.showBody(iHRMonitorView,nibName: "IHRMonitor")
                 }

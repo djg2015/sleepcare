@@ -38,6 +38,8 @@ class ILoginController: IBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         datapicker = THDate(parentControl: self)
+//        var spinner:JHSpinnerView?
+//        spinner  = JHSpinnerView.showOnView(self.view, spinnerColor:UIColor.whiteColor(), overlay:.FullScreen, overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.6), fullCycleTime:4.0, text:"")
         rac_settings()
     }
     
@@ -51,6 +53,7 @@ class ILoginController: IBaseViewController {
     func rac_settings(){
         self.iloginViewModel = IloginViewModel()
         self.iloginViewModel.controllerForIphone = self
+        self.iloginViewModel.AutoLogin()
         self.btnLogin!.rac_command = self.iloginViewModel?.loginCommand
        
         RACObserve(self.iloginViewModel, "LoginName") ~> RAC(self.txtLoginName, "text")
@@ -68,7 +71,7 @@ class ILoginController: IBaseViewController {
         var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
         self.imgTitle .addGestureRecognizer(singleTap)
     }
-    
+
     func imageViewTouch(){
         self.presentViewController(IServerSettingController(nibName:"IServerSettingView", bundle:nil), animated: true, completion: nil)
     }

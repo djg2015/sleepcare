@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //延时启动界面
         NSThread.sleepForTimeInterval(1)
+        //设置消息推送
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
         
         if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
             deviceType = "iphone"
@@ -25,13 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             self.window!.backgroundColor = UIColor.whiteColor()
             self.window!.makeKeyAndVisible()
             
+            InitPlistFile()
             self.window!.rootViewController = UINavigationController(rootViewController:ILoginController(nibName:"ILogin", bundle:nil))
         }
         else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
-            
-            //设置消息推送
-            application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
-            
+
             //隐藏状态栏
             UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
             
@@ -42,9 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             
             self.window!.rootViewController = UINavigationController(rootViewController:LoginController(nibName:"LoginView", bundle:nil))
         }
-        
-        InitPlistFile()
-        
+       
         return true
     }
     

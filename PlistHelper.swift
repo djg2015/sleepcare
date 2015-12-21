@@ -40,10 +40,11 @@ import Foundation
         }
         else {
             println("sleepcare.plist already exits.")
+          //  fileManager.removeItemAtPath(path, error: nil)
         }
         
         resultDictionary = NSMutableDictionary(contentsOfFile: path)
-      //  println("Loaded sleepcare.plist file is --> \(resultDictionary?.description)")
+       // println("Loaded sleepcare.plist file is --> \(resultDictionary?.description)")
     }
     
 //从plist读取键值

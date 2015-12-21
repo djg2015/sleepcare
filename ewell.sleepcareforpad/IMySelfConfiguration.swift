@@ -35,6 +35,12 @@ class IMySelfConfiguration: UIView{
             source.append(menu)
             
             menu = ConfigurationViewModel()
+            menu.imageName = "greenpoint"
+            menu.titleName = "报警信息"
+            menu.configrationController = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
+            source.append(menu)
+            
+            menu = ConfigurationViewModel()
             menu.imageName = "rankingListMenu"
             menu.titleName = "排行榜"
             source.append(menu)
@@ -53,6 +59,12 @@ class IMySelfConfiguration: UIView{
             menu.imageName = "myElder"
             menu.titleName = "我的老人"
             menu.configrationController = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
+            source.append(menu)
+            
+            menu = ConfigurationViewModel()
+            menu.imageName = "greenpoint"
+            menu.titleName = "报警信息"
+            menu.configrationController = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
             source.append(menu)
             
             if(nil != equipmentID)

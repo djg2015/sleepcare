@@ -42,6 +42,17 @@ class SessionForIphone {
             self._curPatientCode = value
         }
     }
+    //当前关注的病人的code集合
+    private var _bedUserCodeList:Array<String>?
+    var BedUserCodeList:Array<String>?{
+        get{
+            return self._bedUserCodeList
+        }
+        set(value){
+            self._bedUserCodeList = value
+        }
+    }
+    
     
     private static var instance:SessionForIphone? = nil
     

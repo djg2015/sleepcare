@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class IloginViewModel: BaseViewModel {
+class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     //------------属性定义------------
     var _loginName:String = ""
     //登录用户名
@@ -34,9 +34,12 @@ class IloginViewModel: BaseViewModel {
             self._pwd=value
         }
     }
+
     
     //界面处理命令
     var loginCommand: RACCommand?
+    var iBedUserList:IBedUserList?
+    var alarmHelper:IAlarmHelper?
     
     //构造函数
     override init(){
@@ -46,12 +49,25 @@ class IloginViewModel: BaseViewModel {
             (any:AnyObject!) -> RACSignal in
             return self.Login()
         }
+        //显示alarm详细信息的代理
+        self.alarmHelper = IAlarmHelper.GetAlarmInstance()
+        self.alarmHelper!.alarmdelegate = self
+
+        }
+    
+    //自定义处理----------------------
+  
+    
+    func AutoLogin(){
         //初始加载记住密码的相关配置数据
         self.LoginName = GetValueFromPlist("loginusernamephone")
         self.Pwd = GetValueFromPlist("loginuserpwdphone")
+        if (self.LoginName != "" && self.Pwd != ""){
+            self.Login()
+        }
+        //  等待指示消失
+  
     }
-    
-    //自定义处理----------------------
     
     //登录
     func Login() -> RACSignal{
@@ -79,21 +95,27 @@ class IloginViewModel: BaseViewModel {
                     SessionForIphone.SetSession(loginUser)
                     SetValueIntoPlist("loginusernamephone", self.LoginName)
                     SetValueIntoPlist("loginuserpwdphone", self.Pwd)
+                    self.alarmHelper!.BeginWaringAttention()
                     
                     var session = SessionForIphone.GetSession()
                     session!.OldPwd = self.Pwd
+                    
                     if(loginUser.UserType == LoginUserType.UnKnow){
                         let controller = ISetUserTypeController(nibName:"ISetUserType", bundle:nil)
                         self.JumpPageForIpone(controller)
                         
                     }
                     else{
+                        var session = SessionForIphone.GetSession()
+                        session!.BedUserCodeList = Array<String>()
                         //获取当前关注的老人
-                        var iBedUserList:IBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(loginUser.LoginName, mainCode: loginUser.MainCode)
+                        self.iBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(loginUser.LoginName, mainCode: loginUser.MainCode)
                         
-                        if(iBedUserList.bedUserInfoList.count > 0){
+                        if(self.iBedUserList!.bedUserInfoList.count > 0){
                             if(loginUser.UserType == LoginUserType.UserSelf){
-                                let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:iBedUserList.bedUserInfoList[0].BedUserCode,equipmentID:iBedUserList.bedUserInfoList[0].EquipmentID,bedUserName:iBedUserList.bedUserInfoList[0].BedUserName)
+                                 session!.BedUserCodeList!.append(self.iBedUserList!.bedUserInfoList[0].BedUserCode)
+                                
+                                let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:self.iBedUserList!.bedUserInfoList[0].BedUserCode,equipmentID:self.iBedUserList!.bedUserInfoList[0].EquipmentID,bedUserName:self.iBedUserList!.bedUserInfoList[0].BedUserName)
                                 self.JumpPageForIpone(controller)
                             }
                             else{
@@ -111,6 +133,7 @@ class IloginViewModel: BaseViewModel {
                             self.JumpPageForIpone(controller)
                         }
                     }
+                    
                 }
                 },
                 catch: { ex in
@@ -123,6 +146,12 @@ class IloginViewModel: BaseViewModel {
             )}
         
         return RACSignal.empty()
+        
+    }
+    
+    func ShowAlarm() {
+        let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
+        self.JumpPageForIpone(controller)
         
     }
 }

@@ -51,6 +51,8 @@ class IMyPatientsViewModel: BaseViewModel,RealTimeDelegate {
             ({
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
+                 session!.BedUserCodeList = Array<String>()
+                
                 var bedUserList:IBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(session!.User!.LoginName, mainCode: session!.User!.MainCode)
                 self.MyPatientsArray = Array<MyPatientsTableCellViewModel>()
                 var curArray = Array<MyPatientsTableCellViewModel>()
@@ -66,6 +68,8 @@ class IMyPatientsViewModel: BaseViewModel,RealTimeDelegate {
                     myPatientsTableCellViewModel.selectedBedUserHandler = self.ShowPatientDetail
                     myPatientsTableCellViewModel.deleteBedUserHandler = self.RemovePatient
                     curArray.append(myPatientsTableCellViewModel)
+                 
+                    session!.BedUserCodeList!.append(bedUserList.bedUserInfoList[i].BedUserCode)
                 }
                 self.MyPatientsArray = curArray
                 },
@@ -146,6 +150,15 @@ class IMyPatientsViewModel: BaseViewModel,RealTimeDelegate {
                 ({
                     var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                     var session = SessionForIphone.GetSession()
+                    var tempList = session!.BedUserCodeList!
+                    for(var i = 0 ; i < tempList.count ; i++){
+                        if tempList[i] == myPatientsTableViewModel.BedUserCode! {
+                            tempList.removeAtIndex(i)
+                            break
+                        }
+                    }
+                    session!.BedUserCodeList = tempList
+                    
                     sleepCareForIPhoneBussinessManager.RemoveFollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode!)
                     },
                     catch: { ex in
@@ -169,6 +182,8 @@ class IMyPatientsViewModel: BaseViewModel,RealTimeDelegate {
             ({
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
+                var tempList = session!.BedUserCodeList!
+                
                 for(var i=0;i<myPatientsTableViewModels.count;i++){
                     sleepCareForIPhoneBussinessManager.FollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModels[i].BedUserCode!, mainCode: session!.User!.MainCode)
                     var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModels[i].BedUserCode})
@@ -176,10 +191,11 @@ class IMyPatientsViewModel: BaseViewModel,RealTimeDelegate {
                         myPatientsTableViewModels[i].selectedBedUserHandler = self.ShowPatientDetail
                         myPatientsTableViewModels[i].deleteBedUserHandler = self.RemovePatient
                         self.MyPatientsArray.append(myPatientsTableViewModels[i])
+                        
+                        tempList.append(myPatientsTableViewModels[i].BedUserCode!)
                     }
-                    
-                }
-                
+                }//for
+                session!.BedUserCodeList = tempList
                 },
                 catch: { ex in
                     //异常处理

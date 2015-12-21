@@ -17,8 +17,6 @@ class IMyPatientsController: IBaseViewController {
     @IBOutlet weak var btnBack: UIButton!
     
     var spinner:JHSpinnerView?
-    
-    
     var viewModel:IMyPatientsViewModel!
     var popDownList:PopDownList?
     var isGoLogin:Bool = false
@@ -28,7 +26,7 @@ class IMyPatientsController: IBaseViewController {
             if(self.MyPatientsArray?.count == 0){
                 self.uiNewAdd.hidden = false
                 self.uiPatientList.hidden = true
-            }
+                }
             else{
                 self.uiNewAdd.hidden = true
                 self.uiPatientList.hidden = false
@@ -44,7 +42,7 @@ class IMyPatientsController: IBaseViewController {
         myPatientTable.frame = CGRectMake(0, 57, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-57)
         self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.FullScreen, overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.6), fullCycleTime:4.0, text:"")
         self.setTimer()
-        //3333333333
+     
     }
     
     override func didReceiveMemoryWarning() {
