@@ -26,24 +26,31 @@ class IAlarmViewModel: BaseViewModel {
     override init(){
         super.init()
         
-        InitData()
+        LoadData()
     }
     
-    func InitData(){
+    func LoadData(){
         try {
             ({
                 var todolist:Array<TodoItem> = TodoList.sharedInstance.allItems()
                 var tempAlarmArray = Array<IAlarmTableCellViewModel>()
-                var dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                for (var i = 0 ; i<todolist.count ; i++){
-                var tempAlarm = IAlarmTableCellViewModel()
-                    tempAlarm.AlarmCode = todolist[i].UUID
-                    tempAlarm.AlarmDate = dateFormatter.stringFromDate(todolist[i].deadline)
-                    tempAlarm.AlarmContent = todolist[i].title
+                //                var dateFormatter = NSDateFormatter()
+                //                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                var warningList = IAlarmHelper.GetAlarmInstance().WarningList
+                for (var i = 0 ; i < warningList.count ; i++){
+                    var tempAlarm = IAlarmTableCellViewModel()
+                    var info = warningList[i]
+                    tempAlarm.AlarmCode = info.AlarmCode
+                    tempAlarm.PartName = info.PartName
+                    tempAlarm.UserName = "姓名:" + info.UserName
+                    tempAlarm.BedNumber = "床号:" + info.BedNumber
+                    tempAlarm.AlarmDate = "报警时间:" + info.AlarmDate
+                    //   tempAlarm.AlarmDeadline = "报警时间:" + dateFormatter.stringFromDate(todolist[i].deadline)
+                    tempAlarm.AlarmContent = info.AlarmContent
                     tempAlarm.deleteAlarmHandler = self.DeleteAlarm
+                    tempAlarm.moreAlarmHandler = self.MoreAlarm
                     tempAlarmArray.append(tempAlarm)
-                }
+                }//for i
                 self.AlarmArray = tempAlarmArray
                 },
                 catch: { ex in
@@ -56,11 +63,69 @@ class IAlarmViewModel: BaseViewModel {
             )}
     }
     
-    //根据code删除对应的todoitem
+     //处理服务器端的报警信息，002为处理，003为误报警.delete按钮对应的是误报警操作
     func DeleteAlarm(alarmViewModel:IAlarmTableCellViewModel){
+        self.RemoveAlarm(alarmViewModel)
+        var code = alarmViewModel.AlarmCode!
+       
+        try {
+            ({
+                var sleepCareBLL = SleepCareBussiness()
+                sleepCareBLL.HandleAlarm(code, transferType: "003")
+                println("误报警！！！！")
+                },
+                catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+                },
+                finally: {
+                    
+                }
+            )}
+    }
+     //处理服务器端的报警信息，002为处理，003为误报警.more按钮对应的是处理操作
+    func MoreAlarm(alarmViewModel:IAlarmTableCellViewModel){
+       self.RemoveAlarm(alarmViewModel)
+         var code = alarmViewModel.AlarmCode!
+       
+        try {
+            ({
+                var sleepCareBLL = SleepCareBussiness()
+                sleepCareBLL.HandleAlarm(code, transferType: "002")
+                println("已处理！！！！")
+                },
+                catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+                },
+                finally: {
+                    
+                }
+            )}
+
+    }
     
-    TodoList.sharedInstance.removeItemByID(alarmViewModel.AlarmCode!)
-        
+    //删除内存中当前的alarm信息，删除todolist中对应item信息
+    func RemoveAlarm(alarmViewModel:IAlarmTableCellViewModel){
+        var code = alarmViewModel.AlarmCode!
+        TodoList.sharedInstance.removeItemByID(code)
+        var tempwarningList = IAlarmHelper.GetAlarmInstance().WarningList
+        var codes = IAlarmHelper.GetAlarmInstance().Codes
+        for(var i = 0; i < tempwarningList.count; i++){
+            if code == tempwarningList[i].AlarmCode{
+                tempwarningList.removeAtIndex(i)
+                IAlarmHelper.GetAlarmInstance().WarningList = tempwarningList
+                break
+            }
+        }
+        for (var i = 0; i < codes.count; i++){
+            if code == codes[i]{
+                codes.removeAtIndex(i)
+                IAlarmHelper.GetAlarmInstance().Codes = codes
+                break
+            }
+        }
+
     }
     
 }

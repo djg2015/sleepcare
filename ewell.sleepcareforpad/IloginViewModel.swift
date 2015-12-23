@@ -52,6 +52,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         //显示alarm详细信息的代理
         self.alarmHelper = IAlarmHelper.GetAlarmInstance()
         self.alarmHelper!.alarmdelegate = self
+        
 
         }
     
@@ -62,6 +63,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         //初始加载记住密码的相关配置数据
         self.LoginName = GetValueFromPlist("loginusernamephone")
         self.Pwd = GetValueFromPlist("loginuserpwdphone")
+        
         if (self.LoginName != "" && self.Pwd != ""){
             self.Login()
         }
@@ -152,6 +154,6 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     func ShowAlarm() {
         let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
         self.JumpPageForIpone(controller)
-        
+     
     }
 }

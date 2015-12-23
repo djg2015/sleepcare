@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRDelegate {
+class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRDelegate,GetAlarmCountDelegate {
     @IBOutlet weak var uiHR: BackgroundCommon!
     @IBOutlet weak var uiRR: BackgroundCommon!
     @IBOutlet weak var uiSleepCare: BackgroundCommon!
@@ -22,7 +22,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     
     @IBOutlet weak var lblAlarmCount: UILabel!
     var spinner:JHSpinnerView?
-   
+    
     var _curMenu:BackgroundCommon?
     var curMenu:BackgroundCommon?{
         get{
@@ -62,7 +62,8 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     override func viewDidLoad() {
         super.viewDidLoad()
        
-      //  RACObserve(TodoList.sharedInstance.allItems(), "count") ~> RAC(self.lblAlarmCount, "text")
+        IAlarmHelper.GetAlarmInstance().alarmcountdelegate = self
+    
         
         self.svMain.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-46)
         
@@ -138,7 +139,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
             let firstVew = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
             firstVew.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
             
-            firstVew.HRdelegate = self  ////////////2222222
+            firstVew.HRdelegate = self 
             
             showBody(firstVew, nibName:"IHRMonitor")
         }
@@ -204,15 +205,8 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         
     }
     
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+    func GetAlarmCount(count:Int){
+    self.lblAlarmCount.text = String(count)
     }
-    */
-    
+
 }

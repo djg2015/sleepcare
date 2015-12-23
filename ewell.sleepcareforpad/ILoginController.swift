@@ -20,9 +20,7 @@ class ILoginController: IBaseViewController {
     @IBOutlet weak var btnRegist: BlueButtonForPhone!
     var iloginViewModel:IloginViewModel!
     @IBAction func TouchButton(sender: AnyObject) {
-//        var dateFormatter:NSDateFormatter  = NSDateFormatter()
-//        dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
-//        self.datapicker?.ShowDate(date: nil, returnformat:dateFormatter)
+
         var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
         let isLogin = xmppMsgManager!.Connect()
         if(!isLogin){
@@ -38,8 +36,6 @@ class ILoginController: IBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         datapicker = THDate(parentControl: self)
-//        var spinner:JHSpinnerView?
-//        spinner  = JHSpinnerView.showOnView(self.view, spinnerColor:UIColor.whiteColor(), overlay:.FullScreen, overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.6), fullCycleTime:4.0, text:"")
         rac_settings()
     }
     

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         NSThread.sleepForTimeInterval(1)
         //设置消息推送
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
-        
+        InitPlistFile()
         if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
             deviceType = "iphone"
             //设置启动界面
@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             self.window!.backgroundColor = UIColor.whiteColor()
             self.window!.makeKeyAndVisible()
             
-            InitPlistFile()
+            
             self.window!.rootViewController = UINavigationController(rootViewController:ILoginController(nibName:"ILogin", bundle:nil))
         }
         else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){

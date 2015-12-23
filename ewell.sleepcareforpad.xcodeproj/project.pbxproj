@@ -17,6 +17,7 @@
 		0DC228551C21527E00AF4737 /* IAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228541C21527E00AF4737 /* IAlarmViewController.swift */; };
 		0DC228571C224DD800AF4737 /* IAlarmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228561C224DD800AF4737 /* IAlarmHelper.swift */; };
 		0DC228591C23AE0900AF4737 /* IAlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228581C23AE0900AF4737 /* IAlarmViewModel.swift */; };
+		0DD1D1611C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1D15F1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m */; };
 		2C0615571BF46A2A00A3F90C /* IMySelfSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615561BF46A2A00A3F90C /* IMySelfSettingView.xib */; };
 		2C0615591BF46A5A00A3F90C /* IMySelfSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0615581BF46A5A00A3F90C /* IMySelfSettingController.swift */; };
 		2C06155B1BF4733000A3F90C /* settingBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06155A1BF4733000A3F90C /* settingBottom.png */; };
@@ -323,6 +324,9 @@
 		0DC228541C21527E00AF4737 /* IAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmViewController.swift; sourceTree = "<group>"; };
 		0DC228561C224DD800AF4737 /* IAlarmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmHelper.swift; sourceTree = "<group>"; };
 		0DC228581C23AE0900AF4737 /* IAlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmViewModel.swift; sourceTree = "<group>"; };
+		0DD1D15E1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCMoreOptionTableViewCell.h; sourceTree = "<group>"; };
+		0DD1D15F1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCMoreOptionTableViewCell.m; sourceTree = "<group>"; };
+		0DD1D1631C292AB100C8FEE3 /* MSCMoreOptionTableViewCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSCMoreOptionTableViewCellDelegate.h; sourceTree = "<group>"; };
 		2C06154C1BF465CC00A3F90C /* loginbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbackground.png; sourceTree = "<group>"; };
 		2C06154E1BF4660A00A3F90C /* logininputborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logininputborder.png; sourceTree = "<group>"; };
 		2C06154F1BF4660A00A3F90C /* loginname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginname.png; sourceTree = "<group>"; };
@@ -656,6 +660,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		0DD1D15D1C29279A00C8FEE3 /* MSCMoreOptionTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0DD1D15E1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.h */,
+				0DD1D1631C292AB100C8FEE3 /* MSCMoreOptionTableViewCellDelegate.h */,
+				0DD1D15F1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m */,
+			);
+			name = MSCMoreOptionTableViewCell;
+			sourceTree = "<group>";
+		};
 		3A13C9851BF2DBF400061CCF /* ipad */ = {
 			isa = PBXGroup;
 			children = (
@@ -814,6 +828,7 @@
 		3A31CE701BEC67440039DFD0 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				0DD1D15D1C29279A00C8FEE3 /* MSCMoreOptionTableViewCell */,
 				3A91B3671BFB259400DB3514 /* ChoosePatient */,
 				3A91B35F1BFB19E800DB3514 /* CommonTableView.swift */,
 				3AB3CB131BD762FE0067F9D4 /* MyPatientsTableView.swift */,
@@ -1679,6 +1694,7 @@
 				3A41ADE71BA7B425000C109B /* BaseViewController.swift in Sources */,
 				3A346BF81BCCD36200E75E4E /* SleepcareMainViewModel.swift in Sources */,
 				2C555B4B1BE341B8008A3AC9 /* QueryAlarmController.swift in Sources */,
+				0DD1D1611C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m in Sources */,
 				3A4B85C81BB14DFD006E4CF1 /* Worktask.swift in Sources */,
 				3A0252301C0563A000CA7EA3 /* IWeekSleepcareController.swift in Sources */,
 				3ACD645E1BFC577A00FB62BB /* IChoosePatientsViewModel.swift in Sources */,
