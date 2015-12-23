@@ -660,6 +660,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		0D4E5BEC1C2A72AD00D2ED92 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		0DD1D15D1C29279A00C8FEE3 /* MSCMoreOptionTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -946,6 +953,7 @@
 		3A41ADBD1BA7A65A000C109B /* ewell.sleepcareforpad */ = {
 			isa = PBXGroup;
 			children = (
+				0D4E5BEC1C2A72AD00D2ED92 /* Common */,
 				3AB3CB091BD762C50067F9D4 /* UILib */,
 				3A3646021BCB843E007C65EF /* CustomView */,
 				3AFF67A51BBA2F1D00C9CA20 /* Images */,

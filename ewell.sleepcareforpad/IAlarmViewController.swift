@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IAlarmViewController: IBaseViewController,UITableViewDelegate,UITableViewDataSource,MSCMoreOptionTableViewCellDelegate {
+class IAlarmViewController: IBaseViewController,UITableViewDelegate,UITableViewDataSource,MSCMoreOptionTableViewCellDelegate ,MoreOptionDelegate{
 
     @IBOutlet weak var alarmTableView: UITableView!
     @IBOutlet weak var imgBack: UIImageView!
@@ -74,7 +74,8 @@ class IAlarmViewController: IBaseViewController,UITableViewDelegate,UITableViewD
         if(cell == nil){
             cell = IAlarmTableViewCell()
         }
-        
+    
+        cell.moreoptionDelegate = self
         cell.CellLoadData(self._source[indexPath.row])
         return cell
         
@@ -103,5 +104,9 @@ class IAlarmViewController: IBaseViewController,UITableViewDelegate,UITableViewD
        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func MoreOption(indexPath:NSIndexPath){
+                self._source.removeAtIndex(indexPath.row)
+                self.alarmTableView.reloadData()}
 
 }

@@ -18,10 +18,11 @@ class IAlarmTableViewCell:MSCMoreOptionTableViewCell,MSCMoreOptionTableViewCellD
     @IBOutlet weak var txtAlarmContent: UITextView!
     
     var source:IAlarmTableCellViewModel!
+    var moreoptionDelegate:MoreOptionDelegate!
     
     func CellLoadData(data:IAlarmTableCellViewModel){
         self.delegate = self
-        
+        //self.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 125)
         source = IAlarmTableCellViewModel()
         source.AlarmCode = data.AlarmCode
         source.AlarmDate = data.AlarmDate
@@ -43,12 +44,15 @@ class IAlarmTableViewCell:MSCMoreOptionTableViewCell,MSCMoreOptionTableViewCellD
         return "处理"
     }
     //点击“处理”
-//    func tableView(tableView:UITableView, moreOptionButtonPressedInRowAtIndexPath indexPath:NSIndexPath){
-//        self._source[indexPath.row].moreAlarmHandler!(alarmViewModel: self._source[indexPath.row])
-//        self._source.removeAtIndex(indexPath.row)
-//        IAlarmHelper.GetAlarmInstance().Warningcouts = IAlarmHelper.GetAlarmInstance().Warningcouts - 1
-//        self.alarmTableView.reloadData()
-//    }
+    func tableView(tableView:UITableView, moreOptionButtonPressedInRowAtIndexPath indexPath:NSIndexPath){
+       // println(indexPath.row)
+        self.source.moreAlarmHandler!(alarmViewModel: self.source)
+        IAlarmHelper.GetAlarmInstance().Warningcouts = IAlarmHelper.GetAlarmInstance().Warningcouts - 1
+        if self.moreoptionDelegate != nil{
+        self.moreoptionDelegate.MoreOption(indexPath)
+        }
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -135,4 +139,6 @@ class IAlarmTableCellViewModel:NSObject{
 }
 
 
-
+protocol MoreOptionDelegate{
+func MoreOption(indexPath:NSIndexPath)
+}
