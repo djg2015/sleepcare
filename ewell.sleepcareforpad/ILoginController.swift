@@ -69,6 +69,9 @@ class ILoginController: IBaseViewController {
     }
 
     func imageViewTouch(){
-        self.presentViewController(IServerSettingController(nibName:"IServerSettingView", bundle:nil), animated: true, completion: nil)
+        var nextcontroller = IServerSettingController(nibName:"IServerSettingView", bundle:nil)
+        IViewControllerManager.ShowViewController(nextcontroller, reload: false)
+        
+//        self.presentViewController(IServerSettingController(nibName:"IServerSettingView", bundle:nil), animated: true, completion: nil)
     }
 }

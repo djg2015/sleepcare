@@ -27,8 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             self.window!.backgroundColor = UIColor.whiteColor()
             self.window!.makeKeyAndVisible()
             
+            var firstcontroler = ILoginController(nibName:"ILogin", bundle:nil)
+            IViewControllerManager.SetInstance(firstcontroler)
             
-            self.window!.rootViewController = UINavigationController(rootViewController:ILoginController(nibName:"ILogin", bundle:nil))
+            self.window!.rootViewController = UINavigationController(rootViewController:firstcontroler)
         }
         else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
 

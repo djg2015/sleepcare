@@ -67,7 +67,6 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         if (self.LoginName != "" && self.Pwd != ""){
             self.Login()
         }
-        //  等待指示消失
   
     }
     

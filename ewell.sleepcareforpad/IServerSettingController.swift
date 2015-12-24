@@ -10,7 +10,7 @@ import Foundation
 
 import UIKit
 
-class IServerSettingController:BaseViewController {
+class IServerSettingController:IBaseViewController {
     
     @IBOutlet weak var txtServerJid: UITextField!
     

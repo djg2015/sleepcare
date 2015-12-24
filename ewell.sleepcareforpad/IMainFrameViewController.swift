@@ -206,7 +206,9 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     }
     
     func GetAlarmCount(count:Int){
+        if count>0{
     self.lblAlarmCount.text = String(count)
+        }
     }
 
 }
