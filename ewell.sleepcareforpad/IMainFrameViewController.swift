@@ -209,6 +209,9 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         if count>0{
     self.lblAlarmCount.text = String(count)
         }
+        else{
+        self.lblAlarmCount.text = ""
+        }
     }
 
 }
