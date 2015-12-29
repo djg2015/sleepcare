@@ -35,7 +35,7 @@ class ISleepQualityMonitorViewModel: BaseViewModel {
                     {
                         self.ProcessValue = 60
                     }
-                    if(report.SleepQuality == "差")
+                    if(report.SleepQuality == "一般")
                     {
                         self.ProcessValue = 20
                     }

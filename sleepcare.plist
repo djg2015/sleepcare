@@ -7,17 +7,17 @@
 	<key>loginusernamephone</key>
 	<string></string>
 	<key>serverjid</key>
-	<string>ewell@124.160.93.152</string>
+	<string>ewell@122.224.242.241</string>
 	<key>loginusername</key>
 	<string>yuanzhang</string>
 	<key>loginuserpwd</key>
 	<string>123</string>
 	<key>xmppserver</key>
-	<string>124.160.93.152</string>
+	<string>122.224.242.241</string>
 	<key>xmppport</key>
 	<string>7018</string>
 	<key>xmppusername</key>
-	<string>pad@124.160.93.152</string>
+	<string>pad@122.224.242.241</string>
 	<key>xmppuserpwd</key>
 	<string>123</string>
 </dict>

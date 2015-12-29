@@ -42,7 +42,8 @@ class IServerSettingController:IBaseViewController {
     }
     
     func imageViewTouch(){
-        self.dismissViewControllerAnimated(true, completion: nil)
+      IViewControllerManager.GetInstance()!.CloseViewController()
+        //  self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func btnSave(sender: AnyObject) {
@@ -70,7 +71,8 @@ class IServerSettingController:IBaseViewController {
     
     func clickOK(action:UIAlertAction!)
     {
-        self.dismissViewControllerAnimated(true, completion: nil)
+      IViewControllerManager.GetInstance()!.CloseViewController()
+        //  self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

@@ -196,7 +196,8 @@ class IRegistViewModel:BaseViewModel {
     }
     //注册成功后处理
     func RegistSuccess(isOtherButton: Bool){
-        self.controllerForIphone?.dismissViewControllerAnimated(true, completion: nil)
+      IViewControllerManager.GetInstance()!.CloseViewController()
+        //  self.controllerForIphone?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     //注册

@@ -34,7 +34,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
             self._pwd=value
         }
     }
-
+    
     
     //界面处理命令
     var loginCommand: RACCommand?
@@ -53,11 +53,11 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         self.alarmHelper = IAlarmHelper.GetAlarmInstance()
         self.alarmHelper!.alarmdelegate = self
         
-
-        }
+        
+    }
     
     //自定义处理----------------------
-  
+    
     
     func AutoLogin(){
         //初始加载记住密码的相关配置数据
@@ -67,7 +67,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         if (self.LoginName != "" && self.Pwd != ""){
             self.Login()
         }
-  
+        
     }
     
     //登录
@@ -102,8 +102,14 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                     session!.OldPwd = self.Pwd
                     
                     if(loginUser.UserType == LoginUserType.UnKnow){
-                        let controller = ISetUserTypeController(nibName:"ISetUserType", bundle:nil)
-                        self.JumpPageForIpone(controller)
+                        if IViewControllerManager.IsExist("ISetUserType") {
+                            IViewControllerManager.GetInstance()!.ShowViewController(nil, nibName: "ISetUserType", reload: false)
+                        }
+                        else{
+                            let nextcontroller = ISetUserTypeController(nibName:"ISetUserType", bundle:nil)
+                            IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "ISetUserType", reload: false)
+                        }
+                        // self.JumpPageForIpone(nextcontroller)
                         
                     }
                     else{
@@ -114,24 +120,28 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                         
                         if(self.iBedUserList!.bedUserInfoList.count > 0){
                             if(loginUser.UserType == LoginUserType.UserSelf){
-                                 session!.BedUserCodeList!.append(self.iBedUserList!.bedUserInfoList[0].BedUserCode)
+                                session!.BedUserCodeList!.append(self.iBedUserList!.bedUserInfoList[0].BedUserCode)
                                 
-                                let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:self.iBedUserList!.bedUserInfoList[0].BedUserCode,equipmentID:self.iBedUserList!.bedUserInfoList[0].EquipmentID,bedUserName:self.iBedUserList!.bedUserInfoList[0].BedUserName)
-                                self.JumpPageForIpone(controller)
+                                let nextcontroller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:self.iBedUserList!.bedUserInfoList[0].BedUserCode,equipmentID:self.iBedUserList!.bedUserInfoList[0].EquipmentID,bedUserName:self.iBedUserList!.bedUserInfoList[0].BedUserName)
+                                IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IMainFrame", reload: true)
+                                
+                                //self.JumpPageForIpone(nextcontroller)
                             }
                             else{
                                 //跳转选择我的老人
-                                let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
-                                controller.isGoLogin = true
-                                self.JumpPageForIpone(controller)
+                                 let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
+                                    controller.isGoLogin = true
+                                    IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
                                 
+                                //self.JumpPageForIpone(controller)
                             }
                         }
                         else{
                             //跳转选择我的老人
                             let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
                             controller.isGoLogin = true
-                            self.JumpPageForIpone(controller)
+                            IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
+                            //self.JumpPageForIpone(controller)
                         }
                     }
                     
@@ -152,7 +162,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     
     func ShowAlarm() {
         let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
-        self.JumpPageForIpone(controller)
-     
+        // self.JumpPageForIpone(controller)
+        IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IAlarmView", reload: true)
     }
 }

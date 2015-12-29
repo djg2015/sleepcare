@@ -63,15 +63,20 @@ class IMySelfSettingController: IBaseViewController {
     @IBAction func btnExitLoginClick(sender: AnyObject) {
         SetValueIntoPlist("loginusernamephone", "")
         SetValueIntoPlist("loginuserpwdphone", "")
-
+        IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
         SessionForIphone.ClearSession()
         var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
         xmppMsgManager?.Close()
-        self.presentViewController(ILoginController(nibName:"ILogin", bundle:nil), animated: true, completion: nil)
+        
+        let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
+       // IViewControllerManager.GetInstance()!.SetRootController(logincontroller)
+        IViewControllerManager.GetInstance()!.ShowViewController(logincontroller, nibName: "ILogin", reload: true)
+        //  self.presentViewController(ILoginController(nibName:"ILogin", bundle:nil), animated: true, completion: nil)
     }
     
     func backToController(sender:UITapGestureRecognizer)
     {
-        self.dismissViewControllerAnimated(true, completion: nil)
+      IViewControllerManager.GetInstance()!.CloseViewController()
+        //  self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

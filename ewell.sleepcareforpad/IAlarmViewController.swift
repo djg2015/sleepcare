@@ -14,7 +14,7 @@ class IAlarmViewController: IBaseViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var imgBack: UIImageView!
     
     var alarmViewModel:IAlarmViewModel?
-     var _source:Array<IAlarmTableCellViewModel>!
+    var _source:Array<IAlarmTableCellViewModel>!
     var MSCMoreOptionDelegate:MSCMoreOptionTableViewCellDelegate!
  
     
@@ -35,11 +35,16 @@ class IAlarmViewController: IBaseViewController,UITableViewDelegate,UITableViewD
      
        self.MSCMoreOptionDelegate = self
            }
-  
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func Clean() {
+        self.alarmViewModel = nil
+        self._source = nil
+        self.MSCMoreOptionDelegate = nil
     }
     
       
@@ -101,12 +106,14 @@ class IAlarmViewController: IBaseViewController,UITableViewDelegate,UITableViewD
 
     func backToController(sender:UITapGestureRecognizer)
     {
-       
-        self.dismissViewControllerAnimated(true, completion: nil)
+       IViewControllerManager.GetInstance()!.CloseViewController()
+      //  self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func MoreOption(indexPath:NSIndexPath){
                 self._source.removeAtIndex(indexPath.row)
-                self.alarmTableView.reloadData()}
+                self.alarmTableView.reloadData()
+    }
 
+   
 }

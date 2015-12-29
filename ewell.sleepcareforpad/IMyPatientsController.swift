@@ -26,7 +26,7 @@ class IMyPatientsController: IBaseViewController {
             if(self.MyPatientsArray?.count == 0){
                 self.uiNewAdd.hidden = false
                 self.uiPatientList.hidden = true
-                }
+            }
             else{
                 self.uiNewAdd.hidden = true
                 self.uiPatientList.hidden = false
@@ -42,7 +42,7 @@ class IMyPatientsController: IBaseViewController {
         myPatientTable.frame = CGRectMake(0, 57, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-57)
         self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.FullScreen, overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.6), fullCycleTime:4.0, text:"")
         self.setTimer()
-     
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,7 +84,8 @@ class IMyPatientsController: IBaseViewController {
         self.btnBack!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-                self.dismissViewControllerAnimated(true, completion: nil)
+                IViewControllerManager.GetInstance()!.CloseViewController()
+                //self.dismissViewControllerAnimated(true, completion: nil)
                 
         }
         
@@ -100,14 +101,13 @@ class IMyPatientsController: IBaseViewController {
                     return
                 }
             }
-            
-            var controller = IChoosePatientsController(nibName: "IChoosePatients", bundle: nil, myPatientsViewModel: self.viewModel)
-            self.presentViewController(controller, animated: true, completion: nil)
-            
+            var nextcontroller = IChoosePatientsController(nibName:"IChoosePatients", bundle:nil, myPatientsViewModel: self.viewModel)
+            IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IChoosePatients",reload: true)
         }
         else{
             let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:nil,equipmentID:nil,bedUserName:nil)
-            self.presentViewController(controller, animated: true, completion: nil)
+            IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMainFrame", reload: true)
+            //  self.presentViewController(controller, animated: true, completion: nil)
         }
     }
     
@@ -118,10 +118,8 @@ class IMyPatientsController: IBaseViewController {
     
     //添加老人
     func imageaddPatientTouch(){
-        
-        var controller = IChoosePatientsController(nibName: "IChoosePatients", bundle: nil, myPatientsViewModel: self.viewModel)
-        self.presentViewController(controller, animated: true, completion: nil)
-        
+        var nextcontroller = IChoosePatientsController(nibName:"IChoosePatients", bundle:nil, myPatientsViewModel: self.viewModel)
+        IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IChoosePatients",reload: true)
     }
     //定时器查看是否已经载入数据
     func setTimer(){

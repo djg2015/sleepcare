@@ -39,7 +39,9 @@ class RealTimeReport:BaseMessage{
             result.HR = realTimeReport.elementForName("HR").stringValue()
             result.RR = realTimeReport.elementForName("RR").stringValue()
             result.BodyTemperature = realTimeReport.elementForName("BodyTemperature") != nil ?realTimeReport.elementForName("BodyTemperature").stringValue() : ""
+            if realTimeReport.elementForName("OnBedStatus") != nil{
             result.OnBedStatus = realTimeReport.elementForName("OnBedStatus").stringValue()
+            }
             result.MsgTime = realTimeReport.elementForName("MsgTime").stringValue()
             result.LastedLeaveTime = realTimeReport.elementForName("LastedLeaveTime") != nil ?realTimeReport.elementForName("LastedLeaveTime").stringValue() : ""
             result.LastedAvgHR = realTimeReport.elementForName("LastedAvgHR") != nil ?realTimeReport.elementForName("LastedAvgHR").stringValue() : ""

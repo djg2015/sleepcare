@@ -86,6 +86,7 @@ class IEmailViewModel: BaseViewModel {
                 showDialogMsg("邮件发送成功", title: nil)
                 // 跳转到前一个界面
                 self.ParentController.dismissSemiModalView()
+               //  IViewControllerManager.GetInstance()!.CloseViewController()
                 },
                 catch: { ex in
                     //异常处理

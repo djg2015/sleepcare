@@ -44,6 +44,7 @@ class IEmailViewController: IBaseViewController {
     }
     
     @IBAction func btnBackClick(sender: AnyObject) {
-        self.ParentController.dismissSemiModalView()
+       // IViewControllerManager.GetInstance()!.CloseViewController()
+         self.ParentController.dismissSemiModalView()
     }
 }

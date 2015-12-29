@@ -42,7 +42,9 @@ class ISetUserTypeViewModel: BaseViewModel {
                 loginUser.User?.UserType = userType
                 let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
                 controller.isGoLogin = true
-                self.JumpPageForIpone(controller)
+                
+                IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
+               // self.JumpPageForIpone(controller)
                 },
                 catch: { ex in
                     //异常处理

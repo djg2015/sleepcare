@@ -42,7 +42,8 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
         self.btnBack!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-                self.dismissViewControllerAnimated(true, completion: nil)
+                IViewControllerManager.GetInstance()!.CloseViewController()
+                //self.dismissViewControllerAnimated(true, completion: nil)
         }
         
         self.btnChooseRole!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)

@@ -11,18 +11,20 @@ import Foundation
 class IViewControllerManager {
     private static var instance:IViewControllerManager? = nil
     //当前控制器
-    private var _currentController:IBaseViewController?
-    var CurrentController:IBaseViewController?{
-        get{
+    var CurrentController:IBaseViewController?
+    
+    
+    //控制器列表，在array中的顺序 ＝ 页面打开的先后顺序
+    var ControllerList:Array<IBaseViewController>!{
+        didSet{
             var index = self.ControllerList.count - 1
-            return self.ControllerList[index]
-        }
-        set(value){
-            self._currentController = value
+            if index >= 0{
+                self.CurrentController = self.ControllerList[index]
+            }
         }
     }
-    //控制器列表，在array中的顺序 ＝ 页面打开的先后顺序
-    var ControllerList:Array<IBaseViewController> = []
+    
+    //   var RootController:UINavigationController?
     
     //-------------------方法----------------
     
@@ -30,6 +32,7 @@ class IViewControllerManager {
     class func GetInstance()->IViewControllerManager?{
         if self.instance == nil{
             self.instance = IViewControllerManager()
+            self.instance!.ControllerList = []
         }
         return self.instance!
     }
@@ -42,58 +45,55 @@ class IViewControllerManager {
         }
         return false
     }
-
     
     //设置根控制器
-    func SetRootController(firstcontroller:IBaseViewController){
-    self.ControllerList.append(firstcontroller)
-        //内存
+    func SetRootController(rootcontroller:IBaseViewController){
+        self.ControllerList.removeAll()
+        self.ControllerList.append(rootcontroller)
     }
-
+    
+    
     //跳转页面，显示
     func ShowViewController(nextcontroller:IBaseViewController?,nibName:String,reload:Bool){
         var index = self.GetIndex(nibName)
-        //当前已存在打开的viewcontroller,找到原有的控制器，打开，放至队尾
-        if nextcontroller == nil{
-         var controller = self.ControllerList.removeAtIndex(index)
-        self.CurrentController!.presentViewController(controller, animated: true, completion: nil)
-        self.ControllerList.append(controller)
-     
+        //当前已存在打开的viewcontroller,找到原有的控制器，打开并放至队尾
+        if nextcontroller == nil{  
+            var controller = self.ControllerList.removeAtIndex(index)
+            self.CurrentController!.presentViewController(controller, animated: true, completion: nil)
+            self.ControllerList.append(controller)
         }
-        //传入新控制器nextcontroller
+            //传入新控制器nextcontroller,打开nextcontroller并放到控制器队尾
         else{
-            //需要reload，则从控制器列表中取出并清除，打开nextcontroller并放到控制器队尾
-            if reload{
-                //则先手动关闭当前页
-                self.CurrentController!.dismissViewControllerAnimated(true, completion: nil)
-                self.ControllerList.removeAtIndex(index)
-                //释放内存空间
+            //需要reload，则从控制器列表中取出并清除
+            if reload && index>=0{
+                //从消息提示进入Ialarmview页面时，需要判断之前的页面是否为IAlarmView。是，则消失
+                if self.CurrentController!.nibName! == "IAlarmView"{
+                    self.CurrentController!.dismissViewControllerAnimated(true, completion: nil)
+                }
                 
-                
+                var removecontroller = self.ControllerList.removeAtIndex(index)
+                removecontroller.Clean()
             }
-            else{
-            
-            }
+            self.CurrentController!.presentViewController(nextcontroller!, animated: true, completion: nil)
+            self.ControllerList.append(nextcontroller!)
         }
-
     }
     
     //关闭当前页面，从控制器列表中移除并清除内存空间
-     func CloseViewController(){
-        self.CurrentController!.dismissViewControllerAnimated(true, completion: nil)
+    func CloseViewController(){
+        self.CurrentController!.dismissViewControllerAnimated(false, completion: nil)
+        
         var index = self.ControllerList.count - 1
-        self.ControllerList.removeAtIndex(index)
-        //销毁指针，释放内存
-        
-        
+        var removecontroller = self.ControllerList.removeAtIndex(index)
+        removecontroller.Clean()
     }
     
     //判断控制器列表中找名为nibname的控制器,返回index值； 不存在，返回 －1
     func GetIndex(nibName:String)->Int{
         for(var i = 0; i<self.ControllerList.count; i++){
-        if self.ControllerList[i].nibName == nibName{
-            return i
-        }
+            if self.ControllerList[i].nibName == nibName{
+                return i
+            }
         }
         return -1
     }

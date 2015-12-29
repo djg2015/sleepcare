@@ -72,6 +72,7 @@ class IChoosePatientsController: IBaseViewController {
     
     //返回
     func imageViewTouch(){
-        self.dismissViewControllerAnimated(true, completion: nil)
+        IViewControllerManager.GetInstance()!.CloseViewController()
+      //  self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

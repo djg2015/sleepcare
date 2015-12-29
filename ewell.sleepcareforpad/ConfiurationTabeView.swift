@@ -91,7 +91,10 @@ class ConfiurationTabeView: UITableView, UITableViewDelegate,UITableViewDataSour
         var controller:IBaseViewController = self.tableViewDataSource[selectedNumber].configrationController
         if(controller.nibName != nil)
         {
-            self.parentController!.presentViewController(controller, animated: true, completion: nil)
+           
+            IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: controller.nibName!, reload: false)
+        
+            //  self.parentController!.presentViewController(controller, animated: true, completion: nil)
         }
     }
 }

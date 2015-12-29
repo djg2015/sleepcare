@@ -60,7 +60,9 @@ class ILoginController: IBaseViewController {
         self.btnRegist!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-                self.presentViewController(IRegistViewController(nibName: "IRegist", bundle: nil), animated: true, completion: nil)
+             var nextcontroller = IRegistViewController(nibName: "IRegist", bundle: nil)
+             IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IRegist",reload: true)
+           //     self.presentViewController(IRegistViewController(nibName: "IRegist", bundle: nil), animated: true, completion: nil)
         }
         // 给图片添加手势
         self.imgTitle.userInteractionEnabled = true
@@ -69,9 +71,13 @@ class ILoginController: IBaseViewController {
     }
 
     func imageViewTouch(){
-//        var nextcontroller = IServerSettingController(nibName:"IServerSettingView", bundle:nil)
-//        IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, "IServerSettingView",reload: false)
-        
-        self.presentViewController(IServerSettingController(nibName:"IServerSettingView", bundle:nil), animated: true, completion: nil)
+        if IViewControllerManager.IsExist("IServerSettingView"){
+            IViewControllerManager.GetInstance()!.ShowViewController(nil, nibName: "IServerSettingView",reload: false)
+        }
+        else{
+             var nextcontroller = IServerSettingController(nibName:"IServerSettingView", bundle:nil)
+            IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IServerSettingView",reload: false)
+        }
+     //   self.presentViewController(IServerSettingController(nibName:"IServerSettingView", bundle:nil), animated: true, completion: nil)
     }
 }

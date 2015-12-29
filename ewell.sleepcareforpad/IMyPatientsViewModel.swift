@@ -139,7 +139,8 @@ class IMyPatientsViewModel: BaseViewModel,RealTimeDelegate {
     //显示某个床位用户体征明细
     func ShowPatientDetail(myPatientsTableViewModel:MyPatientsTableCellViewModel){
         let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:myPatientsTableViewModel.BedUserCode!,equipmentID:myPatientsTableViewModel.EquipmentID,bedUserName:myPatientsTableViewModel.BedUserName!)
-        self.JumpPageForIpone(controller)
+        IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMainFrame", reload: true)
+        //self.JumpPageForIpone(controller)
     }
     
     //移除指定床位用户

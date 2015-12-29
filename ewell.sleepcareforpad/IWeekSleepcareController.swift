@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IWeekSleepcareController: UIViewController {
+class IWeekSleepcareController: IBaseViewController {
     @IBOutlet weak var svSleep: UIScrollView!
     @IBOutlet weak var btnBack: UIButton!
     let height1:CGFloat = 167
@@ -84,7 +84,8 @@ class IWeekSleepcareController: UIViewController {
         self.btnBack!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-                self.dismissViewControllerAnimated(true, completion: nil)
+                IViewControllerManager.GetInstance()!.CloseViewController()
+              //  self.dismissViewControllerAnimated(true, completion: nil)
                 
         }
         

@@ -23,15 +23,10 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleAspectFit" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxr-Yh-Ke0">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="522"/>
-                    <animations/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </scrollView>
                 <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="X0g-J8-7mf" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="522" width="320" height="46"/>
                     <subviews>
@@ -39,10 +34,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="80" height="46"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIf-KA-XRx">
-                                    <rect key="frame" x="19" y="4" width="38" height="38"/>
+                                    <rect key="frame" x="21" y="4" width="33" height="38"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="38" id="ihT-B6-Bch"/>
+                                        <constraint firstAttribute="width" constant="33" id="ihT-B6-Bch"/>
                                         <constraint firstAttribute="height" constant="38" id="tzs-ea-afO"/>
                                     </constraints>
                                     <state key="normal" backgroundImage="hrmenu.png">
@@ -61,10 +56,10 @@
                             <rect key="frame" x="80" y="0.0" width="80" height="46"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ba3-0k-MEB">
-                                    <rect key="frame" x="19" y="4" width="38" height="38"/>
+                                    <rect key="frame" x="21" y="4" width="35" height="38"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="38" id="iUh-KE-LwL"/>
+                                        <constraint firstAttribute="width" constant="35" id="iUh-KE-LwL"/>
                                         <constraint firstAttribute="height" constant="38" id="uDW-rv-gyW"/>
                                     </constraints>
                                     <state key="normal" backgroundImage="rrmenu.png">
@@ -83,11 +78,11 @@
                             <rect key="frame" x="160" y="0.0" width="80" height="46"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kN-Bp-8NA">
-                                    <rect key="frame" x="19" y="4" width="38" height="38"/>
+                                    <rect key="frame" x="23" y="4" width="31" height="38"/>
                                     <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="38" id="eiH-38-jvN"/>
-                                        <constraint firstAttribute="width" constant="38" id="iNu-dL-d3L"/>
+                                        <constraint firstAttribute="width" constant="31" id="iNu-dL-d3L"/>
                                     </constraints>
                                     <state key="normal" backgroundImage="sleepmenu.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,10 +100,10 @@
                             <rect key="frame" x="240" y="0.0" width="80" height="46"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGK-79-fv5">
-                                    <rect key="frame" x="19" y="4" width="38" height="38"/>
+                                    <rect key="frame" x="22" y="4" width="33" height="38"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="38" id="X23-C4-Dew"/>
+                                        <constraint firstAttribute="width" constant="33" id="X23-C4-Dew"/>
                                         <constraint firstAttribute="height" constant="38" id="gi8-JJ-CQJ"/>
                                     </constraints>
                                     <state key="normal" backgroundImage="memenu.png">
@@ -158,6 +153,11 @@
                         <constraint firstItem="QZh-lY-C7C" firstAttribute="top" secondItem="X0g-J8-7mf" secondAttribute="top" id="ra5-vX-Ib9"/>
                     </constraints>
                 </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxr-Yh-Ke0">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="522"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </scrollView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
