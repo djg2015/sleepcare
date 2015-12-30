@@ -154,11 +154,11 @@ class IRegistViewModel:BaseViewModel {
     func Modify() -> RACSignal{
         try {
             ({
-                
-                if(self.LoginName == ""){
-                    showDialogMsg("账户名不能为空！")
-                    return
-                }
+//                
+//                if(self.LoginName == ""){
+//                    showDialogMsg("账户名不能为空！")
+//                    return
+//                }
                 if(self.Pwd == ""){
                     showDialogMsg("密码不能为空！")
                     return
@@ -192,7 +192,8 @@ class IRegistViewModel:BaseViewModel {
     
     //失去连接后处理
     func ConnectLost(isOtherButton: Bool){
-        self.controllerForIphone?.dismissViewControllerAnimated(true, completion: nil)
+        IViewControllerManager.GetInstance()!.CloseViewController()
+        // self.controllerForIphone?.dismissViewControllerAnimated(true, completion: nil)
     }
     //注册成功后处理
     func RegistSuccess(isOtherButton: Bool){

@@ -69,7 +69,6 @@ class IMySelfSettingController: IBaseViewController {
         xmppMsgManager?.Close()
         
         let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
-       // IViewControllerManager.GetInstance()!.SetRootController(logincontroller)
         IViewControllerManager.GetInstance()!.ShowViewController(logincontroller, nibName: "ILogin", reload: true)
         //  self.presentViewController(ILoginController(nibName:"ILogin", bundle:nil), animated: true, completion: nil)
     }

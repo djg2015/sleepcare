@@ -61,7 +61,7 @@ class IAccountSetController: IBaseViewController, PopDownListItemChoosed{
                     self.popDownListForIphone = PopDownListForIphone()
                     self.popDownListForIphone?.delegate = self
                 }
-                self.popDownListForIphone?.Show("选择养老院/医院", source:self.iRegistViewModel!.MainBusinesses,selectedCode:self.iRegistViewModel.MainCode)
+                self.popDownListForIphone?.Show("选择养老院/医院", source:self.iRegistViewModel!.MainBusinesses)
         }
     }
     

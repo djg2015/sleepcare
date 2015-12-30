@@ -46,7 +46,7 @@ class XmppMsgManager:MessageDelegate{
             var sec:NSTimeInterval = 0
             while _xmppMsgHelper!.loginFlag == 0 {
                 sec = NSDate().timeIntervalSinceDate(curTime)
-                if(sec > 20){
+                if(sec > 5){
                     return false
                 }
             }
@@ -76,8 +76,8 @@ class XmppMsgManager:MessageDelegate{
         var sec:NSTimeInterval = 0
         while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {
             sec = NSDate().timeIntervalSinceDate(curTime)
-            if(sec > 20){
-                return nil
+            if(sec > 7){
+                throw("-2", "无法连接远程服务器，请检查网络并重试")
             }
         }
         

@@ -65,10 +65,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         UIApplication.sharedApplication().applicationIconBadgeNumber = overdueItems.count
     }
     
-    //按home键后执行
+    
     func applicationDidEnterBackground(application: UIApplication) {
         self.isBackRun = true
-        
+        //按home键后执行，若当前页为Ialarmview，则关闭
         IViewControllerManager.GetInstance()!.IsCurrentAlarmView()
         //如果已存在后台任务，先将其设为完成
         if self.backgroundTask != nil {
@@ -97,8 +97,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
         if(xmppMsgManager?.isInstance == true){
             let isLogin = xmppMsgManager!.Connect()
+            
             if(!isLogin){
-                showDialogMsg("远程通讯服务器连接不上，请关闭重新登录！")
+                //无法连接，退出当前程序，显示登录页面
+                NSNotificationCenter.defaultCenter().postNotificationName("ReConnectInternet", object: self)
             }
         }
     }

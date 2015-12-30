@@ -102,6 +102,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     func BeginWaringAttention(){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWariningAction", name: "TodoListShouldRefresh", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "CloseWaringAttention", name: "WarningClose", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,selector:"ReConnect", name:"ReConnectInternet", object: nil)
         self.IsOpen = true
         
         //清除已经overdue的todoitem
@@ -113,11 +114,21 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         self.Warningcouts = TodoList.sharedInstance.allItems().count
         self.setAlarmTimer()
     }
-    
+    //显示报警信息
     func showWariningAction(){
         if self.alarmdelegate != nil {
             self.alarmdelegate.ShowAlarm()
         }
+    }
+    //断网后，重新登录
+    func ReConnect(){
+        IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
+        SessionForIphone.ClearSession()
+
+        let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
+        IViewControllerManager.GetInstance()!.ShowViewController(logincontroller, nibName: "ILogin", reload: true)
+        
+
     }
     
     //关闭报警提醒
