@@ -18,6 +18,8 @@
 		0DC228551C21527E00AF4737 /* IAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228541C21527E00AF4737 /* IAlarmViewController.swift */; };
 		0DC228571C224DD800AF4737 /* IAlarmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228561C224DD800AF4737 /* IAlarmHelper.swift */; };
 		0DC228591C23AE0900AF4737 /* IAlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228581C23AE0900AF4737 /* IAlarmViewModel.swift */; };
+		0DCC7AB71C337CE000CC2498 /* none_alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DCC7AB61C337CE000CC2498 /* none_alarm.png */; };
+		0DCC7ABB1C337EC800CC2498 /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DCC7ABA1C337EC800CC2498 /* alarm.png */; };
 		0DD1D1611C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1D15F1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m */; };
 		2C0615571BF46A2A00A3F90C /* IMySelfSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615561BF46A2A00A3F90C /* IMySelfSettingView.xib */; };
 		2C0615591BF46A5A00A3F90C /* IMySelfSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0615581BF46A5A00A3F90C /* IMySelfSettingController.swift */; };
@@ -326,6 +328,8 @@
 		0DC228541C21527E00AF4737 /* IAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmViewController.swift; sourceTree = "<group>"; };
 		0DC228561C224DD800AF4737 /* IAlarmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmHelper.swift; sourceTree = "<group>"; };
 		0DC228581C23AE0900AF4737 /* IAlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmViewModel.swift; sourceTree = "<group>"; };
+		0DCC7AB61C337CE000CC2498 /* none_alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = none_alarm.png; sourceTree = "<group>"; };
+		0DCC7ABA1C337EC800CC2498 /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
 		0DD1D15E1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCMoreOptionTableViewCell.h; sourceTree = "<group>"; };
 		0DD1D15F1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCMoreOptionTableViewCell.m; sourceTree = "<group>"; };
 		0DD1D1631C292AB100C8FEE3 /* MSCMoreOptionTableViewCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSCMoreOptionTableViewCellDelegate.h; sourceTree = "<group>"; };
@@ -871,6 +875,8 @@
 			children = (
 				3A881B691BFC42D4005F4D07 /* blueBtnBack.png */,
 				3A881B631BFC1EF3005F4D07 /* unchecked.png */,
+				0DCC7ABA1C337EC800CC2498 /* alarm.png */,
+				0DCC7AB61C337CE000CC2498 /* none_alarm.png */,
 				3A881B641BFC1EF3005F4D07 /* checked.png */,
 				3A8382D21BFACC7B00E4CC15 /* goright.png */,
 				3A8382D31BFACC7B00E4CC15 /* greenpoint.png */,
@@ -1480,6 +1486,7 @@
 				3A3C377A1BD48F0B00080D03 /* trunrecord.png in Resources */,
 				2C2F83851BD5DE2F008CD92B /* back.png in Resources */,
 				3A91F0B01BF0475400C470D4 /* THDatePickerViewController.xib in Resources */,
+				0DCC7AB71C337CE000CC2498 /* none_alarm.png in Resources */,
 				2C555B491BE341A0008A3AC9 /* QueryAlarmView.xib in Resources */,
 				3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */,
 				3A39CA0E1BF2FEF40024DD3E /* hrmenu.png in Resources */,
@@ -1492,6 +1499,7 @@
 				3A02522E1C055FB700CA7EA3 /* IWeekSleepcare.xib in Resources */,
 				3A9C12F61BC789C6008EC314 /* clock.png in Resources */,
 				2C0615801BF48C4900A3F90C /* sleepQualitySelector.png in Resources */,
+				0DCC7ABB1C337EC800CC2498 /* alarm.png in Resources */,
 				3A9C12F51BC789C6008EC314 /* unlineView.png in Resources */,
 				3A91F0AB1BF0475400C470D4 /* dialog_ok.png in Resources */,
 				3AFB93921BCF96F200042AF1 /* loginTitle.png in Resources */,

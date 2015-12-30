@@ -160,6 +160,7 @@ class IMyPatientsViewModel: BaseViewModel,RealTimeDelegate {
                     }
                     session!.BedUserCodeList = tempList
                     
+                    IAlarmHelper.GetAlarmInstance().DeletePatientAlarm(myPatientsTableViewModel.BedUserName!)
                     sleepCareForIPhoneBussinessManager.RemoveFollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode!)
                     },
                     catch: { ex in

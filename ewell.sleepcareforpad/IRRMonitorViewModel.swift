@@ -117,7 +117,7 @@ class IRRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     
     required init(bedUserCode:String) {
         super.init()
-        
+        try {({
         self.BedUserCode = bedUserCode
         //实时数据处理代理设置
         var xmppMsgManager = XmppMsgManager.GetInstance()
@@ -132,9 +132,17 @@ class IRRMonitorViewModel: BaseViewModel,RealTimeDelegate {
             var rrRange:IRRRange = sleepCareForIPhoneBLL.GetRRTimeReport(self.BedUserCode!)
             
             for report in rrRange.rrTimeReportList{
-                _rrTimeReport.append(report)
+                self._rrTimeReport.append(report)
             }
         }
+    },
+    catch: { ex in
+    //异常处理
+    handleException(ex,showDialog: true)
+    },
+    finally: {
+    }
+    )}
     }
     
     //实时数据显示

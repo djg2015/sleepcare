@@ -14,6 +14,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     private var IsOpen:Bool = false
     var alarmdelegate:ShowAlarmDelegate!
     var alarmcountdelegate:GetAlarmCountDelegate!
+    var alarmpicdelegate:SetAlarmPicDelegate!
     private var _wariningCaches:Array<AlarmInfo>!
     
     var _warningcouts:Int = 0
@@ -65,6 +66,36 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             self.alarmInstance!._wariningCaches = Array<AlarmInfo>()
         }
         return self.alarmInstance!
+    }
+    
+    //取消对某个病人的关注，需要删除todolist(和warningList,codes)里对应的报警信息
+    func DeletePatientAlarm(username:String){
+        var currentCount = self.WarningList.count
+        var willDeleteCodes = Array<String>()
+        for(var i = 0;i<currentCount;i++){
+            if self.WarningList[i].UserName == username{
+               TodoList.sharedInstance.removeItemByID(self.WarningList[i].AlarmCode)
+                willDeleteCodes.append(self.WarningList[i].AlarmCode)
+            }
+        }
+        
+        for(var i=0;i<willDeleteCodes.count;i++){
+            for(var j=0;j<self.Codes.count;j++){
+                if self.Codes[j] == willDeleteCodes[i]{
+                self.Codes.removeAtIndex(j)
+                    break
+                }
+            }
+        }
+        
+        for(var i=0;i<willDeleteCodes.count;i++){
+            for(var j=0;j<self.WarningList.count;j++){
+                if self.WarningList[j].AlarmCode == willDeleteCodes[i]{
+                    self.WarningList.removeAtIndex(j)
+                    break
+                }
+            }
+        }
     }
     
     //开始报警提醒
@@ -120,6 +151,10 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         if self.alarmcountdelegate != nil{
             self.alarmcountdelegate.GetAlarmCount(TodoList.sharedInstance.allItems().count)
         }
+        
+        if self.alarmpicdelegate != nil{
+        self.alarmpicdelegate.SetAlarmPic()
+        }
     }
     
     //获取原始报警数据warningcaches,通过bedcode过滤为需要的报警信息
@@ -157,13 +192,16 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     }
     
 }
-
+//设置”我的“页面报警信息图标
+protocol SetAlarmPicDelegate{
+func SetAlarmPic()
+}
 
 //代理，跳转alarm信息页面
 protocol ShowAlarmDelegate{
     func ShowAlarm()
 }
-////在imainframe页面中设置警告数
+//在imainframe页面中设置警告数
 protocol GetAlarmCountDelegate{
     func GetAlarmCount(count:Int)
 }

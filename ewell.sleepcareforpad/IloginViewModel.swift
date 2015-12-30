@@ -102,7 +102,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                     session!.OldPwd = self.Pwd
                     
                     if(loginUser.UserType == LoginUserType.UnKnow){
-                        if IViewControllerManager.IsExist("ISetUserType") {
+                        if IViewControllerManager.GetInstance()!.IsExist("ISetUserType") {
                             IViewControllerManager.GetInstance()!.ShowViewController(nil, nibName: "ISetUserType", reload: false)
                         }
                         else{

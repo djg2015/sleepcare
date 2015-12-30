@@ -91,8 +91,11 @@ class ConfiurationTabeView: UITableView, UITableViewDelegate,UITableViewDataSour
         var controller:IBaseViewController = self.tableViewDataSource[selectedNumber].configrationController
         if(controller.nibName != nil)
         {
+            if controller.nibName! == "IAlarmView"{
+            controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
+            }
            
-            IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: controller.nibName!, reload: false)
+            IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: controller.nibName!, reload: true)
         
             //  self.parentController!.presentViewController(controller, animated: true, completion: nil)
         }

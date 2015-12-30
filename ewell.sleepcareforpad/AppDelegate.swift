@@ -65,8 +65,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         UIApplication.sharedApplication().applicationIconBadgeNumber = overdueItems.count
     }
     
+    //按home键后执行
     func applicationDidEnterBackground(application: UIApplication) {
         self.isBackRun = true
+        
+        IViewControllerManager.GetInstance()!.IsCurrentAlarmView()
         //如果已存在后台任务，先将其设为完成
         if self.backgroundTask != nil {
             application.endBackgroundTask(self.backgroundTask)

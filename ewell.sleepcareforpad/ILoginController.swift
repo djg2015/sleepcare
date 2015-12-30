@@ -71,7 +71,7 @@ class ILoginController: IBaseViewController {
     }
 
     func imageViewTouch(){
-        if IViewControllerManager.IsExist("IServerSettingView"){
+        if IViewControllerManager.GetInstance()!.IsExist("IServerSettingView"){
             IViewControllerManager.GetInstance()!.ShowViewController(nil, nibName: "IServerSettingView",reload: false)
         }
         else{

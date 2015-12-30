@@ -19,8 +19,8 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     @IBOutlet weak var btnRR: UIButton!
     @IBOutlet weak var btnSleep: UIButton!
     @IBOutlet weak var btnMe: UIButton!
-    
     @IBOutlet weak var lblAlarmCount: UILabel!
+    
     var spinner:JHSpinnerView?
     
     var _curMenu:BackgroundCommon?
@@ -61,76 +61,41 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         IAlarmHelper.GetAlarmInstance().alarmcountdelegate = self
-    
+        
         
         self.svMain.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-46)
         
-   
+        //右划
+        var swipeRightGesture = UISwipeGestureRecognizer(target: self, action: "handleSwipeGesture:")
+        swipeRightGesture.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeRightGesture)
+        //左划
+        var swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: "handleSwipeGesture:")
+        swipeLeftGesture.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(swipeLeftGesture)
+        
         //设置按钮事件
         self.btnHR!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-                if(nil != self.bedUserCode)
-                {
-                   self.curMenu = self.uiHR
-                    let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
-                    
-                    iHRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
-                    
-                    iHRMonitorView.HRdelegate = self
-                    
-                    self.showBody(iHRMonitorView,nibName: "IHRMonitor")
-                }
-                else
-                {
-                    showDialogMsg("请先到【我】->【我的老人】下选择一位老人再查看！", title: "")
-                }
+                self.ClickHR()
         }
         self.btnRR!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-                if(nil != self.bedUserCode)
-                {
-                    self.curMenu = self.uiRR
-                    let iRRMonitorView = NSBundle.mainBundle().loadNibNamed("IRRMonitor", owner: self, options: nil).first as! IRRMonitor
-                    
-                    iRRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!, bedUserName: self.bedUserName!)
-                    iRRMonitorView.RRdelegate = self
-                    
-                    self.showBody(iRRMonitorView,nibName: "IRRMonitor")
-                }
-                else
-                {
-                    showDialogMsg("请先到【我】->【我的老人】下选择一位老人再查看！", title: "")
-                }
+               self.ClickRR()
         }
         self.btnSleep!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-                if(nil != self.bedUserCode)
-                {
-                    self.curMenu = self.uiSleepCare
-                    let sleepQualityMonitorView = NSBundle.mainBundle().loadNibNamed("ISleepQualityMonitor", owner: self, options: nil).first as! ISleepQualityMonitor
-                    
-                    sleepQualityMonitorView.viewInit(self,bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
-                    
-                    self.showBody(sleepQualityMonitorView,nibName: "ISleepQualityMonitor")
-                }
-                else
-                {
-                    showDialogMsg("请先到【我】->【我的老人】下选择一位老人再查看！", title: "")
-                }
+                self.ClickSleep()
         }
         self.btnMe!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-                self.curMenu = self.uiMe
-                let selfConfiguration = NSBundle.mainBundle().loadNibNamed("IMySelfConfiguration", owner: self, options: nil).first as! IMySelfConfiguration
-                
-                selfConfiguration.viewInit(self, bedUserCode: self.bedUserCode,equipmentID: self.equipmentID)
-                self.showBody(selfConfiguration,nibName: "IMySelfConfiguration")
+               self.ClickMe()
         }
         
         //设置主体界面
@@ -139,7 +104,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
             let firstVew = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
             firstVew.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
             
-            firstVew.HRdelegate = self 
+            firstVew.HRdelegate = self
             
             showBody(firstVew, nibName:"IHRMonitor")
         }
@@ -153,22 +118,109 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         
     }
     
-    func LoadingView() {
-        
-          self.spinner  = JHSpinnerView.showOnView(self.svMain, spinnerColor:UIColor.whiteColor(), overlay:.FullScreen, overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.6), fullCycleTime:4.0, text:"")
+    func ClickHR(){
+        if(nil != self.bedUserCode)
+        {
+            self.curMenu = self.uiHR
+            let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
+            
+            iHRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
+            
+            iHRMonitorView.HRdelegate = self
+            
+            self.showBody(iHRMonitorView,nibName: "IHRMonitor")
+        }
+        else
+        {
+            showDialogMsg("请先到【我】->【我的老人】下选择一位老人再查看！", title: "")
+        }
         
     }
-
+    
+    func ClickRR(){
+        if(nil != self.bedUserCode)
+        {
+            self.curMenu = self.uiRR
+            let iRRMonitorView = NSBundle.mainBundle().loadNibNamed("IRRMonitor", owner: self, options: nil).first as! IRRMonitor
+            
+            iRRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!, bedUserName: self.bedUserName!)
+            iRRMonitorView.RRdelegate = self
+            
+            self.showBody(iRRMonitorView,nibName: "IRRMonitor")
+        }
+        else
+        {
+            showDialogMsg("请先到【我】->【我的老人】下选择一位老人再查看！", title: "")
+        }
+    }
+    
+    func ClickSleep(){
+        if(nil != self.bedUserCode)
+        {
+            self.curMenu = self.uiSleepCare
+            let sleepQualityMonitorView = NSBundle.mainBundle().loadNibNamed("ISleepQualityMonitor", owner: self, options: nil).first as! ISleepQualityMonitor
+            
+            sleepQualityMonitorView.viewInit(self,bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
+            
+            self.showBody(sleepQualityMonitorView,nibName: "ISleepQualityMonitor")
+        }
+        else
+        {
+            showDialogMsg("请先到【我】->【我的老人】下选择一位老人再查看！", title: "")
+        }
+}
+    func ClickMe(){
+        self.curMenu = self.uiMe
+        let selfConfiguration = NSBundle.mainBundle().loadNibNamed("IMySelfConfiguration", owner: self, options: nil).first as! IMySelfConfiguration
+        
+        selfConfiguration.viewInit(self, bedUserCode: self.bedUserCode,equipmentID: self.equipmentID)
+        self.showBody(selfConfiguration,nibName: "IMySelfConfiguration")
+    }
+    
+    //左右滑动手势，对应菜单改变
+    func handleSwipeGesture(sender: UISwipeGestureRecognizer){
+        var direction = sender.direction
+        //判断是左右
+        switch (direction){
+        case UISwipeGestureRecognizerDirection.Left:
+            if self.curMenu == self.uiHR{
+                self.ClickRR()
+            }else if self.curMenu == self.uiRR{
+            self.ClickSleep()
+            }else if self.curMenu == self.uiSleepCare{
+            self.ClickMe()
+            }
+            break
+        case UISwipeGestureRecognizerDirection.Right:
+            if self.curMenu == self.uiMe{
+                self.ClickSleep()
+            }else if self.curMenu == self.uiSleepCare{
+                self.ClickRR()
+            }else if self.curMenu == self.uiRR{
+                self.ClickHR()
+            }
+            break
+        default:
+            break
+        }
+    }
+    
+    func LoadingView() {
+        
+        self.spinner  = JHSpinnerView.showOnView(self.svMain, spinnerColor:UIColor.whiteColor(), overlay:.FullScreen, overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.6), fullCycleTime:4.0, text:"")
+        
+    }
+    
     //显示菜单界面
     func showBody(jumpview:UIView, nibName:String){
         //        for(var i = 0 ; i < self.svMain.subviews.count; i++) {
         //            self.svMain.subviews[i].removeFromSuperview()
         //        }
-      
+        
         jumpview.frame = CGRectMake(0, 0, self.svMain.frame.width, self.svMain.frame.height)
         self.svMain.addSubview(jumpview)
         if nibName == "IHRMonitor" || nibName == "IRRMonitor"{
-        self.LoadingView()
+            self.LoadingView()
         }
     }
     
@@ -179,7 +231,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     func CloseLoadingRR(){
         self.spinner!.dismiss()
     }
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -207,11 +259,11 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     
     func GetAlarmCount(count:Int){
         if count>0{
-    self.lblAlarmCount.text = String(count)
+            self.lblAlarmCount.text = String(count)
         }
         else{
-        self.lblAlarmCount.text = ""
+            self.lblAlarmCount.text = ""
         }
     }
-
+    
 }

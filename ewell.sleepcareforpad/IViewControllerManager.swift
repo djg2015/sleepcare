@@ -37,9 +37,9 @@ class IViewControllerManager {
         return self.instance!
     }
     
-    class func IsExist(nibName:String)->Bool{
-        for(var i = 0; i<self.instance!.ControllerList.count; i++){
-            if self.instance!.ControllerList[i].nibName == nibName{
+    func IsExist(nibName:String)->Bool{
+        for(var i = 0; i<self.ControllerList.count; i++){
+            if self.ControllerList[i].nibName == nibName{
                 return true
             }
         }
@@ -52,6 +52,15 @@ class IViewControllerManager {
         self.ControllerList.append(rootcontroller)
     }
     
+    //按home键后执行该程序，判断当前页面是否为IAlarmView。是，则关闭
+    func IsCurrentAlarmView(){
+        if self.ControllerList.last.nibName == "IAlarmView"{
+            var index = self.ControllerList.count - 1
+            self.ControllerList[index].dismissViewControllerAnimated(false, completion: nil)
+            var removecontroller = self.ControllerList.removeAtIndex(index)
+            removecontroller.Clean()
+        }
+    }
     
     //跳转页面，显示
     func ShowViewController(nextcontroller:IBaseViewController?,nibName:String,reload:Bool){
@@ -64,13 +73,8 @@ class IViewControllerManager {
         }
             //传入新控制器nextcontroller,打开nextcontroller并放到控制器队尾
         else{
-            //需要reload，则从控制器列表中取出并清除
+             //需要reload，则从控制器列表中取出并清除
             if reload && index>=0{
-                //从消息提示进入Ialarmview页面时，需要判断之前的页面是否为IAlarmView。是，则消失
-                if self.CurrentController!.nibName! == "IAlarmView"{
-                    self.CurrentController!.dismissViewControllerAnimated(true, completion: nil)
-                }
-                
                 var removecontroller = self.ControllerList.removeAtIndex(index)
                 removecontroller.Clean()
             }
@@ -82,7 +86,6 @@ class IViewControllerManager {
     //关闭当前页面，从控制器列表中移除并清除内存空间
     func CloseViewController(){
         self.CurrentController!.dismissViewControllerAnimated(false, completion: nil)
-        
         var index = self.ControllerList.count - 1
         var removecontroller = self.ControllerList.removeAtIndex(index)
         removecontroller.Clean()

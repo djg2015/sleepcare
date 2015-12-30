@@ -32,7 +32,7 @@ class IAlarmViewModel: BaseViewModel {
     func LoadData(){
         try {
             ({
-                var todolist:Array<TodoItem> = TodoList.sharedInstance.allItems()
+               // var todolist:Array<TodoItem> = TodoList.sharedInstance.allItems()
                 var tempAlarmArray = Array<IAlarmTableCellViewModel>()
                 //                var dateFormatter = NSDateFormatter()
                 //                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

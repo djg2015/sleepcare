@@ -170,7 +170,7 @@
                 <constraint firstAttribute="trailing" secondItem="X0g-J8-7mf" secondAttribute="trailing" id="pzq-Cl-EDj"/>
                 <constraint firstAttribute="bottom" secondItem="bxr-Yh-Ke0" secondAttribute="bottom" constant="46" id="uoD-bS-iZt"/>
             </constraints>
-            <point key="canvasLocation" x="-446" y="129"/>
+            <point key="canvasLocation" x="-450" y="224"/>
         </view>
     </objects>
     <resources>
