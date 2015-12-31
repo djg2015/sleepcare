@@ -11,6 +11,7 @@ import UIKit
 class BaseViewModel: NSObject {
     var controller:BaseViewController?
     var controllerForIphone:IBaseViewController?
+    var delegate:GetRealtimeDataDelegate?
     //跳转界面
     func JumpPage(jumpedViewController:BaseViewController){
         if(controller != nil){

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class IRRMonitorViewModel: BaseViewModel,RealTimeDelegate {
-    
+//class IRRMonitorViewModel: BaseViewModel,RealTimeDelegate {
+class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
     // 属性
     var realTimeCaches:Array<RealTimeReport>?
     var rrRangeCaches:IHRRange?
@@ -26,7 +26,7 @@ class IRRMonitorViewModel: BaseViewModel,RealTimeDelegate {
             self._loadingFlag = value
         }
     }
-
+    
     // 当前用户所在床位号
     var _bedUserCode:String?
     dynamic var BedUserCode:String?{
@@ -118,61 +118,78 @@ class IRRMonitorViewModel: BaseViewModel,RealTimeDelegate {
     required init(bedUserCode:String) {
         super.init()
         try {({
-        self.BedUserCode = bedUserCode
-        //实时数据处理代理设置
-        var xmppMsgManager = XmppMsgManager.GetInstance()
-        xmppMsgManager?._realTimeDelegate = self
-        self.realTimeCaches = Array<RealTimeReport>()
-        self.setRealTimer()
-        // 获取对应的周心率
-        
-        if(nil != self.BedUserCode)
-        {
-            var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-            var rrRange:IRRRange = sleepCareForIPhoneBLL.GetRRTimeReport(self.BedUserCode!)
+            self.BedUserCode = bedUserCode
+            //实时数据处理代理设置
+            //        var xmppMsgManager = XmppMsgManager.GetInstance()
+            //        xmppMsgManager?._realTimeDelegate = self
+            //        self.realTimeCaches = Array<RealTimeReport>()
+            //        self.setRealTimer()
+            // 获取对应的周心率
             
-            for report in rrRange.rrTimeReportList{
-                self._rrTimeReport.append(report)
+            if(nil != self.BedUserCode)
+            {
+                var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+                var rrRange:IRRRange = sleepCareForIPhoneBLL.GetRRTimeReport(self.BedUserCode!)
+                
+                for report in rrRange.rrTimeReportList{
+                    self._rrTimeReport.append(report)
+                }
+                
+                RealTimeHelper.GetRealTimeInstance().delegate = self
+                RealTimeHelper.GetRealTimeInstance().setRealTimer()
             }
-        }
-    },
-    catch: { ex in
-    //异常处理
-    handleException(ex,showDialog: true)
-    },
-    finally: {
-    }
-    )}
-    }
-    
-    //实时数据显示
-    func setRealTimer(){
-        var realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "realtimerFireMethod:", userInfo: nil, repeats:true);
-        realtimer.fire()
+            },
+            catch: { ex in
+                //异常处理
+                handleException(ex,showDialog: true)
+            },
+            finally: {
+            }
+            )}
     }
     
-    func realtimerFireMethod(timer: NSTimer) {
-        
-        if(self.realTimeCaches?.count > 0){
-            var realTimeReport:RealTimeReport = self.realTimeCaches![0]
-
-            self.OnBedStatus = realTimeReport.OnBedStatus
-            self.CurrentRR = realTimeReport.RR
-            self.ProcessValue = CGFloat((realTimeReport.RR as NSString).floatValue)
-            self.LastAvgRR = realTimeReport.LastedAvgRR + "次/分"
-            
-            self.realTimeCaches?.removeAtIndex(0)
-            
-            self.LoadingFlag = true
-        }
-        
-    }
-    
-    func GetRealTimeDelegate(realTimeReport:RealTimeReport){
-        let key = realTimeReport.UserCode
-        if(key == self.BedUserCode)
-        {
-            realTimeCaches?.append(realTimeReport)
-        }
+    func GetRealtimeData(realtimeData:Dictionary<String,RealTimeReport>){
+                    for realTimeReport in realtimeData.values{
+                    if self.BedUserCode == realTimeReport.UserCode{
+                self.OnBedStatus = realTimeReport.OnBedStatus
+                self.CurrentRR = realTimeReport.RR
+                self.ProcessValue = CGFloat((realTimeReport.RR as NSString).floatValue)
+                self.LastAvgRR = realTimeReport.LastedAvgRR + "次/分"
+                
+                self.LoadingFlag = true
+                return
+                    }
+                    }//for
     }
 }
+
+//实时数据显示
+//    func setRealTimer(){
+//        var realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "realtimerFireMethod:", userInfo: nil, repeats:true);
+//        realtimer.fire()
+//    }
+//
+//    func realtimerFireMethod(timer: NSTimer) {
+//
+//        if(self.realTimeCaches?.count > 0){
+//            var realTimeReport:RealTimeReport = self.realTimeCaches![0]
+//
+//            self.OnBedStatus = realTimeReport.OnBedStatus
+//            self.CurrentRR = realTimeReport.RR
+//            self.ProcessValue = CGFloat((realTimeReport.RR as NSString).floatValue)
+//            self.LastAvgRR = realTimeReport.LastedAvgRR + "次/分"
+//
+//            self.realTimeCaches?.removeAtIndex(0)
+//
+//            self.LoadingFlag = true
+//        }
+//
+//    }
+//
+//    func GetRealTimeDelegate(realTimeReport:RealTimeReport){
+//        let key = realTimeReport.UserCode
+//        if(key == self.BedUserCode)
+//        {
+//            realTimeCaches?.append(realTimeReport)
+//        }
+//    }

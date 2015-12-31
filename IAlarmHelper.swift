@@ -148,6 +148,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         var tempWarningList = self.WarningList
         if(self._wariningCaches.count > 0){
             let alarmInfo:AlarmInfo = self._wariningCaches[0] as AlarmInfo
+            //deadline为报警信息收到后,立刻
             let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.SchemaContent, UUID: alarmInfo.AlarmCode)
             let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,partName: alarmInfo.PartName,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmDate: alarmInfo.AlarmTime)
             tempWarningList.append(warningInfo)

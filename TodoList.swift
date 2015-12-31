@@ -42,7 +42,10 @@ class TodoList {
         var notification = UILocalNotification()
         notification.alertBody = item.title // text that will be displayed in the notification
         notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
-        notification.fireDate = item.deadline // todo item due date (when notification will be fired)
+        
+        notification.fireDate = item.deadline  // todo item due date (when notification will be fired)
+       // notification.fireDate =  NSDate(timeInterval: -600, sinceDate: item.deadline)
+        
         notification.soundName = UILocalNotificationDefaultSoundName // play default sound
         notification.userInfo = ["title": item.title, "UUID": item.UUID] // assign a unique identifier to the notification so that we can retrieve it later
         notification.category = "TODO_CATEGORY"
