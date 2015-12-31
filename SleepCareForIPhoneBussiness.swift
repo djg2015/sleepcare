@@ -82,6 +82,25 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
         return message as! IMainInfo
     }
     
+    //根据医院/养老院编号获取楼层以及床位用户信息（排除已经关注的老人）
+    // 参数：loginName->登录账户
+    //      mainCode->医院/养老院编号
+    func GetPartInfoWithoutFollowBedUser(loginName:String,mainCode:String)->IMainInfo{
+        
+        var subject = MessageSubject(opera: "GetPartInfoWithoutFollowBedUser", bizcode: "sleepcareforiphone")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("loginName", value: loginName)
+        post.AddKeyValue("mainCode", value: mainCode)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! IMainInfo
+    }
+
+    
     // 确认关注床位用户信息
     // 参数：loginName->登录账户
     //      bedUserCode->床位用户编码

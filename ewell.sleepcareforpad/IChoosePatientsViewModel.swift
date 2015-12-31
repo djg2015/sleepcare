@@ -72,7 +72,8 @@ class IChoosePatientsViewModel: BaseViewModel {
             ({
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
-                var mainInfo:IMainInfo = sleepCareForIPhoneBussinessManager.GetPartInfoByMainCode(session!.User!.MainCode)
+                var mainInfo:IMainInfo = sleepCareForIPhoneBussinessManager.GetPartInfoWithoutFollowBedUser(session!.User!.LoginName,mainCode:session!.User!.MainCode)
+                // var mainInfo:IMainInfo = sleepCareForIPhoneBussinessManager.GetPartInfoByMainCode(session!.User!.MainCode)
                 self.PartArray = Array<PartTableViewModel>()
                 self.PartBedUserDic = Dictionary<String,Array<BedPatientViewModel>>()
                 for(var i=0;i<mainInfo.PartInfoList.count;i++){

@@ -71,7 +71,7 @@ class XmppMsgManager:MessageDelegate{
         
         requsetQuene[baseMessage.messageSubject.requestID!] = self
         
-        //添加时间判断－>20秒没收到数据则跳出循环,返回nil，表示无法获取数据
+        //添加时间判断－>7秒没收到数据则抛出异常
         let curTime = NSDate()
         var sec:NSTimeInterval = 0
         while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {

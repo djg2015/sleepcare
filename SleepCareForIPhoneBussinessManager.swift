@@ -30,6 +30,11 @@ protocol SleepCareForIPhoneBussinessManager{
     // 参数：mainCode->医院/养老院编号
     func GetPartInfoByMainCode(mainCode:String)->IMainInfo
     
+    // 根据医院/养老院编号获取楼层以及床位用户信息（排除已经关注的老人）S
+    // 参数：mainCode->医院/养老院编号
+    //      loginName->登录账户
+    func GetPartInfoWithoutFollowBedUser(loginName:String,mainCode:String)->IMainInfo
+    
     // 确认关注床位用户信息
     // 参数：loginName->登录账户
     //      bedUserCode->床位用户编码

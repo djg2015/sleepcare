@@ -46,7 +46,7 @@
                                     </constraints>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="4wi-Sy-TlT">
-                                    <rect key="frame" x="248" y="20" width="25" height="25"/>
+                                    <rect key="frame" x="232" y="20" width="25" height="25"/>
                                     <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="N3l-YT-Iua"/>
@@ -69,7 +69,7 @@
                                 <constraint firstItem="CeD-fE-jJS" firstAttribute="leading" secondItem="cZD-b6-fjw" secondAttribute="leading" constant="12" id="6k4-TG-sZN"/>
                                 <constraint firstItem="4YI-fu-ch0" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="20" id="APM-6Z-PSN"/>
                                 <constraint firstItem="4wi-Sy-TlT" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="20" id="Ix5-un-wdn"/>
-                                <constraint firstItem="sHf-ah-bcC" firstAttribute="leading" secondItem="4wi-Sy-TlT" secondAttribute="trailing" constant="10" id="RXg-2s-PND"/>
+                                <constraint firstItem="sHf-ah-bcC" firstAttribute="leading" secondItem="4wi-Sy-TlT" secondAttribute="trailing" constant="26" id="RXg-2s-PND"/>
                                 <constraint firstAttribute="centerX" secondItem="1gn-Yg-WCB" secondAttribute="centerX" id="TTW-eC-DzP"/>
                                 <constraint firstItem="CeD-fE-jJS" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="20" id="YDi-kh-1kN"/>
                                 <constraint firstItem="sHf-ah-bcC" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="20" id="k6B-jf-M39"/>
@@ -178,7 +178,7 @@
                 <outlet property="process" destination="A1n-Oo-Zfx" id="Bik-xX-Xu7"/>
                 <outlet property="viewSleepQuality" destination="EZT-fF-b1Q" id="bEH-4G-8JI"/>
             </connections>
-            <point key="canvasLocation" x="243" y="181"/>
+            <point key="canvasLocation" x="185" y="204"/>
         </view>
     </objects>
     <resources>

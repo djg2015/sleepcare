@@ -124,11 +124,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     func ReConnect(){
         IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
         SessionForIphone.ClearSession()
-
         let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
         IViewControllerManager.GetInstance()!.ShowViewController(logincontroller, nibName: "ILogin", reload: true)
-        
-
     }
     
     //关闭报警提醒
@@ -136,6 +133,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         self.IsOpen = false
         TodoList.sharedInstance.removeItemAll()
+        self.Codes.removeAll()
+        self.WarningList.removeAll()
     }
     
     //实时报警处理线程
@@ -208,7 +207,7 @@ protocol SetAlarmPicDelegate{
 func SetAlarmPic()
 }
 
-//代理，跳转alarm信息页面
+//点击报警推送消息，跳转alarm信息页面
 protocol ShowAlarmDelegate{
     func ShowAlarm()
 }
