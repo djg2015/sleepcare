@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SoftwareUpdateController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+            <connections>
+                <outlet property="btnCheckUpdate" destination="ABR-5J-nI9" id="b1K-H3-rOT"/>
+                <outlet property="imgBack" destination="oqs-Tt-7tS" id="0Te-5x-4Oy"/>
+                <outlet property="lblVersion" destination="bgG-cw-HRM" id="zQK-BJ-f7b"/>
+                <outlet property="view" destination="iN0-l3-epB" id="rem-CM-YZG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueback.png" translatesAutoresizingMaskIntoConstraints="NO" id="WSd-F8-G3p">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="OPO-FY-dfU"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前版本号" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QU6-ie-ZJl">
+                    <rect key="frame" x="118" y="106" width="85" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000000000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgG-cw-HRM">
+                    <rect key="frame" x="117" y="156" width="86" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABR-5J-nI9">
+                    <rect key="frame" x="0.0" y="508" width="320" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Y7K-5J-Hy2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <state key="normal" title="检查更新" backgroundImage="settingBottom.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="CheckUpdate:" destination="-1" eventType="touchUpInside" id="bhs-Pz-dcO"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKU-Fg-Chq">
+                    <rect key="frame" x="120" y="26" width="80" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backBtn.png" translatesAutoresizingMaskIntoConstraints="NO" id="oqs-Tt-7tS">
+                    <rect key="frame" x="20" y="23" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="Gdz-n6-l7D"/>
+                        <constraint firstAttribute="height" constant="30" id="pSe-uO-uOP"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="QU6-ie-ZJl" secondAttribute="centerX" id="Iul-07-SjS"/>
+                <constraint firstAttribute="trailing" secondItem="ABR-5J-nI9" secondAttribute="trailing" id="K6d-s9-Ta4"/>
+                <constraint firstAttribute="centerX" secondItem="bgG-cw-HRM" secondAttribute="centerX" id="Kpa-2f-6bD"/>
+                <constraint firstItem="tKU-Fg-Chq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="UgY-ak-WRq"/>
+                <constraint firstItem="oqs-Tt-7tS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Wer-wd-RAg"/>
+                <constraint firstItem="oqs-Tt-7tS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="Xnv-UM-Ir1"/>
+                <constraint firstItem="WSd-F8-G3p" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YAU-ff-d3g"/>
+                <constraint firstItem="bgG-cw-HRM" firstAttribute="top" secondItem="QU6-ie-ZJl" secondAttribute="bottom" constant="29" id="aBa-Pf-th6"/>
+                <constraint firstAttribute="bottom" secondItem="ABR-5J-nI9" secondAttribute="bottom" id="iBJ-oy-dWk"/>
+                <constraint firstItem="ABR-5J-nI9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jUH-7h-AmF"/>
+                <constraint firstAttribute="trailing" secondItem="WSd-F8-G3p" secondAttribute="trailing" id="ll5-D6-MhY"/>
+                <constraint firstItem="QU6-ie-ZJl" firstAttribute="top" secondItem="WSd-F8-G3p" secondAttribute="bottom" constant="36" id="y2C-gS-Lbc"/>
+                <constraint firstItem="WSd-F8-G3p" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="y8B-LV-9fe"/>
+                <constraint firstAttribute="centerX" secondItem="tKU-Fg-Chq" secondAttribute="centerX" id="zA5-dW-jES"/>
+            </constraints>
+            <point key="canvasLocation" x="346" y="294"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backBtn.png" width="54" height="54"/>
+        <image name="blueback.png" width="640" height="669"/>
+        <image name="settingBottom.png" width="640" height="98"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

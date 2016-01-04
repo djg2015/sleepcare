@@ -103,7 +103,6 @@ class IAlarmViewController: IBaseViewController,UITableViewDelegate,UITableViewD
     func backToController(sender:UITapGestureRecognizer)
     {
        IViewControllerManager.GetInstance()!.CloseViewController()
-      //  self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func MoreOption(indexPath:NSIndexPath){

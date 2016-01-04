@@ -42,7 +42,6 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
             .subscribeNext {
                 _ in
                 IViewControllerManager.GetInstance()!.CloseViewController()
-                //self.dismissViewControllerAnimated(true, completion: nil)
         }
         
         self.btnChooseRole!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
@@ -61,7 +60,5 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
         self.iRegistViewModel.MainCode = item.key!
         self.txtMain.text = item.value
     }
-    
-    
-    
+
 }

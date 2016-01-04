@@ -50,7 +50,7 @@ class IAccountSetController: IBaseViewController, PopDownListItemChoosed{
             .subscribeNext {
                 _ in
               IViewControllerManager.GetInstance()!.CloseViewController()
-                //  self.dismissViewControllerAnimated(true, completion: nil)
+              
         }
         
         self.btnChooseRole!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)

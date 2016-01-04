@@ -63,7 +63,6 @@ class ILoginController: IBaseViewController {
                 _ in
              var nextcontroller = IRegistViewController(nibName: "IRegist", bundle: nil)
              IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IRegist",reload: true)
-           //     self.presentViewController(IRegistViewController(nibName: "IRegist", bundle: nil), animated: true, completion: nil)
         }
         // 给图片添加手势
         self.imgTitle.userInteractionEnabled = true
@@ -79,6 +78,6 @@ class ILoginController: IBaseViewController {
              var nextcontroller = IServerSettingController(nibName:"IServerSettingView", bundle:nil)
             IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IServerSettingView",reload: false)
         }
-     //   self.presentViewController(IServerSettingController(nibName:"IServerSettingView", bundle:nil), animated: true, completion: nil)
+    
     }
 }

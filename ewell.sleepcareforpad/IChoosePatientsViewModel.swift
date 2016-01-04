@@ -139,7 +139,6 @@ class IChoosePatientsViewModel: BaseViewModel {
                 }
                 IViewControllerManager.GetInstance()!.CloseViewController()
 
-               // self.controllerForIphone?.dismissViewControllerAnimated(true, completion: nil)
                 self.myPatientsViewModel.AddPatients(choosedPatients)
                                 },
                 catch: { ex in

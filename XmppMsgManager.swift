@@ -46,7 +46,7 @@ class XmppMsgManager:MessageDelegate{
             var sec:NSTimeInterval = 0
             while _xmppMsgHelper!.loginFlag == 0 {
                 sec = NSDate().timeIntervalSinceDate(curTime)
-                if(sec > 5){
+                if(sec > 8){
                     return false
                 }
             }
@@ -71,7 +71,7 @@ class XmppMsgManager:MessageDelegate{
         
         requsetQuene[baseMessage.messageSubject.requestID!] = self
         
-        //添加时间判断－>7秒没收到数据则抛出异常
+        //添加时间判断－>10秒没收到数据则抛出异常
         let curTime = NSDate()
         var sec:NSTimeInterval = 0
         while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {

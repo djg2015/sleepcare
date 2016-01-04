@@ -36,6 +36,7 @@ class IMySelfSettingController: IBaseViewController {
         
         menu = ConfigurationViewModel()
         menu.titleName = "软件版本"
+        menu.configrationController = SoftwareUpdateController(nibName:"SoftwareUpdate", bundle:nil)
         source.append(menu)
         
         menu = ConfigurationViewModel()
@@ -70,12 +71,11 @@ class IMySelfSettingController: IBaseViewController {
         
         let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
         IViewControllerManager.GetInstance()!.ShowViewController(logincontroller, nibName: "ILogin", reload: true)
-        //  self.presentViewController(ILoginController(nibName:"ILogin", bundle:nil), animated: true, completion: nil)
     }
     
     func backToController(sender:UITapGestureRecognizer)
     {
       IViewControllerManager.GetInstance()!.CloseViewController()
-        //  self.dismissViewControllerAnimated(true, completion: nil)
+       
     }
 }

@@ -193,13 +193,12 @@ class IRegistViewModel:BaseViewModel {
     //失去连接后处理
     func ConnectLost(isOtherButton: Bool){
         IViewControllerManager.GetInstance()!.CloseViewController()
-        // self.controllerForIphone?.dismissViewControllerAnimated(true, completion: nil)
+       
     }
     //注册成功后处理
     func RegistSuccess(isOtherButton: Bool){
       IViewControllerManager.GetInstance()!.CloseViewController()
-        //  self.controllerForIphone?.dismissViewControllerAnimated(true, completion: nil)
-    }
+         }
     
     //注册
     func Regist() -> RACSignal{

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
+		0D19A2A61C3A40DB005ECF19 /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D19A2A51C3A40DB005ECF19 /* alarm.png */; };
+		0D19A2A81C3A4828005ECF19 /* UpdateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D19A2A71C3A4828005ECF19 /* UpdateHelper.swift */; };
+		0D19A2AA1C3A50ED005ECF19 /* SoftwareUpdate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D19A2A91C3A50ED005ECF19 /* SoftwareUpdate.xib */; };
+		0D19A2B01C3A5551005ECF19 /* SoftwareUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D19A2AF1C3A5551005ECF19 /* SoftwareUpdateController.swift */; };
 		0D4E5BEE1C2A85BD00D2ED92 /* IViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */; };
 		0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */; };
 		0DC2280E1C1FD65F00AF4737 /* JHSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */; };
@@ -19,7 +23,6 @@
 		0DC228571C224DD800AF4737 /* IAlarmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228561C224DD800AF4737 /* IAlarmHelper.swift */; };
 		0DC228591C23AE0900AF4737 /* IAlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228581C23AE0900AF4737 /* IAlarmViewModel.swift */; };
 		0DCC7AB71C337CE000CC2498 /* none_alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DCC7AB61C337CE000CC2498 /* none_alarm.png */; };
-		0DCC7ABB1C337EC800CC2498 /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DCC7ABA1C337EC800CC2498 /* alarm.png */; };
 		0DCC7ABD1C34C71700CC2498 /* RealTimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */; };
 		0DCC7ABF1C3A022600CC2498 /* msg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DCC7ABE1C3A022600CC2498 /* msg.png */; };
 		0DD1D1611C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1D15F1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m */; };
@@ -320,6 +323,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D19A2A51C3A40DB005ECF19 /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
+		0D19A2A71C3A4828005ECF19 /* UpdateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHelper.swift; sourceTree = "<group>"; };
+		0D19A2A91C3A50ED005ECF19 /* SoftwareUpdate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoftwareUpdate.xib; sourceTree = "<group>"; };
+		0D19A2AF1C3A5551005ECF19 /* SoftwareUpdateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareUpdateController.swift; sourceTree = "<group>"; };
 		0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IViewControllerManager.swift; sourceTree = "<group>"; };
 		0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHSpinnerView.xib; sourceTree = "<group>"; };
 		0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHSpinnerView.swift; sourceTree = "<group>"; };
@@ -331,7 +338,6 @@
 		0DC228561C224DD800AF4737 /* IAlarmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmHelper.swift; sourceTree = "<group>"; };
 		0DC228581C23AE0900AF4737 /* IAlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmViewModel.swift; sourceTree = "<group>"; };
 		0DCC7AB61C337CE000CC2498 /* none_alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = none_alarm.png; sourceTree = "<group>"; };
-		0DCC7ABA1C337EC800CC2498 /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
 		0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeHelper.swift; sourceTree = "<group>"; };
 		0DCC7ABE1C3A022600CC2498 /* msg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = msg.png; sourceTree = "<group>"; };
 		0DD1D15E1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCMoreOptionTableViewCell.h; sourceTree = "<group>"; };
@@ -726,6 +732,7 @@
 				3A91B3631BFB1DF200DB3514 /* IChoosePatientsController.swift */,
 				2CC2F1C71BFEBF8300E14328 /* IEquipmentViewController.swift */,
 				0DC228541C21527E00AF4737 /* IAlarmViewController.swift */,
+				0D19A2AF1C3A5551005ECF19 /* SoftwareUpdateController.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -818,6 +825,7 @@
 				3A680DBB1C02B81700D77A22 /* IAccountSet.xib */,
 				3A02522D1C055FB700CA7EA3 /* IWeekSleepcare.xib */,
 				0DC228521C214FE400AF4737 /* IAlarmView.xib */,
+				0D19A2A91C3A50ED005ECF19 /* SoftwareUpdate.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -879,7 +887,7 @@
 			children = (
 				3A881B691BFC42D4005F4D07 /* blueBtnBack.png */,
 				3A881B631BFC1EF3005F4D07 /* unchecked.png */,
-				0DCC7ABA1C337EC800CC2498 /* alarm.png */,
+				0D19A2A51C3A40DB005ECF19 /* alarm.png */,
 				0DCC7AB61C337CE000CC2498 /* none_alarm.png */,
 				3A881B641BFC1EF3005F4D07 /* checked.png */,
 				3A8382D21BFACC7B00E4CC15 /* goright.png */,
@@ -1068,6 +1076,7 @@
 				3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */,
 				3A1F16FE1BF5A5100051E9AF /* BusinessFactory.swift */,
 				0DC228561C224DD800AF4737 /* IAlarmHelper.swift */,
+				0D19A2A71C3A4828005ECF19 /* UpdateHelper.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1392,6 +1401,7 @@
 				2C06157A1BF4825400A3F90C /* loginbackground.png in Resources */,
 				2C06156C1BF4813700A3F90C /* myElder.png in Resources */,
 				3A39CA051BF2FCA70024DD3E /* tabBar_2.png in Resources */,
+				0D19A2A61C3A40DB005ECF19 /* alarm.png in Resources */,
 				3A39CA031BF2FCA70024DD3E /* tabBar_0.png in Resources */,
 				3A91F09F1BF0475400C470D4 /* calendar_littledot.png in Resources */,
 				3ADA58441BD5FE550066D23A /* sleepofThisWeek.png in Resources */,
@@ -1472,6 +1482,7 @@
 				3A91F0A61BF0475400C470D4 /* dialog_clear-disabled@2x.png in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
 				3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */,
+				0D19A2AA1C3A50ED005ECF19 /* SoftwareUpdate.xib in Resources */,
 				2C2F838E1BD63A19008CD92B /* nextBtnChecked.png in Resources */,
 				3A39CA0C1BF2FEF40024DD3E /* sleepmenu.png in Resources */,
 				3A881B621BFC1BC1005F4D07 /* BedPatientCell.xib in Resources */,
@@ -1506,7 +1517,6 @@
 				3A02522E1C055FB700CA7EA3 /* IWeekSleepcare.xib in Resources */,
 				3A9C12F61BC789C6008EC314 /* clock.png in Resources */,
 				2C0615801BF48C4900A3F90C /* sleepQualitySelector.png in Resources */,
-				0DCC7ABB1C337EC800CC2498 /* alarm.png in Resources */,
 				3A9C12F51BC789C6008EC314 /* unlineView.png in Resources */,
 				3A91F0AB1BF0475400C470D4 /* dialog_ok.png in Resources */,
 				3AFB93921BCF96F200042AF1 /* loginTitle.png in Resources */,
@@ -1690,6 +1700,7 @@
 				3A881B681BFC1FA3005F4D07 /* BedPatientCell.swift in Sources */,
 				3A4CD3FA1BA80536002C8A1A /* CommonHelper.swift in Sources */,
 				2CB951291BF4510A00C31EC2 /* ConfiurationTabeView.swift in Sources */,
+				0D19A2B01C3A5551005ECF19 /* SoftwareUpdateController.swift in Sources */,
 				3A4B85CC1BB150C1006E4CF1 /* Constants.swift in Sources */,
 				0DC2284D1C212F0E00AF4737 /* PlistHelper.swift in Sources */,
 				3A3EF7C01BDE05A800CDDAED /* TodoItem.swift in Sources */,
@@ -1744,6 +1755,7 @@
 				3A376E4A1BABD9F400D70953 /* PartInfo.swift in Sources */,
 				3AC7B0E41BF42EFB002DE94C /* IloginViewModel.swift in Sources */,
 				3AC7B10B1BF45D00002DE94C /* PopDownListForIphone.swift in Sources */,
+				0D19A2A81C3A4828005ECF19 /* UpdateHelper.swift in Sources */,
 				2C5AEC481BB397130096DF3F /* RoleList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

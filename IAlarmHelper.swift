@@ -124,6 +124,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     func ReConnect(){
         IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
         SessionForIphone.ClearSession()
+        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+        xmppMsgManager?.Close()
         let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
         IViewControllerManager.GetInstance()!.ShowViewController(logincontroller, nibName: "ILogin", reload: true)
     }

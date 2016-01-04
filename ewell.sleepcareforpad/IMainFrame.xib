@@ -111,16 +111,20 @@
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="msg.png" translatesAutoresizingMaskIntoConstraints="NO" id="s53-GS-D1R">
-                                    <rect key="frame" x="47" y="-2" width="21" height="20"/>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmB-Ko-8yh">
-                                    <rect key="frame" x="47" y="0.0" width="21" height="17"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="msg.png" translatesAutoresizingMaskIntoConstraints="NO" id="s53-GS-D1R">
+                                    <rect key="frame" x="47" y="0.0" width="21" height="21"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="17" id="0ZP-7v-cD1"/>
-                                        <constraint firstAttribute="width" constant="21" id="qjl-1Q-F6z"/>
+                                        <constraint firstAttribute="width" constant="21" id="bJZ-FX-Jdg"/>
+                                        <constraint firstAttribute="height" constant="21" id="ywT-3c-3yr"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="10"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmB-Ko-8yh">
+                                    <rect key="frame" x="48" y="0.0" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="0ZP-7v-cD1"/>
+                                        <constraint firstAttribute="width" constant="20" id="qjl-1Q-F6z"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="9"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -132,6 +136,8 @@
                                 <constraint firstAttribute="centerY" secondItem="hGK-79-fv5" secondAttribute="centerY" id="Kaf-Di-FBw"/>
                                 <constraint firstAttribute="trailing" secondItem="gmB-Ko-8yh" secondAttribute="trailing" constant="12" id="S1z-cW-cPp"/>
                                 <constraint firstItem="gmB-Ko-8yh" firstAttribute="top" secondItem="zbp-yZ-Chc" secondAttribute="top" id="Vgf-Ij-acF"/>
+                                <constraint firstAttribute="trailing" secondItem="s53-GS-D1R" secondAttribute="trailing" constant="12" id="f0e-bH-jpX"/>
+                                <constraint firstItem="s53-GS-D1R" firstAttribute="top" secondItem="zbp-yZ-Chc" secondAttribute="top" id="tFt-OS-hrk"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -174,7 +180,7 @@
                 <constraint firstAttribute="trailing" secondItem="X0g-J8-7mf" secondAttribute="trailing" id="pzq-Cl-EDj"/>
                 <constraint firstAttribute="bottom" secondItem="bxr-Yh-Ke0" secondAttribute="bottom" constant="46" id="uoD-bS-iZt"/>
             </constraints>
-            <point key="canvasLocation" x="-464" y="151"/>
+            <point key="canvasLocation" x="-607" y="156"/>
         </view>
     </objects>
     <resources>

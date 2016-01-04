@@ -44,7 +44,6 @@ class IEquipmentViewController: IBaseViewController {
     func backToController(sender:UITapGestureRecognizer)
     {
         IViewControllerManager.GetInstance()!.CloseViewController()
-       // self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

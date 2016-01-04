@@ -34,8 +34,7 @@ class IAlarmViewModel: BaseViewModel {
             ({
                // var todolist:Array<TodoItem> = TodoList.sharedInstance.allItems()
                 var tempAlarmArray = Array<IAlarmTableCellViewModel>()
-                //                var dateFormatter = NSDateFormatter()
-                //                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+              
                 var warningList = IAlarmHelper.GetAlarmInstance().WarningList
                 for (var i = 0 ; i < warningList.count ; i++){
                     var tempAlarm = IAlarmTableCellViewModel()
@@ -45,7 +44,7 @@ class IAlarmViewModel: BaseViewModel {
                     tempAlarm.UserName = "姓名:" + info.UserName
                     tempAlarm.BedNumber = "床号:" + info.BedNumber
                     tempAlarm.AlarmDate = "报警时间:" + info.AlarmDate
-                    //   tempAlarm.AlarmDeadline = "报警时间:" + dateFormatter.stringFromDate(todolist[i].deadline)
+
                     tempAlarm.AlarmContent = info.AlarmContent
                     tempAlarm.deleteAlarmHandler = self.DeleteAlarm
                     tempAlarm.moreAlarmHandler = self.MoreAlarm

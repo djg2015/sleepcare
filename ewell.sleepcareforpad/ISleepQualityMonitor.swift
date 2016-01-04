@@ -255,7 +255,6 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
     {
         let controller = IWeekSleepcareController(nibName:"IWeekSleepcare", bundle:nil,bedusercode:self._bedUserCode!,searchdate:dateString)
         IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IWeekSleepcare", reload: true)
-      //  self.parentController.presentViewController(controller, animated: true, completion: nil)
     }
     
     func moveLeft(sender:UITapGestureRecognizer)
@@ -281,7 +280,6 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
         var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",
             KNSemiModalOptionKeys.animationDuration:"1.0",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
         
-        //IViewControllerManager.GetInstance()!.ShowViewController(self.email, nibName: "IEmailView", reload: true)
        self.parentController.presentSemiViewController(self.email, withOptions: kNSemiModalOptionKeys)
     }
     

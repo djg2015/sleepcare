@@ -44,7 +44,6 @@ class ISetUserTypeViewModel: BaseViewModel {
                 controller.isGoLogin = true
                 
                 IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
-               // self.JumpPageForIpone(controller)
                 },
                 catch: { ex in
                     //异常处理

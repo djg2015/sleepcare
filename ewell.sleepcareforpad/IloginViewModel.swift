@@ -162,7 +162,6 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     
     func ShowAlarm() {
         let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
-        // self.JumpPageForIpone(controller)
         IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IAlarmView", reload: true)
     }
 }

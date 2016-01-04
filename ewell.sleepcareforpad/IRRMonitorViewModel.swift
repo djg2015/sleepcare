@@ -119,13 +119,7 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
         super.init()
         try {({
             self.BedUserCode = bedUserCode
-            //实时数据处理代理设置
-            //        var xmppMsgManager = XmppMsgManager.GetInstance()
-            //        xmppMsgManager?._realTimeDelegate = self
-            //        self.realTimeCaches = Array<RealTimeReport>()
-            //        self.setRealTimer()
-            // 获取对应的周心率
-            
+          
             if(nil != self.BedUserCode)
             {
                 var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")

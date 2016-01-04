@@ -89,8 +89,7 @@ class IMyPatientsController: IBaseViewController {
             .subscribeNext {
                 _ in
                 IViewControllerManager.GetInstance()!.CloseViewController()
-                //self.dismissViewControllerAnimated(true, completion: nil)
-                
+            
         }
         
     }
@@ -112,7 +111,6 @@ class IMyPatientsController: IBaseViewController {
             session?.CurPatientCode = ""
             let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:nil,equipmentID:nil,bedUserName:nil)
             IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMainFrame", reload: true)
-            //  self.presentViewController(controller, animated: true, completion: nil)
         }
     }
     
