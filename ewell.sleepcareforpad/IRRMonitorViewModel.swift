@@ -134,8 +134,8 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 for report in rrRange.rrTimeReportList{
                     self._rrTimeReport.append(report)
                 }
-                
-                RealTimeHelper.GetRealTimeInstance().delegate = self
+               
+                RealTimeHelper.GetRealTimeInstance().SetDelegate("IRRMonitorViewModel",currentViewModelDelegate: self)
                 RealTimeHelper.GetRealTimeInstance().setRealTimer()
             }
             },
@@ -149,47 +149,21 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
     }
     
     func GetRealtimeData(realtimeData:Dictionary<String,RealTimeReport>){
-                    for realTimeReport in realtimeData.values{
-                    if self.BedUserCode == realTimeReport.UserCode{
+          for realTimeReport in realtimeData.values{
+            if self.BedUserCode == realTimeReport.UserCode{
                 self.OnBedStatus = realTimeReport.OnBedStatus
                 self.CurrentRR = realTimeReport.RR
                 self.ProcessValue = CGFloat((realTimeReport.RR as NSString).floatValue)
                 self.LastAvgRR = realTimeReport.LastedAvgRR + "次/分"
-                
                 self.LoadingFlag = true
                 return
-                    }
-                    }//for
+            }
+        }//for
+    }
+    
+    func Clean(){
+       RealTimeHelper.GetRealTimeInstance().SetDelegate("IRRMonitorViewModel", currentViewModelDelegate: nil)
     }
 }
 
-//实时数据显示
-//    func setRealTimer(){
-//        var realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "realtimerFireMethod:", userInfo: nil, repeats:true);
-//        realtimer.fire()
-//    }
-//
-//    func realtimerFireMethod(timer: NSTimer) {
-//
-//        if(self.realTimeCaches?.count > 0){
-//            var realTimeReport:RealTimeReport = self.realTimeCaches![0]
-//
-//            self.OnBedStatus = realTimeReport.OnBedStatus
-//            self.CurrentRR = realTimeReport.RR
-//            self.ProcessValue = CGFloat((realTimeReport.RR as NSString).floatValue)
-//            self.LastAvgRR = realTimeReport.LastedAvgRR + "次/分"
-//
-//            self.realTimeCaches?.removeAtIndex(0)
-//
-//            self.LoadingFlag = true
-//        }
-//
-//    }
-//
-//    func GetRealTimeDelegate(realTimeReport:RealTimeReport){
-//        let key = realTimeReport.UserCode
-//        if(key == self.BedUserCode)
-//        {
-//            realTimeCaches?.append(realTimeReport)
-//        }
-//    }
+

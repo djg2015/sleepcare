@@ -12,6 +12,7 @@
                 <outlet property="btnMe" destination="hGK-79-fv5" id="eOA-Wv-YK4"/>
                 <outlet property="btnRR" destination="ba3-0k-MEB" id="nfp-qZ-mYW"/>
                 <outlet property="btnSleep" destination="3kN-Bp-8NA" id="VI1-KA-1rp"/>
+                <outlet property="imgAlarm" destination="s53-GS-D1R" id="dnb-Z0-i95"/>
                 <outlet property="lblAlarmCount" destination="gmB-Ko-8yh" id="pkY-SG-HoX"/>
                 <outlet property="svMain" destination="bxr-Yh-Ke0" id="WjB-hz-XBk"/>
                 <outlet property="uiHR" destination="k2g-pn-WN1" id="ZzN-FJ-rSM"/>
@@ -110,14 +111,17 @@
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmB-Ko-8yh">
-                                    <rect key="frame" x="54" y="0.0" width="26" height="19"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="msg.png" translatesAutoresizingMaskIntoConstraints="NO" id="s53-GS-D1R">
+                                    <rect key="frame" x="47" y="-2" width="21" height="20"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmB-Ko-8yh">
+                                    <rect key="frame" x="47" y="0.0" width="21" height="17"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="19" id="0ZP-7v-cD1"/>
-                                        <constraint firstAttribute="width" constant="26" id="qjl-1Q-F6z"/>
+                                        <constraint firstAttribute="height" constant="17" id="0ZP-7v-cD1"/>
+                                        <constraint firstAttribute="width" constant="21" id="qjl-1Q-F6z"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                    <color key="textColor" red="0.92106613005050508" green="0.21913167807083572" blue="0.25968498326658873" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="10"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -126,7 +130,7 @@
                             <constraints>
                                 <constraint firstAttribute="centerX" secondItem="hGK-79-fv5" secondAttribute="centerX" constant="2" id="ARU-w2-ZjP"/>
                                 <constraint firstAttribute="centerY" secondItem="hGK-79-fv5" secondAttribute="centerY" id="Kaf-Di-FBw"/>
-                                <constraint firstAttribute="trailing" secondItem="gmB-Ko-8yh" secondAttribute="trailing" id="S1z-cW-cPp"/>
+                                <constraint firstAttribute="trailing" secondItem="gmB-Ko-8yh" secondAttribute="trailing" constant="12" id="S1z-cW-cPp"/>
                                 <constraint firstItem="gmB-Ko-8yh" firstAttribute="top" secondItem="zbp-yZ-Chc" secondAttribute="top" id="Vgf-Ij-acF"/>
                             </constraints>
                         </view>
@@ -170,12 +174,13 @@
                 <constraint firstAttribute="trailing" secondItem="X0g-J8-7mf" secondAttribute="trailing" id="pzq-Cl-EDj"/>
                 <constraint firstAttribute="bottom" secondItem="bxr-Yh-Ke0" secondAttribute="bottom" constant="46" id="uoD-bS-iZt"/>
             </constraints>
-            <point key="canvasLocation" x="-450" y="224"/>
+            <point key="canvasLocation" x="-464" y="151"/>
         </view>
     </objects>
     <resources>
         <image name="hrmenu.png" width="55" height="76"/>
         <image name="memenu.png" width="55" height="76"/>
+        <image name="msg.png" width="24" height="24"/>
         <image name="rrmenu.png" width="55" height="76"/>
         <image name="sleepmenu.png" width="55" height="76"/>
     </resources>

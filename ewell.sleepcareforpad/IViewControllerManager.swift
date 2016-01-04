@@ -86,7 +86,6 @@ class IViewControllerManager {
         self.CurrentController!.dismissViewControllerAnimated(false, completion: nil)
         var index = self.ControllerList.count - 1
         var removecontroller = self.ControllerList.removeAtIndex(index)
-        //释放aotorelease的对象可能导致bad access
         removecontroller.Clean()
     }
     

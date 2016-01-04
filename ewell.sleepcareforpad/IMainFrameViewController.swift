@@ -20,9 +20,12 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     @IBOutlet weak var btnSleep: UIButton!
     @IBOutlet weak var btnMe: UIButton!
     @IBOutlet weak var lblAlarmCount: UILabel!
+    @IBOutlet weak var imgAlarm: UIImageView!
+    
     
     var spinner:JHSpinnerView?
-    
+    var iRRMonitorView:IRRMonitor? = nil
+    var iHRMonitorView:IHRMonitor? = nil
     var _curMenu:BackgroundCommon?
     var curMenu:BackgroundCommon?{
         get{
@@ -58,15 +61,17 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     var bedUserCode:String?
     var equipmentID:String?
     var bedUserName:String?
+    var session:SessionForIphone?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         IAlarmHelper.GetAlarmInstance().alarmcountdelegate = self
-        
+        self.imgAlarm.hidden = true
         
         self.svMain.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-46)
         
+        self.session = SessionForIphone.GetSession()
         //右划
         var swipeRightGesture = UISwipeGestureRecognizer(target: self, action: "handleSwipeGesture:")
         swipeRightGesture.direction = UISwipeGestureRecognizerDirection.Right
@@ -99,7 +104,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         }
         
         //设置主体界面
-        if(nil != self.bedUserCode)
+        if(nil != self.bedUserCode && session!.CurPatientCode != "")
         {
             let firstVew = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
             firstVew.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
@@ -118,17 +123,28 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         
     }
     
+    override func Clean(){
+        if self.iHRMonitorView != nil{
+        self.iHRMonitorView!.Clean()
+        }
+        if self.iRRMonitorView != nil{
+        self.iRRMonitorView!.Clean()
+        }
+    }
+    
+    
+    
     func ClickHR(){
-        if(nil != self.bedUserCode)
+        if(nil != self.bedUserCode && session!.CurPatientCode != "")
         {
             self.curMenu = self.uiHR
-            let iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
+            iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as? IHRMonitor
             
-            iHRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
+            iHRMonitorView!.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
             
-            iHRMonitorView.HRdelegate = self
+            iHRMonitorView!.HRdelegate = self
             
-            self.showBody(iHRMonitorView,nibName: "IHRMonitor")
+            self.showBody(iHRMonitorView!,nibName: "IHRMonitor")
         }
         else
         {
@@ -138,15 +154,15 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     }
     
     func ClickRR(){
-        if(nil != self.bedUserCode)
+        if(nil != self.bedUserCode && session!.CurPatientCode != "")
         {
             self.curMenu = self.uiRR
-            let iRRMonitorView = NSBundle.mainBundle().loadNibNamed("IRRMonitor", owner: self, options: nil).first as! IRRMonitor
+            iRRMonitorView = NSBundle.mainBundle().loadNibNamed("IRRMonitor", owner: self, options: nil).first as? IRRMonitor
             
-            iRRMonitorView.viewInit(self, bedUserCode: self.bedUserCode!, bedUserName: self.bedUserName!)
-            iRRMonitorView.RRdelegate = self
+            iRRMonitorView!.viewInit(self, bedUserCode: self.bedUserCode!, bedUserName: self.bedUserName!)
+            iRRMonitorView!.RRdelegate = self
             
-            self.showBody(iRRMonitorView,nibName: "IRRMonitor")
+            self.showBody(iRRMonitorView!,nibName: "IRRMonitor")
         }
         else
         {
@@ -155,7 +171,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     }
     
     func ClickSleep(){
-        if(nil != self.bedUserCode)
+        if(nil != self.bedUserCode && session!.CurPatientCode != "")
         {
             self.curMenu = self.uiSleepCare
             let sleepQualityMonitorView = NSBundle.mainBundle().loadNibNamed("ISleepQualityMonitor", owner: self, options: nil).first as! ISleepQualityMonitor
@@ -260,10 +276,12 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     func GetAlarmCount(count:Int){
         if count>0{
             self.lblAlarmCount.text = String(count)
+            self.imgAlarm.hidden = false
         }
         else{
             self.lblAlarmCount.text = ""
+            self.imgAlarm.hidden = true
         }
     }
-    
+
 }

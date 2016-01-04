@@ -85,82 +85,39 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     
                 }
             )}
-        
-        //实时数据处理代理设置
-//        var xmppMsgManager = XmppMsgManager.GetInstance()
-//        xmppMsgManager?._realTimeDelegate = self
-//        self.realTimeCaches = Dictionary<String,RealTimeReport>()
-//        self.setRealTimer()
-        
-        RealTimeHelper.GetRealTimeInstance().delegate = self
+     
+     
+        RealTimeHelper.GetRealTimeInstance().SetDelegate("IMyPatientsViewModel",currentViewModelDelegate: self)
         RealTimeHelper.GetRealTimeInstance().setRealTimer()
     }
     
     func GetRealtimeData(realtimeData:Dictionary<String,RealTimeReport>){
+ 
         for realTimeReport in realtimeData.values{
             if(!self.bedUserCodeList.isEmpty){
                 var patient = self.MyPatientsArray.filter(
                     {$0.BedUserCode == realTimeReport.UserCode})
                 if(patient.count > 0){
-                   
                     for(var i = 0; i < patient.count; i++){
                         patient[i].HR = realtimeData[patient[i].BedUserCode!]!.HR
                         patient[i].RR = realtimeData[patient[i].BedUserCode!]!.RR
                         patient[i].BedStatus = realtimeData[patient[i].BedUserCode!]!.OnBedStatus
                     }
-                  self.LoadingFlag = true
                 }
             }
         }
+         self.LoadingFlag = true
     }
 
-//    //实时数据显示
-//    func setRealTimer(){
-//        var realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "realtimerFireMethod:", userInfo: nil, repeats:true);
-//        realtimer.fire()
-//    }
-//    
-//    func realtimerFireMethod(timer: NSTimer) {
-//        
-//        for realTimeReport in self.realTimeCaches!.values{
-//            if(!self.MyPatientsArray.isEmpty){
-//                var bed = self.MyPatientsArray.filter(
-//                    {$0.BedUserCode == realTimeReport.UserCode})
-//                if(bed.count > 0){
-//                    let curBed:MyPatientsTableCellViewModel = bed[0]
-//                     curBed.HR = realTimeReport.HR
-//                    curBed.RR = realTimeReport.RR
-//                    curBed.BedStatus = realTimeReport.OnBedStatus
-//              
-//                }
-//            }
-//            self.LoadingFlag = true
-//        }
-//        
-//    }
-    
-    //实时数据处理
-//    func GetRealTimeDelegate(realTimeReport:RealTimeReport){
-//        let key = realTimeReport.UserCode
-//        if(self.realTimeCaches?.count > 0){
-//            var keys = self.realTimeCaches?.keys.filter({$0 == key})
-//            if(keys?.array.count == 0)
-//            {
-//                self.realTimeCaches?[key] = realTimeReport
-//            }
-//            else
-//            {
-//                self.realTimeCaches?.updateValue(realTimeReport, forKey: key)
-//            }
-//        }
-//        else{
-//            self.realTimeCaches?[key] = realTimeReport
-//        }
-//        
-//    }
+    func Clean(){
+    RealTimeHelper.GetRealTimeInstance().SetDelegate("IMyPatientsViewModel", currentViewModelDelegate: nil)
+    }
+
     
     //显示某个床位用户体征明细
     func ShowPatientDetail(myPatientsTableViewModel:MyPatientsTableCellViewModel){
+        var session = SessionForIphone.GetSession()
+        session!.CurPatientCode = myPatientsTableViewModel.BedUserCode!
         let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:myPatientsTableViewModel.BedUserCode!,equipmentID:myPatientsTableViewModel.EquipmentID,bedUserName:myPatientsTableViewModel.BedUserName!)
         IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMainFrame", reload: true)
         //self.JumpPageForIpone(controller)

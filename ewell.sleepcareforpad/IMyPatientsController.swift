@@ -50,10 +50,14 @@ class IMyPatientsController: IBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func Clean(){
+    self.viewModel.Clean()
+    }
+    
     //初始化设置与属性等绑定
     func rac_Setting(){
         self.viewModel = IMyPatientsViewModel()
-        self.viewModel.controllerForIphone = self
+       // self.viewModel.controllerForIphone = self
         RACObserve(self.viewModel, "MyPatientsArray") ~> RAC(self, "MyPatientsArray")
         
         var dataSource = Array<DownListModel>()
@@ -93,8 +97,8 @@ class IMyPatientsController: IBaseViewController {
     
     //选中菜单
     func ChoosedItem(downListModel:DownListModel){
+        var session = SessionForIphone.GetSession()
         if(downListModel.key == "1"){
-            var session = SessionForIphone.GetSession()
             if(session?.User?.UserType != LoginUserType.Monitor){
                 if(self.MyPatientsArray?.count > 0){
                     showDialogMsg("您是使用者只能添加一位老人，如需更改请先删除当前老人再添加", title: "提示")
@@ -105,6 +109,7 @@ class IMyPatientsController: IBaseViewController {
             IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IChoosePatients",reload: true)
         }
         else{
+            session?.CurPatientCode = ""
             let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:nil,equipmentID:nil,bedUserName:nil)
             IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMainFrame", reload: true)
             //  self.presentViewController(controller, animated: true, completion: nil)

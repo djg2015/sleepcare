@@ -10,8 +10,8 @@ import UIKit
 
 class BaseViewModel: NSObject {
     var controller:BaseViewController?
-    var controllerForIphone:IBaseViewController?
-    var delegate:GetRealtimeDataDelegate?
+  //  var controllerForIphone:IBaseViewController?
+
     //跳转界面
     func JumpPage(jumpedViewController:BaseViewController){
         if(controller != nil){
@@ -19,10 +19,10 @@ class BaseViewModel: NSObject {
         }
     }
     
-    func JumpPageForIpone(jumpedViewController:IBaseViewController){
-       
-        if(controllerForIphone != nil){
-            self.controllerForIphone!.presentViewController(jumpedViewController, animated: true, completion: nil)
-        }
-    }
+//    func JumpPageForIpone(jumpedViewController:IBaseViewController){
+//       
+//        if(controllerForIphone != nil){
+//            self.controllerForIphone!.presentViewController(jumpedViewController, animated: true, completion: nil)
+//        }
+//    }
 }

@@ -27,6 +27,7 @@ class IEmailViewController: IBaseViewController {
         self.rac_settings()
     }
     
+   
     func rac_settings(){
         // 绑定界面元素
         RACObserve(self, "BedUserCode") ~> RAC(self.emailViewModel, "BedUserCode")

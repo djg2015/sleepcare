@@ -7,13 +7,16 @@
 //
 
 import Foundation
-class RealTimeHelper:NSObject, RealTimeDelegate{
 
-    var delegate:GetRealtimeDataDelegate!
-     // var delegateList:Array<GetRealtimeDataDelegate>?
-    //key:bedusercode,value:realtimereport
-    var realTimeCaches:Dictionary<String,RealTimeReport>?
+class RealTimeHelper:NSObject, RealTimeDelegate{
+    private var lock:NSLock?
+    
     private static var realtimeInstance:RealTimeHelper? = nil
+  //  var delegate:GetRealtimeDataDelegate?
+    var delegateList:Dictionary<String,GetRealtimeDataDelegate>= Dictionary<String,GetRealtimeDataDelegate>()
+    //key:bedusercode,value:realtimereport
+    var realTimeCaches:Dictionary<String,RealTimeReport>!
+   
   
     class func GetRealTimeInstance()->RealTimeHelper{
             if self.realtimeInstance == nil {
@@ -22,7 +25,8 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
                 var xmppMsgManager = XmppMsgManager.GetInstance()
                 xmppMsgManager?._realTimeDelegate =  self.realtimeInstance
                 self.realtimeInstance!.realTimeCaches = Dictionary<String,RealTimeReport>()
-        }
+                self.realtimeInstance!.lock = NSLock()
+            }
             return self.realtimeInstance!
 
 }
@@ -33,35 +37,47 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
         realtimer.fire()
     }
     func ShowRealTimeData(){
-        if self.delegate != nil{
-            self.delegate.GetRealtimeData(self.realTimeCaches!)
+//        if self.delegate != nil{
+//            self.delegate!.GetRealtimeData(self.realTimeCaches!)
+//        }
+        for key in self.delegateList.keys{
+            if self.delegateList[key] != nil{
+            self.delegateList[key]!.GetRealtimeData(self.realTimeCaches!)
+            }
         }
-       
     }
     
     //实时数据获取,每个床位病人对应一条实时数据，放入缓冲区
     func GetRealTimeDelegate(realTimeReport:RealTimeReport){
         let key = realTimeReport.UserCode
-        if(self.realTimeCaches?.count > 0){
-            var keys = self.realTimeCaches?.keys.filter({$0 == key})
-            if(keys?.array.count == 0)
+        self.lock!.lock()
+        if(self.realTimeCaches.count>0){
+            var keys = self.realTimeCaches.keys.filter({$0 == key})
+            if(keys.array.count == 0)
             {
-                self.realTimeCaches?[key] = realTimeReport
+                self.realTimeCaches[key] = realTimeReport
             }
             else
             {
-                self.realTimeCaches?.updateValue(realTimeReport, forKey: key)
+                self.realTimeCaches.updateValue(realTimeReport, forKey: key)
             }
         }
         else{
-            self.realTimeCaches?[key] = realTimeReport
+            self.realTimeCaches[key] = realTimeReport
         }
+        self.lock!.unlock()
     }
     
     //设置当前代理
-    func SetDelegate(currentViewModel:BaseViewModel){
-    self.delegate = currentViewModel.delegate
+    func SetDelegate(name:String,currentViewModelDelegate:GetRealtimeDataDelegate?){
+        if currentViewModelDelegate != nil{
+        self.delegateList[name] = currentViewModelDelegate
+        }
+        else{
+         self.delegateList[name] = nil
+        }
     }
+
 }
 
 //每个需要实时数据的界面实现这个代理，获取数据

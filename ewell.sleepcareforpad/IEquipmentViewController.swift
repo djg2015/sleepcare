@@ -40,6 +40,7 @@ class IEquipmentViewController: IBaseViewController {
         self.backBtn.addGestureRecognizer(singleTap)
     }
     
+
     func backToController(sender:UITapGestureRecognizer)
     {
         IViewControllerManager.GetInstance()!.CloseViewController()

@@ -76,7 +76,7 @@ class XmppMsgManager:MessageDelegate{
         var sec:NSTimeInterval = 0
         while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {
             sec = NSDate().timeIntervalSinceDate(curTime)
-            if(sec > 7){
+            if(sec > 10){
                 throw("-2", "无法连接远程服务器，请检查网络并重试")
             }
         }

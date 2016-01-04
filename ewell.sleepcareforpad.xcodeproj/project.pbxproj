@@ -21,6 +21,7 @@
 		0DCC7AB71C337CE000CC2498 /* none_alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DCC7AB61C337CE000CC2498 /* none_alarm.png */; };
 		0DCC7ABB1C337EC800CC2498 /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DCC7ABA1C337EC800CC2498 /* alarm.png */; };
 		0DCC7ABD1C34C71700CC2498 /* RealTimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */; };
+		0DCC7ABF1C3A022600CC2498 /* msg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DCC7ABE1C3A022600CC2498 /* msg.png */; };
 		0DD1D1611C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1D15F1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m */; };
 		2C0615571BF46A2A00A3F90C /* IMySelfSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615561BF46A2A00A3F90C /* IMySelfSettingView.xib */; };
 		2C0615591BF46A5A00A3F90C /* IMySelfSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0615581BF46A5A00A3F90C /* IMySelfSettingController.swift */; };
@@ -332,6 +333,7 @@
 		0DCC7AB61C337CE000CC2498 /* none_alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = none_alarm.png; sourceTree = "<group>"; };
 		0DCC7ABA1C337EC800CC2498 /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
 		0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeHelper.swift; sourceTree = "<group>"; };
+		0DCC7ABE1C3A022600CC2498 /* msg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = msg.png; sourceTree = "<group>"; };
 		0DD1D15E1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCMoreOptionTableViewCell.h; sourceTree = "<group>"; };
 		0DD1D15F1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCMoreOptionTableViewCell.m; sourceTree = "<group>"; };
 		0DD1D1631C292AB100C8FEE3 /* MSCMoreOptionTableViewCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSCMoreOptionTableViewCellDelegate.h; sourceTree = "<group>"; };
@@ -881,6 +883,7 @@
 				0DCC7AB61C337CE000CC2498 /* none_alarm.png */,
 				3A881B641BFC1EF3005F4D07 /* checked.png */,
 				3A8382D21BFACC7B00E4CC15 /* goright.png */,
+				0DCC7ABE1C3A022600CC2498 /* msg.png */,
 				3A8382D31BFACC7B00E4CC15 /* greenpoint.png */,
 				3AF652701BFABEBE00BA2329 /* bigadd.png */,
 				3AF652711BFABEBE00BA2329 /* smalladd.png */,
@@ -1477,6 +1480,7 @@
 				3A39CA0D1BF2FEF40024DD3E /* memenu.png in Resources */,
 				3A9C12F91BC789C6008EC314 /* infoHead.png in Resources */,
 				3A39CA041BF2FCA70024DD3E /* tabBar_1.png in Resources */,
+				0DCC7ABF1C3A022600CC2498 /* msg.png in Resources */,
 				3A91F0A01BF0475400C470D4 /* calendar_littledot@2x.png in Resources */,
 				3A2BD8AB1BD8AE78007BBD01 /* 76pt@1x.png in Resources */,
 				3AB3CB181BD762FE0067F9D4 /* AlarmTableViewCell.xib in Resources */,

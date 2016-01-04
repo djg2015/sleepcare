@@ -140,6 +140,10 @@ class IHRMonitor: UIView{
         }
         
     }
+    
+    func Clean(){
+    self.hrMonitorViewModel!.Clean()
+    }
 }
 
 protocol LoadingHRDelegate{

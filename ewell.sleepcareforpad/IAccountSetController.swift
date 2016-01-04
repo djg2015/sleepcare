@@ -34,7 +34,7 @@ class IAccountSetController: IBaseViewController, PopDownListItemChoosed{
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iRegistViewModel = IRegistViewModel()
-        self.iRegistViewModel.controllerForIphone = self
+       // self.iRegistViewModel.controllerForIphone = self
         self.btnSave!.rac_command = self.iRegistViewModel?.modifyCommand
         RACObserve(self.iRegistViewModel, "LoginName") ~> RAC(self.txtLoginName, "text")
         RACObserve(self.iRegistViewModel, "Pwd") ~> RAC(self.txtPwd, "text")

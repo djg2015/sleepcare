@@ -7,11 +7,6 @@
 //
 
 import Foundation
-//key
-//let LoginNamePhone = "loginusernamephone"
-//let LoginPasscodePhone = "loginuserpwdphone"
-//let LoginNamePad = "loginusername"
-//let LoginPasscodePad = "loginuserpwd"
 
     var fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray

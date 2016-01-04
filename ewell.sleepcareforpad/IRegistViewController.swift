@@ -29,11 +29,10 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iRegistViewModel = IRegistViewModel()
-        self.iRegistViewModel.controllerForIphone = self
+      //  self.iRegistViewModel.controllerForIphone = self
         self.btnRegist!.rac_command = self.iRegistViewModel?.registCommand
         self.txtLoginName.rac_textSignal() ~> RAC(self.iRegistViewModel, "LoginName")
         self.txtPwd.rac_textSignal() ~> RAC(self.iRegistViewModel, "Pwd")

@@ -44,11 +44,12 @@ class ILoginController: IBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
     
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iloginViewModel = IloginViewModel()
-        self.iloginViewModel.controllerForIphone = self
+     //   self.iloginViewModel.controllerForIphone = self
         self.iloginViewModel.AutoLogin()
         self.btnLogin!.rac_command = self.iloginViewModel?.loginCommand
        

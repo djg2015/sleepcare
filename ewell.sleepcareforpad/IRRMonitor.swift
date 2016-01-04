@@ -97,7 +97,7 @@ class IRRMonitor: UIView{
         self._bedUserName = bedUserName
         
         self.parentController = parentController
-        //        self._bedUserCode = bedUserCode
+       
         // 画出圆圈中间内容
         self.lblRR = UILabel(frame: CGRect(x: 0, y: 40, width: self.processRR.bounds.width/2 + 20, height: 60))
         self.lblRR!.textAlignment = .Center
@@ -138,6 +138,10 @@ class IRRMonitor: UIView{
             self.rrMonitorViewModel!.LoadingFlag = false
         }
         
+    }
+    
+    func Clean(){
+        self.rrMonitorViewModel!.Clean()
     }
 }
 

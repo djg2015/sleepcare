@@ -154,11 +154,6 @@ class IRegistViewModel:BaseViewModel {
     func Modify() -> RACSignal{
         try {
             ({
-//                
-//                if(self.LoginName == ""){
-//                    showDialogMsg("账户名不能为空！")
-//                    return
-//                }
                 if(self.Pwd == ""){
                     showDialogMsg("密码不能为空！")
                     return
@@ -174,6 +169,11 @@ class IRegistViewModel:BaseViewModel {
                 }
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
+                //如果改变了养老院，则当前关注的老人bedusercode设置为nil
+                if session!.User!.MainCode != self.MainCode{
+                session!.CurPatientCode = ""
+                }
+                
                 sleepCareForIPhoneBussinessManager.ModifyLoginUser(self.LoginName, oldPassword: session!.OldPwd!, newPassword: self.Pwd, mainCode: self.MainCode)
                 session?.OldPwd = self.Pwd
                 session?.User?.MainCode = self.MainCode
@@ -239,3 +239,4 @@ class IRegistViewModel:BaseViewModel {
         
     }
 }
+

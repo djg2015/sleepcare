@@ -16,7 +16,7 @@ class ISetUserTypeController: IBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = ISetUserTypeViewModel()
-        self.viewModel.controllerForIphone = self
+      //  self.viewModel.controllerForIphone = self
         self.btnUserSelf.rac_command = self.viewModel.userselfCommand
         self.btnMonitor.rac_command = self.viewModel.monitorCommand
     }
