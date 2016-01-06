@@ -108,9 +108,9 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         {
             let firstVew = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
             firstVew.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
-            
             firstVew.HRdelegate = self
             
+            self.curMenu = self.uiHR
             showBody(firstVew, nibName:"IHRMonitor")
         }
         else

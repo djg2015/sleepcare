@@ -74,7 +74,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         var willDeleteCodes = Array<String>()
         for(var i = 0;i<currentCount;i++){
             if self.WarningList[i].UserName == username{
-               TodoList.sharedInstance.removeItemByID(self.WarningList[i].AlarmCode)
+                TodoList.sharedInstance.removeItemByID(self.WarningList[i].AlarmCode)
                 willDeleteCodes.append(self.WarningList[i].AlarmCode)
             }
         }
@@ -82,7 +82,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         for(var i=0;i<willDeleteCodes.count;i++){
             for(var j=0;j<self.Codes.count;j++){
                 if self.Codes[j] == willDeleteCodes[i]{
-                self.Codes.removeAtIndex(j)
+                    self.Codes.removeAtIndex(j)
                     break
                 }
             }
@@ -111,6 +111,9 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                 TodoList.sharedInstance.removeItemByID(item.UUID)
             }
         }
+        //加入未处理的报警信息到todolist／warningList／codes
+        self.ReloadLastWarning()
+        
         self.Warningcouts = TodoList.sharedInstance.allItems().count
         self.setAlarmTimer()
     }
@@ -120,6 +123,52 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             self.alarmdelegate.ShowAlarm()
         }
     }
+    //加入未处理的报警信息到todolist／warningList／codes
+    func ReloadLastWarning(){
+        try {
+            ({
+                var session = SessionForIphone.GetSession()
+                var curDate = NSDate()
+                var timeFormatter = NSDateFormatter()
+                timeFormatter.dateFormat = "yyyy-MM-dd"
+                var curDateString = timeFormatter.stringFromDate(curDate) as String
+                var sleepCareBussinessManager = BusinessFactory<SleepCareBussinessManager>.GetBusinessInstance("SleepCareBussinessManager")
+                var alarmList:AlarmList = sleepCareBussinessManager.GetAlarmByLoginUser(session!.User!.MainCode,loginName:session!.User!.LoginName,schemaCode:"",alarmTimeBegin:"2016-01-01",alarmTimeEnd:curDateString,transferTypeCode:"001",from:nil,max:nil)
+    
+                var alarmInfo:AlarmInfo
+                var tempWarningList = self.WarningList
+                var tempCodes = self.Codes
+                for(var i=0;i<alarmList.alarmInfoList.count;i++){
+                    
+                    alarmInfo = alarmList.alarmInfoList[i]
+             //       let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.SchemaContent, UUID: alarmInfo.AlarmCode)
+                    let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,partName: alarmInfo.PartName,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmDate: alarmInfo.AlarmTime)
+                    tempWarningList.append(warningInfo)
+                    tempCodes.append(alarmInfo.AlarmCode)
+               //     TodoList.sharedInstance.addItem(todoItem)
+                    
+                }
+                self.WarningList = tempWarningList
+                self.Codes = tempCodes
+                self.Warningcouts = self.WarningList.count
+                },
+                catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+                },
+                finally: {
+                    
+                }
+            )}
+       //        if self.alarmcountdelegate != nil{
+//            self.alarmcountdelegate.GetAlarmCount(self.Warningcouts)
+//        }
+//        
+//        if self.alarmpicdelegate != nil{
+//            self.alarmpicdelegate.SetAlarmPic()
+//        }
+    }
+    
     //断网后，重新登录
     func ReConnect(){
         IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
@@ -158,16 +207,16 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             TodoList.sharedInstance.addItem(todoItem)
             self._wariningCaches.removeAtIndex(0)
             self.WarningList = tempWarningList
-        }
-        
-        self.Warningcouts = TodoList.sharedInstance.allItems().count
-        if self.alarmcountdelegate != nil{
-            self.alarmcountdelegate.GetAlarmCount(TodoList.sharedInstance.allItems().count)
-        }
+        }        
+        self.Warningcouts = self.WarningList.count
         
         if self.alarmpicdelegate != nil{
-        self.alarmpicdelegate.SetAlarmPic()
+            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
         }
+        if self.alarmcountdelegate != nil{
+            self.alarmcountdelegate.GetAlarmCount(self.Warningcouts)
+        }
+
     }
     
     //获取原始报警数据warningcaches,通过bedcode过滤为需要的报警信息
@@ -175,6 +224,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     func GetWaringAttentionDelegate(alarmList:AlarmList){
         if(self.IsOpen){
             var session = SessionForIphone.GetSession()!
+            if session.BedUserCodeList != nil{
             var bedusercodeList = session.BedUserCodeList!
             if bedusercodeList.count > 0 {
                 for(var i = 0;i < alarmList.alarmInfoList.count;i++){
@@ -188,6 +238,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                         }
                         
                     }
+                  }
                 }
             }
         }
@@ -207,7 +258,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
 }
 //设置”我的“页面报警信息图标
 protocol SetAlarmPicDelegate{
-func SetAlarmPic()
+    func SetAlarmPic(count:Int)
 }
 
 //点击报警推送消息，跳转alarm信息页面

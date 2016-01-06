@@ -259,4 +259,43 @@ class SleepCareBussiness: SleepCareBussinessManager {
             throw((message as! EMServiceException).code, (message as! EMServiceException).message)
         }
     }
+    
+    //根据当前登录用户、报警类型、报警时间段、报警处理状态等多条件获取关注老人的报警信息
+    //   mainCode 医院/养老院编号
+    //   loginName 登录账户
+    //   schemaCode 报警类型
+    //   alarmTimeBegin 报警时间起始时间 //年-月-日 格式
+    //   alarmTimeEnd 报警时间结束时间//年-月-日 格式
+    //   transferTypeCode 报警处理类型
+    //   from 开始记录序号(nil表示查询全部)
+    //   max  返回最大记录数量(nil表示查询全部)
+    func GetAlarmByLoginUser(mainCode:String,loginName:String,schemaCode:String,alarmTimeBegin:String,alarmTimeEnd:String,transferTypeCode:String,from:String?,max:String?)-> AlarmList{
+        //
+        var subject = MessageSubject(opera: "GetAlarmByLoginUser")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("mainCode", value:mainCode )
+        post.AddKeyValue("loginName", value:loginName )
+        post.AddKeyValue("schemaCode", value:schemaCode )
+        post.AddKeyValue("alarmTimeBegin", value: alarmTimeBegin)
+        post.AddKeyValue("alarmTimeEnd", value: alarmTimeEnd)
+        post.AddKeyValue("transferTypeCode", value:transferTypeCode )
+        if(from != nil)
+        {
+            post.AddKeyValue("from", value: from!)
+        }
+        if(max != nil)
+        {
+            post.AddKeyValue("max", value: max!)
+        }
+        
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+            
+        }
+        return message as! AlarmList
+    }
+
 }

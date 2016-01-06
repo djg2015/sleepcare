@@ -88,4 +88,7 @@ protocol SleepCareForIPhoneBussinessManager{
     
     // 获取所有的医院/养老院
     func GetAllMainInfo()->IMainInfoList
+    
+    
+    
 }

@@ -31,9 +31,9 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
 
 }
     
-    //每隔一秒从缓冲区中取数据，让代理处理需要显示的数据
+    //每隔2秒从缓冲区中取数据，让代理处理需要显示的数据
     func setRealTimer(){
-        var realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "ShowRealTimeData", userInfo: nil, repeats:true);
+        var realtimer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "ShowRealTimeData", userInfo: nil, repeats:true);
         realtimer.fire()
     }
     func ShowRealTimeData(){

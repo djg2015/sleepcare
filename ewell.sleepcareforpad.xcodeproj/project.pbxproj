@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
-		0D19A2A61C3A40DB005ECF19 /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D19A2A51C3A40DB005ECF19 /* alarm.png */; };
+		0D0F2C061C3B814100758340 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D0F2C051C3B814100758340 /* LaunchScreen.xib */; };
+		0D0F2C081C3B830600758340 /* IWelcome.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D0F2C071C3B830600758340 /* IWelcome.xib */; };
 		0D19A2A81C3A4828005ECF19 /* UpdateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D19A2A71C3A4828005ECF19 /* UpdateHelper.swift */; };
 		0D19A2AA1C3A50ED005ECF19 /* SoftwareUpdate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D19A2A91C3A50ED005ECF19 /* SoftwareUpdate.xib */; };
 		0D19A2B01C3A5551005ECF19 /* SoftwareUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D19A2AF1C3A5551005ECF19 /* SoftwareUpdateController.swift */; };
 		0D4E5BEE1C2A85BD00D2ED92 /* IViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */; };
+		0D978D741C3CC0E500E0CB9B /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D731C3CC0E500E0CB9B /* alarm.png */; };
 		0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */; };
 		0DC2280E1C1FD65F00AF4737 /* JHSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */; };
 		0DC2284D1C212F0E00AF4737 /* PlistHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */; };
@@ -323,11 +325,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D19A2A51C3A40DB005ECF19 /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
+		0D0F2C051C3B814100758340 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		0D0F2C071C3B830600758340 /* IWelcome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IWelcome.xib; sourceTree = "<group>"; };
 		0D19A2A71C3A4828005ECF19 /* UpdateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHelper.swift; sourceTree = "<group>"; };
 		0D19A2A91C3A50ED005ECF19 /* SoftwareUpdate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoftwareUpdate.xib; sourceTree = "<group>"; };
 		0D19A2AF1C3A5551005ECF19 /* SoftwareUpdateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareUpdateController.swift; sourceTree = "<group>"; };
 		0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IViewControllerManager.swift; sourceTree = "<group>"; };
+		0D978D731C3CC0E500E0CB9B /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
 		0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHSpinnerView.xib; sourceTree = "<group>"; };
 		0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHSpinnerView.swift; sourceTree = "<group>"; };
 		0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistHelper.swift; sourceTree = "<group>"; };
@@ -489,7 +493,6 @@
 		3A41ADC01BA7A65A000C109B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A41ADC21BA7A65A000C109B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3A41ADC71BA7A65A000C109B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3A41ADCA1BA7A65A000C109B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3A41ADD01BA7A65A000C109B /* ewell.sleepcareforpadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ewell.sleepcareforpadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A41ADD51BA7A65A000C109B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A41ADD61BA7A65A000C109B /* ewell_sleepcareforpadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ewell_sleepcareforpadTests.swift; sourceTree = "<group>"; };
@@ -887,7 +890,7 @@
 			children = (
 				3A881B691BFC42D4005F4D07 /* blueBtnBack.png */,
 				3A881B631BFC1EF3005F4D07 /* unchecked.png */,
-				0D19A2A51C3A40DB005ECF19 /* alarm.png */,
+				0D978D731C3CC0E500E0CB9B /* alarm.png */,
 				0DCC7AB61C337CE000CC2498 /* none_alarm.png */,
 				3A881B641BFC1EF3005F4D07 /* checked.png */,
 				3A8382D21BFACC7B00E4CC15 /* goright.png */,
@@ -984,8 +987,9 @@
 				3A41ADE01BA7B396000C109B /* ViewModel */,
 				3A41ADC01BA7A65A000C109B /* AppDelegate.swift */,
 				3A41ADC21BA7A65A000C109B /* ViewController.swift */,
+				0D0F2C071C3B830600758340 /* IWelcome.xib */,
+				0D0F2C051C3B814100758340 /* LaunchScreen.xib */,
 				3A41ADC71BA7A65A000C109B /* Images.xcassets */,
-				3A41ADC91BA7A65A000C109B /* LaunchScreen.xib */,
 				3A41ADBE1BA7A65A000C109B /* Supporting Files */,
 				3A41ADF31BA7B543000C109B /* ewell.sleepcareforpad-Bridging-Header.h */,
 			);
@@ -1401,7 +1405,6 @@
 				2C06157A1BF4825400A3F90C /* loginbackground.png in Resources */,
 				2C06156C1BF4813700A3F90C /* myElder.png in Resources */,
 				3A39CA051BF2FCA70024DD3E /* tabBar_2.png in Resources */,
-				0D19A2A61C3A40DB005ECF19 /* alarm.png in Resources */,
 				3A39CA031BF2FCA70024DD3E /* tabBar_0.png in Resources */,
 				3A91F09F1BF0475400C470D4 /* calendar_littledot.png in Resources */,
 				3ADA58441BD5FE550066D23A /* sleepofThisWeek.png in Resources */,
@@ -1487,6 +1490,7 @@
 				3A39CA0C1BF2FEF40024DD3E /* sleepmenu.png in Resources */,
 				3A881B621BFC1BC1005F4D07 /* BedPatientCell.xib in Resources */,
 				0DC228531C214FE400AF4737 /* IAlarmView.xib in Resources */,
+				0D978D741C3CC0E500E0CB9B /* alarm.png in Resources */,
 				3A91F0A41BF0475400C470D4 /* dialog_cancel@2x.png in Resources */,
 				3A39CA0D1BF2FEF40024DD3E /* memenu.png in Resources */,
 				3A9C12F91BC789C6008EC314 /* infoHead.png in Resources */,
@@ -1510,6 +1514,7 @@
 				3A39CA0E1BF2FEF40024DD3E /* hrmenu.png in Resources */,
 				3AB3CB061BD761600067F9D4 /* ServerSettingView.xib in Resources */,
 				3AFB93951BCF96F200042AF1 /* userIcon.png in Resources */,
+				0D0F2C061C3B814100758340 /* LaunchScreen.xib in Resources */,
 				3A881B661BFC1EF3005F4D07 /* checked.png in Resources */,
 				3A3452941BC63A5000292107 /* MainView.xib in Resources */,
 				3A881B651BFC1EF3005F4D07 /* unchecked.png in Resources */,
@@ -1553,6 +1558,7 @@
 				3A9C12F81BC789C6008EC314 /* dropdown.png in Resources */,
 				3A9C12F31BC789C6008EC314 /* leaveBed.png in Resources */,
 				3A39CA081BF2FCA70024DD3E /* waneBg.png in Resources */,
+				0D0F2C081C3B830600758340 /* IWelcome.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1778,17 +1784,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		3A41ADC91BA7A65A000C109B /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A41ADCA1BA7A65A000C109B /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		3A41ADD81BA7A65A000C109B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1876,6 +1871,7 @@
 			baseConfigurationReference = 5E7856675DBD0F8296CBE665 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = ipadicon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1922,6 +1918,7 @@
 			baseConfigurationReference = 8E709AD7A0D77B12CA43D3D0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = ipadicon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

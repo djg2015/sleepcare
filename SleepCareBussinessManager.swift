@@ -80,4 +80,7 @@ protocol SleepCareBussinessManager{
     // 参数：alarmCode-> 报警编号
     //      transferType-> 处理类型 002:处理 003:误警报
     func HandleAlarm(alarmCode:String,transferType:String)
+    
+    //根据当前登录用户、报警类型、报警时间段、报警处理状态等多条件获取关注老人的报警信息
+    func GetAlarmByLoginUser(mainCode:String,loginName:String,schemaCode:String,alarmTimeBegin:String,alarmTimeEnd:String,transferTypeCode:String,from:String?,max:String?)-> AlarmList
 }

@@ -14,7 +14,7 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
     // 参数：loginName->登录账户
     //      loginPassword->登录密码
     func Login(loginName:String,loginPassword:String) -> ILoginUser{
-
+        
         var subject = MessageSubject(opera: "Login", bizcode: "sleepcareforiphone")
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("loginName", value: loginName)
@@ -27,7 +27,7 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
         }
         return message as! ILoginUser
     }
-
+    
     // 注册用户信息
     // 参数：loginName->登录账户
     //      loginPassword->登录密码
@@ -47,7 +47,7 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
         }
         return message as! ServerResult
     }
-
+    
     // 保存选择的用户类型
     // 参数：loginName->登录账户
     //      userType->用户类型
@@ -99,7 +99,7 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
         }
         return message as! IMainInfo
     }
-
+    
     
     // 确认关注床位用户信息
     // 参数：loginName->登录账户
@@ -297,4 +297,5 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
         }
         return message as! IMainInfoList
     }
-}
+    
+   }

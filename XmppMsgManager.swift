@@ -46,7 +46,7 @@ class XmppMsgManager:MessageDelegate{
             var sec:NSTimeInterval = 0
             while _xmppMsgHelper!.loginFlag == 0 {
                 sec = NSDate().timeIntervalSinceDate(curTime)
-                if(sec > 8){
+                if(sec > 6){
                     return false
                 }
             }
@@ -100,7 +100,7 @@ class XmppMsgManager:MessageDelegate{
                 self._realTimeDelegate?.GetRealTimeDelegate(object as! RealTimeReport)
             }
         }
-        else if(object.isKindOfClass(AlarmList) && "GetAlarmByUser" != object.messageSubject.operate)
+        else if(object.isKindOfClass(AlarmList) && "GetAlarmByUser" != object.messageSubject.operate && "GetAlarmByLoginUser" != object.messageSubject.operate)
         {
             if(self._waringAttentionDelegate != nil){
                 self._waringAttentionDelegate?.GetWaringAttentionDelegate(object as! AlarmList)
@@ -108,7 +108,7 @@ class XmppMsgManager:MessageDelegate{
         }
         else
         {
-            //            println(object)
+                println(object)
             requsetQuene[object.messageSubject.requestID!] = object
         }
     }

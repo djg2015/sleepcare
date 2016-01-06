@@ -109,8 +109,8 @@
         }
         
         //设置报警信息图标。当前有alarm，则设置为红色；否则，为蓝色
-        func SetAlarmPic() {
-            if TodoList.sharedInstance.allItems().count > 0 {
+        func SetAlarmPic(count:Int) {
+            if count > 0 {
                 if self.menuAlarm.imageName == "none_alarm"{
                     self.menuAlarm.imageName = "alarm"
                     self.menuTableView.reloadData()
