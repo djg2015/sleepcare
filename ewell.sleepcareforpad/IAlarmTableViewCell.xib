@@ -41,8 +41,8 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenpoint.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ex7-uh-a7D">
                     <rect key="frame" x="3" y="66" width="25" height="25"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名:aaa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Tg5-tH-8S7">
-                    <rect key="frame" x="185" y="8" width="84" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名:aaaaaaa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Tg5-tH-8S7">
+                    <rect key="frame" x="185" y="8" width="121" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="luP-gK-pnf"/>
                     </constraints>
