@@ -11,21 +11,15 @@
             <rect key="frame" x="0.0" y="0.0" width="464" height="125"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="partName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQw-Ub-zZ2">
-                    <rect key="frame" x="32" y="8" width="86" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="医院名字" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="EQw-Ub-zZ2">
+                    <rect key="frame" x="32" y="8" width="68" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="时间：1999-01-01" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s24-En-Rnk">
-                    <rect key="frame" x="32" y="39" width="260" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bedNumber" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01o-ug-0Yy">
-                    <rect key="frame" x="120" y="8" width="79" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="时间：1999-01-01" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="s24-En-Rnk">
+                    <rect key="frame" x="32" y="39" width="260" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -35,7 +29,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="66" id="dGg-Ys-R6b"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenpoint.png" translatesAutoresizingMaskIntoConstraints="NO" id="wd8-2R-rQF">
@@ -47,16 +41,34 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenpoint.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ex7-uh-a7D">
                     <rect key="frame" x="3" y="66" width="25" height="25"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="userName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tg5-tH-8S7">
-                    <rect key="frame" x="200" y="8" width="114" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名:aaa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Tg5-tH-8S7">
+                    <rect key="frame" x="185" y="8" width="84" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="luP-gK-pnf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="床号：?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="01o-ug-0Yy">
+                    <rect key="frame" x="114" y="8" width="61" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="CZc-Cr-bjO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="EQw-Ub-zZ2" firstAttribute="top" secondItem="7PZ-9Z-E4A" secondAttribute="top" constant="8" id="Bbq-he-7BY"/>
+                <constraint firstItem="Tg5-tH-8S7" firstAttribute="top" secondItem="7PZ-9Z-E4A" secondAttribute="top" constant="8" id="HlX-Zu-myB"/>
+                <constraint firstItem="01o-ug-0Yy" firstAttribute="top" secondItem="7PZ-9Z-E4A" secondAttribute="top" constant="8" id="QCS-tl-Pi2"/>
+                <constraint firstItem="01o-ug-0Yy" firstAttribute="leading" secondItem="EQw-Ub-zZ2" secondAttribute="trailing" constant="14" id="Rsm-hF-G2w"/>
+                <constraint firstItem="Tg5-tH-8S7" firstAttribute="leading" secondItem="01o-ug-0Yy" secondAttribute="trailing" constant="10" id="SHd-Sz-c7s"/>
                 <constraint firstAttribute="trailing" secondItem="YNJ-aW-aE5" secondAttribute="trailing" constant="8" id="V94-sH-8Ew"/>
+                <constraint firstItem="EQw-Ub-zZ2" firstAttribute="leading" secondItem="7PZ-9Z-E4A" secondAttribute="leading" constant="32" id="VQc-NL-a4E"/>
                 <constraint firstItem="YNJ-aW-aE5" firstAttribute="leading" secondItem="7PZ-9Z-E4A" secondAttribute="leading" constant="26" id="shL-NE-qXZ"/>
                 <constraint firstAttribute="bottom" secondItem="YNJ-aW-aE5" secondAttribute="bottom" id="wP7-wh-Jtb"/>
             </constraints>

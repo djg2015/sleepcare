@@ -43,7 +43,7 @@ class IAlarmViewModel: BaseViewModel {
                     tempAlarm.PartName = info.PartName
                     tempAlarm.UserName = "姓名:" + info.UserName
                     tempAlarm.BedNumber = "床号:" + info.BedNumber
-                    tempAlarm.AlarmDate = "报警时间:" + info.AlarmDate
+                    tempAlarm.AlarmDate = "报警时间：" + info.AlarmDate
 
                     tempAlarm.AlarmContent = info.AlarmContent
                     tempAlarm.deleteAlarmHandler = self.DeleteAlarm
