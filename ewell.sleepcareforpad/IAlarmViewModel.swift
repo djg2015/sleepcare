@@ -32,9 +32,10 @@ class IAlarmViewModel: BaseViewModel {
     func LoadData(){
         try {
             ({
-               // var todolist:Array<TodoItem> = TodoList.sharedInstance.allItems()
+                //每次打开IAlarmView页面，从服务器获取未处理的信息，刷新table内容
+                IAlarmHelper.GetAlarmInstance().ReloadUndealedWarning()
+                
                 var tempAlarmArray = Array<IAlarmTableCellViewModel>()
-              
                 var warningList = IAlarmHelper.GetAlarmInstance().WarningList
                 for (var i = 0 ; i < warningList.count ; i++){
                     var tempAlarm = IAlarmTableCellViewModel()
@@ -50,6 +51,7 @@ class IAlarmViewModel: BaseViewModel {
                     tempAlarm.moreAlarmHandler = self.MoreAlarm
                     tempAlarmArray.append(tempAlarm)
                 }//for i
+                
                 self.AlarmArray = tempAlarmArray
                 },
                 catch: { ex in

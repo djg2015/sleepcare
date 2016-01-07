@@ -28,8 +28,17 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
                 self.realtimeInstance!.lock = NSLock()
             }
             return self.realtimeInstance!
-
 }
+    
+    //设置当前代理
+    func SetDelegate(name:String,currentViewModelDelegate:GetRealtimeDataDelegate?){
+        if currentViewModelDelegate != nil{
+            self.delegateList[name] = currentViewModelDelegate
+        }
+        else{
+            self.delegateList[name] = nil
+        }
+    }
     
     //每隔2秒从缓冲区中取数据，让代理处理需要显示的数据
     func setRealTimer(){
@@ -37,9 +46,6 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
         realtimer.fire()
     }
     func ShowRealTimeData(){
-//        if self.delegate != nil{
-//            self.delegate!.GetRealtimeData(self.realTimeCaches!)
-//        }
         for key in self.delegateList.keys{
             if self.delegateList[key] != nil{
             self.delegateList[key]!.GetRealtimeData(self.realTimeCaches!)
@@ -66,16 +72,6 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
             self.realTimeCaches[key] = realTimeReport
         }
         self.lock!.unlock()
-    }
-    
-    //设置当前代理
-    func SetDelegate(name:String,currentViewModelDelegate:GetRealtimeDataDelegate?){
-        if currentViewModelDelegate != nil{
-        self.delegateList[name] = currentViewModelDelegate
-        }
-        else{
-         self.delegateList[name] = nil
-        }
     }
 
 }

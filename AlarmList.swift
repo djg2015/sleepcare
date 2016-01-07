@@ -43,6 +43,11 @@ class AlarmList:BaseMessage {
             {
                 newalarmInfo.BedNumber = alarmInfo.elementForName("BedNumber").stringValue()
             }
+            if(nil != alarmInfo.elementForName("HandleFlag"))
+            {
+                newalarmInfo.HandleFlag = alarmInfo.elementForName("HandleFlag").stringValue()
+            }
+           
             newalarmInfo.SchemaCode = alarmInfo.elementForName("SchemaCode").stringValue()
             newalarmInfo.SchemaContent = alarmInfo.elementForName("SchemaContent").stringValue()
             newalarmInfo.AlarmDate = alarmInfo.elementForName("AlarmDate").stringValue()

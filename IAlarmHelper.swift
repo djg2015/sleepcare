@@ -111,8 +111,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                 TodoList.sharedInstance.removeItemByID(item.UUID)
             }
         }
-        //加入未处理的报警信息到todolist／warningList／codes
-        self.ReloadLastWarning()
+        //加入未处理的报警信息到warningList／codes
+        self.ReloadUndealedWarning()
         
         self.Warningcouts = TodoList.sharedInstance.allItems().count
         self.setAlarmTimer()
@@ -123,8 +123,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             self.alarmdelegate.ShowAlarm()
         }
     }
-    //加入未处理的报警信息到todolist／warningList／codes
-    func ReloadLastWarning(){
+    //加入未处理的报警信息到warningList／codes
+    func ReloadUndealedWarning(){
         try {
             ({
                 var session = SessionForIphone.GetSession()
@@ -134,19 +134,16 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                 var curDateString = timeFormatter.stringFromDate(curDate) as String
                 var sleepCareBussinessManager = BusinessFactory<SleepCareBussinessManager>.GetBusinessInstance("SleepCareBussinessManager")
                 var alarmList:AlarmList = sleepCareBussinessManager.GetAlarmByLoginUser(session!.User!.MainCode,loginName:session!.User!.LoginName,schemaCode:"",alarmTimeBegin:"2016-01-01",alarmTimeEnd:curDateString,transferTypeCode:"001",from:nil,max:nil)
-    
+                
                 var alarmInfo:AlarmInfo
-                var tempWarningList = self.WarningList
-                var tempCodes = self.Codes
+                var tempWarningList:Array<WarningInfo>=[]
+                var tempCodes:Array<String> = []
                 for(var i=0;i<alarmList.alarmInfoList.count;i++){
                     
                     alarmInfo = alarmList.alarmInfoList[i]
-             //       let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.SchemaContent, UUID: alarmInfo.AlarmCode)
                     let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,partName: alarmInfo.PartName,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmDate: alarmInfo.AlarmTime)
                     tempWarningList.append(warningInfo)
                     tempCodes.append(alarmInfo.AlarmCode)
-               //     TodoList.sharedInstance.addItem(todoItem)
-                    
                 }
                 self.WarningList = tempWarningList
                 self.Codes = tempCodes
@@ -160,13 +157,14 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                     
                 }
             )}
-       //        if self.alarmcountdelegate != nil{
-//            self.alarmcountdelegate.GetAlarmCount(self.Warningcouts)
-//        }
-//        
-//        if self.alarmpicdelegate != nil{
-//            self.alarmpicdelegate.SetAlarmPic()
-//        }
+        
+        if self.alarmcountdelegate != nil{
+            self.alarmcountdelegate.GetAlarmCount(self.Warningcouts)
+        }
+        
+        if self.alarmpicdelegate != nil{
+            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
+        }
     }
     
     //断网后，重新登录
@@ -207,7 +205,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             TodoList.sharedInstance.addItem(todoItem)
             self._wariningCaches.removeAtIndex(0)
             self.WarningList = tempWarningList
-        }        
+        }
         self.Warningcouts = self.WarningList.count
         
         if self.alarmpicdelegate != nil{
@@ -216,7 +214,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         if self.alarmcountdelegate != nil{
             self.alarmcountdelegate.GetAlarmCount(self.Warningcouts)
         }
-
+        
     }
     
     //获取原始报警数据warningcaches,通过bedcode过滤为需要的报警信息
@@ -225,20 +223,51 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         if(self.IsOpen){
             var session = SessionForIphone.GetSession()!
             if session.BedUserCodeList != nil{
-            var bedusercodeList = session.BedUserCodeList!
-            if bedusercodeList.count > 0 {
-                for(var i = 0;i < alarmList.alarmInfoList.count;i++){
-                    for code in bedusercodeList {
-                        if code == alarmList.alarmInfoList[i].UserCode{
-                            if !self.IsCodeExist(alarmList.alarmInfoList[i].AlarmCode){
-                                self._codes.append(alarmList.alarmInfoList[i].AlarmCode)
-                                self._wariningCaches.append(alarmList.alarmInfoList[i])
-                                break
+                var bedusercodeList = session.BedUserCodeList!
+                if bedusercodeList.count > 0 {
+                    for(var i = 0;i < alarmList.alarmInfoList.count;i++){
+                        for code in bedusercodeList {
+                            if code == alarmList.alarmInfoList[i].UserCode{
+                                //如果存在此code的报警信息，判断是否已处理
+                                if self.IsCodeExist(alarmList.alarmInfoList[i].AlarmCode){
+                                    //已处理，则从codes&warninglist&todolist里删除
+                                    if alarmList.alarmInfoList[i].HandleFlag == "1" {
+                                        var code = alarmList.alarmInfoList[i].AlarmCode
+                                        var tempwarningList = self.WarningList
+                                        var codes = self.Codes
+                                        TodoList.sharedInstance.removeItemByID(code)
+                                        
+                                        for(var i = 0; i < tempwarningList.count; i++){
+                                            if code == tempwarningList[i].AlarmCode{
+                                                tempwarningList.removeAtIndex(i)
+                                                self.WarningList = tempwarningList
+                                                break
+                                            }
+                                        }
+                                        for (var i = 0; i < codes.count; i++){
+                                            if code == codes[i]{
+                                                codes.removeAtIndex(i)
+                                                self.Codes = codes
+                                                break
+                                            }
+                                        }
+                                        break
+                                    }//删除已处理的报警
+                                }
+                                    
+                                    //不存在，则加入到codes和warningCaches里
+                                else{
+                                    if alarmList.alarmInfoList[i].HandleFlag == "0"
+                                    {
+                                        self._codes.append(alarmList.alarmInfoList[i].AlarmCode)
+                                        self._wariningCaches.append(alarmList.alarmInfoList[i])
+                                        break
+                                    }
+                                }
+                                
                             }
                         }
-                        
                     }
-                  }
                 }
             }
         }
