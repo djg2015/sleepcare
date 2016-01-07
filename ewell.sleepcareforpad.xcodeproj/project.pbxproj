@@ -535,12 +535,10 @@
 		3A41ADED1BA7B45D000C109B /* MessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageDelegate.swift; path = ewell.sleepcareforpad/MessageDelegate.swift; sourceTree = "<group>"; };
 		3A41ADEE1BA7B45D000C109B /* ReactiveCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReactiveCocoa.swift; path = ewell.sleepcareforpad/ReactiveCocoa.swift; sourceTree = "<group>"; };
 		3A41ADF31BA7B543000C109B /* ewell.sleepcareforpad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ewell.sleepcareforpad-Bridging-Header.h"; sourceTree = "<group>"; };
-		3A41AE1C1BA7C121000C109B /* ewell.common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ewell.common.framework; path = "ewell.common/build/Debug-iphoneos/ewell.common.framework"; sourceTree = "<group>"; };
 		3A4B85C51BB14D34006E4CF1 /* SleepCareBussinessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareBussinessManager.swift; sourceTree = "<group>"; };
 		3A4B85C71BB14DFD006E4CF1 /* Worktask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worktask.swift; sourceTree = "<group>"; };
 		3A4B85C91BB14F28006E4CF1 /* SleepCareBussiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareBussiness.swift; sourceTree = "<group>"; };
 		3A4B85CB1BB150C1006E4CF1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		3A4CD3EF1BA802E6002C8A1A /* common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = common.framework; path = "common/build/Debug-iphoneos/common.framework"; sourceTree = "<group>"; };
 		3A4CD3F71BA804D2002C8A1A /* XmppMsgManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmppMsgManager.swift; sourceTree = "<group>"; };
 		3A4CD3F91BA80536002C8A1A /* CommonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
 		3A4CD3FC1BA80852002C8A1A /* BaseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessage.swift; sourceTree = "<group>"; };
@@ -1352,8 +1350,6 @@
 				2CB435331C06A6A9000751D1 /* libxml2.dylib */,
 				3AC7B10C1BF464D2002DE94C /* Foundation.framework */,
 				3A3D65E71BAAB67C00CEFB25 /* libxml2.2.dylib */,
-				3A4CD3EF1BA802E6002C8A1A /* common.framework */,
-				3A41AE1C1BA7C121000C109B /* ewell.common.framework */,
 				54127559369C5508905B3990 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -1940,11 +1936,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ewell.common/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/common/build/Debug-iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/usr/include/libxml2/**",
@@ -1987,11 +1979,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ewell.common/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/common/build/Debug-iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/usr/include/libxml2/**",
