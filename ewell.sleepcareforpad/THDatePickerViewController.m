@@ -60,7 +60,7 @@ static int FIRST_WEEKDAY = 2;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         _allowClearDate = NO;
     }
     return self;
@@ -214,7 +214,7 @@ static int FIRST_WEEKDAY = 2;
             self.currentDay = day;
         }
         
-        NSDateComponents *comps = [_calendar components:NSDayCalendarUnit fromDate:date];
+        NSDateComponents *comps = [_calendar components:NSCalendarUnitDay fromDate:date];
         [day.dateButton setTitle:[NSString stringWithFormat:@"%ld",(long)[comps day]]
                         forState:UIControlStateNormal];
         [self.calendarDaysView addSubview:day];
@@ -229,7 +229,7 @@ static int FIRST_WEEKDAY = 2;
     if(!self.weekdaysView.subviews.count) {
         CGSize fullSize = self.weekdaysView.frame.size;
         int curX = (fullSize.width - 7*dayWidth)/2;
-        NSDateComponents * comps = [_calendar components:NSDayCalendarUnit fromDate:[NSDate date]];
+        NSDateComponents * comps = [_calendar components:NSCalendarUnitDay fromDate:[NSDate date]];
         NSCalendar *c = [NSCalendar currentCalendar];
 #ifdef DEBUG
         [c setFirstWeekday:FIRST_WEEKDAY];
@@ -269,9 +269,9 @@ static int FIRST_WEEKDAY = 2;
     if(!self.internalDate) return nil;
     else if(!_date) return self.internalDate;
     else {
-        int ymd = NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit;
+        int ymd = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay;
         NSDateComponents* internalComps = [_calendar components:ymd fromDate:self.internalDate];
-        int time = NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit|NSTimeZoneCalendarUnit;
+        int time = NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond|NSCalendarUnitTimeZone;
         NSDateComponents* origComps = [_calendar components:time fromDate:_date];
         [origComps setDay:[internalComps day]];
         [origComps setMonth:[internalComps month]];
@@ -311,18 +311,18 @@ static int FIRST_WEEKDAY = 2;
 }
 
 - (void)setDisplayedMonthFromDate:(NSDate *)date{
-    NSDateComponents* comps = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit fromDate:date];
+    NSDateComponents* comps = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:date];
     [self setDisplayedMonth:(int)[comps month] year:(int)[comps year]];
 }
 
 - (void)storeDateInformation{
-    NSDateComponents *comps = [_calendar components:NSWeekdayCalendarUnit | NSDayCalendarUnit fromDate:self.firstOfCurrentMonth];
+    NSDateComponents *comps = [_calendar components:NSCalendarUnitWeekday | NSCalendarUnitDay fromDate:self.firstOfCurrentMonth];
     NSCalendar *c = [NSCalendar currentCalendar];
 #ifdef DEBUG
     [c setFirstWeekday:FIRST_WEEKDAY];
 #endif
-    NSRange days = [c rangeOfUnit:NSDayCalendarUnit
-                           inUnit:NSMonthCalendarUnit
+    NSRange days = [c rangeOfUnit:NSCalendarUnitDay
+                           inUnit:NSCalendarUnitMonth
                           forDate:self.firstOfCurrentMonth];
     
     int bufferDaysBeginning = (int)([comps weekday]-[c firstWeekday]);
@@ -461,7 +461,7 @@ static int FIRST_WEEKDAY = 2;
 // --------------------- Date Utils ---------------------- //
 
 - (BOOL)dateInCurrentMonth:(NSDate *)date{
-    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
     NSDateComponents* comp1 = [_calendar components:unitFlags fromDate:self.firstOfCurrentMonth];
     NSDateComponents* comp2 = [_calendar components:unitFlags fromDate:date];
     return [comp1 year]  == [comp2 year] && [comp1 month] == [comp2 month];
@@ -471,7 +471,7 @@ static int FIRST_WEEKDAY = 2;
     if( datDate == nil ) {
         datDate = [NSDate date];
     }
-    NSDateComponents* comps = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:datDate];
+    NSDateComponents* comps = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:datDate];
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
 }
 

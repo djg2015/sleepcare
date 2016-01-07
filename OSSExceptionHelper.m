@@ -54,6 +54,6 @@
 
 + (void)throwExceptionNamed:(NSString *)name message:(NSString *)message;
 {
-    [NSException raise:name format:message];
+    [NSException raise:name format:@"%@",message];
 }
 @end

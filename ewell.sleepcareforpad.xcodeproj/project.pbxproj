@@ -15,6 +15,22 @@
 		0D19A2B01C3A5551005ECF19 /* SoftwareUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D19A2AF1C3A5551005ECF19 /* SoftwareUpdateController.swift */; };
 		0D4E5BEE1C2A85BD00D2ED92 /* IViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */; };
 		0D978D741C3CC0E500E0CB9B /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D731C3CC0E500E0CB9B /* alarm.png */; };
+		0D978D7C1C3E09D600E0CB9B /* 29pt-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D7B1C3E09D600E0CB9B /* 29pt-@2x.png */; };
+		0D978D7F1C3E09DF00E0CB9B /* 29pt-@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D7D1C3E09DF00E0CB9B /* 29pt-@3x.png */; };
+		0D978D801C3E09DF00E0CB9B /* 40pt-@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D7E1C3E09DF00E0CB9B /* 40pt-@1x.png */; };
+		0D978D921C3E09EE00E0CB9B /* 40pt-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D811C3E09EE00E0CB9B /* 40pt-@2x.png */; };
+		0D978D931C3E09EE00E0CB9B /* 40pt-@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D821C3E09EE00E0CB9B /* 40pt-@3x.png */; };
+		0D978D951C3E09EE00E0CB9B /* 50pt-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D841C3E09EE00E0CB9B /* 50pt-@2x.png */; };
+		0D978D971C3E09EE00E0CB9B /* 57pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D861C3E09EE00E0CB9B /* 57pt.png */; };
+		0D978D981C3E09EE00E0CB9B /* 57pt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D871C3E09EE00E0CB9B /* 57pt@2x.png */; };
+		0D978D9B1C3E09EE00E0CB9B /* 60pt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D8A1C3E09EE00E0CB9B /* 60pt@2x.png */; };
+		0D978D9C1C3E09EE00E0CB9B /* 60pt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D8B1C3E09EE00E0CB9B /* 60pt@3x.png */; };
+		0D978D9E1C3E09EE00E0CB9B /* 72pt-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D8D1C3E09EE00E0CB9B /* 72pt-@2x.png */; };
+		0D978DA11C3E09EE00E0CB9B /* 76pt-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D901C3E09EE00E0CB9B /* 76pt-@2x.png */; };
+		0D978DA41C3E136300E0CB9B /* 1024X768.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978DA31C3E136300E0CB9B /* 1024X768.png */; };
+		0D978DAA1C3E144900E0CB9B /* 1024X748.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978DA91C3E144900E0CB9B /* 1024X748.png */; };
+		0D978DAC1C3E1E2100E0CB9B /* 1024X768@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978DAB1C3E1E2100E0CB9B /* 1024X768@2x.png */; };
+		0D978DAE1C3E200700E0CB9B /* 1024X748@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978DAD1C3E200700E0CB9B /* 1024X748@2x.png */; };
 		0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */; };
 		0DC2280E1C1FD65F00AF4737 /* JHSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */; };
 		0DC2284D1C212F0E00AF4737 /* PlistHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */; };
@@ -332,6 +348,22 @@
 		0D19A2AF1C3A5551005ECF19 /* SoftwareUpdateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareUpdateController.swift; sourceTree = "<group>"; };
 		0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IViewControllerManager.swift; sourceTree = "<group>"; };
 		0D978D731C3CC0E500E0CB9B /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
+		0D978D7B1C3E09D600E0CB9B /* 29pt-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29pt-@2x.png"; sourceTree = "<group>"; };
+		0D978D7D1C3E09DF00E0CB9B /* 29pt-@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29pt-@3x.png"; sourceTree = "<group>"; };
+		0D978D7E1C3E09DF00E0CB9B /* 40pt-@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "40pt-@1x.png"; sourceTree = "<group>"; };
+		0D978D811C3E09EE00E0CB9B /* 40pt-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "40pt-@2x.png"; sourceTree = "<group>"; };
+		0D978D821C3E09EE00E0CB9B /* 40pt-@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "40pt-@3x.png"; sourceTree = "<group>"; };
+		0D978D841C3E09EE00E0CB9B /* 50pt-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "50pt-@2x.png"; sourceTree = "<group>"; };
+		0D978D861C3E09EE00E0CB9B /* 57pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 57pt.png; sourceTree = "<group>"; };
+		0D978D871C3E09EE00E0CB9B /* 57pt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "57pt@2x.png"; sourceTree = "<group>"; };
+		0D978D8A1C3E09EE00E0CB9B /* 60pt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "60pt@2x.png"; sourceTree = "<group>"; };
+		0D978D8B1C3E09EE00E0CB9B /* 60pt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "60pt@3x.png"; sourceTree = "<group>"; };
+		0D978D8D1C3E09EE00E0CB9B /* 72pt-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "72pt-@2x.png"; sourceTree = "<group>"; };
+		0D978D901C3E09EE00E0CB9B /* 76pt-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "76pt-@2x.png"; sourceTree = "<group>"; };
+		0D978DA31C3E136300E0CB9B /* 1024X768.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024X768.png; sourceTree = "<group>"; };
+		0D978DA91C3E144900E0CB9B /* 1024X748.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024X748.png; sourceTree = "<group>"; };
+		0D978DAB1C3E1E2100E0CB9B /* 1024X768@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1024X768@2x.png"; sourceTree = "<group>"; };
+		0D978DAD1C3E200700E0CB9B /* 1024X748@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1024X748@2x.png"; sourceTree = "<group>"; };
 		0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHSpinnerView.xib; sourceTree = "<group>"; };
 		0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHSpinnerView.swift; sourceTree = "<group>"; };
 		0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistHelper.swift; sourceTree = "<group>"; };
@@ -1251,6 +1283,22 @@
 				3A2BD8A41BD8AE78007BBD01 /* 29pt@1x.png */,
 				3A2BD8A51BD8AE78007BBD01 /* 50pt@1x.png */,
 				3A2BD8A61BD8AE78007BBD01 /* 72pt@1x.png */,
+				0D978D7E1C3E09DF00E0CB9B /* 40pt-@1x.png */,
+				0D978D811C3E09EE00E0CB9B /* 40pt-@2x.png */,
+				0D978D821C3E09EE00E0CB9B /* 40pt-@3x.png */,
+				0D978D841C3E09EE00E0CB9B /* 50pt-@2x.png */,
+				0D978D861C3E09EE00E0CB9B /* 57pt.png */,
+				0D978DA31C3E136300E0CB9B /* 1024X768.png */,
+				0D978DA91C3E144900E0CB9B /* 1024X748.png */,
+				0D978D871C3E09EE00E0CB9B /* 57pt@2x.png */,
+				0D978D8A1C3E09EE00E0CB9B /* 60pt@2x.png */,
+				0D978D8B1C3E09EE00E0CB9B /* 60pt@3x.png */,
+				0D978D8D1C3E09EE00E0CB9B /* 72pt-@2x.png */,
+				0D978D901C3E09EE00E0CB9B /* 76pt-@2x.png */,
+				0D978D7D1C3E09DF00E0CB9B /* 29pt-@3x.png */,
+				0D978DAB1C3E1E2100E0CB9B /* 1024X768@2x.png */,
+				0D978D7B1C3E09D600E0CB9B /* 29pt-@2x.png */,
+				0D978DAD1C3E200700E0CB9B /* 1024X748@2x.png */,
 				3A2BD8A71BD8AE78007BBD01 /* 76pt@1x.png */,
 				2C2F838A1BD63A19008CD92B /* nextBtnChecked.png */,
 				2C2F838B1BD63A19008CD92B /* nextBtnNormal.png */,
@@ -1260,6 +1308,7 @@
 				3AB43E741BD4DB53005023D3 /* nextBtnDisable.png */,
 				3AB43E721BD4DB45005023D3 /* previewBtnChecked.png */,
 				3A3C37811BD4D89A00080D03 /* comming.png */,
+				3A9C12E41BC789C6008EC314 /* unlineView.png */,
 				3A3C37731BD48F0A00080D03 /* sleepofThisWeek.png */,
 				3A3C37741BD48F0B00080D03 /* trunrecord.png */,
 				3A3C37751BD48F0B00080D03 /* leaverecord.png */,
@@ -1281,7 +1330,6 @@
 				3A9C12E11BC789C6008EC314 /* emptyBed.png */,
 				3A9C12E21BC789C6008EC314 /* leaveBed.png */,
 				3A9C12E31BC789C6008EC314 /* leaveView.png */,
-				3A9C12E41BC789C6008EC314 /* unlineView.png */,
 				3A9C12E51BC789C6008EC314 /* clock.png */,
 				3A9C12E61BC789C6008EC314 /* search.png */,
 				3A9C12E71BC789C6008EC314 /* dropdown.png */,
@@ -1402,6 +1450,7 @@
 				2C0615771BF4825400A3F90C /* loginname.png in Resources */,
 				2C0615781BF4825400A3F90C /* loginpwd.png in Resources */,
 				2C0615791BF4825400A3F90C /* LOGO.png in Resources */,
+				0D978D7F1C3E09DF00E0CB9B /* 29pt-@3x.png in Resources */,
 				2C06157A1BF4825400A3F90C /* loginbackground.png in Resources */,
 				2C06156C1BF4813700A3F90C /* myElder.png in Resources */,
 				3A39CA051BF2FCA70024DD3E /* tabBar_2.png in Resources */,
@@ -1414,6 +1463,7 @@
 				3AFB93941BCF96F200042AF1 /* pwdIcon.png in Resources */,
 				3A9C12FC1BC789C6008EC314 /* BedFrame.png in Resources */,
 				3A3C377E1BD48F0B00080D03 /* hrrr.png in Resources */,
+				0D978DA41C3E136300E0CB9B /* 1024X768.png in Resources */,
 				3A91F0AE1BF0475400C470D4 /* THDateDay.xib in Resources */,
 				3A85636A1BF1C28600E74B27 /* IMainFrame.xib in Resources */,
 				3AC70CBA1BF9844200814082 /* ISetUserType.xib in Resources */,
@@ -1424,16 +1474,20 @@
 				2C06156A1BF4813700A3F90C /* logotm.png in Resources */,
 				2C0615741BF481D100A3F90C /* regisrinputdownborder.png in Resources */,
 				3A3C377C1BD48F0B00080D03 /* dateIcon.png in Resources */,
+				0D978D951C3E09EE00E0CB9B /* 50pt-@2x.png in Resources */,
 				3A2BD8A81BD8AE78007BBD01 /* 29pt@1x.png in Resources */,
 				2C06155D1BF47A3200A3F90C /* backBtn.png in Resources */,
 				3A91F09E1BF0475400C470D4 /* calendar_littledot-disabled@2x.png in Resources */,
 				2CC2F1C61BFEB9CF00E14328 /* IEquipmentView.xib in Resources */,
+				0D978D9B1C3E09EE00E0CB9B /* 60pt@2x.png in Resources */,
 				2C4D31461BF97E6F001DB693 /* IServerSettingView.xib in Resources */,
 				2C2F83901BD63A19008CD92B /* previewBtnDisable.png in Resources */,
 				3A8382D51BFACC7B00E4CC15 /* greenpoint.png in Resources */,
 				2C0615711BF4813700A3F90C /* trendMenu.png in Resources */,
 				2C0DC3C51BF9A0930048BEEA /* ILoginUserEdit.xib in Resources */,
+				0D978D971C3E09EE00E0CB9B /* 57pt.png in Resources */,
 				3AF652751BFAC50500BA2329 /* MyPatientsTableViewCell.xib in Resources */,
+				0D978D931C3E09EE00E0CB9B /* 40pt-@3x.png in Resources */,
 				0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */,
 				3A39CA021BF2FCA70024DD3E /* grayback.png in Resources */,
 				2C06157C1BF4885000A3F90C /* ISleepQualityMonitor.xib in Resources */,
@@ -1442,9 +1496,11 @@
 				2C0615681BF4813700A3F90C /* detailBtn.png in Resources */,
 				3AB3CB1D1BD762FE0067F9D4 /* SleepCareCollectionView.xib in Resources */,
 				2C06156B1BF4813700A3F90C /* manHeadFace.png in Resources */,
+				0D978D921C3E09EE00E0CB9B /* 40pt-@2x.png in Resources */,
 				3A3756201BCB589600182DE4 /* DialogFrame.xib in Resources */,
 				3A91F0A51BF0475400C470D4 /* dialog_clear-disabled.png in Resources */,
 				3A91F0A81BF0475400C470D4 /* dialog_clear@2x.png in Resources */,
+				0D978D9C1C3E09EE00E0CB9B /* 60pt@3x.png in Resources */,
 				3A39CA121BF2FF0A0024DD3E /* rrmenu.png in Resources */,
 				2C2C067B1BCF955400AA2C8D /* SleepQualityPandect.xib in Resources */,
 				3A9C13001BC789C6008EC314 /* onBedView.png in Resources */,
@@ -1456,6 +1512,7 @@
 				3A91F0A11BF0475400C470D4 /* calendar_ok-disabled.png in Resources */,
 				2C3BAF151BCBA481003A2F48 /* AlarmView.xib in Resources */,
 				2C1FDB591BFC5F3100879E14 /* IRRMonitor.xib in Resources */,
+				0D978DA11C3E09EE00E0CB9B /* 76pt-@2x.png in Resources */,
 				3AC7B0F21BF4551B002DE94C /* IRegist.xib in Resources */,
 				2C2F838F1BD63A19008CD92B /* nextBtnNormal.png in Resources */,
 				3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */,
@@ -1486,6 +1543,7 @@
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
 				3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */,
 				0D19A2AA1C3A50ED005ECF19 /* SoftwareUpdate.xib in Resources */,
+				0D978D9E1C3E09EE00E0CB9B /* 72pt-@2x.png in Resources */,
 				2C2F838E1BD63A19008CD92B /* nextBtnChecked.png in Resources */,
 				3A39CA0C1BF2FEF40024DD3E /* sleepmenu.png in Resources */,
 				3A881B621BFC1BC1005F4D07 /* BedPatientCell.xib in Resources */,
@@ -1526,11 +1584,13 @@
 				3A91F0AB1BF0475400C470D4 /* dialog_ok.png in Resources */,
 				3AFB93921BCF96F200042AF1 /* loginTitle.png in Resources */,
 				3AA3161D1BD0DD8500FC3C40 /* sleepcare.plist in Resources */,
+				0D978DAA1C3E144900E0CB9B /* 1024X748.png in Resources */,
 				3AC7B1031BF45BD4002DE94C /* fs_main_login_selected.png in Resources */,
 				3A2BD8AA1BD8AE78007BBD01 /* 72pt@1x.png in Resources */,
 				3A9C13011BC789C6008EC314 /* transbg.png in Resources */,
 				2C0615701BF4813700A3F90C /* settingMenu.png in Resources */,
 				3A9C12F71BC789C6008EC314 /* search.png in Resources */,
+				0D978D981C3E09EE00E0CB9B /* 57pt@2x.png in Resources */,
 				3A3756261BCB5E9600182DE4 /* SleepcareList.xib in Resources */,
 				3A9C12F41BC789C6008EC314 /* leaveView.png in Resources */,
 				3A91F09D1BF0475400C470D4 /* calendar_littledot-disabled.png in Resources */,
@@ -1541,14 +1601,17 @@
 				3A9C12F11BC789C6008EC314 /* maintop.png in Resources */,
 				3A3C377B1BD48F0B00080D03 /* leaverecord.png in Resources */,
 				3A3C37821BD4D89A00080D03 /* comming.png in Resources */,
+				0D978D7C1C3E09D600E0CB9B /* 29pt-@2x.png in Resources */,
 				3AB43E751BD4DB53005023D3 /* nextBtnDisable.png in Resources */,
 				3A8680661BD75EA900F22016 /* ChoosePart.xib in Resources */,
+				0D978DAC1C3E1E2100E0CB9B /* 1024X768@2x.png in Resources */,
 				3A2F02781BCBA4E4000B16B5 /* infoHeadred.png in Resources */,
 				3A8382D41BFACC7B00E4CC15 /* goright.png in Resources */,
 				3A3C377D1BD48F0B00080D03 /* sleepcareblock.png in Resources */,
 				3AF652721BFABEBE00BA2329 /* bigadd.png in Resources */,
 				0DC2284F1C214D0D00AF4737 /* IAlarmTableViewCell.xib in Resources */,
 				3A91F0A71BF0475400C470D4 /* dialog_clear.png in Resources */,
+				0D978DAE1C3E200700E0CB9B /* 1024X748@2x.png in Resources */,
 				2C06155B1BF4733000A3F90C /* settingBottom.png in Resources */,
 				3A91F09A1BF0475400C470D4 /* arrow_right@2x.png in Resources */,
 				3A91F09C1BF0475400C470D4 /* calendar_clear-disabled@2x.png in Resources */,
@@ -1557,6 +1620,7 @@
 				3A2158721BEC8C090089CC01 /* ILogin.xib in Resources */,
 				3A9C12F81BC789C6008EC314 /* dropdown.png in Resources */,
 				3A9C12F31BC789C6008EC314 /* leaveBed.png in Resources */,
+				0D978D801C3E09DF00E0CB9B /* 40pt-@1x.png in Resources */,
 				3A39CA081BF2FCA70024DD3E /* waneBg.png in Resources */,
 				0D0F2C081C3B830600758340 /* IWelcome.xib in Resources */,
 			);
@@ -1821,7 +1885,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1859,7 +1923,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1870,7 +1934,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E7856675DBD0F8296CBE665 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = ipadicon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1909,7 +1973,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1917,7 +1981,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8E709AD7A0D77B12CA43D3D0 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = ipadicon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1955,7 +2019,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
