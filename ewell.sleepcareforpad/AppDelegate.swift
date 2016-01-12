@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         //设置消息推送
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
         InitPlistFile()
+        
         if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
             deviceType = "iphone"
             //设置启动界面

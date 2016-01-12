@@ -19,7 +19,6 @@ import Foundation
         documentsDirectory = paths[0] as! String
         let path = documentsDirectory.stringByAppendingPathComponent("sleepcare.plist")
 
-        
         //check if file exists
         if(!fileManager.fileExistsAtPath(path)) {
             // If it doesn't, copy it from the default file in the Bundle
@@ -43,16 +42,16 @@ import Foundation
     }
     
 //从plist读取键值
-    func GetValueFromPlist(key:String) -> String{
+    func GetValueFromPlist(key:String) -> String?{
         let path = documentsDirectory.stringByAppendingPathComponent("sleepcare.plist")
         if fileManager.fileExistsAtPath(path) {
-            println("loaded value")
-           return NSMutableDictionary(contentsOfFile: path)!.valueForKey(key) as! String
+         //   println("loaded value")
+           return NSMutableDictionary(contentsOfFile: path)!.valueForKey(key) as? String
             
         } else {
-            println("WARNING: sleepcare.plist doesn't exist! return nil!")
+            println("WARNING: sleepcare.plist doesn't exist! return 空!")
         }
-        return ""  
+        return nil
      
 }
 
@@ -61,7 +60,20 @@ import Foundation
         let path = documentsDirectory.stringByAppendingPathComponent("sleepcare.plist")
         resultDictionary!.setValue(value, forKey: key)
         resultDictionary!.writeToFile(path, atomically: false)
-        println("Saved sleepcare.plist file is --> \(resultDictionary?.description)")
+      //  println("Saved sleepcare.plist file is --> \(resultDictionary?.description)")
     }
     
+//判断和server有关的信息是否为空
+func IsPlistDataEmpty()->Bool{
+    var ip =  GetValueFromPlist("IP")
+    var port =  GetValueFromPlist("OpenFirePort")
+    var pwd =  GetValueFromPlist("PWD")
+    var server =  GetValueFromPlist("ServerID")
+    var user =  GetValueFromPlist("UserName")
+    
+    if (ip==nil || port==nil || pwd==nil || server==nil || user==nil){
+    return true
+    }
+    return false
+}
 

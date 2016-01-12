@@ -14,6 +14,9 @@
 		0D19A2AA1C3A50ED005ECF19 /* SoftwareUpdate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D19A2A91C3A50ED005ECF19 /* SoftwareUpdate.xib */; };
 		0D19A2B01C3A5551005ECF19 /* SoftwareUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D19A2AF1C3A5551005ECF19 /* SoftwareUpdateController.swift */; };
 		0D4E5BEE1C2A85BD00D2ED92 /* IViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */; };
+		0D5CF5951C4352D000D35D80 /* JasonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5CF5941C4352D000D35D80 /* JasonHelper.swift */; };
+		0D5CF5971C43AB8F00D35D80 /* Guidance.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D5CF5961C43AB8F00D35D80 /* Guidance.xib */; };
+		0D5CF5991C43AD0700D35D80 /* GuidanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5CF5981C43AD0700D35D80 /* GuidanceController.swift */; };
 		0D978D741C3CC0E500E0CB9B /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D731C3CC0E500E0CB9B /* alarm.png */; };
 		0D978D7C1C3E09D600E0CB9B /* 29pt-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D7B1C3E09D600E0CB9B /* 29pt-@2x.png */; };
 		0D978D7F1C3E09DF00E0CB9B /* 29pt-@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D7D1C3E09DF00E0CB9B /* 29pt-@3x.png */; };
@@ -347,6 +350,9 @@
 		0D19A2A91C3A50ED005ECF19 /* SoftwareUpdate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoftwareUpdate.xib; sourceTree = "<group>"; };
 		0D19A2AF1C3A5551005ECF19 /* SoftwareUpdateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareUpdateController.swift; sourceTree = "<group>"; };
 		0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IViewControllerManager.swift; sourceTree = "<group>"; };
+		0D5CF5941C4352D000D35D80 /* JasonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JasonHelper.swift; sourceTree = "<group>"; };
+		0D5CF5961C43AB8F00D35D80 /* Guidance.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Guidance.xib; sourceTree = "<group>"; };
+		0D5CF5981C43AD0700D35D80 /* GuidanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidanceController.swift; sourceTree = "<group>"; };
 		0D978D731C3CC0E500E0CB9B /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
 		0D978D7B1C3E09D600E0CB9B /* 29pt-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29pt-@2x.png"; sourceTree = "<group>"; };
 		0D978D7D1C3E09DF00E0CB9B /* 29pt-@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29pt-@3x.png"; sourceTree = "<group>"; };
@@ -766,6 +772,7 @@
 				2CC2F1C71BFEBF8300E14328 /* IEquipmentViewController.swift */,
 				0DC228541C21527E00AF4737 /* IAlarmViewController.swift */,
 				0D19A2AF1C3A5551005ECF19 /* SoftwareUpdateController.swift */,
+				0D5CF5981C43AD0700D35D80 /* GuidanceController.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -859,6 +866,7 @@
 				3A02522D1C055FB700CA7EA3 /* IWeekSleepcare.xib */,
 				0DC228521C214FE400AF4737 /* IAlarmView.xib */,
 				0D19A2A91C3A50ED005ECF19 /* SoftwareUpdate.xib */,
+				0D5CF5961C43AB8F00D35D80 /* Guidance.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1111,6 +1119,7 @@
 				3A1F16FE1BF5A5100051E9AF /* BusinessFactory.swift */,
 				0DC228561C224DD800AF4737 /* IAlarmHelper.swift */,
 				0D19A2A71C3A4828005ECF19 /* UpdateHelper.swift */,
+				0D5CF5941C4352D000D35D80 /* JasonHelper.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1617,6 +1626,7 @@
 				3A9C12F81BC789C6008EC314 /* dropdown.png in Resources */,
 				3A9C12F31BC789C6008EC314 /* leaveBed.png in Resources */,
 				0D978D801C3E09DF00E0CB9B /* 40pt-@1x.png in Resources */,
+				0D5CF5971C43AB8F00D35D80 /* Guidance.xib in Resources */,
 				3A39CA081BF2FCA70024DD3E /* waneBg.png in Resources */,
 				0D0F2C081C3B830600758340 /* IWelcome.xib in Resources */,
 			);
@@ -1715,6 +1725,7 @@
 				2C3BAF171BCBA4C3003A2F48 /* AlarmView.swift in Sources */,
 				2C06157E1BF488D200A3F90C /* ISleepQualityMonitor.swift in Sources */,
 				3A6360291BB2900300F7F953 /* SleepcareMainController.swift in Sources */,
+				0D5CF5991C43AD0700D35D80 /* GuidanceController.swift in Sources */,
 				3A376E4E1BABDE3500D70953 /* SignReport.swift in Sources */,
 				3A3262E11BB912180002687B /* OSSTry.swift in Sources */,
 				3AB3CB201BD762FE0067F9D4 /* MyPatientsTableView.swift in Sources */,
@@ -1803,6 +1814,7 @@
 				0D4E5BEE1C2A85BD00D2ED92 /* IViewControllerManager.swift in Sources */,
 				3A0252301C0563A000CA7EA3 /* IWeekSleepcareController.swift in Sources */,
 				3ACD645E1BFC577A00FB62BB /* IChoosePatientsViewModel.swift in Sources */,
+				0D5CF5951C4352D000D35D80 /* JasonHelper.swift in Sources */,
 				3A3EF7C11BDE05A800CDDAED /* TodoList.swift in Sources */,
 				3AB3CB171BD762FE0067F9D4 /* AlarmTableViewCell.swift in Sources */,
 				3A2158771BEC8D580089CC01 /* IBaseViewController.swift in Sources */,
@@ -1881,7 +1893,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1919,7 +1931,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1959,7 +1971,7 @@
 					"$(SDKROOT)/usr/include/libresolv",
 				);
 				INFOPLIST_FILE = ewell.sleepcareforpad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2002,7 +2014,7 @@
 					"$(SDKROOT)/usr/include/libresolv",
 				);
 				INFOPLIST_FILE = ewell.sleepcareforpad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

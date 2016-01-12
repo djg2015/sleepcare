@@ -44,17 +44,12 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         self.loginFlag = 0
         self.setupStream()
         
-        //从本地取得用户名，密码和服务器地址
-        //        var defaults:NSUserDefaults  = NSUserDefaults.standardUserDefaults()
-        //
-        //        var userId:String?  = defaults.stringForKey(USERID)
-        //        var pass:String? = defaults.stringForKey(PASS)
-        //        var server:String? = defaults.stringForKey(SERVER)
+      // var userId:String?
         
         var userId:String?  = GetValueFromPlist(USERID)
         var pass:String? = GetValueFromPlist(PASS)
         var server:String? = GetValueFromPlist(SERVER)
-        var port:String = GetValueFromPlist(PORT)
+        var port:String? = GetValueFromPlist(PORT)
         if (!xmppStream!.isDisconnected()) {
             return true
         }
@@ -67,7 +62,7 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         xmppStream!.myJID = XMPPJID.jidWithString(userId)
         //设置服务器
         xmppStream!.hostName = server
-        xmppStream!.hostPort = UInt16(port.toUInt()!)
+        xmppStream!.hostPort = UInt16(port!.toUInt()!)
         //密码
         password = pass;
         

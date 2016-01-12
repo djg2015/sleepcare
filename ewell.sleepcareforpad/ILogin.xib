@@ -114,7 +114,7 @@
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="loginbackground.png"/>
             </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="280" y="239"/>
+            <point key="canvasLocation" x="148" y="68"/>
         </view>
     </objects>
     <resources>

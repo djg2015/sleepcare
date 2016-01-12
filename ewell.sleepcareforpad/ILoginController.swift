@@ -49,8 +49,8 @@ class ILoginController: IBaseViewController {
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iloginViewModel = IloginViewModel()
-     //   self.iloginViewModel.controllerForIphone = self
-        self.iloginViewModel.AutoLogin()
+        self.iloginViewModel.CheckServerInfo()
+       // self.iloginViewModel.AutoLogin()
         self.btnLogin!.rac_command = self.iloginViewModel?.loginCommand
        
         RACObserve(self.iloginViewModel, "LoginName") ~> RAC(self.txtLoginName, "text")

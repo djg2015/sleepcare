@@ -53,18 +53,47 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         self.alarmHelper = IAlarmHelper.GetAlarmInstance()
         self.alarmHelper!.alarmdelegate = self
         
-        
     }
     
     //自定义处理----------------------
+    func CheckServerInfo(){
+        var jsonflag = JasonHelper.GetJasonInstance().ConnectJason()
     
+        if jsonflag{
+            //若成功从url获取所有server有关的数据
+            var flag = JasonHelper.GetJasonInstance().GetFromJsonData()
+            if flag{
+            //将jason数据写入本地plist文件
+                JasonHelper.GetJasonInstance().SetJsonDataToPlistFile()
+                self.AutoLogin()
+            }
+            else{
+                //跳转引导页面
+                let controller = GuidanceController(nibName:"Guidance", bundle:nil)
+                IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "Guidance", reload: true)
+
+            }
+        }
+        else{
+            var plistflag =  IsPlistDataEmpty() //无法从网站读取sever信息，则查看本地plist信息
+            if plistflag{  //存在空值，则跳转引导页面
+                let controller = GuidanceController(nibName:"Guidance", bundle:nil)
+                IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "Guidance", reload: true)
+            }
+            else{    //不为空，则用本地plist文件尝试登录
+                self.AutoLogin()
+            }
+        }
+    }
     
     func AutoLogin(){
         //初始加载记住密码的相关配置数据
-        self.LoginName = GetValueFromPlist("loginusernamephone")
-        self.Pwd = GetValueFromPlist("loginuserpwdphone")
-        
-        if (self.LoginName != "" && self.Pwd != ""){
+        var temploginname = GetValueFromPlist("loginusernamephone")
+        var temppwd = GetValueFromPlist("loginuserpwdphone")
+    
+        if (temploginname != "" && temppwd != ""){
+            self.LoginName = temploginname!
+            self.Pwd = temppwd!
             self.Login()
         }
         
@@ -109,7 +138,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                             let nextcontroller = ISetUserTypeController(nibName:"ISetUserType", bundle:nil)
                             IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "ISetUserType", reload: false)
                         }
-                        // self.JumpPageForIpone(nextcontroller)
+                    
                         
                     }
                     else{
@@ -124,14 +153,13 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                                 
                                 let nextcontroller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:self.iBedUserList!.bedUserInfoList[0].BedUserCode,equipmentID:self.iBedUserList!.bedUserInfoList[0].EquipmentID,bedUserName:self.iBedUserList!.bedUserInfoList[0].BedUserName)
                                 IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IMainFrame", reload: true)
-                                
-                                //self.JumpPageForIpone(nextcontroller)
+                              
                             }
                             else{
                                 //跳转选择我的老人
-                                 let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
-                                    controller.isGoLogin = true
-                                    IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
+                                let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
+                                controller.isGoLogin = true
+                                IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
                                 
                                 //self.JumpPageForIpone(controller)
                             }
@@ -141,7 +169,6 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                             let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
                             controller.isGoLogin = true
                             IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
-                            //self.JumpPageForIpone(controller)
                         }
                     }
                     
