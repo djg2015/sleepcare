@@ -14,8 +14,6 @@ class GuidanceController: IBaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //提示“服务器信息有误，无法正常连接！”
-        showDialogMsg("服务器信息有误，无法正常连接！请稍后再试")
     }
 
     override func didReceiveMemoryWarning() {

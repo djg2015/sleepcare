@@ -76,6 +76,8 @@ func showDialogMsg(msg:String,title:String?,buttonTitle:String? = "确定", acti
         SweetAlert(contentHeight: 300).showAlert(msg, subTitle: inTitle, style: .None, buttonTitle: buttonTitle!, action: action)
     }
 }
+
+
 //入口处理总入口
 func handleException(ex:NSObject, showDialog:Bool = false,msg:String = ""){
     if(showDialog){

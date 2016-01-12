@@ -27,6 +27,7 @@ class JasonHelper: NSObject {
     
     //从url成功获取json数据，返回true
     func ConnectJason()->Bool{
+        
         let urlPath: String = "http://usleepcare.com/app/getApp.aspx"
         var url: NSURL = NSURL(string: urlPath)!
         self.data = NSData(contentsOfURL: url)

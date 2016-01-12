@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
+class IloginViewModel: BaseViewModel,ShowAlarmDelegate,UIAlertViewDelegate {
     //------------属性定义------------
     var _loginName:String = ""
     //登录用户名
@@ -40,6 +40,8 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     var loginCommand: RACCommand?
     var iBedUserList:IBedUserList?
     var alarmHelper:IAlarmHelper?
+    var serverinfoFlag:Bool = false
+    var alartDelegate:UIAlertViewDelegate?
     
     //构造函数
     override init(){
@@ -52,6 +54,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         //显示alarm详细信息的代理
         self.alarmHelper = IAlarmHelper.GetAlarmInstance()
         self.alarmHelper!.alarmdelegate = self
+        self.alartDelegate = self
         
     }
     
@@ -65,28 +68,33 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
             if flag{
             //将jason数据写入本地plist文件
                 JasonHelper.GetJasonInstance().SetJsonDataToPlistFile()
+                self.serverinfoFlag = true
                 self.AutoLogin()
             }
             else{
-                //跳转引导页面
-                let controller = GuidanceController(nibName:"Guidance", bundle:nil)
-                IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "Guidance", reload: true)
-
+                 self.serverinfoFlag = false
             }
         }
         else{
             var plistflag =  IsPlistDataEmpty() //无法从网站读取sever信息，则查看本地plist信息
-            if plistflag{  //存在空值，则跳转引导页面
-                let controller = GuidanceController(nibName:"Guidance", bundle:nil)
-                IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "Guidance", reload: true)
+            if plistflag{  //存在空值，则错误提示
+                self.serverinfoFlag = false
             }
             else{    //不为空，则用本地plist文件尝试登录
+                self.serverinfoFlag = true
                 self.AutoLogin()
             }
         }
+        
     }
     
     func AutoLogin(){
+        if !self.serverinfoFlag{
+            var alertView = UIAlertView(title: "连接失败", message: "无法获取有效服务器配置信息！点击重试后再试一次，点击关闭则稍后再试", delegate: self.alartDelegate!, cancelButtonTitle: "关闭", otherButtonTitles: "重试连接")
+            alertView.tag = 10000
+            alertView.show()
+        }
+        else{
         //初始加载记住密码的相关配置数据
         var temploginname = GetValueFromPlist("loginusernamephone")
         var temppwd = GetValueFromPlist("loginuserpwdphone")
@@ -96,13 +104,29 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
             self.Pwd = temppwd!
             self.Login()
         }
-        
+        }
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if alertView.tag == 10000{
+            if buttonIndex == 1 {
+                self.CheckServerInfo()
+            }
+        }
     }
     
     //登录
     func Login() -> RACSignal{
+        if !self.serverinfoFlag{
+            var alertView = UIAlertView(title: "连接失败", message: "无法获取有效服务器配置信息！点击重试后再试一次，点击关闭则稍后再试", delegate: self.alartDelegate!, cancelButtonTitle: "关闭", otherButtonTitles: "重试连接")
+            alertView.tag = 10000
+            alertView.show()
+        }
+
+        else{
         try {
             ({
+               
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 let isLogin = xmppMsgManager!.Connect()
                 if(!isLogin){
@@ -182,7 +206,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                     
                 }
             )}
-        
+        }
         return RACSignal.empty()
         
     }

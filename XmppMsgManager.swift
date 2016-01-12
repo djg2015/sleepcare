@@ -38,15 +38,13 @@ class XmppMsgManager:MessageDelegate{
     
     //是否能够连接
     func Connect() -> Bool{
-        
-        //_xmppMsgHelper!.connect(_timeout)
         let curTime = NSDate()
         if(_xmppMsgHelper!.connect(_timeout))
         {
             var sec:NSTimeInterval = 0
             while _xmppMsgHelper!.loginFlag == 0 {
                 sec = NSDate().timeIntervalSinceDate(curTime)
-                if(sec > 6){
+                if(sec > 3){
                     return false
                 }
             }
@@ -56,7 +54,6 @@ class XmppMsgManager:MessageDelegate{
             return _xmppMsgHelper!.loginFlag == 1 ? true : false
         }
         return false
-        
     }
     
     //关闭连接
@@ -108,7 +105,7 @@ class XmppMsgManager:MessageDelegate{
         }
         else
         {
-                println(object)
+             //   println(object)
             requsetQuene[object.messageSubject.requestID!] = object
         }
     }

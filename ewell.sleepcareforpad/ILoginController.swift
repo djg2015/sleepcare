@@ -19,6 +19,7 @@ class ILoginController: IBaseViewController {
     @IBOutlet weak var btnLogin: BlueButtonForPhone!
     @IBOutlet weak var btnRegist: BlueButtonForPhone!
     var iloginViewModel:IloginViewModel!
+   
     @IBAction func TouchButton(sender: AnyObject) {
 
         var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
@@ -42,6 +43,7 @@ class ILoginController: IBaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+      
     }
     
 
@@ -49,7 +51,7 @@ class ILoginController: IBaseViewController {
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iloginViewModel = IloginViewModel()
-        self.iloginViewModel.CheckServerInfo()
+       self.iloginViewModel.CheckServerInfo()
        // self.iloginViewModel.AutoLogin()
         self.btnLogin!.rac_command = self.iloginViewModel?.loginCommand
        
@@ -68,6 +70,7 @@ class ILoginController: IBaseViewController {
         self.imgTitle.userInteractionEnabled = true
         var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
         self.imgTitle .addGestureRecognizer(singleTap)
+
     }
 
     func imageViewTouch(){
@@ -78,6 +81,5 @@ class ILoginController: IBaseViewController {
              var nextcontroller = IServerSettingController(nibName:"IServerSettingView", bundle:nil)
             IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IServerSettingView",reload: false)
         }
-    
     }
 }
