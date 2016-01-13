@@ -51,7 +51,7 @@ import Foundation
         } else {
             println("WARNING: sleepcare.plist doesn't exist! return 空!")
         }
-        return nil
+        return ""
      
 }
 

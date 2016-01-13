@@ -62,18 +62,18 @@ class XmppMsgManager:MessageDelegate{
         _xmppMsgHelper?.disconnect()
     }
     //发送数据--等待数据响应
-    func SendData(baseMessage:BaseMessage)->BaseMessage?{
+    func SendData(baseMessage:BaseMessage,timeOut:NSTimeInterval=12)->BaseMessage?{
         
         _xmppMsgHelper?.sendElement(baseMessage.ToXml())
         
         requsetQuene[baseMessage.messageSubject.requestID!] = self
         
-        //添加时间判断－>10秒没收到数据则抛出异常
+        //添加时间判断，没收到数据则抛出异常
         let curTime = NSDate()
         var sec:NSTimeInterval = 0
         while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {
             sec = NSDate().timeIntervalSinceDate(curTime)
-            if(sec > 10){
+            if(sec > timeOut){
                 throw("-2", "无法连接远程服务器，请检查网络并重试")
             }
         }

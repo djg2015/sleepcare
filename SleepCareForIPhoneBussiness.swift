@@ -92,7 +92,7 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
         post.AddKeyValue("loginName", value: loginName)
         post.AddKeyValue("mainCode", value: mainCode)
         var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
-        var message = xmpp?.SendData(post)
+        var message = xmpp?.SendData(post,timeOut:25)
         if(message is EMServiceException)
         {
             throw((message as! EMServiceException).code, (message as! EMServiceException).message)
