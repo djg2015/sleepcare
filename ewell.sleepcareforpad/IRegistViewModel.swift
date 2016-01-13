@@ -169,10 +169,11 @@ class IRegistViewModel:BaseViewModel {
                 }
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
-                //如果改变了养老院，则当前关注的老人bedusercode设置为nil
+                //如果改变了养老院，则当前关注的老人bedusercode设置为nil，报警信息置空
                 if session!.User!.MainCode != self.MainCode{
                 session!.CurPatientCode = ""
                 }
+                 IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
                 
                 sleepCareForIPhoneBussinessManager.ModifyLoginUser(self.LoginName, oldPassword: session!.OldPwd!, newPassword: self.Pwd, mainCode: self.MainCode)
                 session?.OldPwd = self.Pwd

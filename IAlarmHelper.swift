@@ -167,6 +167,17 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         }
     }
     
+    
+    func ReloadTodoList(){
+        var items:[TodoItem] = TodoList.sharedInstance.allItems()
+        for(var i = 0; i < items.count; i++){
+        //查看该todoitem的code是否在报警信息codes里，不在，则从tidolist里删去这个item
+            if !contains(self._codes, items[i].UUID) {
+            TodoList.sharedInstance.removeItemByID(items[i].UUID)
+            }
+        }
+    }
+
     //断网后，重新登录
     func ReConnect(){
         IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
@@ -179,9 +190,9 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     //关闭报警提醒
     func CloseWaringAttention(){
+        TodoList.sharedInstance.removeItemAll()
         NSNotificationCenter.defaultCenter().removeObserver(self)
         self.IsOpen = false
-        TodoList.sharedInstance.removeItemAll()
         self.Codes.removeAll()
         self.WarningList.removeAll()
     }

@@ -34,6 +34,8 @@ class IAlarmViewModel: BaseViewModel {
             ({
                 //每次打开IAlarmView页面，从服务器获取未处理的信息，刷新table内容
                 IAlarmHelper.GetAlarmInstance().ReloadUndealedWarning()
+                //刷新todolist里信息
+                IAlarmHelper.GetAlarmInstance().ReloadTodoList()
                 
                 var tempAlarmArray = Array<IAlarmTableCellViewModel>()
                 var warningList = IAlarmHelper.GetAlarmInstance().WarningList

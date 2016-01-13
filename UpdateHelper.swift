@@ -15,7 +15,7 @@ class UpdateHelper:NSObject,UIAlertViewDelegate,NSURLConnectionDataDelegate{
     var recervedData:NSMutableData?
     var alartDelegate:UIAlertViewDelegate?
     var connectionDelegate:NSURLConnectionDataDelegate?
-    
+    var newversionURL:String?
     //获取当前对象
     class func GetUpdateInstance()->UpdateHelper{
         if self.updateInstance == nil {
@@ -33,7 +33,11 @@ class UpdateHelper:NSObject,UIAlertViewDelegate,NSURLConnectionDataDelegate{
         let infoDict:NSDictionary = NSBundle.mainBundle().infoDictionary!
         self.currentVersion = infoDict.objectForKey("CFBundleShortVersionString") as? String
         println("currentVersion = \(currentVersion)")
+       
         
+        //精确查找 
+        //  var stringURL = "http://itunes.apple.com/cn/lookup?id=1035212386"
+        //模糊查找
         var stringURL = "http://itunes.apple.com/search?term=智能床&entity=software"
         //如果程序中有非英文名称，需要转码
         stringURL=stringURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
@@ -65,8 +69,9 @@ class UpdateHelper:NSObject,UIAlertViewDelegate,NSURLConnectionDataDelegate{
         var dic : NSDictionary? = NSJSONSerialization.JSONObjectWithData(recervedData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary
         var infoArray : NSArray? = dic?.objectForKey("results") as? NSArray
         
-        if infoArray?.count != 0 {
+        if infoArray?.count > 0 {
             var releaseInfo : NSDictionary = infoArray?.objectAtIndex(0) as! NSDictionary
+            self.newversionURL = releaseInfo.objectForKey("trackViewUrl") as? String
             var lastVersion : NSString = releaseInfo.objectForKey("version") as! NSString
             println("lastVersion = \(lastVersion)")
             
@@ -90,7 +95,7 @@ class UpdateHelper:NSObject,UIAlertViewDelegate,NSURLConnectionDataDelegate{
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if alertView.tag == 10000{
             if buttonIndex == 1 {
-                var url = NSURL(string: "跳转到iTunes里面你需要更新的软件的地址")
+                var url = NSURL(string: newversionURL!)
                 UIApplication.sharedApplication().openURL(url!)
                 
             }
