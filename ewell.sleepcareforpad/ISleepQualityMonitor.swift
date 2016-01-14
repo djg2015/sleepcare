@@ -13,7 +13,7 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
     
     @IBOutlet weak var process: CircularLoaderView!
     
-    @IBOutlet weak var imgDownload: UIImageView!
+  //  @IBOutlet weak var imgDownload: UIImageView!
     @IBOutlet weak var imgCalendar: UIImageView!
     @IBOutlet weak var lblSelectDate: UILabel!
     @IBOutlet weak var imgMoveRight: UIImageView!
@@ -222,9 +222,9 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
         var singleTap2:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showCalendar:")
         self.imgCalendar.addGestureRecognizer(singleTap2)
         
-        self.imgDownload.userInteractionEnabled = true
-        var singleTap3:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showDownload:")
-        self.imgDownload.addGestureRecognizer(singleTap3)
+//        self.imgDownload.userInteractionEnabled = true
+//        var singleTap3:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showDownload:")
+//        self.imgDownload.addGestureRecognizer(singleTap3)
         
         //周睡眠查看
         self.imgWeekSleep.userInteractionEnabled = true
@@ -274,7 +274,7 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
         self.calendarControl.ShowDate(date:getDateTime(self.sleepQualityViewModel.SelectedDate),returnformat: formatter)
     }
     
-    func showDownload(sender:UITapGestureRecognizer)
+    @IBAction func showDownload(sender:AnyObject)
     {
         self.email?.SleepDate = self.sleepQualityViewModel.SelectedDate
         var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",

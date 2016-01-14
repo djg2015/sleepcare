@@ -16,7 +16,8 @@ class SoftwareUpdateController: IBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        lblVersion.text = UpdateHelper.GetUpdateInstance().dealVersion()
+        UpdateHelper.GetUpdateInstance().PrepareConnection()
+        lblVersion.text = UpdateHelper.GetUpdateInstance().LocalAppVersion()
         // Do any additional setup after loading the view.
         
         var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "ClickBack")
@@ -35,6 +36,6 @@ class SoftwareUpdateController: IBaseViewController {
     
     
     @IBAction func CheckUpdate(sender:AnyObject){
-      UpdateHelper.GetUpdateInstance().CheckUpdate()
+      UpdateHelper.GetUpdateInstance().CheckUpdate(false)
     }
 }

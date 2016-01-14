@@ -15,7 +15,8 @@ class UpdateHelper:NSObject,UIAlertViewDelegate,NSURLConnectionDataDelegate{
     var recervedData:NSMutableData?
     var alartDelegate:UIAlertViewDelegate?
     var connectionDelegate:NSURLConnectionDataDelegate?
-    var newversionURL:String?
+    var newversionURL:String! = ""
+    
     //获取当前对象
     class func GetUpdateInstance()->UpdateHelper{
         if self.updateInstance == nil {
@@ -23,33 +24,56 @@ class UpdateHelper:NSObject,UIAlertViewDelegate,NSURLConnectionDataDelegate{
              self.updateInstance!.alartDelegate = self.updateInstance
              self.updateInstance!.connectionDelegate = self.updateInstance
              self.updateInstance!.recervedData = NSMutableData()
+        //    self.updateInstance!.PrepareConnection()
         }
         return self.updateInstance!
     }
     
-    //返回当前app的版本号
-    func dealVersion()->String{
+    //检查sleepcare.plist里updatedate的值和当前时间哪个大（格式yyyy-MM-dd）,true：updatedate< curdate
+    func CheckLocalUpdateDate(curupdate:String)->Bool{
+        var localupdate = GetValueFromPlist("updatedate")
+        if localupdate == "" {
+        return true
+        }
+               if localupdate! < curupdate{
+            return true
+        }
         
+        return false
+    }
+    
+    //发送请求到app store，并返回当前app的版本号
+    func LocalAppVersion()->String{
         let infoDict:NSDictionary = NSBundle.mainBundle().infoDictionary!
         self.currentVersion = infoDict.objectForKey("CFBundleShortVersionString") as? String
         println("currentVersion = \(currentVersion)")
-       
-        
-        //精确查找 
-        //  var stringURL = "http://itunes.apple.com/cn/lookup?id=1035212386"
-        //模糊查找
-        var stringURL = "http://itunes.apple.com/search?term=智能床&entity=software"
-        //如果程序中有非英文名称，需要转码
-        stringURL=stringURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-        var URL = NSURL(string: stringURL)
-        
-        var request = NSURLRequest(URL: URL!)
-        NSURLConnection(request: request, delegate: self)
+//        //精确查找
+//        var stringURL = "http://itunes.apple.com/cn/lookup?id=1035212386"
+//        //模糊查找
+//        // var stringURL = "http://itunes.apple.com/search?term=智能床&entity=software"
+//        //如果程序中有非英文名称，需要转码
+//        stringURL=stringURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+//        var URL = NSURL(string: stringURL)
+//        var request = NSURLRequest(URL: URL!)
+//        NSURLConnection(request: request, delegate: self)
         
         if self.currentVersion == nil{
             return ""
         }
         return self.currentVersion!
+    }
+    
+    //发送请求到app store
+    func PrepareConnection(){
+        //精确查找
+        var stringURL = "http://itunes.apple.com/cn/lookup?id=1035212386"
+        //模糊查找
+        // var stringURL = "http://itunes.apple.com/search?term=智能床&entity=software"
+        //如果程序中有非英文名称，需要转码
+        stringURL=stringURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        var URL = NSURL(string: stringURL)
+        var request = NSURLRequest(URL: URL!)
+        NSURLConnection(request: request, delegate: self)
     }
     
     func connection(connection: NSURLConnection, didReceiveResponse response: NSURLResponse) {
@@ -62,30 +86,45 @@ class UpdateHelper:NSObject,UIAlertViewDelegate,NSURLConnectionDataDelegate{
     
     //获取store中最新版本号，对比本地版本号，判断是否需要更新
     func connectionDidFinishLoading(connection: NSURLConnection) {
-        self.CheckUpdate()
+        self.CheckUpdate(false)
     }
     
-    func CheckUpdate(){
+    
+    func ChooseToUpdate(isOtherButton: Bool){
+        if !isOtherButton{
+            var url = NSURL(string: newversionURL)
+            UIApplication.sharedApplication().openURL(url!)
+        }
+    }
+    
+    
+    
+    func CheckUpdate(dailyCheckFlag:Bool){
         var dic : NSDictionary? = NSJSONSerialization.JSONObjectWithData(recervedData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary
         var infoArray : NSArray? = dic?.objectForKey("results") as? NSArray
         
         if infoArray?.count > 0 {
             var releaseInfo : NSDictionary = infoArray?.objectAtIndex(0) as! NSDictionary
-            self.newversionURL = releaseInfo.objectForKey("trackViewUrl") as? String
-            var lastVersion : NSString = releaseInfo.objectForKey("version") as! NSString
-            println("lastVersion = \(lastVersion)")
+            self.newversionURL = releaseInfo.objectForKey("trackViewUrl")  as! String
+            var appstoreVersion : String = releaseInfo.objectForKey("version") as! String
+            println("appstoreVersion = \(appstoreVersion)")
             
-            if ((self.currentVersion! as NSString).floatValue < lastVersion.floatValue){
-                var alertView = UIAlertView(title: "更新", message: "有新版本更新，是否前往更新？", delegate: self.alartDelegate!, cancelButtonTitle: "关闭", otherButtonTitles: "更新")
-                alertView.tag = 10000
-                alertView.show()
+            if (self.currentVersion!  < appstoreVersion) {
+                SweetAlert(contentHeight: 300).showAlert("检测到新版本，是否前往App Store更新？", subTitle:"更新提示", style: AlertStyle.None,buttonTitle:"下次再说",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"更新", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: UpdateHelper.GetUpdateInstance().ChooseToUpdate)
+                
+//                var alertView = UIAlertView(title: "更新", message: "有新版本更新，是否前往更新？", delegate: self.alartDelegate!, cancelButtonTitle: "关闭", otherButtonTitles: "更新")
+//                alertView.tag = 10000
+//                alertView.show()
                 
             }
                 
             else{
-                var alertView = UIAlertView(title: "更新", message: "此版本为最新版本", delegate: self, cancelButtonTitle: "确定")
-                alertView.tag = 10001
-                alertView.show()
+                if !dailyCheckFlag{
+                 SweetAlert(contentHeight: 300).showAlert("此版本为最新版本", subTitle:"提示", style: AlertStyle.None,buttonTitle:"确认",buttonColor: UIColor.colorFromRGB(0xAEDEF4))
+//                var alertView = UIAlertView(title: "更新", message: "此版本为最新版本", delegate: self, cancelButtonTitle: "确定")
+//                alertView.tag = 10001
+//                alertView.show()
+               }
             }
         }
 
@@ -95,7 +134,7 @@ class UpdateHelper:NSObject,UIAlertViewDelegate,NSURLConnectionDataDelegate{
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if alertView.tag == 10000{
             if buttonIndex == 1 {
-                var url = NSURL(string: newversionURL!)
+                var url = NSURL(string: newversionURL)
                 UIApplication.sharedApplication().openURL(url!)
                 
             }

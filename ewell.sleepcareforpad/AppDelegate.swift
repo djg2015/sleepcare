@@ -77,8 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             self.backgroundTask = UIBackgroundTaskInvalid
         }
         
-        //如果要后台运行
-        //注册后台任务
+        //如果要后台运行,注册后台任务
         self.backgroundTask = application.beginBackgroundTaskWithExpirationHandler({
             () -> Void in
             //如果没有调用endBackgroundTask，时间耗尽时应用程序将被终止
@@ -103,6 +102,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             if(!isLogin){
                 //无法连接，退出当前程序，显示登录页面
                 NSNotificationCenter.defaultCenter().postNotificationName("ReConnectInternet", object: self)
+            }
+            else{
+                var curDate = NSDate()
+                var dateFormatter:NSDateFormatter  = NSDateFormatter()
+                dateFormatter.timeZone = NSTimeZone.localTimeZone()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                var curUpdate = dateFormatter.stringFromDate(curDate)
+                
+                var updateflag = UpdateHelper.GetUpdateInstance().CheckLocalUpdateDate(curUpdate)
+                if updateflag{
+                    //本地version对比store里最新的version大小
+                    UpdateHelper.GetUpdateInstance().PrepareConnection()
+                    UpdateHelper.GetUpdateInstance().LocalAppVersion()
+                    UpdateHelper.GetUpdateInstance().CheckUpdate(true)
+                    //更新本地sleepcare.plist文件里updatedate
+                    SetValueIntoPlist("updatedate",curUpdate)
+                }
             }
         }
     }

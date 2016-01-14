@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -99,7 +98,7 @@
                 <constraint firstAttribute="trailing" secondItem="OAx-rA-ZQh" secondAttribute="trailing" id="vob-6r-7AG"/>
                 <constraint firstItem="Szt-Ot-IYI" firstAttribute="leading" secondItem="U2a-1q-A0e" secondAttribute="leading" id="zXG-qz-COd"/>
             </constraints>
-            <point key="canvasLocation" x="215" y="262"/>
+            <point key="canvasLocation" x="179" y="275"/>
         </view>
     </objects>
     <resources>

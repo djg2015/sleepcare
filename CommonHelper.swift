@@ -78,6 +78,8 @@ func showDialogMsg(msg:String,title:String?,buttonTitle:String? = "确定", acti
 }
 
 
+
+
 //入口处理总入口
 func handleException(ex:NSObject, showDialog:Bool = false,msg:String = ""){
     if(showDialog){
