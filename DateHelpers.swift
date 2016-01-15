@@ -11,9 +11,12 @@
 import Foundation
 
 extension Array {
-    var last: T {
-    return self[self.endIndex - 1]
-    }
+    var last: T?  {
+        if self.endIndex > 0{
+         return self[self.endIndex - 1]
+        }
+        return nil
+        }
 }
 
 extension String {

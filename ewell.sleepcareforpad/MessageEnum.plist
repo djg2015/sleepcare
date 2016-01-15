@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1</key>
+	<string>无法获取有效服务器配置信息！点击重试后再试一次，点击关闭则稍后再试</string>
+	<key>2</key>
+	<string>远程通讯服务器连接不上，请检查网络！</string>
+	<key>3</key>
+	<string>账户名不能为空！</string>
+	<key>4</key>
+	<string>密码不能为空！</string>
+	<key>5</key>
+	<string>二次输入的密码不一样，请重新输入</string>
+	<key>6</key>
+	<string>请选择所属养老院/医院！</string>
+	<key>7</key>
+	<string>保存成功！</string>
+	<key>8</key>
+	<string>注册成功！</string>
+	<key>9</key>
+	<string>邮件发送成功！</string>
+	<key>10</key>
+	<string>您是使用者只能添加一位老人，如需更改请先删除当前老人再添加</string>
+	<key>11</key>
+	<string>请先到【我】-&gt;【我的老人】下选择一位老人再查看！</string>
+	<key>12</key>
+	<string>服务端配置保存成功</string>
+	<key>13</key>
+	<string>您尚未选择用户类型，无法查看信息！</string>
+	<key>15</key>
+	<string>当前无法获取数据，请检查网络连接稍后再试</string>
+	<key>16</key>
+	<string>检测到新版本，是否前往App Store更新？</string>
+	<key>17</key>
+	<string>此版本为最新版本</string>
+</dict>
+</plist>

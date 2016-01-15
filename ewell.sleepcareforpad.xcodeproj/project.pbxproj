@@ -13,6 +13,8 @@
 		0D19A2A81C3A4828005ECF19 /* UpdateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D19A2A71C3A4828005ECF19 /* UpdateHelper.swift */; };
 		0D19A2AA1C3A50ED005ECF19 /* SoftwareUpdate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D19A2A91C3A50ED005ECF19 /* SoftwareUpdate.xib */; };
 		0D19A2B01C3A5551005ECF19 /* SoftwareUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D19A2AF1C3A5551005ECF19 /* SoftwareUpdateController.swift */; };
+		0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */; };
+		0D35D5F81C489874009F8EB2 /* MessageEnum.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D35D5F71C489874009F8EB2 /* MessageEnum.plist */; };
 		0D4E5BEE1C2A85BD00D2ED92 /* IViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */; };
 		0D5CF5951C4352D000D35D80 /* JasonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5CF5941C4352D000D35D80 /* JasonHelper.swift */; };
 		0D5CF5971C43AB8F00D35D80 /* Guidance.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D5CF5961C43AB8F00D35D80 /* Guidance.xib */; };
@@ -349,6 +351,8 @@
 		0D19A2A71C3A4828005ECF19 /* UpdateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHelper.swift; sourceTree = "<group>"; };
 		0D19A2A91C3A50ED005ECF19 /* SoftwareUpdate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoftwareUpdate.xib; sourceTree = "<group>"; };
 		0D19A2AF1C3A5551005ECF19 /* SoftwareUpdateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareUpdateController.swift; sourceTree = "<group>"; };
+		0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHelper.swift; sourceTree = "<group>"; };
+		0D35D5F71C489874009F8EB2 /* MessageEnum.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MessageEnum.plist; sourceTree = "<group>"; };
 		0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IViewControllerManager.swift; sourceTree = "<group>"; };
 		0D5CF5941C4352D000D35D80 /* JasonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JasonHelper.swift; sourceTree = "<group>"; };
 		0D5CF5961C43AB8F00D35D80 /* Guidance.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Guidance.xib; sourceTree = "<group>"; };
@@ -1039,6 +1043,7 @@
 			children = (
 				3AA3161C1BD0DD8500FC3C40 /* sleepcare.plist */,
 				3A41ADBF1BA7A65A000C109B /* Info.plist */,
+				0D35D5F71C489874009F8EB2 /* MessageEnum.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1120,6 +1125,7 @@
 				0DC228561C224DD800AF4737 /* IAlarmHelper.swift */,
 				0D19A2A71C3A4828005ECF19 /* UpdateHelper.swift */,
 				0D5CF5941C4352D000D35D80 /* JasonHelper.swift */,
+				0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1456,6 +1462,7 @@
 				2C0615781BF4825400A3F90C /* loginpwd.png in Resources */,
 				2C0615791BF4825400A3F90C /* LOGO.png in Resources */,
 				0D978D7F1C3E09DF00E0CB9B /* 29pt-@3x.png in Resources */,
+				0D35D5F81C489874009F8EB2 /* MessageEnum.plist in Resources */,
 				2C06157A1BF4825400A3F90C /* loginbackground.png in Resources */,
 				2C06156C1BF4813700A3F90C /* myElder.png in Resources */,
 				3A39CA051BF2FCA70024DD3E /* tabBar_2.png in Resources */,
@@ -1767,6 +1774,7 @@
 				3A4D17FB1BAFE17D00E0B862 /* AlarmInfo.swift in Sources */,
 				3A680DC21C02BDEF00D77A22 /* IAccountSet.swift in Sources */,
 				3A4D17F91BAFDF4800E0B862 /* TurnOverAnalysList.swift in Sources */,
+				0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */,
 				3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */,
 				3AC7B0F61BF45575002DE94C /* IRegistViewModel.swift in Sources */,
 				0DC228591C23AE0900AF4737 /* IAlarmViewModel.swift in Sources */,

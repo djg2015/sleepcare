@@ -46,10 +46,10 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         
       // var userId:String?
         
-        var userId:String?  = GetValueFromPlist(USERID)
-        var pass:String? = GetValueFromPlist(PASS)
-        var server:String? = GetValueFromPlist(SERVER)
-        var port:String? = GetValueFromPlist(PORT)
+        var userId:String?  = GetValueFromPlist(USERID,"sleepcare.plist")
+        var pass:String? = GetValueFromPlist(PASS,"sleepcare.plist")
+        var server:String? = GetValueFromPlist(SERVER,"sleepcare.plist")
+        var port:String? = GetValueFromPlist(PORT,"sleepcare.plist")
         if (!xmppStream!.isDisconnected()) {
             return true
         }

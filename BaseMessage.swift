@@ -22,9 +22,9 @@ class BaseMessage:NSObject{
         //消息类型
         mes.addAttributeWithName("type",stringValue:"normal")
         //发送给谁
-        mes.addAttributeWithName("to" ,stringValue: GetValueFromPlist(SERVERJID))
+        mes.addAttributeWithName("to" ,stringValue: GetValueFromPlist(SERVERJID,"sleepcare.plist"))
         //由谁发送
-        mes.addAttributeWithName("from" ,stringValue:GetValueFromPlist(USERID))
+        mes.addAttributeWithName("from" ,stringValue:GetValueFromPlist(USERID,"sleepcare.plist"))
         //组合
         mes.addChild(self.messageSubject.ParseSubjectToXml())
         mes.addChild(body)

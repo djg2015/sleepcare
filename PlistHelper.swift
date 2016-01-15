@@ -11,15 +11,17 @@ import Foundation
     var fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
     var documentsDirectory:String!
-    var resultDictionary:NSMutableDictionary?
+    var sleepcareResultDictionary:NSMutableDictionary?
+    var messageResultDictionary:NSMutableDictionary?
    
      //初始化，载入默认数据
     func InitPlistFile(){
         // getting path to sleepcare.plist
         documentsDirectory = paths[0] as! String
         let path = documentsDirectory.stringByAppendingPathComponent("sleepcare.plist")
+      //  let msgpath = documentsDirectory.stringByAppendingPathComponent("MessageEnum.plist")
 
-        //check if file exists
+        //check if sleepcare.plist exists
         if(!fileManager.fileExistsAtPath(path)) {
             // If it doesn't, copy it from the default file in the Bundle
             if let bundlePath = NSBundle.mainBundle().pathForResource("sleepcare", ofType: "plist") {
@@ -34,20 +36,42 @@ import Foundation
         }
         else {
             println("sleepcare.plist already exits.")
-        //   fileManager.removeItemAtPath(path, error: nil)
+        //  fileManager.removeItemAtPath(path, error: nil)
         }
+        sleepcareResultDictionary = NSMutableDictionary(contentsOfFile: path)
+        println("Loaded sleepcare.plist file is --> \(sleepcareResultDictionary?.description)")
         
-        resultDictionary = NSMutableDictionary(contentsOfFile: path)
-        println("Loaded sleepcare.plist file is --> \(resultDictionary?.description)")
+        
+//        //check if sleepcare.plist exists
+//        if(!fileManager.fileExistsAtPath(msgpath)) {
+//            // If it doesn't, copy it from the default file in the Bundle
+//            if let bundlePath = NSBundle.mainBundle().pathForResource("MessageEnum", ofType: "plist") {
+//                let resultDictionary = NSMutableDictionary(contentsOfFile: bundlePath)
+//                //  println("Bundle sleepcare.plist file is --> \(resultDictionary?.description)")
+//                fileManager.copyItemAtPath(bundlePath, toPath: path, error: nil)
+//                println("copy plist file from bundle file")
+//            }
+//            else {
+//                println("local MessageEnum.plist file not found.")
+//            }
+//        }
+//        else {
+//            println("MessageEnum.plist already exits.")
+//            //  fileManager.removeItemAtPath(path, error: nil)
+//        }
+//        sleepcareResultDictionary = NSMutableDictionary(contentsOfFile: path)
+//        println("Loaded MessageEnum.plist file is --> \(sleepcareResultDictionary?.description)")
     }
     
 //从plist读取键值
-    func GetValueFromPlist(key:String) -> String?{
-        let path = documentsDirectory.stringByAppendingPathComponent("sleepcare.plist")
+func GetValueFromPlist(key:String,filename:String) -> String{
+        let path = documentsDirectory.stringByAppendingPathComponent(filename)
         if fileManager.fileExistsAtPath(path) {
          //   println("loaded value")
-           return NSMutableDictionary(contentsOfFile: path)!.valueForKey(key) as? String
-            
+            var value: AnyObject? = NSMutableDictionary(contentsOfFile: path)!.valueForKey(key)
+            if value != nil{
+            return value as! String
+            }
         } else {
             println("WARNING: sleepcare.plist doesn't exist! return 空!")
         }
@@ -58,20 +82,20 @@ import Foundation
 //写plist键值
     func SetValueIntoPlist(key:String, value:String){
         let path = documentsDirectory.stringByAppendingPathComponent("sleepcare.plist")
-        resultDictionary!.setValue(value, forKey: key)
-        resultDictionary!.writeToFile(path, atomically: false)
+        sleepcareResultDictionary!.setValue(value, forKey: key)
+        sleepcareResultDictionary!.writeToFile(path, atomically: false)
       //  println("Saved sleepcare.plist file is --> \(resultDictionary?.description)")
     }
     
 //判断和server有关的信息是否为空
 func IsPlistDataEmpty()->Bool{
-    var ip =  GetValueFromPlist("IP")
-    var port =  GetValueFromPlist("OpenFirePort")
-    var pwd =  GetValueFromPlist("PWD")
-    var server =  GetValueFromPlist("ServerID")
-    var user =  GetValueFromPlist("UserName")
+    var ip =  GetValueFromPlist("IP","sleepcare.plist")
+    var port =  GetValueFromPlist("OpenFirePort","sleepcare.plist")
+    var pwd =  GetValueFromPlist("PWD","sleepcare.plist")
+    var server =  GetValueFromPlist("ServerID","sleepcare.plist")
+    var user =  GetValueFromPlist("UserName","sleepcare.plist")
     
-    if (ip==nil || port==nil || pwd==nil || server==nil || user==nil){
+    if (ip=="" || port=="" || pwd=="" || server=="" || user==""){
     return true
     }
     return false

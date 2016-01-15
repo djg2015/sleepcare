@@ -25,11 +25,11 @@ class ServerSettingController:BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.txtServerJid.text = GetValueFromPlist("serverjid")
-        self.txtServerAddress.text = GetValueFromPlist("xmppserver")
-        self.txtServerPort.text = GetValueFromPlist("xmppport")
-        self.txtServerLoginName.text = GetValueFromPlist("xmppusername")
-        self.txtServerPwd.text = GetValueFromPlist("xmppuserpwd")
+        self.txtServerJid.text = GetValueFromPlist("serverjid","sleepcare.plist")
+        self.txtServerAddress.text = GetValueFromPlist("xmppserver","sleepcare.plist")
+        self.txtServerPort.text = GetValueFromPlist("xmppport","sleepcare.plist")
+        self.txtServerLoginName.text = GetValueFromPlist("xmppusername","sleepcare.plist")
+        self.txtServerPwd.text = GetValueFromPlist("xmppuserpwd","sleepcare.plist")
     }
     
     @IBAction func btnBackClick(sender: AnyObject) {

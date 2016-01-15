@@ -10,6 +10,7 @@ import UIKit
 
 class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchBarDelegate,JumpPageDelegate {
     //界面控件
+    //dateFormatter.timeZone = NSTimeZone.localTimeZone()
     @IBOutlet weak var curPager: Pager!
     @IBOutlet weak var search: UISearchBar!
     @IBOutlet weak var lblMainName: UILabel!

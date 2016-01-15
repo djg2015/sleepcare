@@ -31,11 +31,11 @@ class UpdateHelper:NSObject,UIAlertViewDelegate,NSURLConnectionDataDelegate{
     
     //检查sleepcare.plist里updatedate的值和当前时间哪个大（格式yyyy-MM-dd）,true：updatedate< curdate
     func CheckLocalUpdateDate(curupdate:String)->Bool{
-        var localupdate = GetValueFromPlist("updatedate")
+        var localupdate = GetValueFromPlist("updatedate","sleepcare.plist")
         if localupdate == "" {
         return true
         }
-               if localupdate! < curupdate{
+               if localupdate < curupdate{
             return true
         }
         
@@ -110,12 +110,11 @@ class UpdateHelper:NSObject,UIAlertViewDelegate,NSURLConnectionDataDelegate{
             println("appstoreVersion = \(appstoreVersion)")
             
             if (self.currentVersion!  < appstoreVersion) {
+             //   var msg = ShowMessage(MessageEnum.NeedUpdate.rawValue)
+              //  SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.NeedUpdate.rawValue), subTitle:"更新提示", style: AlertStyle.None,buttonTitle:"下次再说",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"更新", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: UpdateHelper.GetUpdateInstance().ChooseToUpdate)
                 SweetAlert(contentHeight: 300).showAlert("检测到新版本，是否前往App Store更新？", subTitle:"更新提示", style: AlertStyle.None,buttonTitle:"下次再说",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"更新", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: UpdateHelper.GetUpdateInstance().ChooseToUpdate)
                 
-//                var alertView = UIAlertView(title: "更新", message: "有新版本更新，是否前往更新？", delegate: self.alartDelegate!, cancelButtonTitle: "关闭", otherButtonTitles: "更新")
-//                alertView.tag = 10000
-//                alertView.show()
-                
+
             }
                 
             else{

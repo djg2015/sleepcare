@@ -35,8 +35,12 @@ class JasonHelper: NSObject {
             var str = NSString(data: self.data!, encoding: NSUTF8StringEncoding)
           //   println(str)
             self.json = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: nil)
+            if self.json != nil{
             self.apInfo = self.json!.objectForKey("apinfo")
-            return true
+                if self.apInfo != nil{
+                   return true
+                }
+            }
         }
         return false
     }

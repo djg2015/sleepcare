@@ -59,6 +59,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate,UIAlertViewDelegate {
     }
     
     //自定义处理----------------------
+    //先从网站拉取服务器连接信息，不成功则从本地plist文件读取服务器连接信息，若和openfire连接失败，弹窗提示错误
     func CheckServerInfo(){
         var jsonflag = JasonHelper.GetJasonInstance().ConnectJason()
     
@@ -96,12 +97,12 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate,UIAlertViewDelegate {
         }
         else{
         //初始加载记住密码的相关配置数据
-        var temploginname = GetValueFromPlist("loginusernamephone")
-        var temppwd = GetValueFromPlist("loginuserpwdphone")
+        var temploginname = GetValueFromPlist("loginusernamephone","sleepcare.plist")
+        var temppwd = GetValueFromPlist("loginuserpwdphone","sleepcare.plist")
     
         if (temploginname != "" && temppwd != ""){
-            self.LoginName = temploginname!
-            self.Pwd = temppwd!
+            self.LoginName = temploginname
+            self.Pwd = temppwd
             self.Login()
         }
         }
@@ -117,13 +118,8 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate,UIAlertViewDelegate {
     
     //登录
     func Login() -> RACSignal{
-        if !self.serverinfoFlag{
-            var alertView = UIAlertView(title: "连接失败", message: "无法获取有效服务器配置信息！点击重试后再试一次，点击关闭则稍后再试", delegate: self.alartDelegate!, cancelButtonTitle: "关闭", otherButtonTitles: "重试连接")
-            alertView.tag = 10000
-            alertView.show()
-        }
-
-        else{
+  //      self.CheckServerInfo()
+        
         try {
             ({
                
@@ -206,7 +202,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate,UIAlertViewDelegate {
                     
                 }
             )}
-        }
+        
         return RACSignal.empty()
         
     }

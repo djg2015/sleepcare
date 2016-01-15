@@ -51,7 +51,9 @@ class IMyPatientsController: IBaseViewController {
     }
     
     override func Clean(){
-    self.viewModel.Clean()
+        if self.viewModel != nil{
+        self.viewModel.Clean()
+        }
     }
     
     //初始化设置与属性等绑定

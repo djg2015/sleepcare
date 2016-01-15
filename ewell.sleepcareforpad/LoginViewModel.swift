@@ -135,8 +135,8 @@ class LoginViewModel: BaseViewModel {
     func loadInitData(){
         
         //初始加载记住密码的相关配置数据
-        self.UserName = GetValueFromPlist("loginusername")
-        self.UserPwd = GetValueFromPlist("loginuserpwd")
+        self.UserName = GetValueFromPlist("loginusername","sleepcare.plist")
+        self.UserPwd = GetValueFromPlist("loginuserpwd","sleepcare.plist")
         if(self.UserName?.isEmpty == true){
             self.IschechedBool = false
         }

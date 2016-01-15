@@ -52,12 +52,14 @@ class IViewControllerManager {
     
     //按home键后执行该程序，判断当前页面是否为IAlarmView。是，则关闭
     func IsCurrentAlarmView(){
-        if self.ControllerList.last.nibName == "IAlarmView"{
+        if self.ControllerList.last != nil{
+        if self.ControllerList.last!.nibName == "IAlarmView"{
             var index = self.ControllerList.count - 1
             self.ControllerList[index].dismissViewControllerAnimated(false, completion: nil)
             var removecontroller = self.ControllerList.removeAtIndex(index)
             removecontroller.Clean()
         }
+    }
     }
     
     //跳转页面，显示
