@@ -99,7 +99,7 @@
             }
             else
             {
-                showDialogMsg("您尚未选择用户类型，无法查看信息！", title: "提示")
+                showDialogMsg(ShowMessage(MessageEnum.ChooseUsertypeReminder.rawValue), title: "提示")
             }
             
             self.menuTableView.parentController = self.parentController

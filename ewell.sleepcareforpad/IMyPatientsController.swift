@@ -102,7 +102,7 @@ class IMyPatientsController: IBaseViewController {
         if(downListModel.key == "1"){
             if(session?.User?.UserType != LoginUserType.Monitor){
                 if(self.MyPatientsArray?.count > 0){
-                    showDialogMsg("您是使用者只能添加一位老人，如需更改请先删除当前老人再添加", title: "提示")
+                    showDialogMsg(ShowMessage(MessageEnum.DeletePatientReminder.rawValue), title: "提示")
                     return
                 }
             }

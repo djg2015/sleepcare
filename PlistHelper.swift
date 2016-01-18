@@ -10,18 +10,20 @@ import Foundation
 
     var fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
+    //存放本地plist文件的路径
     var documentsDirectory:String!
+  //  var msgdocumentsDirectory:String!
     var sleepcareResultDictionary:NSMutableDictionary?
-    var messageResultDictionary:NSMutableDictionary?
+  //  var messageResultDictionary:NSMutableDictionary?
    
      //初始化，载入默认数据
     func InitPlistFile(){
-        // getting path to sleepcare.plist
         documentsDirectory = paths[0] as! String
+    //    msgdocumentsDirectory = paths[0] as! String
         let path = documentsDirectory.stringByAppendingPathComponent("sleepcare.plist")
-      //  let msgpath = documentsDirectory.stringByAppendingPathComponent("MessageEnum.plist")
+    //    let msgpath = msgdocumentsDirectory.stringByAppendingPathComponent("MessageEnum.plist")
 
-        //check if sleepcare.plist exists
+        //check if XXX.plist exists
         if(!fileManager.fileExistsAtPath(path)) {
             // If it doesn't, copy it from the default file in the Bundle
             if let bundlePath = NSBundle.mainBundle().pathForResource("sleepcare", ofType: "plist") {
@@ -29,6 +31,13 @@ import Foundation
               //  println("Bundle sleepcare.plist file is --> \(resultDictionary?.description)")
                 fileManager.copyItemAtPath(bundlePath, toPath: path, error: nil)
                 println("copy plist file from bundle file")
+                //update赋值为当前日期
+                let curDate = NSDate()
+                var dateFormatter:NSDateFormatter  = NSDateFormatter()
+                dateFormatter.timeZone = NSTimeZone.localTimeZone()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let curUpdate = dateFormatter.stringFromDate(curDate)
+                SetValueIntoPlist("updatedate", curUpdate)
             }
             else {
                 println("local sleepcare.plist file not found.")
@@ -36,19 +45,18 @@ import Foundation
         }
         else {
             println("sleepcare.plist already exits.")
-        //  fileManager.removeItemAtPath(path, error: nil)
+          // fileManager.removeItemAtPath(path, error: nil)
         }
         sleepcareResultDictionary = NSMutableDictionary(contentsOfFile: path)
         println("Loaded sleepcare.plist file is --> \(sleepcareResultDictionary?.description)")
         
-        
-//        //check if sleepcare.plist exists
+        //--------------------------------------------
 //        if(!fileManager.fileExistsAtPath(msgpath)) {
 //            // If it doesn't, copy it from the default file in the Bundle
-//            if let bundlePath = NSBundle.mainBundle().pathForResource("MessageEnum", ofType: "plist") {
-//                let resultDictionary = NSMutableDictionary(contentsOfFile: bundlePath)
-//                //  println("Bundle sleepcare.plist file is --> \(resultDictionary?.description)")
-//                fileManager.copyItemAtPath(bundlePath, toPath: path, error: nil)
+//            if let secondbundlePath = NSBundle.mainBundle().pathForResource("MessageEnum", ofType: "plist") {
+//                let secondresultDictionary = NSMutableDictionary(contentsOfFile: secondbundlePath)
+//                //  println("Bundle MessageEnum.plist file is --> \(secondresultDictionary?.description)")
+//                fileManager.copyItemAtPath(secondbundlePath, toPath: msgpath, error: nil)
 //                println("copy plist file from bundle file")
 //            }
 //            else {
@@ -59,7 +67,7 @@ import Foundation
 //            println("MessageEnum.plist already exits.")
 //            //  fileManager.removeItemAtPath(path, error: nil)
 //        }
-//        sleepcareResultDictionary = NSMutableDictionary(contentsOfFile: path)
+//        sleepcareResultDictionary = NSMutableDictionary(contentsOfFile: msgpath)
 //        println("Loaded MessageEnum.plist file is --> \(sleepcareResultDictionary?.description)")
     }
     

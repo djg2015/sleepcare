@@ -148,7 +148,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         }
         else
         {
-            showDialogMsg("请先到【我】->【我的老人】下选择一位老人再查看！", title: "")
+            showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder.rawValue), title: "")
         }
         
     }
@@ -166,7 +166,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         }
         else
         {
-            showDialogMsg("请先到【我】->【我的老人】下选择一位老人再查看！", title: "")
+            showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder.rawValue), title: "")
         }
     }
     
@@ -182,7 +182,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         }
         else
         {
-            showDialogMsg("请先到【我】->【我的老人】下选择一位老人再查看！", title: "")
+            showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder.rawValue), title: "")
         }
 }
     func ClickMe(){

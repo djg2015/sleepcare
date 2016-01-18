@@ -9,7 +9,7 @@
 import Foundation
 
 func ShowMessage(MessageTitle:Int)->String {
-var messageDescription = GetValueFromPlist(String(MessageTitle),"MessageEnum.plist")
+var messageDescription = GetValueFromPlist(String(MessageTitle),"sleepcare.plist")
 return messageDescription
 }
 

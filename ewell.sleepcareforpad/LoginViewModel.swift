@@ -89,7 +89,7 @@ class LoginViewModel: BaseViewModel {
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 let isLogin = xmppMsgManager!.Connect()
                 if(!isLogin){
-                    showDialogMsg("远程通讯服务器连接不上！")
+                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail.rawValue))
                 }
                 else{
                     let testBLL = SleepCareBussiness()

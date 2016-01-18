@@ -25,7 +25,7 @@ class ILoginController: IBaseViewController {
         var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
         let isLogin = xmppMsgManager!.Connect()
         if(!isLogin){
-            showDialogMsg("远程通讯服务器连接不上！")
+            showDialogMsg(ShowMessage(MessageEnum.ConnectFail.rawValue))
         }
         var scBLL:SleepCareForIPhoneBussiness = SleepCareForIPhoneBussiness()
         self.presentViewController(IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:"",equipmentID:"",bedUserName:""), animated: true, completion: nil)
@@ -51,8 +51,13 @@ class ILoginController: IBaseViewController {
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iloginViewModel = IloginViewModel()
-       self.iloginViewModel.CheckServerInfo()
-       // self.iloginViewModel.AutoLogin()
+       let serverinfoflag = self.iloginViewModel.CheckServerInfo()
+        if serverinfoflag{
+            self.iloginViewModel.AutoLogin()
+        }
+        else{
+        self.iloginViewModel.GetServerInfoFail()
+        }
         self.btnLogin!.rac_command = self.iloginViewModel?.loginCommand
        
         RACObserve(self.iloginViewModel, "LoginName") ~> RAC(self.txtLoginName, "text")

@@ -74,7 +74,7 @@ class XmppMsgManager:MessageDelegate{
         while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {
             sec = NSDate().timeIntervalSinceDate(curTime)
             if(sec > timeOut){
-                throw("-2", "当前无法获取数据，请检查网络连接稍后再试")
+                throw("-2", ShowMessage(MessageEnum.GetDataOvertime.rawValue))
             }
         }
         

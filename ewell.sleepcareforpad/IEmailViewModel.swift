@@ -83,7 +83,7 @@ class IEmailViewModel: BaseViewModel {
                 var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 sleepCareForIPhoneBLL.SendEmail(self.BedUserCode, sleepDate: self.SleepDate, email: self.EmailAddress)
                 
-                showDialogMsg("邮件发送成功", title: nil)
+                showDialogMsg(ShowMessage(MessageEnum.SendEmailSuccess.rawValue), title: nil)
                 // 跳转到前一个界面
                 self.ParentController.dismissSemiModalView()
                //  IViewControllerManager.GetInstance()!.CloseViewController()
