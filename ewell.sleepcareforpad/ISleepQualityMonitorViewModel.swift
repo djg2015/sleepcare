@@ -76,7 +76,12 @@ class ISleepQualityMonitorViewModel: BaseViewModel {
                     {
                         self.OnBedTimespan = "00小时00分"
                     }
+                    if report.sleepRange.count == 0{
+                    self.SleepRange = Array<ISleepDateReport>()
+                    }
+                    else{
                     self.SleepRange = report.sleepRange
+                    }
                     
                     },
                     catch: { ex in

@@ -112,10 +112,10 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
                 self.viewSleepQuality.addSubview(legend)
             }
             else{
-                if(data01.itemCount > 0 && data02.itemCount > 0)
-                {
+//                if(data01.itemCount > 0 && data02.itemCount > 0)
+//                {
                     lineChart!.updateChartData([data01,data02])
-                }
+               // }
             }
         }
     }
@@ -202,12 +202,12 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
         
         self.sleepQualityViewModel.SelectedDate = getCurrentTime("yyyy-MM-dd")
         
-        if(self.email == nil){
-            self.email = IEmailViewController(nibName: "IEmailView", bundle: nil)
-            self.email?.BedUserCode = self._bedUserCode!
-            self.email?.SleepDate = self.sleepQualityViewModel.SelectedDate
-            self.email?.ParentController = self.parentController
-        }
+//        if(self.email == nil){
+//            self.email = IEmailViewController(nibName: "IEmailView", bundle: nil)
+//            self.email?.BedUserCode = self._bedUserCode!
+//            self.email?.SleepDate = self.sleepQualityViewModel.SelectedDate
+//            self.email?.ParentController = self.parentController
+//        }
         
         // 给图片添加手势
         self.imgMoveLeft.userInteractionEnabled = true
@@ -276,8 +276,12 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
     
     @IBAction func showDownload(sender:AnyObject)
     {
-        self.email?.SleepDate = self.sleepQualityViewModel.SelectedDate
-        var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",
+     
+            self.email = IEmailViewController(nibName: "IEmailView", bundle: nil)
+            self.email!.BedUserCode = self._bedUserCode!
+            self.email!.ParentController = self.parentController
+             self.email!.SleepDate = self.sleepQualityViewModel.SelectedDate
+             var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",
             KNSemiModalOptionKeys.animationDuration:"1.0",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
         
        self.parentController.presentSemiViewController(self.email, withOptions: kNSemiModalOptionKeys)
