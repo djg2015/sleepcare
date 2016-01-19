@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -160,9 +159,11 @@
                         <constraint firstAttribute="centerX" secondItem="WVW-wp-mMH" secondAttribute="centerX" constant="140" id="4tW-6Y-Gyf"/>
                         <constraint firstAttribute="centerY" secondItem="mE4-rU-jYc" secondAttribute="centerY" constant="-4" id="Slf-iv-lAC"/>
                         <constraint firstAttribute="centerY" secondItem="WVW-wp-mMH" secondAttribute="centerY" constant="-5" id="T3z-lK-CdK"/>
+                        <constraint firstItem="WVW-wp-mMH" firstAttribute="top" secondItem="Vh6-2g-tdZ" secondAttribute="top" constant="25" id="aUb-eF-0gM"/>
                         <constraint firstAttribute="width" constant="320" id="ct4-FF-PfZ"/>
                         <constraint firstAttribute="centerX" secondItem="mE4-rU-jYc" secondAttribute="centerX" id="geQ-BQ-Emb"/>
                         <constraint firstAttribute="height" constant="70" id="nPs-sx-t7u"/>
+                        <constraint firstItem="WVW-wp-mMH" firstAttribute="leading" secondItem="Vh6-2g-tdZ" secondAttribute="leading" constant="5" id="xQg-aX-l0m"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="blueback.png"/>
@@ -208,7 +209,7 @@
                 <constraint firstAttribute="centerY" secondItem="ALn-Pv-Ydg" secondAttribute="centerY" constant="50.5" id="s9f-4u-pe5"/>
                 <constraint firstAttribute="centerY" secondItem="Ke0-jW-4Sl" secondAttribute="centerY" constant="149" id="xZS-At-cv8"/>
             </constraints>
-            <point key="canvasLocation" x="239" y="327"/>
+            <point key="canvasLocation" x="178" y="320"/>
         </view>
     </objects>
     <resources>

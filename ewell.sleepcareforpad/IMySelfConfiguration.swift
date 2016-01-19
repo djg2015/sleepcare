@@ -99,7 +99,7 @@
             }
             else
             {
-                showDialogMsg(ShowMessage(MessageEnum.ChooseUsertypeReminder.rawValue), title: "提示")
+                showDialogMsg(ShowMessage(MessageEnum.ChooseUsertypeReminder), title: "提示")
             }
             
             self.menuTableView.parentController = self.parentController

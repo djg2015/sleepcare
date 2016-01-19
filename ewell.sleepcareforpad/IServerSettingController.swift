@@ -31,7 +31,7 @@ class IServerSettingController:IBaseViewController {
         self.txtServerJid.text = GetValueFromPlist("serverjid","sleepcare.plist")
         self.txtServerAddress.text = GetValueFromPlist("xmppserver","sleepcare.plist")
         self.txtServerPort.text = GetValueFromPlist("xmppport","sleepcare.plist")
-        self.txtServerLoginName.text = GetValueFromPlist("xmppusername","sleepcare.plist")
+        self.txtServerLoginName.text = GetValueFromPlist("xmppusernamephone","sleepcare.plist")
         self.txtServerPwd.text = GetValueFromPlist("xmppuserpwd","sleepcare.plist")
         
         self.imgBack.userInteractionEnabled = true
@@ -54,7 +54,7 @@ class IServerSettingController:IBaseViewController {
                 SetValueIntoPlist("xmppusername",self.txtServerLoginName.text)
                 SetValueIntoPlist("xmppuserpwd",self.txtServerPwd.text)
                 
-                showDialogMsg(ShowMessage(MessageEnum.ServerSettingSuccess.rawValue), "提示", buttonTitle: "确定", action: { (isOtherButton) -> Void in
+                showDialogMsg(ShowMessage(MessageEnum.ServerSettingSuccess), "提示", buttonTitle: "确定", action: { (isOtherButton) -> Void in
                     self.clickOK(nil)
                 })  
                 },

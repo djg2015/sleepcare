@@ -8,6 +8,7 @@
 
 import Foundation
 let USERID:String = "xmppusername"
+let USERIDPHONE:String = "xmppusernamephone"
 let PASS:String = "xmppuserpwd"
 let SERVER:String = "xmppserver"
 let PORT:String = "xmppport"

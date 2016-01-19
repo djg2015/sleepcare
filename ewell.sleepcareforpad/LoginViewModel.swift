@@ -89,7 +89,7 @@ class LoginViewModel: BaseViewModel {
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 let isLogin = xmppMsgManager!.Connect()
                 if(!isLogin){
-                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail.rawValue))
+                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
                 }
                 else{
                     let testBLL = SleepCareBussiness()

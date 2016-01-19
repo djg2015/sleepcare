@@ -91,13 +91,13 @@ class UpdateHelper:NSObject,NSURLConnectionDataDelegate{
             println("appstoreVersion = \(appstoreVersion)")
             
             if (self.currentVersion!  < appstoreVersion) {
-                SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.NeedUpdate.rawValue), subTitle:"提示", style: AlertStyle.None,buttonTitle:"下次再说",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"马上更新", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: UpdateHelper.GetUpdateInstance().ChooseToUpdate)
+                SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.NeedUpdate), subTitle:"提示", style: AlertStyle.None,buttonTitle:"下次再说",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"马上更新", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: UpdateHelper.GetUpdateInstance().ChooseToUpdate)
 
             }
                 
             else{
                 if !dailyCheckFlag{
-                 SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.DontNeedUpdate.rawValue), subTitle:"提示", style: AlertStyle.None,buttonTitle:"确认",buttonColor: UIColor.colorFromRGB(0xAEDEF4))
+                 SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.DontNeedUpdate), subTitle:"提示", style: AlertStyle.None,buttonTitle:"确认",buttonColor: UIColor.colorFromRGB(0xAEDEF4))
                }
             }
         }

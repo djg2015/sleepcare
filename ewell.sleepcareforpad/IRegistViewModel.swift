@@ -109,7 +109,7 @@ class IRegistViewModel:BaseViewModel {
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 let isLogin = xmppMsgManager!.Connect()
                 if(!isLogin){
-                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail.rawValue), "提示", buttonTitle: "确定", action: self.ConnectLost)
+                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail), "提示", buttonTitle: "确定", action: self.ConnectLost)
                 }
                 else{
                     var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
@@ -155,16 +155,16 @@ class IRegistViewModel:BaseViewModel {
         try {
             ({
                 if(self.Pwd == ""){
-                    showDialogMsg(ShowMessage(MessageEnum.PwdNil.rawValue))
+                    showDialogMsg(ShowMessage(MessageEnum.PwdNil))
                     return
                 }
                 if(self.Pwd != self.RePwd){
-                    showDialogMsg(ShowMessage(MessageEnum.ConfirmPwdWrong.rawValue))
+                    showDialogMsg(ShowMessage(MessageEnum.ConfirmPwdWrong))
                     self.RePwd = ""
                     return
                 }
                 if(self.MainCode == ""){
-                    showDialogMsg(ShowMessage(MessageEnum.MainhouseNil.rawValue))
+                    showDialogMsg(ShowMessage(MessageEnum.MainhouseNil))
                     return
                 }
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
@@ -178,7 +178,7 @@ class IRegistViewModel:BaseViewModel {
                 sleepCareForIPhoneBussinessManager.ModifyLoginUser(self.LoginName, oldPassword: session!.OldPwd!, newPassword: self.Pwd, mainCode: self.MainCode)
                 session?.OldPwd = self.Pwd
                 session?.User?.MainCode = self.MainCode
-                showDialogMsg(ShowMessage(MessageEnum.ModifyAccountSuccess.rawValue), "提示", buttonTitle: "确定", action: self.RegistSuccess)
+                showDialogMsg(ShowMessage(MessageEnum.ModifyAccountSuccess), "提示", buttonTitle: "确定", action: self.RegistSuccess)
                 },
                 catch: { ex in
                     //异常处理
@@ -206,25 +206,25 @@ class IRegistViewModel:BaseViewModel {
         try {
             ({
                 if(self.LoginName == ""){
-                    showDialogMsg(ShowMessage(MessageEnum.LoginnameNil.rawValue))
+                    showDialogMsg(ShowMessage(MessageEnum.LoginnameNil))
                     return
                 }
                 if(self.Pwd == ""){
-                    showDialogMsg(ShowMessage(MessageEnum.PwdNil.rawValue))
+                    showDialogMsg(ShowMessage(MessageEnum.PwdNil))
                     return
                 }
                 if(self.Pwd != self.RePwd){
-                    showDialogMsg(ShowMessage(MessageEnum.ConfirmPwdWrong.rawValue))
+                    showDialogMsg(ShowMessage(MessageEnum.ConfirmPwdWrong))
                     self.RePwd = ""
                     return
                 }
                 if(self.MainCode == ""){
-                    showDialogMsg(ShowMessage(MessageEnum.MainhouseNil.rawValue))
+                    showDialogMsg(ShowMessage(MessageEnum.MainhouseNil))
                     return
                 }
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 sleepCareForIPhoneBussinessManager.Regist(self.LoginName, loginPassword: self.Pwd, mainCode: self.MainCode)
-                showDialogMsg(ShowMessage(MessageEnum.RegistAccountSuccess.rawValue), "提示", buttonTitle: "确定", action: self.RegistSuccess)
+                showDialogMsg(ShowMessage(MessageEnum.RegistAccountSuccess), "提示", buttonTitle: "确定", action: self.RegistSuccess)
                 },
                 catch: { ex in
                     //异常处理

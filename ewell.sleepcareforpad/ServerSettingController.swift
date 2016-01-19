@@ -45,7 +45,7 @@ class ServerSettingController:BaseViewController {
                 SetValueIntoPlist("xmppusername",self.txtServerLoginName.text)
                 SetValueIntoPlist("xmppuserpwd",self.txtServerPwd.text)
                 
-                showDialogMsg(ShowMessage(MessageEnum.ServerSettingSuccess.rawValue), "提示", buttonTitle: "确定", action: { (isOtherButton) -> Void in
+                showDialogMsg(ShowMessage(MessageEnum.ServerSettingSuccess), "提示", buttonTitle: "确定", action: { (isOtherButton) -> Void in
                     self.clickOK(nil)
                 })
 //                

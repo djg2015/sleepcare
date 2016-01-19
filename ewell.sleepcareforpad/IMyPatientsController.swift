@@ -102,7 +102,7 @@ class IMyPatientsController: IBaseViewController {
         if(downListModel.key == "1"){
             if(session?.User?.UserType != LoginUserType.Monitor){
                 if(self.MyPatientsArray?.count > 0){
-                    showDialogMsg(ShowMessage(MessageEnum.DeletePatientReminder.rawValue), title: "提示")
+                    showDialogMsg(ShowMessage(MessageEnum.DeletePatientReminder), title: "提示")
                     return
                 }
             }

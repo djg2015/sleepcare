@@ -74,7 +74,7 @@ class XmppMsgManager:MessageDelegate{
         while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {
             sec = NSDate().timeIntervalSinceDate(curTime)
             if(sec > timeOut){
-                throw("-2", ShowMessage(MessageEnum.GetDataOvertime.rawValue))
+                throw("-2", ShowMessage(MessageEnum.GetDataOvertime))
             }
         }
         

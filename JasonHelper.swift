@@ -50,14 +50,14 @@ class JasonHelper: NSObject {
         if self.apInfo != nil{
             var ip:String? = self.apInfo!.objectForKey("IP") as? String
             var port:Int? = self.apInfo!.objectForKey("OpenFirePort") as? Int
-            var pwd:String? = self.apInfo!.objectForKey("PWD") as? String
+          //  var pwd:String? = self.apInfo!.objectForKey("PWD") as? String
             var server:String? =  self.apInfo!.objectForKey("ServerID") as? String
-            var user:String? =  self.apInfo!.objectForKey("UserName") as? String
+          //  var user:String? =  self.apInfo!.objectForKey("UserName") as? String
             
-            if (ip==nil || port==nil || pwd==nil || server==nil || user==nil){
+            if (ip==nil || port==nil || server==nil ){
                 return false
             }
-            self.serverInfo = ServerSetingInfo(ip:ip!, port:String(port!), pwd:pwd!, server:server!, user:user!)
+            self.serverInfo = ServerSetingInfo(ip:ip!, port:String(port!), server:server!)
         }
         return true
     }
@@ -67,10 +67,10 @@ class JasonHelper: NSObject {
         if self.serverInfo != nil{
             SetValueIntoPlist("xmppserver", self.serverInfo!.IP!)
             SetValueIntoPlist("xmppport", self.serverInfo!.OpenFirePort!)
-            SetValueIntoPlist("xmppuserpwd", self.serverInfo!.PWD!)
+            SetValueIntoPlist("xmppuserpwd", "123")
             SetValueIntoPlist("serverjid", self.serverInfo!.ServerID!)
-            var username = self.serverInfo!.UserName! + "@" + self.serverInfo!.IP!
-            SetValueIntoPlist("xmppusername", username)
+        //    var username = self.serverInfo!.UserName! + "@" + self.serverInfo!.IP!
+       //     SetValueIntoPlist("xmppusername", username)
         }
     }
     
@@ -85,14 +85,12 @@ class JasonHelper: NSObject {
 class ServerSetingInfo{
     var IP:String?
     var OpenFirePort:String?
-    var PWD:String?
     var ServerID:String?
-    var UserName:String?
-    init(ip:String, port:String, pwd:String, server:String, user:String){
+    
+    init(ip:String, port:String, server:String){
         self.IP = ip
         self.OpenFirePort = port
-        self.PWD = pwd
         self.ServerID = server
-        self.UserName = user
+       
     }
 }

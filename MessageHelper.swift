@@ -8,8 +8,9 @@
 
 import Foundation
 
-func ShowMessage(MessageTitle:Int)->String {
-var messageDescription = GetValueFromPlist(String(MessageTitle),"sleepcare.plist")
+func ShowMessage(MessageTitle:MessageEnum)->String {
+    
+var messageDescription = GetValueFromReadOnlyPlist(String(MessageTitle.rawValue),"Message")
 return messageDescription
 }
 
@@ -31,5 +32,7 @@ enum MessageEnum:Int{
     case GetDataOvertime
     case NeedUpdate
     case DontNeedUpdate
+    case LoginNameExistBlank
+    case PwdExistBlank
 
 }

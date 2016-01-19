@@ -134,9 +134,10 @@ class IHRMonitor: UIView{
     
     func timerFireMethod(timer: NSTimer) {
         if self.loadingFlag && self.HRdelegate != nil{
-      //  self.hrMonitorViewModel!.loadingFlag = true
             self.HRdelegate.CloseLoadingHR()
+            if self.hrMonitorViewModel != nil{
             self.hrMonitorViewModel!.LoadingFlag = false
+            }
         }
         
     }

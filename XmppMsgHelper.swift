@@ -44,9 +44,7 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         self.loginFlag = 0
         self.setupStream()
         
-      // var userId:String?
-        
-        var userId:String?  = GetValueFromPlist(USERID,"sleepcare.plist")
+        var userId:String?  = GetValueFromPlist("xmppusernamephone","sleepcare.plist")
         var pass:String? = GetValueFromPlist(PASS,"sleepcare.plist")
         var server:String? = GetValueFromPlist(SERVER,"sleepcare.plist")
         var port:String? = GetValueFromPlist(PORT,"sleepcare.plist")

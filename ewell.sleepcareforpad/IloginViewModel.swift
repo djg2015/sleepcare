@@ -40,7 +40,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     var loginCommand: RACCommand?
     var iBedUserList:IBedUserList?
     var alarmHelper:IAlarmHelper?
- //   var alartDelegate:UIAlertViewDelegate?
+
     
     //构造函数
     override init(){
@@ -53,7 +53,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         //显示alarm详细信息的代理
         self.alarmHelper = IAlarmHelper.GetAlarmInstance()
         self.alarmHelper!.alarmdelegate = self
-   //     self.alartDelegate = self
+  
         
     }
     
@@ -62,29 +62,25 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     func CheckServerInfo()->Bool{
         var jsonflag = JasonHelper.GetJasonInstance().ConnectJason()
         
-        if jsonflag{
-            //若成功从url获取所有server有关的数据
+        if jsonflag{//若成功从url获取所有server有关的数据
             var flag = JasonHelper.GetJasonInstance().GetFromJsonData()
             if flag{
                 //成功，将jason数据写入本地plist文件
                 JasonHelper.GetJasonInstance().SetJsonDataToPlistFile()
                 return true
-                //   self.AutoLogin()
             }
-            
         }
-        else{
-            var plistflag =  IsPlistDataEmpty() //无法从网站读取sever信息，则查看本地plist信息
+        else{//无法从网站读取sever信息，则查看本地plist信息
+            var plistflag = IsPlistDataEmpty()
             if !plistflag {   //不为空，则用本地plist文件尝试登录
                 return true
-                // self.AutoLogin()
             }
         }
         return false
     }
     
     func AutoLogin(){
-        //初始加载记住密码的相关配置数据
+        //加载记住密码的相关配置数据
         var temploginname = GetValueFromPlist("loginusernamephone","sleepcare.plist")
         var temppwd = GetValueFromPlist("loginuserpwdphone","sleepcare.plist")
         
@@ -97,27 +93,25 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     
     //获取server数据失败，显示提示信息
     func GetServerInfoFail(){
-//        var alertView = UIAlertView(title: "连接失败", message: ShowMessage(MessageEnum.ConnectOpenfireFail.rawValue), delegate: self.alartDelegate!, cancelButtonTitle: "关闭", otherButtonTitles: "重试连接")
-//        alertView.tag = 10000
-//        alertView.show()
-        SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.ConnectOpenfireFail.rawValue), subTitle:"提示", style: AlertStyle.None,buttonTitle:"关闭",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"重试连接", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ConnectAgain)
-
+        SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.ConnectOpenfireFail), subTitle:"提示", style: AlertStyle.None,buttonTitle:"关闭",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"重试连接", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ConnectAgain)
     }
-    
     func ConnectAgain(isOtherButton: Bool){
         if !isOtherButton{
            self.CheckServerInfo()
         }
     }
-//    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-//        if alertView.tag == 10000{
-//            if buttonIndex == 1 {
-//                self.CheckServerInfo()
-//            }
-//        }
-//    }
     
-    //登录
+    //检查输入是否含空格,有空格返回true
+    func IsBlankExist(input:String)->Bool{
+        for char in input{
+            if char == " " || char == " "{
+            return true
+            }
+        }
+        return false
+    }
+    
+    
     func Login() -> RACSignal{
         let serverinfoFlag = self.CheckServerInfo()
         if !serverinfoFlag{
@@ -126,22 +120,35 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         else{
             try {
                 ({
+                    if(self.LoginName == ""){
+                        showDialogMsg(ShowMessage(MessageEnum.LoginnameNil))
+                        return
+                    }
+                    if self.IsBlankExist(self.LoginName){
+                        showDialogMsg(ShowMessage(MessageEnum.LoginNameExistBlank))
+                        return
+                    }
+                
+                    if(self.Pwd == ""){
+                        showDialogMsg(ShowMessage(MessageEnum.PwdNil))
+                        return
+                    }
+                    if self.IsBlankExist(self.Pwd){
+                        showDialogMsg(ShowMessage(MessageEnum.PwdExistBlank))
+                        return
+                    }
+                    //给openfire username赋值，＝loginname@server address
+                    let xmppusername = self.LoginName + "@" + GetValueFromPlist("xmppserver","sleepcare.plist")
+                    SetValueIntoPlist("xmppusernamephone", xmppusername)
+                    
                     var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                     let isLogin = xmppMsgManager!.Connect()
                     if(!isLogin){
-                        showDialogMsg(ShowMessage(MessageEnum.ConnectFail.rawValue))
+                         SetValueIntoPlist("xmppusernamephone", "")
+                        showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
                     }
                     else{
-                        
-                        if(self.LoginName == ""){
-                            showDialogMsg(ShowMessage(MessageEnum.LoginnameNil.rawValue))
-                            return
-                        }
-                        if(self.Pwd == ""){
-                            showDialogMsg(ShowMessage(MessageEnum.PwdNil.rawValue))
-                            return
-                        }
-                        
+                       //登录
                         var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                         var loginUser:ILoginUser = sleepCareForIPhoneBussinessManager.Login(self.LoginName, loginPassword: self.Pwd)
                         
@@ -194,7 +201,6 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                                 IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
                             }
                         }
-                        
                     }
                     },
                     catch: { ex in

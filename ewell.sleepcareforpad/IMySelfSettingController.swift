@@ -64,6 +64,7 @@ class IMySelfSettingController: IBaseViewController {
     @IBAction func btnExitLoginClick(sender: AnyObject) {
         SetValueIntoPlist("loginusernamephone", "")
         SetValueIntoPlist("loginuserpwdphone", "")
+        SetValueIntoPlist("xmppusernamephone", "")
         IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
         SessionForIphone.ClearSession()
         var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)

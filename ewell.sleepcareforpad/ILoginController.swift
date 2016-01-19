@@ -25,7 +25,7 @@ class ILoginController: IBaseViewController {
         var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
         let isLogin = xmppMsgManager!.Connect()
         if(!isLogin){
-            showDialogMsg(ShowMessage(MessageEnum.ConnectFail.rawValue))
+            showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
         }
         var scBLL:SleepCareForIPhoneBussiness = SleepCareForIPhoneBussiness()
         self.presentViewController(IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:"",equipmentID:"",bedUserName:""), animated: true, completion: nil)

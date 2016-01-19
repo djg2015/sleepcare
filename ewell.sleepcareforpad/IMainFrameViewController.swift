@@ -148,7 +148,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         }
         else
         {
-            showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder.rawValue), title: "")
+            showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder), title: "")
         }
         
     }
@@ -166,7 +166,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         }
         else
         {
-            showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder.rawValue), title: "")
+            showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder), title: "")
         }
     }
     
@@ -182,7 +182,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         }
         else
         {
-            showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder.rawValue), title: "")
+            showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder), title: "")
         }
 }
     func ClickMe(){

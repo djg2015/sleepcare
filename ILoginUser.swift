@@ -30,7 +30,7 @@ class ILoginUser: BaseMessage {
         result.Status = loginUser.elementForName("Status") == nil ? "" : loginUser.elementForName("Status").stringValue()
         result.HeadFace = loginUser.elementForName("HeadFace") == nil ? "" : loginUser.elementForName("HeadFace").stringValue()
         result.MainCode = loginUser.elementForName("MainCode") == nil ? "" : loginUser.elementForName("MainCode").stringValue()
-        
+               
         return result
     }
 

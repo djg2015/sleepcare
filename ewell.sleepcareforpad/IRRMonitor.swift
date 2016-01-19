@@ -133,10 +133,11 @@ class IRRMonitor: UIView{
     
     func timerFireMethod(timer: NSTimer) {
         if self.loadingFlag && self.RRdelegate != nil{
-        
             self.RRdelegate.CloseLoadingRR()
+            if self.rrMonitorViewModel != nil{
             self.rrMonitorViewModel!.LoadingFlag = false
         }
+    }
         
     }
     
