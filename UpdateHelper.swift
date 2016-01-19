@@ -13,7 +13,6 @@ class UpdateHelper:NSObject,NSURLConnectionDataDelegate{
     private static var updateInstance: UpdateHelper? = nil
     var currentVersion:String?
     var recervedData:NSMutableData?
-   // var alartDelegate:UIAlertViewDelegate?
     var connectionDelegate:NSURLConnectionDataDelegate?
     var newversionURL:String! = ""
     
@@ -21,10 +20,9 @@ class UpdateHelper:NSObject,NSURLConnectionDataDelegate{
     class func GetUpdateInstance()->UpdateHelper{
         if self.updateInstance == nil {
             self.updateInstance = UpdateHelper()
-           //  self.updateInstance!.alartDelegate = self.updateInstance
              self.updateInstance!.connectionDelegate = self.updateInstance
              self.updateInstance!.recervedData = NSMutableData()
-        //    self.updateInstance!.PrepareConnection()
+       
         }
         return self.updateInstance!
     }
@@ -110,16 +108,5 @@ class UpdateHelper:NSObject,NSURLConnectionDataDelegate{
             UIApplication.sharedApplication().openURL(url!)
         }
     }
-    
-//    //选择更新，则跳转store的下载页面
-//    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-//        if alertView.tag == 10000{
-//            if buttonIndex == 1 {
-//                var url = NSURL(string: newversionURL)
-//                UIApplication.sharedApplication().openURL(url!)
-//                
-//            }
-//        }
-//    }
     
 }
