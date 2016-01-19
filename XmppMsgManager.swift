@@ -62,7 +62,7 @@ class XmppMsgManager:MessageDelegate{
         _xmppMsgHelper?.disconnect()
     }
     //发送数据--等待数据响应
-    func SendData(baseMessage:BaseMessage,timeOut:NSTimeInterval=12)->BaseMessage?{
+    func SendData(baseMessage:BaseMessage,timeOut:NSTimeInterval=10)->BaseMessage?{
         
         _xmppMsgHelper?.sendElement(baseMessage.ToXml())
         

@@ -28,13 +28,6 @@ func InitPlistFile(){
             //  println("Bundle sleepcare.plist file is --> \(resultDictionary?.description)")
             fileManager.copyItemAtPath(bundlePath, toPath: path, error: nil)
             println("copy plist file from bundle file")
-            //update赋值为当前日期
-//            let curDate = NSDate()
-//            var dateFormatter:NSDateFormatter  = NSDateFormatter()
-//            dateFormatter.timeZone = NSTimeZone.localTimeZone()
-//            dateFormatter.dateFormat = "yyyy-MM-dd"
-//            let curUpdate = dateFormatter.stringFromDate(curDate)
-//            SetValueIntoPlist("updatedate", curUpdate)
         }
         else {
             println("local sleepcare.plist file not found.")
@@ -42,7 +35,6 @@ func InitPlistFile(){
     }
     else {
         println("sleepcare.plist already exits.")
-       
         //fileManager.removeItemAtPath(path, error: nil)
     }
     sleepcareResultDictionary = NSMutableDictionary(contentsOfFile: path)

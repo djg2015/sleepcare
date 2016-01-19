@@ -5,7 +5,7 @@
 	<key>1</key>
 	<string>无法获取有效服务器配置信息！点击重试后再试一次，点击关闭则稍后再试</string>
 	<key>2</key>
-	<string>远程通讯服务器连接不上，请检查网络！</string>
+	<string>网络连接断开，请重试连接或稍后再试！</string>
 	<key>3</key>
 	<string>账户名不能为空！</string>
 	<key>4</key>

@@ -112,12 +112,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
                 
                 var updateflag = UpdateHelper.GetUpdateInstance().CheckLocalUpdateDate(curUpdate)
                 if updateflag{
-                    //本地version对比store里最新的version大小
                     UpdateHelper.GetUpdateInstance().PrepareConnection()
                     UpdateHelper.GetUpdateInstance().LocalAppVersion()
-                    UpdateHelper.GetUpdateInstance().CheckUpdate(true)
                     //更新本地sleepcare.plist文件里updatedate
                     SetValueIntoPlist("updatedate",curUpdate)
+                    //本地version对比store里最新的version大小
+                    UpdateHelper.GetUpdateInstance().CheckUpdate(true)
                 }
             }
         }

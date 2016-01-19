@@ -180,14 +180,29 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
 
     //断网后，重新登录
     func ReConnect(){
-        IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
-        SessionForIphone.ClearSession()
-        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-        xmppMsgManager?.Close()
-        let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
-        IViewControllerManager.GetInstance()!.ShowViewController(logincontroller, nibName: "ILogin", reload: true)
+        //弹窗提示是否重连网络
+         SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.ConnectFail), subTitle:"提示", style: AlertStyle.None,buttonTitle:"退出登录",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"重新连接", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ConnectAfterFail)
     }
     
+    func ConnectAfterFail(isOtherButton: Bool){
+        if isOtherButton{
+            IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
+            SessionForIphone.ClearSession()
+            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+            xmppMsgManager?.Close()
+            
+            let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
+            IViewControllerManager.GetInstance()!.ShowViewController(logincontroller, nibName: "ILogin", reload: true)
+        }
+        else{
+            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+            let isLogin = xmppMsgManager!.Connect()
+            if(!isLogin){
+                self.ReConnect()
+            }
+        }
+    }
+
     //关闭报警提醒
     func CloseWaringAttention(){
         TodoList.sharedInstance.removeItemAll()

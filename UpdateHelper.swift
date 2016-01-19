@@ -57,7 +57,7 @@ class UpdateHelper:NSObject,NSURLConnectionDataDelegate{
     func CheckLocalUpdateDate(curupdate:String)->Bool{
         var localupdate = GetValueFromPlist("updatedate","sleepcare.plist")
         if localupdate == "" {
-        return true
+            return true
         }
                if localupdate < curupdate{
             return true
