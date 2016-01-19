@@ -75,6 +75,39 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         
     }
     
+    func RegistConnect(timeOut:NSTimeInterval) -> Bool{
+        //初始化登录flag
+        self.loginFlag = 0
+        self.setupStream()
+        
+        var userId:String?  = "pad@122.224.242.241"
+        var pass:String? = "123"
+        var server:String? = GetValueFromPlist(SERVER,"sleepcare.plist")
+        var port:String? = GetValueFromPlist(PORT,"sleepcare.plist")
+        if (!xmppStream!.isDisconnected()) {
+            return true
+        }
+        
+        //设置用户
+        xmppStream!.myJID = XMPPJID.jidWithString(userId)
+        //设置服务器
+        xmppStream!.hostName = server
+        xmppStream!.hostPort = UInt16(port!.toUInt()!)
+        //密码
+        password = pass;
+        
+        //连接服务器
+        var error:NSError? ;
+        if (!xmppStream!.connectWithTimeout(timeOut,error: &error)) {
+            println("cannot connect \(server)")
+            return false;
+        }
+        println("connect success!!!")
+        return true;
+        
+    }
+
+    
     func disconnect(){
         
         self.goOffline()

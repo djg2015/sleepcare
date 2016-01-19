@@ -11,32 +11,15 @@ import UIKit
 class ILoginController: IBaseViewController {
     
     @IBOutlet weak var imgTitle: UIImageView!
-    var datapicker:THDate?
     @IBOutlet weak var txtLoginName: UITextField!
     @IBOutlet weak var txtPwd: UITextField!
-    @IBOutlet weak var lblDate: UILabel!
-    @IBOutlet weak var btnTest: UIButton!
     @IBOutlet weak var btnLogin: BlueButtonForPhone!
     @IBOutlet weak var btnRegist: BlueButtonForPhone!
     var iloginViewModel:IloginViewModel!
-   
-    @IBAction func TouchButton(sender: AnyObject) {
-
-        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-        let isLogin = xmppMsgManager!.Connect()
-        if(!isLogin){
-            showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-        }
-        var scBLL:SleepCareForIPhoneBussiness = SleepCareForIPhoneBussiness()
-        self.presentViewController(IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:"",equipmentID:"",bedUserName:""), animated: true, completion: nil)
-        
-    }
-    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        datapicker = THDate(parentControl: self)
         rac_settings()
     }
     

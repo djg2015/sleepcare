@@ -56,6 +56,27 @@ class XmppMsgManager:MessageDelegate{
         return false
     }
     
+    //是否能够连接
+    func RegistConnect() -> Bool{
+        let curTime = NSDate()
+        if(_xmppMsgHelper!.RegistConnect(_timeout))
+        {
+            var sec:NSTimeInterval = 0
+            while _xmppMsgHelper!.loginFlag == 0 {
+                sec = NSDate().timeIntervalSinceDate(curTime)
+                if(sec > 3){
+                    return false
+                }
+            }
+            if(_xmppMsgHelper!.loginFlag == 1){
+                isInstance = true
+            }
+            return _xmppMsgHelper!.loginFlag == 1 ? true : false
+        }
+        return false
+    }
+
+    
     //关闭连接
     func Close(){
         isInstance = false

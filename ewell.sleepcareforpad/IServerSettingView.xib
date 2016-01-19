@@ -156,10 +156,8 @@
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="centerX" secondItem="WVW-wp-mMH" secondAttribute="centerX" constant="140" id="4tW-6Y-Gyf"/>
                         <constraint firstAttribute="centerY" secondItem="mE4-rU-jYc" secondAttribute="centerY" constant="-4" id="Slf-iv-lAC"/>
                         <constraint firstAttribute="centerY" secondItem="WVW-wp-mMH" secondAttribute="centerY" constant="-5" id="T3z-lK-CdK"/>
-                        <constraint firstItem="WVW-wp-mMH" firstAttribute="top" secondItem="Vh6-2g-tdZ" secondAttribute="top" constant="25" id="aUb-eF-0gM"/>
                         <constraint firstAttribute="width" constant="320" id="ct4-FF-PfZ"/>
                         <constraint firstAttribute="centerX" secondItem="mE4-rU-jYc" secondAttribute="centerX" id="geQ-BQ-Emb"/>
                         <constraint firstAttribute="height" constant="70" id="nPs-sx-t7u"/>

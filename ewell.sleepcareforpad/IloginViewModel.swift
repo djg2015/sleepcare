@@ -138,14 +138,14 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                         return
                     }
                     //给openfire username赋值，＝loginname@server address
-                    let xmppusername = self.LoginName + "@" + GetValueFromPlist("xmppserver","sleepcare.plist")
-                    SetValueIntoPlist("xmppusernamephone", xmppusername)
+                    let xmppusernamephone = self.LoginName + "@" + GetValueFromPlist("xmppserver","sleepcare.plist")
+                    SetValueIntoPlist("xmppusernamephone", xmppusernamephone)
                     
                     var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                     let isLogin = xmppMsgManager!.Connect()
                     if(!isLogin){
                          SetValueIntoPlist("xmppusernamephone", "")
-                        showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+                        showDialogMsg(ShowMessage(MessageEnum.AccountDontExist))
                     }
                     else{
                        //登录

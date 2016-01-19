@@ -107,8 +107,8 @@ class IRegistViewModel:BaseViewModel {
         try {
             ({
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isLogin = xmppMsgManager!.Connect()
-                if(!isLogin){
+                let isLogin = xmppMsgManager!.RegistConnect()
+               if(!isLogin){
                     showDialogMsg(ShowMessage(MessageEnum.ConnectFail), "提示", buttonTitle: "确定", action: self.ConnectLost)
                 }
                 else{
@@ -137,6 +137,9 @@ class IRegistViewModel:BaseViewModel {
                         self.MainName = curMain.value!
                     }
                 }
+                
+                //关闭regist链接
+                xmppMsgManager!.Close()
                 },
                 catch: { ex in
                     //异常处理

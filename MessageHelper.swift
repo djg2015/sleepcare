@@ -34,5 +34,6 @@ enum MessageEnum:Int{
     case DontNeedUpdate
     case LoginNameExistBlank
     case PwdExistBlank
+    case AccountDontExist
 
 }
