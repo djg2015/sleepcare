@@ -125,7 +125,7 @@ class IRRMonitor: UIView{
         RACObserve(self.rrMonitorViewModel, "LoadingFlag") ~> RAC(self, "loadingFlag")
         self.setTimer()
     }
-    
+   
     func setTimer(){
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
         timer.fire()

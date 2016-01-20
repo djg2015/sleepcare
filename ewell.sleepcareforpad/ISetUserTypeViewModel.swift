@@ -28,21 +28,17 @@ class ISetUserTypeViewModel: BaseViewModel {
         }
     }
     
-    //自定义处理----------------------
-    
-    //登录
+    //设置账户类型
     func ModifyUserType(userType:String) -> RACSignal{
         try {
             ({
-                
-                
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var loginUser:SessionForIphone = SessionForIphone.GetSession()!
                 sleepCareForIPhoneBussinessManager.SaveUserType(loginUser.User!.LoginName, userType: userType)
                 loginUser.User?.UserType = userType
                 let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
                 controller.isGoLogin = true
-                
+                //设置成功后，跳转我的老人页面
                 IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
                 },
                 catch: { ex in

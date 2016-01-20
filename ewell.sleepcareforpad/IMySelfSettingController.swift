@@ -14,7 +14,7 @@ class IMySelfSettingController: IBaseViewController {
     @IBOutlet weak var menuTableView: ConfiurationTabeView!
     
     @IBOutlet weak var imgBack: UIImageView!
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         

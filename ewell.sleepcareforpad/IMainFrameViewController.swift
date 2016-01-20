@@ -22,7 +22,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     @IBOutlet weak var lblAlarmCount: UILabel!
     @IBOutlet weak var imgAlarm: UIImageView!
     
-    
+
     var spinner:JHSpinnerView?
     var iRRMonitorView:IRRMonitor? = nil
     var iHRMonitorView:IHRMonitor? = nil
@@ -152,7 +152,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         }
         
     }
-    
+ 
     func ClickRR(){
         if(nil != self.bedUserCode && session!.CurPatientCode != "")
         {

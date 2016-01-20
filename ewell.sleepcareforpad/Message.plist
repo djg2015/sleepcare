@@ -40,5 +40,7 @@
 	<string>密码不能包含空格，请重新输入</string>
 	<key>19</key>
 	<string>无法登录！请确认用户名/密码是否正确，同时检查网络连接是否正常</string>
+	<key>20</key>
+	<string>注册账户失败</string>
 </dict>
 </plist>

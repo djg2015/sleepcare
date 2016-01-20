@@ -108,10 +108,11 @@ class IRegistViewModel:BaseViewModel {
             ({
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 let isLogin = xmppMsgManager!.RegistConnect()
-               if(!isLogin){
+                if(!isLogin){
                     showDialogMsg(ShowMessage(MessageEnum.ConnectFail), "提示", buttonTitle: "确定", action: self.ConnectLost)
                 }
                 else{
+                    //获取当前所有养老院的名字
                     var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                     var mainInfoList:IMainInfoList =  sleepCareForIPhoneBussinessManager.GetAllMainInfo()
                     for(var i=0;i<mainInfoList.mainInfoList.count;i++){
@@ -120,7 +121,6 @@ class IRegistViewModel:BaseViewModel {
                         item.value = mainInfoList.mainInfoList[i].MainName
                         self.MainBusinesses.append(item)
                     }
-                    
                 }
                 
                 //初始化用户信息
@@ -138,8 +138,6 @@ class IRegistViewModel:BaseViewModel {
                     }
                 }
                 
-                //关闭regist链接
-                xmppMsgManager!.Close()
                 },
                 catch: { ex in
                     //异常处理
@@ -152,7 +150,7 @@ class IRegistViewModel:BaseViewModel {
         
     }
     
-    //自定义处理----------------------
+    
     //修改用户信息
     func Modify() -> RACSignal{
         try {
@@ -172,19 +170,19 @@ class IRegistViewModel:BaseViewModel {
                 }
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
+                
                 //如果改变了养老院，则当前关注的老人bedusercode设置为nil，报警信息置空
                 if session!.User!.MainCode != self.MainCode{
-                session!.CurPatientCode = ""
+                    session!.CurPatientCode = ""
                 }
-                 IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
+                IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
                 
                 sleepCareForIPhoneBussinessManager.ModifyLoginUser(self.LoginName, oldPassword: session!.OldPwd!, newPassword: self.Pwd, mainCode: self.MainCode)
                 session?.OldPwd = self.Pwd
                 session?.User?.MainCode = self.MainCode
-                showDialogMsg(ShowMessage(MessageEnum.ModifyAccountSuccess), "提示", buttonTitle: "确定", action: self.RegistSuccess)
+                showDialogMsg(ShowMessage(MessageEnum.ModifyAccountSuccess), "提示", buttonTitle: "确定", action: self.AfterModify)
                 },
                 catch: { ex in
-                    //异常处理
                     handleException(ex,showDialog: true)
                 },
                 finally: {
@@ -197,14 +195,24 @@ class IRegistViewModel:BaseViewModel {
     //失去连接后处理
     func ConnectLost(isOtherButton: Bool){
         IViewControllerManager.GetInstance()!.CloseViewController()
-       
+        
     }
-    //注册成功后处理
-    func RegistSuccess(isOtherButton: Bool){
-      IViewControllerManager.GetInstance()!.CloseViewController()
-         }
     
-    //注册
+    func AfterModify(isOtherButton: Bool){
+     IViewControllerManager.GetInstance()!.CloseViewController()
+    }
+    
+    
+    //点击注册，关闭弹窗后的处理
+    func AfterRegist(isOtherButton: Bool){
+        //关闭regist链接
+        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+        xmppMsgManager!.Close()
+
+        IViewControllerManager.GetInstance()!.CloseViewController()
+    }
+    
+    //注册账户
     func Regist() -> RACSignal{
         try {
             ({
@@ -226,8 +234,13 @@ class IRegistViewModel:BaseViewModel {
                     return
                 }
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-                sleepCareForIPhoneBussinessManager.Regist(self.LoginName, loginPassword: self.Pwd, mainCode: self.MainCode)
-                showDialogMsg(ShowMessage(MessageEnum.RegistAccountSuccess), "提示", buttonTitle: "确定", action: self.RegistSuccess)
+                let result:ServerResult =  sleepCareForIPhoneBussinessManager.Regist(self.LoginName, loginPassword: self.Pwd, mainCode: self.MainCode)
+                if result.Result{
+                showDialogMsg(ShowMessage(MessageEnum.RegistAccountSuccess), "提示", buttonTitle: "确定", action: self.AfterRegist)
+                }
+                else{
+                showDialogMsg(ShowMessage(MessageEnum.RegistAccountFail),"提示" ,buttonTitle: "确定", action: self.AfterRegist)
+                }
                 },
                 catch: { ex in
                     //异常处理

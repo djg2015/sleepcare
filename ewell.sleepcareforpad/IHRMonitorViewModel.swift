@@ -78,7 +78,7 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
         }
     }
     
-    // 查询日期的睡眠质量
+    // 心率值
     var _processValue:CGFloat = 0.0
     dynamic var ProcessValue:CGFloat{
         get{
@@ -89,7 +89,7 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
         }
     }
     
-    // 查询日期的睡眠质量
+    // 心率最大值
     var _processMaxValue:CGFloat = 100.0
     dynamic var ProcessMaxValue:CGFloat{
         get{
@@ -100,6 +100,7 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
         }
     }
     
+    //呼吸报告
     var _hrTimeReport:Array<IHRTimeReport> = Array<IHRTimeReport>()
     dynamic var HRTimeReport:Array<IHRTimeReport>{
         get{
@@ -142,7 +143,7 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
             )}
     }
  
-    
+    //获取实时数据
     func GetRealtimeData(realtimeData:Dictionary<String,RealTimeReport>){
         for realTimeReport in realtimeData.values{
             if self.BedUserCode == realTimeReport.UserCode{
@@ -153,9 +154,10 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
               self.LoadingFlag = true
               return
             }
-        }//for
+        }
     }
     
+    //释放代理
     func Clean(){
     RealTimeHelper.GetRealTimeInstance().SetDelegate("IHRMonitorViewModel", currentViewModelDelegate: nil)
     }

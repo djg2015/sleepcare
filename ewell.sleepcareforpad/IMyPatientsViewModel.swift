@@ -10,8 +10,6 @@ import Foundation
 //class IMyPatientsViewModel: BaseViewModel,RealTimeDelegate {
 class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     //------------属性定义------------
-  //  var realTimeCaches:Dictionary<String,RealTimeReport>?
-    
     var _myPatientsArray:Array<MyPatientsTableCellViewModel>!
     //我关注的床位用户集合
     dynamic var MyPatientsArray:Array<MyPatientsTableCellViewModel>{
@@ -54,7 +52,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
             ({
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
-                 session!.BedUserCodeList = Array<String>()
+                session!.BedUserCodeList = Array<String>()
                 
                 var bedUserList:IBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(session!.User!.LoginName, mainCode: session!.User!.MainCode)
                 self.MyPatientsArray = Array<MyPatientsTableCellViewModel>()
@@ -71,7 +69,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     myPatientsTableCellViewModel.selectedBedUserHandler = self.ShowPatientDetail
                     myPatientsTableCellViewModel.deleteBedUserHandler = self.RemovePatient
                     curArray.append(myPatientsTableCellViewModel)
-                 
+                    
                     session!.BedUserCodeList!.append(bedUserList.bedUserInfoList[i].BedUserCode)
                 }
                 self.MyPatientsArray = curArray
@@ -85,14 +83,14 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     
                 }
             )}
-     
-     
+        
+        
         RealTimeHelper.GetRealTimeInstance().SetDelegate("IMyPatientsViewModel",currentViewModelDelegate: self)
         RealTimeHelper.GetRealTimeInstance().setRealTimer()
     }
     
     func GetRealtimeData(realtimeData:Dictionary<String,RealTimeReport>){
- 
+        
         for realTimeReport in realtimeData.values{
             if(!self.bedUserCodeList.isEmpty){
                 var patient = self.MyPatientsArray.filter(
@@ -106,13 +104,13 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 }
             }
         }
-         self.LoadingFlag = true
+        self.LoadingFlag = true
     }
-
+    
     func Clean(){
-    RealTimeHelper.GetRealTimeInstance().SetDelegate("IMyPatientsViewModel", currentViewModelDelegate: nil)
+        RealTimeHelper.GetRealTimeInstance().SetDelegate("IMyPatientsViewModel", currentViewModelDelegate: nil)
     }
-
+    
     
     //显示某个床位用户体征明细
     func ShowPatientDetail(myPatientsTableViewModel:MyPatientsTableCellViewModel){
@@ -120,7 +118,6 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
         session!.CurPatientCode = myPatientsTableViewModel.BedUserCode!
         let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:myPatientsTableViewModel.BedUserCode!,equipmentID:myPatientsTableViewModel.EquipmentID,bedUserName:myPatientsTableViewModel.BedUserName!)
         IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMainFrame", reload: true)
-        //self.JumpPageForIpone(controller)
     }
     
     //移除指定床位用户
@@ -176,7 +173,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                         
                         tempList.append(myPatientsTableViewModels[i].BedUserCode!)
                     }
-                }//for
+                }
                 session!.BedUserCodeList = tempList
                 },
                 catch: { ex in

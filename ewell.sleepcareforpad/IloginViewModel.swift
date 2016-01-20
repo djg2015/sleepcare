@@ -40,7 +40,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     var loginCommand: RACCommand?
     var iBedUserList:IBedUserList?
     var alarmHelper:IAlarmHelper?
-
+    
     
     //构造函数
     override init(){
@@ -53,37 +53,47 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         //显示alarm详细信息的代理
         self.alarmHelper = IAlarmHelper.GetAlarmInstance()
         self.alarmHelper!.alarmdelegate = self
-  
+        
         
     }
     
-    //自定义处理----------------------
-    //先从网站拉取服务器连接信息，不成功则从本地plist文件读取服务器连接信息。返回是否操作成功
+    
+    /**
+    先从网站拉取服务器连接信息，不成功则从本地plist文件读取服务器连接信息。
+    returns: 返回是否操作成功,布尔类型
+    */
     func CheckServerInfo()->Bool{
         var jsonflag = JasonHelper.GetJasonInstance().ConnectJason()
-        
-        if jsonflag{//若成功从url获取所有server有关的数据
+        //若成功从url获取所有server有关的数据
+        if jsonflag{
             var flag = JasonHelper.GetJasonInstance().GetFromJsonData()
             if flag{
-                //成功，将jason数据写入本地plist文件
+                /**
+                *	@brief  成功从网站获取服务器连接信息后的操作
+                *	@param .SetJsonDataToPlistFile	将jason数据写入本地plist文件
+                */
                 JasonHelper.GetJasonInstance().SetJsonDataToPlistFile()
                 return true
             }
         }
-        else{//无法从网站读取sever信息，则查看本地plist信息
+       // 无法从网站读取sever信息，则查看本地plist信息
+        else{
             var plistflag = IsPlistDataEmpty()
-            if !plistflag {   //不为空，则用本地plist文件尝试登录
+            //本地sleepcare.plist文件包含服务器连接所需信息，则用本地plist文件内的信息尝试连接openfire
+            if !plistflag {
                 return true
             }
         }
         return false
     }
     
+    
+    //自动登录
     func AutoLogin(){
         //加载记住密码的相关配置数据
         var temploginname = GetValueFromPlist("loginusernamephone","sleepcare.plist")
         var temppwd = GetValueFromPlist("loginuserpwdphone","sleepcare.plist")
-        
+        //密码和用户名都不为空，则执行登录操作
         if (temploginname != "" && temppwd != ""){
             self.LoginName = temploginname
             self.Pwd = temppwd
@@ -97,7 +107,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     }
     func ConnectAgain(isOtherButton: Bool){
         if !isOtherButton{
-           self.CheckServerInfo()
+            self.CheckServerInfo()
         }
     }
     
@@ -105,13 +115,16 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     func IsBlankExist(input:String)->Bool{
         for char in input{
             if char == " " || char == " "{
-            return true
+                return true
             }
         }
         return false
     }
     
-    
+    /**
+    登录操作
+    returns: ？？
+    */
     func Login() -> RACSignal{
         let serverinfoFlag = self.CheckServerInfo()
         if !serverinfoFlag{
@@ -128,7 +141,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                         showDialogMsg(ShowMessage(MessageEnum.LoginNameExistBlank))
                         return
                     }
-                
+                    
                     if(self.Pwd == ""){
                         showDialogMsg(ShowMessage(MessageEnum.PwdNil))
                         return
@@ -144,22 +157,21 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                     var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                     let isLogin = xmppMsgManager!.Connect()
                     if(!isLogin){
-                         SetValueIntoPlist("xmppusernamephone", "")
+                        SetValueIntoPlist("xmppusernamephone", "")
                         showDialogMsg(ShowMessage(MessageEnum.AccountDontExist))
                     }
                     else{
-                       //登录
+                        //获取当前帐户下的用户信息
                         var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                         var loginUser:ILoginUser = sleepCareForIPhoneBussinessManager.Login(self.LoginName, loginPassword: self.Pwd)
-                        
+                        //开启session，报警提示
                         SessionForIphone.SetSession(loginUser)
                         SetValueIntoPlist("loginusernamephone", self.LoginName)
                         SetValueIntoPlist("loginuserpwdphone", self.Pwd)
                         self.alarmHelper!.BeginWaringAttention()
-                        
                         var session = SessionForIphone.GetSession()
                         session!.OldPwd = self.Pwd
-                        
+                        //跳转选择用户类型
                         if(loginUser.UserType == LoginUserType.UnKnow){
                             if IViewControllerManager.GetInstance()!.IsExist("ISetUserType") {
                                 IViewControllerManager.GetInstance()!.ShowViewController(nil, nibName: "ISetUserType", reload: false)
@@ -168,16 +180,15 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                                 let nextcontroller = ISetUserTypeController(nibName:"ISetUserType", bundle:nil)
                                 IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "ISetUserType", reload: false)
                             }
-                            
-                            
                         }
                         else{
+                            //获取当前关注的老人
                             var session = SessionForIphone.GetSession()
                             session!.BedUserCodeList = Array<String>()
-                            //获取当前关注的老人
                             self.iBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(loginUser.LoginName, mainCode: loginUser.MainCode)
                             
                             if(self.iBedUserList!.bedUserInfoList.count > 0){
+                                //当前为使用者类型，直接跳转主页面
                                 if(loginUser.UserType == LoginUserType.UserSelf){
                                     session!.BedUserCodeList!.append(self.iBedUserList!.bedUserInfoList[0].BedUserCode)
                                     
@@ -186,16 +197,14 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                                     
                                 }
                                 else{
-                                    //跳转选择我的老人
+                                    //当前为监护人类型，则跳转我的老人页面，选择一个老人进行关注
                                     let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
                                     controller.isGoLogin = true
                                     IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
-                                    
-                                    //self.JumpPageForIpone(controller)
                                 }
                             }
                             else{
-                                //跳转选择我的老人
+                                //当前没有关注过老人，则跳转选择我的老人，提示添加老人
                                 let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
                                 controller.isGoLogin = true
                                 IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
@@ -213,9 +222,9 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                 )}
         }
         return RACSignal.empty()
-        
     }
     
+    //跳转报警信息页面
     func ShowAlarm() {
         let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
         IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IAlarmView", reload: true)
