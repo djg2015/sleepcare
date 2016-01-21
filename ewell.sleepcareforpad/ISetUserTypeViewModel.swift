@@ -32,6 +32,12 @@ class ISetUserTypeViewModel: BaseViewModel {
     func ModifyUserType(userType:String) -> RACSignal{
         try {
             ({
+                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+                let isconnect = xmppMsgManager!.Connect()
+                if(!isconnect){
+                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+                }
+                else{
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var loginUser:SessionForIphone = SessionForIphone.GetSession()!
                 sleepCareForIPhoneBussinessManager.SaveUserType(loginUser.User!.LoginName, userType: userType)
@@ -40,6 +46,7 @@ class ISetUserTypeViewModel: BaseViewModel {
                 controller.isGoLogin = true
                 //设置成功后，跳转我的老人页面
                 IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
+                }
                 },
                 catch: { ex in
                     //异常处理

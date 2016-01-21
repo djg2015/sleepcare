@@ -10,6 +10,7 @@
 		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
 		0D0F2C061C3B814100758340 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D0F2C051C3B814100758340 /* LaunchScreen.xib */; };
 		0D0F2C081C3B830600758340 /* IWelcome.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D0F2C071C3B830600758340 /* IWelcome.xib */; };
+		0D1341BF1C4F7CF000051E2C /* IModifyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */; };
 		0D19A2A81C3A4828005ECF19 /* UpdateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D19A2A71C3A4828005ECF19 /* UpdateHelper.swift */; };
 		0D19A2AA1C3A50ED005ECF19 /* SoftwareUpdate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D19A2A91C3A50ED005ECF19 /* SoftwareUpdate.xib */; };
 		0D19A2B01C3A5551005ECF19 /* SoftwareUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D19A2AF1C3A5551005ECF19 /* SoftwareUpdateController.swift */; };
@@ -348,6 +349,7 @@
 /* Begin PBXFileReference section */
 		0D0F2C051C3B814100758340 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		0D0F2C071C3B830600758340 /* IWelcome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IWelcome.xib; sourceTree = "<group>"; };
+		0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IModifyViewModel.swift; sourceTree = "<group>"; };
 		0D19A2A71C3A4828005ECF19 /* UpdateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHelper.swift; sourceTree = "<group>"; };
 		0D19A2A91C3A50ED005ECF19 /* SoftwareUpdate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoftwareUpdate.xib; sourceTree = "<group>"; };
 		0D19A2AF1C3A5551005ECF19 /* SoftwareUpdateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareUpdateController.swift; sourceTree = "<group>"; };
@@ -1265,6 +1267,7 @@
 				2CC2F1C91BFEBFC400E14328 /* IEquipmentViewModel.swift */,
 				3A680DC11C02BDEF00D77A22 /* IAccountSet.swift */,
 				0DC228581C23AE0900AF4737 /* IAlarmViewModel.swift */,
+				0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1710,6 +1713,7 @@
 				3A4D17FD1BAFE20A00E0B862 /* AlarmList.swift in Sources */,
 				3A4D17F71BAFDEFF00E0B862 /* TurnOverAnalysReport.swift in Sources */,
 				2C5181FB1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift in Sources */,
+				0D1341BF1C4F7CF000051E2C /* IModifyViewModel.swift in Sources */,
 				3A4D17F31BAFB83500E0B862 /* SleepCareReport.swift in Sources */,
 				3A4CD3F81BA804D2002C8A1A /* XmppMsgManager.swift in Sources */,
 				2C5181F91BF18E7E007DC2A3 /* ILoginUser.swift in Sources */,

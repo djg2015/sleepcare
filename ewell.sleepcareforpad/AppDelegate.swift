@@ -100,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             let isLogin = xmppMsgManager!.Connect()
             
             if(!isLogin){
-                //无法连接，退出当前程序，显示登录页面
+                //无法连接，弹窗提示是否重连
                 NSNotificationCenter.defaultCenter().postNotificationName("ReConnectInternet", object: self)
             }
             else{

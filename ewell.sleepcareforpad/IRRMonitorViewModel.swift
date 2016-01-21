@@ -122,6 +122,12 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
             
             if(nil != self.BedUserCode)
             {
+                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+                let isconnect = xmppMsgManager!.Connect()
+                if(!isconnect){
+                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+                }
+                else{
                 var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var rrRange:IRRRange = sleepCareForIPhoneBLL.GetRRTimeReport(self.BedUserCode!)
                 
@@ -131,6 +137,7 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 
                 RealTimeHelper.GetRealTimeInstance().SetDelegate("IRRMonitorViewModel",currentViewModelDelegate: self)
                 RealTimeHelper.GetRealTimeInstance().setRealTimer()
+            }
             }
             },
             catch: { ex in

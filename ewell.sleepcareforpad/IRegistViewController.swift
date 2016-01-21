@@ -32,7 +32,6 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iRegistViewModel = IRegistViewModel()
-      //  self.iRegistViewModel.controllerForIphone = self
         self.btnRegist!.rac_command = self.iRegistViewModel?.registCommand
         self.txtLoginName.rac_textSignal() ~> RAC(self.iRegistViewModel, "LoginName")
         self.txtPwd.rac_textSignal() ~> RAC(self.iRegistViewModel, "Pwd")

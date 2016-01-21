@@ -5,7 +5,7 @@
 	<key>1</key>
 	<string>无法获取有效服务器配置信息！点击重试后再试一次，点击关闭则稍后再试</string>
 	<key>2</key>
-	<string>网络连接断开，请重试连接或稍后再试！</string>
+	<string>网络连接发生中断，请检查网络连接是否正常</string>
 	<key>3</key>
 	<string>账户名不能为空！</string>
 	<key>4</key>
@@ -29,7 +29,7 @@
 	<key>13</key>
 	<string>您尚未选择用户类型，无法查看信息！</string>
 	<key>14</key>
-	<string>当前无法获取数据，请检查网络连接稍后再试</string>
+	<string>无法完成当前操作，网络信号不给力，请稍后再试</string>
 	<key>15</key>
 	<string>检测到新版本，是否前往App Store更新？</string>
 	<key>16</key>
@@ -41,6 +41,8 @@
 	<key>19</key>
 	<string>无法登录！请确认用户名/密码是否正确，同时检查网络连接是否正常</string>
 	<key>20</key>
-	<string>注册账户失败</string>
+	<string>注册账户失败！</string>
+	<key>21</key>
+	<string>修改账户失败！</string>
 </dict>
 </plist>

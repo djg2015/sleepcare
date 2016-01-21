@@ -70,6 +70,12 @@ class IChoosePatientsViewModel: BaseViewModel {
     func InitData(){
         try {
             ({
+                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+                let isconnect = xmppMsgManager!.Connect()
+                if(!isconnect){
+                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+                }
+                else{
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
                 var mainInfo:IMainInfo = sleepCareForIPhoneBussinessManager.GetPartInfoWithoutFollowBedUser(session!.User!.LoginName,mainCode:session!.User!.MainCode)
@@ -100,7 +106,7 @@ class IChoosePatientsViewModel: BaseViewModel {
                     }
                     self.PartBedUserDic[mainInfo.PartInfoList[i].PartCode] = curBedUsers
                 }
-                
+                }
                 },
                 catch: { ex in
                     //异常处理

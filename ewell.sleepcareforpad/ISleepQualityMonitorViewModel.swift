@@ -19,6 +19,12 @@ class ISleepQualityMonitorViewModel: BaseViewModel {
             self._selectedDate = value
             try {
                 ({
+                    var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+                    let isconnect = xmppMsgManager!.Connect()
+                    if(!isconnect){
+                        showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+                    }
+                    else{
                     var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                     var report:ISleepQualityReport = sleepCareForIPhoneBLL.GetSleepQualityByUser(self.BedUserCode, reportDate: self.SelectedDate)
                     self.SleepQuality = report.SleepQuality
@@ -81,7 +87,7 @@ class ISleepQualityMonitorViewModel: BaseViewModel {
                     else{
                     self.SleepRange = report.sleepRange
                     }
-                    
+                    }
                     },
                     catch: { ex in
                         //异常处理
