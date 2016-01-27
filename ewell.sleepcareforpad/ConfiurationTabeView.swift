@@ -44,32 +44,35 @@ class ConfiurationTabeView: UITableView, UITableViewDelegate,UITableViewDataSour
         cellView.backgroundColor = self.backgroundColor
         cellView.layer.borderWidth = 1
         cellView.layer.borderColor = UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1).CGColor
+        
+        // 添加操作菜单名称
+        var txtTitle = UILabel(frame: CGRect(x: 15, y: 0, width: self.bounds.width - 65 * 2, height: 50))
+        txtTitle.text = self.tableViewDataSource[indexPath.row].titleName
+        txtTitle.font = UIFont.boldSystemFontOfSize(18)
+        txtTitle.textAlignment = .Left
+        cellView.addSubview(txtTitle)
+
+         // 添加图片
         if(self.showMenuImage)
         {
-            // 添加图片
-            var imgMenu = UIImageView(frame: CGRect(x: 15, y: 10, width: 30, height: 30))
+            var imgMenu = UIImageView(frame: CGRect(x: 85, y: 7, width: 30, height: 30))
             imgMenu.image = UIImage(named: self.tableViewDataSource[indexPath.row].imageName)
             cellView.addSubview(imgMenu)
-            // 添加操作菜单名称
-            var txtTitle = UILabel(frame: CGRect(x: 55, y: 0, width: self.bounds.width - 65 * 2, height: 50))
-            txtTitle.text = self.tableViewDataSource[indexPath.row].titleName
-            txtTitle.font = UIFont.boldSystemFontOfSize(18)
-            txtTitle.textAlignment = .Left
-            cellView.addSubview(txtTitle)
         }
-        else
-        {
-            // 添加操作菜单名称
-            var txtTitle = UILabel(frame: CGRect(x: 25, y: 0, width: self.bounds.width - 65 * 2, height: 50))
-            txtTitle.text = self.tableViewDataSource[indexPath.row].titleName
-            txtTitle.font = UIFont.boldSystemFontOfSize(18)
-            txtTitle.textAlignment = .Left
-            cellView.addSubview(txtTitle)
-        }
+        
         // 添加跳转箭头
+        if(self.tableViewDataSource[indexPath.row].titleName != "软件版本"){
         var imgJump = UIImageView(frame: CGRect(x: self.bounds.width - 45, y: 10, width: 30, height: 30))
         imgJump.image = UIImage(named: "detailBtn")
         cellView.addSubview(imgJump)
+        }
+        else{
+        var versionlbl = UILabel(frame: CGRect(x: self.bounds.width - 60, y: 10, width: 50, height: 30))
+            versionlbl.text = "1.0.0"
+            versionlbl.font = UIFont.boldSystemFontOfSize(18)
+            versionlbl.textAlignment = .Center
+            cellView.addSubview(versionlbl)
+        }
         
         cellView.userInteractionEnabled = true
         var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "jumpController:")
@@ -96,14 +99,11 @@ class ConfiurationTabeView: UITableView, UITableViewDelegate,UITableViewDataSour
             }
            
             IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: controller.nibName!, reload: true)
-        
-            //  self.parentController!.presentViewController(controller, animated: true, completion: nil)
         }
     }
 }
 
 class ConfigurationViewModel {
-    
     var imageName:String = ""
     var titleName:String = ""
     var configrationController:IBaseViewController = IBaseViewController()

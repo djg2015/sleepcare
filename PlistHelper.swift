@@ -25,7 +25,7 @@ func InitPlistFile(){
         // If it doesn't, copy it from the default file in the Bundle
         if let bundlePath = NSBundle.mainBundle().pathForResource("sleepcare", ofType: "plist") {
             let resultDictionary = NSMutableDictionary(contentsOfFile: bundlePath)
-            //  println("Bundle sleepcare.plist file is --> \(resultDictionary?.description)")
+
             fileManager.copyItemAtPath(bundlePath, toPath: path, error: nil)
             println("copy plist file from bundle file")
         }
@@ -38,8 +38,23 @@ func InitPlistFile(){
         //fileManager.removeItemAtPath(path, error: nil)
     }
     sleepcareResultDictionary = NSMutableDictionary(contentsOfFile: path)
-    println("Loaded sleepcare.plist file is --> \(sleepcareResultDictionary?.description)")
+    //println("Loaded sleepcare.plist file is --> \(sleepcareResultDictionary?.description)")
 }
+//读取theme元素
+func GetValueFromThemePlist(theme:String,key:String,filename:String) ->String{
+    var path = NSBundle.mainBundle().pathForResource(filename, ofType: "plist")
+    var fileManager = NSFileManager.defaultManager()
+    var fileExists:Bool = fileManager.fileExistsAtPath(path!)
+    var themeDic :NSMutableDictionary?
+    if(fileExists){
+        themeDic=NSMutableDictionary(contentsOfFile: path!)
+        let themeInfo = themeDic?.valueForKey(theme) as! NSMutableDictionary
+        let themeItem = themeInfo.valueForKey(key) as! String
+        return themeItem
+    }
+    return ""
+}
+
 
 //只读plist文件值
 func GetValueFromReadOnlyPlist(key:String,filename:String) ->String{
@@ -58,7 +73,7 @@ func GetValueFromReadOnlyPlist(key:String,filename:String) ->String{
 func GetValueFromPlist(key:String,filename:String) -> String{
     let path = documentsDirectory.stringByAppendingPathComponent(filename)
     if fileManager.fileExistsAtPath(path) {
-        //   println("loaded value")
+       
         var value: AnyObject? = NSMutableDictionary(contentsOfFile: path)!.valueForKey(key)
         if value != nil{
             return value as! String
@@ -75,7 +90,7 @@ func SetValueIntoPlist(key:String, value:String){
     let path = documentsDirectory.stringByAppendingPathComponent("sleepcare.plist")
     sleepcareResultDictionary!.setValue(value, forKey: key)
     sleepcareResultDictionary!.writeToFile(path, atomically: false)
-    //  println("Saved sleepcare.plist file is --> \(resultDictionary?.description)")
+   
 }
 
 //判断和server有关的信息是否为空

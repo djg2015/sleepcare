@@ -6,6 +6,10 @@
 //  Copyright (c) 2015年 zhaoyin. All rights reserved.
 //
 
+let LOWCOLOR:UIColor = UIColor.colorFromRGB(0xEF8626)
+let MEDIUMCOLOR:UIColor = UIColor.colorFromRGB(0x44A355)
+let HIGHCOLOR:UIColor = UIColor.redColor()
+
 import Foundation
 import UIKit
 
@@ -76,15 +80,15 @@ class CircularLoaderView: UIView {
         self.circlePathLayer.lineCap = kCALineCapRound
         // 填充色
         self.circlePathLayer.fillColor = self.fillColor
-        // 圆的边线色
+        // 整圆的边线色
         self.circlePathLayer.strokeColor = self.strokeColor
         layer.addSublayer(self.circlePathLayer)
-        
+        //动态的圆圈边线
         self.circlePathLayerBig.frame = bounds
         self.circlePathLayerBig.lineWidth = 7
         self.circlePathLayerBig.lineCap = kCALineCapRound
         self.circlePathLayerBig.fillColor = self.fillColor
-        self.circlePathLayerBig.strokeColor = self.strokeColor
+        self.circlePathLayerBig.strokeColor = self.strokeColor //LOWCOLOR.CGColor
         layer.addSublayer(self.circlePathLayerBig)
         
         // 添加圆中心位置的文字
@@ -92,18 +96,8 @@ class CircularLoaderView: UIView {
         {
             self.centerTitleView = UIView(frame: CGRect(x: 0, y: 20, width: bounds.width, height: bounds.height - 30))
         }
-        //        var centerTxt = UILabel(frame: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.width - self.circleRadius))
-        //        centerTxt.textAlignment = .Center
-        //        centerTxt.adjustsFontSizeToFitWidth = true
-        //        centerTxt.font = UIFont.boldSystemFontOfSize(24)
-        //        centerTxt.textColor = UIColor.whiteColor()
-        //        centerTxt.text = "12321321"
-        //        centerView.addSubview(centerTxt)
-        //        centerView.backgroundColor = UIColor.yellowColor()
         self.addSubview(self.centerTitleView!)
-        
-        
-        
+
         backgroundColor = UIColor.clearColor()
     }
     

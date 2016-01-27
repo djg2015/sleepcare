@@ -10,6 +10,7 @@ import UIKit
 
 class ILoginController: IBaseViewController {
     
+  
     @IBOutlet weak var imgTitle: UIImageView!
     @IBOutlet weak var txtLoginName: UITextField!
     @IBOutlet weak var txtPwd: UITextField!
@@ -54,20 +55,21 @@ class ILoginController: IBaseViewController {
              var nextcontroller = IRegistViewController(nibName: "IRegist", bundle: nil)
              IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IRegist",reload: true)
         }
-        // 给图片添加手势
-        self.imgTitle.userInteractionEnabled = true
-        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
-        self.imgTitle .addGestureRecognizer(singleTap)
+//        // 给图片添加手势
+//        self.imgTitle.userInteractionEnabled = true
+//        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
+//        self.imgTitle .addGestureRecognizer(singleTap)
 
     }
 
-    func imageViewTouch(){
-        if IViewControllerManager.GetInstance()!.IsExist("IServerSettingView"){
-            IViewControllerManager.GetInstance()!.ShowViewController(nil, nibName: "IServerSettingView",reload: false)
-        }
-        else{
+    @IBAction func imageViewTouch(sender:AnyObject){
              var nextcontroller = IServerSettingController(nibName:"IServerSettingView", bundle:nil)
-            IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IServerSettingView",reload: false)
+            IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IServerSettingView",reload: true)
         }
+    
+    
+    @IBAction func ForgetPwd(sender:AnyObject){
+    
     }
+    
 }

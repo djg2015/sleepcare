@@ -49,6 +49,30 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
         set(value)
         {
             self._onBedStatus = value
+            self._onBedStatus = value
+            if value == "在床"{
+                StatusImageName = "greenpoint.png"
+            }
+            else if value == "离床"{
+                StatusImageName = "greypoint.png"
+            }
+            else{
+                self._onBedStatus = "异常"
+                StatusImageName = "yellowpoint.png"
+            }
+
+        }
+    }
+    //在离床状态的图片
+    var _statusImageName:String?
+    dynamic var StatusImageName:String?{
+        get
+        {
+            return self._statusImageName
+        }
+        set(value)
+        {
+            self._statusImageName=value
         }
     }
     
@@ -62,9 +86,29 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
         set(value)
         {
             self._currentRR = value
+            var intRR = value!.toInt()
+            if intRR < 10{
+                CircleValueStatus = "low"
+            }
+            else if(intRR < 30){
+                CircleValueStatus = "medium"
+            }
+            else{
+                CircleValueStatus = "high"
+            }
+
         }
     }
-    
+    //圆圈阈值
+    var _circleValueStatus:String = "无"
+    dynamic var CircleValueStatus:String{
+        get{
+            return self._circleValueStatus
+        }
+        set(value){
+            self._circleValueStatus = value
+        }
+    }
     // 上一次平均呼吸
     var _lastAvgRR:String? = "次/分"
     dynamic var LastAvgRR:String?{
@@ -90,7 +134,7 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
     }
     
     // 呼吸最大值
-    var _processMaxValue:CGFloat = 100.0
+    var _processMaxValue:CGFloat = 50.0
     dynamic var ProcessMaxValue:CGFloat{
         get{
             return self._processMaxValue

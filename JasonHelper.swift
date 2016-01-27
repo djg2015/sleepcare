@@ -33,7 +33,6 @@ class JasonHelper: NSObject {
         self.data = NSData(contentsOfURL: url)
         if self.data != nil{
             var str = NSString(data: self.data!, encoding: NSUTF8StringEncoding)
-          //   println(str)
             self.json = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: nil)
             if self.json != nil{
             self.apInfo = self.json!.objectForKey("apinfo")

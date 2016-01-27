@@ -51,8 +51,6 @@ import UIKit
                 
             }
         }
-        println(self.subviews.count)
-        
     }
     
     //往前滚动一页

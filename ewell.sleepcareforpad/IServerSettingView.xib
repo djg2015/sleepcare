@@ -164,7 +164,7 @@
                         <constraint firstItem="WVW-wp-mMH" firstAttribute="leading" secondItem="Vh6-2g-tdZ" secondAttribute="leading" constant="5" id="xQg-aX-l0m"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="blueback.png"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h05-MR-Tqf">
@@ -212,7 +212,6 @@
     </objects>
     <resources>
         <image name="backBtn.png" width="54" height="54"/>
-        <image name="blueback.png" width="640" height="669"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -24,8 +24,8 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     }
     
     //实时数据是否已经载入
-    var _loadingFlag:Bool = false
-    dynamic var LoadingFlag:Bool{
+    var _loadingFlag:Int = 0
+    dynamic var LoadingFlag:Int{
         get
         {
             return self._loadingFlag
@@ -111,13 +111,14 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 }
             }
         }
-        self.LoadingFlag = true
+        
+        self.LoadingFlag += 1
     }
     
     func Clean(){
         RealTimeHelper.GetRealTimeInstance().SetDelegate("IMyPatientsViewModel", currentViewModelDelegate: nil)
     }
-    
+
     
     //显示某个床位用户体征明细
     func ShowPatientDetail(myPatientsTableViewModel:MyPatientsTableCellViewModel){

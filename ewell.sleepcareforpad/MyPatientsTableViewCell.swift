@@ -16,9 +16,21 @@ class MyPatientsTableViewCell: UITableViewCell {
     @IBOutlet weak var lblBedNum: UILabel!
     @IBOutlet weak var lblRoomNum: UILabel!
     @IBOutlet weak var lblBedUserName: UILabel!
-    @IBOutlet weak var imgDetail: UIImageView!
+  //  @IBOutlet weak var imgDetail: UIImageView!
+    
+    @IBOutlet weak var imgStatus: UIImageView!
+    @IBOutlet weak var layerView: BackgroundCommon!
+    
     var source:MyPatientsTableCellViewModel!
     var bindFlag:Bool = false
+    var statusImageName:String?
+        {
+        didSet{
+            if statusImageName != nil{
+            self.imgStatus.image = UIImage(named:statusImageName!)
+            }
+        }
+    }
     
     
     //数据绑定床位界面
@@ -35,6 +47,10 @@ class MyPatientsTableViewCell: UITableViewCell {
         self.source.deleteBedUserHandler = (data as MyPatientsTableCellViewModel).deleteBedUserHandler
         self.source.EquipmentID = (data as MyPatientsTableCellViewModel).EquipmentID
         
+        
+       
+        RACObserve(self.source, "StatusImageName") ~> RAC(self, "statusImageName")
+        
         RACObserve(data, "HR") ~> RAC(self.source, "HR")
         RACObserve(data, "RR") ~> RAC(self.source, "RR")
         RACObserve(data, "BedStatus") ~> RAC(self.source, "BedStatus")
@@ -50,10 +66,10 @@ class MyPatientsTableViewCell: UITableViewCell {
         if(!self.bindFlag){
             
             
-            //设置箭头点击查看明细
-            self.imgDetail.userInteractionEnabled = true
-            var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
-            self.imgDetail .addGestureRecognizer(singleTap)
+//            //设置箭头点击查看明细
+//            self.imgDetail.userInteractionEnabled = true
+//            var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
+//            self.imgDetail .addGestureRecognizer(singleTap)
             
             self.bindFlag = true
             
@@ -64,7 +80,10 @@ class MyPatientsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
+        //圆角
+        self.layerView.layer.masksToBounds = true
+        self.layerView.layer.cornerRadius = 10
+          }
     
     func imageViewTouch(){
         if(self.source.selectedBedUserHandler != nil){
@@ -211,6 +230,16 @@ class MyPatientsTableCellViewModel:NSObject{
         set(value)
         {
             self._bedStatus=value
+            if value == "在床"{
+            StatusImageName = "greenpoint.png"
+            }
+            else if value == "离床"{
+            StatusImageName = "greypoint.png"
+            }
+            else{
+                self._bedStatus = "异常"
+            StatusImageName = "yellowpoint.png"
+            }
         }
     }
     
@@ -224,6 +253,18 @@ class MyPatientsTableCellViewModel:NSObject{
         set(value)
         {
             self._equipmentID=value
+        }
+    }
+    
+    var _statusImageName:String?
+    dynamic var StatusImageName:String?{
+        get
+        {
+            return self._statusImageName
+        }
+        set(value)
+        {
+            self._statusImageName=value
         }
     }
     

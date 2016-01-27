@@ -59,11 +59,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     }
     
     func applicationWillResignActive(application: UIApplication) {
-        var todoItems: [TodoItem] = TodoList.sharedInstance.allItems() // retrieve list of all to-do items
-        var overdueItems = todoItems.filter({ (todoItem) -> Bool in
-            return todoItem.deadline.compare(NSDate()) != .OrderedDescending
-        })
-        UIApplication.sharedApplication().applicationIconBadgeNumber = overdueItems.count
+//        var todoItems: [TodoItem] = TodoList.sharedInstance.allItems() // retrieve list of all to-do items
+//        var overdueItems = todoItems.filter({ (todoItem) -> Bool in
+//            return todoItem.deadline.compare(NSDate()) != .OrderedDescending
+//        })
+//        UIApplication.sharedApplication().applicationIconBadgeNumber = overdueItems.count
+    
     }
     
     
@@ -104,6 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
                 NSNotificationCenter.defaultCenter().postNotificationName("ReConnectInternet", object: self)
             }
             else{
+               
                 var curDate = NSDate()
                 var dateFormatter:NSDateFormatter  = NSDateFormatter()
                 dateFormatter.timeZone = NSTimeZone.localTimeZone()

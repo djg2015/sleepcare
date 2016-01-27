@@ -10,6 +10,7 @@ import Foundation
 
 class IRRMonitor: UIView{
     
+    @IBOutlet weak var statusImage: UIImageView!
     @IBOutlet weak var lblOnBedStatus: UILabel!
     
     @IBOutlet weak var processRR: CircularLoaderView!
@@ -89,6 +90,29 @@ class IRRMonitor: UIView{
         }
     }
     
+    var statusImageName:String?
+        {
+        didSet{
+            if statusImageName != nil{
+                self.statusImage.image = UIImage(named:statusImageName!)
+            }
+        }
+    }
+    
+    var circleValueStatus:String?{
+        didSet{
+            if circleValueStatus == "low"{
+                self.processRR.circlePathLayerBig.strokeColor = LOWCOLOR.CGColor
+            }
+            else if circleValueStatus == "medium"{
+                self.processRR.circlePathLayerBig.strokeColor = MEDIUMCOLOR.CGColor
+            }
+            else if circleValueStatus == "high"{
+                self.processRR.circlePathLayerBig.strokeColor = HIGHCOLOR.CGColor
+            }
+            
+        }
+    }
     
     func viewInit(parentController:IBaseViewController?,bedUserCode:String,bedUserName:String)
     {
@@ -112,17 +136,18 @@ class IRRMonitor: UIView{
         lbl1.text = "次/分"
         self.processRR.centerTitleView?.addSubview(lbl1)
         
+        RACObserve(self.rrMonitorViewModel, "StatusImageName") ~> RAC(self, "statusImageName")
         RACObserve(self.rrMonitorViewModel, "OnBedStatus") ~> RAC(self.lblOnBedStatus, "text")
         RACObserve(self.rrMonitorViewModel, "CurrentRR") ~> RAC(self.lblRR, "text")
         RACObserve(self.rrMonitorViewModel, "LastAvgRR") ~> RAC(self.lblLastRR, "text")
         RACObserve(self.rrMonitorViewModel, "ProcessMaxValue") ~> RAC(self.processRR, "maxProcess")
         RACObserve(self.rrMonitorViewModel, "ProcessValue") ~> RAC(self.processRR, "currentProcess")
-
         RACObserve(self, "_bedUserCode") ~> RAC(self.rrMonitorViewModel, "BedUserCode")
         RACObserve(self.rrMonitorViewModel, "RRTimeReport") ~> RAC(self, "RRTimeReportList")
         RACObserve(self, "_bedUserName") ~> RAC(self.lblBedUserName, "text")
-        
+        RACObserve(self.rrMonitorViewModel, "CircleValueStatus") ~> RAC(self, "circleValueStatus")
         RACObserve(self.rrMonitorViewModel, "LoadingFlag") ~> RAC(self, "loadingFlag")
+        
         self.setTimer()
     }
    

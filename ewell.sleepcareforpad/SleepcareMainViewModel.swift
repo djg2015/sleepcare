@@ -246,9 +246,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
                     {$0.BedCode == realTimeReport.BedCode})
                 if(bed.count > 0){
                     let curBed:BedModel = bed[0]
-                    if(curBed.BedNumber == "107"){
-                        println(realTimeReport)
-                    }
+                   
                     curBed.HR = realTimeReport.HR
                     curBed.RR = realTimeReport.RR
                     if(realTimeReport.OnBedStatus == "在床"){

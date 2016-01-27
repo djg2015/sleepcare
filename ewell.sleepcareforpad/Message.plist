@@ -44,5 +44,7 @@
 	<string>注册账户失败！</string>
 	<key>21</key>
 	<string>修改账户失败！</string>
+	<key>22</key>
+	<string>请先阅读用户服务协议，打勾后才能注册账户！</string>
 </dict>
 </plist>

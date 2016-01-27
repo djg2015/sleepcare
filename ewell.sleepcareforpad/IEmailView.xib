@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -81,24 +80,19 @@
                         <constraint firstAttribute="height" constant="140" id="ojP-Vx-POd"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="loginbackground.png"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <animations/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="9WF-lc-qRz" secondAttribute="centerX" id="RoS-Fu-vXF"/>
                 <constraint firstAttribute="centerY" secondItem="9WF-lc-qRz" secondAttribute="centerY" id="gNf-x4-c57"/>
             </constraints>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="loginbackground.png"/>
-            </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="204" y="183"/>
+            <point key="canvasLocation" x="210" y="166"/>
         </view>
     </objects>
-    <resources>
-        <image name="loginbackground.png" width="640" height="1136"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

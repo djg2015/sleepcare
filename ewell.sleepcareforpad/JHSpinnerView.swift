@@ -1,7 +1,7 @@
 import UIKit
 
 public enum JHSpinnerOverlay {
-    case FullScreen, Circular, Square, RoundedSquare, Custom(CGSize, CGFloat)
+    case FullScreen, Circular, Square, RoundedSquare, Custom(CGRect, CGFloat)
 }
 
 public class JHSpinnerView: UIView {
@@ -104,7 +104,9 @@ public class JHSpinnerView: UIView {
             spinner.overlayView.frame = CGRect(x: Int(spinner.center.x) - (size/2), y: Int(spinner.center.y) - (size/2), width: size, height: size)
             spinner.overlayView.layer.cornerRadius = CGFloat(size/2)
         case .Custom(let size, let cornerRadius):
-            spinner.overlayView.frame = CGRect(x: Int(spinner.center.x) - Int(size.width/2), y: Int(spinner.center.y) - Int(size.height/2), width: Int(size.width), height: Int(size.height))
+            
+            spinner.overlayView.frame = CGRect(x: size.origin.x, y: size.origin.y, width: size.size.width, height: size.size.height)
+           
             if cornerRadius > 0 {
                 spinner.overlayView.layer.cornerRadius = cornerRadius
             }
@@ -193,7 +195,7 @@ public class JHSpinnerView: UIView {
             spinner.overlayView.frame = CGRect(x: Int(spinner.center.x) - (size/2), y: Int(spinner.center.y) - (size/2), width: size, height: size)
             spinner.overlayView.layer.cornerRadius = CGFloat(size/2)
         case .Custom(let size, let cornerRadius):
-            spinner.overlayView.frame = CGRect(x: Int(spinner.center.x) - Int(size.width/2), y: Int(spinner.center.y) - Int(size.height/2), width: Int(size.width), height: Int(size.height))
+            spinner.overlayView.frame = CGRect(x: size.origin.x, y: size.origin.y, width: size.size.width, height: size.size.height)
             if cornerRadius > 0 {
                 spinner.overlayView.layer.cornerRadius = cornerRadius
             }

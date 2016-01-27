@@ -16,6 +16,7 @@ class IMyPatientsController: IBaseViewController {
     @IBOutlet weak var myPatientTable: MyPatientsTableView!
     @IBOutlet weak var btnBack: UIButton!
     
+    var _width:Int = 0
     var spinner:JHSpinnerView?
     var viewModel:IMyPatientsViewModel!
     var popDownList:PopDownList?
@@ -25,7 +26,7 @@ class IMyPatientsController: IBaseViewController {
         didSet{
             if(self.MyPatientsArray?.count == 0){
                 self.uiNewAdd.hidden = false
-                self.uiPatientList.hidden = true
+               self.uiPatientList.hidden = true
             }
             else{
                 self.uiNewAdd.hidden = true
@@ -39,10 +40,23 @@ class IMyPatientsController: IBaseViewController {
         
         rac_Setting()
         
-        myPatientTable.frame = CGRectMake(0, 57, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-57)
-        self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.FullScreen, overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.6), fullCycleTime:4.0, text:"")
+        myPatientTable.frame = CGRectMake(0, 7, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-7)
+        if self.myPatientTable.respondsToSelector(Selector("setSeparatorInset:")) {
+            self.myPatientTable.separatorInset = UIEdgeInsetsMake(0,0,0,8)
+        }
+        if self.myPatientTable.respondsToSelector(Selector("setLayoutMargins:")) {
+           // self.myPatientTable.layoutMargins = UIEdgeInsetsZero
+            self.myPatientTable.layoutMargins = UIEdgeInsetsZero
+        }
+
+        self.myPatientTable.layer.masksToBounds = true
+        self.myPatientTable.layer.cornerRadius = 8
+       
+        if self.MyPatientsArray != nil{
+        self._width = Int(self.myPatientTable.frame.width)
+        self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:self._width,height:195 * self.MyPatientsArray!.count), CGFloat(8.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.95))
         self.setTimer()
-        
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,26 +73,14 @@ class IMyPatientsController: IBaseViewController {
     //初始化设置与属性等绑定
     func rac_Setting(){
         self.viewModel = IMyPatientsViewModel()
-       // self.viewModel.controllerForIphone = self
         RACObserve(self.viewModel, "MyPatientsArray") ~> RAC(self, "MyPatientsArray")
         
-        var dataSource = Array<DownListModel>()
-        var item = DownListModel()
-        item.key = "1"
-        item.value = "添加老人"
-        dataSource.append(item)
-        item = DownListModel()
-        item.key = "2"
-        item.value = "设置"
-        dataSource.append(item)
-        self.popDownList = PopDownList(datasource: dataSource, dismissHandler: self.ChoosedItem)
-        
-        //设置菜单老人事件
+        //“我的老人”页面单击添加老人事件
         self.imgSmallAdd.userInteractionEnabled = true
-        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
+        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageaddPatientTouch")
         self.imgSmallAdd .addGestureRecognizer(singleTap)
         
-        //设置添加老人事件
+        //添加老人事件
         self.imgBigAdd.userInteractionEnabled = true
         var singleTap1:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageaddPatientTouch")
         self.imgBigAdd .addGestureRecognizer(singleTap1)
@@ -96,30 +98,6 @@ class IMyPatientsController: IBaseViewController {
         
     }
     
-    //选中菜单
-    func ChoosedItem(downListModel:DownListModel){
-        var session = SessionForIphone.GetSession()
-        if(downListModel.key == "1"){
-            if(session?.User?.UserType != LoginUserType.Monitor){
-                if(self.MyPatientsArray?.count > 0){
-                    showDialogMsg(ShowMessage(MessageEnum.DeletePatientReminder), title: "提示")
-                    return
-                }
-            }
-            var nextcontroller = IChoosePatientsController(nibName:"IChoosePatients", bundle:nil, myPatientsViewModel: self.viewModel)
-            IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IChoosePatients",reload: true)
-        }
-        else{
-            session?.CurPatientCode = ""
-            let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:nil,equipmentID:nil,bedUserName:nil)
-            IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMainFrame", reload: true)
-        }
-    }
-    
-    //弹出菜单界面
-    func imageViewTouch(){
-        self.popDownList!.Show(100, height: 85, uiElement: self.imgSmallAdd)
-    }
     
     //添加老人
     func imageaddPatientTouch(){
@@ -133,9 +111,9 @@ class IMyPatientsController: IBaseViewController {
     }
     
     func timerFireMethod(timer: NSTimer) {
-        if self.viewModel.LoadingFlag{
+        if self.viewModel.LoadingFlag >= self.viewModel.bedUserCodeList.count{
             self.spinner!.dismiss()
-            self.viewModel.LoadingFlag = false
+            self.viewModel.LoadingFlag = 0
         }
         
     }

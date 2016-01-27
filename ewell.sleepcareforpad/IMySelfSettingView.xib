@@ -46,7 +46,7 @@
                         <constraint firstItem="SRT-RH-tSV" firstAttribute="top" secondItem="U2a-1q-A0e" secondAttribute="top" constant="28" id="zzg-p8-zK7"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="blueback.png"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAx-rA-ZQh" userLabel="bottomView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
@@ -72,7 +72,7 @@
                         <constraint firstAttribute="centerX" secondItem="yht-mN-HWB" secondAttribute="centerX" id="qsx-iT-Jg2"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="settingBottom.png"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="settingBottom"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Szt-Ot-IYI" customClass="ConfiurationTabeView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
@@ -98,13 +98,11 @@
                 <constraint firstAttribute="trailing" secondItem="OAx-rA-ZQh" secondAttribute="trailing" id="vob-6r-7AG"/>
                 <constraint firstItem="Szt-Ot-IYI" firstAttribute="leading" secondItem="U2a-1q-A0e" secondAttribute="leading" id="zXG-qz-COd"/>
             </constraints>
-            <point key="canvasLocation" x="179" y="275"/>
+            <point key="canvasLocation" x="143" y="285"/>
         </view>
     </objects>
     <resources>
         <image name="backBtn.png" width="54" height="54"/>
-        <image name="blueback.png" width="640" height="669"/>
-        <image name="settingBottom.png" width="640" height="98"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -8,22 +8,35 @@
 
 import UIKit
 //背景设置通用处理
-@IBDesignable class BackgroundCommon: UIView {
-
-    @IBInspectable var backgroundImage:UIImage? {
-        didSet{
-            self.layer.contents = backgroundImage?.CGImage
-            self.backgroundColor = UIColor.clearColor()
-        }
-        
+@IBDesignable class BackgroundCommon: UIView{
+    
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
-    */
-
+    
+    @IBInspectable var ImageName:String? {
+        didSet{
+            if ImageName != nil{
+           var imgName = GetImg(ImageName!)
+           self.layer.contents = UIImage(named: imgName)?.CGImage
+            self.backgroundColor = UIColor.clearColor()
+            }
+            
+        }
+    }
+    
+    
+    //    @IBInspectable var backgroundImage:UIImage? {
+    //        didSet{
+    //            self.layer.contents = backgroundImage?.CGImage
+    //            self.backgroundColor = UIColor.clearColor()
+    //        }
+    //        
+    //    }
+    
 }

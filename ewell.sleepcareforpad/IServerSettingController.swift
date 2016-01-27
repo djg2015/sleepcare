@@ -51,7 +51,7 @@ class IServerSettingController:IBaseViewController {
                 SetValueIntoPlist("serverjid",self.txtServerJid.text)
                 SetValueIntoPlist("xmppserver",self.txtServerAddress.text)
                 SetValueIntoPlist("xmppport",self.txtServerPort.text)
-                SetValueIntoPlist("xmppusername",self.txtServerLoginName.text)
+                SetValueIntoPlist("xmppusernamephone",self.txtServerLoginName.text)
                 SetValueIntoPlist("xmppuserpwd",self.txtServerPwd.text)
                 
                 showDialogMsg(ShowMessage(MessageEnum.ServerSettingSuccess), "提示", buttonTitle: "确定", action: { (isOtherButton) -> Void in

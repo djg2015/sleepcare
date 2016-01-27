@@ -165,7 +165,9 @@ class IModifyViewModel:BaseViewModel {
                 if session!.User!.MainCode != self.MainCode{
                     session!.CurPatientCode = ""
                 }
+                if session!.User!.UserType == LoginUserType.Monitor{
                 IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
+                }
                 
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 let isconnect = xmppMsgManager!.Connect()

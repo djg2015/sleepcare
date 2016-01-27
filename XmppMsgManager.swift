@@ -126,7 +126,7 @@ class XmppMsgManager:MessageDelegate{
         }
         else
         {
-             //   println(object)
+           
             requsetQuene[object.messageSubject.requestID!] = object
         }
     }

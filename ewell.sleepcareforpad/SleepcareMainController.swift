@@ -112,7 +112,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
                 },
                 catch: { ex in
                     //异常处理
-                    println(ex)
+                   
                 },
                 finally: {
                     

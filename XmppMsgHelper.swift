@@ -167,7 +167,7 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
     //收到好友状态
     func xmppStream(sender:XMPPStream ,didReceivePresence presence:XMPPPresence ){
         
-        println(presence)
+       // println(presence)
         
         //取得好友状态
         var presenceType:NSString = presence.type() //online/offline

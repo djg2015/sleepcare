@@ -10,15 +10,14 @@ import UIKit
 
 class IHRMonitor: UIView{
     
+    @IBOutlet weak var statusImage: UIImageView!
     @IBOutlet weak var lblOnBedStatus: UILabel!
-    
     @IBOutlet weak var processHR: CircularLoaderView!
-    
     @IBOutlet weak var lblLastHR: UILabel!
-    
     @IBOutlet weak var viewChart: BackgroundCommon!
-    
     @IBOutlet weak var lblBedUserName: UILabel!
+    
+    
     var hrMonitorViewModel:IHRMonitorViewModel?
     var parentController:IBaseViewController!
     var lblHR:UILabel!
@@ -89,6 +88,29 @@ class IHRMonitor: UIView{
         }
     }
     
+    var statusImageName:String?
+        {
+        didSet{
+            if statusImageName != nil{
+                self.statusImage.image = UIImage(named:statusImageName!)
+            }
+        }
+    }
+
+    var circleValueStatus:String?{
+        didSet{
+            if circleValueStatus == "low"{
+                self.processHR.circlePathLayerBig.strokeColor = LOWCOLOR.CGColor
+            }
+            else if circleValueStatus == "medium"{
+                self.processHR.circlePathLayerBig.strokeColor = MEDIUMCOLOR.CGColor
+            }
+            else if circleValueStatus == "high"{
+                self.processHR.circlePathLayerBig.strokeColor = HIGHCOLOR.CGColor
+            }
+            
+        }
+    }
     
     func viewInit(parentController:IBaseViewController?,bedUserCode:String,bedUserName:String)
     {
@@ -97,7 +119,6 @@ class IHRMonitor: UIView{
         self._bedUserName = bedUserName
         
         self.parentController = parentController
-        //        self._bedUserCode = bedUserCode
         // 画出圆圈中间内容
         self.lblHR = UILabel(frame: CGRect(x: 0, y: 40, width: self.processHR.bounds.width/2 + 20, height: 60))
         self.lblHR!.textAlignment = .Center
@@ -112,18 +133,18 @@ class IHRMonitor: UIView{
         lbl1.text = "次/分"
         self.processHR.centerTitleView?.addSubview(lbl1)
         
+        RACObserve(self.hrMonitorViewModel, "StatusImageName") ~> RAC(self, "statusImageName")
         RACObserve(self.hrMonitorViewModel, "OnBedStatus") ~> RAC(self.lblOnBedStatus, "text")
         RACObserve(self.hrMonitorViewModel, "CurrentHR") ~> RAC(self.lblHR, "text")
         RACObserve(self.hrMonitorViewModel, "LastAvgHR") ~> RAC(self.lblLastHR, "text")
         RACObserve(self.hrMonitorViewModel, "ProcessMaxValue") ~> RAC(self.processHR, "maxProcess")
         RACObserve(self.hrMonitorViewModel, "ProcessValue") ~> RAC(self.processHR, "currentProcess")
-        
+        RACObserve(self.hrMonitorViewModel, "CircleValueStatus") ~> RAC(self, "circleValueStatus")
         self.hrMonitorViewModel!.BedUserCode = bedUserCode
-        //        RACObserve(self, "_bedUserCode") ~> RAC(self.hrMonitorViewModel, "BedUserCode")
         RACObserve(self.hrMonitorViewModel, "HRTimeReport") ~> RAC(self, "HRTimeReportList")
         RACObserve(self, "_bedUserName") ~> RAC(self.lblBedUserName, "text")
-        
         RACObserve(self.hrMonitorViewModel, "LoadingFlag") ~> RAC(self, "loadingFlag")
+        
         self.setTimer()
     }
     

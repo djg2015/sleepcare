@@ -61,7 +61,7 @@ import UIKit
     
     func cancelAction(){
         removeAlertview()
-        //        println("取消")
+       
     }
     
     func removeAlertview(){

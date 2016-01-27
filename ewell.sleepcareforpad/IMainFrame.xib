@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -15,11 +14,11 @@
                 <outlet property="imgAlarm" destination="s53-GS-D1R" id="dnb-Z0-i95"/>
                 <outlet property="lblAlarmCount" destination="gmB-Ko-8yh" id="pkY-SG-HoX"/>
                 <outlet property="svMain" destination="bxr-Yh-Ke0" id="WjB-hz-XBk"/>
-                <outlet property="uiHR" destination="k2g-pn-WN1" id="ZzN-FJ-rSM"/>
-                <outlet property="uiMe" destination="zbp-yZ-Chc" id="m7j-Jz-jit"/>
+                <outlet property="uiHR" destination="k2g-pn-WN1" id="Uun-a8-UlB"/>
+                <outlet property="uiMe" destination="zbp-yZ-Chc" id="kB7-lT-iEv"/>
                 <outlet property="uiMenu" destination="X0g-J8-7mf" id="Faw-cj-IZE"/>
-                <outlet property="uiRR" destination="QZh-lY-C7C" id="qWV-24-XUi"/>
-                <outlet property="uiSleepCare" destination="hGA-eU-kS8" id="x2U-sH-dlG"/>
+                <outlet property="uiRR" destination="QZh-lY-C7C" id="IG6-96-VjM"/>
+                <outlet property="uiSleepCare" destination="hGA-eU-kS8" id="Bu8-5H-yjY"/>
                 <outlet property="view" destination="iN0-l3-epB" id="tlZ-xp-83W"/>
             </connections>
         </placeholder>
@@ -31,7 +30,7 @@
                 <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="X0g-J8-7mf" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="522" width="320" height="46"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2g-pn-WN1" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2g-pn-WN1">
                             <rect key="frame" x="0.0" y="0.0" width="80" height="46"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIf-KA-XRx">
@@ -53,7 +52,7 @@
                                 <constraint firstAttribute="centerX" secondItem="FIf-KA-XRx" secondAttribute="centerX" id="bDF-kG-Ehk"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZh-lY-C7C" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZh-lY-C7C">
                             <rect key="frame" x="80" y="0.0" width="80" height="46"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ba3-0k-MEB">
@@ -75,7 +74,7 @@
                                 <constraint firstAttribute="centerY" secondItem="ba3-0k-MEB" secondAttribute="centerY" id="yIZ-Ii-JDH"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGA-eU-kS8" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGA-eU-kS8">
                             <rect key="frame" x="160" y="0.0" width="80" height="46"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kN-Bp-8NA">
@@ -97,7 +96,7 @@
                                 <constraint firstAttribute="centerY" secondItem="3kN-Bp-8NA" secondAttribute="centerY" id="vqR-t1-Wl8"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbp-yZ-Chc" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbp-yZ-Chc">
                             <rect key="frame" x="240" y="0.0" width="80" height="46"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="msg.png" translatesAutoresizingMaskIntoConstraints="NO" id="s53-GS-D1R">
@@ -162,6 +161,9 @@
                         <constraint firstItem="zbp-yZ-Chc" firstAttribute="width" secondItem="X0g-J8-7mf" secondAttribute="width" multiplier="1:4" id="m12-Zy-2sS"/>
                         <constraint firstItem="QZh-lY-C7C" firstAttribute="top" secondItem="X0g-J8-7mf" secondAttribute="top" id="ra5-vX-Ib9"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="menuBack"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxr-Yh-Ke0">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="522"/>

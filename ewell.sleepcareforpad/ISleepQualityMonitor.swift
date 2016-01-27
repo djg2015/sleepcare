@@ -9,30 +9,25 @@
 import Foundation
 import UIKit
 
-class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
+class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
     
     @IBOutlet weak var process: CircularLoaderView!
-    
-  //  @IBOutlet weak var imgDownload: UIImageView!
-    @IBOutlet weak var imgCalendar: UIImageView!
+    @IBOutlet weak var imgDownload: UIImageView!
     @IBOutlet weak var lblSelectDate: UILabel!
     @IBOutlet weak var imgMoveRight: UIImageView!
     @IBOutlet weak var imgMoveLeft: UIImageView!
     @IBOutlet weak var viewSleepQuality: BackgroundCommon!
-    
     @IBOutlet weak var imgWeekSleep: UIImageView!
-    @IBOutlet weak var lblWeekSleep: UILabel!
+    @IBOutlet weak var lblTotalTime: UILabel!
     
-    @IBOutlet weak var lblBedUserName: UILabel!
     var parentController:IBaseViewController!
     var _bedUserCode:String?
     var _bedUserName:String = ""
-    var calendarControl:THDate!
+ //   var calendarControl:THDate!
     var email:IEmailViewController?
-    
     var sleepQualityViewModel:ISleepQualityMonitorViewModel = ISleepQualityMonitorViewModel()
     var lblSleepQuality:UILabel?
-    var lblOnBedTimespan:UILabel?
+  //  var lblOnBedTimespan:UILabel?
     var lblDeepSleepTimespan:UILabel?
     var lblLightSleepTimespan:UILabel?
     var lblAwakeningTimespan:UILabel?
@@ -49,7 +44,6 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
             else
             {
                 lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height * 206/522 - 30))
-                
             }
             
             lineChart!.yFixedValueMin = 1
@@ -112,41 +106,41 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
                 self.viewSleepQuality.addSubview(legend)
             }
             else{
-//                if(data01.itemCount > 0 && data02.itemCount > 0)
-//                {
+
                     lineChart!.updateChartData([data01,data02])
-               // }
             }
         }
     }
     
+    var circleValueStatus:String?{
+        didSet{
+            if circleValueStatus == "low"{
+                self.process.circlePathLayerBig.strokeColor = LOWCOLOR.CGColor
+            }
+            else if circleValueStatus == "medium"{
+                self.process.circlePathLayerBig.strokeColor = MEDIUMCOLOR.CGColor
+            }
+            else if circleValueStatus == "high"{
+                self.process.circlePathLayerBig.strokeColor = HIGHCOLOR.CGColor
+            }
+
+        }
+    }
     
     func viewInit(parentController:IBaseViewController?,bedUserCode:String,bedUserName:String)
     {
         self.parentController = parentController
         self._bedUserCode = bedUserCode
         self._bedUserName = bedUserName
-        self.calendarControl = THDate(parentControl: parentController!)
-        self.calendarControl.delegate = self
+      //  self.calendarControl = THDate(parentControl: parentController!)
+     //   self.calendarControl.delegate = self
+        
         // 画出圆圈中间内容
         self.lblSleepQuality = UILabel(frame: CGRect(x: 0, y: 10, width: self.process.bounds.width, height: 40))
         self.lblSleepQuality!.textAlignment = .Center
         self.lblSleepQuality!.font = UIFont.boldSystemFontOfSize(50)
         self.lblSleepQuality!.textColor = UIColor.whiteColor()
         self.process.centerTitleView?.addSubview(self.lblSleepQuality!)
-        
-        var lbl1 = UILabel(frame: CGRect(x: 0, y: 60, width: self.process.bounds.width/2 - 5, height: 12))
-        lbl1.textAlignment = .Right
-        lbl1.font = UIFont.boldSystemFontOfSize(10)
-        lbl1.textColor = UIColor.whiteColor()
-        lbl1.text = "总时长"
-        self.process.centerTitleView?.addSubview(lbl1)
-        
-        self.lblOnBedTimespan = UILabel(frame: CGRect(x: self.process.bounds.width/2 + 5, y: 60, width: self.process.bounds.width/2 - 5, height: 12))
-        self.lblOnBedTimespan!.textAlignment = .Left
-        self.lblOnBedTimespan!.font = UIFont.boldSystemFontOfSize(10)
-        self.lblOnBedTimespan!.textColor = UIColor.whiteColor()
-        self.process.centerTitleView?.addSubview(self.lblOnBedTimespan!)
         
         var lbl2 = UILabel(frame: CGRect(x: 0, y: 72, width: self.process.bounds.width/2 - 5, height: 12))
         lbl2.textAlignment = .Right
@@ -187,28 +181,20 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
         self.lblAwakeningTimespan!.textColor = UIColor.whiteColor()
         self.process.centerTitleView?.addSubview(self.lblAwakeningTimespan!)
         
-        
+        RACObserve(self.sleepQualityViewModel, "OnBedTimespan") ~> RAC(self.lblTotalTime, "text")
         RACObserve(self.sleepQualityViewModel, "ProcessMaxValue") ~> RAC(self.process, "maxProcess")
         RACObserve(self.sleepQualityViewModel, "ProcessValue") ~> RAC(self.process, "currentProcess")
         RACObserve(self.sleepQualityViewModel, "SleepQuality") ~> RAC(self.lblSleepQuality, "text")
-        RACObserve(self.sleepQualityViewModel, "OnBedTimespan") ~> RAC(self.lblOnBedTimespan, "text")
+        RACObserve(self.sleepQualityViewModel, "CircleValueStatus") ~> RAC(self, "circleValueStatus")
         RACObserve(self.sleepQualityViewModel, "DeepSleepTimespan") ~> RAC(self.lblDeepSleepTimespan, "text")
         RACObserve(self.sleepQualityViewModel, "LightSleepTimespan") ~> RAC(self.lblLightSleepTimespan, "text")
         RACObserve(self.sleepQualityViewModel, "AwakeningTimespan") ~> RAC(self.lblAwakeningTimespan, "text")
         RACObserve(self.sleepQualityViewModel, "SelectedDate") ~> RAC(self.lblSelectDate, "text")
         RACObserve(self, "_bedUserCode") ~> RAC(self.sleepQualityViewModel, "BedUserCode")
         RACObserve(self.sleepQualityViewModel, "SleepRange") ~> RAC(self, "SleepRange")
-        RACObserve(self, "_bedUserName") ~> RAC(self.lblBedUserName, "text")
-        
+  
         self.sleepQualityViewModel.SelectedDate = getCurrentTime("yyyy-MM-dd")
-        
-//        if(self.email == nil){
-//            self.email = IEmailViewController(nibName: "IEmailView", bundle: nil)
-//            self.email?.BedUserCode = self._bedUserCode!
-//            self.email?.SleepDate = self.sleepQualityViewModel.SelectedDate
-//            self.email?.ParentController = self.parentController
-//        }
-        
+
         // 给图片添加手势
         self.imgMoveLeft.userInteractionEnabled = true
         var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "moveLeft:")
@@ -218,29 +204,34 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
         var singleTap1:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "moveRight:")
         self.imgMoveRight.addGestureRecognizer(singleTap1)
         
-        self.imgCalendar.userInteractionEnabled = true
-        var singleTap2:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showCalendar:")
-        self.imgCalendar.addGestureRecognizer(singleTap2)
+//        self.imgCalendar.userInteractionEnabled = true
+//        var singleTap2:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showCalendar:")
+//        self.imgCalendar.addGestureRecognizer(singleTap2)
         
-//        self.imgDownload.userInteractionEnabled = true
-//        var singleTap3:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showDownload:")
-//        self.imgDownload.addGestureRecognizer(singleTap3)
+        self.imgDownload.userInteractionEnabled = true
+        var singleTap3:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showDownload")
+        self.imgDownload.addGestureRecognizer(singleTap3)
         
         //周睡眠查看
         self.imgWeekSleep.userInteractionEnabled = true
         var singleTap4:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showWeekSleep:")
         self.imgWeekSleep.addGestureRecognizer(singleTap4)
         
-        self.lblWeekSleep.userInteractionEnabled = true
-        var singleTap5:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showWeekSleep:")
-        self.lblWeekSleep.addGestureRecognizer(singleTap5)
-
+        //
         
+        if circleValueStatus == "low"{
+            self.process.circlePathLayerBig.strokeColor = LOWCOLOR.CGColor
+        }
+        else if circleValueStatus == "medium"{
+            self.process.circlePathLayerBig.strokeColor = MEDIUMCOLOR.CGColor
+        }
+        else if circleValueStatus == "high"{
+            self.process.circlePathLayerBig.strokeColor = HIGHCOLOR.CGColor
+        }
     }
     
     //显示周睡眠
     func showWeekSleep(sender:UITapGestureRecognizer){
-    
         var screen:UIScreen = UIScreen.mainScreen()
         var devicebounds:CGRect = screen.bounds
         
@@ -267,14 +258,14 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
         self.sleepQualityViewModel.SelectedDate = Date(string: self.sleepQualityViewModel.SelectedDate, format: "yyyy-MM-dd").addDays(1).description(format: "yyyy-MM-dd")
     }
     
-    func showCalendar(sender:UITapGestureRecognizer)
-    {
-        var formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        self.calendarControl.ShowDate(date:getDateTime(self.sleepQualityViewModel.SelectedDate),returnformat: formatter)
-    }
+//    func showCalendar(sender:UITapGestureRecognizer)
+//    {
+//        var formatter = NSDateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd"
+//        self.calendarControl.ShowDate(date:getDateTime(self.sleepQualityViewModel.SelectedDate),returnformat: formatter)
+//    }
     
-    @IBAction func showDownload(sender:AnyObject)
+    func showDownload()
     {
      
             self.email = IEmailViewController(nibName: "IEmailView", bundle: nil)
@@ -282,7 +273,7 @@ class ISleepQualityMonitor: UIView,THDateChoosedDelegate,SelectDateEndDelegate {
             self.email!.ParentController = self.parentController
              self.email!.SleepDate = self.sleepQualityViewModel.SelectedDate
              var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",
-            KNSemiModalOptionKeys.animationDuration:"1.0",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
+            KNSemiModalOptionKeys.animationDuration:"0.1",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
         
        self.parentController.presentSemiViewController(self.email, withOptions: kNSemiModalOptionKeys)
     }

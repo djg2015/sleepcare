@@ -41,6 +41,7 @@ class IMySelfSettingController: IBaseViewController {
         
         menu = ConfigurationViewModel()
         menu.titleName = "关于uSleepCare"
+        menu.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"关于uSleepCare",url:"www.sina.com.cn")
         source.append(menu)
         
         self.menuTableView.showMenuImage = false
@@ -65,7 +66,9 @@ class IMySelfSettingController: IBaseViewController {
         SetValueIntoPlist("loginusernamephone", "")
         SetValueIntoPlist("loginuserpwdphone", "")
         SetValueIntoPlist("xmppusernamephone", "")
+        if SessionForIphone.GetSession()!.User!.UserType == LoginUserType.Monitor {
         IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
+        }
         SessionForIphone.ClearSession()
         var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
         xmppMsgManager?.Close()

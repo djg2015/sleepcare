@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class TodoList {
+    var badgeNumber:Int = 0
     class var sharedInstance : TodoList {
         struct Static {
             static let instance : TodoList = TodoList()
@@ -52,11 +53,13 @@ class TodoList {
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
         
-        self.setBadgeNumbers()
+      //  self.setBadgeNumbers()
+        self.SetBadgeByNumber(1)
     }
     
     func removeItem(item: TodoItem) {
         self.removeItemByID(item.UUID)
+        self.SetBadgeByNumber(-1)
     }
     
     func removeItemByID(itemID: String) {
@@ -72,13 +75,15 @@ class TodoList {
             NSUserDefaults.standardUserDefaults().setObject(todoItems, forKey: ITEMS_KEY) // save/overwrite todo item list
         }
         
-        self.setBadgeNumbers()
+      //  self.setBadgeNumbers()
+        self.SetBadgeByNumber(-1)
     }
     
     func removeItemAll() {
         NSUserDefaults.standardUserDefaults().removeObjectForKey(ITEMS_KEY)
-        //UIApplication.sharedApplication().cancelAllLocalNotifications()
-         self.setBadgeNumbers()
+       
+       //  self.setBadgeNumbers()
+        self.SetBadgeNumber(0)
     }
     
     func scheduleReminderforItem(item: TodoItem) {
@@ -93,12 +98,29 @@ class TodoList {
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     
-    func setBadgeNumbers() {
-        var notifications = UIApplication.sharedApplication().scheduledLocalNotifications as! [UILocalNotification] // all scheduled notifications
-        var todoItems: [TodoItem] = self.allItems()
-        var overdueItems = todoItems.filter({ (todoItem) -> Bool in
-            return todoItem.deadline.compare(NSDate()) != .OrderedDescending
-        })
-        UIApplication.sharedApplication().applicationIconBadgeNumber = overdueItems.count
+//    func setBadgeNumbers() {
+//        var notifications = UIApplication.sharedApplication().scheduledLocalNotifications as! [UILocalNotification] // all scheduled notifications
+//        var todoItems: [TodoItem] = self.allItems()
+//        var overdueItems = todoItems.filter({ (todoItem) -> Bool in
+//            return todoItem.deadline.compare(NSDate()) != .OrderedDescending
+//        })
+//        UIApplication.sharedApplication().applicationIconBadgeNumber = overdueItems.count
+//    }
+    
+    
+    func SetBadgeByNumber(count:Int){
+        self.badgeNumber = self.badgeNumber + count
+        if self.badgeNumber >= 0 {
+            UIApplication.sharedApplication().applicationIconBadgeNumber = self.badgeNumber
+        }
+
+    }
+    
+    
+    func SetBadgeNumber(count:Int){
+        self.badgeNumber =  count
+        if self.badgeNumber >= 0 {
+        UIApplication.sharedApplication().applicationIconBadgeNumber = self.badgeNumber
+        }
     }
 }

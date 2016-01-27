@@ -168,24 +168,27 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                         SessionForIphone.SetSession(loginUser)
                         SetValueIntoPlist("loginusernamephone", self.LoginName)
                         SetValueIntoPlist("loginuserpwdphone", self.Pwd)
-                        self.alarmHelper!.BeginWaringAttention()
+                    
+                        
                         var session = SessionForIphone.GetSession()
                         session!.OldPwd = self.Pwd
                         //跳转选择用户类型
                         if(loginUser.UserType == LoginUserType.UnKnow){
-                            if IViewControllerManager.GetInstance()!.IsExist("ISetUserType") {
-                                IViewControllerManager.GetInstance()!.ShowViewController(nil, nibName: "ISetUserType", reload: false)
-                            }
-                            else{
                                 let nextcontroller = ISetUserTypeController(nibName:"ISetUserType", bundle:nil)
-                                IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "ISetUserType", reload: false)
-                            }
+                                IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "ISetUserType", reload: true)
+                            
                         }
                         else{
                             //获取当前关注的老人
                             var session = SessionForIphone.GetSession()
                             session!.BedUserCodeList = Array<String>()
                             self.iBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(loginUser.LoginName, mainCode: loginUser.MainCode)
+                            
+                            //如果是监护人，开启报警监测
+                            var _usertype = session!.User!.UserType
+                            if _usertype == LoginUserType.Monitor{
+                            self.alarmHelper!.BeginWaringAttention()
+                            }
                             
                             if(self.iBedUserList!.bedUserInfoList.count > 0){
                                 //当前为使用者类型，直接跳转主页面

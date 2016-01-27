@@ -87,9 +87,12 @@ class IRegistViewModel:BaseViewModel {
         }
     }
     
+    
+ 
+    
     //界面处理命令
     var registCommand: RACCommand?
-   
+    var IsChecked:Bool = false
     
     //构造函数
     override init(){
@@ -142,6 +145,7 @@ class IRegistViewModel:BaseViewModel {
     func Regist() -> RACSignal{
         try {
             ({
+                //检查输入是否完全
                 if(self.LoginName == ""){
                     showDialogMsg(ShowMessage(MessageEnum.LoginnameNil))
                     return
@@ -159,22 +163,28 @@ class IRegistViewModel:BaseViewModel {
                     showDialogMsg(ShowMessage(MessageEnum.MainhouseNil))
                     return
                 }
-                
-                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isconnect = xmppMsgManager!.Connect()
-                if(!isconnect){
-                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+                //已经勾选了服务协议
+                if self.IsChecked{
+                    var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+                    let isconnect = xmppMsgManager!.RegistConnect()
+                    if(!isconnect){
+                        showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+                    }
+                    else{
+                        var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+                        let result:ServerResult =  sleepCareForIPhoneBussinessManager.Regist(self.LoginName, loginPassword: self.Pwd, mainCode: self.MainCode)
+                        
+                        if result.Result{
+                            showDialogMsg(ShowMessage(MessageEnum.RegistAccountSuccess), "提示", buttonTitle: "确定", action: self.AfterRegist)
+                        }
+                        else{
+                            showDialogMsg(ShowMessage(MessageEnum.RegistAccountFail),"提示" ,buttonTitle: "确定", action: self.AfterRegist)
+                        }
+                    }
                 }
                 else{
-                var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-                let result:ServerResult =  sleepCareForIPhoneBussinessManager.Regist(self.LoginName, loginPassword: self.Pwd, mainCode: self.MainCode)
-               
-                if result.Result{
-                showDialogMsg(ShowMessage(MessageEnum.RegistAccountSuccess), "提示", buttonTitle: "确定", action: self.AfterRegist)
-                }
-                else{
-                showDialogMsg(ShowMessage(MessageEnum.RegistAccountFail),"提示" ,buttonTitle: "确定", action: self.AfterRegist)
-                }
+                    showDialogMsg(ShowMessage(MessageEnum.NeedCheckProtol))
+                    return
                 }
                 },
                 catch: { ex in
@@ -200,6 +210,6 @@ class IRegistViewModel:BaseViewModel {
         IViewControllerManager.GetInstance()!.CloseViewController()
     }
     
-
+    
 }
 

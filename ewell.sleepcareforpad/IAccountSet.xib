@@ -43,9 +43,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01B-fR-fyH" userLabel="loginname" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="51" y="127" width="218" height="43"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="账户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KrP-Ef-Sne">
+                        <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="账户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KrP-Ef-Sne">
                             <rect key="frame" x="8" y="7" width="202" height="30"/>
                             <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="o4Z-dy-QsW"/>
+                                <constraint firstAttribute="width" constant="202" id="ya3-s3-2rT"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -54,18 +58,24 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="218" id="6iE-ZC-r1b"/>
+                        <constraint firstItem="KrP-Ef-Sne" firstAttribute="leading" secondItem="01B-fR-fyH" secondAttribute="leading" constant="8" id="LxZ-Xl-HHU"/>
                         <constraint firstAttribute="height" constant="43" id="otR-KG-RfK"/>
+                        <constraint firstItem="KrP-Ef-Sne" firstAttribute="top" secondItem="01B-fR-fyH" secondAttribute="top" constant="7" id="yIm-Tt-VGD"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="registinputborder.png"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="registinputborder"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sd7-DC-ra6" userLabel="pwd" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="51" y="189" width="218" height="43"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="设置密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rhy-yP-KXG">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="设置密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rhy-yP-KXG">
                             <rect key="frame" x="8" y="7" width="202" height="30"/>
                             <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="202" id="PJt-Y6-K02"/>
+                                <constraint firstAttribute="height" constant="30" id="SZB-oN-DE5"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
@@ -74,18 +84,24 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="218" id="3gL-cJ-tYN"/>
+                        <constraint firstItem="rhy-yP-KXG" firstAttribute="top" secondItem="sd7-DC-ra6" secondAttribute="top" constant="7" id="Alq-hg-GmR"/>
                         <constraint firstAttribute="height" constant="43" id="MDr-CS-kXO"/>
+                        <constraint firstItem="rhy-yP-KXG" firstAttribute="leading" secondItem="sd7-DC-ra6" secondAttribute="leading" constant="8" id="ugQ-ix-4Hv"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="registinputborder.png"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="registinputborder"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNU-82-ulU" userLabel="repwd" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="51" y="249" width="218" height="43"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="确认密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q9y-c6-CkY">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="确认密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q9y-c6-CkY">
                             <rect key="frame" x="8" y="7" width="202" height="30"/>
                             <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="CyA-jX-HDu"/>
+                                <constraint firstAttribute="width" constant="202" id="K2j-8f-21q"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
@@ -94,24 +110,34 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="218" id="fmh-MM-UVI"/>
+                        <constraint firstItem="Q9y-c6-CkY" firstAttribute="leading" secondItem="xNU-82-ulU" secondAttribute="leading" constant="8" id="jff-JW-tQc"/>
                         <constraint firstAttribute="height" constant="43" id="lH7-8E-fRB"/>
+                        <constraint firstItem="Q9y-c6-CkY" firstAttribute="top" secondItem="xNU-82-ulU" secondAttribute="top" constant="7" id="mJv-hP-htv"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="registinputborder.png"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="registinputborder"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQc-e7-fer" userLabel="role" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="51" y="306" width="218" height="43"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择养老院" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MlW-Tj-IPa">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择养老院" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MlW-Tj-IPa">
                             <rect key="frame" x="8" y="7" width="169" height="30"/>
                             <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Y5M-Wj-pFf"/>
+                                <constraint firstAttribute="width" constant="169" id="Y9C-sg-95j"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2M-Tg-ntJ">
+                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2M-Tg-ntJ">
                             <rect key="frame" x="174" y="5" width="41" height="35"/>
                             <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="C1c-R0-ARi"/>
+                                <constraint firstAttribute="width" constant="41" id="fi3-fd-yBi"/>
+                            </constraints>
                             <state key="normal" image="registdownarrow.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -120,11 +146,15 @@
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="i2M-Tg-ntJ" secondAttribute="trailing" constant="3" id="0D3-Xw-N3I"/>
                         <constraint firstAttribute="width" constant="218" id="ASf-4I-hbR"/>
+                        <constraint firstItem="MlW-Tj-IPa" firstAttribute="top" secondItem="mQc-e7-fer" secondAttribute="top" constant="7" id="KBl-An-Jov"/>
                         <constraint firstAttribute="height" constant="43" id="TnR-sf-x9d"/>
+                        <constraint firstItem="MlW-Tj-IPa" firstAttribute="leading" secondItem="mQc-e7-fer" secondAttribute="leading" constant="8" id="kNW-j3-phA"/>
+                        <constraint firstItem="i2M-Tg-ntJ" firstAttribute="top" secondItem="mQc-e7-fer" secondAttribute="top" constant="5" id="q4e-rk-ipu"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="regisrinputdownborder.png"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="registinputdownborder"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeH-fq-O3k" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
@@ -151,7 +181,7 @@
                 </button>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Ja3-B1-uTU" firstAttribute="top" secondItem="O3W-NZ-XsS" secondAttribute="top" constant="402" id="0W4-EJ-Ryo"/>
                 <constraint firstItem="0QE-3b-IXe" firstAttribute="top" secondItem="O3W-NZ-XsS" secondAttribute="top" constant="50" id="1Gx-lc-FLE"/>
@@ -171,17 +201,14 @@
                 <constraint firstItem="01B-fR-fyH" firstAttribute="top" secondItem="O3W-NZ-XsS" secondAttribute="top" constant="127" id="yUX-dR-eqg"/>
             </constraints>
             <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="loginbackground.png"/>
+                <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
             </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="194" y="318"/>
+            <point key="canvasLocation" x="8" y="78"/>
         </view>
     </objects>
     <resources>
-        <image name="loginbackground.png" width="640" height="1136"/>
         <image name="logotm.png" width="300" height="60"/>
-        <image name="regisrinputdownborder.png" width="460" height="88"/>
         <image name="registdownarrow.png" width="52" height="52"/>
-        <image name="registinputborder.png" width="460" height="88"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

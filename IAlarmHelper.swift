@@ -114,7 +114,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         //加入未处理的报警信息到warningList／codes
         self.ReloadUndealedWarning()
         
-        self.Warningcouts = TodoList.sharedInstance.allItems().count
+     //   self.Warningcouts = TodoList.sharedInstance.allItems().count
         self.setAlarmTimer()
     }
     //显示报警信息
@@ -165,6 +165,9 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         if self.alarmpicdelegate != nil{
             self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
         }
+        
+        //外部图标上的badge number
+        TodoList.sharedInstance.SetBadgeNumber(self.Warningcouts)
     }
     
     
@@ -186,7 +189,9 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     func ConnectAfterFail(isOtherButton: Bool){
         if isOtherButton{
+            if SessionForIphone.GetSession()!.User!.UserType == LoginUserType.Monitor{
             IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
+            }
             SessionForIphone.ClearSession()
             var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
             xmppMsgManager?.Close()

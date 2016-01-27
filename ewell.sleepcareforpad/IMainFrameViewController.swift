@@ -9,10 +9,10 @@
 import UIKit
 
 class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRDelegate,GetAlarmCountDelegate {
-    @IBOutlet weak var uiHR: BackgroundCommon!
-    @IBOutlet weak var uiRR: BackgroundCommon!
-    @IBOutlet weak var uiSleepCare: BackgroundCommon!
-    @IBOutlet weak var uiMe: BackgroundCommon!
+    @IBOutlet weak var uiHR: UIView!
+    @IBOutlet weak var uiRR: UIView!
+    @IBOutlet weak var uiSleepCare: UIView!
+    @IBOutlet weak var uiMe: UIView!
     @IBOutlet weak var svMain: UIScrollView!
     @IBOutlet weak var uiMenu: UIView!
     @IBOutlet weak var btnHR: UIButton!
@@ -26,8 +26,8 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     var spinner:JHSpinnerView?
     var iRRMonitorView:IRRMonitor? = nil
     var iHRMonitorView:IHRMonitor? = nil
-    var _curMenu:BackgroundCommon?
-    var curMenu:BackgroundCommon?{
+    var _curMenu:UIView?
+    var curMenu:UIView?{
         get{
             return self._curMenu
         }
@@ -37,9 +37,9 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
             }
             self._curMenu = value
             for menu in  self.uiMenu.subviews{
-                if(menu as? BackgroundCommon !=  self._curMenu)
+                if(menu as? UIView !=  self._curMenu)
                 {
-                    (menu as! BackgroundCommon).backgroundColor = UIColor.clearColor()
+                    (menu as! UIView).backgroundColor = UIColor.clearColor()
                 }
             }
             

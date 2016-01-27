@@ -49,9 +49,32 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
         set(value)
         {
             self._onBedStatus = value
+            if value == "在床"{
+                StatusImageName = "greenpoint.png"
+            }
+            else if value == "离床"{
+                StatusImageName = "greypoint.png"
+            }
+            else{
+                self._onBedStatus = "异常"
+                StatusImageName = "yellowpoint.png"
+            }
+
         }
     }
-    
+    //在离床状态的图片
+    var _statusImageName:String?
+    dynamic var StatusImageName:String?{
+        get
+        {
+            return self._statusImageName
+        }
+        set(value)
+        {
+            self._statusImageName=value
+        }
+    }
+
     // 当前心率
     var _currentHR:String? = ""
     dynamic var CurrentHR:String?{
@@ -62,6 +85,17 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
         set(value)
         {
             self._currentHR = value
+            var intHR = value!.toInt()
+            if intHR < 50{
+                CircleValueStatus = "low"
+            }
+            else if(intHR < 101){
+                CircleValueStatus = "medium"
+            }
+            else{
+                CircleValueStatus = "high"
+            }
+
         }
     }
     
@@ -90,7 +124,7 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
     }
     
     // 心率最大值
-    var _processMaxValue:CGFloat = 100.0
+    var _processMaxValue:CGFloat = 125.0
     dynamic var ProcessMaxValue:CGFloat{
         get{
             return self._processMaxValue
@@ -108,6 +142,17 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
         }
         set(value){
             self._hrTimeReport = value
+        }
+    }
+    
+    //圆圈阈值
+    var _circleValueStatus:String = "无"
+    dynamic var CircleValueStatus:String{
+        get{
+            return self._circleValueStatus
+        }
+        set(value){
+            self._circleValueStatus = value
         }
     }
     

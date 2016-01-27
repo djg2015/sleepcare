@@ -45,7 +45,7 @@ class IAlarmTableViewCell:MSCMoreOptionTableViewCell,MSCMoreOptionTableViewCellD
     }
     //点击“处理”
     func tableView(tableView:UITableView, moreOptionButtonPressedInRowAtIndexPath indexPath:NSIndexPath){
-       // println(indexPath.row)
+      
         self.source.moreAlarmHandler!(alarmViewModel: self.source)
         IAlarmHelper.GetAlarmInstance().Warningcouts = IAlarmHelper.GetAlarmInstance().Warningcouts - 1
         if self.moreoptionDelegate != nil{
