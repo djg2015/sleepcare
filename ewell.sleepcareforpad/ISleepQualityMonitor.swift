@@ -273,7 +273,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
             self.email!.ParentController = self.parentController
              self.email!.SleepDate = self.sleepQualityViewModel.SelectedDate
              var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",
-            KNSemiModalOptionKeys.animationDuration:"0.1",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
+            KNSemiModalOptionKeys.animationDuration:"0.2",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
         
        self.parentController.presentSemiViewController(self.email, withOptions: kNSemiModalOptionKeys)
     }

@@ -39,12 +39,12 @@ class IMyPatientsController: IBaseViewController {
         super.viewDidLoad()
         
         myPatientTable.frame = CGRectMake(0, 7, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-7)
-        if self.myPatientTable.respondsToSelector(Selector("setSeparatorInset:")) {
-            self.myPatientTable.separatorInset = UIEdgeInsetsZero
-        }
-        if self.myPatientTable.respondsToSelector(Selector("setLayoutMargins:")) {
-            self.myPatientTable.layoutMargins = UIEdgeInsetsZero
-        }
+//        if self.myPatientTable.respondsToSelector(Selector("setSeparatorInset:")) {
+//            self.myPatientTable.separatorInset = UIEdgeInsetsZero
+//        }
+//        if self.myPatientTable.respondsToSelector(Selector("setLayoutMargins:")) {
+//            self.myPatientTable.layoutMargins = UIEdgeInsetsZero
+//        }
 //
 //        self.myPatientTable.layer.masksToBounds = true
 //        self.myPatientTable.layer.cornerRadius = 8

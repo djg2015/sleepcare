@@ -6,13 +6,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IEmailViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <connections>
+                <outlet property="bgView" destination="iN0-l3-epB" id="LzC-0K-ucx"/>
                 <outlet property="btnSendEmail" destination="yk3-Ej-LWI" id="ihh-fU-P1K"/>
                 <outlet property="txtEmailAddress" destination="zkc-Bx-2di" id="3Yp-po-p1K"/>
                 <outlet property="view" destination="iN0-l3-epB" id="zKr-ir-Dau"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view alpha="0.94999999999999996" contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -66,7 +67,7 @@
                         </button>
                     </subviews>
                     <animations/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="lmx-JF-gJj" firstAttribute="baseline" secondItem="yk3-Ej-LWI" secondAttribute="baseline" id="7xD-Hm-x6p"/>
                         <constraint firstAttribute="centerX" secondItem="zkc-Bx-2di" secondAttribute="centerX" constant="-40" id="CGC-zs-lmO"/>
@@ -85,12 +86,12 @@
                 </view>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.51328319310000003" green="0.51714962720000002" blue="0.54705178740000004" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="9WF-lc-qRz" secondAttribute="centerX" id="RoS-Fu-vXF"/>
                 <constraint firstAttribute="centerY" secondItem="9WF-lc-qRz" secondAttribute="centerY" id="gNf-x4-c57"/>
             </constraints>
-            <point key="canvasLocation" x="210" y="166"/>
+            <point key="canvasLocation" x="-69" y="18"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

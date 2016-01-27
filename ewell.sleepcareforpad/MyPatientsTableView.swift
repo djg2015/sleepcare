@@ -12,11 +12,7 @@ class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource
     var _source:Array<MyPatientsTableCellViewModel>!
     override init(frame: CGRect) {
         super.init(frame: frame,style:UITableViewStyle.Plain)
-//        self.backgroundView?.backgroundColor = UIColor.clearColor()
-//        self.backgroundColor = UIColor.clearColor()
-     //   self.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-//        self.layer.masksToBounds = true
-//        self.layer.cornerRadius = 8
+
         self.delegate = self
         self.dataSource = self
              }
@@ -29,26 +25,14 @@ class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource
         var cellNib =  UINib(nibName: "MyPatientsTableViewCell", bundle: nil)
         self.registerNib(cellNib, forCellReuseIdentifier: "patientCell")
         self.showsVerticalScrollIndicator = false
-    //    self.backgroundColor = UIColor.clearColor()
-   //     self.backgroundView?.backgroundColor = UIColor.clearColor()
-      //  self.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+
         self.delegate = self
         self.dataSource = self
     }
    
     //设置cell的显示样式，背景为clear，分割线顶左
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-//        cell.backgroundColor = UIColor.clearColor()
-//        cell.backgroundView?.backgroundColor = UIColor.clearColor()
-        // Remove seperator inset
-        if cell.respondsToSelector(Selector("separatorInset:")) {
-            cell.separatorInset = UIEdgeInsetsZero
-        }
-        // Explictly set your cell's layout margins
-        if cell.respondsToSelector(Selector("layoutMargins:")) {
-            cell.layoutMargins = UIEdgeInsetsZero
-        }
-      
+
     }
     
     //返回指定分区的行数
