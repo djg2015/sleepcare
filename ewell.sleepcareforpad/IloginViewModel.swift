@@ -123,7 +123,6 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     
     /**
     登录操作
-    returns: ？？
     */
     func Login() -> RACSignal{
         let serverinfoFlag = self.CheckServerInfo()

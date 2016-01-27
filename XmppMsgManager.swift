@@ -13,7 +13,7 @@ import Foundation
 
 class XmppMsgManager:MessageDelegate{
     
-    private var _timeout:NSTimeInterval=100
+    private var _timeout:NSTimeInterval=1000
     private var _xmppMsgHelper:XmppMsgHelper?=nil
     private static var _xmppMsgManager:XmppMsgManager?=nil
     private var requsetQuene = Dictionary<String,AnyObject>()
@@ -26,7 +26,7 @@ class XmppMsgManager:MessageDelegate{
     var isInstance = false
     
     //获取xmpp通讯实例
-    class func GetInstance(timeout:NSTimeInterval=100)->XmppMsgManager?{
+    class func GetInstance(timeout:NSTimeInterval=1000)->XmppMsgManager?{
         if(self._xmppMsgManager == nil){
             self._xmppMsgManager = XmppMsgManager()
             self._xmppMsgManager!._timeout = timeout
@@ -44,7 +44,7 @@ class XmppMsgManager:MessageDelegate{
             var sec:NSTimeInterval = 0
             while _xmppMsgHelper!.loginFlag == 0 {
                 sec = NSDate().timeIntervalSinceDate(curTime)
-                if(sec > 3){
+                if(sec > 4){
                     return false
                 }
             }

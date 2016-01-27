@@ -95,12 +95,12 @@ func SetValueIntoPlist(key:String, value:String){
 
 //判断和server有关的信息是否为空
 func IsPlistDataEmpty()->Bool{
-    var ip =  GetValueFromPlist("IP","sleepcare.plist")
-    var port =  GetValueFromPlist("OpenFirePort","sleepcare.plist")
-    var pwd =  GetValueFromPlist("PWD","sleepcare.plist")
-    var server =  GetValueFromPlist("ServerID","sleepcare.plist")
+    var ip =  GetValueFromPlist("xmppserver","sleepcare.plist")
+    var port =  GetValueFromPlist("xmppport","sleepcare.plist")
+  //  var pwd =  GetValueFromPlist("PWD","sleepcare.plist")
+    var server =  GetValueFromPlist("serverjid","sleepcare.plist")
     
-    if (ip=="" || port=="" || pwd=="" || server=="" ){
+    if (ip=="" || port=="" ||  server=="" ){
         return true
     }
     return false

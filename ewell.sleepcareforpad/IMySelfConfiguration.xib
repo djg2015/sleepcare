@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="C71-dD-46f" customClass="ConfiurationTabeView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="190" width="320" height="282"/>
+                    <rect key="frame" x="0.0" y="190" width="320" height="270"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
@@ -52,7 +52,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3QR-G8-j25">
-                    <rect key="frame" x="0.0" y="472" width="320" height="50"/>
+                    <rect key="frame" x="0.0" y="460" width="320" height="62"/>
                     <subviews>
                         <button opaque="NO" alpha="0.89999999999999991" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qq-Gb-nMI">
                             <rect key="frame" x="20" y="10" width="281" height="34"/>
@@ -71,7 +71,7 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="0qq-Gb-nMI" secondAttribute="trailing" constant="19" id="5Fa-34-gjf"/>
                         <constraint firstItem="0qq-Gb-nMI" firstAttribute="leading" secondItem="3QR-G8-j25" secondAttribute="leading" constant="20" id="We1-vC-5hN"/>
-                        <constraint firstAttribute="centerY" secondItem="0qq-Gb-nMI" secondAttribute="centerY" constant="-2.5" id="sEl-C2-bBq"/>
+                        <constraint firstAttribute="centerY" secondItem="0qq-Gb-nMI" secondAttribute="centerY" constant="4" id="sEl-C2-bBq"/>
                         <constraint firstAttribute="centerX" secondItem="0qq-Gb-nMI" secondAttribute="centerX" id="yfB-Ya-K1N"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -83,13 +83,13 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="3QR-G8-j25" firstAttribute="top" secondItem="C71-dD-46f" secondAttribute="bottom" id="60j-yK-f4K"/>
-                <constraint firstItem="f1w-GU-lLV" firstAttribute="height" secondItem="C71-dD-46f" secondAttribute="height" multiplier="200:322" constant="14.844720496894411" id="6cW-h1-5ww"/>
+                <constraint firstItem="f1w-GU-lLV" firstAttribute="height" secondItem="C71-dD-46f" secondAttribute="height" multiplier="200:322" constant="22.298136645962757" id="6cW-h1-5ww"/>
                 <constraint firstItem="f1w-GU-lLV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Mea-6z-e73"/>
                 <constraint firstItem="3QR-G8-j25" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="RZW-Rh-8FF"/>
                 <constraint firstAttribute="trailing" secondItem="f1w-GU-lLV" secondAttribute="trailing" id="YS7-h1-jKW"/>
                 <constraint firstAttribute="trailing" secondItem="C71-dD-46f" secondAttribute="trailing" id="YjI-rQ-cii"/>
                 <constraint firstItem="C71-dD-46f" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bdt-Z3-1EI"/>
-                <constraint firstAttribute="bottom" secondItem="C71-dD-46f" secondAttribute="bottom" constant="50" id="idN-CK-meF"/>
+                <constraint firstAttribute="bottom" secondItem="C71-dD-46f" secondAttribute="bottom" constant="62" id="idN-CK-meF"/>
                 <constraint firstAttribute="bottom" secondItem="3QR-G8-j25" secondAttribute="bottom" id="lrP-V8-CbB"/>
                 <constraint firstItem="C71-dD-46f" firstAttribute="top" secondItem="f1w-GU-lLV" secondAttribute="bottom" id="ted-aM-zQk"/>
                 <constraint firstItem="f1w-GU-lLV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vr6-uw-SQF"/>

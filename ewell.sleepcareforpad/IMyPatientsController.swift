@@ -11,7 +11,7 @@ import UIKit
 class IMyPatientsController: IBaseViewController {
     @IBOutlet weak var imgSmallAdd: UIImageView!
     @IBOutlet weak var imgBigAdd: UIImageView!
-    @IBOutlet weak var uiNewAdd: UIView!
+    @IBOutlet weak var uiNewAdd: BackgroundCommon!
     @IBOutlet weak var uiPatientList: UIView!
     @IBOutlet weak var myPatientTable: MyPatientsTableView!
     @IBOutlet weak var btnBack: UIButton!
@@ -38,23 +38,22 @@ class IMyPatientsController: IBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rac_Setting()
-        
         myPatientTable.frame = CGRectMake(0, 7, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-7)
         if self.myPatientTable.respondsToSelector(Selector("setSeparatorInset:")) {
-            self.myPatientTable.separatorInset = UIEdgeInsetsMake(0,0,0,8)
+            self.myPatientTable.separatorInset = UIEdgeInsetsZero
         }
         if self.myPatientTable.respondsToSelector(Selector("setLayoutMargins:")) {
-           // self.myPatientTable.layoutMargins = UIEdgeInsetsZero
             self.myPatientTable.layoutMargins = UIEdgeInsetsZero
         }
-
-        self.myPatientTable.layer.masksToBounds = true
-        self.myPatientTable.layer.cornerRadius = 8
-       
-        if self.MyPatientsArray != nil{
+//
+//        self.myPatientTable.layer.masksToBounds = true
+//        self.myPatientTable.layer.cornerRadius = 8
+//       
+        
+        rac_Setting()
+        if self.MyPatientsArray?.count != 0{
         self._width = Int(self.myPatientTable.frame.width)
-        self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:self._width,height:195 * self.MyPatientsArray!.count), CGFloat(8.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.95))
+        self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:self._width,height:195 * self.MyPatientsArray!.count), CGFloat(0.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.95))
         self.setTimer()
         }
     }

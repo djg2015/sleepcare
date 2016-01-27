@@ -126,21 +126,6 @@
                         <action selector="imageViewTouch:" destination="-1" eventType="touchUpInside" id="861-RM-hL7"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qN3-qN-jEV">
-                    <rect key="frame" x="207" y="295" width="69" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="FKO-L0-zZz"/>
-                        <constraint firstAttribute="width" constant="69" id="YZL-Qg-AIj"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="ForgetPwd:" destination="-1" eventType="touchUpInside" id="cl4-J6-A63"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJT-0R-t5j" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="186" y="360" width="90" height="42"/>
                     <animations/>
@@ -153,14 +138,32 @@
                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                     <state key="normal" title="注册"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qN3-qN-jEV">
+                    <rect key="frame" x="207" y="295" width="69" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="FKO-L0-zZz"/>
+                        <constraint firstAttribute="width" constant="69" id="YZL-Qg-AIj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="忘记密码">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="ForgetPwd:" destination="-1" eventType="touchUpInside" id="cl4-J6-A63"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="TkW-oy-sza" secondAttribute="centerX" id="1Ww-91-v7Y"/>
+                <constraint firstAttribute="centerX" secondItem="EJT-0R-t5j" secondAttribute="centerX" constant="-71" id="1bG-UZ-LWh"/>
                 <constraint firstItem="EJT-0R-t5j" firstAttribute="top" secondItem="qN3-qN-jEV" secondAttribute="bottom" constant="35" id="2fE-Xp-XWr"/>
-                <constraint firstItem="SmM-Zh-scF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="44" id="5U5-5T-1DU"/>
+                <constraint firstAttribute="centerX" secondItem="SmM-Zh-scF" secondAttribute="centerX" constant="71" id="42p-ae-1nj"/>
+                <constraint firstAttribute="centerX" secondItem="zWN-dy-LII" secondAttribute="centerX" constant="75" id="7vv-Bn-VJs"/>
                 <constraint firstItem="SmM-Zh-scF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="360" id="9e8-Uh-ZQ1"/>
+                <constraint firstAttribute="centerX" secondItem="qN3-qN-jEV" secondAttribute="centerX" constant="-81.5" id="DY4-X9-wvK"/>
                 <constraint firstItem="qN3-qN-jEV" firstAttribute="top" secondItem="TkW-oy-sza" secondAttribute="bottom" constant="17" id="Ee6-3H-fLR"/>
                 <constraint firstItem="EJT-0R-t5j" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="360" id="Iqt-lx-qv3"/>
                 <constraint firstItem="zWN-dy-LII" firstAttribute="top" secondItem="TkW-oy-sza" secondAttribute="bottom" constant="17" id="Jxc-iV-qa7"/>
@@ -168,11 +171,8 @@
                 <constraint firstAttribute="centerX" secondItem="d05-2B-KFS" secondAttribute="centerX" id="N1O-tI-WL3"/>
                 <constraint firstItem="SmM-Zh-scF" firstAttribute="top" secondItem="zWN-dy-LII" secondAttribute="bottom" constant="35" id="PXa-bc-X07"/>
                 <constraint firstItem="TkW-oy-sza" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="239" id="RkO-8N-WRQ"/>
-                <constraint firstAttribute="trailing" secondItem="EJT-0R-t5j" secondAttribute="trailing" constant="44" id="SUc-Bh-Llp"/>
                 <constraint firstItem="TLZ-oA-NmC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="86" id="aXn-bK-CPS"/>
-                <constraint firstItem="zWN-dy-LII" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="44" id="ju9-bu-4Xo"/>
                 <constraint firstItem="d05-2B-KFS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="185" id="mAQ-Qb-LTp"/>
-                <constraint firstAttribute="trailing" secondItem="qN3-qN-jEV" secondAttribute="trailing" constant="44" id="pXT-19-L2n"/>
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>

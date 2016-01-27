@@ -132,6 +132,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                 var timeFormatter = NSDateFormatter()
                 timeFormatter.dateFormat = "yyyy-MM-dd"
                 var curDateString = timeFormatter.stringFromDate(curDate) as String
+             //   var curDateString = DateFormatter.GetInstance().stringFromDate(curDate) as String
                 var sleepCareBussinessManager = BusinessFactory<SleepCareBussinessManager>.GetBusinessInstance("SleepCareBussinessManager")
                 var alarmList:AlarmList = sleepCareBussinessManager.GetAlarmByLoginUser(session!.User!.MainCode,loginName:session!.User!.LoginName,schemaCode:"",alarmTimeBegin:"2016-01-01",alarmTimeEnd:curDateString,transferTypeCode:"001",from:nil,max:nil)
                 

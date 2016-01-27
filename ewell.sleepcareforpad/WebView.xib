@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wsP-wg-rlp">
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsP-wg-rlp">
                     <rect key="frame" x="0.0" y="67" width="320" height="501"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </webView>
@@ -49,8 +49,12 @@
             <constraints>
                 <constraint firstItem="Poa-l0-XUt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="1ZN-P7-ryY"/>
                 <constraint firstItem="bOw-B9-V7v" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="17" id="3ev-wY-7B6"/>
+                <constraint firstItem="wsP-wg-rlp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="BOt-W9-Kgk"/>
                 <constraint firstItem="bOw-B9-V7v" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="PS0-ue-yG7"/>
                 <constraint firstAttribute="centerX" secondItem="Poa-l0-XUt" secondAttribute="centerX" id="Y9k-FV-3DV"/>
+                <constraint firstAttribute="trailing" secondItem="wsP-wg-rlp" secondAttribute="trailing" id="fC3-Xi-cNy"/>
+                <constraint firstItem="wsP-wg-rlp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="67" id="nOi-mD-UaB"/>
+                <constraint firstAttribute="bottom" secondItem="wsP-wg-rlp" secondAttribute="bottom" id="uDA-oL-QRS"/>
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>

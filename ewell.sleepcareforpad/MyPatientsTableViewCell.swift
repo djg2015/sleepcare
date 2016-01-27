@@ -81,8 +81,8 @@ class MyPatientsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         //圆角
-        self.layerView.layer.masksToBounds = true
-        self.layerView.layer.cornerRadius = 10
+//        self.layerView.layer.masksToBounds = true
+//        self.layerView.layer.cornerRadius = 10
           }
     
     func imageViewTouch(){

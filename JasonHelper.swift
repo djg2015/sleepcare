@@ -16,7 +16,6 @@ class JasonHelper: NSObject {
     var connection: NSURLConnection?
     var serverInfo:ServerSetingInfo?
     
-    
     //创建单例
     class func GetJasonInstance()->JasonHelper{
         if self.jasonInstance == nil {
@@ -31,6 +30,7 @@ class JasonHelper: NSObject {
         let urlPath: String = "http://usleepcare.com/app/getApp.aspx"
         var url: NSURL = NSURL(string: urlPath)!
         self.data = NSData(contentsOfURL: url)
+        
         if self.data != nil{
             var str = NSString(data: self.data!, encoding: NSUTF8StringEncoding)
             self.json = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: nil)

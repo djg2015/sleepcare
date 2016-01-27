@@ -74,8 +74,8 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     myPatientsTableCellViewModel.EquipmentID = bedUserList.bedUserInfoList[i].EquipmentID
                     myPatientsTableCellViewModel.selectedBedUserHandler = self.ShowPatientDetail
                     myPatientsTableCellViewModel.deleteBedUserHandler = self.RemovePatient
-                    curArray.append(myPatientsTableCellViewModel)
                     
+                    curArray.append(myPatientsTableCellViewModel)
                     session!.BedUserCodeList!.append(bedUserList.bedUserInfoList[i].BedUserCode)
                 }
                 self.MyPatientsArray = curArray

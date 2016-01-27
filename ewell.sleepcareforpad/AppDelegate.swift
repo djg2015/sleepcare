@@ -59,11 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     }
     
     func applicationWillResignActive(application: UIApplication) {
-//        var todoItems: [TodoItem] = TodoList.sharedInstance.allItems() // retrieve list of all to-do items
-//        var overdueItems = todoItems.filter({ (todoItem) -> Bool in
-//            return todoItem.deadline.compare(NSDate()) != .OrderedDescending
-//        })
-//        UIApplication.sharedApplication().applicationIconBadgeNumber = overdueItems.count
     
     }
     
@@ -111,6 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
                 dateFormatter.timeZone = NSTimeZone.localTimeZone()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
                 var curUpdate = dateFormatter.stringFromDate(curDate)
+             //   var curUpdate = DateFormatter.GetInstance().stringFromDate(curDate)
                 
                 var updateflag = UpdateHelper.GetUpdateInstance().CheckLocalUpdateDate(curUpdate)
                 if updateflag{

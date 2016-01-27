@@ -48,6 +48,7 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         var pass:String? = GetValueFromPlist(PASS,"sleepcare.plist")
         var server:String? = GetValueFromPlist(SERVER,"sleepcare.plist")
         var port:String? = GetValueFromPlist(PORT,"sleepcare.plist")
+        //此时已打开连接
         if (!xmppStream!.isDisconnected()) {
             return true
         }
@@ -55,7 +56,6 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         if (userId == "" || pass == "") {
             return false;
         }
-        
         //设置用户
         xmppStream!.myJID = XMPPJID.jidWithString(userId)
         //设置服务器
