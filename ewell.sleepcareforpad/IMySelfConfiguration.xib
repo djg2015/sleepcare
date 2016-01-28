@@ -74,9 +74,6 @@
                         <constraint firstAttribute="centerY" secondItem="0qq-Gb-nMI" secondAttribute="centerY" constant="4" id="sEl-C2-bBq"/>
                         <constraint firstAttribute="centerX" secondItem="0qq-Gb-nMI" secondAttribute="centerX" id="yfB-Ya-K1N"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="settingBottom"/>
-                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <animations/>
@@ -102,23 +99,6 @@
                 <outlet property="menuTableView" destination="C71-dD-46f" id="Lou-W7-eak"/>
             </connections>
             <point key="canvasLocation" x="-729" y="293"/>
-        </view>
-        <viewController id="gAo-z2-glz">
-            <layoutGuides>
-                <viewControllerLayoutGuide type="top" id="cRu-aF-Z6P"/>
-                <viewControllerLayoutGuide type="bottom" id="XD8-Es-mUJ"/>
-            </layoutGuides>
-            <view key="view" contentMode="scaleToFill" id="H0b-bm-tMn">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            </view>
-        </viewController>
-        <view contentMode="scaleToFill" id="tyR-gG-Gec">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="223" y="296"/>
         </view>
     </objects>
     <resources>

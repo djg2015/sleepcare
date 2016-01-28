@@ -101,7 +101,9 @@
                         <constraint firstAttribute="width" constant="90" id="sc5-V1-ME3"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="21"/>
-                    <state key="normal" title="登录"/>
+                    <state key="normal" title="登录">
+                        <color key="titleColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logotm.png" translatesAutoresizingMaskIntoConstraints="NO" id="TLZ-oA-NmC">
                     <rect key="frame" x="37" y="86" width="246" height="61"/>
@@ -136,7 +138,9 @@
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="79" id="yMZ-cj-yTv"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                    <state key="normal" title="注册"/>
+                    <state key="normal" title="注册">
+                        <color key="titleColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qN3-qN-jEV">
                     <rect key="frame" x="207" y="295" width="69" height="30"/>

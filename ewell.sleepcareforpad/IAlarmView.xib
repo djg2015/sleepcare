@@ -60,7 +60,7 @@
                 <constraint firstItem="bnY-T0-yfv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nSB-OP-aaj"/>
                 <constraint firstAttribute="trailing" secondItem="bnY-T0-yfv" secondAttribute="trailing" id="rGB-vp-NKw"/>
             </constraints>
-            <point key="canvasLocation" x="43" y="432"/>
+            <point key="canvasLocation" x="66" y="316"/>
         </view>
     </objects>
     <resources>

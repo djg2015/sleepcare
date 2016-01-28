@@ -15,43 +15,20 @@ let PORT:String = "xmppport"
 let SERVERJID:String = "serverjid"
 //获取当前时间
 func getCurrentTime() -> String{
-    
-    var nowUTC:NSDate  = NSDate()
-    
-    var dateFormatter:NSDateFormatter  = NSDateFormatter()
-    dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
-    dateFormatter.timeZone = NSTimeZone.localTimeZone()
-    dateFormatter.dateStyle = .MediumStyle
-    dateFormatter.timeStyle = .MediumStyle
-    
-    return dateFormatter.stringFromDate(nowUTC)
-    
+
+   return DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy年MM月dd日 HH:mm:ss")
 }
 
 func getDateTime(data:String,dateFormat:String = "yyyy-MM-dd") -> NSDate{
     
-    var dateFormatter:NSDateFormatter  = NSDateFormatter()
-    dateFormatter.timeZone = NSTimeZone.localTimeZone()
-    dateFormatter.dateStyle = .MediumStyle
-    dateFormatter.timeStyle = .MediumStyle
-    dateFormatter.dateFormat = dateFormat
-    return dateFormatter.dateFromString(data)!
-    
+
+    return DateFormatterHelper.GetInstance().GetDateFromString(data,style:"yyyy-MM-dd")
 }
 
 //获取指定格式时间
 func getCurrentTime(dateFormat:String) -> String{
-    
-    var nowUTC:NSDate  = NSDate()
-    
-    var dateFormatter:NSDateFormatter  = NSDateFormatter()
-    dateFormatter.dateFormat = dateFormat
-    //    dateFormatter.timeZone = NSTimeZone.localTimeZone()
-    //    dateFormatter.dateStyle = .MediumStyle
-    //    dateFormatter.timeStyle = .MediumStyle
-    
-    return dateFormatter.stringFromDate(nowUTC)
-    
+
+    return DateFormatterHelper.GetInstance().GetStringDateFromCurrent(dateFormat)
 }
 
 var deviceType:String = "ipad"
@@ -132,4 +109,3 @@ extension String {
         return self.componentsSeparatedByString(s)
     }
 }
-

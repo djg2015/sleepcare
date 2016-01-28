@@ -23,7 +23,7 @@
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXQ-C7-ZY0" userLabel="PatientList">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6g-jP-9w5" userLabel="topView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6g-jP-9w5" userLabel="topView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
                             <subviews>
                                 <button hidden="YES" opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIh-hH-QWk">
@@ -67,6 +67,9 @@
                                 <constraint firstItem="WTR-H1-fm3" firstAttribute="top" secondItem="a6g-jP-9w5" secondAttribute="top" constant="22" id="i4u-zv-3U8"/>
                                 <constraint firstItem="IIh-hH-QWk" firstAttribute="leading" secondItem="a6g-jP-9w5" secondAttribute="leading" constant="14" id="v88-Kg-Z4M"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
+                            </userDefinedRuntimeAttributes>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" allowsSelectionDuringEditing="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="i3Y-6g-lUj" customClass="MyPatientsTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="71" width="320" height="497"/>
@@ -85,9 +88,6 @@
                         <constraint firstAttribute="bottom" secondItem="i3Y-6g-lUj" secondAttribute="bottom" id="jGT-fj-ozq"/>
                         <constraint firstItem="a6g-jP-9w5" firstAttribute="top" secondItem="wXQ-C7-ZY0" secondAttribute="top" id="vGV-dI-FNA"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
-                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhV-xp-ioL" userLabel="addnew" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -162,10 +162,7 @@
                 <constraint firstAttribute="trailing" secondItem="dhV-xp-ioL" secondAttribute="trailing" id="qcF-qR-3wK"/>
                 <constraint firstItem="wXQ-C7-ZY0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wHx-fi-UDs"/>
             </constraints>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
-            </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="176" y="362"/>
+            <point key="canvasLocation" x="226" y="307"/>
         </view>
     </objects>
     <resources>

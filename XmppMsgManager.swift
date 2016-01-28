@@ -19,12 +19,13 @@ class XmppMsgManager:MessageDelegate{
     private var requsetQuene = Dictionary<String,AnyObject>()
     var _realTimeDelegate:RealTimeDelegate?=nil
     var _waringAttentionDelegate:WaringAttentionDelegate?=nil
+    var isInstance = false
+    var senddataLastInterval:NSDate?
+    
+    
     private init(){
         
     }
-    
-    var isInstance = false
-    
     //获取xmpp通讯实例
     class func GetInstance(timeout:NSTimeInterval=1000)->XmppMsgManager?{
         if(self._xmppMsgManager == nil){
@@ -82,27 +83,27 @@ class XmppMsgManager:MessageDelegate{
         isInstance = false
         _xmppMsgHelper?.disconnect()
     }
+    
     //发送数据--等待数据响应
     func SendData(baseMessage:BaseMessage,timeOut:NSTimeInterval=10)->BaseMessage?{
-        
+
+        senddataLastInterval = NSDate()
         _xmppMsgHelper?.sendElement(baseMessage.ToXml())
-        
         requsetQuene[baseMessage.messageSubject.requestID!] = self
         
         //添加时间判断，没收到数据则抛出异常
-        let curTime = NSDate()
         var sec:NSTimeInterval = 0
         while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {
-            sec = NSDate().timeIntervalSinceDate(curTime)
+            sec = NSDate().timeIntervalSinceDate(NSDate())
             if(sec > timeOut){
                 throw("-2", ShowMessage(MessageEnum.GetDataOvertime))
             }
         }
-        
         var result:BaseMessage = requsetQuene.removeValueForKey(baseMessage.messageSubject.requestID!) as! BaseMessage
         
         return result
     }
+
     
     //发送数据--无需等待响应
     func SendDataAsync(baseMessage:BaseMessage){

@@ -22,8 +22,8 @@ import UIKit
     @IBInspectable var ImageName:String? {
         didSet{
             if ImageName != nil{
-           var imgName = GetImg(ImageName!)
-           self.layer.contents = UIImage(named: imgName)?.CGImage
+        //   var imgName = GetImg(ImageName!)
+            self.layer.contents = LoadImageHelper.GetInstance().GetImage(ImageName!).CGImage
             self.backgroundColor = UIColor.clearColor()
             }
             

@@ -11,7 +11,7 @@ import UIKit
 
 class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
     
-    @IBOutlet weak var process: CircularLoaderView!
+  @IBOutlet weak var process: CircularLoaderView!
     @IBOutlet weak var imgDownload: UIImageView!
     @IBOutlet weak var lblSelectDate: UILabel!
     @IBOutlet weak var imgMoveRight: UIImageView!
@@ -23,11 +23,9 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
     var parentController:IBaseViewController!
     var _bedUserCode:String?
     var _bedUserName:String = ""
- //   var calendarControl:THDate!
     var email:IEmailViewController?
     var sleepQualityViewModel:ISleepQualityMonitorViewModel = ISleepQualityMonitorViewModel()
     var lblSleepQuality:UILabel?
-  //  var lblOnBedTimespan:UILabel?
     var lblDeepSleepTimespan:UILabel?
     var lblLightSleepTimespan:UILabel?
     var lblAwakeningTimespan:UILabel?
@@ -132,8 +130,6 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
         self.parentController = parentController
         self._bedUserCode = bedUserCode
         self._bedUserName = bedUserName
-      //  self.calendarControl = THDate(parentControl: parentController!)
-     //   self.calendarControl.delegate = self
         
         // 画出圆圈中间内容
         self.lblSleepQuality = UILabel(frame: CGRect(x: 0, y: 10, width: self.process.bounds.width, height: 40))
@@ -204,10 +200,6 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
         var singleTap1:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "moveRight:")
         self.imgMoveRight.addGestureRecognizer(singleTap1)
         
-//        self.imgCalendar.userInteractionEnabled = true
-//        var singleTap2:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showCalendar:")
-//        self.imgCalendar.addGestureRecognizer(singleTap2)
-        
         self.imgDownload.userInteractionEnabled = true
         var singleTap3:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showDownload")
         self.imgDownload.addGestureRecognizer(singleTap3)
@@ -217,7 +209,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
         var singleTap4:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showWeekSleep:")
         self.imgWeekSleep.addGestureRecognizer(singleTap4)
         
-        //
+    
         
         if circleValueStatus == "low"{
             self.process.circlePathLayerBig.strokeColor = LOWCOLOR.CGColor
@@ -257,13 +249,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
     {
         self.sleepQualityViewModel.SelectedDate = Date(string: self.sleepQualityViewModel.SelectedDate, format: "yyyy-MM-dd").addDays(1).description(format: "yyyy-MM-dd")
     }
-    
-//    func showCalendar(sender:UITapGestureRecognizer)
-//    {
-//        var formatter = NSDateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd"
-//        self.calendarControl.ShowDate(date:getDateTime(self.sleepQualityViewModel.SelectedDate),returnformat: formatter)
-//    }
+
     
     func showDownload()
     {

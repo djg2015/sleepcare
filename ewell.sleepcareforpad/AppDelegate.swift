@@ -100,13 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
                 NSNotificationCenter.defaultCenter().postNotificationName("ReConnectInternet", object: self)
             }
             else{
-               
-                var curDate = NSDate()
-                var dateFormatter:NSDateFormatter  = NSDateFormatter()
-                dateFormatter.timeZone = NSTimeZone.localTimeZone()
-                dateFormatter.dateFormat = "yyyy-MM-dd"
-                var curUpdate = dateFormatter.stringFromDate(curDate)
-             //   var curUpdate = DateFormatter.GetInstance().stringFromDate(curDate)
+        
+                var curUpdate = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
                 
                 var updateflag = UpdateHelper.GetUpdateInstance().CheckLocalUpdateDate(curUpdate)
                 if updateflag{
