@@ -19,7 +19,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="garyboxback"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgb-19-V8A" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgb-19-V8A">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="316"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFC-HA-Vbk">
@@ -126,9 +126,6 @@
                         <constraint firstAttribute="centerX" secondItem="VQt-Vn-KJW" secondAttribute="centerX" constant="-75" id="eiW-4H-Tb7"/>
                         <constraint firstAttribute="centerX" secondItem="Ibj-iK-8ne" secondAttribute="centerX" constant="28" id="vo9-DH-BTz"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
-                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <animations/>
@@ -150,6 +147,7 @@
                 <outlet property="lblOnBedStatus" destination="kxp-Iw-4CO" id="NPg-OU-g75"/>
                 <outlet property="processRR" destination="m6C-qY-BfF" id="fkD-rW-8Yk"/>
                 <outlet property="statusImage" destination="Dvm-uz-0SF" id="x3R-f7-3l9"/>
+                <outlet property="topView" destination="fgb-19-V8A" id="4do-hN-td8"/>
                 <outlet property="viewChart" destination="O8m-35-XOD" id="rLF-zo-G07"/>
             </connections>
             <point key="canvasLocation" x="59" y="192"/>

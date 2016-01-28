@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="alarmTableView" destination="LQI-nb-eW6" id="LQt-eh-hl3"/>
                 <outlet property="imgBack" destination="f0K-Fi-ZRN" id="Xrj-XK-qg9"/>
+                <outlet property="topView" destination="bnY-T0-yfv" id="YaA-gu-fxR"/>
                 <outlet property="view" destination="iN0-l3-epB" id="N09-Xv-vvp"/>
             </connections>
         </placeholder>
@@ -16,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnY-T0-yfv" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnY-T0-yfv">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="报警信息查看" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fj3-48-r6f">
@@ -41,9 +42,6 @@
                         <constraint firstItem="f0K-Fi-ZRN" firstAttribute="leading" secondItem="bnY-T0-yfv" secondAttribute="leading" constant="8" id="xWU-A0-sKC"/>
                         <constraint firstItem="f0K-Fi-ZRN" firstAttribute="top" secondItem="bnY-T0-yfv" secondAttribute="top" constant="24" id="yOa-XC-Z4Y"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
-                    </userDefinedRuntimeAttributes>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LQI-nb-eW6">
                     <rect key="frame" x="0.0" y="70" width="320" height="498"/>

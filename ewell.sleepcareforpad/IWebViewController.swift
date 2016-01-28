@@ -27,6 +27,7 @@ class IWebViewController: IBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = themeColor[themeName]
         self.lblTitle.text = self.titleName
         var URL = NSURL(string:self.URLstring)
         var request = NSURLRequest(URL:URL!)

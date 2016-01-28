@@ -16,6 +16,7 @@ class IHRMonitor: UIView{
     @IBOutlet weak var lblLastHR: UILabel!
     @IBOutlet weak var viewChart: BackgroundCommon!
     @IBOutlet weak var lblBedUserName: UILabel!
+    @IBOutlet weak var topView: UIView!
     
     
     var hrMonitorViewModel:IHRMonitorViewModel?
@@ -117,8 +118,9 @@ class IHRMonitor: UIView{
         hrMonitorViewModel = IHRMonitorViewModel(bedUserCode: bedUserCode)
         self._bedUserCode = bedUserCode
         self._bedUserName = bedUserName
-        
         self.parentController = parentController
+        
+        self.topView.backgroundColor = themeColor[themeName]
         // 画出圆圈中间内容
         self.lblHR = UILabel(frame: CGRect(x: 0, y: 40, width: self.processHR.bounds.width/2 + 20, height: 60))
         self.lblHR!.textAlignment = .Center

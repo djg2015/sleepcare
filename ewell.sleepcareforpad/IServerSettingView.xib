@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IServerSettingController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <connections>
                 <outlet property="imgBack" destination="WVW-wp-mMH" id="bWN-Sh-QU6"/>
+                <outlet property="topView" destination="Vh6-2g-tdZ" id="k1a-Je-2kp"/>
                 <outlet property="txtServerAddress" destination="3Vk-cS-APh" id="JI2-b2-8hZ"/>
                 <outlet property="txtServerJid" destination="Ke0-jW-4Sl" id="blZ-QF-Yb3"/>
                 <outlet property="txtServerLoginName" destination="h05-MR-Tqf" id="AHV-1i-4wA"/>
@@ -130,7 +131,7 @@
                         <action selector="btnSave:" destination="-1" eventType="touchUpInside" id="6kz-Vh-Rsb"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vh6-2g-tdZ" userLabel="topView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vh6-2g-tdZ" userLabel="topView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backBtn.png" translatesAutoresizingMaskIntoConstraints="NO" id="WVW-wp-mMH">
@@ -163,9 +164,6 @@
                         <constraint firstAttribute="height" constant="70" id="nPs-sx-t7u"/>
                         <constraint firstItem="WVW-wp-mMH" firstAttribute="leading" secondItem="Vh6-2g-tdZ" secondAttribute="leading" constant="5" id="xQg-aX-l0m"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
-                    </userDefinedRuntimeAttributes>
                 </view>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h05-MR-Tqf">
                     <rect key="frame" x="124" y="270" width="180" height="30"/>

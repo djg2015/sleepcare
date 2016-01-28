@@ -6,8 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IEmailViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <connections>
-                <outlet property="bgView" destination="iN0-l3-epB" id="LzC-0K-ucx"/>
                 <outlet property="btnSendEmail" destination="yk3-Ej-LWI" id="ihh-fU-P1K"/>
+                <outlet property="emailView" destination="9WF-lc-qRz" id="dkb-7P-6Xf"/>
                 <outlet property="txtEmailAddress" destination="zkc-Bx-2di" id="3Yp-po-p1K"/>
                 <outlet property="view" destination="iN0-l3-epB" id="zKr-ir-Dau"/>
             </connections>
@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9WF-lc-qRz" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9WF-lc-qRz">
                     <rect key="frame" x="28" y="214" width="264" height="140"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邮箱地址：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKQ-hT-RbI">
@@ -80,13 +80,10 @@
                         <constraint firstItem="lmx-JF-gJj" firstAttribute="leading" secondItem="yk3-Ej-LWI" secondAttribute="trailing" constant="32" id="mxz-J9-K7W"/>
                         <constraint firstAttribute="height" constant="140" id="ojP-Vx-POd"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
-                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="0.51328319310000003" green="0.51714962720000002" blue="0.54705178740000004" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="9WF-lc-qRz" secondAttribute="centerX" id="RoS-Fu-vXF"/>
                 <constraint firstAttribute="centerY" secondItem="9WF-lc-qRz" secondAttribute="centerY" id="gNf-x4-c57"/>

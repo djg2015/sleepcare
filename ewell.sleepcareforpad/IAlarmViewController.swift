@@ -9,6 +9,7 @@
 import UIKit
 
 class IAlarmViewController: IBaseViewController,UITableViewDelegate,UITableViewDataSource,MSCMoreOptionTableViewCellDelegate ,MoreOptionDelegate{
+    @IBOutlet weak var topView: UIView!
 
     @IBOutlet weak var alarmTableView: UITableView!
     @IBOutlet weak var imgBack: UIImageView!
@@ -25,6 +26,7 @@ class IAlarmViewController: IBaseViewController,UITableViewDelegate,UITableViewD
         self.alarmViewModel = IAlarmViewModel()
         self._source = self.alarmViewModel!.AlarmArray
         
+        self.topView.backgroundColor = themeColor[themeName]
         self.alarmTableView.dataSource = self
         self.alarmTableView.delegate = self
         self.alarmTableView.registerNib(UINib(nibName: "IAlarmTableViewCell", bundle: nil), forCellReuseIdentifier: "MSCMoreOptionTableViewCell")

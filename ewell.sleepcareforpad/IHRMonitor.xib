@@ -19,7 +19,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="garyboxback"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32p-Bd-mdk" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32p-Bd-mdk">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="316"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2iZ-Hg-JTR" customClass="CircularLoaderView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
@@ -126,9 +126,6 @@
                         <constraint firstAttribute="centerY" secondItem="Pyg-fs-BCv" secondAttribute="centerY" constant="-105" id="sz3-6h-ZyH"/>
                         <constraint firstAttribute="trailing" secondItem="37c-Pj-DIO" secondAttribute="trailing" id="y8L-aT-abl"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
-                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <animations/>
@@ -150,6 +147,7 @@
                 <outlet property="lblOnBedStatus" destination="rFU-WV-cVa" id="5oF-da-o36"/>
                 <outlet property="processHR" destination="2iZ-Hg-JTR" id="5bX-2d-PP8"/>
                 <outlet property="statusImage" destination="1NM-ik-3fE" id="A4D-k3-V79"/>
+                <outlet property="topView" destination="32p-Bd-mdk" id="E5K-vR-yDD"/>
                 <outlet property="viewChart" destination="L3k-D5-Y14" id="Rg6-T5-DUa"/>
             </connections>
             <point key="canvasLocation" x="53" y="23"/>

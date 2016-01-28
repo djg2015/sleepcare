@@ -11,9 +11,10 @@ import UIKit
 
 class IEmailViewController: IBaseViewController {
     
-    @IBOutlet var bgView: UIView!
+
     @IBOutlet weak var txtEmailAddress: UITextField!
     
+    @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var btnSendEmail: BlueButtonForPhone!
     
     var emailViewModel:IEmailViewModel = IEmailViewModel()
@@ -24,7 +25,8 @@ class IEmailViewController: IBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bgView.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+        self.view.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+        self.emailView.backgroundColor = themeColor[themeName]
         self.rac_settings()
     }
     

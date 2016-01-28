@@ -10,6 +10,7 @@
                 <outlet property="imgBigAdd" destination="7SK-2a-ggG" id="4ye-h1-kBR"/>
                 <outlet property="imgSmallAdd" destination="WTR-H1-fm3" id="qTh-4l-Alz"/>
                 <outlet property="myPatientTable" destination="i3Y-6g-lUj" id="JFA-01-F1r"/>
+                <outlet property="topView" destination="a6g-jP-9w5" id="7kL-9I-WhT"/>
                 <outlet property="uiNewAdd" destination="dhV-xp-ioL" id="7yc-1B-zMX"/>
                 <outlet property="uiPatientList" destination="wXQ-C7-ZY0" id="5xt-9p-Azb"/>
                 <outlet property="view" destination="iN0-l3-epB" id="poF-1H-4r3"/>
@@ -23,7 +24,7 @@
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXQ-C7-ZY0" userLabel="PatientList">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6g-jP-9w5" userLabel="topView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6g-jP-9w5" userLabel="topView">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
                             <subviews>
                                 <button hidden="YES" opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIh-hH-QWk">
@@ -57,7 +58,7 @@
                                     </constraints>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" red="0.14926536042631577" green="0.34717139947368425" blue="0.66684422350000006" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.98645673779999998" green="0.94909746139999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="WTR-H1-fm3" secondAttribute="trailing" constant="14" id="Cgc-TH-UtK"/>
                                 <constraint firstItem="IIh-hH-QWk" firstAttribute="top" secondItem="a6g-jP-9w5" secondAttribute="top" constant="23" id="I5c-oL-ieH"/>
@@ -67,9 +68,6 @@
                                 <constraint firstItem="WTR-H1-fm3" firstAttribute="top" secondItem="a6g-jP-9w5" secondAttribute="top" constant="22" id="i4u-zv-3U8"/>
                                 <constraint firstItem="IIh-hH-QWk" firstAttribute="leading" secondItem="a6g-jP-9w5" secondAttribute="leading" constant="14" id="v88-Kg-Z4M"/>
                             </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
-                            </userDefinedRuntimeAttributes>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" allowsSelectionDuringEditing="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="i3Y-6g-lUj" customClass="MyPatientsTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="71" width="320" height="497"/>

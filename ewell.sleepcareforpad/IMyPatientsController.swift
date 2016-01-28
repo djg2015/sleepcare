@@ -16,6 +16,7 @@ class IMyPatientsController: IBaseViewController {
     @IBOutlet weak var myPatientTable: MyPatientsTableView!
     @IBOutlet weak var btnBack: UIButton!
     
+    @IBOutlet weak var topView: UIView!
     var _width:Int = 0
     var spinner:JHSpinnerView?
     var viewModel:IMyPatientsViewModel!
@@ -38,17 +39,8 @@ class IMyPatientsController: IBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        myPatientTable.frame = CGRectMake(0, 7, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-7)
-//        if self.myPatientTable.respondsToSelector(Selector("setSeparatorInset:")) {
-//            self.myPatientTable.separatorInset = UIEdgeInsetsZero
-//        }
-//        if self.myPatientTable.respondsToSelector(Selector("setLayoutMargins:")) {
-//            self.myPatientTable.layoutMargins = UIEdgeInsetsZero
-//        }
-//
-//        self.myPatientTable.layer.masksToBounds = true
-//        self.myPatientTable.layer.cornerRadius = 8
-//       
+        self.myPatientTable.frame = CGRectMake(0, 7, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-7)
+        self.topView.backgroundColor = themeColor[themeName]
         
         rac_Setting()
         if self.MyPatientsArray?.count != 0{

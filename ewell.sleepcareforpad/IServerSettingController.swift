@@ -24,9 +24,11 @@ class IServerSettingController:IBaseViewController {
     
     @IBOutlet weak var imgBack: UIImageView!
     
+    @IBOutlet weak var topView: UIView!
     //-----------界面事件定义----------------
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.topView.backgroundColor = themeColor[themeName]
         
         self.txtServerJid.text = GetValueFromPlist("serverjid","sleepcare.plist")
         self.txtServerAddress.text = GetValueFromPlist("xmppserver","sleepcare.plist")

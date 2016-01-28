@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="522"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3B-eg-0Dk" userLabel="topView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3B-eg-0Dk" userLabel="topView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="316"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总时长" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeG-GT-NIT">
@@ -26,6 +26,67 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZD-b6-fjw">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-09-22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cs-Lp-kRt">
+                                    <rect key="frame" x="106" y="28" width="108" height="25"/>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" id="91Z-Iu-xzh"/>
+                                        <constraint firstAttribute="width" constant="108" id="wXm-pe-Mcs"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="textColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moveRight.png" translatesAutoresizingMaskIntoConstraints="NO" id="G1t-jZ-5SL">
+                                    <rect key="frame" x="210" y="28" width="26" height="26"/>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="26" id="dGL-mM-s6L"/>
+                                        <constraint firstAttribute="height" constant="26" id="i9g-sK-frH"/>
+                                    </constraints>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sendemail.png" translatesAutoresizingMaskIntoConstraints="NO" id="sQa-pM-09m">
+                                    <rect key="frame" x="280" y="28" width="27" height="27"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="27" id="Jow-HW-KRf"/>
+                                        <constraint firstAttribute="width" constant="27" id="SRw-gE-cFg"/>
+                                    </constraints>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moveLeft.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ad0-yE-t1e">
+                                    <rect key="frame" x="81" y="28" width="26" height="26"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="26" id="beL-gI-gLE"/>
+                                        <constraint firstAttribute="width" constant="26" id="nJc-Cz-UFv"/>
+                                    </constraints>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sleepreport.png" translatesAutoresizingMaskIntoConstraints="NO" id="CeD-fE-jJS">
+                                    <rect key="frame" x="18" y="28" width="21" height="27"/>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="21" id="Oow-L9-2uO"/>
+                                        <constraint firstAttribute="height" constant="27" id="oQ6-Js-oiJ"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="CeD-fE-jJS" firstAttribute="leading" secondItem="cZD-b6-fjw" secondAttribute="leading" constant="18" id="6k4-TG-sZN"/>
+                                <constraint firstItem="Ad0-yE-t1e" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="28" id="7D1-Ny-xSs"/>
+                                <constraint firstAttribute="trailing" secondItem="sQa-pM-09m" secondAttribute="trailing" constant="13" id="Aud-Qd-CWg"/>
+                                <constraint firstAttribute="centerX" secondItem="G1t-jZ-5SL" secondAttribute="centerX" constant="-62.5" id="Eg3-SL-ZRF"/>
+                                <constraint firstItem="sQa-pM-09m" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="28" id="Ndc-Tl-uX6"/>
+                                <constraint firstAttribute="centerX" secondItem="Ad0-yE-t1e" secondAttribute="centerX" constant="66" id="Oay-6w-CaS"/>
+                                <constraint firstAttribute="centerX" secondItem="8cs-Lp-kRt" secondAttribute="centerX" id="TiR-LJ-88C"/>
+                                <constraint firstItem="G1t-jZ-5SL" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="28" id="WJL-T6-tKE"/>
+                                <constraint firstItem="CeD-fE-jJS" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="28" id="YDi-kh-1kN"/>
+                                <constraint firstItem="8cs-Lp-kRt" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="28" id="fbB-KC-dgo"/>
+                                <constraint firstAttribute="height" constant="58" id="k91-cv-RoY"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1n-Oo-Zfx" customClass="CircularLoaderView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                             <rect key="frame" x="80" y="78" width="160" height="160"/>
                             <animations/>
@@ -44,67 +105,6 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZD-b6-fjw">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-09-22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cs-Lp-kRt">
-                                    <rect key="frame" x="106" y="19" width="108" height="25"/>
-                                    <animations/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="91Z-Iu-xzh"/>
-                                        <constraint firstAttribute="width" constant="108" id="wXm-pe-Mcs"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                    <color key="textColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moveRight.png" translatesAutoresizingMaskIntoConstraints="NO" id="G1t-jZ-5SL">
-                                    <rect key="frame" x="210" y="18" width="26" height="26"/>
-                                    <animations/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="26" id="dGL-mM-s6L"/>
-                                        <constraint firstAttribute="height" constant="26" id="i9g-sK-frH"/>
-                                    </constraints>
-                                </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sendemail.png" translatesAutoresizingMaskIntoConstraints="NO" id="sQa-pM-09m">
-                                    <rect key="frame" x="280" y="18" width="27" height="27"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="27" id="Jow-HW-KRf"/>
-                                        <constraint firstAttribute="width" constant="27" id="SRw-gE-cFg"/>
-                                    </constraints>
-                                </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moveLeft.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ad0-yE-t1e">
-                                    <rect key="frame" x="81" y="18" width="26" height="26"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="26" id="beL-gI-gLE"/>
-                                        <constraint firstAttribute="width" constant="26" id="nJc-Cz-UFv"/>
-                                    </constraints>
-                                </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sleepreport.png" translatesAutoresizingMaskIntoConstraints="NO" id="CeD-fE-jJS">
-                                    <rect key="frame" x="18" y="18" width="21" height="27"/>
-                                    <animations/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="21" id="Oow-L9-2uO"/>
-                                        <constraint firstAttribute="height" constant="27" id="oQ6-Js-oiJ"/>
-                                    </constraints>
-                                </imageView>
-                            </subviews>
-                            <animations/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="CeD-fE-jJS" firstAttribute="leading" secondItem="cZD-b6-fjw" secondAttribute="leading" constant="18" id="6k4-TG-sZN"/>
-                                <constraint firstItem="Ad0-yE-t1e" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="18" id="7D1-Ny-xSs"/>
-                                <constraint firstAttribute="trailing" secondItem="sQa-pM-09m" secondAttribute="trailing" constant="13" id="Aud-Qd-CWg"/>
-                                <constraint firstAttribute="centerX" secondItem="G1t-jZ-5SL" secondAttribute="centerX" constant="-62.5" id="Eg3-SL-ZRF"/>
-                                <constraint firstItem="sQa-pM-09m" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="18" id="Ndc-Tl-uX6"/>
-                                <constraint firstAttribute="centerX" secondItem="Ad0-yE-t1e" secondAttribute="centerX" constant="66" id="Oay-6w-CaS"/>
-                                <constraint firstAttribute="centerX" secondItem="8cs-Lp-kRt" secondAttribute="centerX" id="TiR-LJ-88C"/>
-                                <constraint firstItem="G1t-jZ-5SL" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="18" id="WJL-T6-tKE"/>
-                                <constraint firstItem="CeD-fE-jJS" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="18" id="YDi-kh-1kN"/>
-                                <constraint firstItem="8cs-Lp-kRt" firstAttribute="top" secondItem="cZD-b6-fjw" secondAttribute="top" constant="19" id="fbB-KC-dgo"/>
-                                <constraint firstAttribute="height" constant="50" id="k91-cv-RoY"/>
-                            </constraints>
-                        </view>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -119,9 +119,6 @@
                         <constraint firstItem="cZD-b6-fjw" firstAttribute="top" secondItem="E3B-eg-0Dk" secondAttribute="top" id="tgj-ax-rrZ"/>
                         <constraint firstAttribute="trailing" secondItem="cZD-b6-fjw" secondAttribute="trailing" id="xVx-JW-aIe"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
-                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZT-fF-b1Q" userLabel="bottomView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="316" width="320" height="206"/>
@@ -153,6 +150,7 @@
                 <outlet property="lblSelectDate" destination="8cs-Lp-kRt" id="7TZ-yt-rp3"/>
                 <outlet property="lblTotalTime" destination="QwX-zZ-p9O" id="afv-yS-9Vo"/>
                 <outlet property="process" destination="A1n-Oo-Zfx" id="Bik-xX-Xu7"/>
+                <outlet property="topView" destination="E3B-eg-0Dk" id="Xbr-gJ-Fig"/>
                 <outlet property="viewSleepQuality" destination="EZT-fF-b1Q" id="bEH-4G-8JI"/>
             </connections>
             <point key="canvasLocation" x="351" y="232"/>

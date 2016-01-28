@@ -10,10 +10,10 @@ import UIKit
 class IChoosePatientsController: IBaseViewController {
     @IBOutlet weak var tbParts: CommonTableView!
     @IBOutlet weak var tbPatients: CommonTableView!
-    
     @IBOutlet weak var tbPatientsDouble: CommonTableView!
     @IBOutlet weak var imgBack: UIImageView!
     @IBOutlet weak var btnConfirm: UIButton!
+    
     
     
     var viewModel:IChoosePatientsViewModel!
@@ -57,6 +57,8 @@ class IChoosePatientsController: IBaseViewController {
     
     //初始化设置与属性等绑定
     func rac_Setting(){
+        self.view.backgroundColor = themeColor[themeName]
+        
         self.viewModel = IChoosePatientsViewModel()
         self.viewModel.myPatientsViewModel = self.myPatientsViewModel
      //   self.viewModel.controllerForIphone = self

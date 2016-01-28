@@ -56,7 +56,7 @@
                     <subviews>
                         <button opaque="NO" alpha="0.89999999999999991" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qq-Gb-nMI">
                             <rect key="frame" x="20" y="10" width="281" height="34"/>
-                            <color key="backgroundColor" red="0.12382333743265711" green="0.32085560997070101" blue="0.66684422348484851" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.29603719709999998" green="0.53870904450000001" blue="0.88235294819999999" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="退出登录">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -98,7 +98,7 @@
                 <outlet property="lblManType" destination="mz6-PW-uMb" id="Pdr-Oo-Z40"/>
                 <outlet property="menuTableView" destination="C71-dD-46f" id="Lou-W7-eak"/>
             </connections>
-            <point key="canvasLocation" x="-729" y="293"/>
+            <point key="canvasLocation" x="-660" y="279"/>
         </view>
     </objects>
     <resources>

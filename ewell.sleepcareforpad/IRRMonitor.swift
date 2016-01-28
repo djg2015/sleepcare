@@ -19,6 +19,7 @@ class IRRMonitor: UIView{
     
     @IBOutlet weak var viewChart: BackgroundCommon!
     
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var lblBedUserName: UILabel!
     var rrMonitorViewModel:IRRMonitorViewModel?
     var parentController:IBaseViewController!
@@ -119,8 +120,9 @@ class IRRMonitor: UIView{
         rrMonitorViewModel = IRRMonitorViewModel(bedUserCode: bedUserCode)
         self._bedUserCode = bedUserCode
         self._bedUserName = bedUserName
-        
         self.parentController = parentController
+        
+        self.topView.backgroundColor = themeColor[themeName]
        
         // 画出圆圈中间内容
         self.lblRR = UILabel(frame: CGRect(x: 0, y: 40, width: self.processRR.bounds.width/2 + 20, height: 60))

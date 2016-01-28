@@ -11,11 +11,11 @@
                 <outlet property="tbParts" destination="zhq-EJ-ghP" id="GpO-pr-fxK"/>
                 <outlet property="tbPatients" destination="Wca-U4-mE5" id="akt-0j-INE"/>
                 <outlet property="tbPatientsDouble" destination="OWr-dE-zEs" id="6s6-yt-Jcu"/>
-                <outlet property="view" destination="iN0-l3-epB" id="c1k-kq-EVD"/>
+                <outlet property="view" destination="iN0-l3-epB" id="aTg-79-TwD"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -112,9 +112,6 @@
                 <constraint firstItem="ePV-YJ-2OM" firstAttribute="bottom" secondItem="zhq-EJ-ghP" secondAttribute="bottom" id="uoO-Xp-8tb"/>
                 <constraint firstItem="zhq-EJ-ghP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="53" id="zOz-5j-7bs"/>
             </constraints>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
-            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="248" y="269"/>
         </view>
     </objects>

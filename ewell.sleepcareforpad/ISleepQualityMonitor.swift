@@ -19,6 +19,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
     @IBOutlet weak var viewSleepQuality: BackgroundCommon!
     @IBOutlet weak var imgWeekSleep: UIImageView!
     @IBOutlet weak var lblTotalTime: UILabel!
+    @IBOutlet weak var topView: UIView!
     
     var parentController:IBaseViewController!
     var _bedUserCode:String?
@@ -131,6 +132,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
         self._bedUserCode = bedUserCode
         self._bedUserName = bedUserName
         
+        self.topView.backgroundColor = themeColor[themeName]
         // 画出圆圈中间内容
         self.lblSleepQuality = UILabel(frame: CGRect(x: 0, y: 10, width: self.process.bounds.width, height: 40))
         self.lblSleepQuality!.textAlignment = .Center
