@@ -163,7 +163,8 @@ class IRegistViewModel:BaseViewModel {
                     showDialogMsg(ShowMessage(MessageEnum.MainhouseNil))
                     return
                 }
-                //已经勾选了服务协议
+                
+                //已经勾选了服务协议，尝试注册账户
                 if self.IsChecked{
                     var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                     let isconnect = xmppMsgManager!.RegistConnect()
@@ -173,7 +174,7 @@ class IRegistViewModel:BaseViewModel {
                     else{
                         var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                         let result:ServerResult =  sleepCareForIPhoneBussinessManager.Regist(self.LoginName, loginPassword: self.Pwd, mainCode: self.MainCode)
-                        
+                        //提示是否注册成功
                         if result.Result{
                             showDialogMsg(ShowMessage(MessageEnum.RegistAccountSuccess), "提示", buttonTitle: "确定", action: self.AfterRegist)
                         }
@@ -206,7 +207,6 @@ class IRegistViewModel:BaseViewModel {
         //关闭默认openfire账户的连接
         var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
         xmppMsgManager!.Close()
-        
         IViewControllerManager.GetInstance()!.CloseViewController()
     }
     

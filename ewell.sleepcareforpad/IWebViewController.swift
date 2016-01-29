@@ -29,6 +29,8 @@ class IWebViewController: IBaseViewController {
         super.viewDidLoad()
         self.view.backgroundColor = themeColor[themeName]
         self.lblTitle.text = self.titleName
+        
+        //发出请求，打开url网页
         var URL = NSURL(string:self.URLstring)
         var request = NSURLRequest(URL:URL!)
         self.webContent.loadRequest(request)

@@ -15,7 +15,6 @@
         @IBOutlet weak var lblManType: UILabel!
         @IBOutlet weak var BtnExit: UIButton!
         
-        
         var parentController:IBaseViewController!
         var menuAlarm:ConfigurationViewModel!
         // 界面初始化
@@ -25,8 +24,8 @@
             var source = Array<ConfigurationViewModel>()
             var menu:ConfigurationViewModel = ConfigurationViewModel()
             IAlarmHelper.GetAlarmInstance().alarmpicdelegate = self
-            
             self.BtnExit.backgroundColor = themeColor[themeName]
+            
             // 根据用户类型(监护人/使用者)设置对应的菜单 1.使用者 2.监护人
             if(SessionForIphone.GetSession()!.User?.UserType == LoginUserType.Monitor)
             {
@@ -40,7 +39,6 @@
                 self.menuAlarm.imageName = "noalarm.png"
                 self.menuAlarm.configrationController = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
                 source.append(self.menuAlarm)
-                
                 
                 menu = ConfigurationViewModel()
                 menu.titleName = "账号管理"
@@ -67,7 +65,11 @@
             else if(SessionForIphone.GetSession()!.User?.UserType == LoginUserType.UserSelf)
             {
                 menu = ConfigurationViewModel()
+                menu.titleName = "我的老人"
+                menu.configrationController = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
+                source.append(menu)
                 
+                menu = ConfigurationViewModel()
                 menu.titleName = "账号管理"
                 menu.configrationController =  IAccountSetController(nibName:"IAccountSet", bundle:nil)
                 source.append(menu)
@@ -117,6 +119,7 @@
             }
         }
         
+        //退出登录：清空本地plist文件内账户信息，清空当前session，如果是监护人账户则关闭报警，关闭xmpp。最后跳转登录页面
         @IBAction func btnExitLoginClick(sender: AnyObject) {
             SetValueIntoPlist("loginusernamephone", "")
             SetValueIntoPlist("loginuserpwdphone", "")

@@ -154,9 +154,9 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
                 }
                 else{
+                    //连接成功，获取某床位用户心率报告
                 var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var hrRange:IHRRange = sleepCareForIPhoneBLL.GetHRTimeReport(self.BedUserCode!)
-                
                 for report in hrRange.hrTimeReportList{
                     self._hrTimeReport.append(report)
                 }

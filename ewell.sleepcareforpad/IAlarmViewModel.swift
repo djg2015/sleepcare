@@ -47,7 +47,6 @@ class IAlarmViewModel: BaseViewModel {
                     tempAlarm.UserName = "姓名:" + info.UserName
                     tempAlarm.BedNumber = "床号:" + info.BedNumber
                     tempAlarm.AlarmDate = "报警时间：" + info.AlarmDate
-
                     tempAlarm.AlarmContent = info.AlarmContent
                     tempAlarm.deleteAlarmHandler = self.DeleteAlarm
                     tempAlarm.moreAlarmHandler = self.MoreAlarm
@@ -108,7 +107,7 @@ class IAlarmViewModel: BaseViewModel {
 
     }
     
-    //删除内存中当前的alarm信息，删除todolist中对应item信息
+    //删除当前的alarm信息，删除todolist中对应item信息
     func RemoveAlarm(alarmViewModel:IAlarmTableCellViewModel){
         var code = alarmViewModel.AlarmCode!
         TodoList.sharedInstance.removeItemByID(code)

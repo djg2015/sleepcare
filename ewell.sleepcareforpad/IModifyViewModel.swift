@@ -101,16 +101,15 @@ class IModifyViewModel:BaseViewModel {
         
         try {
             ({
-                
-                    //获取当前所有养老院的名字
-                    var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-                    var mainInfoList:IMainInfoList =  sleepCareForIPhoneBussinessManager.GetAllMainInfo()
-                    for(var i=0;i<mainInfoList.mainInfoList.count;i++){
-                        var item:PopDownListItem = PopDownListItem()
-                        item.key = mainInfoList.mainInfoList[i].MainCode
-                        item.value = mainInfoList.mainInfoList[i].MainName
-                        self.MainBusinesses.append(item)
-                    }
+                //获取当前所有养老院的名字
+                var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+                var mainInfoList:IMainInfoList =  sleepCareForIPhoneBussinessManager.GetAllMainInfo()
+                for(var i=0;i<mainInfoList.mainInfoList.count;i++){
+                    var item:PopDownListItem = PopDownListItem()
+                    item.key = mainInfoList.mainInfoList[i].MainCode
+                    item.value = mainInfoList.mainInfoList[i].MainName
+                    self.MainBusinesses.append(item)
+                }
                 
                 
                 //初始化用户信息
@@ -145,6 +144,7 @@ class IModifyViewModel:BaseViewModel {
     func Modify() -> RACSignal{
         try {
             ({
+                //检查输入是否合法
                 if(self.Pwd == ""){
                     showDialogMsg(ShowMessage(MessageEnum.PwdNil))
                     return
@@ -161,12 +161,9 @@ class IModifyViewModel:BaseViewModel {
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
                 
-                //如果改变了养老院，则当前关注的老人bedusercode设置为nil，报警信息置空
+                //如果改变了养老院，则当前关注的老人置空
                 if session!.User!.MainCode != self.MainCode{
                     session!.CurPatientCode = ""
-                }
-                if session!.User!.UserType == LoginUserType.Monitor{
-                IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
                 }
                 
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
@@ -175,16 +172,17 @@ class IModifyViewModel:BaseViewModel {
                     showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
                 }
                 else{
-                let result:ServerResult = sleepCareForIPhoneBussinessManager.ModifyLoginUser(self.LoginName, oldPassword: session!.OldPwd!, newPassword: self.Pwd, mainCode: self.MainCode)
-                session?.OldPwd = self.Pwd
-                session?.User?.MainCode = self.MainCode
-               
-                if result.Result{
-                    showDialogMsg(ShowMessage(MessageEnum.ModifyAccountSuccess), "提示", buttonTitle: "确定", action: self.AfterModify)
-                }
-                else{
-                    showDialogMsg(ShowMessage(MessageEnum.ModifyAccountFail),"提示" ,buttonTitle: "确定", action: self.AfterModify)
-                }
+                    //修改账户到服务器端
+                    let result:ServerResult = sleepCareForIPhoneBussinessManager.ModifyLoginUser(self.LoginName, oldPassword: session!.OldPwd!, newPassword: self.Pwd, mainCode: self.MainCode)
+                    session?.OldPwd = self.Pwd
+                    session?.User?.MainCode = self.MainCode
+                    //提示修改账户是否成功
+                    if result.Result{
+                        showDialogMsg(ShowMessage(MessageEnum.ModifyAccountSuccess), "提示", buttonTitle: "确定", action: self.AfterModify)
+                    }
+                    else{
+                        showDialogMsg(ShowMessage(MessageEnum.ModifyAccountFail),"提示" ,buttonTitle: "确定", action: self.AfterModify)
+                    }
                 }
                 },
                 catch: { ex in
@@ -202,7 +200,7 @@ class IModifyViewModel:BaseViewModel {
         IViewControllerManager.GetInstance()!.CloseViewController()
         
     }
-    
+    //关闭当前页面
     func AfterModify(isOtherButton: Bool){
         IViewControllerManager.GetInstance()!.CloseViewController()
     }

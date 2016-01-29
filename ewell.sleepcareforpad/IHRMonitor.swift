@@ -137,6 +137,7 @@ class IHRMonitor: UIView{
         self.setTimer()
     }
     
+    //定时器，隔0.5秒检查是否完全载入数据
     func setTimer(){
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
         timer.fire()

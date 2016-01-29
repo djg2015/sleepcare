@@ -96,8 +96,11 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
         RealTimeHelper.GetRealTimeInstance().setRealTimer()
     }
     
+    /**
+    获取实时信息：心率，呼吸，在离床状态
+    :param: realtimeData	推送过来的实时数据字典
+    */
     func GetRealtimeData(realtimeData:Dictionary<String,RealTimeReport>){
-        
         for realTimeReport in realtimeData.values{
             if(!self.bedUserCodeList.isEmpty){
                 var patient = self.MyPatientsArray.filter(
@@ -128,7 +131,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
         IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMainFrame", reload: true)
     }
     
-    //移除指定床位用户
+    //移除指定床位用户，更新服务器端，更新当前session的关注老人床位号列表
     func RemovePatient(myPatientsTableViewModel:MyPatientsTableCellViewModel){
         var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModel.BedUserCode})
         if(exist.count > 0){
@@ -163,7 +166,10 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
         
     }
     
-    //添加指定床位用户
+    /**
+    添加关注的老人：更新到服务器端，更新当前session的关注老人床位号列表
+    :param: myPatientsTableViewModels	当前所有关注的老人信息
+    */
     func AddPatients(myPatientsTableViewModels:Array<MyPatientsTableCellViewModel>){
         try {
             ({

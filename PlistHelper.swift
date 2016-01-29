@@ -10,7 +10,6 @@ import Foundation
 
 var fileManager = NSFileManager.defaultManager()
 let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
-//存放本地plist文件的路径
 var documentsDirectory:String!
 var sleepcareResultDictionary:NSMutableDictionary?
 
@@ -38,7 +37,6 @@ func InitPlistFile(){
         //fileManager.removeItemAtPath(path, error: nil)
     }
     sleepcareResultDictionary = NSMutableDictionary(contentsOfFile: path)
-    //println("Loaded sleepcare.plist file is --> \(sleepcareResultDictionary?.description)")
 }
 //读取theme元素
 func GetValueFromThemePlist(theme:String,key:String,filename:String) ->String{
@@ -69,7 +67,7 @@ func GetValueFromReadOnlyPlist(key:String,filename:String) ->String{
         return ""
 }
 
-    //从本地plist读取键值
+//从本地plist读取键值
 func GetValueFromPlist(key:String,filename:String) -> String{
     let path = documentsDirectory.stringByAppendingPathComponent(filename)
     if fileManager.fileExistsAtPath(path) {
@@ -97,7 +95,6 @@ func SetValueIntoPlist(key:String, value:String){
 func IsPlistDataEmpty()->Bool{
     var ip =  GetValueFromPlist("xmppserver","sleepcare.plist")
     var port =  GetValueFromPlist("xmppport","sleepcare.plist")
-  //  var pwd =  GetValueFromPlist("PWD","sleepcare.plist")
     var server =  GetValueFromPlist("serverjid","sleepcare.plist")
     
     if (ip=="" || port=="" ||  server=="" ){

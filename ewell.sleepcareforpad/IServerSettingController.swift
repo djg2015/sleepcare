@@ -25,6 +25,7 @@ class IServerSettingController:IBaseViewController {
     @IBOutlet weak var imgBack: UIImageView!
     
     @IBOutlet weak var topView: UIView!
+    
     //-----------界面事件定义----------------
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,7 @@ class IServerSettingController:IBaseViewController {
       IViewControllerManager.GetInstance()!.CloseViewController()
     }
     
+    //保存服务器信息，写入本地plist文件，弹窗提示操作成功
     @IBAction func btnSave(sender: AnyObject) {
         try {
             ({
@@ -70,6 +72,7 @@ class IServerSettingController:IBaseViewController {
             )}
     }
     
+    //点击确认后关闭当前页面
     func clickOK(action:UIAlertAction!)
     {
       IViewControllerManager.GetInstance()!.CloseViewController()

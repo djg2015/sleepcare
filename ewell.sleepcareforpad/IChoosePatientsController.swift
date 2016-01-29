@@ -62,7 +62,6 @@ class IChoosePatientsController: IBaseViewController {
         self.btnConfirm.backgroundColor = themeColor[themeName]
         self.viewModel = IChoosePatientsViewModel()
         self.viewModel.myPatientsViewModel = self.myPatientsViewModel
-     //   self.viewModel.controllerForIphone = self
         RACObserve(self.viewModel, "PartBedUserArray") ~> RAC(self, "PartBedUserArray")
         self.btnConfirm.rac_command = self.viewModel.commitCommand
         self.tbParts.ShowTableView("PartTableCell",cellID: "partCell", source: self.viewModel.PartArray, cellHeight: 80)

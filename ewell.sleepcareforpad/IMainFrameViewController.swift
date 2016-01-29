@@ -22,7 +22,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     @IBOutlet weak var lblAlarmCount: UILabel!
     @IBOutlet weak var imgAlarm: UIImageView!
     
-
+    
     var spinner:JHSpinnerView?
     var iRRMonitorView:IRRMonitor? = nil
     var iHRMonitorView:IHRMonitor? = nil
@@ -90,7 +90,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         self.btnRR!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-               self.ClickRR()
+                self.ClickRR()
         }
         self.btnSleep!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
@@ -100,7 +100,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         self.btnMe!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-               self.ClickMe()
+                self.ClickMe()
         }
         
         //设置主体界面
@@ -125,10 +125,10 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     
     override func Clean(){
         if self.iHRMonitorView != nil{
-        self.iHRMonitorView!.Clean()
+            self.iHRMonitorView!.Clean()
         }
         if self.iRRMonitorView != nil{
-        self.iRRMonitorView!.Clean()
+            self.iRRMonitorView!.Clean()
         }
     }
     
@@ -152,7 +152,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         }
         
     }
- 
+    
     func ClickRR(){
         if(nil != self.bedUserCode && session!.CurPatientCode != "")
         {
@@ -184,7 +184,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         {
             showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder), title: "")
         }
-}
+    }
     func ClickMe(){
         self.curMenu = self.uiMe
         let selfConfiguration = NSBundle.mainBundle().loadNibNamed("IMySelfConfiguration", owner: self, options: nil).first as! IMySelfConfiguration
@@ -202,9 +202,9 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
             if self.curMenu == self.uiHR{
                 self.ClickRR()
             }else if self.curMenu == self.uiRR{
-            self.ClickSleep()
+                self.ClickSleep()
             }else if self.curMenu == self.uiSleepCare{
-            self.ClickMe()
+                self.ClickMe()
             }
             break
         case UISwipeGestureRecognizerDirection.Right:
@@ -229,9 +229,6 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     
     //显示菜单界面
     func showBody(jumpview:UIView, nibName:String){
-        //        for(var i = 0 ; i < self.svMain.subviews.count; i++) {
-        //            self.svMain.subviews[i].removeFromSuperview()
-        //        }
         
         jumpview.frame = CGRectMake(0, 0, self.svMain.frame.width, self.svMain.frame.height)
         self.svMain.addSubview(jumpview)
@@ -283,5 +280,5 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
             self.imgAlarm.hidden = true
         }
     }
-
+    
 }

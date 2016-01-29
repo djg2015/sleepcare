@@ -132,6 +132,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         else{
             try {
                 ({
+                    //检查输入是否合法
                     if(self.LoginName == ""){
                         showDialogMsg(ShowMessage(MessageEnum.LoginnameNil))
                         return
@@ -149,6 +150,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                         showDialogMsg(ShowMessage(MessageEnum.PwdExistBlank))
                         return
                     }
+                    
                     //给openfire username赋值，＝loginname@server address
                     let xmppusernamephone = self.LoginName + "@" + GetValueFromPlist("xmppserver","sleepcare.plist")
                     SetValueIntoPlist("xmppusernamephone", xmppusernamephone)
@@ -163,19 +165,18 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                         //获取当前帐户下的用户信息
                         var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                         var loginUser:ILoginUser = sleepCareForIPhoneBussinessManager.Login(self.LoginName, loginPassword: self.Pwd)
-                        //开启session，报警提示
+                        
+                        //开启session，纪录登录名，密码
                         SessionForIphone.SetSession(loginUser)
                         SetValueIntoPlist("loginusernamephone", self.LoginName)
                         SetValueIntoPlist("loginuserpwdphone", self.Pwd)
-                    
-                        
                         var session = SessionForIphone.GetSession()
                         session!.OldPwd = self.Pwd
+                        
                         //跳转选择用户类型
                         if(loginUser.UserType == LoginUserType.UnKnow){
                                 let nextcontroller = ISetUserTypeController(nibName:"ISetUserType", bundle:nil)
                                 IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "ISetUserType", reload: true)
-                            
                         }
                         else{
                             //获取当前关注的老人
@@ -196,7 +197,6 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                                     
                                     let nextcontroller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:self.iBedUserList!.bedUserInfoList[0].BedUserCode,equipmentID:self.iBedUserList!.bedUserInfoList[0].EquipmentID,bedUserName:self.iBedUserList!.bedUserInfoList[0].BedUserName)
                                     IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IMainFrame", reload: true)
-                                    
                                 }
                                 else{
                                     //当前为监护人类型，则跳转我的老人页面，选择一个老人进行关注

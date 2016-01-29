@@ -17,8 +17,7 @@ class ILoginController: IBaseViewController {
     @IBOutlet weak var btnLogin: BlueButtonForPhone!
     @IBOutlet weak var btnRegist: BlueButtonForPhone!
     var iloginViewModel:IloginViewModel!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         rac_settings()
@@ -55,11 +54,6 @@ class ILoginController: IBaseViewController {
              var nextcontroller = IRegistViewController(nibName: "IRegist", bundle: nil)
              IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IRegist",reload: true)
         }
-//        // 给图片添加手势
-//        self.imgTitle.userInteractionEnabled = true
-//        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
-//        self.imgTitle .addGestureRecognizer(singleTap)
-
     }
 
     @IBAction func imageViewTouch(sender:AnyObject){

@@ -66,7 +66,7 @@ class IChoosePatientsViewModel: BaseViewModel {
     }
     
     //自定义处理----------------------
-    //初始化数据加载
+    //初始化viewmodel，获取当前养老院下的所有未选择关注的老人
     func InitData(){
         try {
             ({
@@ -79,7 +79,7 @@ class IChoosePatientsViewModel: BaseViewModel {
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
                 var mainInfo:IMainInfo = sleepCareForIPhoneBussinessManager.GetPartInfoWithoutFollowBedUser(session!.User!.LoginName,mainCode:session!.User!.MainCode)
-              //   var mainInfo:IMainInfo = sleepCareForIPhoneBussinessManager.GetPartInfoByMainCode(session!.User!.MainCode)
+             
                 self.PartArray = Array<PartTableViewModel>()
                 self.PartBedUserDic = Dictionary<String,Array<BedPatientViewModel>>()
                 for(var i=0;i<mainInfo.PartInfoList.count;i++){
@@ -119,7 +119,7 @@ class IChoosePatientsViewModel: BaseViewModel {
         
     }
     
-    //确认关注
+    //确认关注,把要关注的老人加入到我的老人列表中
     func commit() -> RACSignal{
         try {
             ({
@@ -132,9 +132,7 @@ class IChoosePatientsViewModel: BaseViewModel {
                             var myPatientsTableCellViewModel:MyPatientsTableCellViewModel = MyPatientsTableCellViewModel()
                             myPatientsTableCellViewModel.BedUserCode = choosedbedUsers[i].BedUserCode
                             myPatientsTableCellViewModel.BedUserName = choosedbedUsers[i].BedUserName
-                            
                             myPatientsTableCellViewModel.PartCode = choosedbedUsers[i].PartCode
-                            
                             myPatientsTableCellViewModel.PartName = choosedbedUsers[i].PartName
                             myPatientsTableCellViewModel.BedNum = choosedbedUsers[i].BedNum
                             myPatientsTableCellViewModel.RoomNum = choosedbedUsers[i].RoomNum
@@ -144,9 +142,8 @@ class IChoosePatientsViewModel: BaseViewModel {
                     
                 }
                 IViewControllerManager.GetInstance()!.CloseViewController()
-
                 self.myPatientsViewModel.AddPatients(choosedPatients)
-                                },
+                },
                 catch: { ex in
                     //异常处理
                     handleException(ex,showDialog: true)
@@ -159,6 +156,7 @@ class IChoosePatientsViewModel: BaseViewModel {
         return RACSignal.empty()
         
     }
+    
     var lasedPartCode = ""
     //加载选择的科室对应的床位
     func ChoosedPart(partTableViewModel:PartTableViewModel){

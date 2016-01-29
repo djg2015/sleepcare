@@ -169,7 +169,6 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
         RACObserve(self.sleepQualityViewModel, "ProcessMaxValue") ~> RAC(self.process, "maxProcess")
         RACObserve(self.sleepQualityViewModel, "ProcessValue") ~> RAC(self.process, "currentProcess")
         RACObserve(self.sleepQualityViewModel, "SleepQuality") ~> RAC(self.lblSleepQuality, "text")
-   
         RACObserve(self.sleepQualityViewModel, "DeepSleepTimespan") ~> RAC(self.lblDeepSleepTimespan, "text")
         RACObserve(self.sleepQualityViewModel, "LightSleepTimespan") ~> RAC(self.lblLightSleepTimespan, "text")
         RACObserve(self.sleepQualityViewModel, "AwakeningTimespan") ~> RAC(self.lblAwakeningTimespan, "text")
@@ -179,7 +178,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
   
         self.sleepQualityViewModel.SelectedDate = getCurrentTime("yyyy-MM-dd")
 
-        // 给图片添加手势
+        // 给各个图片添加手势
         self.imgMoveLeft.userInteractionEnabled = true
         var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "moveLeft:")
         self.imgMoveLeft.addGestureRecognizer(singleTap)
@@ -192,7 +191,6 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
         var singleTap3:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showDownload")
         self.imgDownload.addGestureRecognizer(singleTap3)
         
-        //周睡眠查看
         self.imgWeekSleep.userInteractionEnabled = true
         var singleTap4:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showWeekSleep:")
         self.imgWeekSleep.addGestureRecognizer(singleTap4)
@@ -200,7 +198,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
 
     }
     
-    //显示周睡眠
+    //点击查看周睡眠
     func showWeekSleep(sender:UITapGestureRecognizer){
         var screen:UIScreen = UIScreen.mainScreen()
         var devicebounds:CGRect = screen.bounds
@@ -211,27 +209,26 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
         self.addSubview(alertview)
     }
     
-    //选中某天查看对应的周睡眠
+    //对日期空间，选中某天查看对应的周睡眠
     func SelectDateEnd(sender:UIView,dateString:String)
     {
         let controller = IWeekSleepcareController(nibName:"IWeekSleepcare", bundle:nil,bedusercode:self._bedUserCode!,searchdate:dateString)
         IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IWeekSleepcare", reload: true)
     }
     
+    //点击操作，查看当前日期的昨天／明天
     func moveLeft(sender:UITapGestureRecognizer)
     {
         self.sleepQualityViewModel.SelectedDate = Date(string: self.sleepQualityViewModel.SelectedDate, format: "yyyy-MM-dd").addDays(-1).description(format: "yyyy-MM-dd")
     }
-    
     func moveRight(sender:UITapGestureRecognizer)
     {
         self.sleepQualityViewModel.SelectedDate = Date(string: self.sleepQualityViewModel.SelectedDate, format: "yyyy-MM-dd").addDays(1).description(format: "yyyy-MM-dd")
     }
 
-    
+    //把睡眠周报表发送到email邮箱
     func showDownload()
     {
-     
             self.email = IEmailViewController(nibName: "IEmailView", bundle: nil)
             self.email!.BedUserCode = self._bedUserCode!
             self.email!.ParentController = self.parentController

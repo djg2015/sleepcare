@@ -38,6 +38,7 @@ class ISetUserTypeViewModel: BaseViewModel {
                     showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
                 }
                 else{
+                //纪录用户类型
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var loginUser:SessionForIphone = SessionForIphone.GetSession()!
                 sleepCareForIPhoneBussinessManager.SaveUserType(loginUser.User!.LoginName, userType: userType)

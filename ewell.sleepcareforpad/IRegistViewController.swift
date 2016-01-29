@@ -18,9 +18,7 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
     @IBOutlet weak var btnRegist: BlueButtonForPhone!
     @IBOutlet weak var btnChooseRole: UIButton!
     @IBOutlet weak var lblReadProtocol: UILabel!
-    
-    
-    
+
     var popDownListForIphone:PopDownListForIphone?
     var iRegistViewModel:IRegistViewModel!
     var checkBoxImageName:String = "default_registUncheck.png"

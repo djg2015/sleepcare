@@ -152,9 +152,9 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
                 }
                 else{
+                    //连接成功，获取某床位用户呼吸报告
                 var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var rrRange:IRRRange = sleepCareForIPhoneBLL.GetRRTimeReport(self.BedUserCode!)
-                
                 for report in rrRange.rrTimeReportList{
                     self._rrTimeReport.append(report)
                 }

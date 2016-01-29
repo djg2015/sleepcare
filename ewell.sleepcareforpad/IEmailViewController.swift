@@ -38,7 +38,6 @@ class IEmailViewController: IBaseViewController {
         RACObserve(self, "ParentController") ~> RAC(self.emailViewModel, "ParentController")
         
         self.txtEmailAddress.rac_textSignal() ~> RAC(self.emailViewModel, "EmailAddress")
-        
         self.btnSendEmail.rac_command = self.emailViewModel.sendEmailCommand
     }
     

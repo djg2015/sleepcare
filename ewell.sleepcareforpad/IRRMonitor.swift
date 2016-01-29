@@ -12,21 +12,18 @@ class IRRMonitor: UIView{
     
     @IBOutlet weak var statusImage: UIImageView!
     @IBOutlet weak var lblOnBedStatus: UILabel!
-    
     @IBOutlet weak var processRR: CircularLoaderView!
-    
     @IBOutlet weak var lblLastRR: UILabel!
-    
     @IBOutlet weak var viewChart: BackgroundCommon!
-    
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var lblBedUserName: UILabel!
+    
+    
     var rrMonitorViewModel:IRRMonitorViewModel?
     var parentController:IBaseViewController!
     var lblRR:UILabel!
     var _bedUserCode:String = ""
     var _bedUserName:String = ""
-    
     var RRdelegate:LoadingRRDelegate!
     var loadingFlag:Bool = false
     
@@ -41,7 +38,6 @@ class IRRMonitor: UIView{
             else
             {
                 lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height * 206/522 - 30))
-                
             }
             
             lineChart!.yFixedValueMin = 1
@@ -75,9 +71,7 @@ class IRRMonitor: UIView{
                 lineChart!.strokeChart()
                 self.viewChart.addSubview(lineChart!)
                 
-                
                 lineChart!.legendStyle = PNLegendItemStyle.Serial
-                //                lineChart.legendFont.fontWithSize(12)
                 let legend = lineChart!.getLegendWithMaxWidth(self.viewChart.frame.width)
                 legend.frame = CGRectMake(65, 5, self.viewChart.frame.width - 10, self.viewChart.frame.height - 10)
                 self.viewChart.addSubview(legend)
@@ -91,6 +85,7 @@ class IRRMonitor: UIView{
         }
     }
     
+    //在离床状态改变，对应改变圆圈的颜色
     var statusImageName:String?
         {
         didSet{
@@ -107,7 +102,6 @@ class IRRMonitor: UIView{
         self._bedUserCode = bedUserCode
         self._bedUserName = bedUserName
         self.parentController = parentController
-        
         self.topView.backgroundColor = themeColor[themeName]
        
         // 画出圆圈中间内容
@@ -138,6 +132,7 @@ class IRRMonitor: UIView{
         self.setTimer()
     }
    
+    //定时器，隔0.5秒检查是否完全载入数据
     func setTimer(){
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
         timer.fire()
