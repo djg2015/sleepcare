@@ -1284,6 +1284,7 @@
 				3AC7B0E31BF42EFB002DE94C /* IloginViewModel.swift */,
 				3AC70CBF1BF9A19600814082 /* ISetUserTypeViewModel.swift */,
 				3AC7B0F51BF45575002DE94C /* IRegistViewModel.swift */,
+				0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */,
 				3ACD645D1BFC577A00FB62BB /* IChoosePatientsViewModel.swift */,
 				3AF844C41BFD619E00B5EDE3 /* IMyPatientsViewModel.swift */,
 				3ACD645F1BFC777400FB62BB /* IHRMonitorViewModel.swift */,
@@ -1292,7 +1293,6 @@
 				0DC228581C23AE0900AF4737 /* IAlarmViewModel.swift */,
 				2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */,
 				2CC2F1C91BFEBFC400E14328 /* IEquipmentViewModel.swift */,
-				0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";

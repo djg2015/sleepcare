@@ -20,7 +20,6 @@ class XmppMsgManager:MessageDelegate{
     var _realTimeDelegate:RealTimeDelegate?=nil
     var _waringAttentionDelegate:WaringAttentionDelegate?=nil
     var isInstance = false
-    var senddataLastInterval:NSDate?
     
     
     private init(){
@@ -87,7 +86,6 @@ class XmppMsgManager:MessageDelegate{
     //发送数据--等待数据响应
     func SendData(baseMessage:BaseMessage,timeOut:NSTimeInterval=10)->BaseMessage?{
 
-        senddataLastInterval = NSDate()
         _xmppMsgHelper?.sendElement(baseMessage.ToXml())
         requsetQuene[baseMessage.messageSubject.requestID!] = self
         
