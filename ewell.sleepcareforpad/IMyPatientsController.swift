@@ -79,6 +79,9 @@ class IMyPatientsController: IBaseViewController {
         if(self.isGoLogin){
             self.btnBack.hidden = true
         }
+        else{
+        self.btnBack.hidden = false
+        }
         
         self.btnBack!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
