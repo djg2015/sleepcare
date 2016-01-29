@@ -97,19 +97,19 @@ class CircularLoaderView: UIView {
             self.centerTitleView = UIView(frame: CGRect(x: 0, y: 20, width: bounds.width, height: bounds.height - 30))
         }
         self.addSubview(self.centerTitleView!)
-
+        
         backgroundColor = UIColor.clearColor()
     }
     
     // 绘制内圆
     func circlePath() -> UIBezierPath {
-        //        return UIBezierPath(ovalInRect: circleFrame())
         return UIBezierPath(arcCenter: CGPoint(x: CGRectGetMidX(circlePathLayer.bounds),y: CGRectGetMidY(circlePathLayer.bounds)), radius: circleRadius, startAngle: (CGFloat)(M_PI / 2 + M_PI / 6), endAngle: (CGFloat)(M_PI * 2 + M_PI / 2 - M_PI / 6), clockwise: true)
     }
     
     // 绘制外圆
     func circlePath1() -> UIBezierPath {
-        //        return UIBezierPath(ovalInRect: circleFrame())
+        self.SetCircleColor()
+        
         var v = (Double)(5 / 3 * (Double)(self.currentProcess / self.maxProcess))
         if(v == 0)
         {
@@ -120,6 +120,44 @@ class CircularLoaderView: UIView {
             return UIBezierPath(arcCenter: CGPoint(x: CGRectGetMidX(circlePathLayer.bounds),y: CGRectGetMidY(circlePathLayer.bounds)), radius: circleRadius, startAngle: (CGFloat)(M_PI / 2 + M_PI / 6), endAngle: (CGFloat)(2 * M_PI / 3 + M_PI * v), clockwise: true)
         }
     }
+    
+    //给睡眠页面的外圆上色
+    func SetCircleColor(){
+        switch bottomTitle{
+        case "当前呼吸":
+            if currentProcess < 10.0{
+            self.circlePathLayerBig.strokeColor = LOWCOLOR.CGColor
+            }
+            else if currentProcess < 30.0{
+             self.circlePathLayerBig.strokeColor = MEDIUMCOLOR.CGColor
+            }
+            else {
+            self.circlePathLayerBig.strokeColor = HIGHCOLOR.CGColor
+            }
+        case "当前心率":
+            if currentProcess < 50.0{
+                self.circlePathLayerBig.strokeColor = LOWCOLOR.CGColor
+            }
+            else if currentProcess < 100.0{
+                self.circlePathLayerBig.strokeColor = MEDIUMCOLOR.CGColor
+            }
+            else {
+                self.circlePathLayerBig.strokeColor = HIGHCOLOR.CGColor
+            }
+        case "睡眠状态":
+            if currentProcess < 30.0{
+                self.circlePathLayerBig.strokeColor = LOWCOLOR.CGColor
+            }
+            else {
+                self.circlePathLayerBig.strokeColor = MEDIUMCOLOR.CGColor
+            }
+
+        default:
+            break
+        }
+    }
+    
+  
     
     override func layoutSubviews() {
         super.layoutSubviews()

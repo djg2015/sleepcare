@@ -85,17 +85,6 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
         set(value)
         {
             self._currentHR = value
-            var intHR = value!.toInt()
-            if intHR < 50{
-                CircleValueStatus = "low"
-            }
-            else if(intHR < 101){
-                CircleValueStatus = "medium"
-            }
-            else{
-                CircleValueStatus = "high"
-            }
-
         }
     }
     
@@ -145,16 +134,7 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
         }
     }
     
-    //圆圈阈值
-    var _circleValueStatus:String = "无"
-    dynamic var CircleValueStatus:String{
-        get{
-            return self._circleValueStatus
-        }
-        set(value){
-            self._circleValueStatus = value
-        }
-    }
+
     
     override init()
     {

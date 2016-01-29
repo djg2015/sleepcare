@@ -86,27 +86,7 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
         set(value)
         {
             self._currentRR = value
-            var intRR = value!.toInt()
-            if intRR < 10{
-                CircleValueStatus = "low"
-            }
-            else if(intRR < 30){
-                CircleValueStatus = "medium"
-            }
-            else{
-                CircleValueStatus = "high"
-            }
-
-        }
-    }
-    //圆圈阈值
-    var _circleValueStatus:String = "无"
-    dynamic var CircleValueStatus:String{
-        get{
-            return self._circleValueStatus
-        }
-        set(value){
-            self._circleValueStatus = value
+ 
         }
     }
     // 上一次平均呼吸

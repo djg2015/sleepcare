@@ -12,13 +12,11 @@
     class IMySelfConfiguration: UIView,SetAlarmPicDelegate{
         
         @IBOutlet weak var menuTableView: ConfiurationTabeView!
-        
-        
         @IBOutlet weak var lblManType: UILabel!
-        
         @IBOutlet weak var BtnExit: UIButton!
-        var parentController:IBaseViewController!
         
+        
+        var parentController:IBaseViewController!
         var menuAlarm:ConfigurationViewModel!
         // 界面初始化
         func viewInit(parentController:IBaseViewController?,bedUserCode:String?,equipmentID:String?)
@@ -28,7 +26,7 @@
             var menu:ConfigurationViewModel = ConfigurationViewModel()
             IAlarmHelper.GetAlarmInstance().alarmpicdelegate = self
             
-            
+            self.BtnExit.backgroundColor = themeColor[themeName]
             // 根据用户类型(监护人/使用者)设置对应的菜单 1.使用者 2.监护人
             if(SessionForIphone.GetSession()!.User?.UserType == LoginUserType.Monitor)
             {

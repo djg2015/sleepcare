@@ -35,15 +35,18 @@ class ISleepQualityMonitorViewModel: BaseViewModel {
                         }
                         else if(report.SleepQuality == "良")
                         {
-                            self.ProcessValue = 80
+                            self.ProcessValue = 75
+                           
                         }
                         if(report.SleepQuality == "中")
                         {
-                            self.ProcessValue = 60
+                            self.ProcessValue = 50
+                            
                         }
                         if(report.SleepQuality == "一般")
                         {
-                            self.ProcessValue = 20
+                            self.ProcessValue = 25
+                           
                         }
                         if(report.SleepQuality == "")
                         {
@@ -153,15 +156,6 @@ class ISleepQualityMonitorViewModel: BaseViewModel {
         }
         set(value){
             self._sleepQuality = value
-            if value == "一般"{
-            CircleValueStatus = "low"
-            }
-            else if(value == "中" || value == "良"){
-            CircleValueStatus = "medium"
-            }
-            else if value == "优"{
-            CircleValueStatus = "high"
-            }
         }
     }
     
@@ -217,16 +211,6 @@ class ISleepQualityMonitorViewModel: BaseViewModel {
         }
         set(value){
             self._sleepRange = value
-        }
-    }
-    //圆圈阈值
-    var _circleValueStatus:String = "无"
-    dynamic var CircleValueStatus:String{
-        get{
-            return self._circleValueStatus
-        }
-        set(value){
-            self._circleValueStatus = value
         }
     }
 }

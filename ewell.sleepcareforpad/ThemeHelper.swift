@@ -9,7 +9,7 @@
 import Foundation
 
 let DEFAULTCOLOR = UIColor.colorFromRGB(0x2052AA)
-let BLACKCOLOR = UIColor.colorFromRGB(0x141517)
+let BLACKCOLOR = UIColor.colorFromRGB(0x1F222C)
 
 var themeName:String = "default"
 var themeColor:Dictionary<String,UIColor> = ["default": DEFAULTCOLOR,"black": BLACKCOLOR]

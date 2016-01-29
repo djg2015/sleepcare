@@ -100,20 +100,6 @@ class IRRMonitor: UIView{
         }
     }
     
-    var circleValueStatus:String?{
-        didSet{
-            if circleValueStatus == "low"{
-                self.processRR.circlePathLayerBig.strokeColor = LOWCOLOR.CGColor
-            }
-            else if circleValueStatus == "medium"{
-                self.processRR.circlePathLayerBig.strokeColor = MEDIUMCOLOR.CGColor
-            }
-            else if circleValueStatus == "high"{
-                self.processRR.circlePathLayerBig.strokeColor = HIGHCOLOR.CGColor
-            }
-            
-        }
-    }
     
     func viewInit(parentController:IBaseViewController?,bedUserCode:String,bedUserName:String)
     {
@@ -147,7 +133,6 @@ class IRRMonitor: UIView{
         RACObserve(self, "_bedUserCode") ~> RAC(self.rrMonitorViewModel, "BedUserCode")
         RACObserve(self.rrMonitorViewModel, "RRTimeReport") ~> RAC(self, "RRTimeReportList")
         RACObserve(self, "_bedUserName") ~> RAC(self.lblBedUserName, "text")
-        RACObserve(self.rrMonitorViewModel, "CircleValueStatus") ~> RAC(self, "circleValueStatus")
         RACObserve(self.rrMonitorViewModel, "LoadingFlag") ~> RAC(self, "loadingFlag")
         
         self.setTimer()

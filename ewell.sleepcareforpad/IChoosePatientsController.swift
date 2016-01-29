@@ -59,6 +59,7 @@ class IChoosePatientsController: IBaseViewController {
     func rac_Setting(){
         self.view.backgroundColor = themeColor[themeName]
         
+        self.btnConfirm.backgroundColor = themeColor[themeName]
         self.viewModel = IChoosePatientsViewModel()
         self.viewModel.myPatientsViewModel = self.myPatientsViewModel
      //   self.viewModel.controllerForIphone = self

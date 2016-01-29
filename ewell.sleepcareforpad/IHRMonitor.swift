@@ -98,20 +98,7 @@ class IHRMonitor: UIView{
         }
     }
 
-    var circleValueStatus:String?{
-        didSet{
-            if circleValueStatus == "low"{
-                self.processHR.circlePathLayerBig.strokeColor = LOWCOLOR.CGColor
-            }
-            else if circleValueStatus == "medium"{
-                self.processHR.circlePathLayerBig.strokeColor = MEDIUMCOLOR.CGColor
-            }
-            else if circleValueStatus == "high"{
-                self.processHR.circlePathLayerBig.strokeColor = HIGHCOLOR.CGColor
-            }
-            
-        }
-    }
+
     
     func viewInit(parentController:IBaseViewController?,bedUserCode:String,bedUserName:String)
     {
@@ -141,7 +128,7 @@ class IHRMonitor: UIView{
         RACObserve(self.hrMonitorViewModel, "LastAvgHR") ~> RAC(self.lblLastHR, "text")
         RACObserve(self.hrMonitorViewModel, "ProcessMaxValue") ~> RAC(self.processHR, "maxProcess")
         RACObserve(self.hrMonitorViewModel, "ProcessValue") ~> RAC(self.processHR, "currentProcess")
-        RACObserve(self.hrMonitorViewModel, "CircleValueStatus") ~> RAC(self, "circleValueStatus")
+      
         self.hrMonitorViewModel!.BedUserCode = bedUserCode
         RACObserve(self.hrMonitorViewModel, "HRTimeReport") ~> RAC(self, "HRTimeReportList")
         RACObserve(self, "_bedUserName") ~> RAC(self.lblBedUserName, "text")

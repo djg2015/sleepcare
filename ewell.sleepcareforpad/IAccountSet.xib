@@ -131,27 +131,42 @@
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2M-Tg-ntJ">
-                            <rect key="frame" x="174" y="5" width="41" height="35"/>
-                            <animations/>
+                        <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Bud-WS-qU8" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                            <rect key="frame" x="184" y="14" width="24" height="19"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2M-Tg-ntJ">
+                                    <rect key="frame" x="1" y="1" width="23" height="18"/>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="18" id="C1c-R0-ARi"/>
+                                        <constraint firstAttribute="width" constant="23" id="fi3-fd-yBi"/>
+                                    </constraints>
+                                    <state key="normal">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="35" id="C1c-R0-ARi"/>
-                                <constraint firstAttribute="width" constant="41" id="fi3-fd-yBi"/>
+                                <constraint firstAttribute="trailing" secondItem="i2M-Tg-ntJ" secondAttribute="trailing" id="TZT-kS-cRb"/>
+                                <constraint firstItem="i2M-Tg-ntJ" firstAttribute="top" secondItem="Bud-WS-qU8" secondAttribute="top" constant="1" id="bw2-Vv-JX8"/>
+                                <constraint firstAttribute="width" constant="24" id="oRV-gd-4kg"/>
+                                <constraint firstAttribute="height" constant="19" id="wFR-Ep-zPM"/>
                             </constraints>
-                            <state key="normal" image="registdownarrow.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="registdownarrow"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="i2M-Tg-ntJ" secondAttribute="trailing" constant="3" id="0D3-Xw-N3I"/>
                         <constraint firstAttribute="width" constant="218" id="ASf-4I-hbR"/>
                         <constraint firstItem="MlW-Tj-IPa" firstAttribute="top" secondItem="mQc-e7-fer" secondAttribute="top" constant="7" id="KBl-An-Jov"/>
+                        <constraint firstAttribute="trailing" secondItem="Bud-WS-qU8" secondAttribute="trailing" constant="10" id="Oad-IX-jbF"/>
                         <constraint firstAttribute="height" constant="43" id="TnR-sf-x9d"/>
                         <constraint firstItem="MlW-Tj-IPa" firstAttribute="leading" secondItem="mQc-e7-fer" secondAttribute="leading" constant="8" id="kNW-j3-phA"/>
-                        <constraint firstItem="i2M-Tg-ntJ" firstAttribute="top" secondItem="mQc-e7-fer" secondAttribute="top" constant="5" id="q4e-rk-ipu"/>
+                        <constraint firstItem="Bud-WS-qU8" firstAttribute="top" secondItem="mQc-e7-fer" secondAttribute="top" constant="14" id="uE2-h4-jBe"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="registinputdownborder"/>
@@ -208,7 +223,6 @@
     </objects>
     <resources>
         <image name="logotm.png" width="300" height="60"/>
-        <image name="registdownarrow.png" width="52" height="52"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

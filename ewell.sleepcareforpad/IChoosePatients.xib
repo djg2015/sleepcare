@@ -63,7 +63,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePV-YJ-2OM">
                     <rect key="frame" x="113" y="503" width="207" height="65"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EnC-9U-7bb">
+                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EnC-9U-7bb">
                             <rect key="frame" x="40" y="13" width="127" height="40"/>
                             <animations/>
                             <constraints>
@@ -71,7 +71,7 @@
                                 <constraint firstAttribute="width" constant="127" id="yzR-UL-ul0"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                            <state key="normal" title="确认关注" backgroundImage="blueBtnBack.png">
+                            <state key="normal" title="确认关注">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -117,7 +117,6 @@
     </objects>
     <resources>
         <image name="backBtn.png" width="54" height="54"/>
-        <image name="blueBtnBack.png" width="202" height="72"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

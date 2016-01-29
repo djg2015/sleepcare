@@ -10,6 +10,7 @@
                 <outlet property="btnBack" destination="wnd-xb-TPq" id="mbP-iP-7RO"/>
                 <outlet property="btnChooseRole" destination="KOP-hJ-Z4a" id="Igg-wk-XLF"/>
                 <outlet property="btnRegist" destination="CDC-Iz-THK" id="xLX-DT-oMP"/>
+                <outlet property="lblReadProtocol" destination="m3a-4o-wuw" id="DVW-CX-bss"/>
                 <outlet property="txtLoginName" destination="IQl-LX-zcl" id="rrf-xi-n21"/>
                 <outlet property="txtMain" destination="5ZE-Hb-9hQ" id="CcJ-ZB-bHT"/>
                 <outlet property="txtPwd" destination="jEY-Nw-OT8" id="o6O-Ef-1ue"/>
@@ -132,26 +133,41 @@
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOP-hJ-Z4a">
-                            <rect key="frame" x="174" y="5" width="41" height="35"/>
-                            <animations/>
+                        <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Ljg-n9-bTH" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                            <rect key="frame" x="183" y="13" width="24" height="19"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOP-hJ-Z4a">
+                                    <rect key="frame" x="1" y="1" width="23" height="18"/>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="18" id="dcf-Ih-S7j"/>
+                                        <constraint firstAttribute="width" constant="23" id="q5J-s3-D2M"/>
+                                    </constraints>
+                                    <state key="normal">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="35" id="dcf-Ih-S7j"/>
-                                <constraint firstAttribute="width" constant="41" id="q5J-s3-D2M"/>
+                                <constraint firstAttribute="trailing" secondItem="KOP-hJ-Z4a" secondAttribute="trailing" id="3wO-k9-qPP"/>
+                                <constraint firstItem="KOP-hJ-Z4a" firstAttribute="top" secondItem="Ljg-n9-bTH" secondAttribute="top" constant="1" id="HHu-lH-lb5"/>
+                                <constraint firstAttribute="width" constant="24" id="T2b-6c-a4j"/>
+                                <constraint firstAttribute="height" constant="19" id="aLy-Oo-cg1"/>
                             </constraints>
-                            <state key="normal" image="registdownarrow.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="registdownarrow"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="5ZE-Hb-9hQ" firstAttribute="top" secondItem="Tez-bd-O4P" secondAttribute="top" constant="7" id="23v-1V-kUc"/>
                         <constraint firstItem="5ZE-Hb-9hQ" firstAttribute="leading" secondItem="Tez-bd-O4P" secondAttribute="leading" constant="8" id="2EA-kX-iSx"/>
-                        <constraint firstItem="KOP-hJ-Z4a" firstAttribute="top" secondItem="Tez-bd-O4P" secondAttribute="top" constant="5" id="EAl-cE-dyD"/>
+                        <constraint firstItem="Ljg-n9-bTH" firstAttribute="top" secondItem="Tez-bd-O4P" secondAttribute="top" constant="13" id="Czt-LW-ZkC"/>
+                        <constraint firstAttribute="trailing" secondItem="Ljg-n9-bTH" secondAttribute="trailing" constant="11" id="g7B-ah-e4f"/>
                         <constraint firstAttribute="width" constant="218" id="gTN-wg-QYR"/>
-                        <constraint firstAttribute="trailing" secondItem="KOP-hJ-Z4a" secondAttribute="trailing" constant="3" id="kgY-BC-aU0"/>
                         <constraint firstAttribute="height" constant="43" id="r6x-1J-tGs"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -166,6 +182,7 @@
                         <constraint firstAttribute="width" constant="86" id="rud-51-R5S"/>
                     </constraints>
                     <state key="normal" title="注册">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
@@ -177,20 +194,21 @@
                         <constraint firstAttribute="width" constant="86" id="t8a-iM-MAB"/>
                     </constraints>
                     <state key="normal" title="返回">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我已同意用户许可及服务协议" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3a-4o-wuw">
+                <label contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我已同意用户许可及服务协议" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="m3a-4o-wuw">
                     <rect key="frame" x="76" y="358" width="169" height="16"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="169" id="EKK-YT-Sku"/>
                         <constraint firstAttribute="height" constant="16" id="ZoG-dj-cV2"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_registUncheck.png" translatesAutoresizingMaskIntoConstraints="NO" id="HC1-ey-KHO">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_registUncheck.png" translatesAutoresizingMaskIntoConstraints="NO" id="HC1-ey-KHO">
                     <rect key="frame" x="56" y="357" width="16" height="16"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="16" id="fEM-ia-EvK"/>
@@ -232,7 +250,6 @@
     <resources>
         <image name="default_registUncheck.png" width="23" height="23"/>
         <image name="logotm.png" width="300" height="60"/>
-        <image name="registdownarrow.png" width="52" height="52"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

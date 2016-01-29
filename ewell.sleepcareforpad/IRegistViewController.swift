@@ -17,11 +17,14 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
     @IBOutlet weak var btnBack: BlueButtonForPhone!
     @IBOutlet weak var btnRegist: BlueButtonForPhone!
     @IBOutlet weak var btnChooseRole: UIButton!
+    @IBOutlet weak var lblReadProtocol: UILabel!
+    
+    
     
     var popDownListForIphone:PopDownListForIphone?
     var iRegistViewModel:IRegistViewModel!
     var checkBoxImageName:String = "default_registUncheck.png"
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         rac_settings()
@@ -39,15 +42,21 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
         self.txtLoginName.rac_textSignal() ~> RAC(self.iRegistViewModel, "LoginName")
         self.txtPwd.rac_textSignal() ~> RAC(self.iRegistViewModel, "Pwd")
         self.txtRePwd.rac_textSignal() ~> RAC(self.iRegistViewModel, "RePwd")
-       
         
-                self.CheckBox.userInteractionEnabled = true
-                var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "RegistCheckProtocol")
-                self.CheckBox.addGestureRecognizer(singleTap)
+        
+        self.lblReadProtocol.userInteractionEnabled = true
+        var Tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "ReadProtocol")
+        self.lblReadProtocol.addGestureRecognizer(Tap)
+        
+        
+        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "RegistCheckProtocol")
+        self.CheckBox.addGestureRecognizer(singleTap)
         
         self.btnBack!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
+                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+                xmppMsgManager!.Close()
                 IViewControllerManager.GetInstance()!.CloseViewController()
         }
         
@@ -63,27 +72,30 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
         }
     }
     
+    func ReadProtocol(){
+        let jumpPage = IWebViewController(nibName:"WebView",bundle:nil,titleName:"用户服务协议",url:"http://www.sina.com.cn")
+        IViewControllerManager.GetInstance()!.ShowViewController(jumpPage, nibName: "WebView",reload: true)
+
+    
+    }
+    
     func RegistCheckProtocol(){
         //打勾选中，则跳转服务协议页面
         if(self.checkBoxImageName == "default_registUncheck.png"){
             self.checkBoxImageName = "default_registCheck.png"
             self.CheckBox.image = UIImage(named:self.checkBoxImageName)
             self.iRegistViewModel.IsChecked = true
-            let jumpPage = IWebViewController(nibName:"WebView",bundle:nil,titleName:"用户服务协议",url:"http://www.sina.com.cn")
-            IViewControllerManager.GetInstance()!.ShowViewController(jumpPage, nibName: "WebView",reload: true)
         }
         else if(self.checkBoxImageName == "default_registCheck.png"){
             self.checkBoxImageName = "default_registUncheck.png"
             self.CheckBox.image = UIImage(named:self.checkBoxImageName)
             self.iRegistViewModel.IsChecked = false
         }
-
-       
     }
     
     func ChoosedItem(item:PopDownListItem){
         self.iRegistViewModel.MainCode = item.key!
         self.txtMain.text = item.value
     }
-
+    
 }

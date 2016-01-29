@@ -110,21 +110,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
             }
         }
     }
-    
-    var circleValueStatus:String?{
-        didSet{
-            if circleValueStatus == "low"{
-                self.process.circlePathLayerBig.strokeColor = LOWCOLOR.CGColor
-            }
-            else if circleValueStatus == "medium"{
-                self.process.circlePathLayerBig.strokeColor = MEDIUMCOLOR.CGColor
-            }
-            else if circleValueStatus == "high"{
-                self.process.circlePathLayerBig.strokeColor = HIGHCOLOR.CGColor
-            }
 
-        }
-    }
     
     func viewInit(parentController:IBaseViewController?,bedUserCode:String,bedUserName:String)
     {
@@ -183,7 +169,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
         RACObserve(self.sleepQualityViewModel, "ProcessMaxValue") ~> RAC(self.process, "maxProcess")
         RACObserve(self.sleepQualityViewModel, "ProcessValue") ~> RAC(self.process, "currentProcess")
         RACObserve(self.sleepQualityViewModel, "SleepQuality") ~> RAC(self.lblSleepQuality, "text")
-        RACObserve(self.sleepQualityViewModel, "CircleValueStatus") ~> RAC(self, "circleValueStatus")
+   
         RACObserve(self.sleepQualityViewModel, "DeepSleepTimespan") ~> RAC(self.lblDeepSleepTimespan, "text")
         RACObserve(self.sleepQualityViewModel, "LightSleepTimespan") ~> RAC(self.lblLightSleepTimespan, "text")
         RACObserve(self.sleepQualityViewModel, "AwakeningTimespan") ~> RAC(self.lblAwakeningTimespan, "text")
@@ -211,17 +197,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
         var singleTap4:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showWeekSleep:")
         self.imgWeekSleep.addGestureRecognizer(singleTap4)
         
-    
-        
-        if circleValueStatus == "low"{
-            self.process.circlePathLayerBig.strokeColor = LOWCOLOR.CGColor
-        }
-        else if circleValueStatus == "medium"{
-            self.process.circlePathLayerBig.strokeColor = MEDIUMCOLOR.CGColor
-        }
-        else if circleValueStatus == "high"{
-            self.process.circlePathLayerBig.strokeColor = HIGHCOLOR.CGColor
-        }
+
     }
     
     //显示周睡眠
