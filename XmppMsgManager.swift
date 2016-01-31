@@ -84,15 +84,15 @@ class XmppMsgManager:MessageDelegate{
     }
     
     //发送数据--等待数据响应
-    func SendData(baseMessage:BaseMessage,timeOut:NSTimeInterval=10)->BaseMessage?{
+    func SendData(baseMessage:BaseMessage,timeOut:NSTimeInterval=9)->BaseMessage?{
 
         _xmppMsgHelper?.sendElement(baseMessage.ToXml())
         requsetQuene[baseMessage.messageSubject.requestID!] = self
-        
+        var now = NSDate()
         //添加时间判断，没收到数据则抛出异常
         var sec:NSTimeInterval = 0
         while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {
-            sec = NSDate().timeIntervalSinceDate(NSDate())
+            sec = NSDate().timeIntervalSinceDate(now)
             if(sec > timeOut){
                 throw("-2", ShowMessage(MessageEnum.GetDataOvertime))
             }
