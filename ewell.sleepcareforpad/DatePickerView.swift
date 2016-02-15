@@ -12,6 +12,8 @@ import UIKit
 @IBDesignable class DatePickerView: UIView {
 
     var detegate:SelectDateEndDelegate!
+    var datedelegate:SelectDateDelegate!
+    
     var datePicker:UIDatePicker = UIDatePicker()
     var dateButton : UIButton = UIButton()
     
@@ -57,6 +59,10 @@ import UIKit
         if(self.detegate != nil){
             self.detegate.SelectDateEnd(self,dateString: dateString)
         }
+        if(self.datedelegate != nil){
+        self.datedelegate.SelectDate(self, dateString: dateString)
+        
+        }
     }
     
     func cancelAction(){
@@ -79,4 +85,8 @@ import UIKit
 
 protocol SelectDateEndDelegate{
     func SelectDateEnd(sender:UIView,dateString:String)
+}
+
+protocol SelectDateDelegate{
+    func SelectDate(sender:UIView,dateString:String)
 }

@@ -8,14 +8,15 @@
 
 import UIKit
 
-class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
+class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource,EnableCellInteractionDelegate {
     var _source:Array<MyPatientsTableCellViewModel>!
     override init(frame: CGRect) {
         super.init(frame: frame,style:UITableViewStyle.Plain)
 
         self.delegate = self
         self.dataSource = self
-             }
+        
+    }
     
     
     required init(coder aDecoder: NSCoder) {
@@ -25,15 +26,11 @@ class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource
         var cellNib =  UINib(nibName: "MyPatientsTableViewCell", bundle: nil)
         self.registerNib(cellNib, forCellReuseIdentifier: "patientCell")
         self.showsVerticalScrollIndicator = false
-
         self.delegate = self
         self.dataSource = self
     }
    
-    //设置cell的显示样式，背景为clear，分割线顶左
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-
-    }
+   
     
     //返回指定分区的行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -101,10 +98,13 @@ class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource
         self.reloadData()
     }
     
+    
+    func EnableCellInteraction() {
+        self.userInteractionEnabled = true
+    }
+
     //根据数据绑定重载当前表格
     override func reloadData() {
-        
-        
         super.reloadData()
     }
     

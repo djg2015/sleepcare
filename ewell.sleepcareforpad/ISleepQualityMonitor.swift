@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
+class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
     
   @IBOutlet weak var process: CircularLoaderView!
     @IBOutlet weak var imgDownload: UIImageView!
@@ -67,7 +67,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
             var data01:PNLineChartData = PNLineChartData()
             data01.color = PNGreenColor
             data01.itemCount = UInt(data01Array.count)
-            data01.dataTitle = "在床时间"
+            data01.dataTitle = "在床(小时/天)"
             data01.getData = ({(index: UInt)  in
                 var yValue:CGFloat = data01Array[Int(index)]
                 var item = PNLineChartDataItem(y: yValue)
@@ -83,7 +83,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
             var data02:PNLineChartData = PNLineChartData()
             data02.color = PNGreyColor
             data02.itemCount = UInt(data02Array.count)
-            data02.dataTitle = "睡眠时间"
+            data02.dataTitle = "睡眠(小时/天)"
             data02.getData = ({(index: UInt)  in
                 var yValue:CGFloat = data02Array[Int(index)]
                 var item = PNLineChartDataItem(y: yValue)
@@ -195,13 +195,28 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
         var singleTap4:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showWeekSleep:")
         self.imgWeekSleep.addGestureRecognizer(singleTap4)
         
-
+        self.lblSelectDate.userInteractionEnabled = true
+        var singleTap5:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "LableChooseDate:")
+        self.lblSelectDate.addGestureRecognizer(singleTap5)
+        
     }
+    //点击date弹出选择日期的控件
+    func LableChooseDate(sender:UITapGestureRecognizer){
+        var devicebounds:CGRect = UIScreen.mainScreen().bounds
+        
+        //设置日期弹出窗口
+        var alertview:DatePickerView = DatePickerView(frame:devicebounds)
+        alertview.datedelegate = self
+        self.addSubview(alertview)
+    }
+    func SelectDate(sender: UIView, dateString: String) {
+       self.sleepQualityViewModel.SelectedDate = dateString
+    }
+    
     
     //点击查看周睡眠
     func showWeekSleep(sender:UITapGestureRecognizer){
-        var screen:UIScreen = UIScreen.mainScreen()
-        var devicebounds:CGRect = screen.bounds
+        var devicebounds:CGRect = UIScreen.mainScreen().bounds
         
         //设置日期弹出窗口
         var alertview:DatePickerView = DatePickerView(frame:devicebounds)
@@ -209,7 +224,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
         self.addSubview(alertview)
     }
     
-    //对日期空间，选中某天查看对应的周睡眠
+    //对日期控件，选中某天查看对应的周睡眠
     func SelectDateEnd(sender:UIView,dateString:String)
     {
         let controller = IWeekSleepcareController(nibName:"IWeekSleepcare", bundle:nil,bedusercode:self._bedUserCode!,searchdate:dateString)
@@ -237,9 +252,5 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate {
             KNSemiModalOptionKeys.animationDuration:"0.2",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
         
        self.parentController.presentSemiViewController(self.email, withOptions: kNSemiModalOptionKeys)
-    }
-    
-    func ChoosedDate(choosedDate:String?){
-        self.sleepQualityViewModel.SelectedDate = choosedDate!
     }
 }

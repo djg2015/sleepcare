@@ -46,15 +46,11 @@ class MyPatientsTableViewCell: UITableViewCell {
         self.source.selectedBedUserHandler = (data as MyPatientsTableCellViewModel).selectedBedUserHandler
         self.source.deleteBedUserHandler = (data as MyPatientsTableCellViewModel).deleteBedUserHandler
         self.source.EquipmentID = (data as MyPatientsTableCellViewModel).EquipmentID
-        
-        
-       
+
         RACObserve(self.source, "StatusImageName") ~> RAC(self, "statusImageName")
-        
         RACObserve(data, "HR") ~> RAC(self.source, "HR")
         RACObserve(data, "RR") ~> RAC(self.source, "RR")
         RACObserve(data, "BedStatus") ~> RAC(self.source, "BedStatus")
-        
         RACObserve(self.source, "PartName") ~> RAC(self.lblPartName, "text")
         RACObserve(self.source, "BedStatus") ~> RAC(self.lblBedStatus, "text")
         RACObserve(self.source, "HR") ~> RAC(self.lblHR, "text")
@@ -63,33 +59,28 @@ class MyPatientsTableViewCell: UITableViewCell {
         RACObserve(self.source, "RoomNum") ~> RAC(self.lblRoomNum, "text")
         RACObserve(self.source, "BedUserName") ~> RAC(self.lblBedUserName, "text")
         
-        if(!self.bindFlag){
-            
-            
+//        if(!self.bindFlag){
+ 
+//            
 //            //设置箭头点击查看明细
-//            self.imgDetail.userInteractionEnabled = true
-//            var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
+//           self.imgDetail.userInteractionEnabled = true
+//           var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
 //            self.imgDetail .addGestureRecognizer(singleTap)
-            
-            self.bindFlag = true
-            
-        }
+//            self.bindFlag = true
+//        }
         
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        //圆角
-//        self.layerView.layer.masksToBounds = true
-//        self.layerView.layer.cornerRadius = 10
-          }
+    }
     
     func imageViewTouch(){
         if(self.source.selectedBedUserHandler != nil){
             self.source.selectedBedUserHandler!(myPatientsTableViewModel: self.source)
         }
     }
+    
 }
 
 class MyPatientsTableCellViewModel:NSObject{

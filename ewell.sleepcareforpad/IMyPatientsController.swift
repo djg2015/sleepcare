@@ -18,10 +18,13 @@ class IMyPatientsController: IBaseViewController {
     
     @IBOutlet weak var topView: UIView!
     var _width:Int = 0
+    var _height:Int = 0
     var spinner:JHSpinnerView?
     var viewModel:IMyPatientsViewModel!
     var popDownList:PopDownList?
     var isGoLogin:Bool = false
+    
+    var cellDelegate:EnableCellInteractionDelegate!
     //我关注的老人集合
     var MyPatientsArray:Array<MyPatientsTableCellViewModel>?{
         didSet{
@@ -43,9 +46,18 @@ class IMyPatientsController: IBaseViewController {
         self.topView.backgroundColor = themeColor[themeName]
         
         rac_Setting()
-        if self.MyPatientsArray?.count != 0{
+        
+        if self.MyPatientsArray?.count > 0{
         self._width = Int(self.myPatientTable.frame.width)
-        self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:self._width,height:195 * self.MyPatientsArray!.count), CGFloat(0.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.95))
+        if self.MyPatientsArray?.count > 2{
+            self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:self._width,height:195 * self.MyPatientsArray!.count), CGFloat(0.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.9))
+        }
+        else{
+        self._height = Int(self.myPatientTable.frame.height) - 71
+        self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:self._width,height:self._height), CGFloat(0.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.9))
+        }
+       
+        self.cellDelegate = self.myPatientTable
         self.setTimer()
         }
     }
@@ -108,7 +120,15 @@ class IMyPatientsController: IBaseViewController {
         if self.viewModel.LoadingFlag >= self.viewModel.bedUserCodeList.count{
             self.spinner!.dismiss()
             self.viewModel.LoadingFlag = 0
+            
+            if self.cellDelegate != nil{
+            self.cellDelegate.EnableCellInteraction()
+            }
         }
         
     }
+}
+
+protocol EnableCellInteractionDelegate{
+func EnableCellInteraction()
 }

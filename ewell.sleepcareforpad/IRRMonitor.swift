@@ -58,7 +58,7 @@ class IRRMonitor: UIView{
             var data01:PNLineChartData = PNLineChartData()
             data01.color = PNGreenColor
             data01.itemCount = UInt(data01Array.count)
-            data01.dataTitle = "呼吸"
+            data01.dataTitle = "呼吸(次/分)"
             data01.getData = ({(index: UInt)  in
                 var yValue:CGFloat = data01Array[Int(index)]
                 var item = PNLineChartDataItem(y: yValue)
@@ -105,15 +105,15 @@ class IRRMonitor: UIView{
         self.topView.backgroundColor = themeColor[themeName]
        
         // 画出圆圈中间内容
-        self.lblRR = UILabel(frame: CGRect(x: 0, y: 40, width: self.processRR.bounds.width/2 + 20, height: 60))
+        self.lblRR = UILabel(frame: CGRect(x: 0, y: 36, width: self.processRR.bounds.width/2 + 31, height: 57))
         self.lblRR!.textAlignment = .Center
-        self.lblRR!.font = UIFont.systemFontOfSize(60)
+        self.lblRR!.font = UIFont.systemFontOfSize(57)
         self.lblRR!.textColor = UIColor.whiteColor()
         self.processRR.centerTitleView?.addSubview(self.lblRR!)
         
-        var lbl1 = UILabel(frame: CGRect(x: self.processRR.bounds.width/2 + 25, y: 78, width: self.processRR.bounds.width/2 - 20, height: 12))
-        lbl1.textAlignment = .Left
-        lbl1.font = UIFont.systemFontOfSize(16)
+        var lbl1 = UILabel(frame: CGRect(x: self.processRR.bounds.width/2 + 31, y: 76, width: 34, height: 14))
+        lbl1.textAlignment = .Center
+        lbl1.font = UIFont.systemFontOfSize(14)
         lbl1.textColor = UIColor.whiteColor()
         lbl1.text = "次/分"
         self.processRR.centerTitleView?.addSubview(lbl1)
