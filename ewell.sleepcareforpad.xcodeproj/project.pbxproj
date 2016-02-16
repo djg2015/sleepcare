@@ -20,6 +20,7 @@
 		0D5CCED31C5AF8B80068746C /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D5CCED21C5AF8B80068746C /* alarm.png */; };
 		0D5CCED51C5B09670068746C /* default_registdownarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D5CCED41C5B09670068746C /* default_registdownarrow.png */; };
 		0D5CF5951C4352D000D35D80 /* JasonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5CF5941C4352D000D35D80 /* JasonHelper.swift */; };
+		0D78FA101C71C07000364CF6 /* lightgreenpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D78FA0F1C71C07000364CF6 /* lightgreenpoint.png */; };
 		0D978D7C1C3E09D600E0CB9B /* 29pt-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D7B1C3E09D600E0CB9B /* 29pt-@2x.png */; };
 		0D978D7F1C3E09DF00E0CB9B /* 29pt-@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D7D1C3E09DF00E0CB9B /* 29pt-@3x.png */; };
 		0D978D801C3E09DF00E0CB9B /* 40pt-@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D7E1C3E09DF00E0CB9B /* 40pt-@1x.png */; };
@@ -351,6 +352,7 @@
 		0D5CCED21C5AF8B80068746C /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
 		0D5CCED41C5B09670068746C /* default_registdownarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_registdownarrow.png; sourceTree = "<group>"; };
 		0D5CF5941C4352D000D35D80 /* JasonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JasonHelper.swift; sourceTree = "<group>"; };
+		0D78FA0F1C71C07000364CF6 /* lightgreenpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightgreenpoint.png; sourceTree = "<group>"; };
 		0D978D7B1C3E09D600E0CB9B /* 29pt-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29pt-@2x.png"; sourceTree = "<group>"; };
 		0D978D7D1C3E09DF00E0CB9B /* 29pt-@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29pt-@3x.png"; sourceTree = "<group>"; };
 		0D978D7E1C3E09DF00E0CB9B /* 40pt-@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "40pt-@1x.png"; sourceTree = "<group>"; };
@@ -786,6 +788,7 @@
 				2C0615601BF4813600A3F90C /* logotm.png */,
 				0DF6BD6E1C561C72007BF0A9 /* yellowpoint.png */,
 				0DF6BD711C5706AE007BF0A9 /* greypoint.png */,
+				0D78FA0F1C71C07000364CF6 /* lightgreenpoint.png */,
 				0DF6BD6C1C561C69007BF0A9 /* greenpoint.png */,
 				0DF6BD641C55D43E007BF0A9 /* noalarm.png */,
 				0D5CCED21C5AF8B80068746C /* alarm.png */,
@@ -1565,6 +1568,7 @@
 				3A9C12FF1BC789C6008EC314 /* onBed.png in Resources */,
 				0D978D9E1C3E09EE00E0CB9B /* 72pt-@2x.png in Resources */,
 				2C2F838E1BD63A19008CD92B /* nextBtnChecked.png in Resources */,
+				0D78FA101C71C07000364CF6 /* lightgreenpoint.png in Resources */,
 				3A39CA0C1BF2FEF40024DD3E /* sleepmenu.png in Resources */,
 				3A881B621BFC1BC1005F4D07 /* BedPatientCell.xib in Resources */,
 				0DF6BD651C55D43E007BF0A9 /* noalarm.png in Resources */,

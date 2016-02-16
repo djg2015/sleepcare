@@ -55,11 +55,14 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
             else if value == "离床"{
                 StatusImageName = "greypoint.png"
             }
-            else{
-                self._onBedStatus = "异常"
+            else if value == "请假"{
+                StatusImageName = "lightgreenpoint.png"
+
+            }
+            else if value == "异常"{
+               
                 StatusImageName = "yellowpoint.png"
             }
-
         }
     }
     //在离床状态的图片

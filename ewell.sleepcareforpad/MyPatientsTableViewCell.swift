@@ -227,9 +227,15 @@ class MyPatientsTableCellViewModel:NSObject{
             else if value == "离床"{
             StatusImageName = "greypoint.png"
             }
-            else{
-                self._bedStatus = "异常"
-            StatusImageName = "yellowpoint.png"
+            else if value == "请假"{
+               StatusImageName = "lightgreenpoint.png"
+            }
+            else if value == "异常"{
+                StatusImageName = "yellowpoint.png"
+            }
+            else {
+                self._bedStatus = "暂无"
+            StatusImageName = "greenpoint.png"
             }
         }
     }
