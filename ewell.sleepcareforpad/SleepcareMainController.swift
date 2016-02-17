@@ -152,7 +152,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
             .subscribeNext {
                 _ in
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isLogin = xmppMsgManager!.Connect()
+                let isLogin = xmppMsgManager!.RegistConnect()
                 if(!isLogin){
                     showDialogMsg("远程通讯服务器连接不上，请关闭重新登录！")
                 }

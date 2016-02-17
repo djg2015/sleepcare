@@ -73,8 +73,6 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
     func ReadProtocol(){
         let jumpPage = IWebViewController(nibName:"WebView",bundle:nil,titleName:"用户服务协议",url:"http://www.sina.com.cn")
         IViewControllerManager.GetInstance()!.ShowViewController(jumpPage, nibName: "WebView",reload: true)
-
-    
     }
     
     func RegistCheckProtocol(){

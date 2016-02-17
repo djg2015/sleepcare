@@ -16,7 +16,7 @@ class MyPatientsTableViewCell: UITableViewCell {
     @IBOutlet weak var lblBedNum: UILabel!
     @IBOutlet weak var lblRoomNum: UILabel!
     @IBOutlet weak var lblBedUserName: UILabel!
-  //  @IBOutlet weak var imgDetail: UIImageView!
+    //  @IBOutlet weak var imgDetail: UIImageView!
     
     @IBOutlet weak var imgStatus: UIImageView!
     @IBOutlet weak var layerView: BackgroundCommon!
@@ -27,7 +27,7 @@ class MyPatientsTableViewCell: UITableViewCell {
         {
         didSet{
             if statusImageName != nil{
-            self.imgStatus.image = UIImage(named:statusImageName!)
+                self.imgStatus.image = UIImage(named:statusImageName!)
             }
         }
     }
@@ -46,7 +46,7 @@ class MyPatientsTableViewCell: UITableViewCell {
         self.source.selectedBedUserHandler = (data as MyPatientsTableCellViewModel).selectedBedUserHandler
         self.source.deleteBedUserHandler = (data as MyPatientsTableCellViewModel).deleteBedUserHandler
         self.source.EquipmentID = (data as MyPatientsTableCellViewModel).EquipmentID
-
+        
         RACObserve(self.source, "StatusImageName") ~> RAC(self, "statusImageName")
         RACObserve(data, "HR") ~> RAC(self.source, "HR")
         RACObserve(data, "RR") ~> RAC(self.source, "RR")
@@ -59,15 +59,15 @@ class MyPatientsTableViewCell: UITableViewCell {
         RACObserve(self.source, "RoomNum") ~> RAC(self.lblRoomNum, "text")
         RACObserve(self.source, "BedUserName") ~> RAC(self.lblBedUserName, "text")
         
-//        if(!self.bindFlag){
- 
-//            
-//            //设置箭头点击查看明细
-//           self.imgDetail.userInteractionEnabled = true
-//           var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
-//            self.imgDetail .addGestureRecognizer(singleTap)
-//            self.bindFlag = true
-//        }
+        //        if(!self.bindFlag){
+        
+        //
+        //            //设置箭头点击查看明细
+        //           self.imgDetail.userInteractionEnabled = true
+        //           var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
+        //            self.imgDetail .addGestureRecognizer(singleTap)
+        //            self.bindFlag = true
+        //        }
         
     }
     
@@ -222,20 +222,20 @@ class MyPatientsTableCellViewModel:NSObject{
         {
             self._bedStatus=value
             if value == "在床"{
-            StatusImageName = "greenpoint.png"
+                StatusImageName = "greenpoint.png"
             }
             else if value == "离床"{
-            StatusImageName = "greypoint.png"
+                StatusImageName = "greypoint.png"
             }
             else if value == "请假"{
-               StatusImageName = "lightgreenpoint.png"
+                StatusImageName = "lightgreenpoint.png"
             }
             else if value == "异常"{
                 StatusImageName = "yellowpoint.png"
             }
             else {
                 self._bedStatus = "暂无"
-            StatusImageName = "greenpoint.png"
+                StatusImageName = "greenpoint.png"
             }
         }
     }

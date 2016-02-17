@@ -87,7 +87,7 @@ class LoginViewModel: BaseViewModel {
         try {
             ({                
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isLogin = xmppMsgManager!.Connect()
+                let isLogin = xmppMsgManager!.RegistConnect()
                 if(!isLogin){
                     showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
                 }

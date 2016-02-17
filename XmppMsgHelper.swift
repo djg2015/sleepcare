@@ -43,8 +43,8 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         //初始化登录flag
         self.loginFlag = 0
         self.setupStream()
-        
-        var userId:String?  = GetValueFromPlist("xmppusernamephone","sleepcare.plist")
+        //iphone连接测试
+        var userId:String?  = GetValueFromPlist(USERIDPHONE,"sleepcare.plist")
         var pass:String? = GetValueFromPlist(PASS,"sleepcare.plist")
         var server:String? = GetValueFromPlist(SERVER,"sleepcare.plist")
         var port:String? = GetValueFromPlist(PORT,"sleepcare.plist")
@@ -79,9 +79,9 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         //初始化登录flag
         self.loginFlag = 0
         self.setupStream()
-        
-        var userId:String?  = "pad@122.224.242.241"
-        var pass:String? = "123"
+        //ipad连接测试
+        var userId:String?  = GetValueFromPlist(USERID,"sleepcare.plist")
+        var pass:String? = GetValueFromPlist(PASS,"sleepcare.plist")
         var server:String? = GetValueFromPlist(SERVER,"sleepcare.plist")
         var port:String? = GetValueFromPlist(PORT,"sleepcare.plist")
         if (!xmppStream!.isDisconnected()) {

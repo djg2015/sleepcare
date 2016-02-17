@@ -43,6 +43,13 @@ class LoginController: BaseViewController {
     func rac_settings(){
         self.loginModel = LoginViewModel()
         self.loginModel!.controller = self
+        //判断是否可以获取服务器信息
+        let serverinfoflag = CheckServerInfo()
+        if !serverinfoflag{
+            GetServerInfoFail()
+        }
+
+        
         //属性绑定
         self.txtloginName.rac_textSignal() ~> RAC(self.loginModel, "UserName")
         self.txtloginPwd.rac_textSignal() ~> RAC(self.loginModel, "UserPwd")

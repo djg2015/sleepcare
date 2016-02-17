@@ -34,15 +34,17 @@ class ILoginController: IBaseViewController {
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iloginViewModel = IloginViewModel()
-       let serverinfoflag = self.iloginViewModel.CheckServerInfo()
+        //判断是否可以获取服务器信息
+        let serverinfoflag = CheckServerInfo()
         if serverinfoflag{
             self.iloginViewModel.AutoLogin()
         }
         else{
-        self.iloginViewModel.GetServerInfoFail()
+            GetServerInfoFail()
         }
+        
+        //属性绑定
         self.btnLogin!.rac_command = self.iloginViewModel?.loginCommand
-       
         RACObserve(self.iloginViewModel, "LoginName") ~> RAC(self.txtLoginName, "text")
         RACObserve(self.iloginViewModel, "Pwd") ~> RAC(self.txtPwd, "text")
         self.txtLoginName.rac_textSignal() ~> RAC(self.iloginViewModel, "LoginName")

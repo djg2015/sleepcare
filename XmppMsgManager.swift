@@ -56,7 +56,7 @@ class XmppMsgManager:MessageDelegate{
         return false
     }
     
-    //是否能够连接
+    //ipad连接，iphone注册账号时连接
     func RegistConnect() -> Bool{
         let curTime = NSDate()
         if(_xmppMsgHelper!.RegistConnect(_timeout))

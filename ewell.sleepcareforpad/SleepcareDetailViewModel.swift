@@ -237,7 +237,7 @@ class SleepcareDetailViewModel: BaseViewModel {
                 },
                 catch: { ex in
                     //异常处理
-                    handleException(ex,showDialog: true)
+                 //   handleException(ex,showDialog: true)
                 },
                 finally: {
                     

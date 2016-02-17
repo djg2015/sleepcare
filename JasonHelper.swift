@@ -49,14 +49,14 @@ class JasonHelper: NSObject {
         if self.apInfo != nil{
             var ip:String? = self.apInfo!.objectForKey("IP") as? String
             var port:Int? = self.apInfo!.objectForKey("OpenFirePort") as? Int
-          //  var pwd:String? = self.apInfo!.objectForKey("PWD") as? String
             var server:String? =  self.apInfo!.objectForKey("ServerID") as? String
-          //  var user:String? =  self.apInfo!.objectForKey("UserName") as? String
+            var user:String? =  self.apInfo!.objectForKey("UserName") as? String
+            var pwd:String? = self.apInfo!.objectForKey("PWD") as? String
             
-            if (ip==nil || port==nil || server==nil ){
+            if (ip==nil || port==nil || server==nil || pwd==nil || user==nil){
                 return false
             }
-            self.serverInfo = ServerSetingInfo(ip:ip!, port:String(port!), server:server!)
+            self.serverInfo = ServerSetingInfo(ip:ip!, port:String(port!), server:server!,ipadUser:user!, ipadpwd:pwd!)
         }
         return true
     }
@@ -66,10 +66,9 @@ class JasonHelper: NSObject {
         if self.serverInfo != nil{
             SetValueIntoPlist("xmppserver", self.serverInfo!.IP!)
             SetValueIntoPlist("xmppport", self.serverInfo!.OpenFirePort!)
-            SetValueIntoPlist("xmppuserpwd", "123")
+            SetValueIntoPlist("xmppuserpwd", self.serverInfo!.ipadpwd!)
             SetValueIntoPlist("serverjid", self.serverInfo!.ServerID!)
-        //    var username = self.serverInfo!.UserName! + "@" + self.serverInfo!.IP!
-       //     SetValueIntoPlist("xmppusername", username)
+            SetValueIntoPlist("xmppusername", self.serverInfo!.ipadUser!)
         }
     }
     
@@ -85,11 +84,15 @@ class ServerSetingInfo{
     var IP:String?
     var OpenFirePort:String?
     var ServerID:String?
+    var ipadUser:String?
+    var ipadpwd:String?
     
-    init(ip:String, port:String, server:String){
+    init(ip:String, port:String, server:String, ipadUser:String, ipadpwd:String){
         self.IP = ip
         self.OpenFirePort = port
         self.ServerID = server
+        self.ipadUser = ipadUser + "@" + ip
+        self.ipadpwd = ipadpwd
        
     }
 }

@@ -37,6 +37,7 @@
 		0D978DAA1C3E144900E0CB9B /* 1024X748.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978DA91C3E144900E0CB9B /* 1024X748.png */; };
 		0D978DAC1C3E1E2100E0CB9B /* 1024X768@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978DAB1C3E1E2100E0CB9B /* 1024X768@2x.png */; };
 		0D978DAE1C3E200700E0CB9B /* 1024X748@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978DAD1C3E200700E0CB9B /* 1024X748@2x.png */; };
+		0DAC75201C743C9100EF3260 /* GetServerInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC751F1C743C9100EF3260 /* GetServerInfoHelper.swift */; };
 		0DB108571C5A0EC600721D74 /* black_registinputborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB108561C5A0EC600721D74 /* black_registinputborder.png */; };
 		0DB108591C5A0ED400721D74 /* black_registinputdownborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB108581C5A0ED400721D74 /* black_registinputdownborder.png */; };
 		0DB1085B1C5A100B00721D74 /* black_menuBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB1085A1C5A100B00721D74 /* black_menuBack.png */; };
@@ -175,7 +176,7 @@
 		3A3C377A1BD48F0B00080D03 /* trunrecord.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37741BD48F0B00080D03 /* trunrecord.png */; };
 		3A3C377B1BD48F0B00080D03 /* leaverecord.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37751BD48F0B00080D03 /* leaverecord.png */; };
 		3A3C377C1BD48F0B00080D03 /* dateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37761BD48F0B00080D03 /* dateIcon.png */; };
-		3A3C377D1BD48F0B00080D03 /* sleepcareblock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37771BD48F0B00080D03 /* sleepcareblock.png */; };
+		3A3C377D1BD48F0B00080D03 /* default_sleepcareblock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37771BD48F0B00080D03 /* default_sleepcareblock.png */; };
 		3A3C377E1BD48F0B00080D03 /* hrrr.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37781BD48F0B00080D03 /* hrrr.png */; };
 		3A3C37801BD4987800080D03 /* SleepcareDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C377F1BD4987800080D03 /* SleepcareDetailViewModel.swift */; };
 		3A3C37821BD4D89A00080D03 /* comming.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C37811BD4D89A00080D03 /* comming.png */; };
@@ -320,7 +321,7 @@
 		3AF652731BFABEBE00BA2329 /* smalladd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF652711BFABEBE00BA2329 /* smalladd.png */; };
 		3AF652751BFAC50500BA2329 /* MyPatientsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF652741BFAC50500BA2329 /* MyPatientsTableViewCell.xib */; };
 		3AF844C51BFD619E00B5EDE3 /* IMyPatientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF844C41BFD619E00B5EDE3 /* IMyPatientsViewModel.swift */; };
-		3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB93881BCF96F200042AF1 /* loginBack.png */; };
+		3AFB938F1BCF96F200042AF1 /* default_loginBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB93881BCF96F200042AF1 /* default_loginBack.png */; };
 		3AFB93901BCF96F200042AF1 /* loginBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB93891BCF96F200042AF1 /* loginBtn.png */; };
 		3AFB93911BCF96F200042AF1 /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB938A1BCF96F200042AF1 /* checkbox.png */; };
 		3AFB93921BCF96F200042AF1 /* loginTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFB938B1BCF96F200042AF1 /* loginTitle.png */; };
@@ -369,6 +370,7 @@
 		0D978DA91C3E144900E0CB9B /* 1024X748.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024X748.png; sourceTree = "<group>"; };
 		0D978DAB1C3E1E2100E0CB9B /* 1024X768@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1024X768@2x.png"; sourceTree = "<group>"; };
 		0D978DAD1C3E200700E0CB9B /* 1024X748@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1024X748@2x.png"; sourceTree = "<group>"; };
+		0DAC751F1C743C9100EF3260 /* GetServerInfoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetServerInfoHelper.swift; sourceTree = "<group>"; };
 		0DB108561C5A0EC600721D74 /* black_registinputborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_registinputborder.png; sourceTree = "<group>"; };
 		0DB108581C5A0ED400721D74 /* black_registinputdownborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_registinputdownborder.png; sourceTree = "<group>"; };
 		0DB1085A1C5A100B00721D74 /* black_menuBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_menuBack.png; sourceTree = "<group>"; };
@@ -513,7 +515,7 @@
 		3A3C37741BD48F0B00080D03 /* trunrecord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trunrecord.png; sourceTree = "<group>"; };
 		3A3C37751BD48F0B00080D03 /* leaverecord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaverecord.png; sourceTree = "<group>"; };
 		3A3C37761BD48F0B00080D03 /* dateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dateIcon.png; sourceTree = "<group>"; };
-		3A3C37771BD48F0B00080D03 /* sleepcareblock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleepcareblock.png; sourceTree = "<group>"; };
+		3A3C37771BD48F0B00080D03 /* default_sleepcareblock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_sleepcareblock.png; sourceTree = "<group>"; };
 		3A3C37781BD48F0B00080D03 /* hrrr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hrrr.png; sourceTree = "<group>"; };
 		3A3C377F1BD4987800080D03 /* SleepcareDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepcareDetailViewModel.swift; sourceTree = "<group>"; };
 		3A3C37811BD4D89A00080D03 /* comming.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comming.png; sourceTree = "<group>"; };
@@ -666,7 +668,7 @@
 		3AF652711BFABEBE00BA2329 /* smalladd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalladd.png; sourceTree = "<group>"; };
 		3AF652741BFAC50500BA2329 /* MyPatientsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPatientsTableViewCell.xib; sourceTree = "<group>"; };
 		3AF844C41BFD619E00B5EDE3 /* IMyPatientsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMyPatientsViewModel.swift; sourceTree = "<group>"; };
-		3AFB93881BCF96F200042AF1 /* loginBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBack.png; sourceTree = "<group>"; };
+		3AFB93881BCF96F200042AF1 /* default_loginBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_loginBack.png; sourceTree = "<group>"; };
 		3AFB93891BCF96F200042AF1 /* loginBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBtn.png; sourceTree = "<group>"; };
 		3AFB938A1BCF96F200042AF1 /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
 		3AFB938B1BCF96F200042AF1 /* loginTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginTitle.png; sourceTree = "<group>"; };
@@ -768,6 +770,15 @@
 				0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		0DAC751E1C74092400EF3260 /* default */ = {
+			isa = PBXGroup;
+			children = (
+				3A3C37771BD48F0B00080D03 /* default_sleepcareblock.png */,
+				3AFB93881BCF96F200042AF1 /* default_loginBack.png */,
+			);
+			name = default;
 			sourceTree = "<group>";
 		};
 		0DD1D15D1C29279A00C8FEE3 /* MSCMoreOptionTableViewCell */ = {
@@ -927,10 +938,10 @@
 		3A28CA9E1BEC4A19007D9A3A /* ipad */ = {
 			isa = PBXGroup;
 			children = (
-				2C37F1381BD093280034D9F1 /* SleepQualityPandectViewModel.swift */,
-				2C3BAF121BCBA387003A2F48 /* AlarmViewModel.swift */,
 				3A41ADE91BA7B438000C109B /* LoginViewModel.swift */,
+				2C3BAF121BCBA387003A2F48 /* AlarmViewModel.swift */,
 				3A346BF71BCCD36200E75E4E /* SleepcareMainViewModel.swift */,
+				2C37F1381BD093280034D9F1 /* SleepQualityPandectViewModel.swift */,
 				3A3C377F1BD4987800080D03 /* SleepcareDetailViewModel.swift */,
 				2C555B461BE31763008A3AC9 /* QueryAlarmViewModel.swift */,
 			);
@@ -1146,16 +1157,17 @@
 				3A4CD3FE1BA808C1002C8A1A /* XmppMsgHelper.swift */,
 				0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */,
 				3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */,
-				0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */,
 				3A35AB661BCCECF000ED3293 /* Session.swift */,
 				3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */,
 				3A1F16FE1BF5A5100051E9AF /* BusinessFactory.swift */,
+				0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */,
 				0DC228561C224DD800AF4737 /* IAlarmHelper.swift */,
 				0D19A2A71C3A4828005ECF19 /* UpdateHelper.swift */,
 				0D5CF5941C4352D000D35D80 /* JasonHelper.swift */,
 				0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */,
 				0DF6BD811C59AB26007BF0A9 /* DateFormatterHelper.swift */,
 				0DF6BD7F1C599FEC007BF0A9 /* LoadImageHelper.swift */,
+				0DAC751F1C743C9100EF3260 /* GetServerInfoHelper.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1315,6 +1327,7 @@
 		3AFF67A61BBA2F2500C9CA20 /* ipad */ = {
 			isa = PBXGroup;
 			children = (
+				0DAC751E1C74092400EF3260 /* default */,
 				3A2BD8A41BD8AE78007BBD01 /* 29pt@1x.png */,
 				3A2BD8A51BD8AE78007BBD01 /* 50pt@1x.png */,
 				3A2BD8A61BD8AE78007BBD01 /* 72pt@1x.png */,
@@ -1348,12 +1361,10 @@
 				3A3C37741BD48F0B00080D03 /* trunrecord.png */,
 				3A3C37751BD48F0B00080D03 /* leaverecord.png */,
 				3A3C37761BD48F0B00080D03 /* dateIcon.png */,
-				3A3C37771BD48F0B00080D03 /* sleepcareblock.png */,
 				3A3C37781BD48F0B00080D03 /* hrrr.png */,
 				2C6AE1151BD48713006FC007 /* searchBtn.png */,
 				2C6AE1161BD48713006FC007 /* searchBtnChecked.png */,
 				3AA3161A1BD0CFA500FC3C40 /* checkboxchoosed.png */,
-				3AFB93881BCF96F200042AF1 /* loginBack.png */,
 				3AFB93891BCF96F200042AF1 /* loginBtn.png */,
 				3AFB938A1BCF96F200042AF1 /* checkbox.png */,
 				3AFB938B1BCF96F200042AF1 /* loginTitle.png */,
@@ -1590,7 +1601,7 @@
 				2C2F83851BD5DE2F008CD92B /* back.png in Resources */,
 				3A91F0B01BF0475400C470D4 /* THDatePickerViewController.xib in Resources */,
 				2C555B491BE341A0008A3AC9 /* QueryAlarmView.xib in Resources */,
-				3AFB938F1BCF96F200042AF1 /* loginBack.png in Resources */,
+				3AFB938F1BCF96F200042AF1 /* default_loginBack.png in Resources */,
 				3A39CA0E1BF2FEF40024DD3E /* hrmenu.png in Resources */,
 				3AB3CB061BD761600067F9D4 /* ServerSettingView.xib in Resources */,
 				0DF6BD761C57181D007BF0A9 /* sendemail.png in Resources */,
@@ -1633,7 +1644,7 @@
 				0DF6BD8B1C59EB97007BF0A9 /* black_garyboxback.png in Resources */,
 				0DF6BD691C55E70A007BF0A9 /* default_registUncheck.png in Resources */,
 				3A8382D41BFACC7B00E4CC15 /* goright.png in Resources */,
-				3A3C377D1BD48F0B00080D03 /* sleepcareblock.png in Resources */,
+				3A3C377D1BD48F0B00080D03 /* default_sleepcareblock.png in Resources */,
 				3AF652721BFABEBE00BA2329 /* bigadd.png in Resources */,
 				0DC2284F1C214D0D00AF4737 /* IAlarmTableViewCell.xib in Resources */,
 				3A91F0A71BF0475400C470D4 /* dialog_clear.png in Resources */,
@@ -1774,6 +1785,7 @@
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
 				3AB3CB211BD762FE0067F9D4 /* MyPatientsTableViewCell.swift in Sources */,
 				3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */,
+				0DAC75201C743C9100EF3260 /* GetServerInfoHelper.swift in Sources */,
 				2C5181FD1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift in Sources */,
 				3A680DC01C02BD6800D77A22 /* IAccountSetController.swift in Sources */,
 				2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */,

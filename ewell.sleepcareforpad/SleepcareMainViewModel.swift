@@ -204,12 +204,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
     }
     
     
-    //界面命令
-    
-    
-    
-    
-    //自定义事件
+ 
     //获取指定分页对应的床位集合
     func GetBedsOfPage(pageIndex:Int, count:NSInteger) -> Array<BedModel> {
         var result = Array<BedModel>()

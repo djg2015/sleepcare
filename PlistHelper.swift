@@ -97,7 +97,10 @@ func IsPlistDataEmpty()->Bool{
     var port =  GetValueFromPlist("xmppport","sleepcare.plist")
     var server =  GetValueFromPlist("serverjid","sleepcare.plist")
     
-    if (ip=="" || port=="" ||  server=="" ){
+    var ipaduser = GetValueFromPlist("xmppusername","sleepcare.plist")
+    var ipadpwd = GetValueFromPlist("xmppuserpwd","sleepcare.plist")
+    
+    if (ip=="" || port=="" ||  server=="" || ipaduser=="" || ipadpwd==""){
         return true
     }
     return false
