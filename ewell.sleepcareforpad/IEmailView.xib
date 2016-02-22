@@ -88,7 +88,7 @@
                 <constraint firstAttribute="centerX" secondItem="9WF-lc-qRz" secondAttribute="centerX" id="RoS-Fu-vXF"/>
                 <constraint firstAttribute="centerY" secondItem="9WF-lc-qRz" secondAttribute="centerY" id="gNf-x4-c57"/>
             </constraints>
-            <point key="canvasLocation" x="-69" y="18"/>
+            <point key="canvasLocation" x="-213" y="58"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

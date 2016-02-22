@@ -41,8 +41,7 @@ class CommonTableView: UITableView,UITableViewDelegate,UITableViewDataSource  {
     
     //自定义单元格
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//         var cell:CommonTableCell! = NSBundle.mainBundle().loadNibNamed(self.nibName, owner: self, options: nil).first as! CommonTableCell
-//        var cell:CommonTableCell! = tableView.dequeueReusableCellWithIdentifier(self.cellID, forIndexPath: indexPath) as! CommonTableCell
+
         if(allCells.count <= indexPath.item ){
              var cell:CommonTableCell! = NSBundle.mainBundle().loadNibNamed(self.nibName, owner: self, options: nil).first as! CommonTableCell
             if(cell == nil){

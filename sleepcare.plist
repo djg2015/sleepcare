@@ -24,5 +24,9 @@
 	<string></string>
 	<key>updatedate</key>
 	<string></string>
+	<key>curPartcode</key>
+	<string></string>
+	<key>curPartname</key>
+	<string></string>
 </dict>
 </plist>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginController: BaseViewController {
+class LoginController: BaseViewController{
     
     //控件定义
     @IBOutlet weak var txtloginName: UITextField!
@@ -71,14 +71,5 @@ class LoginController: BaseViewController {
         self.presentViewController(ServerSettingController(nibName:"ServerSettingView", bundle:nil), animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
+   
 }

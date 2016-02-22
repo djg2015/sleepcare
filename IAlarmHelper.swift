@@ -102,7 +102,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     func BeginWaringAttention(){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWariningAction", name: "TodoListShouldRefresh", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "CloseWaringAttention", name: "WarningClose", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self,selector:"ReConnect", name:"ReConnectInternet", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,selector:"ReConnect", name:"ReConnectInternetForPhone", object: nil)
         self.IsOpen = true
         
         //清除已经overdue的todoitem

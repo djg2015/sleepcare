@@ -91,13 +91,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        //iphone
+        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
         var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
         if(xmppMsgManager?.isInstance == true){
             let isLogin = xmppMsgManager!.Connect()
-            
             if(!isLogin){
                 //无法连接，弹窗提示是否重连
-                NSNotificationCenter.defaultCenter().postNotificationName("ReConnectInternet", object: self)
+                NSNotificationCenter.defaultCenter().postNotificationName("ReConnectInternetForPhone", object: self)
             }
             else{
         
@@ -111,6 +112,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
                     SetValueIntoPlist("updatedate",curUpdate)
                     //本地version对比store里最新的version大小
                     UpdateHelper.GetUpdateInstance().CheckUpdate(true)
+                }
+            }
+        }
+        }
+            //ipad设备
+        else{
+            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+            if(xmppMsgManager?.isInstance == true){
+                let isLogin = xmppMsgManager!.RegistConnect()
+                if(!isLogin){
+                    //无法连接，弹窗提示是否重连
+                    NSNotificationCenter.defaultCenter().postNotificationName("ReConnectInternetForPad", object: self)
                 }
             }
         }

@@ -30,19 +30,20 @@ class QueryAlarmViewModel:BaseViewModel
         self.SearchAlarm()
     }
     
-    //自定义方法
+    //获取报警信息
     func SearchAlarm() -> RACSignal{
         try {
             ({
+                //清空报警列表
                 self.AlarmInfoList.removeAll(keepCapacity: true)
+                //获取最新在离床报警
                 var sleepCareBLL = SleepCareBussiness()
-                // 返回在离床报警
-                var alarmList:AlarmList = sleepCareBLL.GetAlarmByUser(Session.GetSession().CurPartCode, userCode: "", userNameLike: self.UserNameCondition, bedNumberLike: self.BedNumberCondition, schemaCode: self.SelectedAlarmTypeCode
-                    , alarmTimeBegin:self.AlarmDateBeginCondition, alarmTimeEnd: self.AlarmDateEndCondition, from: nil, max: nil)
+                var alarmList:AlarmList = sleepCareBLL.GetAlarmByUser(Session.GetSession().CurPartCode, userCode: "", userNameLike: self.UserNameCondition, bedNumberLike: self.BedNumberCondition, schemaCode: self.SelectedAlarmTypeCode, alarmTimeBegin:self.AlarmDateBeginCondition, alarmTimeEnd: self.AlarmDateEndCondition, from: nil, max: nil)
                 
-                var index:Int = 1
+                var index:Int = 0
                 for alarmItem in alarmList.alarmInfoList
                 {
+                    //放入报警列表
                     var item:QueryAlarmItem = QueryAlarmItem()
                     item.UserName = alarmItem.UserName
                     item.BedNumber = alarmItem.BedNumber
@@ -67,12 +68,16 @@ class QueryAlarmViewModel:BaseViewModel
         return RACSignal.empty()
     }
     
+    //处理报警：删除对应的todoitem，删除服务端的这条报警信息，从alarmlist中删除
     func HandleAlarm(alarmCode:String,handType:String)
     {
         try {
             ({
+                TodoList.sharedInstance.removeItemByID(alarmCode)
+                
                 var sleepCareBLL = SleepCareBussiness()
                 sleepCareBLL.HandleAlarm(alarmCode, transferType: handType)
+
                 self.SearchAlarm()
                 },
                 catch: { ex in

@@ -22,7 +22,7 @@ class Session {
     }
 
     //当前选中的场景code
-    private var _curPartCode:String = "00001"
+    private var _curPartCode:String = ""
     var CurPartCode:String{
         get{
             return self._curPartCode

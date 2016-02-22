@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class LoginViewModel: BaseViewModel {
     //属性定义
     var _userName:String?
@@ -85,7 +86,7 @@ class LoginViewModel: BaseViewModel {
     //自定义方法
     func Login() -> RACSignal{
         try {
-            ({                
+            ({
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 let isLogin = xmppMsgManager!.RegistConnect()
                 if(!isLogin){
@@ -97,18 +98,20 @@ class LoginViewModel: BaseViewModel {
                     Session.SetSession(user)
                     //加载当前用户所有的科室信息
                     var roleList:RoleList = testBLL.ListRolesByParentCode(user.role!.RoleCode)
-                     var session = Session.GetSession()
+                    var session = Session.GetSession()
                     for(var i = 0;i < roleList.roleList.count; i++){
                         if(roleList.roleList[i].RoleType == "Floor"){
                             session.PartCodes.append(roleList.roleList[i])
                         }
                     }
-                    if(session.PartCodes.count > 0){
-                        var curPartCode = session.PartCodes[0].RoleCode
+                    //                    if(session.PartCodes.count > 0){
+                    //                        var curPartCode = session.PartCodes[0].RoleCode
+                    //                    }
+                    session.CurPartCode = GetValueFromPlist("curPartcode","sleepcare.plist")
+                        let controller = SleepcareMainController(nibName:"MainView", bundle:nil)
+                        self.JumpPage(controller)
+                        
                     }
-                    let controller = SleepcareMainController(nibName:"MainView", bundle:nil)
-                    self.JumpPage(controller)
-                }
                 },
                 catch: { ex in
                     //异常处理
@@ -129,7 +132,7 @@ class LoginViewModel: BaseViewModel {
     func RemeberPwd() -> RACSignal{
         self.IschechedBool = !self.IschechedBool
         return RACSignal.empty()
-
+        
     }
     
     func loadInitData(){
@@ -145,7 +148,5 @@ class LoginViewModel: BaseViewModel {
         }
     }
     
-    func ChoosedItem(downListModel:DownListModel){
-        
-    }
+ 
 }

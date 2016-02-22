@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchBarDelegate,JumpPageDelegate {
+
+class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchBarDelegate,JumpPageDelegate,ChoosePartDelegate {
     //界面控件
-    //dateFormatter.timeZone = NSTimeZone.localTimeZone()
     @IBOutlet weak var curPager: Pager!
     @IBOutlet weak var search: UISearchBar!
     @IBOutlet weak var lblMainName: UILabel!
@@ -31,6 +31,10 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     var partDownList:PopDownList?
     var mainScroll:UIScrollView!
     var sleepcareMainViewModel:SleepcareMainViewModel?
+    var choosepart:ChooseMainhouseController?
+    
+  
+    //当前科室下所有床位信息
     var BedViews:Array<BedModel>?{
         didSet{
             for(var i = 0 ; i < self.mainScroll.subviews.count; i++) {
@@ -51,6 +55,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
                     self.mainScroll.bringSubviewToFront(mainview1)
                 }
             }
+         
             
         }
     }
@@ -59,7 +64,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         didSet{
             if(self.WarningSet > 0){
                 self.uiWariningShow.hidden = false
-                self.lblWarining.text = "当前有" + self.WarningSet.description + "条报警,点击查看"
+                self.lblWarining.text = "当前有" + self.WarningSet.description + "条报警未处理,请点击查看"
             }
             else{
                 self.uiWariningShow.hidden = true
@@ -71,7 +76,6 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         super.viewDidLoad()
         
         self.mainScroll = UIScrollView()
-        
         self.mainScroll.backgroundColor = UIColor.clearColor()
         self.mainScroll.frame = self.view.frame
         self.mainScroll.frame.origin.y = 170
@@ -92,7 +96,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         }
         self.search.delegate = self
         self.curPager.detegate = self
-        
+
         rac_setting()
     }
     
@@ -107,8 +111,6 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
             ({
                 //正常业务处理
                 self.presentViewController(DialogFrameController(nibName: "DialogFrame", userCode: bedModel.UserCode!), animated: true, completion: nil)
-                //抛出异常
-                //throw("0", "账户名不存在")
                 },
                 catch: { ex in
                     //异常处理
@@ -136,7 +138,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         RACObserve(self.sleepcareMainViewModel, "ChoosedSearchType") ~> RAC(self.txtSearchChoosed, "text")
         RACObserve(self.sleepcareMainViewModel, "WariningCount") ~> RAC(self, "WarningSet")
         
-        
+        //退出登录
         self.btnLogout!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
@@ -144,10 +146,11 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 xmppMsgManager?.Close()
                 Session.ClearSession()
+                //关闭页面，退回到login页面
                 self.dismissViewControllerAnimated(true, completion: nil)
                 
         }
-        
+        //刷新
         self.btnRefresh!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
@@ -175,16 +178,16 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         dataSource.append(item)
         self.popDownList = PopDownList(datasource: dataSource, dismissHandler: self.ChoosedItem)
         
-        //设置选择科室
+        //设置选择科室rolename
         var session = Session.GetSession()
-        var partdataSource = Array<DownListModel>()
-        for(var i = 0;i < session.PartCodes.count;i++){
-            item = DownListModel()
-            item.key = session.PartCodes[i].PartCode
-            item.value = session.PartCodes[i].RoleName
-            partdataSource.append(item)
-        }
-        self.partDownList = PopDownList(datasource: partdataSource, dismissHandler: self.ChoosedPartItem)
+//        var partdataSource = Array<DownListModel>()
+//        for(var i = 0;i < session.PartCodes.count;i++){
+//            item = DownListModel()
+//            item.key = session.PartCodes[i].PartCode
+//            item.value = session.PartCodes[i].RoleName
+//            partdataSource.append(item)
+//        }
+     //   self.partDownList = PopDownList(datasource: partdataSource, dismissHandler: self.ChoosedPartItem)
         
         self.lblMainName.userInteractionEnabled = true
         var choosePart:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "mainNameTouch")
@@ -195,18 +198,41 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         var showWarining:UITapGestureRecognizer = UITapGestureRecognizer(target: self.sleepcareMainViewModel!, action: "showWarining")
         self.lblWarining .addGestureRecognizer(showWarining)
         
+        
+        self.choosepart = ChooseMainhouseController(nibName: "ChoosePartName", bundle: nil)
+        self.choosepart!.parentController = self
+        self.choosepart!.choosepartDelegate = self
+        
+        
+        //首次登陆，则跳转页面去选择科室
+        if session.CurPartCode == ""{
+        self.mainNameTouch()
+        }
+        
+        
     }
     
     //点击查询类型
     func imageViewTouch(){
-        
         self.popDownList!.Show(150, height: 80, uiElement: self.imgSearch)
     }
     
-    //选择科室
+    //选择科室，选择完后刷新科室下的病人bedviews
     func mainNameTouch(){
-        self.partDownList!.Show(200, uiElement: self.lblMainName)
+      //  self.partDownList!.Show(200, uiElement: self.lblMainName)
+        var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",
+            KNSemiModalOptionKeys.animationDuration:"0.2",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
+        self.presentSemiViewController(self.choosepart, withOptions: kNSemiModalOptionKeys)
+ 
     }
+    
+    //选择某科室代理
+    func ChoosePart(partcode:String,partname:String,mainname:String) {
+        self.lblMainName.text = mainname + "—" + partname
+        self.sleepcareMainViewModel?.SearchByBedOrRoom("")
+
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -227,67 +253,11 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     func ChoosedItem(downListModel:DownListModel){
         self.sleepcareMainViewModel?.ChoosedSearchType = downListModel.value
     }
-    
-    //选中科室/楼层
-    func ChoosedPartItem(downListModel:DownListModel){
-        var session = Session.GetSession()
-        session.CurPartCode = downListModel.key
-        self.sleepcareMainViewModel?.SearchByBedOrRoom("")
-    }
-    
-    func TestDate() -> Array<BedModel> {
-        var data:Array<BedModel> = Array<BedModel>()
-        var item1 = BedModel()
-        item1.BedCode = "001"
-        item1.BedNumber = "1"
-        item1.UserName = "张三"
-        item1.RoomNumber = "1"
-        item1.HR = "79"
-        
-        data.append(item1)
-        
-        var item2 = BedModel()
-        item2.BedCode = "002"
-        item2.BedNumber = "2"
-        item2.UserName = "李四"
-        item2.RoomNumber = "1"
-        item2.HR = "86"
-        
-        data.append(item2)
-        
-        var item3 = BedModel()
-        item3.BedCode = "002"
-        item3.BedNumber = "3"
-        item3.UserName = "李四"
-        item3.RoomNumber = "1"
-        item3.HR = "86"
-        data.append(item3)
-        
-        var item4 = BedModel()
-        item4.BedCode = "002"
-        item4.BedNumber = "4"
-        item4.UserName = "李四"
-        item4.RoomNumber = "1"
-        item4.HR = "86"
-        data.append(item4)
-        
-        var item5 = BedModel()
-        item5.BedCode = "002"
-        item5.BedNumber = "5"
-        item5.UserName = "李四"
-        item5.RoomNumber = "1"
-        item5.HR = "86"
-        data.append(item5)
-        return data
-    }
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
+//    
+//    //选中科室/楼层
+//    func ChoosedPartItem(downListModel:DownListModel){
+//        var session = Session.GetSession()
+//        session.CurPartCode = downListModel.key
+//        self.sleepcareMainViewModel?.SearchByBedOrRoom("")
+//    }
 }

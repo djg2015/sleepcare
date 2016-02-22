@@ -41,6 +41,8 @@ class QueryAlarmController:BaseViewController,UITableViewDelegate,UITableViewDat
     @IBAction func btnBackClick(sender: AnyObject) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
+        
+        // 刷新主页面
     }
     
     override func viewDidLoad() {
@@ -301,7 +303,7 @@ class QueryAlarmController:BaseViewController,UITableViewDelegate,UITableViewDat
             lblOperate.addSubview(btnHandle)
             lblOperate.addSubview(btnFalse)
         }
-        
+       
         
         cell?.addSubview(lblNumber)
         cell?.addSubview(lblUserName)
@@ -312,17 +314,18 @@ class QueryAlarmController:BaseViewController,UITableViewDelegate,UITableViewDat
         
         return cell!
     }
-
+    
+    //报警“已处理”
     func handleAlarm(sender:UITapGestureRecognizer)
     {
-        var selectedNumber:Int = sender.view!.tag - 1
+        var selectedNumber:Int = sender.view!.tag
         var alarmCode:String = self._queryAlarmViewModel.AlarmInfoList[selectedNumber].AlarmCode
         self._queryAlarmViewModel.HandleAlarm(alarmCode, handType: "002")
     }
-    
+    //报警“误报警”
     func handleFalseAlarm(sender:UITapGestureRecognizer)
     {
-        var selectedNumber:Int = sender.view!.tag - 1
+        var selectedNumber:Int = sender.view!.tag 
         var alarmCode:String = self._queryAlarmViewModel.AlarmInfoList[selectedNumber].AlarmCode
         self._queryAlarmViewModel.HandleAlarm(alarmCode, handType: "003")
     }
