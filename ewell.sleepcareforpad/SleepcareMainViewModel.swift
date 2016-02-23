@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDelegate {
+class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDelegate,ReloadAlarmCountDelegate {
     //初始化
     override init() {
         super.init()
@@ -49,6 +49,8 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
     //属性定义
     var realTimeCaches:Dictionary<String,RealTimeReport>?
     var wariningCaches:Array<AlarmInfo>!
+    
+
     //医院/养老院名称 +科室名
     var _mainName:String?
     dynamic var MainName:String?{
@@ -366,6 +368,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
     //点击报警通知直接打开报警界面
     func showWarining() {
         let controller = QueryAlarmController(nibName:"QueryAlarmView", bundle:nil)
+        controller.alarmcountDelegate = self
         self.JumpPage(controller)
         self.WariningCount = TodoList.sharedInstance.allItems().count
         //   TodoList.sharedInstance.removeItemAll()
@@ -437,6 +440,11 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
         self.BedModelList = beds
         
         self.ReloadAlarmInfo()
+    }
+    
+    //刷新报警数
+    func ReloadAlarmCount() {
+        self.WariningCount = TodoList.sharedInstance.allItems().count
     }
 }
 

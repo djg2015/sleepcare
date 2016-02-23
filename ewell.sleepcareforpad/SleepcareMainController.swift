@@ -253,6 +253,9 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     func ChoosedItem(downListModel:DownListModel){
         self.sleepcareMainViewModel?.ChoosedSearchType = downListModel.value
     }
+    
+    
+  
 //    
 //    //选中科室/楼层
 //    func ChoosedPartItem(downListModel:DownListModel){

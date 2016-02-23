@@ -37,12 +37,16 @@ class QueryAlarmController:BaseViewController,UITableViewDelegate,UITableViewDat
     let identifier = "CellIdentifier"
     var tabViewAlarm: UITableView!
     
+    var alarmcountDelegate:ReloadAlarmCountDelegate!
     // 返回按钮
     @IBAction func btnBackClick(sender: AnyObject) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
         
         // 刷新主页面
+        if self.alarmcountDelegate != nil{
+        self.alarmcountDelegate.ReloadAlarmCount()
+        }
     }
     
     override func viewDidLoad() {
@@ -329,4 +333,8 @@ class QueryAlarmController:BaseViewController,UITableViewDelegate,UITableViewDat
         var alarmCode:String = self._queryAlarmViewModel.AlarmInfoList[selectedNumber].AlarmCode
         self._queryAlarmViewModel.HandleAlarm(alarmCode, handType: "003")
     }
+}
+
+protocol ReloadAlarmCountDelegate{
+func ReloadAlarmCount()
 }
