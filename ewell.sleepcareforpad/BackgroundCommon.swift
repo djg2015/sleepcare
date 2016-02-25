@@ -9,8 +9,7 @@
 import UIKit
 //背景设置通用处理
 @IBDesignable class BackgroundCommon: UIView{
-    
-    
+
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -24,20 +23,13 @@ import UIKit
             if ImageName != nil{
             var imgName = GetImg(ImageName!)
                 self.layer.contents = UIImage(named:imgName)?.CGImage
-        //    self.layer.contents = LoadImageHelper.GetInstance().GetImage(ImageName!).CGImage
-            self.backgroundColor = UIColor.clearColor()
+                self.backgroundColor = UIColor.clearColor()
             }
             
         }
     }
     
     
-    //    @IBInspectable var backgroundImage:UIImage? {
-    //        didSet{
-    //            self.layer.contents = backgroundImage?.CGImage
-    //            self.backgroundColor = UIColor.clearColor()
-    //        }
-    //        
-    //    }
+ 
     
 }

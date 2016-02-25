@@ -11,21 +11,22 @@ import UIKit
 @IBDesignable class Pager: UIView {
     var detegate:JumpPageDelegate!
     var selectedButton:UIButton!
-    @IBInspectable var pageCount:Int = 1{
+    @IBInspectable var pageCount:Int = 0{
         didSet{
-            setView()
+            self.CleanSubviews()
+            self.setView()
         }
         
     }
     
+    func CleanSubviews(){
+       while(self.subviews.count > 0){
+            self.subviews[0].removeFromSuperview()
+        }
+    }
+    
     //初始化分页控件
     func setView(){
-        for(var i = 0 ; i < self.subviews.count; i++) {
-            self.subviews[i].removeFromSuperview()
-            if(i < self.subviews.count){
-                (self.subviews[i] as! UIButton).hidden = true
-            }
-        }
         let width:CGFloat = 20.0
         let height:CGFloat = 20.0
         let span:CGFloat = 5.0
@@ -81,9 +82,9 @@ import UIKit
         }
     }
     
-    //页码跳转
+    //外部调用，页码跳转
     func jump(page:Int) {
-        var sender = self.subviews[page - 1] as! UIButton
+        var sender = self.subviews[page-1] as! UIButton
         selectedButton.setBackgroundImage(UIImage(named: "pagerunselected"), forState:.Normal)
         sender.setBackgroundImage(UIImage(named: "pagerselected"), forState:.Normal)
         selectedButton = sender

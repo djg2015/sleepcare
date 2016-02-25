@@ -35,30 +35,16 @@ class ChooseMainhouseController: BaseViewController,SectionHeaderViewDelegate,UI
     
     
     var parentController:BaseViewController?
-    var Partcode:String = ""
-    var Partname:String = ""
     var Mainname:String = ""
     var choosepartDelegate:ChoosePartDelegate!
     
     
-    //更新session的curPartCode，并写入本地sleepcare。plist。调用代理刷新mainview
+    //关闭选择科室页面
     @IBAction func btnConfirm(sender: AnyObject) {
         if self.parentController != nil{
-            if self.Partcode != ""{
-            var session = Session.GetSession()
-                session.CurPartCode = self.Partcode
-                SetValueIntoPlist("curPartcode", self.Partcode)
-                SetValueIntoPlist("curPartname", self.Partname)
-                if self.choosepartDelegate != nil{
-                    self.choosepartDelegate.ChoosePart(self.Partcode,partname:self.Partname,mainname:"古荡养老院")
-                }
-                
-             self.parentController!.dismissSemiModalView()
-            }
+        self.parentController!.dismissSemiModalView()
         }
     }
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +63,9 @@ class ChooseMainhouseController: BaseViewController,SectionHeaderViewDelegate,UI
         self.mainhouseTableView.registerNib(sectionHeaderNib, forHeaderFooterViewReuseIdentifier: SectionHeaderViewIdentifier)
         plays = played()
         
-       
+        if Session.GetSession().CurPartCode == ""{
+        self.btnClickOk.hidden = true
+        }
 
     }
 
@@ -139,9 +127,21 @@ class ChooseMainhouseController: BaseViewController,SectionHeaderViewDelegate,UI
     //选中某行操作
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         var cell:PartNameCell = tableView.cellForRowAtIndexPath(indexPath) as! PartNameCell
-        self.Partcode = cell.quotation.partcode
-        self.Partname = cell.quotation.partname
-
+        var Partcode = cell.quotation.partcode
+        var Partname = cell.quotation.partname
+        //更新session的curPartCode，并写入本地sleepcare。plist。调用代理刷新mainview
+            if self.parentController != nil{
+                    var session = Session.GetSession()
+                    session.CurPartCode = Partcode
+                    SetValueIntoPlist("curPartcode", Partcode)
+                    SetValueIntoPlist("curPartname", Partname)
+                    TodoList.sharedInstance.removeItemAll()
+                
+                    if self.choosepartDelegate != nil{
+                        self.choosepartDelegate.ChoosePart(Partcode,partname:Partname,mainname:"古荡养老院")
+                    }
+                    self.parentController!.dismissSemiModalView()
+            }
     }
 
 

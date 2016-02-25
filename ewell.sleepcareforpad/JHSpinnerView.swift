@@ -31,7 +31,7 @@ public class JHSpinnerView: UIView {
     @IBOutlet weak var messageWidth:NSLayoutConstraint!
     @IBOutlet weak var messageHeight:NSLayoutConstraint!
     
-    //private var nibView:JHSpinnerView!
+   
     private var overlayView = UIView()
     private var animating = false
     private var animationSpeed = 0.14
@@ -337,6 +337,7 @@ public class JHSpinnerView: UIView {
         UIView.animateWithDuration(self.animationSpeed, delay: 0.0, options: .CurveEaseInOut, animations: { () -> Void in
             self.alpha = 0.0
             }) { (success) -> Void in
+               
                 self.removeFromSuperview()
         }
     }

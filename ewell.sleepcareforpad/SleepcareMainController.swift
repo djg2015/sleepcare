@@ -32,30 +32,27 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     var mainScroll:UIScrollView!
     var sleepcareMainViewModel:SleepcareMainViewModel?
     var choosepart:ChooseMainhouseController?
-    
-  
+    var spinner:JHSpinnerView?
+    var thread:NSThread?
+    //支线程完成true
+    var threadFlag:Bool = false
     //当前科室下所有床位信息
     var BedViews:Array<BedModel>?{
         didSet{
-            for(var i = 0 ; i < self.mainScroll.subviews.count; i++) {
-                self.mainScroll.subviews[i].removeFromSuperview()
+            if self.spinner != nil{
+                self.threadFlag = true
+                
             }
-            let pageCount:Int = (self.BedViews!.count / 8) + ((self.BedViews!.count % 8) > 0 ? 1 : 0)
-            self.sleepcareMainViewModel?.PageCount = pageCount
-            self.mainScroll.contentSize = CGSize(width: self.view.bounds.size.width * CGFloat(pageCount), height: 500)
-            self.mainScroll.contentOffset.x = 0
-            if(pageCount > 0){
-                for i in 1...pageCount{
-                    let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepCareCollectionView", owner: self, options: nil).first as! SleepCareCollectionView
-                    mainview1.frame = CGRectMake(CGFloat((i-1) * 1024) + 10, 0, 1024, self.mainScroll.frame.size.height)
-                    mainview1.didSelecteBedHandler = self.BedSelected
-                    var bedList = self.sleepcareMainViewModel?.GetBedsOfPage(i, count: 8)
-                    mainview1.reloadData(bedList!)
-                    self.mainScroll.addSubview(mainview1)
-                    self.mainScroll.bringSubviewToFront(mainview1)
-                }
+
+            
+            while (self.mainScroll.subviews.count > 0 ){
+                println(self.mainScroll.subviews[0].tag!)
+                self.mainScroll.subviews[0].removeFromSuperview()
             }
-         
+            
+            if !self.threadFlag{
+            self.ReloadMainScrollView()
+            }
             
         }
     }
@@ -86,7 +83,6 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         self.mainScroll.bounces = false
         self.view.addSubview(self.mainScroll)
         
-        
         //去掉搜索按钮背景
         //self.search.backgroundColor = UIColor(patternImage: UIImage(named:"transbg.png")!)
         for(var i = 0 ; i < self.search.subviews[0].subviews.count; i++) {
@@ -96,7 +92,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         }
         self.search.delegate = self
         self.curPager.detegate = self
-
+        
         rac_setting()
     }
     
@@ -114,7 +110,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
                 },
                 catch: { ex in
                     //异常处理
-                   
+                    
                 },
                 finally: {
                     
@@ -122,6 +118,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
             )}
         
     }
+    
     
     //属性绑定
     func rac_setting(){
@@ -150,17 +147,6 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
                 self.dismissViewControllerAnimated(true, completion: nil)
                 
         }
-        //刷新
-        self.btnRefresh!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
-            .subscribeNext {
-                _ in
-                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isLogin = xmppMsgManager!.RegistConnect()
-                if(!isLogin){
-                    showDialogMsg("远程通讯服务器连接不上，请关闭重新登录！")
-                }
-                self.sleepcareMainViewModel?.SearchByBedOrRoom("")
-        }
         
         //设置选择查找类型
         self.imgSearch.userInteractionEnabled = true
@@ -180,15 +166,6 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         
         //设置选择科室rolename
         var session = Session.GetSession()
-//        var partdataSource = Array<DownListModel>()
-//        for(var i = 0;i < session.PartCodes.count;i++){
-//            item = DownListModel()
-//            item.key = session.PartCodes[i].PartCode
-//            item.value = session.PartCodes[i].RoleName
-//            partdataSource.append(item)
-//        }
-     //   self.partDownList = PopDownList(datasource: partdataSource, dismissHandler: self.ChoosedPartItem)
-        
         self.lblMainName.userInteractionEnabled = true
         var choosePart:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "mainNameTouch")
         self.lblMainName .addGestureRecognizer(choosePart)
@@ -197,8 +174,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         self.lblWarining.userInteractionEnabled = true
         var showWarining:UITapGestureRecognizer = UITapGestureRecognizer(target: self.sleepcareMainViewModel!, action: "showWarining")
         self.lblWarining .addGestureRecognizer(showWarining)
-        
-        
+
         self.choosepart = ChooseMainhouseController(nibName: "ChoosePartName", bundle: nil)
         self.choosepart!.parentController = self
         self.choosepart!.choosepartDelegate = self
@@ -206,10 +182,90 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         
         //首次登陆，则跳转页面去选择科室
         if session.CurPartCode == ""{
-        self.mainNameTouch()
+            self.mainNameTouch()
+        }
+    }
+    
+    
+    //刷新
+    @IBAction func Refresh(){
+            if self.spinner == nil{
+                self.spinner  = JHSpinnerView.showOnView(self.view, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:Int(UIScreen.mainScreen().bounds.width),height:Int(UIScreen.mainScreen().bounds.height)), CGFloat(0.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.9))
+                self.spinner!.tag = 2222222
+                self.mainScroll.userInteractionEnabled = false
+            }
+        
+        
+        /*定时器，检查支线程是否完成
+        */
+        self.setTimer()
+        
+        //创建支线程
+        self.thread = NSThread(target: self, selector: "RunThread", object: nil)
+        //启动
+        self.thread!.start()
+        }
+    
+    //支线程，完成刷新操作
+    func RunThread(){
+        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+        let isLogin = xmppMsgManager!.RegistConnect()
+        if(!isLogin){
+                    if self.spinner != nil{
+                    self.spinner!.dismiss()
+                    self.spinner = nil
+                    }
+            showDialogMsg("远程通讯服务器连接不上，请检查网络状态，稍后再试！")
         }
         
         
+        self.sleepcareMainViewModel!.SearchByBedOrRoom("")
+        
+      }
+    
+    //定时器，检查支线程是否完成，完成后关闭spinner
+    var realtimer:NSTimer!
+    func setTimer(){
+         realtimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "SpnnerTimerFireMethod:", userInfo: nil, repeats:true);
+        realtimer.fire()
+    }
+    
+    func SpnnerTimerFireMethod(timer: NSTimer) {
+        if (self.threadFlag && self.spinner != nil){
+             self.mainScroll.userInteractionEnabled = true
+           self.spinner!.dismiss()
+            self.spinner = nil
+            self.threadFlag = false
+            
+            realtimer.invalidate()
+            
+            
+           self.ReloadMainScrollView()
+        }
+    }
+    
+    
+    func ReloadMainScrollView(){
+        let pageCount:Int = (self.BedViews!.count / 8) + ((self.BedViews!.count % 8) > 0 ? 1 : 0)
+        self.sleepcareMainViewModel?.PageCount = pageCount
+        self.mainScroll.frame = CGRectMake(0, 170, self.view.bounds.size.width, self.view.bounds.size.height - 220)
+        println(self.mainScroll.frame)
+        self.mainScroll.contentSize = CGSize(width: self.mainScroll.bounds.size.width * CGFloat(pageCount), height: self.mainScroll.bounds.size.height)
+        self.mainScroll.contentOffset.x = 0
+        
+        if(pageCount > 0 ){
+            for i in 1...pageCount{
+                let mainview1 = NSBundle.mainBundle().loadNibNamed("SleepCareCollectionView", owner: self, options: nil).first as! SleepCareCollectionView
+                mainview1.frame = CGRectMake(CGFloat((i-1) * 1024) + 10, 0, 1024, self.mainScroll.frame.size.height)
+                mainview1.tag = 111111
+                mainview1.didSelecteBedHandler = self.BedSelected
+                var bedList = self.sleepcareMainViewModel?.GetBedsOfPage(i, count: 8)
+                mainview1.reloadData(bedList!)
+                self.mainScroll.addSubview(mainview1)
+                self.mainScroll.bringSubviewToFront(mainview1)
+            }
+        }
+
     }
     
     //点击查询类型
@@ -219,31 +275,26 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     
     //选择科室，选择完后刷新科室下的病人bedviews
     func mainNameTouch(){
-      //  self.partDownList!.Show(200, uiElement: self.lblMainName)
+        //  self.partDownList!.Show(200, uiElement: self.lblMainName)
         var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",
             KNSemiModalOptionKeys.animationDuration:"0.2",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
         self.presentSemiViewController(self.choosepart, withOptions: kNSemiModalOptionKeys)
- 
+        
     }
     
     //选择某科室代理
     func ChoosePart(partcode:String,partname:String,mainname:String) {
         self.lblMainName.text = mainname + "—" + partname
         self.sleepcareMainViewModel?.SearchByBedOrRoom("")
-
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+    //左右滑动
     func scrollViewDidScroll(scrollView: UIScrollView) {
         var page = Int(scrollView.contentOffset.x / self.mainScroll.frame.width) + 1
         self.curPager.jump(page)
     }
     
+    //代理
     func JumpPage(pageIndex:NSInteger){
         self.mainScroll.contentOffset.x = CGFloat(pageIndex - 1) * self.mainScroll.frame.width
         
@@ -255,12 +306,9 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     }
     
     
-  
-//    
-//    //选中科室/楼层
-//    func ChoosedPartItem(downListModel:DownListModel){
-//        var session = Session.GetSession()
-//        session.CurPartCode = downListModel.key
-//        self.sleepcareMainViewModel?.SearchByBedOrRoom("")
-//    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 }

@@ -27,6 +27,7 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
                 self.realtimeInstance!.realTimeCaches = Dictionary<String,RealTimeReport>()
                 self.realtimeInstance!.lock = NSLock()
             }
+        
             return self.realtimeInstance!
 }
     

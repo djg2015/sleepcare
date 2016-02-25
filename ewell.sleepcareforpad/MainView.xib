@@ -111,6 +111,9 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBH-ju-ae7" customClass="Pager" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="722" width="1024" height="46"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="j6w-wr-yQc"/>
+                    </constraints>
                 </view>
                 <searchBar contentMode="redraw" fixedFrame="YES" placeholder="请输入内容搜索" translatesAutoresizingMaskIntoConstraints="NO" id="Svk-kA-1lf">
                     <rect key="frame" x="698" y="116" width="300" height="44"/>
@@ -165,6 +168,9 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHj-Ds-ewI">
                     <rect key="frame" x="919" y="25" width="46" height="30"/>
                     <state key="normal" title="刷新"/>
+                    <connections>
+                        <action selector="Refresh" destination="-1" eventType="touchUpInside" id="522-dx-nis"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p1u-K6-RPQ">
                     <rect key="frame" x="61" y="123" width="323" height="31"/>
@@ -182,12 +188,23 @@
             <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="EBH-ju-ae7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="722" id="0ii-ZO-ckL"/>
+                <constraint firstAttribute="bottom" secondItem="EBH-ju-ae7" secondAttribute="bottom" id="7S0-dO-i81"/>
+                <constraint firstItem="EBH-ju-ae7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FRR-gx-Bzw"/>
                 <constraint firstAttribute="trailing" secondItem="EBH-ju-ae7" secondAttribute="trailing" id="RRX-Vt-rOu"/>
                 <constraint firstAttribute="bottom" secondItem="EBH-ju-ae7" secondAttribute="bottom" id="Rss-Hi-wj7"/>
+                <constraint firstAttribute="trailing" secondItem="EBH-ju-ae7" secondAttribute="trailing" id="igv-XD-ncr"/>
                 <constraint firstItem="EBH-ju-ae7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yAy-wl-aCd"/>
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="0ii-ZO-ckL"/>
+                    <exclude reference="RRX-Vt-rOu"/>
+                    <exclude reference="Rss-Hi-wj7"/>
+                    <exclude reference="yAy-wl-aCd"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="-288" y="-58"/>
         </view>
     </objects>

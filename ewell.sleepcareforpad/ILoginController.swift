@@ -20,6 +20,7 @@ class ILoginController: IBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = themeColor[themeName]
         rac_settings()
     }
     

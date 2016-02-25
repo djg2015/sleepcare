@@ -43,13 +43,14 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
         self.setRealTimer()
         //开启警告信息
         self.wariningCaches = Array<AlarmInfo>()
+        self.lock = NSLock()
         self.BeginWaringAttention()
     }
     
     //属性定义
     var realTimeCaches:Dictionary<String,RealTimeReport>?
     var wariningCaches:Array<AlarmInfo>!
-    
+    var lock:NSLock?
 
     //医院/养老院名称 +科室名
     var _mainName:String?
@@ -271,7 +272,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
         //从后台进入程序后，无法连接xmpp
         NSNotificationCenter.defaultCenter().addObserver(self,selector:"ReConnect", name:"ReConnectInternetForPad", object: nil)
 
-        //   self.ReloadAlarmInfo()
+        self.ReloadAlarmInfo()
         
         self.IsOpen = true
         self.setWarningTimer()
@@ -320,7 +321,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
                     TodoList.sharedInstance.addItem(todoItem)
                     
                 }
-                self.WariningCount = TodoList.sharedInstance.allItems().count
+                self.WariningCount = alarmList.alarmInfoList.count
                 },
                 catch: { ex in
                     //异常处理
@@ -377,6 +378,8 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
     //实时数据处理
     func GetRealTimeDelegate(realTimeReport:RealTimeReport){
         let key = realTimeReport.BedCode
+        self.lock!.lock()
+        
         if(self.realTimeCaches?.count > 0){
             var keys = self.realTimeCaches?.keys.filter({$0 == key})
             if(keys?.array.count == 0)
@@ -391,7 +394,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
         else{
             self.realTimeCaches?[key] = realTimeReport
         }
-        
+         self.lock!.unlock()
     }
     
     //报警数据处理
@@ -417,7 +420,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
     
     //房间床位查询设置
     private func PartBedsSearch(partCode:String,searchType:String,searchContent:String){
-        self.BedModelList = Array<BedModel>()
+       // self.BedModelList = Array<BedModel>()
         let sleepCareBussiness = SleepCareBussiness()
         //获取医院下的床位信息
         var partInfo:PartInfo = sleepCareBussiness.GetPartInfoByPartCode(partCode, searchType: searchType, searchContent: searchContent, from: nil, max: nil)
@@ -426,6 +429,8 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
         self.BedCount = partInfo.BedCount
         self.BindBedCount = partInfo.BindingCount
         self.RoomCount = partInfo.RoomCount
+        
+        if partInfo.BedList.count > 0{
         var beds = Array<BedModel>()
         for(var i = 0;i < partInfo.BedList.count; i++) {
             var bed = BedModel()
@@ -438,8 +443,13 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
             beds.append(bed)
         }
         self.BedModelList = beds
+        }
+        else{
+        self.BedModelList = Array<BedModel>()
+        }
         
         self.ReloadAlarmInfo()
+    
     }
     
     //刷新报警数
