@@ -76,10 +76,10 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     myPatientsTableCellViewModel.deleteBedUserHandler = self.RemovePatient
                     
                     curArray.append(myPatientsTableCellViewModel)
-                    session!.BedUserCodeList!.append(bedUserList.bedUserInfoList[i].BedUserCode)
+                    session!.BedUserCodeList.append(bedUserList.bedUserInfoList[i].BedUserCode)
                 }
                 self.MyPatientsArray = curArray
-                self.bedUserCodeList = session!.BedUserCodeList!
+                self.bedUserCodeList = session!.BedUserCodeList
                 }
                 },
                 catch: { ex in
@@ -139,7 +139,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 ({
                     var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                     var session = SessionForIphone.GetSession()
-                    var tempList = session!.BedUserCodeList!
+                    var tempList = session!.BedUserCodeList
                     for(var i = 0 ; i < tempList.count ; i++){
                         if tempList[i] == myPatientsTableViewModel.BedUserCode! {
                             tempList.removeAtIndex(i)
@@ -175,7 +175,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
             ({
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
-                var tempList = session!.BedUserCodeList!
+                var tempList = session!.BedUserCodeList
                 
                 for(var i=0;i<myPatientsTableViewModels.count;i++){
                     sleepCareForIPhoneBussinessManager.FollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModels[i].BedUserCode!, mainCode: session!.User!.MainCode)

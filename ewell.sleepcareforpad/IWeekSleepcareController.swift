@@ -41,6 +41,7 @@ class IWeekSleepcareController: IBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = themeColor[themeName]
         //设置滚动区域7个区域元素
         var screenWidth = UIScreen.mainScreen().bounds.width
         self.svSleep.contentSize = CGSize(width: screenWidth, height: (height1+height2+height3+height4+height5+height6+height7))

@@ -16,7 +16,7 @@
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1w-GU-lLV" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1w-GU-lLV">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headfaceBg.png" translatesAutoresizingMaskIntoConstraints="NO" id="gH7-av-etW">
@@ -47,9 +47,6 @@
                         <constraint firstAttribute="centerY" secondItem="gH7-av-etW" secondAttribute="centerY" constant="5" id="gtq-ps-vL8"/>
                         <constraint firstAttribute="centerY" secondItem="mz6-PW-uMb" secondAttribute="centerY" constant="-55" id="vmf-fU-JeF"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
-                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3QR-G8-j25">
                     <rect key="frame" x="0.0" y="460" width="320" height="62"/>
@@ -96,6 +93,7 @@
                 <outlet property="BtnExit" destination="0qq-Gb-nMI" id="JqI-aY-NC2"/>
                 <outlet property="lblManType" destination="mz6-PW-uMb" id="Pdr-Oo-Z40"/>
                 <outlet property="menuTableView" destination="C71-dD-46f" id="Lou-W7-eak"/>
+                <outlet property="topView" destination="f1w-GU-lLV" id="g6e-lL-sk7"/>
             </connections>
             <point key="canvasLocation" x="-660" y="279"/>
         </view>

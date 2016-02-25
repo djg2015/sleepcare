@@ -15,6 +15,7 @@ class ISetUserTypeController: IBaseViewController {
     var viewModel:ISetUserTypeViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = themeColor[themeName]
         self.viewModel = ISetUserTypeViewModel()
         self.btnUserSelf.rac_command = self.viewModel.userselfCommand
         self.btnMonitor.rac_command = self.viewModel.monitorCommand

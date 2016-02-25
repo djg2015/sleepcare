@@ -86,7 +86,7 @@
                         <constraint firstItem="a6g-jP-9w5" firstAttribute="top" secondItem="wXQ-C7-ZY0" secondAttribute="top" id="vGV-dI-FNA"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhV-xp-ioL" userLabel="addnew" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhV-xp-ioL" userLabel="addnew">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Zo-BW-UMe" userLabel="content">
@@ -142,9 +142,6 @@
                         <constraint firstAttribute="trailing" secondItem="3Zo-BW-UMe" secondAttribute="trailing" id="EZD-tU-ilN"/>
                         <constraint firstItem="3Zo-BW-UMe" firstAttribute="top" secondItem="dhV-xp-ioL" secondAttribute="top" constant="170" id="KdW-sR-OFK"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
-                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <animations/>

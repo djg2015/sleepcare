@@ -25,6 +25,7 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = themeColor[themeName]
         rac_settings()
         // Do any additional setup after loading the view.
     }
@@ -71,7 +72,7 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
     }
     
     func ReadProtocol(){
-        let jumpPage = IWebViewController(nibName:"WebView",bundle:nil,titleName:"用户服务协议",url:"http://www.sina.com.cn")
+        let jumpPage = IWebViewController(nibName:"WebView",bundle:nil,titleName:"用户服务协议",url:"http://www.usleepcare.com/app/protocol.aspx")
         IViewControllerManager.GetInstance()!.ShowViewController(jumpPage, nibName: "WebView",reload: true)
     }
     

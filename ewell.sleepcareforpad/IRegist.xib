@@ -19,7 +19,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleAspectFill" id="iN0-l3-epB" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+        <view contentMode="scaleAspectFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -241,9 +241,6 @@
                 <constraint firstAttribute="centerX" secondItem="hcw-t4-fXC" secondAttribute="centerX" id="zID-EC-Lit"/>
                 <constraint firstItem="m3a-4o-wuw" firstAttribute="top" secondItem="Tez-bd-O4P" secondAttribute="bottom" constant="9" id="zat-Nb-QSM"/>
             </constraints>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
-            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="89" y="87"/>
         </view>
     </objects>

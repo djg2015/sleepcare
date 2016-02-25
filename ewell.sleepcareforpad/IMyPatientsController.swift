@@ -42,6 +42,7 @@ class IMyPatientsController: IBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.uiNewAdd.backgroundColor = themeColor[themeName]
         self.myPatientTable.frame = CGRectMake(0, 7, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-7)
         self.topView.backgroundColor = themeColor[themeName]
         
@@ -51,14 +52,6 @@ class IMyPatientsController: IBaseViewController {
          self._height = Int(self.myPatientTable.frame.height) - 62
          self._width = Int(self.myPatientTable.frame.width)
          self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:self._width,height:self._height), CGFloat(0.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.9))
-
-//        if self.MyPatientsArray?.count > 2{
-//            self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:self._width,height:195 * self.MyPatientsArray!.count), CGFloat(0.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.9))
-//        }
-//        else{
-//        self._height = Int(self.myPatientTable.frame.height) - 71
-//        self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:self._width,height:self._height), CGFloat(0.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.9))
-//        }
        
         self.cellDelegate = self.myPatientTable
         self.setTimer()
@@ -104,14 +97,20 @@ class IMyPatientsController: IBaseViewController {
                 IViewControllerManager.GetInstance()!.CloseViewController()
             
         }
-        
+     
     }
     
     
     //添加老人
     func imageaddPatientTouch(){
+        //当前是使用者 且bedlist。count》0，则提示先删除后添加一个老人
+       if (SessionForIphone.GetSession()!.BedUserCodeList.count > 0 && SessionForIphone.GetSession()!.User!.UserType == "1"){
+        showDialogMsg(ShowMessage(MessageEnum.DeletePatientReminder))
+        }
+        else{
         var nextcontroller = IChoosePatientsController(nibName:"IChoosePatients", bundle:nil, myPatientsViewModel: self.viewModel)
         IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IChoosePatients",reload: true)
+    }
     }
     //定时器查看是否已经载入数据
     func setTimer(){

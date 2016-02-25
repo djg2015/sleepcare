@@ -22,6 +22,8 @@ class IAccountSetController: IBaseViewController, PopDownListItemChoosed{
     var iModifyViewModel:IModifyViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = themeColor[themeName]
         rac_settings()
         // Do any additional setup after loading the view.
     }

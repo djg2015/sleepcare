@@ -156,7 +156,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                             if(self.iBedUserList!.bedUserInfoList.count > 0){
                                 //当前为使用者类型，直接跳转主页面
                                 if(loginUser.UserType == LoginUserType.UserSelf){
-                                    session!.BedUserCodeList!.append(self.iBedUserList!.bedUserInfoList[0].BedUserCode)
+                                    session!.BedUserCodeList.append(self.iBedUserList!.bedUserInfoList[0].BedUserCode)
                                     
                                     let nextcontroller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:self.iBedUserList!.bedUserInfoList[0].BedUserCode,equipmentID:self.iBedUserList!.bedUserInfoList[0].EquipmentID,bedUserName:self.iBedUserList!.bedUserInfoList[0].BedUserName)
                                     IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IMainFrame", reload: true)

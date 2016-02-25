@@ -17,7 +17,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleAspectFill" id="O3W-NZ-XsS" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+        <view contentMode="scaleAspectFill" id="O3W-NZ-XsS">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -215,9 +215,6 @@
                 <constraint firstAttribute="centerX" secondItem="0QE-3b-IXe" secondAttribute="centerX" constant="46.5" id="tZD-4D-PcI"/>
                 <constraint firstItem="01B-fR-fyH" firstAttribute="top" secondItem="O3W-NZ-XsS" secondAttribute="top" constant="127" id="yUX-dR-eqg"/>
             </constraints>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="loginbackground"/>
-            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="8" y="78"/>
         </view>
     </objects>

@@ -249,8 +249,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     func GetWaringAttentionDelegate(alarmList:AlarmList){
         if(self.IsOpen){
             var session = SessionForIphone.GetSession()!
-            if session.BedUserCodeList != nil{
-                var bedusercodeList = session.BedUserCodeList!
+            if session.BedUserCodeList.count > 0{
+                var bedusercodeList = session.BedUserCodeList
                 if bedusercodeList.count > 0 {
                     for(var i = 0;i < alarmList.alarmInfoList.count;i++){
                         for code in bedusercodeList {

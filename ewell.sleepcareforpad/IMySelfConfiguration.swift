@@ -11,6 +11,7 @@
     
     class IMySelfConfiguration: UIView,SetAlarmPicDelegate{
         
+        @IBOutlet weak var topView: UIView!
         @IBOutlet weak var menuTableView: ConfiurationTabeView!
         @IBOutlet weak var lblManType: UILabel!
         @IBOutlet weak var BtnExit: UIButton!
@@ -20,6 +21,7 @@
         // 界面初始化
         func viewInit(parentController:IBaseViewController?,bedUserCode:String?,equipmentID:String?)
         {
+            self.topView.backgroundColor = themeColor[themeName]
             self.parentController = parentController
             var source = Array<ConfigurationViewModel>()
             var menu:ConfigurationViewModel = ConfigurationViewModel()
@@ -48,12 +50,12 @@
                 
                 menu = ConfigurationViewModel()
                 menu.titleName = "使用技巧"
-                menu.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"使用技巧",url:"http://www.sina.com.cn")
+                menu.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"使用技巧",url:"http://www.usleepcare.com/app/help.aspx")
                 source.append(menu)
                 
                 menu = ConfigurationViewModel()
                 menu.titleName = "关于uSleepCare"
-                menu.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"关于uSleepCare",url:"http://www.sina.com.cn")
+                menu.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"关于uSleepCare",url:"http://www.usleepcare.com/app/about.aspx")
                 source.append(menu)
                 
                 menu = ConfigurationViewModel()
@@ -76,12 +78,12 @@
                 
                 menu = ConfigurationViewModel()
                 menu.titleName = "使用技巧"
-                menu.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"使用技巧",url:"http://www.sina.com.cn")
+                menu.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"使用技巧",url:"http://www.usleepcare.com/app/help.aspx")
                 source.append(menu)
                 
                 menu = ConfigurationViewModel()
                 menu.titleName = "关于uSleepCare"
-                menu.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"关于uSleepCare",url:"http://www.sina.com.cn")
+                menu.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"关于uSleepCare",url:"http://www.usleepcare.com/app/about.aspx")
                 source.append(menu)
                 
                 menu = ConfigurationViewModel()
