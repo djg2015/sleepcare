@@ -179,14 +179,14 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 
                 for(var i=0;i<myPatientsTableViewModels.count;i++){
                     sleepCareForIPhoneBussinessManager.FollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModels[i].BedUserCode!, mainCode: session!.User!.MainCode)
-                    var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModels[i].BedUserCode})
-                    if(exist.count == 0){
+                  //  var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModels[i].BedUserCode})
+                 //   if(exist.count == 0){
                         myPatientsTableViewModels[i].selectedBedUserHandler = self.ShowPatientDetail
                         myPatientsTableViewModels[i].deleteBedUserHandler = self.RemovePatient
                         self.MyPatientsArray.append(myPatientsTableViewModels[i])
                         
                         tempList.append(myPatientsTableViewModels[i].BedUserCode!)
-                    }
+                  //  }
                 }
                 session!.BedUserCodeList = tempList
                 },

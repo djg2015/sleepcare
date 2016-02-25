@@ -52,7 +52,10 @@ class IMyPatientsController: IBaseViewController {
          self._height = Int(self.myPatientTable.frame.height) - 62
          self._width = Int(self.myPatientTable.frame.width)
          self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:self._width,height:self._height), CGFloat(0.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.9))
-       
+          
+            if self.MyPatientsArray?.count > 0{
+            self.myPatientTable.userInteractionEnabled = false
+            }
         self.cellDelegate = self.myPatientTable
         self.setTimer()
         }
@@ -127,6 +130,8 @@ class IMyPatientsController: IBaseViewController {
             self.cellDelegate.EnableCellInteraction()
             }
         }
+        
+        //首次登陆
         
     }
 }
