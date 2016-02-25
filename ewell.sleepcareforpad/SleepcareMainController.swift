@@ -46,7 +46,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
 
             
             while (self.mainScroll.subviews.count > 0 ){
-                println(self.mainScroll.subviews[0].tag!)
+               
                 self.mainScroll.subviews[0].removeFromSuperview()
             }
             
@@ -191,7 +191,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     @IBAction func Refresh(){
             if self.spinner == nil{
                 self.spinner  = JHSpinnerView.showOnView(self.view, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:Int(UIScreen.mainScreen().bounds.width),height:Int(UIScreen.mainScreen().bounds.height)), CGFloat(0.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.9))
-                self.spinner!.tag = 2222222
+              
                 self.mainScroll.userInteractionEnabled = false
             }
         
@@ -249,7 +249,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         let pageCount:Int = (self.BedViews!.count / 8) + ((self.BedViews!.count % 8) > 0 ? 1 : 0)
         self.sleepcareMainViewModel?.PageCount = pageCount
         self.mainScroll.frame = CGRectMake(0, 170, self.view.bounds.size.width, self.view.bounds.size.height - 220)
-        println(self.mainScroll.frame)
+       
         self.mainScroll.contentSize = CGSize(width: self.mainScroll.bounds.size.width * CGFloat(pageCount), height: self.mainScroll.bounds.size.height)
         self.mainScroll.contentOffset.x = 0
         
