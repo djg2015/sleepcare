@@ -105,13 +105,13 @@ class IRRMonitor: UIView{
         self.topView.backgroundColor = themeColor[themeName]
        
         // 画出圆圈中间内容
-        self.lblRR = UILabel(frame: CGRect(x: 0, y: 36, width: self.processRR.bounds.width/2 + 31, height: 57))
+        self.lblRR = UILabel(frame: CGRect(x: 0, y: 36, width: self.processRR.bounds.width/2 + 25, height: 54))
         self.lblRR!.textAlignment = .Center
-        self.lblRR!.font = UIFont.systemFontOfSize(57)
+        self.lblRR!.font = UIFont.systemFontOfSize(54)
         self.lblRR!.textColor = UIColor.whiteColor()
         self.processRR.centerTitleView?.addSubview(self.lblRR!)
         
-        var lbl1 = UILabel(frame: CGRect(x: self.processRR.bounds.width/2 + 31, y: 76, width: 34, height: 14))
+        var lbl1 = UILabel(frame: CGRect(x: self.processRR.bounds.width/2 + 26, y: 70, width: 45, height: 14))
         lbl1.textAlignment = .Center
         lbl1.font = UIFont.systemFontOfSize(14)
         lbl1.textColor = UIColor.whiteColor()
