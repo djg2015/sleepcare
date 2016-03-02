@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="522"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3B-eg-0Dk" userLabel="topView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3B-eg-0Dk" userLabel="topView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="316"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总时长" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeG-GT-NIT">
@@ -123,6 +123,9 @@
                         <constraint firstItem="cZD-b6-fjw" firstAttribute="top" secondItem="E3B-eg-0Dk" secondAttribute="top" id="tgj-ax-rrZ"/>
                         <constraint firstAttribute="trailing" secondItem="cZD-b6-fjw" secondAttribute="trailing" id="xVx-JW-aIe"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="background"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZT-fF-b1Q" userLabel="bottomView" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="316" width="320" height="206"/>

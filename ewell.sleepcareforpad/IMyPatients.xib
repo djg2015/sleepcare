@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -58,6 +58,7 @@
                                     </constraints>
                                 </imageView>
                             </subviews>
+                            <animations/>
                             <color key="backgroundColor" red="0.29603719709999998" green="0.53870904450000001" blue="0.88235294819999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="WTR-H1-fm3" secondAttribute="trailing" constant="14" id="Cgc-TH-UtK"/>
@@ -86,7 +87,7 @@
                         <constraint firstItem="a6g-jP-9w5" firstAttribute="top" secondItem="wXQ-C7-ZY0" secondAttribute="top" id="vGV-dI-FNA"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhV-xp-ioL" userLabel="addnew">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhV-xp-ioL" userLabel="addnew" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Zo-BW-UMe" userLabel="content">
@@ -136,12 +137,16 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="3Zo-BW-UMe" firstAttribute="leading" secondItem="dhV-xp-ioL" secondAttribute="leading" id="8b6-hR-Hn8"/>
                         <constraint firstAttribute="trailing" secondItem="3Zo-BW-UMe" secondAttribute="trailing" id="EZD-tU-ilN"/>
                         <constraint firstItem="3Zo-BW-UMe" firstAttribute="top" secondItem="dhV-xp-ioL" secondAttribute="top" constant="170" id="KdW-sR-OFK"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="background"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <animations/>

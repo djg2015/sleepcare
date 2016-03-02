@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -17,20 +17,12 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleAspectFill" id="O3W-NZ-XsS">
+        <view contentMode="scaleAspectFill" id="O3W-NZ-XsS" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logotm.png" translatesAutoresizingMaskIntoConstraints="NO" id="0QE-3b-IXe">
-                    <rect key="frame" x="38" y="50" width="151" height="49"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="49" id="6k9-eA-KRN"/>
-                        <constraint firstAttribute="width" constant="151" id="KfQ-3V-2Hb"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户管理" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deL-Ig-nkd">
-                    <rect key="frame" x="187" y="62" width="85" height="25"/>
+                    <rect key="frame" x="118" y="62" width="85" height="25"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="dqG-qa-8Bt"/>
@@ -146,6 +138,7 @@
                                     </state>
                                 </button>
                             </subviews>
+                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="i2M-Tg-ntJ" secondAttribute="trailing" id="TZT-kS-cRb"/>
@@ -199,7 +192,6 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Ja3-B1-uTU" firstAttribute="top" secondItem="O3W-NZ-XsS" secondAttribute="top" constant="402" id="0W4-EJ-Ryo"/>
-                <constraint firstItem="0QE-3b-IXe" firstAttribute="top" secondItem="O3W-NZ-XsS" secondAttribute="top" constant="50" id="1Gx-lc-FLE"/>
                 <constraint firstItem="deL-Ig-nkd" firstAttribute="top" secondItem="O3W-NZ-XsS" secondAttribute="top" constant="62" id="85b-Bo-vOo"/>
                 <constraint firstItem="xNU-82-ulU" firstAttribute="top" secondItem="O3W-NZ-XsS" secondAttribute="top" constant="249" id="92t-4G-cs7"/>
                 <constraint firstItem="sd7-DC-ra6" firstAttribute="top" secondItem="O3W-NZ-XsS" secondAttribute="top" constant="189" id="B7V-mv-eAG"/>
@@ -211,16 +203,15 @@
                 <constraint firstAttribute="centerX" secondItem="xNU-82-ulU" secondAttribute="centerX" id="isq-LU-BJj"/>
                 <constraint firstAttribute="centerX" secondItem="WeH-fq-O3k" secondAttribute="centerX" constant="62" id="kCJ-nH-BSH"/>
                 <constraint firstAttribute="centerX" secondItem="01B-fR-fyH" secondAttribute="centerX" id="kdR-bB-tbV"/>
-                <constraint firstAttribute="centerX" secondItem="deL-Ig-nkd" secondAttribute="centerX" constant="-69.5" id="mFP-tD-bLR"/>
-                <constraint firstAttribute="centerX" secondItem="0QE-3b-IXe" secondAttribute="centerX" constant="46.5" id="tZD-4D-PcI"/>
+                <constraint firstAttribute="centerX" secondItem="deL-Ig-nkd" secondAttribute="centerX" constant="-0.5" id="mFP-tD-bLR"/>
                 <constraint firstItem="01B-fR-fyH" firstAttribute="top" secondItem="O3W-NZ-XsS" secondAttribute="top" constant="127" id="yUX-dR-eqg"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="background"/>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="8" y="78"/>
         </view>
     </objects>
-    <resources>
-        <image name="logotm.png" width="300" height="60"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
