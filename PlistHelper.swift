@@ -8,10 +8,7 @@
 
 import Foundation
 
-var fileManager = NSFileManager.defaultManager()
-let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
-var documentsDirectory:String!
-var sleepcareResultDictionary:NSMutableDictionary?
+
 
 
 //初始化，载入默认数据

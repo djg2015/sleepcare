@@ -53,6 +53,7 @@ class SessionForIphone {
         }
     }
     
+   
     
     private static var instance:SessionForIphone? = nil
     
@@ -70,6 +71,7 @@ class SessionForIphone {
     
     class func GetSession() -> SessionForIphone? {
         if(self.instance == nil){
+            print("session is nil")
             return nil
         }
         return self.instance!

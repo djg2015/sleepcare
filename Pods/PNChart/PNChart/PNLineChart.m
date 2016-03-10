@@ -781,7 +781,7 @@
 
 + (CGSize)sizeOfString:(NSString *)text withWidth:(float)width font:(UIFont *)font
 {
-    NSInteger ch;
+  
     CGSize size = CGSizeMake(width, MAXFLOAT);
 
     if ([text respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
@@ -796,7 +796,6 @@
         size = [text sizeWithFont:font constrainedToSize:size lineBreakMode:NSLineBreakByCharWrapping];
 #pragma clang diagnostic pop
     }
-    ch = size.height;
 
     return size;
 }

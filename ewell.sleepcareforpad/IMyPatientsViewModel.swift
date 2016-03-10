@@ -62,13 +62,16 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 
                 var bedUserList:IBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(session!.User!.LoginName, mainCode: session!.User!.MainCode)
                 self.MyPatientsArray = Array<MyPatientsTableCellViewModel>()
+                
                 var curArray = Array<MyPatientsTableCellViewModel>()
                 for(var i=0;i<bedUserList.bedUserInfoList.count;i++){
                     var myPatientsTableCellViewModel = MyPatientsTableCellViewModel()
+                    myPatientsTableCellViewModel.MainName = bedUserList.bedUserInfoList[i].MainName
                     myPatientsTableCellViewModel.BedUserCode = bedUserList.bedUserInfoList[i].BedUserCode
                     myPatientsTableCellViewModel.BedUserName = bedUserList.bedUserInfoList[i].BedUserName
                     myPatientsTableCellViewModel.RoomNum = bedUserList.bedUserInfoList[i].RoomName
                     myPatientsTableCellViewModel.BedNum = bedUserList.bedUserInfoList[i].BedNumber
+                    myPatientsTableCellViewModel.BedCode = bedUserList.bedUserInfoList[i].BedCode
                     myPatientsTableCellViewModel.PartCode = bedUserList.bedUserInfoList[i].PartCode
                     myPatientsTableCellViewModel.PartName = bedUserList.bedUserInfoList[i].PartName
                     myPatientsTableCellViewModel.EquipmentID = bedUserList.bedUserInfoList[i].EquipmentID
@@ -97,7 +100,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     }
     
     /**
-    获取实时信息：心率，呼吸，在离床状态
+    获取实时信息：心率，呼吸，在离床状态, 根据bedusercode删选
     :param: realtimeData	推送过来的实时数据字典
     */
     func GetRealtimeData(realtimeData:Dictionary<String,RealTimeReport>){
@@ -110,8 +113,14 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                         patient[i].HR = realtimeData[patient[i].BedUserCode!]!.HR
                         patient[i].RR = realtimeData[patient[i].BedUserCode!]!.RR
                         patient[i].BedStatus = realtimeData[patient[i].BedUserCode!]!.OnBedStatus
+                         //111
+                        patient[i].BedNum = realtimeData[patient[i].BedUserCode!]!.BedNumber
+                       patient[i].BedUserName = realtimeData[patient[i].BedUserCode!]!.UserName
+                       patient[i].BedCode = realtimeData[patient[i].BedUserCode!]!.BedCode
                     }
                 }
+                
+                
             }
         }
         
@@ -147,6 +156,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                         }
                     }
                     session!.BedUserCodeList = tempList
+                    self.bedUserCodeList = tempList
                     
                     IAlarmHelper.GetAlarmInstance().DeletePatientAlarm(myPatientsTableViewModel.BedUserName!)
                     sleepCareForIPhoneBussinessManager.RemoveFollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode!)
@@ -189,6 +199,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                   //  }
                 }
                 session!.BedUserCodeList = tempList
+                self.bedUserCodeList = tempList
                 },
                 catch: { ex in
                     //异常处理

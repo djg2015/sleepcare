@@ -256,6 +256,17 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
                     else if(realTimeReport.OnBedStatus == "离床"){
                         curBed.BedStatus = BedStatusType.leavebed
                     }
+                    else if(realTimeReport.OnBedStatus == "空床"){
+                        curBed.BedStatus = BedStatusType.emptybed
+                    }
+                    else if(realTimeReport.OnBedStatus == "异常"){
+                        curBed.BedStatus = BedStatusType.unnormal
+                    }
+                    else if(realTimeReport.OnBedStatus == "请假"){
+                        curBed.BedStatus = BedStatusType.offduty
+                    }
+                    
+
                     //                            let todoItem1 = TodoItem(deadline: NSDate(timeIntervalSinceNow: 1), title: "111", UUID: NSUUID().UUIDString)
                     //                            TodoList.sharedInstance.addItem(todoItem1)
                 }
@@ -316,6 +327,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
                 
                 for alarmItem in alarmList.alarmInfoList
                 {
+                   
                     //放入todolist
                     let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmItem.UserName + alarmItem.SchemaContent, UUID: alarmItem.AlarmCode)
                     TodoList.sharedInstance.addItem(todoItem)
@@ -357,10 +369,14 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
             let alarmInfo:AlarmInfo = self.wariningCaches[0] as AlarmInfo
             var session = Session.GetSession()
             if(session.CurPartCode == alarmInfo.PartCode){
+                
+                
                 let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.UserName + alarmInfo.SchemaContent, UUID: alarmInfo.AlarmCode)
                 TodoList.sharedInstance.addItem(todoItem)
                 
-                self.WariningCount = TodoList.sharedInstance.allItems().count
+            
+                //self.WariningCount = TodoList.sharedInstance.allItems().count
+                self.WariningCount = self.WariningCount + 1
             }
             self.wariningCaches.removeAtIndex(0)
         }
@@ -438,6 +454,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
             bed.RoomNumber = partInfo.BedList[i].RoomNumber
             bed.BedCode = partInfo.BedList[i].BedCode
             bed.BedNumber = partInfo.BedList[i].BedNumber
+            //初始化状态为离线，收到实时数据后改变
             bed.BedStatus = BedStatusType.unline
             bed.UserCode = partInfo.BedList[i].UserCode
             beds.append(bed)

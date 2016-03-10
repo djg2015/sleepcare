@@ -63,24 +63,25 @@ class IViewControllerManager {
     }
     
     //跳转页面，显示
-    func ShowViewController(nextcontroller:IBaseViewController?,nibName:String,reload:Bool){
+    func ShowViewController(nextcontroller:IBaseViewController,nibName:String,reload:Bool){
         var index = self.GetIndex(nibName)
         //当前已存在打开的viewcontroller,找到原有的控制器，打开并放至队尾
-        if nextcontroller == nil{  
-            var controller = self.ControllerList.removeAtIndex(index)
-            self.CurrentController!.presentViewController(controller, animated: true, completion: nil)
-            self.ControllerList.append(controller)
-        }
+//        if nextcontroller == nil{  
+//            var controller = self.ControllerList.removeAtIndex(index)
+//            self.CurrentController!.presentViewController(controller, animated: true, completion: nil)
+//           self.ControllerList.append(nextcontroller!)
+//        }
             //传入新控制器nextcontroller,打开nextcontroller并放到控制器队尾
-        else{
+       // else{
              //需要reload，则从控制器列表中取出并清除
-            if reload && index>=0{
-                var removecontroller = self.ControllerList.removeAtIndex(index)
+            if (reload && index >= 0){
+               var removecontroller = self.ControllerList.removeAtIndex(index)
                 removecontroller.Clean()
             }
-            self.CurrentController!.presentViewController(nextcontroller!, animated: true, completion: nil)
-            self.ControllerList.append(nextcontroller!)
-        }
+            self.CurrentController!.presentViewController(nextcontroller, animated: true, completion: nil)
+            self.ControllerList.append(nextcontroller)
+       
+      //  }
     }
     
     //关闭当前页面，从控制器列表中移除并清除内存空间
@@ -100,4 +101,6 @@ class IViewControllerManager {
         }
         return -1
     }
+    
+   
 }

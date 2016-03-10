@@ -18,6 +18,7 @@
         
         var parentController:IBaseViewController!
         var menuAlarm:ConfigurationViewModel!
+        var session = SessionForIphone.GetSession()
         // 界面初始化
         func viewInit(parentController:IBaseViewController?,bedUserCode:String?,equipmentID:String?)
         {
@@ -29,7 +30,7 @@
             self.BtnExit.backgroundColor = themeColor[themeName]
             
             // 根据用户类型(监护人/使用者)设置对应的菜单 1.使用者 2.监护人
-            if(SessionForIphone.GetSession()!.User?.UserType == LoginUserType.Monitor)
+            if(self.session != nil && session!.User?.UserType == LoginUserType.Monitor)
             {
                 menu = ConfigurationViewModel()
                 menu.titleName = "我的老人"
@@ -64,7 +65,7 @@
                 
                 self.lblManType.text = "监护人"
             }
-            else if(SessionForIphone.GetSession()!.User?.UserType == LoginUserType.UserSelf)
+            else if(self.session != nil && session!.User?.UserType == LoginUserType.UserSelf)
             {
                 menu = ConfigurationViewModel()
                 menu.titleName = "我的老人"
@@ -126,13 +127,28 @@
             SetValueIntoPlist("loginusernamephone", "")
             SetValueIntoPlist("loginuserpwdphone", "")
             SetValueIntoPlist("xmppusernamephone", "")
-            if SessionForIphone.GetSession()!.User!.UserType == LoginUserType.Monitor {
+           
+            let session = SessionForIphone.GetSession()
+            //关闭alarm，清除session
+            if session != nil && session!.User!.UserType == LoginUserType.Monitor {
                 IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
+                
+                //若当前开启了消息通知，则在退出登录前关闭
+                if UIApplication.sharedApplication().isRegisteredForRemoteNotifications(){
+                var  token =  NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as! String
+                BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").CloseNotification(token, loginName: session!.User!.LoginName)
+                }
+    
             }
-            SessionForIphone.ClearSession()
+            //全局标志恢复默认值
+            LOGINFLAG = false
+            AUTOLOGIN = false
+
+            //关闭xmpp
             var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
             xmppMsgManager?.Close()
             
+            //重新打开登陆页面
             let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
             IViewControllerManager.GetInstance()!.ShowViewController(logincontroller, nibName: "ILogin", reload: true)
         }

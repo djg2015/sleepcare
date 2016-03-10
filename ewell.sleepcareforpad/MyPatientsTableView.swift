@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource,EnableCellInteractionDelegate {
+//class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource,EnableCellInteractionDelegate {
+class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
     var _source:Array<MyPatientsTableCellViewModel>!
     override init(frame: CGRect) {
         super.init(frame: frame,style:UITableViewStyle.Plain)
@@ -99,9 +100,9 @@ class MyPatientsTableView: UITableView,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    func EnableCellInteraction() {
-        self.userInteractionEnabled = true
-    }
+//    func EnableCellInteraction() {
+//        self.userInteractionEnabled = true
+//    }
 
     //根据数据绑定重载当前表格
     override func reloadData() {

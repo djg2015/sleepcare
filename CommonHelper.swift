@@ -7,12 +7,7 @@
 //
 
 import Foundation
-let USERID:String = "xmppusername"
-let USERIDPHONE:String = "xmppusernamephone"
-let PASS:String = "xmppuserpwd"
-let SERVER:String = "xmppserver"
-let PORT:String = "xmppport"
-let SERVERJID:String = "serverjid"
+
 //获取当前时间
 func getCurrentTime() -> String{
 
@@ -31,7 +26,7 @@ func getCurrentTime(dateFormat:String) -> String{
     return DateFormatterHelper.GetInstance().GetStringDateFromCurrent(dateFormat)
 }
 
-var deviceType:String = "ipad"
+
 //基本弹窗
 func showDialogMsg(msg:String,title:String? = "提示"){
     if("ipad" == deviceType){

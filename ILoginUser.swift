@@ -16,6 +16,7 @@ class ILoginUser: BaseMessage {
     var Status:String = ""
     var HeadFace:String = ""
     var MainCode:String = ""
+   
     
     //解析响应的message
     override class func XmlToMessage(subjectXml:String,bodyXMl:String) -> BaseMessage{
@@ -30,6 +31,7 @@ class ILoginUser: BaseMessage {
         result.Status = loginUser.elementForName("Status") == nil ? "" : loginUser.elementForName("Status").stringValue()
         result.HeadFace = loginUser.elementForName("HeadFace") == nil ? "" : loginUser.elementForName("HeadFace").stringValue()
         result.MainCode = loginUser.elementForName("MainCode") == nil ? "" : loginUser.elementForName("MainCode").stringValue()
+      
                
         return result
     }

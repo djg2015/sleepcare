@@ -95,10 +95,13 @@ class IChoosePatientsViewModel: BaseViewModel {
                     var curBedUsers:Array<BedPatientViewModel> = Array<BedPatientViewModel>()
                     for(var j=0;j<mainInfo.PartInfoList[i].BedInfoList.count;j++){
                         var bedPatientViewModel:BedPatientViewModel = BedPatientViewModel()
+                       
+                        bedPatientViewModel.MainName = mainInfo.PartInfoList[i].MainName
                         bedPatientViewModel.PartCode = mainInfo.PartInfoList[i].PartCode
                         bedPatientViewModel.PartName = mainInfo.PartInfoList[i].PartName
                         bedPatientViewModel.RoomNum = mainInfo.PartInfoList[i].BedInfoList[j].RoomName
                         bedPatientViewModel.BedNum = mainInfo.PartInfoList[i].BedInfoList[j].BedNumber
+                        bedPatientViewModel.BedCode = mainInfo.PartInfoList[i].BedInfoList[j].BedCode
                         bedPatientViewModel.BedUserCode = mainInfo.PartInfoList[i].BedInfoList[j].BedUserCode
                         bedPatientViewModel.BedUserName = mainInfo.PartInfoList[i].BedInfoList[j].BedUserName
                         bedPatientViewModel.selectedPatientHandler = self.ChoosedPatient
@@ -134,6 +137,8 @@ class IChoosePatientsViewModel: BaseViewModel {
                             myPatientsTableCellViewModel.BedUserName = choosedbedUsers[i].BedUserName
                             myPatientsTableCellViewModel.PartCode = choosedbedUsers[i].PartCode
                             myPatientsTableCellViewModel.PartName = choosedbedUsers[i].PartName
+                            myPatientsTableCellViewModel.BedCode = choosedbedUsers[i].BedCode
+                            myPatientsTableCellViewModel.MainName = choosedbedUsers[i].MainName
                             myPatientsTableCellViewModel.BedNum = choosedbedUsers[i].BedNum
                             myPatientsTableCellViewModel.RoomNum = choosedbedUsers[i].RoomNum
                             choosedPatients.append(myPatientsTableCellViewModel)

@@ -72,8 +72,7 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="0qq-Gb-nMI" secondAttribute="trailing" constant="19" id="5Fa-34-gjf"/>
                         <constraint firstItem="0qq-Gb-nMI" firstAttribute="leading" secondItem="3QR-G8-j25" secondAttribute="leading" constant="20" id="We1-vC-5hN"/>
-                        <constraint firstAttribute="centerY" secondItem="0qq-Gb-nMI" secondAttribute="centerY" constant="4" id="sEl-C2-bBq"/>
-                        <constraint firstAttribute="centerX" secondItem="0qq-Gb-nMI" secondAttribute="centerX" id="yfB-Ya-K1N"/>
+                        <constraint firstItem="0qq-Gb-nMI" firstAttribute="top" secondItem="3QR-G8-j25" secondAttribute="top" constant="10" id="mkz-Ly-7lt"/>
                     </constraints>
                 </view>
             </subviews>

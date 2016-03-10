@@ -18,11 +18,15 @@ class MyPatientsTableViewCell: UITableViewCell {
     @IBOutlet weak var lblBedUserName: UILabel!
     //  @IBOutlet weak var imgDetail: UIImageView!
     
+    @IBOutlet weak var lblMainName: UILabel!
+    
+    
     @IBOutlet weak var imgStatus: UIImageView!
     @IBOutlet weak var layerView: BackgroundCommon!
     
     var source:MyPatientsTableCellViewModel!
     var bindFlag:Bool = false
+    
     var statusImageName:String?
         {
         didSet{
@@ -36,12 +40,15 @@ class MyPatientsTableViewCell: UITableViewCell {
     //数据绑定床位界面
     func CellLoadData(data:MyPatientsTableCellViewModel){
         self.source = MyPatientsTableCellViewModel()
-        
+
         self.source.BedUserCode = (data as MyPatientsTableCellViewModel).BedUserCode
         self.source.BedUserName = (data as MyPatientsTableCellViewModel).BedUserName
         self.source.RoomNum = (data as MyPatientsTableCellViewModel).RoomNum
         self.source.BedNum = (data as MyPatientsTableCellViewModel).BedNum
         self.source.PartCode = (data as MyPatientsTableCellViewModel).PartCode
+        //新增“院名 ”
+        self.source.MainName = (data as MyPatientsTableCellViewModel).MainName
+        
         self.source.PartName = (data as MyPatientsTableCellViewModel).PartName
         self.source.selectedBedUserHandler = (data as MyPatientsTableCellViewModel).selectedBedUserHandler
         self.source.deleteBedUserHandler = (data as MyPatientsTableCellViewModel).deleteBedUserHandler
@@ -51,6 +58,13 @@ class MyPatientsTableViewCell: UITableViewCell {
         RACObserve(data, "HR") ~> RAC(self.source, "HR")
         RACObserve(data, "RR") ~> RAC(self.source, "RR")
         RACObserve(data, "BedStatus") ~> RAC(self.source, "BedStatus")
+        //222222222
+         RACObserve(data, "BedNum") ~> RAC(self.source, "BedNum")
+         RACObserve(data, "BedCode") ~> RAC(self.source, "BedCode")
+         RACObserve(data, "BedUserName") ~> RAC(self.source, "BedUserName")
+        //33333
+        RACObserve(self.source, "MainName") ~> RAC(self.lblMainName, "text")
+        
         RACObserve(self.source, "PartName") ~> RAC(self.lblPartName, "text")
         RACObserve(self.source, "BedStatus") ~> RAC(self.lblBedStatus, "text")
         RACObserve(self.source, "HR") ~> RAC(self.lblHR, "text")
@@ -85,6 +99,19 @@ class MyPatientsTableViewCell: UITableViewCell {
 
 class MyPatientsTableCellViewModel:NSObject{
     //属性定义
+    //床位用户姓名
+    var _mainName:String?
+    dynamic var MainName:String?{
+        get
+        {
+            return self._mainName
+        }
+        set(value)
+        {
+            self._mainName = value
+        }
+    }
+    
     //床位用户编号
     var _bedUserCode:String?
     dynamic var BedUserCode:String?{
@@ -123,6 +150,20 @@ class MyPatientsTableCellViewModel:NSObject{
             self._partCode=value
         }
     }
+    
+    //床位编号
+    var _bedCode:String?
+    dynamic var BedCode:String?{
+        get
+        {
+            return self._bedCode
+        }
+        set(value)
+        {
+            self._bedCode=value
+        }
+    }
+    
     
     //场景名称
     var _partName:String?
@@ -233,9 +274,12 @@ class MyPatientsTableCellViewModel:NSObject{
             else if value == "异常"{
                 StatusImageName = "yellowpoint.png"
             }
+            else if value == "空床"{
+                StatusImageName = "lightgreenpoint.png"
+            }
             else {
-                self._bedStatus = "暂无"
-                StatusImageName = "greenpoint.png"
+                self._bedStatus = "确认中"
+                 StatusImageName = "yellowpoint.png"
             }
         }
     }

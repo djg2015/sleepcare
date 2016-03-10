@@ -15,11 +15,19 @@ protocol SleepCareForIPhoneBussinessManager{
     //      loginPassword->登录密码
     func Login(loginName:String,loginPassword:String) -> ILoginUser
     
-    // 注册用户信息
+        // 注册用户信息
     // 参数：loginName->登录账户
     //      loginPassword->登录密码
     //      mainCode->医院/养老院编号
     func Regist(loginName:String,loginPassword:String,mainCode:String)-> ServerResult
+    
+    
+    //注册设备
+    // 参数：token->设备token
+    //      deviceType->设备类型
+    func RegistDevice(token:String, deviceType:String)-> ServerResult
+    
+    
     
     // 保存选择的用户类型
     // 参数：loginName->登录账户
@@ -89,6 +97,11 @@ protocol SleepCareForIPhoneBussinessManager{
     // 获取所有的医院/养老院
     func GetAllMainInfo()->IMainInfoList
     
+    //开启远程通知
+     func OpenNotification(token:String, loginName:String)->ServerResult
+    
+    //关闭远程通知
+    func CloseNotification(token:String, loginName:String)->ServerResult
     
     
 }

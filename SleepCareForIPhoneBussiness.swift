@@ -28,6 +28,7 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
         return message as! ILoginUser
     }
     
+    
     // 注册用户信息
     // 参数：loginName->登录账户
     //      loginPassword->登录密码
@@ -47,6 +48,9 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
         }
         return message as! ServerResult
     }
+    
+    
+   
     
     // 保存选择的用户类型
     // 参数：loginName->登录账户
@@ -286,7 +290,6 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
     
     // 获取所有的医院/养老院
     func GetAllMainInfo()->IMainInfoList{
-        
         var subject = MessageSubject(opera: "GetAllMainInfo", bizcode: "sleepcareforiphone")
         var post = EMProperties(messageSubject: subject)
         var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
@@ -297,5 +300,54 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
         }
         return message as! IMainInfoList
     }
+    //注册设备
+    // 参数：token->设备token
+    //      deviceType->设备类型
+    func RegistDevice(token:String, deviceType:String)-> ServerResult{
+        
+        var subject = MessageSubject(opera: "RegistDevice", bizcode: "sleepcareforiphone")
+        var post = EMProperties(messageSubject: subject)
+        
+        post.AddKeyValue("token", value: token)
+        post.AddKeyValue("deviceType", value: deviceType)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! ServerResult
+    }
+
+    //开启远程通知
+    func OpenNotification(token:String, loginName:String)->ServerResult{
+        
+        var subject = MessageSubject(opera: "OpenNotification", bizcode: "sleepcareforiphone")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("token", value: token)
+        post.AddKeyValue("loginName", value: loginName)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! ServerResult
+    }
     
+    //关闭远程通知
+    func CloseNotification(token:String, loginName:String)->ServerResult{
+        var subject = MessageSubject(opera: "CloseNotification", bizcode: "sleepcareforiphone")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("token", value: token)
+        post.AddKeyValue("loginName", value: loginName)
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! ServerResult
+    
+    }
    }

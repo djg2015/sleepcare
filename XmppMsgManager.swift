@@ -8,9 +8,6 @@
 
 import Foundation
 
-
-
-
 class XmppMsgManager:MessageDelegate{
     
     private var _timeout:NSTimeInterval=1000
@@ -85,7 +82,8 @@ class XmppMsgManager:MessageDelegate{
     
     //发送数据--等待数据响应
     func SendData(baseMessage:BaseMessage,timeOut:NSTimeInterval=9)->BaseMessage?{
-
+    
+        
         _xmppMsgHelper?.sendElement(baseMessage.ToXml())
         requsetQuene[baseMessage.messageSubject.requestID!] = self
         var now = NSDate()
@@ -110,6 +108,7 @@ class XmppMsgManager:MessageDelegate{
     
     //处理响应的消息
     func newMessageReceived(msg:Message){
+        
         var object:BaseMessage = MessageFactory.GetMessageModel(msg)
         
         if(object.isKindOfClass(RealTimeReport)){

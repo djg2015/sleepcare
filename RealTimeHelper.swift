@@ -14,6 +14,7 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
     private static var realtimeInstance:RealTimeHelper? = nil
   //  var delegate:GetRealtimeDataDelegate?
     var delegateList:Dictionary<String,GetRealtimeDataDelegate>= Dictionary<String,GetRealtimeDataDelegate>()
+   
     //key:bedusercode,value:realtimereport
     var realTimeCaches:Dictionary<String,RealTimeReport>!
    
@@ -30,6 +31,9 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
         
             return self.realtimeInstance!
 }
+    class func Close(){
+        self.realtimeInstance = nil
+    }
     
     //设置当前代理
     func SetDelegate(name:String,currentViewModelDelegate:GetRealtimeDataDelegate?){
@@ -54,25 +58,41 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
         }
     }
     
-    //实时数据获取,每个床位病人对应一条实时数据，放入缓冲区
+    //实时数据获取,每个床位病人对应一条实时数据
+    //通过session里的beduserlist进行删选，选择关注的老人实时信息放入缓冲区
+    //当前关注的老人出院，收不到实时数据
+    
     func GetRealTimeDelegate(realTimeReport:RealTimeReport){
+        //key ＝ 病人code
         let key = realTimeReport.UserCode
+        let session = SessionForIphone.GetSession()
+        
+        if session != nil{
+        let usercodeList = session!.BedUserCodeList
+        
         self.lock!.lock()
-        if(self.realTimeCaches.count>0){
-            var keys = self.realTimeCaches.keys.filter({$0 == key})
-            if(keys.array.count == 0)
-            {
-                self.realTimeCaches[key] = realTimeReport
+        //判断此实时报告的人是否在关注列表,bedusercode做删选
+        if usercodeList.filter({$0 == key}).count > 0 {
+            if(self.realTimeCaches.count > 0){
+                //检查缓冲区是否存在该病人实时报告，存在则更新；不存在则插入.存放时bedusercode为key值
+                var keys = self.realTimeCaches.keys.filter({$0 == key})
+                if(keys.array.count == 0)
+                {
+                    self.realTimeCaches[key] = realTimeReport
+                }
+                else
+                {
+                    self.realTimeCaches.updateValue(realTimeReport, forKey: key)
+                }
             }
-            else
-            {
-                self.realTimeCaches.updateValue(realTimeReport, forKey: key)
+            else{
+                self.realTimeCaches[realTimeReport.BedCode] = realTimeReport
             }
         }
-        else{
-            self.realTimeCaches[key] = realTimeReport
-        }
+
         self.lock!.unlock()
+    }
+    
     }
 
 }

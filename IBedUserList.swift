@@ -22,6 +22,12 @@ class IBedUserList: BaseMessage {
         
         for bedUser in bedUserList {
             var bedUserInfo = IBedUserInfo(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
+            if bedUser.elementForName("MainCode") != nil{
+                bedUserInfo.MainCode = bedUser.elementForName("MainCode").stringValue()
+            }
+            if bedUser.elementForName("MainName") != nil{
+                bedUserInfo.MainName = bedUser.elementForName("MainName").stringValue()
+            }
             if bedUser.elementForName("BedUserCode") != nil{
             bedUserInfo.BedUserCode = bedUser.elementForName("BedUserCode").stringValue()
             }
@@ -58,6 +64,8 @@ class IBedUserList: BaseMessage {
 }
 
 class IBedUserInfo:BaseMessage {
+    var MainCode:String = ""
+    var MainName:String = ""
     var BedUserCode:String = ""
     var BedUserName:String = ""
     var PartCode:String = ""
@@ -67,4 +75,5 @@ class IBedUserInfo:BaseMessage {
     var BedCode:String = ""
     var BedNumber:String = ""
     var EquipmentID:String = ""
+  
 }

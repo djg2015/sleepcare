@@ -51,9 +51,12 @@ class TodoList {
         notification.userInfo = ["title": item.title, "UUID": item.UUID] // assign a unique identifier to the notification so that we can retrieve it later
         notification.category = "TODO_CATEGORY"
         
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
         
-      //  self.setBadgeNumbers()
+        //同意接收通知，才提示本地消息通知
+        if(UIApplication.sharedApplication().isRegisteredForRemoteNotifications()){
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
+      
         self.SetBadgeByNumber(1)
     }
     

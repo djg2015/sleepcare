@@ -29,9 +29,9 @@ class UpdateHelper:NSObject,NSURLConnectionDataDelegate{
     //发送请求到app store
     func PrepareConnection(){
         //精确查找
-        var stringURL = "http://itunes.apple.com/cn/lookup?id=1035212386"
+        var stringURL = "http://itunes.apple.com/cn/lookup?bundleId=com.meilele.iosapps.MLLMattress"
         //模糊查找
-        // var stringURL = "http://itunes.apple.com/search?term=智能床&entity=software"
+        // var stringURL = "http://itunes.apple.com/search?bundleId=com.meilele.iosapps.MLLMattress"
         //如果程序中有非英文名称，需要转码
         stringURL=stringURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         var URL = NSURL(string: stringURL)

@@ -229,7 +229,11 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,partName: alarmInfo.PartName,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmDate: alarmInfo.AlarmTime)
             tempWarningList.append(warningInfo)
             
+            //同意接收通知，才往todolist里加
+            
             TodoList.sharedInstance.addItem(todoItem)
+            
+            
             self._wariningCaches.removeAtIndex(0)
             self.WarningList = tempWarningList
         }
@@ -248,9 +252,9 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     //检查是否已有alarmcode
     func GetWaringAttentionDelegate(alarmList:AlarmList){
         if(self.IsOpen){
-            var session = SessionForIphone.GetSession()!
-            if session.BedUserCodeList.count > 0{
-                var bedusercodeList = session.BedUserCodeList
+            var session = SessionForIphone.GetSession()
+            if (session != nil && session!.BedUserCodeList.count > 0){
+                var bedusercodeList = session!.BedUserCodeList
                 if bedusercodeList.count > 0 {
                     for(var i = 0;i < alarmList.alarmInfoList.count;i++){
                         for code in bedusercodeList {

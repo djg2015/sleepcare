@@ -176,6 +176,7 @@ class IRegistViewModel:BaseViewModel {
                         let result:ServerResult =  sleepCareForIPhoneBussinessManager.Regist(self.LoginName, loginPassword: self.Pwd, mainCode: self.MainCode)
                         //提示是否注册成功
                         if result.Result{
+                
                             showDialogMsg(ShowMessage(MessageEnum.RegistAccountSuccess), "提示", buttonTitle: "确定", action: self.AfterRegist)
                         }
                         else{

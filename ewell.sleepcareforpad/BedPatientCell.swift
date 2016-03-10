@@ -63,6 +63,18 @@ class BedPatientCell: CommonTableCell {
 
 class BedPatientViewModel:NSObject{
     //属性定义
+    var _mainName:String?
+    dynamic var MainName:String?{
+        get
+        {
+            return self._mainName
+        }
+        set(value)
+        {
+            self._mainName=value
+        }
+    }
+    
     //场景编号名
     var _partCode:String?
     dynamic var PartCode:String?{
@@ -111,6 +123,19 @@ class BedPatientViewModel:NSObject{
         set(value)
         {
             self._bedNum=value
+        }
+    }
+    
+    
+    var _bedCode:String?
+    dynamic var BedCode:String?{
+        get
+        {
+            return self._bedCode
+        }
+        set(value)
+        {
+            self._bedCode=value
         }
     }
     

@@ -20,6 +20,7 @@ class IMainInfo: BaseMessage {
         var partInfoList = doc.nodesForXPath("//PartInfo", error:nil) as! [DDXMLElement]
         for partInfo in partInfoList {
             var part = IPartInfo(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
+            part.MainName = partInfo.elementForName("MainName") == nil ? "" : partInfo.elementForName("MainName").stringValue()
             part.PartCode = partInfo.elementForName("PartCode").stringValue()
             part.PartName = partInfo.elementForName("PartName") == nil ? "" : partInfo.elementForName("PartName").stringValue()
             var bedInfoList = partInfo.elementForName("BedInfoList").elementsForName("BedInfo") as! [DDXMLElement]
@@ -40,6 +41,7 @@ class IMainInfo: BaseMessage {
 }
 
 class IPartInfo:BaseMessage{
+    var MainName:String = ""
     var PartCode:String = ""
     var PartName:String = ""
     var BedInfoList:Array<IBedInfo> = Array<IBedInfo>()

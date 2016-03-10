@@ -19,18 +19,21 @@ class IMyPatientsController: IBaseViewController {
     @IBOutlet weak var topView: UIView!
     var _width:Int = 0
     var _height:Int = 0
-    var spinner:JHSpinnerView?
+    //  var spinner:JHSpinnerView?
     var viewModel:IMyPatientsViewModel!
     var popDownList:PopDownList?
     var isGoLogin:Bool = false
     
-    var cellDelegate:EnableCellInteractionDelegate!
+    var thread:NSThread?
+    let session = SessionForIphone.GetSession()
+    
+    //   var cellDelegate:EnableCellInteractionDelegate!
     //我关注的老人集合
     var MyPatientsArray:Array<MyPatientsTableCellViewModel>?{
         didSet{
             if(self.MyPatientsArray?.count == 0){
                 self.uiNewAdd.hidden = false
-               self.uiPatientList.hidden = true
+                self.uiPatientList.hidden = true
             }
             else{
                 self.uiNewAdd.hidden = true
@@ -48,17 +51,21 @@ class IMyPatientsController: IBaseViewController {
         
         rac_Setting()
         
-        if self.MyPatientsArray?.count > 0{
-         self._height = Int(self.myPatientTable.frame.height) - 62
-         self._width = Int(self.myPatientTable.frame.width)
-         self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:self._width,height:self._height), CGFloat(0.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.9))
-          
-            if self.MyPatientsArray?.count > 0{
-            self.myPatientTable.userInteractionEnabled = false
-            }
-        self.cellDelegate = self.myPatientTable
-        self.setTimer()
-        }
+        //        if self.MyPatientsArray?.count > 0{
+        //         self._height = Int(self.myPatientTable.frame.height) - 62
+        //         self._width = Int(self.myPatientTable.frame.width)
+        //   self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:self._width,height:self._height), CGFloat(0.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.9))
+        
+        //            if self.MyPatientsArray?.count > 0{
+        //            self.myPatientTable.userInteractionEnabled = false
+        //            }
+        //   self.cellDelegate = self.myPatientTable
+        //  self.setTimer()
+        
+        //创建支线程
+        self.thread = NSThread(target: self, selector: "RunThread", object: nil)
+        //启动
+     //   self.thread!.start()
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,7 +75,7 @@ class IMyPatientsController: IBaseViewController {
     
     override func Clean(){
         if self.viewModel != nil{
-        self.viewModel.Clean()
+            self.viewModel.Clean()
         }
     }
     
@@ -91,51 +98,68 @@ class IMyPatientsController: IBaseViewController {
             self.btnBack.hidden = true
         }
         else{
-        self.btnBack.hidden = false
+            self.btnBack.hidden = false
         }
         
         self.btnBack!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
                 IViewControllerManager.GetInstance()!.CloseViewController()
-            
+                
         }
-     
+        
     }
     
     
     //添加老人
     func imageaddPatientTouch(){
         //当前是使用者 且bedlist。count》0，则提示先删除后添加一个老人
-       if (SessionForIphone.GetSession()!.BedUserCodeList.count > 0 && SessionForIphone.GetSession()!.User!.UserType == "1"){
-        showDialogMsg(ShowMessage(MessageEnum.DeletePatientReminder))
+        if (session != nil && session!.BedUserCodeList.count > 0 && session!.User!.UserType == "1"){
+            showDialogMsg(ShowMessage(MessageEnum.DeletePatientReminder))
         }
         else{
-        var nextcontroller = IChoosePatientsController(nibName:"IChoosePatients", bundle:nil, myPatientsViewModel: self.viewModel)
-        IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IChoosePatients",reload: true)
+            var nextcontroller = IChoosePatientsController(nibName:"IChoosePatients", bundle:nil, myPatientsViewModel: self.viewModel)
+            IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IChoosePatients",reload: true)
+        }
     }
-    }
-    //定时器查看是否已经载入数据
-    func setTimer(){
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
-        timer.fire()
-    }
+    //    //定时器查看是否已经载入数据
+    //    func setTimer(){
+    //        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
+    //        timer.fire()
+    //    }
+    //    func timerFireMethod(timer: NSTimer) {
+    //        if self.viewModel.LoadingFlag >= self.viewModel.bedUserCodeList.count{
+    //         //   self.spinner!.dismiss()
+    //            self.viewModel.LoadingFlag = 0
+    //
+    //            if self.cellDelegate != nil{
+    //            self.cellDelegate.EnableCellInteraction()
+    //            }
+    //        }
+    //    }
     
-    func timerFireMethod(timer: NSTimer) {
-        if self.viewModel.LoadingFlag >= self.viewModel.bedUserCodeList.count{
-            self.spinner!.dismiss()
-            self.viewModel.LoadingFlag = 0
-            
-            if self.cellDelegate != nil{
-            self.cellDelegate.EnableCellInteraction()
+    
+    //支线程判断当前是否有报警，有则跳转页面
+    func RunThread(){
+        var realtimer:NSTimer!
+        realtimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "AlarmFireMethod:", userInfo: nil, repeats:false);
+        realtimer.fire()
+        
+    }
+    //监护人才有报警信息
+    func AlarmFireMethod(timer: NSTimer) {
+        
+        if (session != nil && session!.User!.UserType == LoginUserType.Monitor){
+            IAlarmHelper.GetAlarmInstance().ReloadUndealedWarning()
+            if IAlarmHelper.GetAlarmInstance().Warningcouts > 0{
+                let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
+                IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IAlarmView", reload: true)
             }
         }
-        
-        //首次登陆
-        
     }
+    
+    
 }
-
-protocol EnableCellInteractionDelegate{
-func EnableCellInteraction()
-}
+//protocol EnableCellInteractionDelegate{
+//func EnableCellInteraction()
+//}

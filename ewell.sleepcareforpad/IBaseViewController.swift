@@ -20,7 +20,7 @@ class IBaseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // 清除内存数据
+    // 清除
     func Clean(){
     
     }

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 djg. All rights reserved.
 //
 
+
 import Foundation
 class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     //------------属性定义------------
@@ -40,7 +41,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     var loginCommand: RACCommand?
     var iBedUserList:IBedUserList?
     var alarmHelper:IAlarmHelper?
-    
+    var session:SessionForIphone?
     
     //构造函数
     override init(){
@@ -68,6 +69,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         if (temploginname != "" && temppwd != ""){
             self.LoginName = temploginname
             self.Pwd = temppwd
+            AUTOLOGIN = true
             self.Login()
         }
     }
@@ -114,6 +116,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                         return
                     }
                     
+
                     //给openfire username赋值，＝loginname@server address
                     let xmppusernamephone = self.LoginName + "@" + GetValueFromPlist("xmppserver","sleepcare.plist")
                     SetValueIntoPlist("xmppusernamephone", xmppusernamephone)
@@ -126,15 +129,26 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                     }
                     else{
                         //获取当前帐户下的用户信息
+                       
+                     
                         var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                         var loginUser:ILoginUser = sleepCareForIPhoneBussinessManager.Login(self.LoginName, loginPassword: self.Pwd)
+                       
                         
                         //开启session，纪录登录名，密码
                         SessionForIphone.SetSession(loginUser)
+                        self.session = SessionForIphone.GetSession()
                         SetValueIntoPlist("loginusernamephone", self.LoginName)
                         SetValueIntoPlist("loginuserpwdphone", self.Pwd)
-                        var session = SessionForIphone.GetSession()
-                        session!.OldPwd = self.Pwd
+                        if self.session != nil{
+                        self.session!.OldPwd = self.Pwd
+                        }
+//
+//                        var Token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
+//                        if Token != nil{
+//                        self.sendDeviceTokenWidthOldDeviceToken(Token!, LoginName:self.LoginName)
+//                        }
+                       
                         
                         //跳转选择用户类型
                         if(loginUser.UserType == LoginUserType.UnKnow){
@@ -143,20 +157,30 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                         }
                         else{
                             //获取当前关注的老人
-                            var session = SessionForIphone.GetSession()
-                            session!.BedUserCodeList = Array<String>()
+                             if self.session != nil{
+                            self.session!.BedUserCodeList = Array<String>()
+                            }
                             self.iBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(loginUser.LoginName, mainCode: loginUser.MainCode)
                             
                             //如果是监护人，开启报警监测
-                            var _usertype = session!.User!.UserType
+                            var _usertype = self.session!.User!.UserType
                             if _usertype == LoginUserType.Monitor{
                             self.alarmHelper!.BeginWaringAttention()
+                            LOGINFLAG = true
+                                
+                              //非自动登录，需通知注册
+                                if !AUTOLOGIN{
+                                    if UIApplication.sharedApplication().isRegisteredForRemoteNotifications(){
+                                    noticeFlag = true
+                                    }
+
+                                }
                             }
                             
                             if(self.iBedUserList!.bedUserInfoList.count > 0){
                                 //当前为使用者类型，直接跳转主页面
                                 if(loginUser.UserType == LoginUserType.UserSelf){
-                                    session!.BedUserCodeList.append(self.iBedUserList!.bedUserInfoList[0].BedUserCode)
+                                    self.session!.BedUserCodeList.append(self.iBedUserList!.bedUserInfoList[0].BedUserCode)
                                     
                                     let nextcontroller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:self.iBedUserList!.bedUserInfoList[0].BedUserCode,equipmentID:self.iBedUserList!.bedUserInfoList[0].EquipmentID,bedUserName:self.iBedUserList!.bedUserInfoList[0].BedUserName)
                                     IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IMainFrame", reload: true)
@@ -189,6 +213,30 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         return RACSignal.empty()
     }
     
+//    //登录后将设备token值＋登陆名 发送至服务器端
+//    func sendDeviceTokenWidthOldDeviceToken(DeviceToken:String, LoginName:String){
+//    
+//        var urlStr = "http://"
+//        urlStr = urlStr.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+//        var requestM = NSMutableURLRequest(URL: NSURL(string: urlStr)!)
+//        requestM.HTTPMethod = "POST"
+//        let body = "DeviceToken=\(DeviceToken)&LoginName=\(LoginName)"
+//        let postData = body.dataUsingEncoding(NSUTF8StringEncoding)
+//        requestM.HTTPBody = postData
+//        
+//        let task = NSURLSession.sharedSession().dataTaskWithRequest(requestM) {
+//            data, response, error in
+//            if error != nil
+//            {
+//                println("error=\(error)")
+//                return
+//            }else{
+//                println("Send Success!")
+//            }
+//        }
+//        
+//}
+
     //跳转报警信息页面
     func ShowAlarm() {
         let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)

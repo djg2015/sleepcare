@@ -207,5 +207,8 @@ class BedModel:NSObject{
 enum BedStatusType{
     case onbed
     case leavebed
-    case unline
+    case emptybed
+    case unline //离线
+    case offduty //请假
+    case unnormal //异常
 }
