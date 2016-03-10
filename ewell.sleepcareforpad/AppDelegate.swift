@@ -88,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
 //            let pushInfo = Info.objectForKey("UIApplicationLaunchOptionsRemoteNotificationKey") as! NSDictionary
 //            //获取推送详情
 //            var pushString = pushInfo.objectForKey("aps") as! String
-            let alert = UIAlertView(title: "报警信息提示", message: "请到 [我] ->［报警信息］下查看", delegate: nil, cancelButtonTitle: "确认")
+            let alert = UIAlertView(title: "报警信息提示", message: "请点击一个老人后，到[我] ->［报警信息］下查看", delegate: nil, cancelButtonTitle: "确认")
             alert.show()
            }
   //      }

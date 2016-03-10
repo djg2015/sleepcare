@@ -115,7 +115,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tez-bd-O4P" userLabel="role" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                     <rect key="frame" x="51" y="306" width="218" height="43"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择养老院" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ZE-Hb-9hQ">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择养老院" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="5ZE-Hb-9hQ">
                             <rect key="frame" x="8" y="7" width="169" height="30"/>
                             <animations/>
                             <constraints>

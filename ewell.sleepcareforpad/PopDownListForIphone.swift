@@ -17,7 +17,7 @@ class PopDownListForIphone:NSObject,ZSYPopoverListDatasource, ZSYPopoverListDele
     func Show(title:String,source:Array<PopDownListItem>){
         self._source = source
         if(listView == nil){
-            listView = ZSYPopoverListView(frame: CGRectMake(0, 0, 240, 200))
+            listView = ZSYPopoverListView(frame: CGRectMake(0, 0, 300, 200))
             listView!.titleName.text = title
             listView!.datasource = self
             listView!.delegate = self
@@ -29,7 +29,7 @@ class PopDownListForIphone:NSObject,ZSYPopoverListDatasource, ZSYPopoverListDele
         self._source = source
         self.selectedCode = selectedCode
         if(listView == nil){
-            listView = ZSYPopoverListView(frame: CGRectMake(0, 0, 240, 200))
+            listView = ZSYPopoverListView(frame: CGRectMake(0, 0, 300, 200))
             listView!.titleName.text = title
             listView!.datasource = self
             listView!.delegate = self
@@ -69,16 +69,18 @@ class PopDownListForIphone:NSObject,ZSYPopoverListDatasource, ZSYPopoverListDele
     func popoverListView(tableView:ZSYPopoverListView,didSelectRowAtIndexPath indexPath:NSIndexPath){
         var cell:UITableViewCell = tableView.popoverCellForRowAtIndexPath(indexPath)
         cell.imageView!.image = UIImage(named: "fs_main_login_selected.png")
-        self.listView?.dismiss()
+        self.selectedIndexPath = indexPath
+       
         if(self.delegate != nil){
             self.delegate.ChoosedItem(_source[indexPath.row])
         }
+        self.listView?.dismiss()
     }
     
     func popoverListView(tableView:ZSYPopoverListView,didDeselectRowAtIndexPath indexPath:NSIndexPath){
-        self.selectedIndexPath = indexPath;
-        var cell:UITableViewCell = tableView.popoverCellForRowAtIndexPath(indexPath)
-        cell.imageView!.image = UIImage(named: "fs_main_login_normal.png")
+        
+        var cell:UITableViewCell? = tableView.popoverCellForRowAtIndexPath(indexPath)
+        cell?.imageView!.image = UIImage(named: "fs_main_login_normal.png")
     }
 }
 
