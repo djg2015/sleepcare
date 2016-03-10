@@ -14,7 +14,7 @@ class UpdateHelper:NSObject,NSURLConnectionDataDelegate{
     var currentVersion:String?
     var recervedData:NSMutableData?
     var connectionDelegate:NSURLConnectionDataDelegate?
-    var newversionURL:String! = ""
+    var newversionURL:String?
     
     //获取当前对象
     class func GetUpdateInstance()->UpdateHelper{
@@ -84,8 +84,9 @@ class UpdateHelper:NSObject,NSURLConnectionDataDelegate{
         
         if infoArray?.count > 0 {
             var releaseInfo : NSDictionary = infoArray?.objectAtIndex(0) as! NSDictionary
-            self.newversionURL = releaseInfo.objectForKey("trackViewUrl")  as! String
-            var appstoreVersion : String = releaseInfo.objectForKey("version") as! String
+            self.newversionURL = releaseInfo.objectForKey("trackViewUrl")  as? String
+            var appstoreVersion = releaseInfo.objectForKey("version") as? String
+            if appstoreVersion != nil{
             println("appstoreVersion = \(appstoreVersion)")
             
             if (self.currentVersion!  < appstoreVersion) {
@@ -97,6 +98,7 @@ class UpdateHelper:NSObject,NSURLConnectionDataDelegate{
                 if !dailyCheckFlag{
                  SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.DontNeedUpdate), subTitle:"提示", style: AlertStyle.None,buttonTitle:"确认",buttonColor: UIColor.colorFromRGB(0xAEDEF4))
                }
+                }
             }
         }
 
@@ -104,7 +106,7 @@ class UpdateHelper:NSObject,NSURLConnectionDataDelegate{
     
     func ChooseToUpdate(isOtherButton: Bool){
         if !isOtherButton{
-            var url = NSURL(string: newversionURL)
+            var url = NSURL(string: newversionURL!)
             UIApplication.sharedApplication().openURL(url!)
         }
     }

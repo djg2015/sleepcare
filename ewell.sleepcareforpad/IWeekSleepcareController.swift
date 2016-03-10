@@ -499,7 +499,7 @@ class IWeekSleepcareController: IBaseViewController {
             data03Array.append(CGFloat(lightHour))
         }
         var data03:PNLineChartData = PNLineChartData()
-        data03.color = UIColor.lightGrayColor()
+        data03.color = UIColor.yellowColor()
         data03.itemCount = UInt(data03Array.count)
         data03.dataTitle = "清醒"
         data03.getData = ({(index: UInt)  in
