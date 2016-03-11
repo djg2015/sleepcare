@@ -71,7 +71,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     //2由inactive状态切换到active状态
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        
          
         CheckRemoteNotice()
         
@@ -133,6 +132,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     //4然后从inactive状态切换到running状态
     func applicationDidEnterBackground(application: UIApplication) {
         self.isBackRun = true
+
+      //   AfterRegisterWithToken()
+        OpenNotice()
+        
         //按home键后执行，若当前页为Ialarmview，则关闭
         IViewControllerManager.GetInstance()!.IsCurrentAlarmView()
         //如果已存在后台任务，先将其设为完成
@@ -160,6 +163,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     //6 应用终止，保存上次终止时的重要用户信息
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+       
+        OpenNotice()
+        
         NSNotificationCenter.defaultCenter().postNotificationName("WarningClose", object: self)
     }
     
@@ -207,7 +213,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         NSUserDefaults.standardUserDefaults().setObject(token, forKey: "DeviceToken")
         //068df3381f68a8bdca806926556daecc866dcfd90f31a0d2f7deea6ae1e9805c
         
-        AfterRegisterWithToken(token)
+       
     }
     
     //当推送注册失败时
@@ -218,11 +224,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     }
     
     //弹窗选择后回调，修改firstlaunch值为false,只弹窗一次
-//    func application(application: UIApplication , didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings ){
+    func application(application: UIApplication , didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings ){
 //      //  if notificationSettings.types != UIUserNotificationType.None{
-//        SetValueIntoPlist("firstLaunch","false")
+        SetValueIntoPlist("firstLaunch","false")
 //    //    }
 //        
-//    }
+    }
     
 }

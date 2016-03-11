@@ -9,19 +9,22 @@
 import Foundation
 
 
-//  注册回调后用token，执行接口方法：注册设备，开启通知
-func AfterRegisterWithToken(token:String){
+//  进入后台后用token，执行接口方法：注册设备，开启通知
+func AfterRegisterWithToken(){
     let dvtype = (deviceType == "iphone") ? "1" : "2"
     if deviceType == "iphone"{
         try {
             ({
-                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isconnect = xmppMsgManager!.Connect()
-                //开启通知
-                if(isconnect){
-                    BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").RegistDevice(token, deviceType:dvtype)
-                    if LOGINFLAG {
-                        BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").OpenNotification(token, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+                var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
+                if token != nil{
+                    var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+                    let isconnect = xmppMsgManager!.Connect()
+                    //开启通知
+                    if(isconnect){
+                        BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").RegistDevice(token!, deviceType:dvtype)
+                        if LOGINFLAG {
+                            BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").OpenNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+                        }
                     }
                 }
                 },
@@ -43,8 +46,8 @@ func CheckRemoteNotice(){
     {
         //首次启动app，要弹窗提示是否接受通知
         if GetValueFromPlist("firstLaunch","sleepcare.plist") == "true"{
-           UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
-          
+            UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
+            
             
         }
             //非首次登录
@@ -54,17 +57,19 @@ func CheckRemoteNotice(){
                 UIApplication.sharedApplication().unregisterForRemoteNotifications()
                 //关闭通知
                 
-                    CloseNotice()
+                CloseNotice()
                 
             }
         }
     }
-    //需要开启通知
+        //需要开启通知
     else{
+        if deviceType == "iphone"{
         //未注册过，则 1注册远程通知，2注册设备 3若登陆了，则开启通知
         if (!UIApplication.sharedApplication().isRegisteredForRemoteNotifications()){
             UIApplication.sharedApplication().registerForRemoteNotifications()
             //didRegisterForRemoteNotificationsWithDeviceToken里执行2，3
+        }
         }
     }
 }
@@ -76,7 +81,10 @@ func OpenNotice(){
             if LOGINFLAG{
                 var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
                 if token != nil{
-                    BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").OpenNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+                    if   UIApplication.sharedApplication().currentUserNotificationSettings().types !=  UIUserNotificationType.None
+                    {
+                        BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").OpenNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+                    }
                 }
             }
             
@@ -100,12 +108,12 @@ func CloseNotice(){
             let isconnect = xmppMsgManager!.Connect()
             
             if(isconnect){
-            if LOGINFLAG{
-                var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
-                if token != nil{
-               BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").CloseNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+                if LOGINFLAG{
+                    var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
+                    if token != nil{
+                        BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").CloseNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+                    }
                 }
-            }
             }
             },
             catch: { ex in

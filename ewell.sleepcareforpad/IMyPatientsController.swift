@@ -153,7 +153,7 @@ class IMyPatientsController: IBaseViewController {
     //支线程判断当前是否有报警，有则跳转页面
     func RunTimer(){
         var realtimer:NSTimer!
-        realtimer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "AlarmFireMethod:", userInfo: nil, repeats:true);
+        realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "AlarmFireMethod:", userInfo: nil, repeats:true);
         realtimer.fire()
         
     }
@@ -177,9 +177,6 @@ class IMyPatientsController: IBaseViewController {
     
     //点击我的老人标题，跳转报警页面
     func ClickTitle(){
-        self.imgAlarmView.hidden = true
-        self.lblAlarmCount.text = ""
-        self.lblTitle.userInteractionEnabled = false
         let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
         IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IAlarmView", reload: true)
 
