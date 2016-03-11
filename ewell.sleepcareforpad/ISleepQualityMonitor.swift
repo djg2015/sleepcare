@@ -67,7 +67,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
             var data01:PNLineChartData = PNLineChartData()
             data01.color = PNGreenColor
             data01.itemCount = UInt(data01Array.count)
-            data01.dataTitle = "在床(小时/天)"
+            data01.dataTitle = "在床(小时)"
             data01.getData = ({(index: UInt)  in
                 var yValue:CGFloat = data01Array[Int(index)]
                 var item = PNLineChartDataItem(y: yValue)
@@ -83,7 +83,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
             var data02:PNLineChartData = PNLineChartData()
             data02.color = PNGreyColor
             data02.itemCount = UInt(data02Array.count)
-            data02.dataTitle = "睡眠(小时/天)"
+            data02.dataTitle = "睡眠(小时)"
             data02.getData = ({(index: UInt)  in
                 var yValue:CGFloat = data02Array[Int(index)]
                 var item = PNLineChartDataItem(y: yValue)

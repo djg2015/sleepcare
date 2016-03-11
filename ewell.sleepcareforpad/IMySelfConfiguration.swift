@@ -135,14 +135,11 @@
                 
                 //若当前开启了消息通知，则在退出登录前关闭
                 if UIApplication.sharedApplication().isRegisteredForRemoteNotifications(){
-                var  token =  NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as! String
-                BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").CloseNotification(token, loginName: session!.User!.LoginName)
+                CloseNotice()
                 }
     
             }
-            //全局标志恢复默认值
-            LOGINFLAG = false
-            AUTOLOGIN = false
+                     
 
             //关闭xmpp
             var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)

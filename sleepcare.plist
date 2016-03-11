@@ -28,5 +28,7 @@
 	<string></string>
 	<key>curPartname</key>
 	<string></string>
+	<key>firstLaunch</key>
+	<string>true</string>
 </dict>
 </plist>

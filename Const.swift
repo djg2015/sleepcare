@@ -13,9 +13,6 @@ import Foundation
 //是否成功登陆的标志
 var LOGINFLAG:Bool = false
 
-//自动登陆标志
-var AUTOLOGIN:Bool = false
-
 //主题颜色
 let DEFAULTCOLOR = UIColor.colorFromRGB(0x2052AA)
 let BLACKCOLOR = UIColor.colorFromRGB(0x1F222C)
@@ -37,4 +34,4 @@ var documentsDirectory:String!
 var sleepcareResultDictionary:NSMutableDictionary?
 
 //
-var deviceType:String = "ipad"
+var deviceType:String = "iphone"

@@ -45,7 +45,7 @@
                             <rect key="frame" x="28" y="13" width="141" height="34"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="科室名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="nUS-9J-t69">
@@ -59,7 +59,7 @@
                     <animations/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenpoint.png" translatesAutoresizingMaskIntoConstraints="NO" id="58R-8m-c9T">
-                    <rect key="frame" x="22" y="107" width="12" height="12"/>
+                    <rect key="frame" x="27" y="107" width="11" height="11"/>
                     <animations/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="心率：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6v-Gf-Fad">
@@ -84,7 +84,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenpoint.png" translatesAutoresizingMaskIntoConstraints="NO" id="2mL-tF-Ohp">
-                    <rect key="frame" x="22" y="135" width="12" height="12"/>
+                    <rect key="frame" x="27" y="135" width="11" height="11"/>
                     <animations/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="状态：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ab-Sr-LC1">
@@ -95,7 +95,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenpoint.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kwr-9P-D4S">
-                    <rect key="frame" x="22" y="163" width="12" height="12"/>
+                    <rect key="frame" x="27" y="163" width="11" height="11"/>
                     <animations/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="65次/分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bC-Sd-sh3">

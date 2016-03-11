@@ -31,23 +31,9 @@ func InitPlistFile(){
     }
     else {
         println("sleepcare.plist already exits.")
-        //fileManager.removeItemAtPath(path, error: nil)
+      //  fileManager.removeItemAtPath(path, error: nil)
     }
     sleepcareResultDictionary = NSMutableDictionary(contentsOfFile: path)
-}
-//读取theme元素
-func GetValueFromThemePlist(theme:String,key:String,filename:String) ->String{
-    var path = NSBundle.mainBundle().pathForResource(filename, ofType: "plist")
-    var fileManager = NSFileManager.defaultManager()
-    var fileExists:Bool = fileManager.fileExistsAtPath(path!)
-    var themeDic :NSMutableDictionary?
-    if(fileExists){
-        themeDic=NSMutableDictionary(contentsOfFile: path!)
-        let themeInfo = themeDic?.valueForKey(theme) as! NSMutableDictionary
-        let themeItem = themeInfo.valueForKey(key) as! String
-        return themeItem
-    }
-    return ""
 }
 
 

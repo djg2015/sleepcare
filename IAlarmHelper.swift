@@ -116,12 +116,19 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
         self.setAlarmTimer()
     }
+    
     //显示报警信息
     func showWariningAction(){
         if self.alarmdelegate != nil {
             self.alarmdelegate.ShowAlarm()
         }
     }
+    
+    //获取报警信息数
+    func GetAlarmCount()->Int{
+    return self.Warningcouts
+    }
+    
     //加入未处理的报警信息到warningList／codes
     func ReloadUndealedWarning(){
         try {

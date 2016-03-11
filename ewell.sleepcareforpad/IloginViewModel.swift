@@ -69,7 +69,6 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         if (temploginname != "" && temppwd != ""){
             self.LoginName = temploginname
             self.Pwd = temppwd
-            AUTOLOGIN = true
             self.Login()
         }
     }
@@ -146,7 +145,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
 //
 //                        var Token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
 //                        if Token != nil{
-//                        self.sendDeviceTokenWidthOldDeviceToken(Token!, LoginName:self.LoginName)
+//                        
 //                        }
                        
                         
@@ -167,14 +166,8 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                             if _usertype == LoginUserType.Monitor{
                             self.alarmHelper!.BeginWaringAttention()
                             LOGINFLAG = true
-                                
-                              //非自动登录，需通知注册
-                                if !AUTOLOGIN{
-                                    if UIApplication.sharedApplication().isRegisteredForRemoteNotifications(){
-                                    noticeFlag = true
-                                    }
-
-                                }
+                             //开启通知
+                             OpenNotice()
                             }
                             
                             if(self.iBedUserList!.bedUserInfoList.count > 0){
@@ -213,29 +206,6 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         return RACSignal.empty()
     }
     
-//    //登录后将设备token值＋登陆名 发送至服务器端
-//    func sendDeviceTokenWidthOldDeviceToken(DeviceToken:String, LoginName:String){
-//    
-//        var urlStr = "http://"
-//        urlStr = urlStr.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-//        var requestM = NSMutableURLRequest(URL: NSURL(string: urlStr)!)
-//        requestM.HTTPMethod = "POST"
-//        let body = "DeviceToken=\(DeviceToken)&LoginName=\(LoginName)"
-//        let postData = body.dataUsingEncoding(NSUTF8StringEncoding)
-//        requestM.HTTPBody = postData
-//        
-//        let task = NSURLSession.sharedSession().dataTaskWithRequest(requestM) {
-//            data, response, error in
-//            if error != nil
-//            {
-//                println("error=\(error)")
-//                return
-//            }else{
-//                println("Send Success!")
-//            }
-//        }
-//        
-//}
 
     //跳转报警信息页面
     func ShowAlarm() {

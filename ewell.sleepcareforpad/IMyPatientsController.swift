@@ -15,8 +15,12 @@ class IMyPatientsController: IBaseViewController {
     @IBOutlet weak var uiPatientList: UIView!
     @IBOutlet weak var myPatientTable: MyPatientsTableView!
     @IBOutlet weak var btnBack: UIButton!
-    
     @IBOutlet weak var topView: UIView!
+    
+    @IBOutlet weak var imgAlarmView: UIImageView!
+    @IBOutlet weak var lblAlarmCount: UILabel!
+    @IBOutlet weak var lblTitle: UILabel!
+    
     var _width:Int = 0
     var _height:Int = 0
     //  var spinner:JHSpinnerView?
@@ -63,9 +67,10 @@ class IMyPatientsController: IBaseViewController {
         //  self.setTimer()
         
         //创建支线程
-        self.thread = NSThread(target: self, selector: "RunThread", object: nil)
+     //   self.thread = NSThread(target: self, selector: "RunThread", object: nil)
         //启动
-     //   self.thread!.start()
+       // self.thread!.start()
+        self.RunTimer()
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,15 +89,21 @@ class IMyPatientsController: IBaseViewController {
         self.viewModel = IMyPatientsViewModel()
         RACObserve(self.viewModel, "MyPatientsArray") ~> RAC(self, "MyPatientsArray")
         
+        self.imgAlarmView.hidden = true
+        self.lblTitle.userInteractionEnabled = false
+        var titleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "ClickTitle")
+        self.lblTitle.addGestureRecognizer(titleTap)
+        
+        
         //“我的老人”页面单击添加老人事件
         self.imgSmallAdd.userInteractionEnabled = true
         var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageaddPatientTouch")
-        self.imgSmallAdd .addGestureRecognizer(singleTap)
+        self.imgSmallAdd.addGestureRecognizer(singleTap)
         
         //添加老人事件
         self.imgBigAdd.userInteractionEnabled = true
         var singleTap1:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageaddPatientTouch")
-        self.imgBigAdd .addGestureRecognizer(singleTap1)
+        self.imgBigAdd.addGestureRecognizer(singleTap1)
         
         if(self.isGoLogin){
             self.btnBack.hidden = true
@@ -140,9 +151,9 @@ class IMyPatientsController: IBaseViewController {
     
     
     //支线程判断当前是否有报警，有则跳转页面
-    func RunThread(){
+    func RunTimer(){
         var realtimer:NSTimer!
-        realtimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "AlarmFireMethod:", userInfo: nil, repeats:false);
+        realtimer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "AlarmFireMethod:", userInfo: nil, repeats:true);
         realtimer.fire()
         
     }
@@ -150,15 +161,29 @@ class IMyPatientsController: IBaseViewController {
     func AlarmFireMethod(timer: NSTimer) {
         
         if (session != nil && session!.User!.UserType == LoginUserType.Monitor){
-            IAlarmHelper.GetAlarmInstance().ReloadUndealedWarning()
-            if IAlarmHelper.GetAlarmInstance().Warningcouts > 0{
-                let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
-                IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IAlarmView", reload: true)
+            let count = IAlarmHelper.GetAlarmInstance().GetAlarmCount()
+            if  count > 0{
+                self.imgAlarmView.hidden = false
+                self.lblAlarmCount.text = String(count)
+                self.lblTitle.userInteractionEnabled = true
+            }
+            else{
+            self.imgAlarmView.hidden = true
+            self.lblAlarmCount.text = ""
+            self.lblTitle.userInteractionEnabled = false
             }
         }
     }
     
-    
+    //点击我的老人标题，跳转报警页面
+    func ClickTitle(){
+        self.imgAlarmView.hidden = true
+        self.lblAlarmCount.text = ""
+        self.lblTitle.userInteractionEnabled = false
+        let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
+        IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IAlarmView", reload: true)
+
+    }
 }
 //protocol EnableCellInteractionDelegate{
 //func EnableCellInteraction()

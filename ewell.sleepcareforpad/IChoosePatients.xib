@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择老人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUc-dH-GtK">
-                    <rect key="frame" x="117" y="14" width="87" height="30"/>
+                    <rect key="frame" x="117" y="26" width="87" height="30"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="87" id="B7z-SB-u4M"/>
@@ -33,7 +33,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zhq-EJ-ghP" userLabel="partTable" customClass="CommonTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="53" width="113" height="515"/>
+                    <rect key="frame" x="0.0" y="70" width="113" height="515"/>
                     <animations/>
                     <color key="backgroundColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -48,12 +48,12 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OWr-dE-zEs" userLabel="patientTableDouble" customClass="CommonTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="113" y="53" width="207" height="450"/>
+                    <rect key="frame" x="113" y="70" width="207" height="450"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backBtn.png" translatesAutoresizingMaskIntoConstraints="NO" id="iQd-Ty-Xcg">
-                    <rect key="frame" x="16" y="17" width="17" height="28"/>
+                    <rect key="frame" x="16" y="26" width="17" height="28"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="17" id="q65-Pq-OIl"/>
@@ -98,19 +98,19 @@
                 <constraint firstAttribute="trailing" secondItem="Wca-U4-mE5" secondAttribute="trailing" id="6pM-ue-6kX"/>
                 <constraint firstItem="iQd-Ty-Xcg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="6wY-vz-nLW"/>
                 <constraint firstItem="OWr-dE-zEs" firstAttribute="leading" secondItem="zhq-EJ-ghP" secondAttribute="trailing" id="MhK-h1-Can"/>
-                <constraint firstAttribute="bottom" secondItem="zhq-EJ-ghP" secondAttribute="bottom" id="OMP-ZV-q5i"/>
+                <constraint firstAttribute="bottom" secondItem="zhq-EJ-ghP" secondAttribute="bottom" constant="-17" id="OMP-ZV-q5i"/>
                 <constraint firstItem="zhq-EJ-ghP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R7G-gi-fNd"/>
                 <constraint firstAttribute="centerX" secondItem="JUc-dH-GtK" secondAttribute="centerX" id="RW9-eW-H3v"/>
-                <constraint firstItem="iQd-Ty-Xcg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="17" id="WtZ-xT-MLx"/>
-                <constraint firstAttribute="bottom" secondItem="OWr-dE-zEs" secondAttribute="bottom" constant="65" id="XFu-Ut-3ev"/>
-                <constraint firstItem="OWr-dE-zEs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="53" id="ZdK-Ph-ngK"/>
+                <constraint firstItem="iQd-Ty-Xcg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="WtZ-xT-MLx"/>
+                <constraint firstAttribute="bottom" secondItem="OWr-dE-zEs" secondAttribute="bottom" constant="48" id="XFu-Ut-3ev"/>
+                <constraint firstItem="OWr-dE-zEs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70" id="ZdK-Ph-ngK"/>
                 <constraint firstAttribute="bottom" secondItem="ePV-YJ-2OM" secondAttribute="bottom" id="f8C-S1-CbT"/>
                 <constraint firstItem="ePV-YJ-2OM" firstAttribute="leading" secondItem="Wca-U4-mE5" secondAttribute="leading" id="npc-Fd-obl"/>
                 <constraint firstAttribute="trailing" secondItem="ePV-YJ-2OM" secondAttribute="trailing" id="oGN-42-oq3"/>
                 <constraint firstItem="ePV-YJ-2OM" firstAttribute="trailing" secondItem="Wca-U4-mE5" secondAttribute="trailing" id="ru4-du-pp4"/>
-                <constraint firstItem="JUc-dH-GtK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="tjx-rC-mj7"/>
-                <constraint firstItem="ePV-YJ-2OM" firstAttribute="bottom" secondItem="zhq-EJ-ghP" secondAttribute="bottom" id="uoO-Xp-8tb"/>
-                <constraint firstItem="zhq-EJ-ghP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="53" id="zOz-5j-7bs"/>
+                <constraint firstItem="JUc-dH-GtK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="tjx-rC-mj7"/>
+                <constraint firstItem="ePV-YJ-2OM" firstAttribute="bottom" secondItem="zhq-EJ-ghP" secondAttribute="bottom" constant="-17" id="uoO-Xp-8tb"/>
+                <constraint firstItem="zhq-EJ-ghP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70" id="zOz-5j-7bs"/>
             </constraints>
             <point key="canvasLocation" x="248" y="269"/>
         </view>

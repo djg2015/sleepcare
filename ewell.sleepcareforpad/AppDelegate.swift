@@ -9,33 +9,6 @@
 
 import UIKit
 
-var noticeFlag:Bool = false
-{
- didSet{
-    if (UIApplication.sharedApplication().isRegisteredForRemoteNotifications()){
-       //如果已登陆,注册通知
-        if LOGINFLAG {
-            UIApplication.sharedApplication().registerForRemoteNotifications()
-            UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
-
-        }
-    }
-    else{
-        if LOGINFLAG{
-            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-            let isconnect = xmppMsgManager!.Connect()
-            if(isconnect){
-                if deviceType == "iphone"{
-                let token =  NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as! String
-                //已登陆， 关闭通知
-            BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").CloseNotification(token, loginName: SessionForIphone.GetSession()!.User!.LoginName)
-                }
-            }
-        }
-    }
-}
-}
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     
@@ -57,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
             self.window!.backgroundColor = UIColor.whiteColor()
             self.window!.makeKeyAndVisible()
-
+            
             let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
             let rootcontroller =  UINavigationController(rootViewController: logincontroller)
             self.window!.rootViewController = rootcontroller
@@ -74,9 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             self.window!.makeKeyAndVisible()
             self.window!.rootViewController = UINavigationController(rootViewController:LoginController(nibName:"LoginView", bundle:nil))
         }
-                
+        
         //判断是否由远程消息通知触发应用程序启动
-       if ((launchOptions) != nil && deviceType == "iphone") {
+        if ((launchOptions) != nil && deviceType == "iphone") {
             //                    //获取应用程序消息通知标记数（即小红圈中的数字）
             //                    var badge = UIApplication.sharedApplication().applicationIconBadgeNumber;
             //                    if (badge>0) {
@@ -84,30 +57,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             //                        badge = badge - 1
             //                        //清除标记。
             //                        UIApplication.sharedApplication().applicationIconBadgeNumber = badge;
-//            let Info = launchOptions! as NSDictionary
-//            let pushInfo = Info.objectForKey("UIApplicationLaunchOptionsRemoteNotificationKey") as! NSDictionary
-//            //获取推送详情
-//            var pushString = pushInfo.objectForKey("aps") as! String
-            let alert = UIAlertView(title: "报警信息提示", message: "请点击一个老人后，到[我] ->［报警信息］下查看", delegate: nil, cancelButtonTitle: "确认")
-            alert.show()
-           }
-  //      }
+            //            let Info = launchOptions! as NSDictionary
+            //            let pushInfo = Info.objectForKey("UIApplicationLaunchOptionsRemoteNotificationKey") as! NSDictionary
+            //            //获取推送详情
+            //            var pushString = pushInfo.objectForKey("aps") as! String
+//            let alert = UIAlertView(title: "报警信息提示", message: "请点击一个老人后，到[我] ->［报警信息］下查看", delegate: nil, cancelButtonTitle: "确认")
+//            alert.show()
+        }
+        //      }
         return true
     }
     
     //2由inactive状态切换到active状态
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        if (UIApplication.sharedApplication().isRegisteredForRemoteNotifications()){
-            if !noticeFlag{
-            noticeFlag = true
-            }
-        }else{
-            if noticeFlag{
-            noticeFlag = false
-            }
-        }
         
+         
+        CheckRemoteNotice()
         
         //iphone
         if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
@@ -147,37 +113,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         }
         
         self.isBackRun = false
-    }
-    
-    
-    //成功注册通知后，获取device token
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-
-        var token:String = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
-        token = token.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: " "))
-        println("token==\(token)")
-        NSUserDefaults.standardUserDefaults().setObject(token, forKey: "DeviceToken")
-        //068df3381f68a8bdca806926556daecc866dcfd90f31a0d2f7deea6ae1e9805c
-        
-        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-        let isconnect = xmppMsgManager!.Connect()
-        //开启通知
-        if(isconnect){
-            //注册设备
-            let dvtype = (deviceType == "iphone") ? "1" : "2"
-            if deviceType == "iphone"{
-            BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").RegistDevice(token, deviceType:dvtype)
-            
-           
-           BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").OpenNotification(token, loginName: SessionForIphone.GetSession()!.User!.LoginName)
-            }
-        }
-    }
-    
-    //当推送注册失败时
-    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        //        var alert:UIAlertView = UIAlertView(title: "", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK")
-        //        alert.show()
     }
     
     
@@ -242,6 +177,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         
     }
     
+    //-----------------------
     //接收远程推送通知
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         //  println("userInfo = \(userInfo)")
@@ -262,4 +198,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IAlarmView", reload: true)
         }
     }
+    //成功注册通知后，获取device token
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        
+        var token:String = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
+        token = token.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: " "))
+        println("token==\(token)")
+        NSUserDefaults.standardUserDefaults().setObject(token, forKey: "DeviceToken")
+        //068df3381f68a8bdca806926556daecc866dcfd90f31a0d2f7deea6ae1e9805c
+        
+        AfterRegisterWithToken(token)
+    }
+    
+    //当推送注册失败时
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+       
+    var alert:UIAlertView = UIAlertView(title: "", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
+    }
+    
+    //弹窗选择后回调，修改firstlaunch值为false,只弹窗一次
+//    func application(application: UIApplication , didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings ){
+//      //  if notificationSettings.types != UIUserNotificationType.None{
+//        SetValueIntoPlist("firstLaunch","false")
+//    //    }
+//        
+//    }
+    
 }
