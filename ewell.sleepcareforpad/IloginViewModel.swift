@@ -142,11 +142,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                         if self.session != nil{
                         self.session!.OldPwd = self.Pwd
                         }
-//
-//                        var Token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
-//                        if Token != nil{
-//                        
-//                        }
+
                        
                         
                         //跳转选择用户类型
