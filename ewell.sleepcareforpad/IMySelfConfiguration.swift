@@ -134,9 +134,9 @@
                 IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
                 
                 //若当前开启了消息通知，则在退出登录前关闭
-                if UIApplication.sharedApplication().isRegisteredForRemoteNotifications(){
+               
                 CloseNotice()
-                }
+                
     
             }
                      

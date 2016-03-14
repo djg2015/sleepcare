@@ -161,7 +161,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
        
-        OpenNotice()
         
         NSNotificationCenter.defaultCenter().postNotificationName("WarningClose", object: self)
     }
@@ -210,10 +209,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         NSUserDefaults.standardUserDefaults().setObject(token, forKey: "DeviceToken")
         //068df3381f68a8bdca806926556daecc866dcfd90f31a0d2f7deea6ae1e9805c
         
-
-        if LOGINFLAG{
         OpenNotice()
-        }
+        
     }
     
     //当推送注册失败时
@@ -223,12 +220,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
            //     alert.show()
     }
     
-    //弹窗选择后回调，修改firstlaunch值为false,只弹窗一次
-    func application(application: UIApplication , didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings ){
-//      //  if notificationSettings.types != UIUserNotificationType.None{
-        SetValueIntoPlist("firstLaunch","false")
-//    //    }
-//        
-    }
+
     
 }

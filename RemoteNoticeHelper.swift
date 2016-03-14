@@ -45,7 +45,7 @@ func CheckRemoteNotice(){
         //首次启动app，要弹窗提示是否接受通知
         if GetValueFromPlist("firstLaunch","sleepcare.plist") == "true"{
             UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
-            
+             SetValueIntoPlist("firstLaunch","false")
             
         }
             //非首次登录
@@ -77,6 +77,11 @@ func CheckRemoteNotice(){
 func OpenNotice(){
     try {
         ({
+            
+            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+            let isconnect = xmppMsgManager!.Connect()
+            
+            if(isconnect){
             if LOGINFLAG{
                 var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
                 if token != nil{
@@ -86,7 +91,7 @@ func OpenNotice(){
                  //   }
                 }
             }
-            
+            }
             },
             catch: { ex in
                 //异常处理
