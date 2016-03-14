@@ -41,9 +41,7 @@ func AfterRegisterWithToken(){
 
 //每次从后台进入前台时检查是否要开启／关闭通知
 func CheckRemoteNotice(){
-    //不要接收通知
-    if   UIApplication.sharedApplication().currentUserNotificationSettings().types ==  UIUserNotificationType.None
-    {
+   
         //首次启动app，要弹窗提示是否接受通知
         if GetValueFromPlist("firstLaunch","sleepcare.plist") == "true"{
             UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
@@ -51,28 +49,29 @@ func CheckRemoteNotice(){
             
         }
             //非首次登录
-        else{
-            //已注册，1取消注册，2若已登陆关闭消息通知
-            if UIApplication.sharedApplication().isRegisteredForRemoteNotifications(){
-                UIApplication.sharedApplication().unregisterForRemoteNotifications()
-                //关闭通知
+        else if deviceType == "iphone"{
+            //不要接收通知
+            if   UIApplication.sharedApplication().currentUserNotificationSettings().types ==  UIUserNotificationType.None
+            {
+                //已注册，1取消注册，2若已登陆关闭消息通知
+                if UIApplication.sharedApplication().isRegisteredForRemoteNotifications(){
+                    UIApplication.sharedApplication().unregisterForRemoteNotifications()
+                    CloseNotice()
+                }
+            }
+            
+                //需要开启通知
+            else{
                 
-                CloseNotice()
-                
+                //未注册过，则注册远程通知
+                if (!UIApplication.sharedApplication().isRegisteredForRemoteNotifications()){
+                    UIApplication.sharedApplication().registerForRemoteNotifications()
+                   
+                }
             }
         }
-    }
-        //需要开启通知
-    else{
-        if deviceType == "iphone"{
-        //未注册过，则 1注册远程通知，2注册设备 3若登陆了，则开启通知
-        if (!UIApplication.sharedApplication().isRegisteredForRemoteNotifications()){
-            UIApplication.sharedApplication().registerForRemoteNotifications()
-            //didRegisterForRemoteNotificationsWithDeviceToken里执行2，3
-        }
-        }
-    }
-}
+    
+   }
 
 //开启通知（登陆后调用）
 func OpenNotice(){
@@ -81,10 +80,10 @@ func OpenNotice(){
             if LOGINFLAG{
                 var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
                 if token != nil{
-                    if   UIApplication.sharedApplication().currentUserNotificationSettings().types !=  UIUserNotificationType.None
-                    {
+//                    if   UIApplication.sharedApplication().currentUserNotificationSettings().types !=  UIUserNotificationType.None
+//                    {
                         BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").OpenNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
-                    }
+                 //   }
                 }
             }
             

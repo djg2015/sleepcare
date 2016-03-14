@@ -132,9 +132,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     //4然后从inactive状态切换到running状态
     func applicationDidEnterBackground(application: UIApplication) {
         self.isBackRun = true
-
-      //   AfterRegisterWithToken()
-        OpenNotice()
         
         //按home键后执行，若当前页为Ialarmview，则关闭
         IViewControllerManager.GetInstance()!.IsCurrentAlarmView()
@@ -213,14 +210,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         NSUserDefaults.standardUserDefaults().setObject(token, forKey: "DeviceToken")
         //068df3381f68a8bdca806926556daecc866dcfd90f31a0d2f7deea6ae1e9805c
         
-       
+
+        if LOGINFLAG{
+        OpenNotice()
+        }
     }
     
     //当推送注册失败时
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
        
     var alert:UIAlertView = UIAlertView(title: "", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK")
-                alert.show()
+           //     alert.show()
     }
     
     //弹窗选择后回调，修改firstlaunch值为false,只弹窗一次

@@ -30,6 +30,7 @@ class IMyPatientsController: IBaseViewController {
     
     var thread:NSThread?
     let session = SessionForIphone.GetSession()
+    var realtimer:NSTimer?
     
     //   var cellDelegate:EnableCellInteractionDelegate!
     //我关注的老人集合
@@ -129,6 +130,7 @@ class IMyPatientsController: IBaseViewController {
             showDialogMsg(ShowMessage(MessageEnum.DeletePatientReminder))
         }
         else{
+           
             var nextcontroller = IChoosePatientsController(nibName:"IChoosePatients", bundle:nil, myPatientsViewModel: self.viewModel)
             IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IChoosePatients",reload: true)
         }
@@ -152,10 +154,10 @@ class IMyPatientsController: IBaseViewController {
     
     //支线程判断当前是否有报警，有则跳转页面
     func RunTimer(){
-        var realtimer:NSTimer!
-        realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "AlarmFireMethod:", userInfo: nil, repeats:true);
-        realtimer.fire()
-        
+        if self.realtimer == nil{
+        self.realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "AlarmFireMethod:", userInfo: nil, repeats:true);
+        self.realtimer!.fire()
+        }
     }
     //监护人才有报警信息
     func AlarmFireMethod(timer: NSTimer) {
@@ -173,6 +175,13 @@ class IMyPatientsController: IBaseViewController {
             self.lblTitle.userInteractionEnabled = false
             }
         }
+    }
+    
+    func CloseTimer(){
+        if self.realtimer != nil{
+        self.realtimer = nil
+        }
+    
     }
     
     //点击我的老人标题，跳转报警页面
