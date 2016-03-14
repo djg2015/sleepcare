@@ -23,7 +23,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     @IBOutlet weak var imgAlarm: UIImageView!
     
     
-    var spinner:JHSpinnerView?
+  //  var spinner:JHSpinnerView?
     var iRRMonitorView:IRRMonitor? = nil
     var iHRMonitorView:IHRMonitor? = nil
     var _curMenu:UIView?
@@ -223,7 +223,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     
     func LoadingView() {
         
-        self.spinner  = JHSpinnerView.showOnView(self.svMain, spinnerColor:UIColor.whiteColor(), overlay:.FullScreen, overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.6), fullCycleTime:4.0, text:"")
+   //     self.spinner  = JHSpinnerView.showOnView(self.svMain, spinnerColor:UIColor.whiteColor(), overlay:.FullScreen, overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.6), fullCycleTime:4.0, text:"")
         
     }
     
@@ -238,11 +238,11 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     }
     
     func CloseLoadingHR(){
-        self.spinner!.dismiss()
+   //     self.spinner!.dismiss()
     }
     
     func CloseLoadingRR(){
-        self.spinner!.dismiss()
+    //    self.spinner!.dismiss()
     }
     
     

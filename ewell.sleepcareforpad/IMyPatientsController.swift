@@ -14,19 +14,23 @@ class IMyPatientsController: IBaseViewController {
     @IBOutlet weak var uiNewAdd: BackgroundCommon!
     @IBOutlet weak var uiPatientList: UIView!
     @IBOutlet weak var myPatientTable: MyPatientsTableView!
-    @IBOutlet weak var btnBack: UIButton!
+ 
     @IBOutlet weak var topView: UIView!
     
     @IBOutlet weak var imgAlarmView: UIImageView!
     @IBOutlet weak var lblAlarmCount: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
+
+    @IBOutlet weak var btnBack: UIButton!
     
+    @IBOutlet weak var lblBack2: UILabel!
+    @IBOutlet weak var btnBack2: UIButton!
     var _width:Int = 0
     var _height:Int = 0
     //  var spinner:JHSpinnerView?
     var viewModel:IMyPatientsViewModel!
     var popDownList:PopDownList?
-    var isGoLogin:Bool = false
+    var isGoLogin:Bool = true
     
     var thread:NSThread?
     let session = SessionForIphone.GetSession()
@@ -106,13 +110,7 @@ class IMyPatientsController: IBaseViewController {
         var singleTap1:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageaddPatientTouch")
         self.imgBigAdd.addGestureRecognizer(singleTap1)
         
-        if(self.isGoLogin){
-            self.btnBack.hidden = true
-        }
-        else{
-            self.btnBack.hidden = false
-        }
-        
+        //返回上一页
         self.btnBack!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
@@ -120,8 +118,26 @@ class IMyPatientsController: IBaseViewController {
                 
         }
         
+        //跳至“我”主页面
+        self.btnBack2!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
+            .subscribeNext {
+                _ in
+                let nextcontroller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:nil,equipmentID:nil,bedUserName:nil)
+                IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IMainFrame", reload: true)
+                
+        }
+        
+        //跳至“我”主页面
+        self.lblBack2.userInteractionEnabled = true
+        var singleTap2:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "BackToMyselfView")
+        self.lblBack2.addGestureRecognizer(singleTap2)
     }
     
+    
+    func BackToMyselfView(){
+        let nextcontroller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:nil,equipmentID:nil,bedUserName:nil)
+        IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IMainFrame", reload: true)
+    }
     
     //添加老人
     func imageaddPatientTouch(){
