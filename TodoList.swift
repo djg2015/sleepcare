@@ -42,7 +42,7 @@ class TodoList {
         // create a corresponding local notification
         var notification = UILocalNotification()
         notification.alertBody = item.title // text that will be displayed in the notification
-        notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
+        notification.alertAction = "查看" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
         
         notification.fireDate = item.deadline  // todo item due date (when notification will be fired)
        // notification.fireDate =  NSDate(timeInterval: -600, sinceDate: item.deadline)
@@ -53,9 +53,9 @@ class TodoList {
         
         
         //同意接收通知，才提示本地消息通知
-        if(UIApplication.sharedApplication().isRegisteredForRemoteNotifications()){
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
-        }
+//        if(UIApplication.sharedApplication().isRegisteredForRemoteNotifications()){
+//        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+//        }
       
         self.SetBadgeByNumber(1)
     }
