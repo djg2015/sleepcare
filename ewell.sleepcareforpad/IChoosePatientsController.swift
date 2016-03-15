@@ -55,6 +55,16 @@ class IChoosePatientsController: IBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func Clean() {
+        self.viewModel = nil
+        self.myPatientsViewModel = nil
+        self.tbParts = nil
+        self.tbPatients = nil
+        self.tbPatientsDouble = nil
+        self.PartBedUserArray = nil
+    }
+
+    
     //初始化设置与属性等绑定
     func rac_Setting(){
         self.view.backgroundColor = themeColor[themeName]
@@ -78,11 +88,4 @@ class IChoosePatientsController: IBaseViewController {
         IViewControllerManager.GetInstance()!.CloseViewController()
     }
     
-    override func Clean() {
-    self.viewModel = nil
-        self.myPatientsViewModel = nil
-        self.tbParts = nil
-        self.tbPatients = nil
-        self.tbPatientsDouble = nil
-    }
-}
+   }

@@ -34,6 +34,11 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func Clean() {
+        self.iRegistViewModel = nil
+    }
+
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iRegistViewModel = IRegistViewModel()
@@ -95,4 +100,5 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
         self.txtMain.text = item.value
     }
     
+
 }

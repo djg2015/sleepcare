@@ -43,6 +43,10 @@ class IServerSettingController:IBaseViewController {
         
         
     }
+    override func Clean() {
+        self.topView = nil
+    }
+
     
     func imageViewTouch(){
       IViewControllerManager.GetInstance()!.CloseViewController()

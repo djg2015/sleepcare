@@ -17,7 +17,7 @@ class IEmailViewController: IBaseViewController {
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var btnSendEmail: BlueButtonForPhone!
     
-    var emailViewModel:IEmailViewModel = IEmailViewModel()
+    var emailViewModel:IEmailViewModel?
     
     var BedUserCode:String = ""
     var SleepDate:String = ""
@@ -26,11 +26,17 @@ class IEmailViewController: IBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+        self.emailViewModel = IEmailViewModel()
         self.emailView.backgroundColor = themeColor[themeName]
         self.rac_settings()
     }
     
-   
+    override func Clean(){
+        self.emailView = nil
+        self.emailViewModel = nil
+    }
+    
+    
     func rac_settings(){
         // 绑定界面元素
         RACObserve(self, "BedUserCode") ~> RAC(self.emailViewModel, "BedUserCode")
@@ -38,7 +44,7 @@ class IEmailViewController: IBaseViewController {
         RACObserve(self, "ParentController") ~> RAC(self.emailViewModel, "ParentController")
         
         self.txtEmailAddress.rac_textSignal() ~> RAC(self.emailViewModel, "EmailAddress")
-        self.btnSendEmail.rac_command = self.emailViewModel.sendEmailCommand
+        self.btnSendEmail.rac_command = self.emailViewModel!.sendEmailCommand
     }
     
     override func didReceiveMemoryWarning() {

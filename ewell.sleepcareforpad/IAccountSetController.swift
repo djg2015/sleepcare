@@ -33,6 +33,10 @@ class IAccountSetController: IBaseViewController, PopDownListItemChoosed{
         // Dispose of any resources that can be recreated.
     }
     
+    override func Clean() {
+        self.iModifyViewModel = nil
+    }
+
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iModifyViewModel = IModifyViewModel()

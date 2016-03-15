@@ -94,6 +94,11 @@ class IWeekSleepcareController: IBaseViewController {
         
     }
     
+    override func Clean(){
+        self.svSleep = nil
+        self.view = nil
+    }
+    
     //加载初始数据
     func Loaddata(){
         //查询底层数据
@@ -545,10 +550,7 @@ class IWeekSleepcareController: IBaseViewController {
         return strs[0] as String
     }
     
-    override func Clean(){
-    self.svSleep = nil
-        self.view = nil
-    }
+   
     /*
     // MARK: - Navigation
     

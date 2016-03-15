@@ -40,6 +40,9 @@ class IEquipmentViewController: IBaseViewController {
         self.backBtn.addGestureRecognizer(singleTap)
     }
     
+    override func Clean(){
+        self.equipmentViewModel = nil
+    }
 
     func backToController(sender:UITapGestureRecognizer)
     {

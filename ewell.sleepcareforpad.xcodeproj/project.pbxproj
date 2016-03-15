@@ -18,7 +18,6 @@
 		0D4E5BEE1C2A85BD00D2ED92 /* IViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */; };
 		0D5CCED31C5AF8B80068746C /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D5CCED21C5AF8B80068746C /* alarm.png */; };
 		0D5CCED51C5B09670068746C /* default_registdownarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D5CCED41C5B09670068746C /* default_registdownarrow.png */; };
-		0D5CF5951C4352D000D35D80 /* JasonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5CF5941C4352D000D35D80 /* JasonHelper.swift */; };
 		0D78FA101C71C07000364CF6 /* lightgreenpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D78FA0F1C71C07000364CF6 /* lightgreenpoint.png */; };
 		0D978D7C1C3E09D600E0CB9B /* 29pt-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D7B1C3E09D600E0CB9B /* 29pt-@2x.png */; };
 		0D978D7F1C3E09DF00E0CB9B /* 29pt-@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978D7D1C3E09DF00E0CB9B /* 29pt-@3x.png */; };
@@ -37,7 +36,6 @@
 		0D978DAC1C3E1E2100E0CB9B /* 1024X768@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978DAB1C3E1E2100E0CB9B /* 1024X768@2x.png */; };
 		0D978DAE1C3E200700E0CB9B /* 1024X748@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D978DAD1C3E200700E0CB9B /* 1024X748@2x.png */; };
 		0D9AE0791C8E7FB800625D5E /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9AE0781C8E7FB800625D5E /* Const.swift */; };
-		0DAC75201C743C9100EF3260 /* GetServerInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC751F1C743C9100EF3260 /* GetServerInfoHelper.swift */; };
 		0DAC75241C76BCB300EF3260 /* MainHouseName.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC75231C76BCB300EF3260 /* MainHouseName.plist */; };
 		0DAC75261C76C02800EF3260 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC75251C76C02800EF3260 /* SectionHeaderView.xib */; };
 		0DAC75281C76C0CF00EF3260 /* carat-open.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC75271C76C0CF00EF3260 /* carat-open.png */; };
@@ -71,6 +69,7 @@
 		0DD1D1611C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1D15F1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m */; };
 		0DE1D21F1C910A5600F820DB /* black_loginBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE1D21E1C910A5600F820DB /* black_loginBack.png */; };
 		0DE1D2211C910A5E00F820DB /* black_sleepcareblock.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE1D2201C910A5E00F820DB /* black_sleepcareblock.png */; };
+		0DEC19001C97DF54007BDF5D /* OpenFireServerInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC18FF1C97DF54007BDF5D /* OpenFireServerInfoHelper.swift */; };
 		0DF6BD651C55D43E007BF0A9 /* noalarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD641C55D43E007BF0A9 /* noalarm.png */; };
 		0DF6BD671C55E705007BF0A9 /* default_registCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD661C55E705007BF0A9 /* default_registCheck.png */; };
 		0DF6BD691C55E70A007BF0A9 /* default_registUncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD681C55E70A007BF0A9 /* default_registUncheck.png */; };
@@ -364,7 +363,6 @@
 		0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IViewControllerManager.swift; sourceTree = "<group>"; };
 		0D5CCED21C5AF8B80068746C /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
 		0D5CCED41C5B09670068746C /* default_registdownarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_registdownarrow.png; sourceTree = "<group>"; };
-		0D5CF5941C4352D000D35D80 /* JasonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JasonHelper.swift; sourceTree = "<group>"; };
 		0D78FA0F1C71C07000364CF6 /* lightgreenpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightgreenpoint.png; sourceTree = "<group>"; };
 		0D978D7B1C3E09D600E0CB9B /* 29pt-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29pt-@2x.png"; sourceTree = "<group>"; };
 		0D978D7D1C3E09DF00E0CB9B /* 29pt-@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29pt-@3x.png"; sourceTree = "<group>"; };
@@ -383,7 +381,6 @@
 		0D978DAB1C3E1E2100E0CB9B /* 1024X768@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1024X768@2x.png"; sourceTree = "<group>"; };
 		0D978DAD1C3E200700E0CB9B /* 1024X748@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1024X748@2x.png"; sourceTree = "<group>"; };
 		0D9AE0781C8E7FB800625D5E /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		0DAC751F1C743C9100EF3260 /* GetServerInfoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetServerInfoHelper.swift; sourceTree = "<group>"; };
 		0DAC75231C76BCB300EF3260 /* MainHouseName.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MainHouseName.plist; sourceTree = "<group>"; };
 		0DAC75251C76C02800EF3260 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		0DAC75271C76C0CF00EF3260 /* carat-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carat-open.png"; sourceTree = "<group>"; };
@@ -419,6 +416,7 @@
 		0DD1D1631C292AB100C8FEE3 /* MSCMoreOptionTableViewCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSCMoreOptionTableViewCellDelegate.h; sourceTree = "<group>"; };
 		0DE1D21E1C910A5600F820DB /* black_loginBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_loginBack.png; sourceTree = "<group>"; };
 		0DE1D2201C910A5E00F820DB /* black_sleepcareblock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_sleepcareblock.png; sourceTree = "<group>"; };
+		0DEC18FF1C97DF54007BDF5D /* OpenFireServerInfoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenFireServerInfoHelper.swift; sourceTree = "<group>"; };
 		0DF6BD641C55D43E007BF0A9 /* noalarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noalarm.png; sourceTree = "<group>"; };
 		0DF6BD661C55E705007BF0A9 /* default_registCheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_registCheck.png; sourceTree = "<group>"; };
 		0DF6BD681C55E70A007BF0A9 /* default_registUncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_registUncheck.png; sourceTree = "<group>"; };
@@ -1194,6 +1192,7 @@
 				3A41ADEE1BA7B45D000C109B /* ReactiveCocoa.swift */,
 				3A4CD3F71BA804D2002C8A1A /* XmppMsgManager.swift */,
 				3A4CD3F91BA80536002C8A1A /* CommonHelper.swift */,
+				0DEC18FF1C97DF54007BDF5D /* OpenFireServerInfoHelper.swift */,
 				3A4CD3FE1BA808C1002C8A1A /* XmppMsgHelper.swift */,
 				0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */,
 				0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */,
@@ -1204,11 +1203,9 @@
 				0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */,
 				0DC228561C224DD800AF4737 /* IAlarmHelper.swift */,
 				0D19A2A71C3A4828005ECF19 /* UpdateHelper.swift */,
-				0D5CF5941C4352D000D35D80 /* JasonHelper.swift */,
 				0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */,
 				0DF6BD811C59AB26007BF0A9 /* DateFormatterHelper.swift */,
 				0DF6BD7F1C599FEC007BF0A9 /* LoadImageHelper.swift */,
-				0DAC751F1C743C9100EF3260 /* GetServerInfoHelper.swift */,
 				0D9AE0781C8E7FB800625D5E /* Const.swift */,
 			);
 			name = Common;
@@ -1846,12 +1843,12 @@
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
 				3AB3CB211BD762FE0067F9D4 /* MyPatientsTableViewCell.swift in Sources */,
 				3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */,
-				0DAC75201C743C9100EF3260 /* GetServerInfoHelper.swift in Sources */,
 				2C5181FD1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift in Sources */,
 				3A680DC01C02BD6800D77A22 /* IAccountSetController.swift in Sources */,
 				2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */,
 				3A91F0AD1BF0475400C470D4 /* THDateDay.m in Sources */,
 				0D336D0E1C92596D0049883F /* RemoteNoticeHelper.swift in Sources */,
+				0DEC19001C97DF54007BDF5D /* OpenFireServerInfoHelper.swift in Sources */,
 				0D1341C71C50BAA900051E2C /* ThemeHelper.swift in Sources */,
 				3AB43E8A1BD4E1B9005023D3 /* BizDayRule.swift in Sources */,
 				2CB435321C069C28000751D1 /* IWeekReport.swift in Sources */,
@@ -1912,7 +1909,6 @@
 				0D4E5BEE1C2A85BD00D2ED92 /* IViewControllerManager.swift in Sources */,
 				3A0252301C0563A000CA7EA3 /* IWeekSleepcareController.swift in Sources */,
 				3ACD645E1BFC577A00FB62BB /* IChoosePatientsViewModel.swift in Sources */,
-				0D5CF5951C4352D000D35D80 /* JasonHelper.swift in Sources */,
 				3A3EF7C11BDE05A800CDDAED /* TodoList.swift in Sources */,
 				3AB3CB171BD762FE0067F9D4 /* AlarmTableViewCell.swift in Sources */,
 				3A2158771BEC8D580089CC01 /* IBaseViewController.swift in Sources */,
@@ -1996,7 +1992,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "26eb9fdf-38ba-4687-82f5-cec212b6fce4";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2035,7 +2031,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "26eb9fdf-38ba-4687-82f5-cec212b6fce4";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2051,7 +2047,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2078,7 +2074,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "26eb9fdf-38ba-4687-82f5-cec212b6fce4";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2095,7 +2091,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2122,7 +2118,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "26eb9fdf-38ba-4687-82f5-cec212b6fce4";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

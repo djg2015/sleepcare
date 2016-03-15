@@ -43,7 +43,14 @@ class IAlarmViewController: IBaseViewController,UITableViewDelegate,UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
- 
+    override func Clean(){
+        
+        self.alarmViewModel = nil
+        self._source = nil
+        self.MSCMoreOptionDelegate = nil
+        self.alarmTableView = nil
+        self.topView = nil
+    }
     
       
     //返回指定分区的行数
@@ -112,12 +119,5 @@ class IAlarmViewController: IBaseViewController,UITableViewDelegate,UITableViewD
                 self.alarmTableView.reloadData()
     }
 
-    override func Clean(){
     
-    self.alarmViewModel = nil
-        self._source = nil
-        self.MSCMoreOptionDelegate = nil
-        self.alarmTableView = nil
-        self.topView = nil
-    }
 }

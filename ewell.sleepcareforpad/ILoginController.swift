@@ -30,19 +30,15 @@ class ILoginController: IBaseViewController {
       
     }
     
+    override func Clean() {
+        self.iloginViewModel = nil
+    }
 
     
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iloginViewModel = IloginViewModel()
-        //判断是否可以获取服务器信息
-        let serverinfoflag = CheckServerInfo()
-        if serverinfoflag{
-            self.iloginViewModel.AutoLogin()
-        }
-        else{
-            GetServerInfoFail()
-        }
+       
         
         //属性绑定
         self.btnLogin!.rac_command = self.iloginViewModel?.loginCommand
@@ -68,5 +64,6 @@ class ILoginController: IBaseViewController {
     @IBAction func ForgetPwd(sender:AnyObject){
     
     }
+    
     
 }
