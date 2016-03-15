@@ -48,9 +48,7 @@ class OpenFireServerInfoHelper: NSObject,NSURLConnectionDataDelegate {
                 var server:String? =  apInfo!.objectForKey("ServerID") as? String
                 var pwd:String? = apInfo!.objectForKey("PWD") as? String
                 var username:String? = apInfo!.objectForKey("UserName") as? String
-
-                
-                
+   
                 if (ip != nil && port != nil && server != nil && pwd != nil && username != nil){
                     SetValueIntoPlist(SERVER,ip!)
                     SetValueIntoPlist(PORT,String(port!) )
