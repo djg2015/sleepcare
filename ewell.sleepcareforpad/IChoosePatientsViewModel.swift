@@ -126,11 +126,15 @@ class IChoosePatientsViewModel: BaseViewModel {
     func commit() -> RACSignal{
         try {
             ({
+               
                 var choosedPatients:Array<MyPatientsTableCellViewModel> = Array<MyPatientsTableCellViewModel>()
+                var flag = false
                 for value in self.PartBedUserDic.values{
                     var choosedbedUsers = value.filter(
                         {$0.IsChoosed})
                     if(choosedbedUsers.count > 0){
+                         //有选择关注老人
+                        flag = true
                         for(var i=0;i<choosedbedUsers.count;i++){
                             var myPatientsTableCellViewModel:MyPatientsTableCellViewModel = MyPatientsTableCellViewModel()
                             myPatientsTableCellViewModel.BedUserCode = choosedbedUsers[i].BedUserCode
@@ -146,8 +150,14 @@ class IChoosePatientsViewModel: BaseViewModel {
                     }
                     
                 }
+                
+                if flag{
+                    self.myPatientsViewModel.AddPatients(choosedPatients)
+                }
                 IViewControllerManager.GetInstance()!.CloseViewController()
-                self.myPatientsViewModel.AddPatients(choosedPatients)
+                
+                
+                
                 },
                 catch: { ex in
                     //异常处理

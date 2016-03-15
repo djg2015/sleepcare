@@ -56,12 +56,12 @@ class IChoosePatientsController: IBaseViewController {
     }
     
     override func Clean() {
-        self.viewModel = nil
-        self.myPatientsViewModel = nil
-        self.tbParts = nil
-        self.tbPatients = nil
-        self.tbPatientsDouble = nil
-        self.PartBedUserArray = nil
+    //    self.viewModel = nil
+     //   self.myPatientsViewModel = nil
+//        self.tbParts = nil
+//        self.tbPatients = nil
+//        self.tbPatientsDouble = nil
+//        self.PartBedUserArray = nil
     }
 
     

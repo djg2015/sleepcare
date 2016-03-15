@@ -56,7 +56,7 @@ class OpenFireServerInfoHelper: NSObject,NSURLConnectionDataDelegate {
                     SetValueIntoPlist(PORT,String(port!) )
                     SetValueIntoPlist(SERVERJID, server!)
                     SetValueIntoPlist(PASS, pwd!)
-                    SetValueIntoPlist(USERID, username!)
+                    SetValueIntoPlist(USERID, username! + "@" + ip!)
                 }
                 
             }

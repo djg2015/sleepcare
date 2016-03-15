@@ -18,16 +18,17 @@ class IWeekSleepcareController: IBaseViewController {
     let height5:CGFloat = 200
     let height6:CGFloat = 140
     let height7:CGFloat = 250
-    var uione = UIView()
-    var uitwo = UIView()
-    var uithree = UIView()
-    var uifour = UIView()
-    var uifive = UIView()
-    var uisix = UIView()
-    var uiseven = UIView()
+    var uione:UIView!
+    var uitwo: UIView!
+    var uithree: UIView!
+    var uifour: UIView!
+    var uifive: UIView!
+    var uisix: UIView!
+    var uiseven: UIView!
     var lblTitle = UILabel()
     var bedUserCode:String!
     var sleepDate:String!
+    var weekReport:IWeekReport!
     
     required init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,bedusercode:String,searchdate:String) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -42,6 +43,13 @@ class IWeekSleepcareController: IBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = themeColor[themeName]
+         uione = UIView()
+        uitwo = UIView()
+        uithree = UIView()
+        uifour = UIView()
+        uifive = UIView()
+        uisix = UIView()
+        uiseven = UIView()
         //设置滚动区域7个区域元素
         var screenWidth = UIScreen.mainScreen().bounds.width
         self.svSleep.contentSize = CGSize(width: screenWidth, height: (height1+height2+height3+height4+height5+height6+height7))
@@ -96,6 +104,14 @@ class IWeekSleepcareController: IBaseViewController {
     
     override func Clean(){
         self.svSleep = nil
+        self.uione = nil
+        self.uitwo = nil
+        self.uithree = nil
+        self.uifive = nil
+        self.uifour = nil
+        self.uisix = nil
+        self.uiseven = nil
+        self.weekReport = nil
         self.view = nil
     }
     
@@ -103,7 +119,7 @@ class IWeekSleepcareController: IBaseViewController {
     func Loaddata(){
         //查询底层数据
         var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-        var weekReport:IWeekReport = sleepCareForIPhoneBussinessManager.GetWeekReportByUser(self.bedUserCode, reportDate: self.sleepDate)
+        self.weekReport = sleepCareForIPhoneBussinessManager.GetWeekReportByUser(self.bedUserCode, reportDate: self.sleepDate)
         
         //设置7个区域显示
         self.lblTitle.text = weekReport.WeekBeginDate + "~" + weekReport.WeekEndDate

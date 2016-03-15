@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         
         InitPlistFile()
         
+        
         if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
             deviceType = "iphone"
             //设置启动界面
