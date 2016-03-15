@@ -8,7 +8,8 @@
 
 import UIKit
 
-class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRDelegate,GetAlarmCountDelegate {
+//class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRDelegate,GetAlarmCountDelegate {
+    class IMainFrameViewController: IBaseViewController,GetAlarmCountDelegate {
     @IBOutlet weak var uiHR: UIView!
     @IBOutlet weak var uiRR: UIView!
     @IBOutlet weak var uiSleepCare: UIView!
@@ -26,6 +27,9 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
   //  var spinner:JHSpinnerView?
     var iRRMonitorView:IRRMonitor? = nil
     var iHRMonitorView:IHRMonitor? = nil
+    var sleepQualityMonitorView:ISleepQualityMonitor? = nil
+    var selfConfiguration:IMySelfConfiguration? = nil
+        
     var _curMenu:UIView?
     var curMenu:UIView?{
         get{
@@ -108,7 +112,7 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         {
             let firstVew = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as! IHRMonitor
             firstVew.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
-            firstVew.HRdelegate = self
+        //    firstVew.HRdelegate = self
             
             self.curMenu = self.uiHR
             showBody(firstVew, nibName:"IHRMonitor")
@@ -126,10 +130,29 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     override func Clean(){
         if self.iHRMonitorView != nil{
             self.iHRMonitorView!.Clean()
+            self.iHRMonitorView = nil
         }
         if self.iRRMonitorView != nil{
             self.iRRMonitorView!.Clean()
+            self.iRRMonitorView = nil
         }
+        if self.sleepQualityMonitorView != nil{
+            self.sleepQualityMonitorView!.Clean()
+            self.sleepQualityMonitorView = nil
+        }
+        if self.selfConfiguration != nil{
+        self.selfConfiguration!.Clean()
+            self.selfConfiguration = nil
+        }
+        self.curMenu = nil
+        self.uiHR = nil
+        self.uiRR = nil
+        self.uiMe = nil
+        self.uiSleepCare = nil
+        self.svMain = nil
+        self.uiMenu = nil
+        self.imgAlarm = nil
+        self.view = nil
     }
     
     
@@ -138,11 +161,11 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         if(nil != self.bedUserCode && session!.CurPatientCode != "")
         {
             self.curMenu = self.uiHR
+            if self.iHRMonitorView == nil {
             iHRMonitorView = NSBundle.mainBundle().loadNibNamed("IHRMonitor", owner: self, options: nil).first as? IHRMonitor
-            
             iHRMonitorView!.viewInit(self, bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
-            
-            iHRMonitorView!.HRdelegate = self
+            }
+        //    iHRMonitorView!.HRdelegate = self
             
             self.showBody(iHRMonitorView!,nibName: "IHRMonitor")
         }
@@ -157,11 +180,12 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         if(nil != self.bedUserCode && session!.CurPatientCode != "")
         {
             self.curMenu = self.uiRR
+            if self.iRRMonitorView == nil {
             iRRMonitorView = NSBundle.mainBundle().loadNibNamed("IRRMonitor", owner: self, options: nil).first as? IRRMonitor
             
             iRRMonitorView!.viewInit(self, bedUserCode: self.bedUserCode!, bedUserName: self.bedUserName!)
-            iRRMonitorView!.RRdelegate = self
-            
+     //       iRRMonitorView!.RRdelegate = self
+            }
             self.showBody(iRRMonitorView!,nibName: "IRRMonitor")
         }
         else
@@ -174,11 +198,12 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         if(nil != self.bedUserCode && session!.CurPatientCode != "")
         {
             self.curMenu = self.uiSleepCare
-            let sleepQualityMonitorView = NSBundle.mainBundle().loadNibNamed("ISleepQualityMonitor", owner: self, options: nil).first as! ISleepQualityMonitor
+            if self.sleepQualityMonitorView == nil {
+            sleepQualityMonitorView = NSBundle.mainBundle().loadNibNamed("ISleepQualityMonitor", owner: self, options: nil).first as? ISleepQualityMonitor
             
-            sleepQualityMonitorView.viewInit(self,bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
-            
-            self.showBody(sleepQualityMonitorView,nibName: "ISleepQualityMonitor")
+            sleepQualityMonitorView!.viewInit(self,bedUserCode: self.bedUserCode!,bedUserName: self.bedUserName!)
+            }
+            self.showBody(sleepQualityMonitorView!,nibName: "ISleepQualityMonitor")
         }
         else
         {
@@ -187,10 +212,13 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
     }
     func ClickMe(){
         self.curMenu = self.uiMe
-        let selfConfiguration = NSBundle.mainBundle().loadNibNamed("IMySelfConfiguration", owner: self, options: nil).first as! IMySelfConfiguration
         
-        selfConfiguration.viewInit(self, bedUserCode: self.bedUserCode,equipmentID: self.equipmentID)
-        self.showBody(selfConfiguration,nibName: "IMySelfConfiguration")
+        if self.selfConfiguration == nil {
+        selfConfiguration = NSBundle.mainBundle().loadNibNamed("IMySelfConfiguration", owner: self, options: nil).first as? IMySelfConfiguration
+        
+        selfConfiguration!.viewInit(self, bedUserCode: self.bedUserCode,equipmentID: self.equipmentID)
+        }
+        self.showBody(selfConfiguration!,nibName: "IMySelfConfiguration")
     }
     
     //左右滑动手势，对应菜单改变
@@ -221,30 +249,30 @@ class IMainFrameViewController: IBaseViewController,LoadingHRDelegate,LoadingRRD
         }
     }
     
-    func LoadingView() {
+   // func LoadingView() {
         
    //     self.spinner  = JHSpinnerView.showOnView(self.svMain, spinnerColor:UIColor.whiteColor(), overlay:.FullScreen, overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.6), fullCycleTime:4.0, text:"")
         
-    }
+  //  }
     
     //显示菜单界面
     func showBody(jumpview:UIView, nibName:String){
         
         jumpview.frame = CGRectMake(0, 0, self.svMain.frame.width, self.svMain.frame.height)
         self.svMain.addSubview(jumpview)
-        if nibName == "IHRMonitor" || nibName == "IRRMonitor"{
-            self.LoadingView()
-        }
+//        if nibName == "IHRMonitor" || nibName == "IRRMonitor"{
+//            self.LoadingView()
+//        }
     }
-    
-    func CloseLoadingHR(){
-   //     self.spinner!.dismiss()
-    }
-    
-    func CloseLoadingRR(){
-    //    self.spinner!.dismiss()
-    }
-    
+//    
+//    func CloseLoadingHR(){
+//        self.spinner!.dismiss()
+//    }
+//    
+//    func CloseLoadingRR(){
+//        self.spinner!.dismiss()
+//    }
+//    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -10,7 +10,7 @@ import Foundation
 //class IMyPatientsViewModel: BaseViewModel,RealTimeDelegate {
 class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     //------------属性定义------------
-    var _myPatientsArray:Array<MyPatientsTableCellViewModel>!
+    var _myPatientsArray:Array<MyPatientsTableCellViewModel> = []
     //我关注的床位用户集合
     dynamic var MyPatientsArray:Array<MyPatientsTableCellViewModel>{
         get
@@ -128,6 +128,8 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     }
     
     func Clean(){
+        self.bedUserCodeList = []
+        self.MyPatientsArray = []
         RealTimeHelper.GetRealTimeInstance().SetDelegate("IMyPatientsViewModel", currentViewModelDelegate: nil)
     }
 

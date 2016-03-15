@@ -17,15 +17,16 @@
         @IBOutlet weak var BtnExit: UIButton!
         
         var parentController:IBaseViewController!
-        var menuAlarm:ConfigurationViewModel!
+        var menuAlarm:ConfigurationViewModel?
+        var menu:ConfigurationViewModel?
         var session = SessionForIphone.GetSession()
+        var source:Array<ConfigurationViewModel> = []
         // 界面初始化
         func viewInit(parentController:IBaseViewController?,bedUserCode:String?,equipmentID:String?)
         {
             self.topView.backgroundColor = themeColor[themeName]
             self.parentController = parentController
-            var source = Array<ConfigurationViewModel>()
-            var menu:ConfigurationViewModel = ConfigurationViewModel()
+            self.source = Array<ConfigurationViewModel>()
             IAlarmHelper.GetAlarmInstance().alarmpicdelegate = self
             self.BtnExit.backgroundColor = themeColor[themeName]
             
@@ -33,63 +34,63 @@
             if(self.session != nil && session!.User?.UserType == LoginUserType.Monitor)
             {
                 menu = ConfigurationViewModel()
-                menu.titleName = "我的老人"
-                menu.configrationController = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
-                source.append(menu)
+                menu!.titleName = "我的老人"
+                menu!.configrationController = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
+                source.append(menu!)
                 
                 self.menuAlarm = ConfigurationViewModel()
-                self.menuAlarm.titleName = "报警信息"
-                self.menuAlarm.imageName = "noalarm.png"
-                self.menuAlarm.configrationController = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
-                source.append(self.menuAlarm)
+                self.menuAlarm!.titleName = "报警信息"
+                self.menuAlarm!.imageName = "noalarm.png"
+                self.menuAlarm!.configrationController = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
+                source.append(self.menuAlarm!)
                 
                 menu = ConfigurationViewModel()
-                menu.titleName = "账号管理"
-                menu.configrationController =
+                menu!.titleName = "账号管理"
+                menu!.configrationController =
                     IAccountSetController(nibName:"IAccountSet", bundle:nil)
-                source.append(menu)
+                source.append(menu!)
+            
+                menu = ConfigurationViewModel()
+                menu!.titleName = "使用技巧"
+                menu!.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"使用技巧",url:"http://www.usleepcare.com/app/help.aspx")
+                source.append(menu!)
                 
                 menu = ConfigurationViewModel()
-                menu.titleName = "使用技巧"
-                menu.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"使用技巧",url:"http://www.usleepcare.com/app/help.aspx")
-                source.append(menu)
+                menu!.titleName = "关于uSleepCare"
+                menu!.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"关于uSleepCare",url:"http://www.usleepcare.com/app/about.aspx")
+                source.append(menu!)
                 
                 menu = ConfigurationViewModel()
-                menu.titleName = "关于uSleepCare"
-                menu.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"关于uSleepCare",url:"http://www.usleepcare.com/app/about.aspx")
-                source.append(menu)
-                
-                menu = ConfigurationViewModel()
-                menu.titleName = "软件版本"
-                source.append(menu)
+                menu!.titleName = "软件版本"
+                source.append(menu!)
                 
                 self.lblManType.text = "监护人"
             }
             else if(self.session != nil && session!.User?.UserType == LoginUserType.UserSelf)
             {
                 menu = ConfigurationViewModel()
-                menu.titleName = "我的老人"
-                menu.configrationController = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
-                source.append(menu)
+                menu!.titleName = "我的老人"
+                menu!.configrationController = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
+                source.append(menu!)
                 
                 menu = ConfigurationViewModel()
-                menu.titleName = "账号管理"
-                menu.configrationController =  IAccountSetController(nibName:"IAccountSet", bundle:nil)
-                source.append(menu)
+                menu!.titleName = "账号管理"
+                menu!.configrationController =  IAccountSetController(nibName:"IAccountSet", bundle:nil)
+                source.append(menu!)
                 
                 menu = ConfigurationViewModel()
-                menu.titleName = "使用技巧"
-                menu.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"使用技巧",url:"http://www.usleepcare.com/app/help.aspx")
-                source.append(menu)
+                menu!.titleName = "使用技巧"
+                menu!.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"使用技巧",url:"http://www.usleepcare.com/app/help.aspx")
+                source.append(menu!)
                 
                 menu = ConfigurationViewModel()
-                menu.titleName = "关于uSleepCare"
-                menu.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"关于uSleepCare",url:"http://www.usleepcare.com/app/about.aspx")
-                source.append(menu)
+                menu!.titleName = "关于uSleepCare"
+                menu!.configrationController = IWebViewController(nibName:"WebView",bundle:nil,titleName:"关于uSleepCare",url:"http://www.usleepcare.com/app/about.aspx")
+                source.append(menu!)
                 
                 menu = ConfigurationViewModel()
-                menu.titleName = "软件版本"
-                source.append(menu)
+                menu!.titleName = "软件版本"
+                source.append(menu!)
                 
                 self.lblManType.text = "使用者"
             }
@@ -108,18 +109,27 @@
         func SetAlarmPic(count:Int) {
             if self.menuAlarm != nil{
                 if count > 0 {
-                    if self.menuAlarm.imageName == "noalarm.png"{
-                        self.menuAlarm.imageName = "alarm.png"
+                    if self.menuAlarm!.imageName == "noalarm.png"{
+                        self.menuAlarm!.imageName = "alarm.png"
                         self.menuTableView.reloadData()
                     }
                 }
                 else{
-                    if self.menuAlarm.imageName == "alarm.png"{
-                        self.menuAlarm.imageName = "noalarm.png"
+                    if self.menuAlarm!.imageName == "alarm.png"{
+                        self.menuAlarm!.imageName = "noalarm.png"
                         self.menuTableView.reloadData()
                     }
                 }
             }
+        }
+        
+        
+        func Clean(){
+            self.source = []
+            self.menu = nil
+            self.menuAlarm = nil
+            self.topView = nil
+            self.menuTableView = nil
         }
         
         //退出登录：清空本地plist文件内账户信息，清空当前session，如果是监护人账户则关闭报警，关闭xmpp。最后跳转登录页面

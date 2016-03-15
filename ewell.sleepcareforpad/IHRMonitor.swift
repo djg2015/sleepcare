@@ -25,7 +25,7 @@ class IHRMonitor: UIView{
     var _bedUserCode:String = ""
     var _bedUserName:String = ""
     
-    var HRdelegate:LoadingHRDelegate!
+ //   var HRdelegate:LoadingHRDelegate!
     var loadingFlag:Bool = false
     
     var _hrTimeReportList:Array<IHRTimeReport> = Array<IHRTimeReport>()
@@ -134,30 +134,39 @@ class IHRMonitor: UIView{
         RACObserve(self, "_bedUserName") ~> RAC(self.lblBedUserName, "text")
         RACObserve(self.hrMonitorViewModel, "LoadingFlag") ~> RAC(self, "loadingFlag")
         
-        self.setTimer()
+     //   self.setTimer()
     }
     
     //定时器，隔0.5秒检查是否完全载入数据
-    func setTimer(){
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
-        timer.fire()
-    }
-    
-    func timerFireMethod(timer: NSTimer) {
-        if self.loadingFlag && self.HRdelegate != nil{
-            self.HRdelegate.CloseLoadingHR()
-            if self.hrMonitorViewModel != nil{
-            self.hrMonitorViewModel!.LoadingFlag = false
-            }
-        }
-        
-    }
+//    func setTimer(){
+//        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
+//        timer.fire()
+//    }
+//    
+//    func timerFireMethod(timer: NSTimer) {
+//        if self.loadingFlag && self.HRdelegate != nil{
+//            self.HRdelegate.CloseLoadingHR()
+//            if self.hrMonitorViewModel != nil{
+//            self.hrMonitorViewModel!.LoadingFlag = false
+//            }
+//        }
+//        
+//    }
     
     func Clean(){
-    self.hrMonitorViewModel!.Clean()
+        if self.hrMonitorViewModel != nil{
+             self.HRTimeReportList = []
+            self.statusImage = nil
+            self.processHR = nil
+            self.topView = nil
+            self.viewChart = nil
+            self.hrMonitorViewModel!.Clean()
+            self.hrMonitorViewModel = nil
+        
+        }
     }
 }
 
-protocol LoadingHRDelegate{
-func CloseLoadingHR()
-}
+//protocol LoadingHRDelegate{
+//func CloseLoadingHR()
+//}

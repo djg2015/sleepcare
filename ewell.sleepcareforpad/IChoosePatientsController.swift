@@ -77,4 +77,12 @@ class IChoosePatientsController: IBaseViewController {
     func imageViewTouch(){
         IViewControllerManager.GetInstance()!.CloseViewController()
     }
+    
+    override func Clean() {
+    self.viewModel = nil
+        self.myPatientsViewModel = nil
+        self.tbParts = nil
+        self.tbPatients = nil
+        self.tbPatientsDouble = nil
+    }
 }

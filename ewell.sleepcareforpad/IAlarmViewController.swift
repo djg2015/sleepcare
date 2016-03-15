@@ -112,5 +112,12 @@ class IAlarmViewController: IBaseViewController,UITableViewDelegate,UITableViewD
                 self.alarmTableView.reloadData()
     }
 
-   
+    override func Clean(){
+    
+    self.alarmViewModel = nil
+        self._source = nil
+        self.MSCMoreOptionDelegate = nil
+        self.alarmTableView = nil
+        self.topView = nil
+    }
 }

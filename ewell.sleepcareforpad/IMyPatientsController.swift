@@ -14,25 +14,21 @@ class IMyPatientsController: IBaseViewController {
     @IBOutlet weak var uiNewAdd: BackgroundCommon!
     @IBOutlet weak var uiPatientList: UIView!
     @IBOutlet weak var myPatientTable: MyPatientsTableView!
- 
     @IBOutlet weak var topView: UIView!
-    
     @IBOutlet weak var imgAlarmView: UIImageView!
     @IBOutlet weak var lblAlarmCount: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
-
     @IBOutlet weak var btnBack: UIButton!
-    
     @IBOutlet weak var lblBack2: UILabel!
     @IBOutlet weak var btnBack2: UIButton!
+    
+    
     var _width:Int = 0
     var _height:Int = 0
     //  var spinner:JHSpinnerView?
-    var viewModel:IMyPatientsViewModel!
+    var viewModel:IMyPatientsViewModel?
     var popDownList:PopDownList?
     var isGoLogin:Bool = true
-    
-    var thread:NSThread?
     let session = SessionForIphone.GetSession()
     var realtimer:NSTimer?
     
@@ -85,7 +81,15 @@ class IMyPatientsController: IBaseViewController {
     
     override func Clean(){
         if self.viewModel != nil{
-            self.viewModel.Clean()
+            self.viewModel!.Clean()
+            self.viewModel = nil
+            self.popDownList = nil
+            self.MyPatientsArray = nil
+            self.CloseTimer()
+            self.myPatientTable = nil
+            self.uiNewAdd = nil
+            self.uiPatientList = nil
+            self.view = nil
         }
     }
     
@@ -147,7 +151,7 @@ class IMyPatientsController: IBaseViewController {
         }
         else{
            
-            var nextcontroller = IChoosePatientsController(nibName:"IChoosePatients", bundle:nil, myPatientsViewModel: self.viewModel)
+            var nextcontroller = IChoosePatientsController(nibName:"IChoosePatients", bundle:nil, myPatientsViewModel: self.viewModel!)
             IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IChoosePatients",reload: true)
         }
     }

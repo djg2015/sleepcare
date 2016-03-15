@@ -24,7 +24,7 @@ class IRRMonitor: UIView{
     var lblRR:UILabel!
     var _bedUserCode:String = ""
     var _bedUserName:String = ""
-    var RRdelegate:LoadingRRDelegate!
+  //  var RRdelegate:LoadingRRDelegate!
     var loadingFlag:Bool = false
     
     var _rrTimeReportList:Array<IRRTimeReport> = Array<IRRTimeReport>()
@@ -129,30 +129,37 @@ class IRRMonitor: UIView{
         RACObserve(self, "_bedUserName") ~> RAC(self.lblBedUserName, "text")
         RACObserve(self.rrMonitorViewModel, "LoadingFlag") ~> RAC(self, "loadingFlag")
         
-        self.setTimer()
+     //   self.setTimer()
     }
    
     //定时器，隔0.5秒检查是否完全载入数据
-    func setTimer(){
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
-        timer.fire()
-    }
-    
-    func timerFireMethod(timer: NSTimer) {
-        if self.loadingFlag && self.RRdelegate != nil{
-            self.RRdelegate.CloseLoadingRR()
-            if self.rrMonitorViewModel != nil{
-            self.rrMonitorViewModel!.LoadingFlag = false
-        }
-    }
-        
-    }
+//    func setTimer(){
+//        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
+//        timer.fire()
+//    }
+//    
+//    func timerFireMethod(timer: NSTimer) {
+//        if self.loadingFlag && self.RRdelegate != nil{
+//            self.RRdelegate.CloseLoadingRR()
+//            if self.rrMonitorViewModel != nil{
+//            self.rrMonitorViewModel!.LoadingFlag = false
+//        }
+//    }
+//    }
     
     func Clean(){
-        self.rrMonitorViewModel!.Clean()
+        if self.rrMonitorViewModel != nil{
+            self.RRTimeReportList = []
+            self.processRR = nil
+            self.topView = nil
+            self.viewChart = nil
+            self.rrMonitorViewModel!.Clean()
+            self.rrMonitorViewModel = nil
+         
+        }
     }
 }
 
-protocol LoadingRRDelegate{
-    func CloseLoadingRR()
-}
+//protocol LoadingRRDelegate{
+//    func CloseLoadingRR()
+//}

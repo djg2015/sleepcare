@@ -18,9 +18,15 @@ class IBaseViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        if (self.isViewLoaded() && (self.view.window == nil))// 是否已加载，且不可视
+        {
+            print("clean!!!!!!!!!!!!")
+            // self.view = nil
+        }
+
     }
     
-    // 清除
+    // 清除缓存
     func Clean(){
     
     }

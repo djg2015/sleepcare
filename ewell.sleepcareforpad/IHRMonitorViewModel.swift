@@ -194,6 +194,7 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
     
     //释放代理
     func Clean(){
+        
     RealTimeHelper.GetRealTimeInstance().SetDelegate("IHRMonitorViewModel", currentViewModelDelegate: nil)
     }
 }

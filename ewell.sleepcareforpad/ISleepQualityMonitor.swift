@@ -25,7 +25,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
     var _bedUserCode:String?
     var _bedUserName:String = ""
     var email:IEmailViewController?
-    var sleepQualityViewModel:ISleepQualityMonitorViewModel = ISleepQualityMonitorViewModel()
+    var sleepQualityViewModel:ISleepQualityMonitorViewModel?
     var lblSleepQuality:UILabel?
     var lblDeepSleepTimespan:UILabel?
     var lblLightSleepTimespan:UILabel?
@@ -49,10 +49,10 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
             lineChart!.showLabel = true
             lineChart!.backgroundColor = UIColor.clearColor()
             lineChart!.xLabels = []
-            for(var i = 0 ;i < self.sleepQualityViewModel.SleepRange.count;i++){
-                var xlable = self.sleepQualityViewModel.SleepRange[i].WeekDay
+            for(var i = 0 ;i < self.sleepQualityViewModel!.SleepRange.count;i++){
+                var xlable = self.sleepQualityViewModel!.SleepRange[i].WeekDay
                 lineChart!.xLabels.append(xlable)
-                if(self.sleepQualityViewModel.SleepRange[i].ReportDate == self.sleepQualityViewModel.SelectedDate)
+                if(self.sleepQualityViewModel!.SleepRange[i].ReportDate == self.sleepQualityViewModel!.SelectedDate)
                 {
                     
                 }
@@ -61,8 +61,8 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
             
             //设置在床曲线
             var data01Array: [CGFloat] = []
-            for(var i = 0 ;i < self.sleepQualityViewModel.SleepRange.count;i++){
-                data01Array.append(self.sleepQualityViewModel.SleepRange[i].OnBedTimespanMinutes)
+            for(var i = 0 ;i < self.sleepQualityViewModel!.SleepRange.count;i++){
+                data01Array.append(self.sleepQualityViewModel!.SleepRange[i].OnBedTimespanMinutes)
             }
             var data01:PNLineChartData = PNLineChartData()
             data01.color = PNGreenColor
@@ -77,8 +77,8 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
             
             //设置睡眠曲线
             var data02Array: [CGFloat] = []
-            for(var i = 0 ;i < self.sleepQualityViewModel.SleepRange.count;i++){
-                data02Array.append(self.sleepQualityViewModel.SleepRange[i].SleepTimespanMinutes)
+            for(var i = 0 ;i < self.sleepQualityViewModel!.SleepRange.count;i++){
+                data02Array.append(self.sleepQualityViewModel!.SleepRange[i].SleepTimespanMinutes)
             }
             var data02:PNLineChartData = PNLineChartData()
             data02.color = PNGreyColor
@@ -117,6 +117,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
         self.parentController = parentController
         self._bedUserCode = bedUserCode
         self._bedUserName = bedUserName
+        self.sleepQualityViewModel = ISleepQualityMonitorViewModel()
         
         self.topView.backgroundColor = themeColor[themeName]
         // 画出圆圈中间内容
@@ -176,7 +177,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
         RACObserve(self, "_bedUserCode") ~> RAC(self.sleepQualityViewModel, "BedUserCode")
         RACObserve(self.sleepQualityViewModel, "SleepRange") ~> RAC(self, "SleepRange")
   
-        self.sleepQualityViewModel.SelectedDate = getCurrentTime("yyyy-MM-dd")
+        self.sleepQualityViewModel!.SelectedDate = getCurrentTime("yyyy-MM-dd")
 
         // 给各个图片添加手势
         self.imgMoveLeft.userInteractionEnabled = true
@@ -210,7 +211,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
         self.addSubview(alertview)
     }
     func SelectDate(sender: UIView, dateString: String) {
-       self.sleepQualityViewModel.SelectedDate = dateString
+       self.sleepQualityViewModel!.SelectedDate = dateString
     }
     
     
@@ -234,11 +235,11 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
     //点击操作，查看当前日期的昨天／明天
     func moveLeft(sender:UITapGestureRecognizer)
     {
-        self.sleepQualityViewModel.SelectedDate = Date(string: self.sleepQualityViewModel.SelectedDate, format: "yyyy-MM-dd").addDays(-1).description(format: "yyyy-MM-dd")
+        self.sleepQualityViewModel!.SelectedDate = Date(string: self.sleepQualityViewModel!.SelectedDate, format: "yyyy-MM-dd").addDays(-1).description(format: "yyyy-MM-dd")
     }
     func moveRight(sender:UITapGestureRecognizer)
     {
-        self.sleepQualityViewModel.SelectedDate = Date(string: self.sleepQualityViewModel.SelectedDate, format: "yyyy-MM-dd").addDays(1).description(format: "yyyy-MM-dd")
+        self.sleepQualityViewModel!.SelectedDate = Date(string: self.sleepQualityViewModel!.SelectedDate, format: "yyyy-MM-dd").addDays(1).description(format: "yyyy-MM-dd")
     }
 
     //把睡眠周报表发送到email邮箱
@@ -247,10 +248,21 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
             self.email = IEmailViewController(nibName: "IEmailView", bundle: nil)
             self.email!.BedUserCode = self._bedUserCode!
             self.email!.ParentController = self.parentController
-             self.email!.SleepDate = self.sleepQualityViewModel.SelectedDate
+             self.email!.SleepDate = self.sleepQualityViewModel!.SelectedDate
              var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",
             KNSemiModalOptionKeys.animationDuration:"0.2",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
         
        self.parentController.presentSemiViewController(self.email, withOptions: kNSemiModalOptionKeys)
+    }
+    
+    func Clean(){
+        if self.sleepQualityViewModel != nil{
+            self.SleepRange = []
+             self.email = nil
+            self.process = nil
+            self.viewSleepQuality = nil
+            self.topView = nil
+            self.sleepQualityViewModel = nil
+        }
     }
 }

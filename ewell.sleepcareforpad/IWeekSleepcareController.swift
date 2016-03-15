@@ -544,6 +544,11 @@ class IWeekSleepcareController: IBaseViewController {
         let strs = str.split(".")
         return strs[0] as String
     }
+    
+    override func Clean(){
+    self.svSleep = nil
+        self.view = nil
+    }
     /*
     // MARK: - Navigation
     

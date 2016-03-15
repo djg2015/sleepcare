@@ -213,4 +213,5 @@ class ISleepQualityMonitorViewModel: BaseViewModel {
             self._sleepRange = value
         }
     }
+    
 }
