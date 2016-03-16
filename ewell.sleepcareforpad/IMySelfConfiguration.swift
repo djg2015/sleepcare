@@ -137,7 +137,6 @@
            
            
             let session = SessionForIphone.GetSession()
-
             if session != nil && session!.User!.UserType == LoginUserType.Monitor {
                 
                 CloseNotice()

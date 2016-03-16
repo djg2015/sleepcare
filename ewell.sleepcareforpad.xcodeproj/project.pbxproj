@@ -1507,6 +1507,7 @@
 					};
 					3A41ADCF1BA7A65A000C109B = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = ZT8T3NTPYJ;
 						TestTargetID = 3A41ADBA1BA7A65A000C109B;
 					};
 				};
@@ -1991,7 +1992,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "b583c3b7-7176-411f-94e7-9eb13728ac6f";
+				PROVISIONING_PROFILE = "0406f178-fa87-4189-98de-edd89ae44405";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2029,7 +2030,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "b583c3b7-7176-411f-94e7-9eb13728ac6f";
+				PROVISIONING_PROFILE = "0406f178-fa87-4189-98de-edd89ae44405";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2071,7 +2072,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b583c3b7-7176-411f-94e7-9eb13728ac6f";
+				PROVISIONING_PROFILE = "0406f178-fa87-4189-98de-edd89ae44405";
 				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2114,7 +2115,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b583c3b7-7176-411f-94e7-9eb13728ac6f";
+				PROVISIONING_PROFILE = "0406f178-fa87-4189-98de-edd89ae44405";
 				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2124,6 +2125,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2135,7 +2138,7 @@
 				INFOPLIST_FILE = ewell.sleepcareforpadTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "988b10fb-cea5-470a-86a8-9b25c530ed68";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ewell.sleepcareforpad.app/ewell.sleepcareforpad";
 			};
 			name = Debug;
@@ -2144,7 +2147,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2152,7 +2156,7 @@
 				INFOPLIST_FILE = ewell.sleepcareforpadTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "988b10fb-cea5-470a-86a8-9b25c530ed68";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ewell.sleepcareforpad.app/ewell.sleepcareforpad";
 			};
 			name = Release;
