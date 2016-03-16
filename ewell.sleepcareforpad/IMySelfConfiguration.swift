@@ -134,6 +134,8 @@
         
         //退出登录：清空本地plist文件内账户信息，清空当前session，如果是监护人账户则关闭报警，关闭xmpp。最后跳转登录页面
         @IBAction func btnExitLoginClick(sender: AnyObject) {
+           CloseNotice()
+            
             SetValueIntoPlist("loginusernamephone", "")
             SetValueIntoPlist("loginuserpwdphone", "")
             SetValueIntoPlist("xmppusernamephone", "")
@@ -142,15 +144,10 @@
             //关闭alarm，清除session
             if session != nil && session!.User!.UserType == LoginUserType.Monitor {
                 IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
-                
-                //若当前开启了消息通知，则在退出登录前关闭
-               
-                CloseNotice()
-                
     
             }
                      
-
+            
             //关闭xmpp
             var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
             xmppMsgManager?.Close()
