@@ -139,6 +139,7 @@
             SetValueIntoPlist("loginusernamephone", "")
             SetValueIntoPlist("loginuserpwdphone", "")
             SetValueIntoPlist("xmppusernamephone", "")
+            LOGINFLAG = false
            
             let session = SessionForIphone.GetSession()
             //关闭alarm，清除session
