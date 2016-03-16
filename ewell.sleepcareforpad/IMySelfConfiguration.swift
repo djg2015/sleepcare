@@ -134,21 +134,20 @@
         
         //退出登录：清空本地plist文件内账户信息，清空当前session，如果是监护人账户则关闭报警，关闭xmpp。最后跳转登录页面
         @IBAction func btnExitLoginClick(sender: AnyObject) {
-           CloseNotice()
-            
+           
+           
+            let session = SessionForIphone.GetSession()
+
+            if session != nil && session!.User!.UserType == LoginUserType.Monitor {
+                
+                CloseNotice()
+                LOGINFLAG = false
+                IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
+            }
+                     
             SetValueIntoPlist("loginusernamephone", "")
             SetValueIntoPlist("loginuserpwdphone", "")
             SetValueIntoPlist("xmppusernamephone", "")
-            LOGINFLAG = false
-           
-            let session = SessionForIphone.GetSession()
-            //关闭alarm，清除session
-            if session != nil && session!.User!.UserType == LoginUserType.Monitor {
-                IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
-    
-            }
-                     
-            
             //关闭xmpp
             var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
             xmppMsgManager?.Close()

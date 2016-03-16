@@ -29,6 +29,7 @@ class UpdateHelper:NSObject,NSURLConnectionDataDelegate{
     //发送请求到app store
     func PrepareConnection(){
         //精确查找
+        //id= 1093729626
         var stringURL = "http://itunes.apple.com/cn/lookup?bundleId=cn.org.smartcare.sleepcare"
         //模糊查找
         // var stringURL = "http://itunes.apple.com/search?bundleId=com.meilele.iosapps.MLLMattress"
