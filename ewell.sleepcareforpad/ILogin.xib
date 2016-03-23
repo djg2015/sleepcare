@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d05-2B-KFS" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="43" y="185" width="233" height="39"/>
+                    <rect key="frame" x="43" y="191" width="233" height="39"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginname.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Th-N8-i9O">
                             <rect key="frame" x="15" y="4" width="35" height="31"/>
@@ -67,7 +67,7 @@
                             </constraints>
                         </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fPV-Lu-uDO">
-                            <rect key="frame" x="48" y="5" width="171" height="30"/>
+                            <rect key="frame" x="48" y="10" width="171" height="30"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="Aup-UM-OAl"/>
@@ -80,7 +80,7 @@
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="fPV-Lu-uDO" firstAttribute="top" secondItem="TkW-oy-sza" secondAttribute="top" constant="5" id="86R-Qk-GdB"/>
+                        <constraint firstItem="fPV-Lu-uDO" firstAttribute="top" secondItem="TkW-oy-sza" secondAttribute="top" constant="10" id="86R-Qk-GdB"/>
                         <constraint firstAttribute="width" constant="233" id="8oG-R2-mG6"/>
                         <constraint firstItem="NMS-J2-bKk" firstAttribute="leading" secondItem="TkW-oy-sza" secondAttribute="leading" constant="15" id="MT3-5P-DRq"/>
                         <constraint firstAttribute="trailing" secondItem="fPV-Lu-uDO" secondAttribute="trailing" constant="14" id="cc2-vp-xom"/>
@@ -92,7 +92,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmM-Zh-scF" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="44" y="360" width="90" height="42"/>
+                    <rect key="frame" x="44" y="366" width="90" height="42"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="BWm-ub-9Wd"/>
@@ -106,15 +106,15 @@
                     </state>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logotm.png" translatesAutoresizingMaskIntoConstraints="NO" id="TLZ-oA-NmC">
-                    <rect key="frame" x="83" y="43" width="150" height="125"/>
+                    <rect key="frame" x="95" y="71" width="128" height="110"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="150" id="QIZ-N2-nbN"/>
-                        <constraint firstAttribute="height" constant="125" id="qxn-uC-yZb"/>
+                        <constraint firstAttribute="width" constant="128" id="QIZ-N2-nbN"/>
+                        <constraint firstAttribute="height" constant="110" id="qxn-uC-yZb"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWN-dy-LII">
-                    <rect key="frame" x="44" y="295" width="82" height="30"/>
+                    <rect key="frame" x="44" y="301" width="82" height="30"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="284-8K-SY0"/>
@@ -128,20 +128,6 @@
                     <connections>
                         <action selector="imageViewTouch:" destination="-1" eventType="touchUpInside" id="861-RM-hL7"/>
                     </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJT-0R-t5j" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="186" y="360" width="90" height="42"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="EfF-6O-tNv"/>
-                        <constraint firstAttribute="width" constant="90" id="GFq-cC-INq"/>
-                        <constraint firstAttribute="height" constant="42" id="acf-5R-cwh"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="79" id="yMZ-cj-yTv"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                    <state key="normal" title="注册">
-                        <color key="titleColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qN3-qN-jEV">
                     <rect key="frame" x="207" y="295" width="69" height="30"/>
@@ -159,24 +145,38 @@
                         <action selector="ForgetPwd:" destination="-1" eventType="touchUpInside" id="cl4-J6-A63"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJT-0R-t5j" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                    <rect key="frame" x="186" y="367" width="90" height="42"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="EfF-6O-tNv"/>
+                        <constraint firstAttribute="width" constant="90" id="GFq-cC-INq"/>
+                        <constraint firstAttribute="height" constant="42" id="acf-5R-cwh"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="79" id="yMZ-cj-yTv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <state key="normal" title="注册">
+                        <color key="titleColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="TkW-oy-sza" secondAttribute="centerX" id="1Ww-91-v7Y"/>
                 <constraint firstAttribute="centerX" secondItem="EJT-0R-t5j" secondAttribute="centerX" constant="-71" id="1bG-UZ-LWh"/>
-                <constraint firstItem="EJT-0R-t5j" firstAttribute="top" secondItem="qN3-qN-jEV" secondAttribute="bottom" constant="35" id="2fE-Xp-XWr"/>
-                <constraint firstItem="d05-2B-KFS" firstAttribute="top" secondItem="TLZ-oA-NmC" secondAttribute="bottom" constant="17" id="3e1-96-dV3"/>
+                <constraint firstItem="EJT-0R-t5j" firstAttribute="top" secondItem="qN3-qN-jEV" secondAttribute="bottom" constant="42" id="2fE-Xp-XWr"/>
+                <constraint firstItem="d05-2B-KFS" firstAttribute="top" secondItem="TLZ-oA-NmC" secondAttribute="bottom" constant="10" id="3e1-96-dV3"/>
                 <constraint firstAttribute="centerX" secondItem="SmM-Zh-scF" secondAttribute="centerX" constant="71" id="42p-ae-1nj"/>
                 <constraint firstAttribute="centerX" secondItem="zWN-dy-LII" secondAttribute="centerX" constant="75" id="7vv-Bn-VJs"/>
                 <constraint firstAttribute="centerX" secondItem="qN3-qN-jEV" secondAttribute="centerX" constant="-81.5" id="DY4-X9-wvK"/>
                 <constraint firstItem="qN3-qN-jEV" firstAttribute="top" secondItem="TkW-oy-sza" secondAttribute="bottom" constant="17" id="Ee6-3H-fLR"/>
-                <constraint firstItem="zWN-dy-LII" firstAttribute="top" secondItem="TkW-oy-sza" secondAttribute="bottom" constant="17" id="Jxc-iV-qa7"/>
+                <constraint firstItem="zWN-dy-LII" firstAttribute="top" secondItem="TkW-oy-sza" secondAttribute="bottom" constant="23" id="Jxc-iV-qa7"/>
                 <constraint firstAttribute="centerX" secondItem="TLZ-oA-NmC" secondAttribute="centerX" constant="1.5" id="Mq4-Uo-0Go"/>
                 <constraint firstAttribute="centerX" secondItem="d05-2B-KFS" secondAttribute="centerX" id="N1O-tI-WL3"/>
                 <constraint firstItem="SmM-Zh-scF" firstAttribute="top" secondItem="zWN-dy-LII" secondAttribute="bottom" constant="35" id="PXa-bc-X07"/>
-                <constraint firstItem="TkW-oy-sza" firstAttribute="top" secondItem="d05-2B-KFS" secondAttribute="bottom" constant="15" id="hYk-MF-hhN"/>
-                <constraint firstAttribute="centerY" secondItem="d05-2B-KFS" secondAttribute="centerY" constant="79.5" id="v4z-6M-lWT"/>
+                <constraint firstItem="TkW-oy-sza" firstAttribute="top" secondItem="d05-2B-KFS" secondAttribute="bottom" constant="9" id="hYk-MF-hhN"/>
+                <constraint firstAttribute="centerY" secondItem="d05-2B-KFS" secondAttribute="centerY" constant="73.5" id="v4z-6M-lWT"/>
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="background"/>
