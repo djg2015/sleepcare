@@ -130,7 +130,7 @@
                             </state>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Zo-BW-UMe" userLabel="content">
-                            <rect key="frame" x="0.0" y="170" width="320" height="233"/>
+                            <rect key="frame" x="0.0" y="168" width="320" height="233"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DU-ot-ppN">
                                     <rect key="frame" x="141" y="19" width="38" height="27"/>
@@ -193,7 +193,7 @@
                         <constraint firstItem="3Zo-BW-UMe" firstAttribute="leading" secondItem="dhV-xp-ioL" secondAttribute="leading" id="8b6-hR-Hn8"/>
                         <constraint firstItem="30a-BJ-Bjj" firstAttribute="leading" secondItem="dhV-xp-ioL" secondAttribute="leading" constant="14" id="Bpf-fa-OLF"/>
                         <constraint firstAttribute="trailing" secondItem="3Zo-BW-UMe" secondAttribute="trailing" id="EZD-tU-ilN"/>
-                        <constraint firstItem="3Zo-BW-UMe" firstAttribute="top" secondItem="dhV-xp-ioL" secondAttribute="top" constant="170" id="KdW-sR-OFK"/>
+                        <constraint firstAttribute="centerY" secondItem="3Zo-BW-UMe" secondAttribute="centerY" id="LmN-w7-22J"/>
                         <constraint firstItem="jeR-GT-fwo" firstAttribute="top" secondItem="dhV-xp-ioL" secondAttribute="top" constant="26" id="R8x-fE-Mbm"/>
                         <constraint firstItem="30a-BJ-Bjj" firstAttribute="top" secondItem="dhV-xp-ioL" secondAttribute="top" constant="27" id="kpv-Lc-OEa"/>
                         <constraint firstItem="jeR-GT-fwo" firstAttribute="leading" secondItem="30a-BJ-Bjj" secondAttribute="trailing" constant="3" id="to2-dR-AWE"/>

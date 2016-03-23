@@ -166,24 +166,22 @@
                 <constraint firstAttribute="centerX" secondItem="TkW-oy-sza" secondAttribute="centerX" id="1Ww-91-v7Y"/>
                 <constraint firstAttribute="centerX" secondItem="EJT-0R-t5j" secondAttribute="centerX" constant="-71" id="1bG-UZ-LWh"/>
                 <constraint firstItem="EJT-0R-t5j" firstAttribute="top" secondItem="qN3-qN-jEV" secondAttribute="bottom" constant="35" id="2fE-Xp-XWr"/>
+                <constraint firstItem="d05-2B-KFS" firstAttribute="top" secondItem="TLZ-oA-NmC" secondAttribute="bottom" constant="17" id="3e1-96-dV3"/>
                 <constraint firstAttribute="centerX" secondItem="SmM-Zh-scF" secondAttribute="centerX" constant="71" id="42p-ae-1nj"/>
                 <constraint firstAttribute="centerX" secondItem="zWN-dy-LII" secondAttribute="centerX" constant="75" id="7vv-Bn-VJs"/>
-                <constraint firstItem="SmM-Zh-scF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="360" id="9e8-Uh-ZQ1"/>
                 <constraint firstAttribute="centerX" secondItem="qN3-qN-jEV" secondAttribute="centerX" constant="-81.5" id="DY4-X9-wvK"/>
                 <constraint firstItem="qN3-qN-jEV" firstAttribute="top" secondItem="TkW-oy-sza" secondAttribute="bottom" constant="17" id="Ee6-3H-fLR"/>
-                <constraint firstItem="TLZ-oA-NmC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="43" id="Ens-p8-WVx"/>
-                <constraint firstItem="EJT-0R-t5j" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="360" id="Iqt-lx-qv3"/>
                 <constraint firstItem="zWN-dy-LII" firstAttribute="top" secondItem="TkW-oy-sza" secondAttribute="bottom" constant="17" id="Jxc-iV-qa7"/>
                 <constraint firstAttribute="centerX" secondItem="TLZ-oA-NmC" secondAttribute="centerX" constant="1.5" id="Mq4-Uo-0Go"/>
                 <constraint firstAttribute="centerX" secondItem="d05-2B-KFS" secondAttribute="centerX" id="N1O-tI-WL3"/>
                 <constraint firstItem="SmM-Zh-scF" firstAttribute="top" secondItem="zWN-dy-LII" secondAttribute="bottom" constant="35" id="PXa-bc-X07"/>
-                <constraint firstItem="TkW-oy-sza" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="239" id="RkO-8N-WRQ"/>
-                <constraint firstItem="d05-2B-KFS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="185" id="mAQ-Qb-LTp"/>
+                <constraint firstItem="TkW-oy-sza" firstAttribute="top" secondItem="d05-2B-KFS" secondAttribute="bottom" constant="15" id="hYk-MF-hhN"/>
+                <constraint firstAttribute="centerY" secondItem="d05-2B-KFS" secondAttribute="centerY" constant="79.5" id="v4z-6M-lWT"/>
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="string" keyPath="ImageName" value="background"/>
             </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="40" y="-89"/>
+            <point key="canvasLocation" x="-28" y="-50"/>
         </view>
     </objects>
     <resources>

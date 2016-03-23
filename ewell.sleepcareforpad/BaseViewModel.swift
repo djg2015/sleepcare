@@ -15,7 +15,7 @@ class BaseViewModel: NSObject {
     //跳转界面
     func JumpPage(jumpedViewController:BaseViewController){
         if(controller != nil){
-            self.controller!.presentViewController(jumpedViewController, animated: true, completion: nil)
+            self.controller!.presentViewController(jumpedViewController, animated: false, completion: nil)
         }
     }
     

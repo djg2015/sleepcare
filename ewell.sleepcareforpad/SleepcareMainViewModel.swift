@@ -24,7 +24,11 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
                
                 var partname = GetValueFromPlist("curPartname","sleepcare.plist")
                 self.MainName = partname == "" ? loginUser!.role!.RoleName : loginUser!.role!.RoleName + "—" + partname
+                
+                if partname != ""{
                 self.PartBedsSearch(session.CurPartCode, searchType: "", searchContent: "")
+                }
+               
                 },
                 catch: { ex in
                     //异常处理
@@ -44,6 +48,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
         //开启警告信息
         self.wariningCaches = Array<AlarmInfo>()
         self.lock = NSLock()
+        
         self.BeginWaringAttention()
     }
     
@@ -322,6 +327,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
                 //获取最新在离床报警
                 var sleepCareBLL = SleepCareBussiness()
                 var curDateString = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
+                if Session.GetSession().CurPartCode != ""{
                 var alarmList:AlarmList = sleepCareBLL.GetAlarmByUser(Session.GetSession().CurPartCode, userCode: "", userNameLike:"", bedNumberLike: "", schemaCode: ""
                     , alarmTimeBegin:"2016-01-01", alarmTimeEnd: curDateString, from: nil, max: nil)
                 
@@ -334,6 +340,7 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
                     
                 }
                 self.WariningCount = alarmList.alarmInfoList.count
+                }
                 },
                 catch: { ex in
                     //异常处理
@@ -349,8 +356,6 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
     
     //关闭报警提醒
     func CloseWaringAttention(){
-        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-        xmppMsgManager?.Close()
         
         NSNotificationCenter.defaultCenter().removeObserver(self)
         self.IsOpen = false
@@ -431,7 +436,9 @@ class SleepcareMainViewModel:BaseViewModel,RealTimeDelegate,WaringAttentionDeleg
         if(self.ChoosedSearchType == SearchType.byRoomNum){
             searcgType = "1"
         }
+        if session.CurPartCode != ""{
         self.PartBedsSearch(session.CurPartCode, searchType: searcgType, searchContent: searchContent)
+        }
     }
     
     //房间床位查询设置

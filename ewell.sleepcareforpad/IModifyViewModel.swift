@@ -101,32 +101,38 @@ class IModifyViewModel:BaseViewModel {
         
         try {
             ({
-                //获取当前所有养老院的名字
-                var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-                var mainInfoList:IMainInfoList =  sleepCareForIPhoneBussinessManager.GetAllMainInfo()
-                for(var i=0;i<mainInfoList.mainInfoList.count;i++){
-                    var item:PopDownListItem = PopDownListItem()
-                    item.key = mainInfoList.mainInfoList[i].MainCode
-                    item.value = mainInfoList.mainInfoList[i].MainName
-                    self.MainBusinesses.append(item)
+                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+                let isconnect = xmppMsgManager!.Connect()
+                if(!isconnect){
+                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
                 }
-                
-                
-                //初始化用户信息
-                var session = SessionForIphone.GetSession()
-                if(session != nil){
-                    self.LoginName = session!.User!.LoginName
-                    self.Pwd = session!.OldPwd!
-                    self.RePwd = session!.OldPwd!
-                    self.MainCode = session!.User!.MainCode
-                    var mains = self.MainBusinesses.filter(
-                        {$0.key == self.MainCode})
-                    if(mains.count > 0){
-                        let curMain:PopDownListItem = mains[0]
-                        self.MainName = curMain.value!
+                else{
+                    //获取当前所有养老院的名字
+                    var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+                    var mainInfoList:IMainInfoList =  sleepCareForIPhoneBussinessManager.GetAllMainInfo()
+                    for(var i=0;i<mainInfoList.mainInfoList.count;i++){
+                        var item:PopDownListItem = PopDownListItem()
+                        item.key = mainInfoList.mainInfoList[i].MainCode
+                        item.value = mainInfoList.mainInfoList[i].MainName
+                        self.MainBusinesses.append(item)
+                    }
+                    
+                    
+                    //初始化用户信息
+                    var session = SessionForIphone.GetSession()
+                    if(session != nil){
+                        self.LoginName = session!.User!.LoginName
+                        self.Pwd = session!.OldPwd!
+                        self.RePwd = session!.OldPwd!
+                        self.MainCode = session!.User!.MainCode
+                        var mains = self.MainBusinesses.filter(
+                            {$0.key == self.MainCode})
+                        if(mains.count > 0){
+                            let curMain:PopDownListItem = mains[0]
+                            self.MainName = curMain.value!
+                        }
                     }
                 }
-                
                 },
                 catch: { ex in
                     //异常处理
@@ -144,34 +150,34 @@ class IModifyViewModel:BaseViewModel {
     func Modify() -> RACSignal{
         try {
             ({
-                //检查输入是否合法
-                if(self.Pwd == ""){
-                    showDialogMsg(ShowMessage(MessageEnum.PwdNil))
-                    return
-                }
-                if(self.Pwd != self.RePwd){
-                    showDialogMsg(ShowMessage(MessageEnum.ConfirmPwdWrong))
-                    self.RePwd = ""
-                    return
-                }
-                if(self.MainCode == ""){
-                    showDialogMsg(ShowMessage(MessageEnum.MainhouseNil))
-                    return
-                }
-                var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-                var session = SessionForIphone.GetSession()
-                
-                //如果改变了养老院，则当前关注的老人置空
-                if session!.User!.MainCode != self.MainCode{
-                    session!.CurPatientCode = ""
-                }
-                
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 let isconnect = xmppMsgManager!.Connect()
                 if(!isconnect){
                     showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
                 }
                 else{
+                    //检查输入是否合法
+                    if(self.Pwd == ""){
+                        showDialogMsg(ShowMessage(MessageEnum.PwdNil))
+                        return
+                    }
+                    if(self.Pwd != self.RePwd){
+                        showDialogMsg(ShowMessage(MessageEnum.ConfirmPwdWrong))
+                        self.RePwd = ""
+                        return
+                    }
+                    if(self.MainCode == ""){
+                        showDialogMsg(ShowMessage(MessageEnum.MainhouseNil))
+                        return
+                    }
+                    
+                    var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+                    var session = SessionForIphone.GetSession()
+                    
+                    //如果改变了养老院，则当前关注的老人置空
+                    if session!.User!.MainCode != self.MainCode{
+                        session!.CurPatientCode = ""
+                    }
                     //修改账户到服务器端
                     let result:ServerResult = sleepCareForIPhoneBussinessManager.ModifyLoginUser(self.LoginName, oldPassword: session!.OldPwd!, newPassword: self.Pwd, mainCode: self.MainCode)
                     session?.OldPwd = self.Pwd

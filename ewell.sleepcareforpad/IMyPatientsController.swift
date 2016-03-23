@@ -109,7 +109,7 @@ class IMyPatientsController: IBaseViewController {
         var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageaddPatientTouch")
         self.imgSmallAdd.addGestureRecognizer(singleTap)
         
-        //添加老人事件
+        //添加老人
         self.imgBigAdd.userInteractionEnabled = true
         var singleTap1:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageaddPatientTouch")
         self.imgBigAdd.addGestureRecognizer(singleTap1)

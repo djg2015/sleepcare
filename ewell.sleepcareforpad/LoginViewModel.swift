@@ -9,7 +9,7 @@
 import UIKit
 
 
-class LoginViewModel: BaseViewModel {
+class LoginViewModel: BaseViewModel,ClearLoginInfoDelegate {
     //属性定义
     var _userName:String?
     dynamic var UserName:String?{
@@ -81,9 +81,11 @@ class LoginViewModel: BaseViewModel {
             (any:AnyObject!) -> RACSignal in
             return self.RemeberPwd()
         }
+        
+        self.loadInitData()
     }
     
-    //自定义方法
+    //点击登录按钮操作
     func Login() -> RACSignal{
         try {
             ({
@@ -93,9 +95,11 @@ class LoginViewModel: BaseViewModel {
                     showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
                 }
                 else{
+                    //设置当前session
                     let testBLL = SleepCareBussiness()
                     var user:User = testBLL.GetLoginInfo(self.UserName!, LoginPassword: self.UserPwd!)
                     Session.SetSession(user)
+                   
                     //加载当前用户所有的科室信息
                     var roleList:RoleList = testBLL.ListRolesByParentCode(user.role!.RoleCode)
                     var session = Session.GetSession()
@@ -107,10 +111,28 @@ class LoginViewModel: BaseViewModel {
                     //                    if(session.PartCodes.count > 0){
                     //                        var curPartCode = session.PartCodes[0].RoleCode
                     //                    }
+                    //登录成功，记住用户名密码处理
+                    if(self.IschechedBool){
+                        SetValueIntoPlist("loginusername", self.UserName!)
+                        SetValueIntoPlist("loginuserpwd", self.UserPwd!)
+                    }
+                        //不记住，则清空
+                    else{
+                        SetValueIntoPlist("loginusername","")
+                        SetValueIntoPlist("loginuserpwd", "")
+                     
+                    }
+                    LOGINFLAG = true
+                    
+                    //跳转主页面
                     session.CurPartCode = GetValueFromPlist("curPartcode","sleepcare.plist")
                         let controller = SleepcareMainController(nibName:"MainView", bundle:nil)
+                    if !self.IschechedBool{
+                    controller.clearlogininfoDelegate = self
+                    }
                         self.JumpPage(controller)
-                        
+                    
+                   
                     }
                 },
                 catch: { ex in
@@ -121,26 +143,21 @@ class LoginViewModel: BaseViewModel {
                     
                 }
             )}
-        //记住用户名密码处理
-        if(self.IschechedBool){
-            SetValueIntoPlist("loginusername", self.UserName!)
-            SetValueIntoPlist("loginuserpwd", self.UserPwd!)
-        }
         return RACSignal.empty()
     }
     
+    //点击“记住密码”按钮操作
     func RemeberPwd() -> RACSignal{
         self.IschechedBool = !self.IschechedBool
         return RACSignal.empty()
         
     }
     
+     //初始加载记住密码的相关配置数据
     func loadInitData(){
-        
-        //初始加载记住密码的相关配置数据
         self.UserName = GetValueFromPlist("loginusername","sleepcare.plist")
         self.UserPwd = GetValueFromPlist("loginuserpwd","sleepcare.plist")
-        if(self.UserName?.isEmpty == true){
+        if(self.UserName == "" || self.UserPwd == ""){
             self.IschechedBool = false
         }
         else{
@@ -148,5 +165,8 @@ class LoginViewModel: BaseViewModel {
         }
     }
     
- 
+    func ClearLoginInfo(){
+    self.UserName = ""
+        self.UserPwd = ""
+    }
 }

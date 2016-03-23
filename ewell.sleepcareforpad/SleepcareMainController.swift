@@ -39,14 +39,8 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     //当前科室下所有床位信息
     var BedViews:Array<BedModel>?{
         didSet{
-            if self.spinner != nil{
-                self.threadFlag = true
-                
-            }
 
-            
             while (self.mainScroll.subviews.count > 0 ){
-               
                 self.mainScroll.subviews[0].removeFromSuperview()
             }
             
@@ -54,6 +48,10 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
             self.ReloadMainScrollView()
             }
             
+            if self.spinner != nil{
+                self.threadFlag = true
+                
+            }
         }
     }
     
@@ -69,11 +67,14 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         }
     }
     
+    var clearlogininfoDelegate:ClearLoginInfoDelegate?
+    
+    //-------------
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.mainScroll = UIScrollView()
-        self.mainScroll.backgroundColor = UIColor.clearColor()
+       // self.mainScroll.backgroundColor = UIColor.clearColor()
         self.mainScroll.frame = self.view.frame
         self.mainScroll.frame.origin.y = 170
         self.mainScroll.frame.size.height = 600
@@ -84,7 +85,8 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         self.view.addSubview(self.mainScroll)
         
         //去掉搜索按钮背景
-        //self.search.backgroundColor = UIColor(patternImage: UIImage(named:"transbg.png")!)
+       
+        //let count = self.search.subviews[0].subviews.count
         for(var i = 0 ; i < self.search.subviews[0].subviews.count; i++) {
             if(self.search.subviews[0].subviews[i].isKindOfClass(NSClassFromString("UISearchBarBackground"))){
                 self.search.subviews[0].subviews[i].removeFromSuperview()
@@ -92,6 +94,11 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         }
         self.search.delegate = self
         self.curPager.detegate = self
+        
+        //若没有选择记住密码，则清空登录页面里的输入信息
+        if self.clearlogininfoDelegate != nil{
+        self.clearlogininfoDelegate!.ClearLoginInfo()
+        }
         
         rac_setting()
     }
@@ -139,7 +146,12 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         self.btnLogout!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
                 _ in
-                self.sleepcareMainViewModel?.CloseWaringAttention()
+                self.clearlogininfoDelegate = nil
+                //关闭报警和通知
+                
+                 self.sleepcareMainViewModel?.CloseWaringAttention()
+                //关闭openfire，置空session
+                LOGINFLAG = false
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 xmppMsgManager?.Close()
                 Session.ClearSession()
@@ -175,6 +187,7 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         var showWarining:UITapGestureRecognizer = UITapGestureRecognizer(target: self.sleepcareMainViewModel!, action: "showWarining")
         self.lblWarining .addGestureRecognizer(showWarining)
 
+        //选择科室
         self.choosepart = ChooseMainhouseController(nibName: "ChoosePartName", bundle: nil)
         self.choosepart!.parentController = self
         self.choosepart!.choosepartDelegate = self
@@ -182,19 +195,21 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         
         //首次登陆，则跳转页面去选择科室
         if session.CurPartCode == ""{
-            self.mainNameTouch()
+             showDialogMsg("请先点击养老院标题，选择一个科室后才能查看")
+           // self.mainNameTouch()
         }
     }
     
     
     //刷新
     @IBAction func Refresh(){
+        if Session.GetSession().CurPartCode != ""{
             if self.spinner == nil{
                 self.spinner  = JHSpinnerView.showOnView(self.view, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:Int(UIScreen.mainScreen().bounds.width),height:Int(UIScreen.mainScreen().bounds.height)), CGFloat(0.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.9))
               
                 self.mainScroll.userInteractionEnabled = false
             }
-        
+       
         
         /*定时器，检查支线程是否完成
         */
@@ -205,6 +220,10 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         //启动
         self.thread!.start()
         }
+        else{
+         showDialogMsg("请先点击养老院标题，选择一个科室后才能查看")
+        }
+    }
     
     //支线程，完成刷新操作
     func RunThread(){
@@ -217,10 +236,9 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
                     }
             showDialogMsg("远程通讯服务器连接不上，请检查网络状态，稍后再试！")
         }
-        
-        
+        else{
         self.sleepcareMainViewModel!.SearchByBedOrRoom("")
-        
+        }
       }
     
     //定时器，检查支线程是否完成，完成后关闭spinner
@@ -232,14 +250,12 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
     
     func SpnnerTimerFireMethod(timer: NSTimer) {
         if (self.threadFlag && self.spinner != nil){
-             self.mainScroll.userInteractionEnabled = true
+            self.mainScroll.userInteractionEnabled = true
            self.spinner!.dismiss()
             self.spinner = nil
             self.threadFlag = false
-            
             realtimer.invalidate()
-            
-            
+
            self.ReloadMainScrollView()
         }
     }
@@ -265,6 +281,12 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
                 self.mainScroll.bringSubviewToFront(mainview1)
             }
         }
+            //没找到对应床号／房间号，则放置空view
+//        else{
+//        let mainview2 = UIView()
+//          self.mainScroll.addSubview(mainview2)
+//            self.mainScroll.bringSubviewToFront(mainview2)
+//        }
 
     }
     
@@ -311,4 +333,8 @@ class SleepcareMainController: BaseViewController,UIScrollViewDelegate,UISearchB
         // Dispose of any resources that can be recreated.
     }
     
+}
+
+protocol ClearLoginInfoDelegate{
+    func ClearLoginInfo()
 }

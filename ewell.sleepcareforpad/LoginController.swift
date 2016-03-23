@@ -51,7 +51,7 @@ class LoginController: BaseViewController{
         RACObserve(self.loginModel, "UserName") ~> RAC(self.txtloginName, "text")
         RACObserve(self.loginModel, "UserPwd") ~> RAC(self.txtloginPwd, "text")
         RACObserve(self.loginModel, "IsCheched") ~> RAC(self, "RemberImage")
-        self.loginModel?.loadInitData()
+        
         //事件绑定
         self.btnSubmit.rac_command = loginModel!.login
         self.btnRemeber.rac_command = loginModel!.remeberChecked
@@ -63,7 +63,7 @@ class LoginController: BaseViewController{
     
     //点击查询类型
     func imageViewTouch(){
-        self.presentViewController(ServerSettingController(nibName:"ServerSettingView", bundle:nil), animated: true, completion: nil)
+       self.presentViewController(ServerSettingController(nibName:"ServerSettingView", bundle:nil), animated: true, completion: nil)
     }
     
    

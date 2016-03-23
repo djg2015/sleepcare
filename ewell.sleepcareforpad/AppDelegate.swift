@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         InitPlistFile()
         
         
-        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
+   //     if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
             deviceType = "iphone"
             //设置启动界面
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -36,18 +36,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             let rootcontroller =  UINavigationController(rootViewController: logincontroller)
             self.window!.rootViewController = rootcontroller
             IViewControllerManager.GetInstance()!.SetRootController(logincontroller)
-        }
-        else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
-            deviceType = "ipad"
-            //隐藏状态栏
-            UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
-            
-            //设置启动界面
-            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            self.window!.backgroundColor = UIColor.whiteColor()
-            self.window!.makeKeyAndVisible()
-            self.window!.rootViewController = UINavigationController(rootViewController:LoginController(nibName:"LoginView", bundle:nil))
-        }
+//        }
+//        else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
+//            deviceType = "ipad"
+//            //隐藏状态栏
+//            UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
+//            
+//            //设置启动界面
+//            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//            self.window!.backgroundColor = UIColor.whiteColor()
+//            self.window!.makeKeyAndVisible()
+//            self.window!.rootViewController = UINavigationController(rootViewController:LoginController(nibName:"LoginView", bundle:nil))
+//        }
         
         //判断是否由远程消息通知触发应用程序启动
         if ((launchOptions) != nil && deviceType == "iphone") {
@@ -76,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         CheckRemoteNotice()
         
         //iphone
-        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
+    //    if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
             var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
             if(xmppMsgManager?.isInstance == true){
                 let isLogin = xmppMsgManager!.Connect()
@@ -84,53 +84,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
                     //无法连接，弹窗提示是否重连
                     NSNotificationCenter.defaultCenter().postNotificationName("ReConnectInternetForPhone", object: self)
                 }
-                else{
-                    
-                    var curUpdate = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
-                    
-                    var updateflag = UpdateHelper.GetUpdateInstance().CheckLocalUpdateDate(curUpdate)
-                    if updateflag{
-                        UpdateHelper.GetUpdateInstance().PrepareConnection()
-                        UpdateHelper.GetUpdateInstance().LocalAppVersion()
-                        //更新本地sleepcare.plist文件里updatedate
-                        SetValueIntoPlist("updatedate",curUpdate)
-                        //本地version对比store里最新的version大小
-                        UpdateHelper.GetUpdateInstance().CheckUpdate(true)
-                    }
-                }
+//                else{
+//                    
+//                    var curUpdate = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
+//                    
+//                    var updateflag = UpdateHelper.GetUpdateInstance().CheckLocalUpdateDate(curUpdate)
+//                    if updateflag{
+//                        UpdateHelper.GetUpdateInstance().PrepareConnection()
+//                        UpdateHelper.GetUpdateInstance().LocalAppVersion()
+//                        //更新本地sleepcare.plist文件里updatedate
+//                        SetValueIntoPlist("updatedate",curUpdate)
+//                        //本地version对比store里最新的version大小
+//                        UpdateHelper.GetUpdateInstance().CheckUpdate(true)
+//                    }
+//                }
             }
-        }
-            //ipad设备
-        else{
-            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-            if(xmppMsgManager?.isInstance == true){
-                let isLogin = xmppMsgManager!.RegistConnect()
-                if(!isLogin){
-                    //无法连接，弹窗提示是否重连
-                    NSNotificationCenter.defaultCenter().postNotificationName("ReConnectInternetForPad", object: self)
-                }
-            }
-        }
+ //       }
+//            //ipad设备
+//        else{
+//            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+//            if(xmppMsgManager?.isInstance == true){
+//                let isLogin = xmppMsgManager!.RegistConnect()
+//                if(!isLogin){
+//                    //无法连接，弹窗提示是否重连
+//                    NSNotificationCenter.defaultCenter().postNotificationName("ReConnectInternetForPad", object: self)
+//                }
+//            }
+//        }
         
         self.isBackRun = false
     }
     
     
     func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> Int {
-        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
-            return (Int)(UIInterfaceOrientationMask.Portrait.rawValue)
-        }
-        
-        return (Int)(UIInterfaceOrientationMask.LandscapeLeft.rawValue)
+//        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
+//            return (Int)(UIInterfaceOrientationMask.Portrait.rawValue)
+//        }
+//        
+//        return (Int)(UIInterfaceOrientationMask.LandscapeRight.rawValue)
+        return (Int)(UIInterfaceOrientationMask.Portrait.rawValue)
     }
     
-    
-    //3当切换到另一个App时，由状态active切换到inactive
+
     func applicationWillResignActive(application: UIApplication) {
         
     }
     
-    //4然后从inactive状态切换到running状态
+  
     func applicationDidEnterBackground(application: UIApplication) {
         self.isBackRun = true
         
@@ -196,7 +196,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         //        alert.show()
         
         //若在后台，判断是否登陆，是则跳至报警页面
-        if (self.isBackRun && LOGINFLAG && deviceType == "iphone") {
+        if (self.isBackRun && LOGINFLAG ) {
             let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
             IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IAlarmView", reload: true)
         }
@@ -217,7 +217,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     //当推送注册失败时
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
        
-    var alert:UIAlertView = UIAlertView(title: "", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK")
+        //  var alert:UIAlertView = UIAlertView(title: "", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK")
            //     alert.show()
     }
     

@@ -84,10 +84,13 @@ import UIKit
     
     //外部调用，页码跳转
     func jump(page:Int) {
+        //搜索房间号／床位号若不存在，subview＝0
+        if self.subviews.count >= page {
         var sender = self.subviews[page-1] as! UIButton
         selectedButton.setBackgroundImage(UIImage(named: "pagerunselected"), forState:.Normal)
         sender.setBackgroundImage(UIImage(named: "pagerselected"), forState:.Normal)
         selectedButton = sender
+        }
     }
     
 }

@@ -72,9 +72,9 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="9gE-3v-lMC" secondAttribute="centerX" id="1BW-eG-uNY"/>
-                <constraint firstItem="mK7-Rt-LvP" firstAttribute="top" secondItem="R7V-vx-x4D" secondAttribute="bottom" constant="38" id="6KU-qX-buJ"/>
+                <constraint firstItem="mK7-Rt-LvP" firstAttribute="top" secondItem="R7V-vx-x4D" secondAttribute="bottom" constant="38" id="5Ey-gf-NHq"/>
+                <constraint firstAttribute="centerY" secondItem="mK7-Rt-LvP" secondAttribute="centerY" constant="45.5" id="5us-9x-Rtb"/>
                 <constraint firstAttribute="centerX" secondItem="n6K-X0-HfB" secondAttribute="centerX" id="6Wb-f9-qVr"/>
-                <constraint firstItem="R7V-vx-x4D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="63" id="CpO-6C-8mq"/>
                 <constraint firstItem="n6K-X0-HfB" firstAttribute="top" secondItem="9gE-3v-lMC" secondAttribute="bottom" constant="35" id="PJ7-v5-eB0"/>
                 <constraint firstAttribute="centerX" secondItem="R7V-vx-x4D" secondAttribute="centerX" id="b8k-dU-Fri"/>
                 <constraint firstItem="gAC-FC-t8q" firstAttribute="bottom" secondItem="mK7-Rt-LvP" secondAttribute="bottom" id="e3e-Go-nM6"/>

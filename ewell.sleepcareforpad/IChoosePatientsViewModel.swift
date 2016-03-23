@@ -49,7 +49,8 @@ class IChoosePatientsViewModel: BaseViewModel {
             self._partBedUserArray=value
         }
     }
-    
+    //纪录上一次选的partcode
+     var lasedPartCode = ""
     //界面处理命令
     var commitCommand: RACCommand?
     
@@ -172,7 +173,7 @@ class IChoosePatientsViewModel: BaseViewModel {
         
     }
     
-    var lasedPartCode = ""
+   
     //加载选择的科室对应的床位
     func ChoosedPart(partTableViewModel:PartTableViewModel){
         if(self.lasedPartCode == partTableViewModel.PartCode){

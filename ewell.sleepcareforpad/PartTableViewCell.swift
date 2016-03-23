@@ -17,8 +17,9 @@ class PartTableViewCell: CommonTableCell {
         if(self.source.IsChoosed){
             self.backgroundColor = UIColor.whiteColor()
             self.source.selectedPartHandler!(partTableViewModel: self.source)
-            //self.source.selectedPartHandler!(partTableViewModel: self.source)
-            
+        }
+        else{
+        self.backgroundColor = UIColor.lightGrayColor()
         }
         
         if(!self.bindFlag){
@@ -31,13 +32,14 @@ class PartTableViewCell: CommonTableCell {
         self.selectedBackgroundView = UIView(frame: self.frame)
         self.selectedBackgroundView.backgroundColor = UIColor.whiteColor()
         self.source.selectedPartHandler!(partTableViewModel: self.source)
+        
     }
     
     override func UnChechked(){
         self.selectedBackgroundView = UIView(frame: self.frame)
-        self.selectedBackgroundView.backgroundColor = UIColor(red: 0.85490196080000003, green: 0.85490196080000003, blue: 0.85490196080000003, alpha: 1)
-
-         self.backgroundColor = UIColor(red: 0.85490196080000003, green: 0.85490196080000003, blue: 0.85490196080000003, alpha: 1)
+        self.selectedBackgroundView.backgroundColor = UIColor.lightGrayColor()
+        self.backgroundColor = UIColor.lightGrayColor()
+        
     }
 }
 

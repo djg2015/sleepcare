@@ -33,22 +33,22 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zhq-EJ-ghP" userLabel="partTable" customClass="CommonTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="70" width="113" height="515"/>
+                    <rect key="frame" x="0.0" y="70" width="113" height="498"/>
                     <animations/>
-                    <color key="backgroundColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="113" id="0Lj-f8-NLn"/>
-                        <constraint firstAttribute="height" constant="515" id="MBH-y0-qEp"/>
+                        <constraint firstAttribute="height" constant="498" id="MBH-y0-qEp"/>
                     </constraints>
-                    <color key="sectionIndexBackgroundColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wca-U4-mE5" userLabel="patientTable" customClass="CommonTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="113" y="53" width="207" height="450"/>
+                    <rect key="frame" x="113" y="70" width="207" height="433"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OWr-dE-zEs" userLabel="patientTableDouble" customClass="CommonTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                    <rect key="frame" x="113" y="70" width="207" height="450"/>
+                    <rect key="frame" x="113" y="70" width="207" height="433"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
@@ -89,27 +89,23 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="ePV-YJ-2OM" firstAttribute="leading" secondItem="zhq-EJ-ghP" secondAttribute="trailing" id="0DP-mP-IxC"/>
-                <constraint firstItem="ePV-YJ-2OM" firstAttribute="top" secondItem="Wca-U4-mE5" secondAttribute="bottom" id="1Eo-g6-ka5"/>
                 <constraint firstItem="Wca-U4-mE5" firstAttribute="leading" secondItem="zhq-EJ-ghP" secondAttribute="trailing" id="1yD-tR-cqX"/>
                 <constraint firstItem="ePV-YJ-2OM" firstAttribute="top" secondItem="Wca-U4-mE5" secondAttribute="bottom" id="2Rj-Xm-sII"/>
                 <constraint firstAttribute="bottom" secondItem="Wca-U4-mE5" secondAttribute="bottom" constant="65" id="2aZ-9K-vzB"/>
-                <constraint firstItem="Wca-U4-mE5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="53" id="3bW-iI-Yvp"/>
+                <constraint firstItem="Wca-U4-mE5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70" id="3bW-iI-Yvp"/>
                 <constraint firstAttribute="trailing" secondItem="OWr-dE-zEs" secondAttribute="trailing" id="59b-7h-hIE"/>
                 <constraint firstAttribute="trailing" secondItem="Wca-U4-mE5" secondAttribute="trailing" id="6pM-ue-6kX"/>
                 <constraint firstItem="iQd-Ty-Xcg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="6wY-vz-nLW"/>
                 <constraint firstItem="OWr-dE-zEs" firstAttribute="leading" secondItem="zhq-EJ-ghP" secondAttribute="trailing" id="MhK-h1-Can"/>
-                <constraint firstAttribute="bottom" secondItem="zhq-EJ-ghP" secondAttribute="bottom" constant="-17" id="OMP-ZV-q5i"/>
+                <constraint firstAttribute="bottom" secondItem="zhq-EJ-ghP" secondAttribute="bottom" id="OMP-ZV-q5i"/>
                 <constraint firstItem="zhq-EJ-ghP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R7G-gi-fNd"/>
                 <constraint firstAttribute="centerX" secondItem="JUc-dH-GtK" secondAttribute="centerX" id="RW9-eW-H3v"/>
                 <constraint firstItem="iQd-Ty-Xcg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="WtZ-xT-MLx"/>
-                <constraint firstAttribute="bottom" secondItem="OWr-dE-zEs" secondAttribute="bottom" constant="48" id="XFu-Ut-3ev"/>
+                <constraint firstAttribute="bottom" secondItem="OWr-dE-zEs" secondAttribute="bottom" constant="65" id="XFu-Ut-3ev"/>
                 <constraint firstItem="OWr-dE-zEs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70" id="ZdK-Ph-ngK"/>
                 <constraint firstAttribute="bottom" secondItem="ePV-YJ-2OM" secondAttribute="bottom" id="f8C-S1-CbT"/>
-                <constraint firstItem="ePV-YJ-2OM" firstAttribute="leading" secondItem="Wca-U4-mE5" secondAttribute="leading" id="npc-Fd-obl"/>
                 <constraint firstAttribute="trailing" secondItem="ePV-YJ-2OM" secondAttribute="trailing" id="oGN-42-oq3"/>
-                <constraint firstItem="ePV-YJ-2OM" firstAttribute="trailing" secondItem="Wca-U4-mE5" secondAttribute="trailing" id="ru4-du-pp4"/>
                 <constraint firstItem="JUc-dH-GtK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="tjx-rC-mj7"/>
-                <constraint firstItem="ePV-YJ-2OM" firstAttribute="bottom" secondItem="zhq-EJ-ghP" secondAttribute="bottom" constant="-17" id="uoO-Xp-8tb"/>
                 <constraint firstItem="zhq-EJ-ghP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70" id="zOz-5j-7bs"/>
             </constraints>
             <point key="canvasLocation" x="248" y="269"/>
