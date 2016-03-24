@@ -67,7 +67,7 @@
                             </constraints>
                         </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fPV-Lu-uDO">
-                            <rect key="frame" x="48" y="10" width="171" height="30"/>
+                            <rect key="frame" x="48" y="5" width="171" height="30"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="Aup-UM-OAl"/>
@@ -80,7 +80,7 @@
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="fPV-Lu-uDO" firstAttribute="top" secondItem="TkW-oy-sza" secondAttribute="top" constant="10" id="86R-Qk-GdB"/>
+                        <constraint firstItem="fPV-Lu-uDO" firstAttribute="top" secondItem="TkW-oy-sza" secondAttribute="top" constant="5" id="86R-Qk-GdB"/>
                         <constraint firstAttribute="width" constant="233" id="8oG-R2-mG6"/>
                         <constraint firstItem="NMS-J2-bKk" firstAttribute="leading" secondItem="TkW-oy-sza" secondAttribute="leading" constant="15" id="MT3-5P-DRq"/>
                         <constraint firstAttribute="trailing" secondItem="fPV-Lu-uDO" secondAttribute="trailing" constant="14" id="cc2-vp-xom"/>
