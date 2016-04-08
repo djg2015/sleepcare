@@ -68,7 +68,7 @@ class ConfiurationTabeView: UITableView, UITableViewDelegate,UITableViewDataSour
         }
         else{
         var versionlbl = UILabel(frame: CGRect(x: self.bounds.width - 60, y: 10, width: 50, height: 30))
-            versionlbl.text = "1.0.0"
+            versionlbl.text = "2.0.0"
             versionlbl.font = UIFont.boldSystemFontOfSize(18)
             versionlbl.textAlignment = .Center
             cellView.addSubview(versionlbl)
