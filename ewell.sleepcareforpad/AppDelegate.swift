@@ -23,32 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         NSThread.sleepForTimeInterval(1)
         
         InitPlistFile()
-        
-        
-   //     if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
             deviceType = "iphone"
+        
             //设置启动界面
-            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            self.window!.backgroundColor = UIColor.whiteColor()
-            self.window!.makeKeyAndVisible()
-            
-            let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
-            let rootcontroller =  UINavigationController(rootViewController: logincontroller)
-            self.window!.rootViewController = rootcontroller
-            IViewControllerManager.GetInstance()!.SetRootController(logincontroller)
-//        }
-//        else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
-//            deviceType = "ipad"
-//            //隐藏状态栏
-//            UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
-//            
-//            //设置启动界面
 //            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
 //            self.window!.backgroundColor = UIColor.whiteColor()
 //            self.window!.makeKeyAndVisible()
-//            self.window!.rootViewController = UINavigationController(rootViewController:LoginController(nibName:"LoginView", bundle:nil))
-//        }
-        
+//            
+//            let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
+//            let rootcontroller =  UINavigationController(rootViewController: logincontroller)
+//            self.window!.rootViewController = rootcontroller
+//            IViewControllerManager.GetInstance()!.SetRootController(logincontroller)
+
         //判断是否由远程消息通知触发应用程序启动
         if ((launchOptions) != nil && deviceType == "iphone") {
             //                    //获取应用程序消息通知标记数（即小红圈中的数字）
@@ -74,9 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
          
         CheckRemoteNotice()
-        
-        //iphone
-    //    if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
+  
             var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
             if(xmppMsgManager?.isInstance == true){
                 let isLogin = xmppMsgManager!.Connect()
@@ -100,28 +84,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
 //                }
             }
  //       }
-//            //ipad设备
-//        else{
-//            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-//            if(xmppMsgManager?.isInstance == true){
-//                let isLogin = xmppMsgManager!.RegistConnect()
-//                if(!isLogin){
-//                    //无法连接，弹窗提示是否重连
-//                    NSNotificationCenter.defaultCenter().postNotificationName("ReConnectInternetForPad", object: self)
-//                }
-//            }
-//        }
         
         self.isBackRun = false
     }
     
     
     func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> Int {
-//        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
-//            return (Int)(UIInterfaceOrientationMask.Portrait.rawValue)
-//        }
-//        
-//        return (Int)(UIInterfaceOrientationMask.LandscapeRight.rawValue)
+
         return (Int)(UIInterfaceOrientationMask.Portrait.rawValue)
     }
     
@@ -216,10 +185,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     
     //当推送注册失败时
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-       
-        //  var alert:UIAlertView = UIAlertView(title: "", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK")
-           //     alert.show()
-    }
+          }
     
 
     

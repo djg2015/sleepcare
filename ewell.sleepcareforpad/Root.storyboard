@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3og-tZ-GVQ">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Login Controller-->
+        <scene sceneID="pTI-K9-uQ2">
+            <objects>
+                <viewController id="3og-tZ-GVQ" customClass="ILoginController" customModule="sleepcare2_0_0_storyboard_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Epq-D8-LIa"/>
+                        <viewControllerLayoutGuide type="bottom" id="29l-0W-K5b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iHS-lY-Wdm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logotm.png" translatesAutoresizingMaskIntoConstraints="NO" id="LjK-cQ-KgT">
+                                <rect key="frame" x="87" y="28" width="147" height="120"/>
+                                <animations/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hll-eK-bYO">
+                                <rect key="frame" x="95" y="248" width="189" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginname.png" translatesAutoresizingMaskIntoConstraints="NO" id="V38-fW-fF7">
+                                <rect key="frame" x="45" y="184" width="38" height="35"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginpwd.png" translatesAutoresizingMaskIntoConstraints="NO" id="IvT-2d-sVa">
+                                <rect key="frame" x="46" y="246" width="37" height="34"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8Z-fO-d9I" customClass="BlueButtonForPhone" customModule="sleepcare2_0_0_storyboard_" customModuleProvider="target">
+                                <rect key="frame" x="56" y="375" width="72" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="登录">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72o-BL-umN">
+                                <rect key="frame" x="47" y="311" width="87" height="30"/>
+                                <animations/>
+                                <state key="normal" title="服务器配置">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="serverSettingTouch:" destination="3og-tZ-GVQ" eventType="touchUpInside" id="pqJ-G3-tjl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnc-mI-eXY" customClass="BlueButtonForPhone" customModule="sleepcare2_0_0_storyboard_" customModuleProvider="target">
+                                <rect key="frame" x="209" y="375" width="62" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="注册">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cj5-Rf-9f8">
+                                <rect key="frame" x="95" y="187" width="189" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.29603719709999998" green="0.53870904450000001" blue="0.88235294819999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnLogin" destination="Y8Z-fO-d9I" id="VpQ-eK-gCf"/>
+                        <outlet property="btnRegist" destination="qnc-mI-eXY" id="QoB-Dp-do0"/>
+                        <outlet property="txtLoginName" destination="cj5-Rf-9f8" id="4Eq-1B-g9t"/>
+                        <outlet property="txtPwd" destination="hll-eK-bYO" id="yYU-gN-iWB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C7a-Np-MyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="316" y="426"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="XjP-R7-uVw">
+            <objects>
+                <viewController id="qkL-sr-GGL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jcy-Gi-dVS"/>
+                        <viewControllerLayoutGuide type="bottom" id="XAl-5n-3DZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lVe-mG-awr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dJY-dP-ZvH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="771" y="438"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="loginname.png" width="58" height="58"/>
+        <image name="loginpwd.png" width="58" height="58"/>
+        <image name="logotm.png" width="323" height="271"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

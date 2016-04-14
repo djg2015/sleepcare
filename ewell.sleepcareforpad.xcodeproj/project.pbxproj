@@ -26,6 +26,7 @@
 		0D79EE171CB65C6900B9DA5F /* Li_common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE161CB65C6900B9DA5F /* Li_common.swift */; };
 		0D79EE191CB65CA800B9DA5F /* PopDownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE181CB65CA800B9DA5F /* PopDownList.swift */; };
 		0D79EE1B1CB65CE800B9DA5F /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE1A1CB65CE800B9DA5F /* Popover.swift */; };
+		0D7E465D1CBF76F3006DD14F /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D7E465C1CBF76F3006DD14F /* Root.storyboard */; };
 		0D9AE0791C8E7FB800625D5E /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9AE0781C8E7FB800625D5E /* Const.swift */; };
 		0DB0484F1C86754000679849 /* logotm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB0484E1C86754000679849 /* logotm.png */; };
 		0DB048511C86833900679849 /* black_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB048501C86833900679849 /* black_background.png */; };
@@ -244,6 +245,7 @@
 		0D79EE161CB65C6900B9DA5F /* Li_common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Li_common.swift; sourceTree = "<group>"; };
 		0D79EE181CB65CA800B9DA5F /* PopDownList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDownList.swift; sourceTree = "<group>"; };
 		0D79EE1A1CB65CE800B9DA5F /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
+		0D7E465C1CBF76F3006DD14F /* Root.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		0D9AE0781C8E7FB800625D5E /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		0DB0484E1C86754000679849 /* logotm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logotm.png; sourceTree = "<group>"; };
 		0DB048501C86833900679849 /* black_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_background.png; sourceTree = "<group>"; };
@@ -674,6 +676,7 @@
 				3A680DBB1C02B81700D77A22 /* IAccountSet.xib */,
 				2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */,
 				0DF6BD791C57698E007BF0A9 /* WebView.xib */,
+				0D7E465C1CBF76F3006DD14F /* Root.storyboard */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1142,6 +1145,7 @@
 				0DC228531C214FE400AF4737 /* IAlarmView.xib in Resources */,
 				3A91F0A41BF0475400C470D4 /* dialog_cancel@2x.png in Resources */,
 				3A39CA0D1BF2FEF40024DD3E /* memenu.png in Resources */,
+				0D7E465D1CBF76F3006DD14F /* Root.storyboard in Resources */,
 				0DCC7ABF1C3A022600CC2498 /* msg.png in Resources */,
 				3A91F0A01BF0475400C470D4 /* calendar_littledot@2x.png in Resources */,
 				3A91F0971BF0475400C470D4 /* arrow_left.png in Resources */,
@@ -1466,6 +1470,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1509,6 +1514,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
