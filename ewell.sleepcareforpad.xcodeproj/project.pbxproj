@@ -135,7 +135,6 @@
 		3A41ADD71BA7A65A000C109B /* ewell_sleepcareforpadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADD61BA7A65A000C109B /* ewell_sleepcareforpadTests.swift */; };
 		3A41ADF01BA7B45D000C109B /* MessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADED1BA7B45D000C109B /* MessageDelegate.swift */; };
 		3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADEE1BA7B45D000C109B /* ReactiveCocoa.swift */; };
-		3A4B85CC1BB150C1006E4CF1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B85CB1BB150C1006E4CF1 /* Constants.swift */; };
 		3A4CD3F81BA804D2002C8A1A /* XmppMsgManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CD3F71BA804D2002C8A1A /* XmppMsgManager.swift */; };
 		3A4CD3FA1BA80536002C8A1A /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CD3F91BA80536002C8A1A /* CommonHelper.swift */; };
 		3A4CD3FD1BA80852002C8A1A /* BaseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CD3FC1BA80852002C8A1A /* BaseMessage.swift */; };
@@ -364,7 +363,6 @@
 		3A41ADED1BA7B45D000C109B /* MessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageDelegate.swift; path = ewell.sleepcareforpad/MessageDelegate.swift; sourceTree = "<group>"; };
 		3A41ADEE1BA7B45D000C109B /* ReactiveCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReactiveCocoa.swift; path = ewell.sleepcareforpad/ReactiveCocoa.swift; sourceTree = "<group>"; };
 		3A41ADF31BA7B543000C109B /* ewell.sleepcareforpad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ewell.sleepcareforpad-Bridging-Header.h"; sourceTree = "<group>"; };
-		3A4B85CB1BB150C1006E4CF1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3A4CD3F71BA804D2002C8A1A /* XmppMsgManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmppMsgManager.swift; sourceTree = "<group>"; };
 		3A4CD3F91BA80536002C8A1A /* CommonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
 		3A4CD3FC1BA80852002C8A1A /* BaseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessage.swift; sourceTree = "<group>"; };
@@ -871,7 +869,6 @@
 				3A376E411BABB3B700D70953 /* EMString.swift */,
 				3A376E431BABB81100D70953 /* EMProperties.swift */,
 				3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */,
-				3A4B85CB1BB150C1006E4CF1 /* Constants.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1317,7 +1314,6 @@
 				3A881B681BFC1FA3005F4D07 /* BedPatientCell.swift in Sources */,
 				3A4CD3FA1BA80536002C8A1A /* CommonHelper.swift in Sources */,
 				2CB951291BF4510A00C31EC2 /* ConfiurationTabeView.swift in Sources */,
-				3A4B85CC1BB150C1006E4CF1 /* Constants.swift in Sources */,
 				0DC2284D1C212F0E00AF4737 /* PlistHelper.swift in Sources */,
 				0DF6BD7C1C576EC3007BF0A9 /* IWebViewController.swift in Sources */,
 				3A3EF7C01BDE05A800CDDAED /* TodoItem.swift in Sources */,

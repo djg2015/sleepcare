@@ -8,7 +8,7 @@
 
  // 放常量
 import Foundation
-
+let xmpp_Timeout:NSTimeInterval = 3000
 
 //是否成功登陆的标志
 var LOGINFLAG:Bool = false
