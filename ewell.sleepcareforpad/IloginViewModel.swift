@@ -43,6 +43,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     var alarmHelper:IAlarmHelper?
     var session:SessionForIphone?
     
+    var controller:IBaseViewController?
     //构造函数
     override init(){
         super.init()
@@ -57,23 +58,32 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         self.alarmHelper = IAlarmHelper.GetAlarmInstance()
         self.alarmHelper!.alarmdelegate = self
         
-        self.AutoLogin()
+        
     }
     
-    
-    
-    //自动登录
-    func AutoLogin(){
-        //加载记住密码的相关配置数据
+    func LoadData(){
         var temploginname = GetValueFromPlist("loginusernamephone","sleepcare.plist")
         var temppwd = GetValueFromPlist("loginuserpwdphone","sleepcare.plist")
-        //密码和用户名都不为空，则执行登录操作
         if (temploginname != "" && temppwd != ""){
             self.LoginName = temploginname
             self.Pwd = temppwd
-            self.Login()
+
         }
+
     }
+    
+//    //自动登录
+//    func AutoLogin(){
+//        //加载记住密码的相关配置数据
+//        var temploginname = GetValueFromPlist("loginusernamephone","sleepcare.plist")
+//        var temppwd = GetValueFromPlist("loginuserpwdphone","sleepcare.plist")
+//        //密码和用户名都不为空，则执行登录操作
+//        if (temploginname != "" && temppwd != ""){
+//            self.LoginName = temploginname
+//            self.Pwd = temppwd
+//            self.Login()
+//        }
+//    }
     
     
     
@@ -164,7 +174,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                     //跳转选择用户类型
                     if(loginUser.UserType == LoginUserType.UnKnow){
                         let nextcontroller = ISetUserTypeController(nibName:"ISetUserType", bundle:nil)
-                        IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "ISetUserType", reload: true)
+                //        IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "ISetUserType", reload: true)
                     }
                     else{
                         //获取当前关注的老人
@@ -182,29 +192,36 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                             OpenNotice()
                         }
                         
-                        if(self.iBedUserList!.bedUserInfoList.count > 0){
-                            //当前为使用者类型，直接跳转主页面
-                            if(loginUser.UserType == LoginUserType.UserSelf){
-                                self.session!.BedUserCodeList.append(self.iBedUserList!.bedUserInfoList[0].BedUserCode)
-                                
-                                let nextcontroller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:self.iBedUserList!.bedUserInfoList[0].BedUserCode,equipmentID:self.iBedUserList!.bedUserInfoList[0].EquipmentID,bedUserName:self.iBedUserList!.bedUserInfoList[0].BedUserName)
-                                IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IMainFrame", reload: true)
-                            }
-                            else{
+                        if self.controller != nil{
+                        self.controller!.performSegueWithIdentifier("tabbarController",sender:self.controller!)
+                        }
+                        
+//                        if(self.iBedUserList!.bedUserInfoList.count > 0){
+//                            //当前为使用者类型，直接跳转主页面
+//                            if(loginUser.UserType == LoginUserType.UserSelf){
+//                                self.session!.BedUserCodeList.append(self.iBedUserList!.bedUserInfoList[0].BedUserCode)
+                        
+                        //        let nextcontroller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:self.iBedUserList!.bedUserInfoList[0].BedUserCode,equipmentID:self.iBedUserList!.bedUserInfoList[0].EquipmentID,bedUserName:self.iBedUserList!.bedUserInfoList[0].BedUserName)
+                         //       IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IMainFrame", reload: true)
+//                                     
+//                                
+//                                
+//                            }
+//                            else{
                                 //当前为监护人类型，则跳转我的老人页面，选择一个老人进行关注
-                                let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
-                                controller.isGoLogin = true
-                                IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
-                            }
-                        }
-                        else{
+     //                           let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
+     //                           controller.isGoLogin = true
+                         //       IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
+//                            }
+//                        }
+//                        else{
                             //当前没有关注过老人，则跳转选择我的老人，提示添加老人
-                            let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
-                            controller.isGoLogin = true
-                            IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
-                        }
+//                            let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
+//                            controller.isGoLogin = true
+                   //         IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
+//                        }
                     }
-                }
+                  }
                 },
                 catch: { ex in
                     //异常处理
@@ -219,6 +236,6 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     //跳转报警信息页面
     func ShowAlarm() {
         let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
-        IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IAlarmView", reload: true)
+    //    IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IAlarmView", reload: true)
     }
 }

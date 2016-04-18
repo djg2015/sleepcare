@@ -21,6 +21,19 @@ class IRegistViewModel:BaseViewModel {
             self._loginName=value
         }
     }
+    var _loginType:String = ""
+    //账户类型
+    dynamic var LoginType:String{
+        get
+        {
+            return self._loginType
+        }
+        set(value)
+        {
+            self._loginType=value
+        }
+    }
+
     
     var _pwd:String = ""
     //密码
@@ -87,7 +100,18 @@ class IRegistViewModel:BaseViewModel {
         }
     }
     
-    
+    //账户类型集合
+    var _typeBusinesses:Array<PopDownListItem> = Array<PopDownListItem>()
+    var TypeBusinesses:Array<PopDownListItem>{
+        get
+        {
+            return self._typeBusinesses
+        }
+        set(value)
+        {
+            self._typeBusinesses=value
+        }
+    }
  
     
     //界面处理命令
@@ -109,7 +133,7 @@ class IRegistViewModel:BaseViewModel {
                 //用默认账户pad密码123连接openfire
                 let isLogin = xmppMsgManager!.RegistConnect()
                 if(!isLogin){
-                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail), "提示", buttonTitle: "确定", action: self.ConnectLost)
+                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
                 }
                 else{
                     //获取当前所有养老院的名字
@@ -121,6 +145,15 @@ class IRegistViewModel:BaseViewModel {
                         item.value = mainInfoList.mainInfoList[i].MainName
                         self.MainBusinesses.append(item)
                     }
+                    
+                    //设置账户类型：使用者，监护人
+                    var item:PopDownListItem = PopDownListItem()
+                    item.key = LoginUserType.UserSelf
+                    item.value = "使用者"
+                    self.TypeBusinesses.append(item)
+                    item.key = LoginUserType.Monitor
+                    item.value = "监护人"
+                    self.TypeBusinesses.append(item)
                 }
                 },
                 catch: { ex in
@@ -135,11 +168,7 @@ class IRegistViewModel:BaseViewModel {
     }
     
     
-    //失去连接后处理
-    func ConnectLost(isOtherButton: Bool){
-        IViewControllerManager.GetInstance()!.CloseViewController()
-        
-    }
+   
     
     //注册账户
     func Regist() -> RACSignal{
@@ -174,10 +203,12 @@ class IRegistViewModel:BaseViewModel {
                     else{
                         var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                         let result:ServerResult =  sleepCareForIPhoneBussinessManager.Regist(self.LoginName, loginPassword: self.Pwd, mainCode: self.MainCode)
-                        //提示是否注册成功
+                        //注册账户成功后，继续设置账户类型
                         if result.Result{
-                
-                            showDialogMsg(ShowMessage(MessageEnum.RegistAccountSuccess), "提示", buttonTitle: "确定", action: self.AfterRegist)
+                        let result2:ServerResult = sleepCareForIPhoneBussinessManager.SaveUserType(self.LoginName, userType: self.LoginType)
+                            if result2.Result{
+                                showDialogMsg(ShowMessage(MessageEnum.RegistAccountSuccess), "提示", buttonTitle: "确定", action: self.AfterRegist)
+                            }
                         }
                         else{
                             showDialogMsg(ShowMessage(MessageEnum.RegistAccountFail),"提示" ,buttonTitle: "确定", action: self.AfterRegist)
@@ -203,12 +234,11 @@ class IRegistViewModel:BaseViewModel {
     }
     
     
-    //点击注册，关闭弹窗后的处理
+    //点击注册,弹窗后的操作
     func AfterRegist(isOtherButton: Bool){
         //关闭默认openfire账户的连接
         var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
         xmppMsgManager!.Close()
-        IViewControllerManager.GetInstance()!.CloseViewController()
     }
     
     

@@ -46,5 +46,7 @@
 	<string>修改账户失败！</string>
 	<key>22</key>
 	<string>请先阅读用户服务协议，打勾后才能注册账户！</string>
+	<key>23</key>
+	<string>&quot;使用者&quot;只能关注一个老人；&quot;监护人&quot;可以关注多个老人</string>
 </dict>
 </plist>

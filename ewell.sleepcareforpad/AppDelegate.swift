@@ -35,6 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
 //            self.window!.rootViewController = rootcontroller
 //            IViewControllerManager.GetInstance()!.SetRootController(logincontroller)
 
+//       let storyboard = UIStoryboard(name: "Root", bundle: NSBundle.mainBundle())
+//        var firstview = storyboard.instantiateViewControllerWithIdentifier("RootNavigation") as! UINavigationController
+//        self.window!.addSubview(firstview.view)
+        
         //判断是否由远程消息通知触发应用程序启动
         if ((launchOptions) != nil && deviceType == "iphone") {
             //                    //获取应用程序消息通知标记数（即小红圈中的数字）
@@ -61,13 +65,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
          
         CheckRemoteNotice()
   
-            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-            if(xmppMsgManager?.isInstance == true){
-                let isLogin = xmppMsgManager!.Connect()
-                if(!isLogin){
-                    //无法连接，弹窗提示是否重连
-                    NSNotificationCenter.defaultCenter().postNotificationName("ReConnectInternetForPhone", object: self)
-                }
+//            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+//            if(xmppMsgManager?.isInstance == true){
+//                let isLogin = xmppMsgManager!.Connect()
+//                if(!isLogin){
+//                    //无法连接，弹窗提示是否重连
+//                    NSNotificationCenter.defaultCenter().postNotificationName("ReConnectInternetForPhone", object: self)
+//                }
 //                else{
 //                    
 //                    var curUpdate = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
@@ -82,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
 //                        UpdateHelper.GetUpdateInstance().CheckUpdate(true)
 //                    }
 //                }
-            }
+//            }
  //       }
         
         self.isBackRun = false
@@ -104,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         self.isBackRun = true
         
         //按home键后执行，若当前页为Ialarmview，则关闭
-        IViewControllerManager.GetInstance()!.IsCurrentAlarmView()
+   //     IViewControllerManager.GetInstance()!.IsCurrentAlarmView()
         //如果已存在后台任务，先将其设为完成
         if self.backgroundTask != nil {
             application.endBackgroundTask(self.backgroundTask)

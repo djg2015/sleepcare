@@ -38,5 +38,6 @@ enum MessageEnum:Int{
     case RegistAccountFail
     case ModifyAccountFail
     case NeedCheckProtol
+    case UserTypeInfo
 
 }

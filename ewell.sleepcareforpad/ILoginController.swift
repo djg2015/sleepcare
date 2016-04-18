@@ -15,11 +15,12 @@ class ILoginController: IBaseViewController {
     @IBOutlet weak var txtLoginName: UITextField!
     @IBOutlet weak var txtPwd: UITextField!
     @IBOutlet weak var btnLogin: BlueButtonForPhone!
-    @IBOutlet weak var btnRegist: BlueButtonForPhone!
+   
     var iloginViewModel:IloginViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         self.view.backgroundColor = themeColor[themeName]
         rac_settings()
     }
@@ -34,11 +35,24 @@ class ILoginController: IBaseViewController {
         self.iloginViewModel = nil
     }
 
+    @IBAction func UnwindToLogin(unwindsegue:UIStoryboardSegue){
+        
+        
+    }
+    @IBAction func UnwindLogout(unwindsegue:UIStoryboardSegue){
+        
+        
+    }
     
+    @IBAction func UnwindCloseServerSetting(unwindsegue:UIStoryboardSegue){
+        
+        
+    }
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iloginViewModel = IloginViewModel()
-       
+       self.iloginViewModel.controller = self
+        self.iloginViewModel.LoadData()
         
         //属性绑定
         self.btnLogin!.rac_command = self.iloginViewModel?.loginCommand
@@ -47,24 +61,11 @@ class ILoginController: IBaseViewController {
         self.txtLoginName.rac_textSignal() ~> RAC(self.iloginViewModel, "LoginName")
         self.txtPwd.rac_textSignal() ~> RAC(self.iloginViewModel, "Pwd")
         
-        self.btnRegist!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
-            .subscribeNext {
-                _ in
-                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isconnect = xmppMsgManager!.RegistConnect()
-                if(!isconnect){
-                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-                }
-                else{
-             var nextcontroller = IRegistViewController(nibName: "IRegist", bundle: nil)
-             IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IRegist",reload: true)
-                }
-        }
-    }
+         }
 
     @IBAction func imageViewTouch(sender:AnyObject){
              var nextcontroller = IServerSettingController(nibName:"IServerSettingView", bundle:nil)
-            IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IServerSettingView",reload: true)
+   //         IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IServerSettingView",reload: true)
         }
     
     

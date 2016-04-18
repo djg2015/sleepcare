@@ -42,7 +42,7 @@ class IWebViewController: IBaseViewController {
     }
     
    
-    
+
     @IBAction func ClickBack(sender:AnyObject){
          IViewControllerManager.GetInstance()!.CloseViewController()
         

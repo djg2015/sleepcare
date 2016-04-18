@@ -22,14 +22,14 @@ class IServerSettingController:IBaseViewController {
     
     @IBOutlet weak var txtServerPwd: UITextField!
     
-    @IBOutlet weak var imgBack: UIImageView!
+
     
-    @IBOutlet weak var topView: UIView!
+ 
     
     //-----------界面事件定义----------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.topView.backgroundColor = themeColor[themeName]
+     //   self.topView.backgroundColor = themeColor[themeName]
         
         self.txtServerJid.text = GetValueFromPlist("serverjid","sleepcare.plist")
         self.txtServerAddress.text = GetValueFromPlist("xmppserver","sleepcare.plist")
@@ -37,16 +37,9 @@ class IServerSettingController:IBaseViewController {
         self.txtServerLoginName.text = GetValueFromPlist("xmppusernamephone","sleepcare.plist")
         self.txtServerPwd.text = GetValueFromPlist("xmppuserpwd","sleepcare.plist")
         
-        self.imgBack.userInteractionEnabled = true
-        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
-        self.imgBack .addGestureRecognizer(singleTap)
-        
         
     }
-    override func Clean() {
-        self.topView = nil
-    }
-
+   
     
     func imageViewTouch(){
       IViewControllerManager.GetInstance()!.CloseViewController()
@@ -62,9 +55,7 @@ class IServerSettingController:IBaseViewController {
                 SetValueIntoPlist("xmppusernamephone",self.txtServerLoginName.text)
                 SetValueIntoPlist("xmppuserpwd",self.txtServerPwd.text)
                 
-                showDialogMsg(ShowMessage(MessageEnum.ServerSettingSuccess), "提示", buttonTitle: "确定", action: { (isOtherButton) -> Void in
-                    self.clickOK(nil)
-                })  
+                showDialogMsg(ShowMessage(MessageEnum.ServerSettingSuccess), "提示", buttonTitle: "确定", action: nil)
                 },
                 catch: { ex in
                     //异常处理
@@ -76,10 +67,5 @@ class IServerSettingController:IBaseViewController {
             )}
     }
     
-    //点击确认后关闭当前页面
-    func clickOK(action:UIAlertAction!)
-    {
-      IViewControllerManager.GetInstance()!.CloseViewController()
-    }
     
 }

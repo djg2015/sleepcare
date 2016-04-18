@@ -14,10 +14,15 @@ class PopDownListForIphone:NSObject,ZSYPopoverListDatasource, ZSYPopoverListDele
     var selectedCode:String!
     var listView:ZSYPopoverListView?
     var delegate:PopDownListItemChoosed!
+    
     func Show(title:String,source:Array<PopDownListItem>){
         self._source = source
         if(listView == nil){
+            if self._source.count < 3{
+            listView = ZSYPopoverListView(frame: CGRectMake(0, 0, 300, 120))
+            }else{
             listView = ZSYPopoverListView(frame: CGRectMake(0, 0, 300, 200))
+            }
             listView!.titleName.text = title
             listView!.datasource = self
             listView!.delegate = self
