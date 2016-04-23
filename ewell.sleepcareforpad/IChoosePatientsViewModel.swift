@@ -11,6 +11,7 @@ class IChoosePatientsViewModel: BaseViewModel {
     //------------属性定义------------
     //我的关注老人主体对象
     var myPatientsViewModel:IMyPatientsViewModel!
+    
     var _partBedUserDic:Dictionary<String,Array<BedPatientViewModel>>!
     //科室床位用户字典集合
     var PartBedUserDic:Dictionary<String,Array<BedPatientViewModel>>{
@@ -51,17 +52,14 @@ class IChoosePatientsViewModel: BaseViewModel {
     }
     //纪录上一次选的partcode
      var lasedPartCode = ""
-    //界面处理命令
-    var commitCommand: RACCommand?
+    
+     var choosedPatients:Array<MyPatientsTableCellViewModel> = Array<MyPatientsTableCellViewModel>()
+    
     
     //构造函数
     override init(){
         super.init()
         
-        commitCommand = RACCommand() {
-            (any:AnyObject!) -> RACSignal in
-            return self.commit()
-        }
         
         InitData()
     }
@@ -124,11 +122,11 @@ class IChoosePatientsViewModel: BaseViewModel {
     }
     
     //确认关注,把要关注的老人加入到我的老人列表中
-    func commit() -> RACSignal{
+    func commit(){
         try {
             ({
+               self.choosedPatients = Array<MyPatientsTableCellViewModel>()
                
-                var choosedPatients:Array<MyPatientsTableCellViewModel> = Array<MyPatientsTableCellViewModel>()
                 var flag = false
                 for value in self.PartBedUserDic.values{
                     var choosedbedUsers = value.filter(
@@ -146,16 +144,16 @@ class IChoosePatientsViewModel: BaseViewModel {
                             myPatientsTableCellViewModel.MainName = choosedbedUsers[i].MainName
                             myPatientsTableCellViewModel.BedNum = choosedbedUsers[i].BedNum
                             myPatientsTableCellViewModel.RoomNum = choosedbedUsers[i].RoomNum
-                            choosedPatients.append(myPatientsTableCellViewModel)
+                            self.choosedPatients.append(myPatientsTableCellViewModel)
                         }
                     }
                     
                 }
                 
                 if flag{
-                    self.myPatientsViewModel.AddPatients(choosedPatients)
+                    self.myPatientsViewModel.AddPatients(self.choosedPatients)
                 }
-                IViewControllerManager.GetInstance()!.CloseViewController()
+            
                 
                 
                 
@@ -169,8 +167,7 @@ class IChoosePatientsViewModel: BaseViewModel {
                 }
             )}
         
-        return RACSignal.empty()
-        
+              
     }
     
    

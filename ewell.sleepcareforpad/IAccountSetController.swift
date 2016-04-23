@@ -20,6 +20,12 @@ class IAccountSetController: IBaseViewController, PopDownListItemChoosed{
     
     var popDownListForIphone:PopDownListForIphone?
     var iModifyViewModel:IModifyViewModel!
+    
+    
+    @IBAction func ClickCancle(sender:AnyObject){
+    self.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,22 +46,19 @@ class IAccountSetController: IBaseViewController, PopDownListItemChoosed{
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iModifyViewModel = IModifyViewModel()
+        self.iModifyViewModel.controller = self
         self.btnSave!.rac_command = self.iModifyViewModel?.modifyCommand
         RACObserve(self.iModifyViewModel, "LoginName") ~> RAC(self.txtLoginName, "text")
         RACObserve(self.iModifyViewModel, "Pwd") ~> RAC(self.txtPwd, "text")
         RACObserve(self.iModifyViewModel, "RePwd") ~> RAC(self.txtRePwd, "text")
         RACObserve(self.iModifyViewModel, "MainName") ~> RAC(self.txtMain, "text")
         
-        self.txtLoginName.rac_textSignal() ~> RAC(self.iModifyViewModel, "LoginName")
+      
         self.txtPwd.rac_textSignal() ~> RAC(self.iModifyViewModel, "Pwd")
         self.txtRePwd.rac_textSignal() ~> RAC(self.iModifyViewModel, "RePwd")
         
         
-        self.btnBack!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
-            .subscribeNext {
-                _ in
-              IViewControllerManager.GetInstance()!.CloseViewController()
-        }
+       
         
         self.btnChooseRole!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
             .subscribeNext {
@@ -70,6 +73,7 @@ class IAccountSetController: IBaseViewController, PopDownListItemChoosed{
     
     func ChoosedItem(item:PopDownListItem){
         self.iModifyViewModel.MainCode = item.key!
+        self.iModifyViewModel.MainName = item.value!
         self.txtMain.text = item.value
     }
     

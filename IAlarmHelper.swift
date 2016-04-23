@@ -13,8 +13,10 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     private static var alarmInstance: IAlarmHelper? = nil
     private var IsOpen:Bool = false
     var alarmdelegate:ShowAlarmDelegate!
-    var alarmcountdelegate:GetAlarmCountDelegate!
+   
     var alarmpicdelegate:SetAlarmPicDelegate!
+    var tabbarBadgeDelegate:SetTabbarBadgeDelegate!
+    
     private var _wariningCaches:Array<AlarmInfo>!
     
     var _warningcouts:Int = 0
@@ -102,7 +104,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     func BeginWaringAttention(){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWariningAction", name: "TodoListShouldRefresh", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "CloseWaringAttention", name: "WarningClose", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self,selector:"ReConnect", name:"ReConnectInternetForPhone", object: nil)
+    //    NSNotificationCenter.defaultCenter().addObserver(self,selector:"ReConnect", name:"ReConnectInternetForPhone", object: nil)
         self.IsOpen = true
         
         //清除已经overdue的todoitem
@@ -161,16 +163,16 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                 }
             )}
         
-        if self.alarmcountdelegate != nil{
-            self.alarmcountdelegate.GetAlarmCount(self.Warningcouts)
-        }
         
         if self.alarmpicdelegate != nil{
             self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
         }
-        
+        if self.tabbarBadgeDelegate != nil{
+            print(self.Warningcouts)
+            self.tabbarBadgeDelegate.SetTabbarBadge(self.Warningcouts)
+        }
         //外部图标上的badge number
-        TodoList.sharedInstance.SetBadgeNumber(self.Warningcouts)
+        TodoList.sharedInstance.SetBadgeNumber(self._warningcouts)
     }
     
     
@@ -184,32 +186,34 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         }
     }
 
-    //断网后，重新登录
-    func ReConnect(){
-        //弹窗提示是否重连网络
-         SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.ConnectFail), subTitle:"提示", style: AlertStyle.None,buttonTitle:"退出登录",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"重新连接", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ConnectAfterFail)
-    }
+   
     
-    func ConnectAfterFail(isOtherButton: Bool){
-        if isOtherButton{
-            if SessionForIphone.GetSession()!.User!.UserType == LoginUserType.Monitor{
-            IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
-            }
-            SessionForIphone.ClearSession()
-            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-            xmppMsgManager?.Close()
-            
-            let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
-            IViewControllerManager.GetInstance()!.ShowViewController(logincontroller, nibName: "ILogin", reload: true)
-        }
-        else{
-            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-            let isLogin = xmppMsgManager!.Connect()
-            if(!isLogin){
-                self.ReConnect()
-            }
-        }
-    }
+//    //断网后，重新登录
+//    func ReConnect(){
+//        //弹窗提示是否重连网络
+//         SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.ConnectFail), subTitle:"提示", style: AlertStyle.None,buttonTitle:"退出登录",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"重新连接", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ConnectAfterFail)
+//    }
+    
+//    func ConnectAfterFail(isOtherButton: Bool){
+//        if isOtherButton{
+//            if SessionForIphone.GetSession()!.User!.UserType == LoginUserType.Monitor{
+//            IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
+//            }
+//            SessionForIphone.ClearSession()
+//            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+//            xmppMsgManager?.Close()
+//            
+//            let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
+//            IViewControllerManager.GetInstance()!.ShowViewController(logincontroller, nibName: "ILogin", reload: true)
+//        }
+//        else{
+//            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+//            let isLogin = xmppMsgManager!.Connect()
+//            if(!isLogin){
+//                self.ReConnect()
+//            }
+//        }
+//    }
 
     //关闭报警提醒
     func CloseWaringAttention(){
@@ -249,10 +253,10 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         if self.alarmpicdelegate != nil{
             self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
         }
-        if self.alarmcountdelegate != nil{
-            self.alarmcountdelegate.GetAlarmCount(self.Warningcouts)
+       
+        if self.tabbarBadgeDelegate != nil{
+        self.tabbarBadgeDelegate.SetTabbarBadge(self.Warningcouts)
         }
-        
     }
     
     //获取原始报警数据warningcaches,通过bedcode过滤为需要的报警信息
@@ -322,6 +326,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         return false
     }
     
+   
+    
 }
 //设置”我的“页面报警信息图标
 protocol SetAlarmPicDelegate{
@@ -332,10 +338,13 @@ protocol SetAlarmPicDelegate{
 protocol ShowAlarmDelegate{
     func ShowAlarm()
 }
-//在imainframe页面中设置警告数
-protocol GetAlarmCountDelegate{
-    func GetAlarmCount(count:Int)
+
+//
+protocol SetTabbarBadgeDelegate{
+    func SetTabbarBadge(count:Int)
 }
+
+
 class WarningInfo{
     var AlarmCode:String = ""
     var UserName:String = ""

@@ -41,7 +41,9 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
             self.delegateList[name] = currentViewModelDelegate
         }
         else{
+            if self.delegateList[name] != nil{
             self.delegateList[name] = nil
+            }
         }
     }
     
@@ -70,6 +72,7 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
         if session != nil{
         let usercodeList = session!.BedUserCodeList
         
+            
         self.lock!.lock()
         //判断此实时报告的人是否在关注列表,bedusercode做删选
         if usercodeList.filter({$0 == key}).count > 0 {

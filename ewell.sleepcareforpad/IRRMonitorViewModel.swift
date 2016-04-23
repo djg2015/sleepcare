@@ -12,7 +12,7 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
     // 属性
     var realTimeCaches:Array<RealTimeReport>?
     var rrRangeCaches:IHRRange?
-    
+    var realtimeFlag:Bool = false
     //实时数据是否已经载入
     var _loadingFlag:Bool = false
     dynamic var LoadingFlag:Bool{
@@ -38,7 +38,17 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
             self._bedUserCode = value
         }
     }
-    
+    var _bedUserName:String?
+    dynamic var BedUserName:String?{
+        get
+        {
+            return self._bedUserName
+        }
+        set(value)
+        {
+            self._bedUserName = value
+        }
+    }
     // 在离床状态
     var _onBedStatus:String?
     dynamic var OnBedStatus:String?{
@@ -144,12 +154,11 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
         super.init()
     }
     
-    required init(bedUserCode:String) {
-        super.init()
+    func loadPatientRR(bedusercode:String){
         try {({
-            self.BedUserCode = bedUserCode
             
-            if(nil != self.BedUserCode)
+            
+            if("" != bedusercode)
             {
                 var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
                 let isconnect = xmppMsgManager!.Connect()
@@ -160,14 +169,30 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     //连接成功，获取某床位用户呼吸报告
                 var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var rrRange:IRRRange = sleepCareForIPhoneBLL.GetRRTimeReport(self.BedUserCode!)
-                for report in rrRange.rrTimeReportList{
-                    self._rrTimeReport.append(report)
+                var tempRRTimeReport = Array<IRRTimeReport>()
+                    
+                    for report in rrRange.rrTimeReportList{
+                    tempRRTimeReport.append(report)
                 }
-                
+                     self.RRTimeReport = tempRRTimeReport
+                self.realtimeFlag = true
                 RealTimeHelper.GetRealTimeInstance().SetDelegate("IRRMonitorViewModel",currentViewModelDelegate: self)
                 RealTimeHelper.GetRealTimeInstance().setRealTimer()
             }
             }
+            else{
+                //清空页面数据
+                
+                self.CleanRealtimeDelegate()
+                self.realtimeFlag = false
+                self.OnBedStatus = ""
+                self.CurrentRR = ""
+                self.LastAvgRR = ""
+                self.ProcessValue = 0.0
+                self.StatusImageName = ""
+                self.RRTimeReport = Array<IRRTimeReport>()
+            }
+
             },
             catch: { ex in
                 handleException(ex,showDialog: true)
@@ -179,6 +204,7 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
     
     //获取实时数据
     func GetRealtimeData(realtimeData:Dictionary<String,RealTimeReport>){
+         if realtimeFlag{
         for realTimeReport in realtimeData.values{
             if self.BedUserCode == realTimeReport.UserCode{
                 self.OnBedStatus = realTimeReport.OnBedStatus
@@ -189,10 +215,11 @@ class IRRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 return
             }
         }
+        }
     }
     
     //释放实时数据delegate代理
-    func Clean(){
+   func CleanRealtimeDelegate(){
         RealTimeHelper.GetRealTimeInstance().SetDelegate("IRRMonitorViewModel", currentViewModelDelegate: nil)
     }
 }

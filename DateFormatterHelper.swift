@@ -31,7 +31,7 @@ class DateFormatterHelper{
     :returns: string型的日期
     */
     func GetStringDateFromCurrent(style:String)->String{
-      self.dateFormatter!.dateFormat = style
+      self.dateFormatter?.dateFormat = style
       var curDate = NSDate()
       return  self.dateFormatter!.stringFromDate(curDate)
     }
@@ -44,7 +44,7 @@ class DateFormatterHelper{
     :returns: date型的日期
     */
     func GetDateFromString(data:String,style:String)->NSDate{
-        self.dateFormatter!.dateFormat = style
+        self.dateFormatter?.dateFormat = style
         return  self.dateFormatter!.dateFromString(data)!
     
     }

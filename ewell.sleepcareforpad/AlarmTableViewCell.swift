@@ -1,28 +1,33 @@
 //
-//  IAlarmTableViewCell.swift
-//  ewell.sleepcareforpad
+//  AlarmTableViewCell.swift
 //
-//  Created by Qinyuan Liu on 12/16/15.
-//  Copyright (c) 2015 djg. All rights reserved.
+//
+//  Created by Qinyuan Liu on 4/21/16.
+//
 //
 
 import UIKit
 
-class IAlarmTableViewCell:MSCMoreOptionTableViewCell,MSCMoreOptionTableViewCellDelegate {
+class AlarmTableViewCell: UITableViewCell {
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+  
     @IBOutlet weak var lblPartName: UILabel!
     @IBOutlet weak var lblBedNumber: UILabel!
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var txtAlarmContent: UITextView!
     
-    var source:IAlarmTableCellViewModel!
-    var moreoptionDelegate:MoreOptionDelegate!
+    var source:AlarmTableCellViewModel!
     
-    func CellLoadData(data:IAlarmTableCellViewModel){
-        self.delegate = self
+    
+    func CellLoadData(data:AlarmTableCellViewModel){
+       
         //self.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 125)
-        source = IAlarmTableCellViewModel()
+        source = AlarmTableCellViewModel()
         source.AlarmCode = data.AlarmCode
         source.AlarmDate = data.AlarmDate
         source.PartName = data.PartName
@@ -30,7 +35,7 @@ class IAlarmTableViewCell:MSCMoreOptionTableViewCell,MSCMoreOptionTableViewCellD
         source.UserName = data.UserName
         source.AlarmContent = data.AlarmContent
         source.deleteAlarmHandler = data.deleteAlarmHandler
-        source.moreAlarmHandler = data.moreAlarmHandler
+        
         RACObserve(self.source, "AlarmDate") ~> RAC(self.lblDate,"text")
         RACObserve(self.source, "PartName") ~> RAC(self.lblPartName,"text")
         RACObserve(self.source, "UserName") ~> RAC(self.lblUserName,"text")
@@ -38,30 +43,10 @@ class IAlarmTableViewCell:MSCMoreOptionTableViewCell,MSCMoreOptionTableViewCellD
         RACObserve(self.source, "AlarmContent") ~> RAC(self.txtAlarmContent,"text")
         
     }
-    
-    func tableView(tableView:UITableView,titleForMoreOptionButtonForRowAtIndexPath indexPath:NSIndexPath)->String{
-        return "处理"
-    }
-    //点击“处理”
-    func tableView(tableView:UITableView, moreOptionButtonPressedInRowAtIndexPath indexPath:NSIndexPath){
-      
-        self.source.moreAlarmHandler!(alarmViewModel: self.source)
-        IAlarmHelper.GetAlarmInstance().Warningcouts = IAlarmHelper.GetAlarmInstance().Warningcouts - 1
-        if self.moreoptionDelegate != nil{
-        self.moreoptionDelegate.MoreOption(indexPath)
-        }
-    }
-    
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
 }
 
 
-class IAlarmTableCellViewModel:NSObject{
+class AlarmTableCellViewModel:NSObject{
     //属性定义
     var _alarmDate:String?
     dynamic var AlarmDate:String?{
@@ -133,11 +118,8 @@ class IAlarmTableCellViewModel:NSObject{
     }
     
     //操作定义
-    var deleteAlarmHandler: ((alarmViewModel:IAlarmTableCellViewModel) -> ())?
-    var moreAlarmHandler:((alarmViewModel:IAlarmTableCellViewModel) -> ())?
-}
+    var deleteAlarmHandler: ((alarmViewModel:AlarmTableCellViewModel) -> ())?
+  
 
 
-protocol MoreOptionDelegate{
-func MoreOption(indexPath:NSIndexPath)
 }

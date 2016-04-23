@@ -6,9 +6,7 @@
 //  Copyright (c) 2015年 zhaoyin. All rights reserved.
 //
 
-let LOWCOLOR:UIColor = UIColor.colorFromRGB(0xEF8626)
-let MEDIUMCOLOR:UIColor = UIColor.colorFromRGB(0x44A355)
-let HIGHCOLOR:UIColor = UIColor.redColor()
+
 
 import Foundation
 import UIKit

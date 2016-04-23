@@ -1,31 +1,26 @@
 //
-//  IRRMonitor.swift
-//  ewell.sleepcareforpad
+//  RRViewController.swift
+//  
 //
-//  Created by zhaoyin on 15/11/18.
-//  Copyright (c) 2015年 djg. All rights reserved.
+//  Created by Qinyuan Liu on 4/20/16.
+//
 //
 
-import Foundation
+import UIKit
 
-class IRRMonitor: UIView{
-    
+class RRViewController: UIViewController {
+
     @IBOutlet weak var statusImage: UIImageView!
     @IBOutlet weak var lblOnBedStatus: UILabel!
     @IBOutlet weak var processRR: CircularLoaderView!
     @IBOutlet weak var lblLastRR: UILabel!
     @IBOutlet weak var viewChart: BackgroundCommon!
-    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var lblBedUserName: UILabel!
     
-    
-    var rrMonitorViewModel:IRRMonitorViewModel?
-    var parentController:IBaseViewController!
+    var rrMonitorViewModel:IRRMonitorViewModel!
     var lblRR:UILabel!
-    var _bedUserCode:String = ""
-    var _bedUserName:String = ""
-  //  var RRdelegate:LoadingRRDelegate!
-    var loadingFlag:Bool = false
+    var _bedUserCode:String!
+    var _bedUserName:String!
     
     var _rrTimeReportList:Array<IRRTimeReport> = Array<IRRTimeReport>()
     var RRTimeReportList:Array<IRRTimeReport> = [] {
@@ -37,8 +32,12 @@ class IRRMonitor: UIView{
             }
             else
             {
-                lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height * 206/522 - 30))
+                lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width-10, (UIScreen.mainScreen().bounds.size.height-49) * 27/59 - 10))
+             //    lineChart = PNLineChart(frame: CGRectMake(10, 10,  viewChart.frame.width-10, viewChart.frame.height-10))
+                
             }
+            
+            
             
             lineChart!.yFixedValueMin = 1
             lineChart!.showLabel = true
@@ -71,7 +70,9 @@ class IRRMonitor: UIView{
                 lineChart!.strokeChart()
                 self.viewChart.addSubview(lineChart!)
                 
+                
                 lineChart!.legendStyle = PNLegendItemStyle.Serial
+                //                lineChart.legendFont.fontWithSize(12)
                 let legend = lineChart!.getLegendWithMaxWidth(self.viewChart.frame.width)
                 legend.frame = CGRectMake(65, 5, self.viewChart.frame.width - 10, self.viewChart.frame.height - 10)
                 self.viewChart.addSubview(legend)
@@ -81,11 +82,15 @@ class IRRMonitor: UIView{
                 {
                     lineChart!.updateChartData([data01])
                 }
+                else{
+                    for subview in self.viewChart.subviews{
+                        subview.removeFromSuperview()
+                    }
+                }
             }
         }
     }
-    
-    //在离床状态改变，对应改变圆圈的颜色
+    //在离床状态改变，对应改变圆点的颜色
     var statusImageName:String?
         {
         didSet{
@@ -96,14 +101,37 @@ class IRRMonitor: UIView{
     }
     
     
-    func viewInit(parentController:IBaseViewController?,bedUserCode:String,bedUserName:String)
-    {
-        rrMonitorViewModel = IRRMonitorViewModel(bedUserCode: bedUserCode)
-        self._bedUserCode = bedUserCode
-        self._bedUserName = bedUserName
-        self.parentController = parentController
-        self.topView.backgroundColor = themeColor[themeName]
+    override func viewWillAppear(animated: Bool) {
        
+            self._bedUserCode = SessionForIphone.GetSession()?.CurPatientCode
+            self._bedUserName = SessionForIphone.GetSession()?.CurPatientName
+        self.rrMonitorViewModel!.BedUserCode = _bedUserCode
+        self.rrMonitorViewModel!.BedUserName = _bedUserName
+        
+        self.rrMonitorViewModel!.loadPatientRR(_bedUserCode)
+        
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        rac_settings()
+        
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func rac_settings(){
+       
+        self.rrMonitorViewModel = IRRMonitorViewModel()
+
         // 画出圆圈中间内容
         self.lblRR = UILabel(frame: CGRect(x: 0, y: 36, width: self.processRR.bounds.width/2 + 25, height: 54))
         self.lblRR!.textAlignment = .Center
@@ -124,42 +152,8 @@ class IRRMonitor: UIView{
         RACObserve(self.rrMonitorViewModel, "LastAvgRR") ~> RAC(self.lblLastRR, "text")
         RACObserve(self.rrMonitorViewModel, "ProcessMaxValue") ~> RAC(self.processRR, "maxProcess")
         RACObserve(self.rrMonitorViewModel, "ProcessValue") ~> RAC(self.processRR, "currentProcess")
-        RACObserve(self, "_bedUserCode") ~> RAC(self.rrMonitorViewModel, "BedUserCode")
         RACObserve(self.rrMonitorViewModel, "RRTimeReport") ~> RAC(self, "RRTimeReportList")
-        RACObserve(self, "_bedUserName") ~> RAC(self.lblBedUserName, "text")
-        RACObserve(self.rrMonitorViewModel, "LoadingFlag") ~> RAC(self, "loadingFlag")
-        
-     //   self.setTimer()
+        RACObserve(self.rrMonitorViewModel, "BedUserName") ~> RAC(self.lblBedUserName, "text")
     }
-   
-    //定时器，隔0.5秒检查是否完全载入数据
-//    func setTimer(){
-//        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
-//        timer.fire()
-//    }
-//    
-//    func timerFireMethod(timer: NSTimer) {
-//        if self.loadingFlag && self.RRdelegate != nil{
-//            self.RRdelegate.CloseLoadingRR()
-//            if self.rrMonitorViewModel != nil{
-//            self.rrMonitorViewModel!.LoadingFlag = false
-//        }
-//    }
-//    }
     
-    func Clean(){
-        if self.rrMonitorViewModel != nil{
-            self.RRTimeReportList = []
-            self.processRR = nil
-            self.topView = nil
-            self.viewChart = nil
-            self.rrMonitorViewModel!.Clean()
-            self.rrMonitorViewModel = nil
-         
-        }
-    }
 }
-
-//protocol LoadingRRDelegate{
-//    func CloseLoadingRR()
-//}

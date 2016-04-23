@@ -1,32 +1,25 @@
 //
-//  IHRMonitor.swift
+//  HRViewController.swift
+//  
 //
-//
-//  Created by djg on 15/11/11.
+//  Created by Qinyuan Liu on 4/20/16.
 //
 //
 
 import UIKit
 
-class IHRMonitor: UIView{
-    
-    @IBOutlet weak var statusImage: UIImageView!
+class HRViewController: UIViewController {
+     @IBOutlet weak var statusImage: UIImageView!
     @IBOutlet weak var lblOnBedStatus: UILabel!
     @IBOutlet weak var processHR: CircularLoaderView!
     @IBOutlet weak var lblLastHR: UILabel!
     @IBOutlet weak var viewChart: BackgroundCommon!
     @IBOutlet weak var lblBedUserName: UILabel!
-    @IBOutlet weak var topView: UIView!
     
-    
-    var hrMonitorViewModel:IHRMonitorViewModel?
-    var parentController:IBaseViewController!
+     var hrMonitorViewModel:IHRMonitorViewModel!
     var lblHR:UILabel!
-    var _bedUserCode:String = ""
-    var _bedUserName:String = ""
-    
- //   var HRdelegate:LoadingHRDelegate!
-    var loadingFlag:Bool = false
+    var _bedUserCode:String!
+    var _bedUserName:String!
     
     var _hrTimeReportList:Array<IHRTimeReport> = Array<IHRTimeReport>()
     var HRTimeReportList:Array<IHRTimeReport> = [] {
@@ -38,9 +31,11 @@ class IHRMonitor: UIView{
             }
             else
             {
-                lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height * 206/522 - 30))
+          lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width-10, (UIScreen.mainScreen().bounds.size.height-49) * 27/59 - 10))
+            //    lineChart = PNLineChart(frame: CGRectMake(10, 10,  viewChart.frame.width-10, viewChart.frame.height-10))
                 
             }
+         
             
             lineChart!.yFixedValueMin = 1
             lineChart!.showLabel = true
@@ -85,6 +80,11 @@ class IHRMonitor: UIView{
                 {
                     lineChart!.updateChartData([data01])
                 }
+                else{
+                    for subview in self.viewChart.subviews{
+                     subview.removeFromSuperview()
+                    }
+                }
             }
         }
     }
@@ -98,16 +98,40 @@ class IHRMonitor: UIView{
         }
     }
 
-
     
-    func viewInit(parentController:IBaseViewController?,bedUserCode:String,bedUserName:String)
-    {
-        hrMonitorViewModel = IHRMonitorViewModel(bedUserCode: bedUserCode)
-        self._bedUserCode = bedUserCode
-        self._bedUserName = bedUserName
-        self.parentController = parentController
+    override func viewWillAppear(animated: Bool) {
         
-        self.topView.backgroundColor = themeColor[themeName]
+            self._bedUserCode = SessionForIphone.GetSession()?.CurPatientCode
+            self._bedUserName = SessionForIphone.GetSession()?.CurPatientName
+        self.hrMonitorViewModel!.BedUserCode = _bedUserCode
+        self.hrMonitorViewModel!.BedUserName = _bedUserName
+        
+    
+        self.hrMonitorViewModel!.loadPatientHR(_bedUserCode)
+       
+        
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+         rac_settings()
+        
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    //加载初始画面
+    func rac_settings(){
+        self.hrMonitorViewModel = IHRMonitorViewModel()
+
         // 画出圆圈中间内容
         self.lblHR = UILabel(frame: CGRect(x: 0, y: 36, width: self.processHR.bounds.width/2 + 25, height: 54))
         self.lblHR!.textAlignment = .Center
@@ -128,45 +152,8 @@ class IHRMonitor: UIView{
         RACObserve(self.hrMonitorViewModel, "LastAvgHR") ~> RAC(self.lblLastHR, "text")
         RACObserve(self.hrMonitorViewModel, "ProcessMaxValue") ~> RAC(self.processHR, "maxProcess")
         RACObserve(self.hrMonitorViewModel, "ProcessValue") ~> RAC(self.processHR, "currentProcess")
-      
-        self.hrMonitorViewModel!.BedUserCode = bedUserCode
         RACObserve(self.hrMonitorViewModel, "HRTimeReport") ~> RAC(self, "HRTimeReportList")
-        RACObserve(self, "_bedUserName") ~> RAC(self.lblBedUserName, "text")
-        RACObserve(self.hrMonitorViewModel, "LoadingFlag") ~> RAC(self, "loadingFlag")
-        
-     //   self.setTimer()
+        RACObserve(self.hrMonitorViewModel, "BedUserName") ~> RAC(self.lblBedUserName, "text")
     }
-    
-    //定时器，隔0.5秒检查是否完全载入数据
-//    func setTimer(){
-//        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
-//        timer.fire()
-//    }
-//    
-//    func timerFireMethod(timer: NSTimer) {
-//        if self.loadingFlag && self.HRdelegate != nil{
-//            self.HRdelegate.CloseLoadingHR()
-//            if self.hrMonitorViewModel != nil{
-//            self.hrMonitorViewModel!.LoadingFlag = false
-//            }
-//        }
-//        
-//    }
-    
-    func Clean(){
-        if self.hrMonitorViewModel != nil{
-             self.HRTimeReportList = []
-            self.statusImage = nil
-            self.processHR = nil
-            self.topView = nil
-            self.viewChart = nil
-            self.hrMonitorViewModel!.Clean()
-            self.hrMonitorViewModel = nil
-        
-        }
-    }
+   
 }
-
-//protocol LoadingHRDelegate{
-//func CloseLoadingHR()
-//}

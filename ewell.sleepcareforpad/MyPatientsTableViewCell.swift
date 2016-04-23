@@ -22,7 +22,7 @@ class MyPatientsTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var imgStatus: UIImageView!
-    @IBOutlet weak var layerView: BackgroundCommon!
+  //  @IBOutlet weak var layerView: BackgroundCommon!
     
     var source:MyPatientsTableCellViewModel!
     var bindFlag:Bool = false
@@ -58,11 +58,11 @@ class MyPatientsTableViewCell: UITableViewCell {
         RACObserve(data, "HR") ~> RAC(self.source, "HR")
         RACObserve(data, "RR") ~> RAC(self.source, "RR")
         RACObserve(data, "BedStatus") ~> RAC(self.source, "BedStatus")
-        //222222222
+      
          RACObserve(data, "BedNum") ~> RAC(self.source, "BedNum")
          RACObserve(data, "BedCode") ~> RAC(self.source, "BedCode")
          RACObserve(data, "BedUserName") ~> RAC(self.source, "BedUserName")
-        //33333
+     
         RACObserve(self.source, "MainName") ~> RAC(self.lblMainName, "text")
         
         RACObserve(self.source, "PartName") ~> RAC(self.lblPartName, "text")

@@ -1,29 +1,70 @@
 //
-//  ISleepQualityMonitor.swift
-//  ewell.sleepcareforpad
+//  SleepViewController.swift
+//  
 //
-//  Created by zhaoyin on 15/11/12.
-//  Copyright (c) 2015年 djg. All rights reserved.
+//  Created by Qinyuan Liu on 4/21/16.
+//
 //
 
-import Foundation
 import UIKit
 
-class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
-    
-  @IBOutlet weak var process: CircularLoaderView!
-    @IBOutlet weak var imgDownload: UIImageView!
+class SleepViewController: UIViewController,SelectDateEndDelegate,SelectDateDelegate {
+    @IBOutlet weak var process: CircularLoaderView!
     @IBOutlet weak var lblSelectDate: UILabel!
-    @IBOutlet weak var imgMoveRight: UIImageView!
-    @IBOutlet weak var imgMoveLeft: UIImageView!
     @IBOutlet weak var viewSleepQuality: BackgroundCommon!
-    @IBOutlet weak var imgWeekSleep: UIImageView!
     @IBOutlet weak var lblTotalTime: UILabel!
-    @IBOutlet weak var topView: UIView!
     
-    var parentController:IBaseViewController!
-    var _bedUserCode:String?
-    var _bedUserName:String = ""
+
+    //点击操作，查看当前日期的昨天／明天
+    @IBAction func moveLeft(sender:AnyObject)
+    {
+        self.sleepQualityViewModel!.SelectedDate = Date(string: self.sleepQualityViewModel!.SelectedDate, format: "yyyy-MM-dd").addDays(-1).description(format: "yyyy-MM-dd")
+    }
+    
+    @IBAction func moveRight(sender:AnyObject)
+    {
+        self.sleepQualityViewModel!.SelectedDate = Date(string: self.sleepQualityViewModel!.SelectedDate, format: "yyyy-MM-dd").addDays(1).description(format: "yyyy-MM-dd")
+    }
+
+    //把睡眠周报表发送到email邮箱
+    @IBAction func showDownload(sender:AnyObject)
+    {
+   //     self.performSegueWithIdentifier("SendEmail", sender: self)
+        if self._bedUserCode == ""{
+        showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder))
+        }
+        else{
+        self.email = IEmailViewController(nibName: "IEmailView", bundle: nil)
+        self.email!.BedUserCode = self._bedUserCode!
+        self.email!.SleepDate = self.sleepQualityViewModel!.SelectedDate
+        self.email!.ParentController = self
+        var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",
+            KNSemiModalOptionKeys.animationDuration:"0.2",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
+        
+        self.presentSemiViewController(self.email, withOptions: kNSemiModalOptionKeys)
+        }
+    }
+    
+    //点击查看周睡眠
+     @IBAction func showWeekSleep(sender:AnyObject){
+        
+        if self._bedUserCode == ""{
+            showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder))
+        }
+        else{
+             //设置日期弹出窗口
+        var alertview:DatePickerView = DatePickerView(frame:UIScreen.mainScreen().bounds)
+        alertview.detegate = self
+        self.view.addSubview(alertview)
+        }
+    }
+    
+    @IBAction func CloseWeekReport(segue:UIStoryboardSegue){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    var _bedUserCode:String!
+    var sleepReportDate:String!
     var email:IEmailViewController?
     var sleepQualityViewModel:ISleepQualityMonitorViewModel?
     var lblSleepQuality:UILabel?
@@ -42,7 +83,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
             }
             else
             {
-                lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height * 206/522 - 30))
+                lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width-10, (UIScreen.mainScreen().bounds.size.height-49) * 27/59 - 10))
             }
             
             lineChart!.yFixedValueMin = 1
@@ -87,7 +128,7 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
             data02.getData = ({(index: UInt)  in
                 var yValue:CGFloat = data02Array[Int(index)]
                 var item = PNLineChartDataItem(y: yValue)
-
+                
                 return item
             })
             data02.inflexionPointStyle = PNLineChartPointStyle.Circle
@@ -105,21 +146,65 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
                 self.viewSleepQuality.addSubview(legend)
             }
             else{
-
-                    lineChart!.updateChartData([data01,data02])
+                if(data01.itemCount > 0 || data02.itemCount > 0)
+                {
+                   lineChart!.updateChartData([data01,data02])
+                }
+                else{
+                    for subview in self.viewSleepQuality.subviews{
+                        subview.removeFromSuperview()
+                    }
+                }
             }
+            
         }
     }
-
     
-    func viewInit(parentController:IBaseViewController?,bedUserCode:String,bedUserName:String)
-    {
-        self.parentController = parentController
-        self._bedUserCode = bedUserCode
-        self._bedUserName = bedUserName
-        self.sleepQualityViewModel = ISleepQualityMonitorViewModel()
+    override func viewWillAppear(animated: Bool) {
         
-        self.topView.backgroundColor = themeColor[themeName]
+            self._bedUserCode = SessionForIphone.GetSession()?.CurPatientCode
+        self.sleepQualityViewModel?.BedUserCode = self._bedUserCode
+        self.sleepQualityViewModel!.loadPatientSleep(self._bedUserCode)
+        
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "WeekReport" {
+            let vc = segue.destinationViewController as! IWeekSleepcareController
+            vc.bedUserCode = self._bedUserCode
+            vc.sleepDate = self.sleepReportDate
+            
+        }
+//        else if segue.identifier == "SendEmail" {
+//            let vc = segue.destinationViewController as! IEmailViewController
+//            vc.BedUserCode = self._bedUserCode
+//            vc.SleepDate = self.sleepReportDate
+//        }
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        rac_settings()
+        
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func rac_settings(){
+   
+       
+    self.sleepQualityViewModel = ISleepQualityMonitorViewModel()
+        
+       
         // 画出圆圈中间内容
         self.lblSleepQuality = UILabel(frame: CGRect(x: 0, y: 10, width: self.process.bounds.width, height: 40))
         self.lblSleepQuality!.textAlignment = .Center
@@ -174,27 +259,9 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
         RACObserve(self.sleepQualityViewModel, "LightSleepTimespan") ~> RAC(self.lblLightSleepTimespan, "text")
         RACObserve(self.sleepQualityViewModel, "AwakeningTimespan") ~> RAC(self.lblAwakeningTimespan, "text")
         RACObserve(self.sleepQualityViewModel, "SelectedDate") ~> RAC(self.lblSelectDate, "text")
-        RACObserve(self, "_bedUserCode") ~> RAC(self.sleepQualityViewModel, "BedUserCode")
         RACObserve(self.sleepQualityViewModel, "SleepRange") ~> RAC(self, "SleepRange")
-  
+        
         self.sleepQualityViewModel!.SelectedDate = getCurrentTime("yyyy-MM-dd")
-
-        // 给各个图片添加手势
-        self.imgMoveLeft.userInteractionEnabled = true
-        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "moveLeft:")
-        self.imgMoveLeft.addGestureRecognizer(singleTap)
-        
-        self.imgMoveRight.userInteractionEnabled = true
-        var singleTap1:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "moveRight:")
-        self.imgMoveRight.addGestureRecognizer(singleTap1)
-        
-        self.imgDownload.userInteractionEnabled = true
-        var singleTap3:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showDownload")
-        self.imgDownload.addGestureRecognizer(singleTap3)
-        
-        self.imgWeekSleep.userInteractionEnabled = true
-        var singleTap4:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showWeekSleep:")
-        self.imgWeekSleep.addGestureRecognizer(singleTap4)
         
         self.lblSelectDate.userInteractionEnabled = true
         var singleTap5:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "LableChooseDate:")
@@ -208,61 +275,27 @@ class ISleepQualityMonitor: UIView,SelectDateEndDelegate,SelectDateDelegate {
         //设置日期弹出窗口
         var alertview:DatePickerView = DatePickerView(frame:devicebounds)
         alertview.datedelegate = self
-        self.addSubview(alertview)
+        self.view.addSubview(alertview)
     }
+    
     func SelectDate(sender: UIView, dateString: String) {
-       self.sleepQualityViewModel!.SelectedDate = dateString
+        self.sleepQualityViewModel!.SelectedDate = dateString
     }
     
     
-    //点击查看周睡眠
-    func showWeekSleep(sender:UITapGestureRecognizer){
-        var devicebounds:CGRect = UIScreen.mainScreen().bounds
-        
-        //设置日期弹出窗口
-        var alertview:DatePickerView = DatePickerView(frame:devicebounds)
-        alertview.detegate = self
-        self.addSubview(alertview)
-    }
-    
+  
+   
     //对日期控件，选中某天查看对应的周睡眠
     func SelectDateEnd(sender:UIView,dateString:String)
     {
-        let controller = IWeekSleepcareController(nibName:"IWeekSleepcare", bundle:nil,bedusercode:self._bedUserCode!,searchdate:dateString)
-        IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IWeekSleepcare", reload: true)
-    }
-    
-    //点击操作，查看当前日期的昨天／明天
-    func moveLeft(sender:UITapGestureRecognizer)
-    {
-        self.sleepQualityViewModel!.SelectedDate = Date(string: self.sleepQualityViewModel!.SelectedDate, format: "yyyy-MM-dd").addDays(-1).description(format: "yyyy-MM-dd")
-    }
-    func moveRight(sender:UITapGestureRecognizer)
-    {
-        self.sleepQualityViewModel!.SelectedDate = Date(string: self.sleepQualityViewModel!.SelectedDate, format: "yyyy-MM-dd").addDays(1).description(format: "yyyy-MM-dd")
-    }
-
-    //把睡眠周报表发送到email邮箱
-    func showDownload()
-    {
-            self.email = IEmailViewController(nibName: "IEmailView", bundle: nil)
-            self.email!.BedUserCode = self._bedUserCode!
-            self.email!.ParentController = self.parentController
-             self.email!.SleepDate = self.sleepQualityViewModel!.SelectedDate
-             var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",
-            KNSemiModalOptionKeys.animationDuration:"0.2",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
         
-       self.parentController.presentSemiViewController(self.email, withOptions: kNSemiModalOptionKeys)
+        //若当前bedusercode ＝“”，则弹窗提示不可以查看
+        
+        
+       self.sleepReportDate = dateString
+       self.performSegueWithIdentifier("WeekReport", sender: self)
+        
     }
     
-    func Clean(){
-        if self.sleepQualityViewModel != nil{
-            self.SleepRange = []
-             self.email = nil
-            self.process = nil
-            self.viewSleepQuality = nil
-            self.topView = nil
-            self.sleepQualityViewModel = nil
-        }
-    }
+    
 }

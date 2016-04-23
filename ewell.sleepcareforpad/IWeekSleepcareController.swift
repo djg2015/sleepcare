@@ -10,13 +10,13 @@ import UIKit
 
 class IWeekSleepcareController: IBaseViewController {
     @IBOutlet weak var svSleep: UIScrollView!
-    @IBOutlet weak var btnBack: UIButton!
+   
     let height1:CGFloat = 167
     let height2:CGFloat = 83
     let height3:CGFloat = 135
-    let height4:CGFloat = 60
+    let height4:CGFloat = 40
     let height5:CGFloat = 200
-    let height6:CGFloat = 140
+    let height6:CGFloat = 120
     let height7:CGFloat = 250
     var uione:UIView!
     var uitwo: UIView!
@@ -30,19 +30,14 @@ class IWeekSleepcareController: IBaseViewController {
     var sleepDate:String!
     var weekReport:IWeekReport!
     
-    required init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,bedusercode:String,searchdate:String) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        self.bedUserCode = bedusercode
-        self.sleepDate = searchdate
-    }
     
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = themeColor[themeName]
+       
+        
+     //   self.view.backgroundColor = themeColor[themeName]
          uione = UIView()
         uitwo = UIView()
         uithree = UIView()
@@ -54,14 +49,13 @@ class IWeekSleepcareController: IBaseViewController {
         var screenWidth = UIScreen.mainScreen().bounds.width
         self.svSleep.contentSize = CGSize(width: screenWidth, height: (height1+height2+height3+height4+height5+height6+height7))
         self.lblTitle.text = "2015-10-11~2015-10-17"
-        self.lblTitle.textColor = UIColor.grayColor()
+        self.lblTitle.textColor = UIColor.blackColor()
         self.lblTitle.frame = CGRectMake((screenWidth/2 - 110), 3, 220, 30)
         self.svSleep.addSubview(lblTitle)
         
         self.uione.frame = CGRectMake(0, 33, screenWidth, height1)
-        self.uione.backgroundColor = UIColor.clearColor()
-        
-        self.uione.layer.contents = UIImage(named: "garyboxback.png")?.CGImage
+        self.uione.backgroundColor = UIColor.lightGrayColor()
+       // self.uione.layer.contents = UIImage(named: "garyboxback.png")?.CGImage
         self.svSleep.addSubview(uione)
         
         self.uitwo.frame = CGRectMake(0, height1+33, screenWidth, height2)
@@ -69,8 +63,8 @@ class IWeekSleepcareController: IBaseViewController {
         self.svSleep.addSubview(uitwo)
         
         self.uithree.frame = CGRectMake(0, height1 + height2+33, screenWidth, height3)
-        self.uithree.backgroundColor = UIColor.clearColor()
-        self.uithree.layer.contents = UIImage(named: "garyboxback.png")?.CGImage
+        self.uithree.backgroundColor = UIColor.lightGrayColor()
+       // self.uithree.layer.contents = UIImage(named: "garyboxback.png")?.CGImage
         self.svSleep.addSubview(uithree)
         
         self.uifour.frame = CGRectMake(0, height1 + height2 + height3+33, screenWidth, height4)
@@ -78,8 +72,8 @@ class IWeekSleepcareController: IBaseViewController {
         self.svSleep.addSubview(uifour)
         
         self.uifive.frame = CGRectMake(0, height1 + height2 + height3 + height4+33, screenWidth, height5)
-        self.uifive.backgroundColor = UIColor.clearColor()
-        self.uifive.layer.contents = UIImage(named: "garyboxback.png")?.CGImage
+        self.uifive.backgroundColor = UIColor.lightGrayColor()
+       // self.uifive.layer.contents = UIImage(named: "garyboxback.png")?.CGImage
         self.svSleep.addSubview(uifive)
         
         self.uisix.frame = CGRectMake(0, height1 + height2 + height3 + height4 + height5+33, screenWidth, height6)
@@ -89,34 +83,13 @@ class IWeekSleepcareController: IBaseViewController {
         self.uiseven.frame = CGRectMake(0, height1 + height2 + height3 + height4 + height5 + height6+33, screenWidth, height7)
         self.uiseven.backgroundColor = UIColor.lightGrayColor()
         self.svSleep.addSubview(uiseven)
-        
-        self.btnBack!.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
-            .subscribeNext {
-                _ in
-                IViewControllerManager.GetInstance()!.CloseViewController()
-              //  self.dismissViewControllerAnimated(true, completion: nil)
-                
-        }
-        
-        Loaddata()
-        
+     
+        self.LoadData()
     }
     
-    override func Clean(){
-        self.svSleep = nil
-        self.uione = nil
-        self.uitwo = nil
-        self.uithree = nil
-        self.uifive = nil
-        self.uifour = nil
-        self.uisix = nil
-        self.uiseven = nil
-        self.weekReport = nil
-        self.view = nil
-    }
     
     //加载初始数据
-    func Loaddata(){
+    func LoadData(){
         //查询底层数据
         var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
         self.weekReport = sleepCareForIPhoneBussinessManager.GetWeekReportByUser(self.bedUserCode, reportDate: self.sleepDate)
@@ -567,15 +540,6 @@ class IWeekSleepcareController: IBaseViewController {
     }
     
    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
+   
 }
 

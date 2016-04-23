@@ -27,7 +27,8 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
     var checkBoxImageName:String = "default_registUncheck.png"
     
     @IBAction func UnwindCloseProtocol(unwindsegue:UIStoryboardSegue){
-        
+       
+     //   self.navigationController?.popViewControllerAnimated(true)
         
     }
     @IBAction func btnTypeInfo(sender: AnyObject) {

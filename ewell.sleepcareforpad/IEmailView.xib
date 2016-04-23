@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -7,7 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IEmailViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <connections>
                 <outlet property="btnSendEmail" destination="yk3-Ej-LWI" id="ihh-fU-P1K"/>
-                <outlet property="emailView" destination="9WF-lc-qRz" id="dkb-7P-6Xf"/>
+                <outlet property="emailView" destination="9WF-lc-qRz" id="WY3-kq-RVz"/>
                 <outlet property="txtEmailAddress" destination="zkc-Bx-2di" id="3Yp-po-p1K"/>
                 <outlet property="view" destination="iN0-l3-epB" id="zKr-ir-Dau"/>
             </connections>
@@ -43,6 +43,7 @@
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmx-JF-gJj" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                             <rect key="frame" x="153" y="76" width="58" height="30"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="58" id="IuS-lr-mhb"/>
                                 <constraint firstAttribute="height" constant="30" id="wFo-Nz-d2U"/>
@@ -51,7 +52,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="btnBackClick:" destination="-1" eventType="touchUpInside" id="Kw2-86-j5h"/>
+                                <action selector="ClickCancle:" destination="-1" eventType="touchUpInside" id="r9f-P0-y65"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk3-Ej-LWI" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">

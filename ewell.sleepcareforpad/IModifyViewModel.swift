@@ -87,6 +87,7 @@ class IModifyViewModel:BaseViewModel {
         }
     }
     
+    var controller:IAccountSetController!
     //界面处理命令
     var modifyCommand: RACCommand?
     
@@ -175,19 +176,26 @@ class IModifyViewModel:BaseViewModel {
                     var session = SessionForIphone.GetSession()
                     
                     //如果改变了养老院，则当前关注的老人置空
+                    //并更新报警信息
                     if session!.User!.MainCode != self.MainCode{
                         session!.CurPatientCode = ""
+                        session!.CurPatientName = ""
+                        SetValueIntoPlist("curPatientCode", "")
+                        SetValueIntoPlist("curPatientName", "")
+                        
+                        session?.User?.MainCode = self.MainCode
+                        IAlarmHelper.GetAlarmInstance().ReloadUndealedWarning()
                     }
                     //修改账户到服务器端
                     let result:ServerResult = sleepCareForIPhoneBussinessManager.ModifyLoginUser(self.LoginName, oldPassword: session!.OldPwd!, newPassword: self.Pwd, mainCode: self.MainCode)
                     session?.OldPwd = self.Pwd
-                    session?.User?.MainCode = self.MainCode
+                    
                     //提示修改账户是否成功
                     if result.Result{
-                        showDialogMsg(ShowMessage(MessageEnum.ModifyAccountSuccess), "提示", buttonTitle: "确定", action: self.AfterModify)
+                        showDialogMsg(ShowMessage(MessageEnum.ModifyAccountSuccess),"提示", buttonTitle: "确定",action: self.AfterModify)
                     }
                     else{
-                        showDialogMsg(ShowMessage(MessageEnum.ModifyAccountFail),"提示" ,buttonTitle: "确定", action: self.AfterModify)
+                        showDialogMsg(ShowMessage(MessageEnum.ModifyAccountFail),"提示", buttonTitle: "确定",action: self.AfterModify)
                     }
                 }
                 },
@@ -201,14 +209,10 @@ class IModifyViewModel:BaseViewModel {
         return RACSignal.empty()
     }
     
-    //失去连接后处理
-    func ConnectLost(isOtherButton: Bool){
-        IViewControllerManager.GetInstance()!.CloseViewController()
-        
-    }
-    //关闭当前页面
     func AfterModify(isOtherButton: Bool){
-        IViewControllerManager.GetInstance()!.CloseViewController()
+        if self.controller != nil{
+    self.controller.dismissViewControllerAnimated(false, completion: nil)
+        }
     }
     
 }

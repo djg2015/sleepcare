@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -12,6 +12,7 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间：1999-01-01" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="s24-En-Rnk">
                     <rect key="frame" x="29" y="38" width="260" height="20"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="O4X-v2-fSJ"/>
                         <constraint firstAttribute="width" constant="260" id="RaF-JX-vnL"/>
@@ -22,6 +23,7 @@
                 </label>
                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="王奶奶：alarm content。。。。。。" translatesAutoresizingMaskIntoConstraints="NO" id="YNJ-aW-aE5">
                     <rect key="frame" x="23" y="59" width="430" height="66"/>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="66" id="dGg-Ys-R6b"/>
@@ -31,6 +33,7 @@
                 </textView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenpoint.png" translatesAutoresizingMaskIntoConstraints="NO" id="wd8-2R-rQF">
                     <rect key="frame" x="3" y="12" width="12" height="12"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="12" id="LhO-hA-QRv"/>
                         <constraint firstAttribute="height" constant="12" id="MQP-5I-VzU"/>
@@ -38,6 +41,7 @@
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenpoint.png" translatesAutoresizingMaskIntoConstraints="NO" id="w9e-vY-kw2">
                     <rect key="frame" x="3" y="42" width="12" height="12"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="12" id="3E7-m3-w21"/>
                         <constraint firstAttribute="width" constant="12" id="DbG-Lf-r49"/>
@@ -47,6 +51,7 @@
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名:aaaaaaaaa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Tg5-tH-8S7">
                     <rect key="frame" x="187" y="8" width="139" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="luP-gK-pnf"/>
                     </constraints>
@@ -56,6 +61,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="床号：?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="01o-ug-0Yy">
                     <rect key="frame" x="121" y="8" width="61" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="CZc-Cr-bjO"/>
                     </constraints>
@@ -65,18 +71,21 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="医院名字??" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="EQw-Ub-zZ2">
                     <rect key="frame" x="29" y="8" width="88" height="21"/>
+                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenpoint.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ex7-uh-a7D">
                     <rect key="frame" x="3" y="72" width="12" height="12"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="12" id="Svg-XS-y8B"/>
                         <constraint firstAttribute="height" constant="12" id="ebb-Cn-6iB"/>
                     </constraints>
                 </imageView>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="w9e-vY-kw2" firstAttribute="trailing" secondItem="Ex7-uh-a7D" secondAttribute="trailing" id="82n-00-zZd"/>
@@ -111,7 +120,7 @@
                 <outlet property="lblUserName" destination="Tg5-tH-8S7" id="hfc-Yq-2ih"/>
                 <outlet property="txtAlarmContent" destination="YNJ-aW-aE5" id="O5o-Fe-2ET"/>
             </connections>
-            <point key="canvasLocation" x="-172" y="202.5"/>
+            <point key="canvasLocation" x="-112" y="-5.5"/>
         </view>
     </objects>
     <resources>

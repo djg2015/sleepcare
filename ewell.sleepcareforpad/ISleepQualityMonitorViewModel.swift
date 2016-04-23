@@ -18,105 +18,13 @@ class ISleepQualityMonitorViewModel: BaseViewModel {
         }
         set(value){
             self._selectedDate = value
-            try {
-                ({
-                    var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                    let isconnect = xmppMsgManager!.Connect()
-                    if(!isconnect){
-                        showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-                    }
-                    else{
-                        var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-                        var report:ISleepQualityReport = sleepCareForIPhoneBLL.GetSleepQualityByUser(self.BedUserCode, reportDate: self.SelectedDate)
-                        self.SleepQuality = report.SleepQuality
-                        if(report.SleepQuality == "优")
-                        {
-                            self.ProcessValue = 100
-                        }
-                        else if(report.SleepQuality == "良")
-                        {
-                            self.ProcessValue = 75
-                           
-                        }
-                        if(report.SleepQuality == "中")
-                        {
-                            self.ProcessValue = 50
-                            
-                        }
-                        if(report.SleepQuality == "一般")
-                        {
-                            self.ProcessValue = 25
-                           
-                        }
-                        if(report.SleepQuality == "")
-                        {
-                            self.SleepQuality = "无"
-                            self.ProcessValue = 0
-                        }
-                        if(report.DeepSleepTimespan != "")
-                        {
-                            var min = report.DeepSleepTimespan.subString(3, length: 2)
-                            var hour = report.DeepSleepTimespan.subString(0, length: 2)
-                            self.DeepSleepTimespan = hour + "小时" + min + "分"
-                           
-                        }
-                        else
-                        {
-                            self.DeepSleepTimespan = "00小时00分"
-                        }
-                        if(report.LightSleepTimespan != "")
-                        {
-                            var min = report.LightSleepTimespan.subString(3, length: 2)
-                            var hour = report.LightSleepTimespan.subString(0, length: 2)
-                            self.LightSleepTimespan = hour + "小时" + min + "分"
-                            
-                        }
-                        else
-                        {
-                            self.LightSleepTimespan = "00小时00分"
-                        }
-                        if(report.AwakeningTimespan != "")
-                        {
-                            var min = report.AwakeningTimespan.subString(3, length: 2)
-                            var hour = report.AwakeningTimespan.subString(0, length: 2)
-                            self.AwakeningTimespan = hour + "小时" + min + "分"
-                           
-                        }
-                        else
-                        {
-                            self.AwakeningTimespan = "00小时00分"
-                        }
-                        if(report.OnBedTimespan != "")
-                        {
-                            self.OnBedTimespan = report.OnBedTimespan.subString(0, length: 2) + "小时" + report.OnBedTimespan.subString(3, length: 2) + "分"
-                        }
-                        else
-                        {
-                            self.OnBedTimespan = "00小时00分"
-                        }
-                      
-                        if report.sleepRange.count == 0{
-                            self.SleepRange = Array<ISleepDateReport>()
-                        }
-                        else{
-                            self.SleepRange = report.sleepRange
-                        }
-                    }
-                    },
-                    catch: { ex in
-                        //异常处理
-                        handleException(ex,showDialog: true)
-                    },
-                    finally: {
-                        
-                    }
-                )}
-            
+           
+            self.loadPatientSleep(self.BedUserCode)
         }
     }
     
     // 要查询的床位用户编码
-    var _bedUserCode:String = "00:00"
+    var _bedUserCode:String = ""
     dynamic var BedUserCode:String{
         get{
             return self._bedUserCode
@@ -211,6 +119,118 @@ class ISleepQualityMonitorViewModel: BaseViewModel {
         }
         set(value){
             self._sleepRange = value
+        }
+    }
+    
+    func  loadPatientSleep(bedusercode:String){
+        if("" != bedusercode)
+        {
+        try {
+            ({
+                
+                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+                let isconnect = xmppMsgManager!.Connect()
+                if(!isconnect){
+                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+                }
+                else{
+                    var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+                    var report:ISleepQualityReport = sleepCareForIPhoneBLL.GetSleepQualityByUser(bedusercode, reportDate: self.SelectedDate)
+                    self.SleepQuality = report.SleepQuality
+                    if(report.SleepQuality == "优")
+                    {
+                        self.ProcessValue = 100
+                    }
+                    else if(report.SleepQuality == "良")
+                    {
+                        self.ProcessValue = 75
+                        
+                    }
+                    if(report.SleepQuality == "中")
+                    {
+                        self.ProcessValue = 50
+                        
+                    }
+                    if(report.SleepQuality == "一般")
+                    {
+                        self.ProcessValue = 25
+                        
+                    }
+                    if(report.SleepQuality == "")
+                    {
+                        self.SleepQuality = "无"
+                        self.ProcessValue = 0
+                    }
+                    if(report.DeepSleepTimespan != "")
+                    {
+                        var min = report.DeepSleepTimespan.subString(3, length: 2)
+                        var hour = report.DeepSleepTimespan.subString(0, length: 2)
+                        self.DeepSleepTimespan = hour + "小时" + min + "分"
+                        
+                    }
+                    else
+                    {
+                        self.DeepSleepTimespan = "00小时00分"
+                    }
+                    if(report.LightSleepTimespan != "")
+                    {
+                        var min = report.LightSleepTimespan.subString(3, length: 2)
+                        var hour = report.LightSleepTimespan.subString(0, length: 2)
+                        self.LightSleepTimespan = hour + "小时" + min + "分"
+                        
+                    }
+                    else
+                    {
+                        self.LightSleepTimespan = "00小时00分"
+                    }
+                    if(report.AwakeningTimespan != "")
+                    {
+                        var min = report.AwakeningTimespan.subString(3, length: 2)
+                        var hour = report.AwakeningTimespan.subString(0, length: 2)
+                        self.AwakeningTimespan = hour + "小时" + min + "分"
+                        
+                    }
+                    else
+                    {
+                        self.AwakeningTimespan = "00小时00分"
+                    }
+                    if(report.OnBedTimespan != "")
+                    {
+                        self.OnBedTimespan = report.OnBedTimespan.subString(0, length: 2) + "小时" + report.OnBedTimespan.subString(3, length: 2) + "分"
+                    }
+                    else
+                    {
+                        self.OnBedTimespan = "00小时00分"
+                    }
+                    
+                    if report.sleepRange.count == 0{
+                        self.SleepRange = Array<ISleepDateReport>()
+                    }
+                    else{
+                        self.SleepRange = report.sleepRange
+                    }
+                }
+                
+                },
+                catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+                },
+                finally: {
+                    
+                }
+            )}
+        
+        }
+            //清空页面数据
+        else{
+            self.SleepRange = Array<ISleepDateReport>()
+            self.OnBedTimespan = ""
+            self.ProcessValue = 0.0
+            self.SleepQuality = ""
+            self.DeepSleepTimespan = ""
+            self.LightSleepTimespan = ""
+            self.AwakeningTimespan = ""
         }
     }
     

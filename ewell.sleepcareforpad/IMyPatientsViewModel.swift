@@ -136,13 +136,45 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     
     //显示某个床位用户体征明细
     func ShowPatientDetail(myPatientsTableViewModel:MyPatientsTableCellViewModel){
-        var session = SessionForIphone.GetSession()
-        session!.CurPatientCode = myPatientsTableViewModel.BedUserCode!
-        let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:myPatientsTableViewModel.BedUserCode!,equipmentID:myPatientsTableViewModel.EquipmentID,bedUserName:myPatientsTableViewModel.BedUserName!)
-        IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMainFrame", reload: true)
     }
     
-    //移除指定床位用户，更新服务器端，更新当前session的关注老人床位号列表
+    
+    /**
+    添加关注的老人：更新到服务器端，更新当前session的关注老人床位号列表
+    :param: myPatientsTableViewModels	当前添加关注的老人信息
+    */
+    func AddPatients(myPatientsTableViewModels:Array<MyPatientsTableCellViewModel>){
+        try {
+            ({
+                var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+                var session = SessionForIphone.GetSession()
+                var tempList = session!.BedUserCodeList
+                
+                for(var i=0;i<myPatientsTableViewModels.count;i++){
+                    sleepCareForIPhoneBussinessManager.FollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModels[i].BedUserCode!, mainCode: session!.User!.MainCode)
+                    //  var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModels[i].BedUserCode})
+                    //   if(exist.count == 0){
+                    myPatientsTableViewModels[i].selectedBedUserHandler = self.ShowPatientDetail
+                    myPatientsTableViewModels[i].deleteBedUserHandler = self.RemovePatient
+                    self.MyPatientsArray.append(myPatientsTableViewModels[i])
+                    
+                    tempList.append(myPatientsTableViewModels[i].BedUserCode!)
+                    //  }
+                }
+                session!.BedUserCodeList = tempList
+                self.bedUserCodeList = tempList
+                },
+                catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+                },
+                finally: {
+                    
+                }
+            )}
+    }
+
+    //移除指定床位用户，更新服务器端，更新当前session的关注老人床位号列表,更新curBedUser信息
     func RemovePatient(myPatientsTableViewModel:MyPatientsTableCellViewModel){
         var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModel.BedUserCode})
         if(exist.count > 0){
@@ -151,6 +183,8 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                     var session = SessionForIphone.GetSession()
                     var tempList = session!.BedUserCodeList
+                    
+                    //更新bedusercodelist
                     for(var i = 0 ; i < tempList.count ; i++){
                         if tempList[i] == myPatientsTableViewModel.BedUserCode! {
                             tempList.removeAtIndex(i)
@@ -160,6 +194,16 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     session!.BedUserCodeList = tempList
                     self.bedUserCodeList = tempList
                     
+                    //删除的老人是当前正在关注的人，则清空curBedUser信息
+                    if session?.CurPatientCode == myPatientsTableViewModel.BedUserCode{
+                    session?.CurPatientCode = ""
+                        session?.CurPatientName = ""
+                        SetValueIntoPlist("curPatientCode", "")
+                        SetValueIntoPlist("curPatientName", "")
+                        
+                    }
+                    
+                    //删除和这个老人有关的报警信息
                     IAlarmHelper.GetAlarmInstance().DeletePatientAlarm(myPatientsTableViewModel.BedUserName!)
                     sleepCareForIPhoneBussinessManager.RemoveFollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode!)
                     },
@@ -177,40 +221,4 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
         }
         
     }
-    
-    /**
-    添加关注的老人：更新到服务器端，更新当前session的关注老人床位号列表
-    :param: myPatientsTableViewModels	当前所有关注的老人信息
-    */
-    func AddPatients(myPatientsTableViewModels:Array<MyPatientsTableCellViewModel>){
-        try {
-            ({
-                var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-                var session = SessionForIphone.GetSession()
-                var tempList = session!.BedUserCodeList
-                
-                for(var i=0;i<myPatientsTableViewModels.count;i++){
-                    sleepCareForIPhoneBussinessManager.FollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModels[i].BedUserCode!, mainCode: session!.User!.MainCode)
-                  //  var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModels[i].BedUserCode})
-                 //   if(exist.count == 0){
-                        myPatientsTableViewModels[i].selectedBedUserHandler = self.ShowPatientDetail
-                        myPatientsTableViewModels[i].deleteBedUserHandler = self.RemovePatient
-                        self.MyPatientsArray.append(myPatientsTableViewModels[i])
-                        
-                        tempList.append(myPatientsTableViewModels[i].BedUserCode!)
-                  //  }
-                }
-                session!.BedUserCodeList = tempList
-                self.bedUserCodeList = tempList
-                },
-                catch: { ex in
-                    //异常处理
-                    handleException(ex,showDialog: true)
-                },
-                finally: {
-                    
-                }
-            )}
-    }
-    
 }
