@@ -12,6 +12,9 @@ class AlarmTableViewController: UITableViewController {
     var alarmViewModel:AlarmViewModel?
     var _source:Array<AlarmTableCellViewModel>!
     
+    @IBOutlet weak var barButtonItem: UIBarButtonItem!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,7 +28,9 @@ class AlarmTableViewController: UITableViewController {
         let navigationTitleAttribute: NSDictionary = NSDictionary(objectsAndKeys: UIColor.whiteColor(), NSForegroundColorAttributeName)
         self.navigationController?.navigationBar.titleTextAttributes = navigationTitleAttribute as [NSObject: AnyObject]
         
+       
         
+        //初始化数据
         self.alarmViewModel = AlarmViewModel()
         self._source = self.alarmViewModel!.AlarmArray
         
@@ -80,18 +85,39 @@ class AlarmTableViewController: UITableViewController {
     //提交删除
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         if(editingStyle == UITableViewCellEditingStyle.Delete){
+            
+             //调用服务器接口方法删除这个老人信息（标记为已读，不进行处理，但不会再接收到这条报警）
             self._source[indexPath.row].deleteAlarmHandler!(alarmViewModel: self._source[indexPath.row])
+            //source中删除这个老人的信息
             self._source.removeAtIndex(indexPath.row)
-
             //删除tableview中的这个老人
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             //更新报警信息
-             IAlarmHelper.GetAlarmInstance().Warningcouts = IAlarmHelper.GetAlarmInstance().Warningcouts - 1
+         //    IAlarmHelper.GetAlarmInstance().Warningcouts = IAlarmHelper.GetAlarmInstance().Warningcouts - 1
+           
+            //数据源为空的时候管理按钮不能删除
+            if self._source.count == 0{
+                self.barButtonItem.enabled = false
+            }
 
         }
     }
    
 
-  
+    @IBAction func RightButtonItemAction(){
+        
+        if self.barButtonItem.tag == 10{
+            self.tableView.setEditing(true, animated: true);
+            self.barButtonItem.title = "取消"
+            self.barButtonItem.tag = 20;
+        }
+        else{
+            
+            self.tableView.setEditing(false, animated: true);
+            self.barButtonItem.title = "管理"
+            self.barButtonItem.tag = 10;
+        }
+        
+    }
 
 }

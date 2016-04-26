@@ -8,7 +8,7 @@
 
 
 import Foundation
-class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
+class IloginViewModel: BaseViewModel {
     //------------属性定义------------
     var _loginName:String = ""
     //登录用户名
@@ -44,6 +44,8 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     var session:SessionForIphone?
     
     var controller:IBaseViewController?
+    var loginbuttonDelegate:LoginButtonDelegate!
+    
     //构造函数
     override init(){
         super.init()
@@ -56,7 +58,7 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         }
         //显示alarm详细信息的代理
         self.alarmHelper = IAlarmHelper.GetAlarmInstance()
-        self.alarmHelper!.alarmdelegate = self
+      //  self.alarmHelper!.alarmdelegate = self
         
         
     }
@@ -91,6 +93,12 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
     func Login()-> RACSignal{
         try {
             ({
+                //点击登录按钮后，取消用户点击操作
+                if self.loginbuttonDelegate != nil{
+                self.loginbuttonDelegate.DisableLoginButton()
+                }
+                
+                //获取服务器连接信息
                 let openfireHelper = OpenFireServerInfoHelper(_backActionHandler:self.LoginAction)
                 openfireHelper.CheckServerInfo()
                 },
@@ -106,26 +114,43 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         return RACSignal.empty()
     }
     
-    //登录业务处理
+    //登录业务处理，拉取服务器登录信息后回调此方法
     func LoginAction(){
         try {
             ({
                 //检查输入是否合法
                 if(self.LoginName == ""){
                     showDialogMsg(ShowMessage(MessageEnum.LoginnameNil))
+                    //重新允许用户点击操作
+                    if self.loginbuttonDelegate != nil{
+                        self.loginbuttonDelegate.EnableLoginButton()
+                    }
                     return
                 }
                 if self.IsBlankExist(self.LoginName){
                     showDialogMsg(ShowMessage(MessageEnum.LoginNameExistBlank))
+                    //重新允许用户点击操作
+                    if self.loginbuttonDelegate != nil{
+                        self.loginbuttonDelegate.EnableLoginButton()
+                    }
                     return
                 }
                 
                 if(self.Pwd == ""){
                     showDialogMsg(ShowMessage(MessageEnum.PwdNil))
+                    //重新允许用户点击操作
+                    if self.loginbuttonDelegate != nil{
+                        self.loginbuttonDelegate.EnableLoginButton()
+                    }
                     return
                 }
                 if self.IsBlankExist(self.Pwd){
                     showDialogMsg(ShowMessage(MessageEnum.PwdExistBlank))
+                    //重新允许用户点击操作
+                    if self.loginbuttonDelegate != nil{
+                        self.loginbuttonDelegate.EnableLoginButton()
+                    }
+                    
                     return
                 }
                 
@@ -230,11 +255,20 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                             
                             
                         }
-                    }
+                    
+                }
+                //重新允许用户点击操作
+                if self.loginbuttonDelegate != nil{
+                    self.loginbuttonDelegate.EnableLoginButton()
+                }
+
                 },
                 catch: { ex in
                     //异常处理
                     handleException(ex,showDialog: true)
+                    if self.loginbuttonDelegate != nil{
+                        self.loginbuttonDelegate.EnableLoginButton()
+                    }
                 },
                 finally: {
                     
@@ -242,9 +276,10 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
                 )}
         }
         
-        //跳转报警信息页面
-        func ShowAlarm() {
-            let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
-            //    IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IAlarmView", reload: true)
-        }
+      }
+
+
+protocol LoginButtonDelegate{
+func DisableLoginButton()
+func EnableLoginButton()
 }

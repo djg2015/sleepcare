@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ILoginController: IBaseViewController {
+class ILoginController: IBaseViewController,LoginButtonDelegate {
     
   
     @IBOutlet weak var imgTitle: UIImageView!
@@ -17,6 +17,8 @@ class ILoginController: IBaseViewController {
     @IBOutlet weak var btnLogin: BlueButtonForPhone!
    
     var iloginViewModel:IloginViewModel!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +67,8 @@ class ILoginController: IBaseViewController {
     
     func rac_settings(){
         self.iloginViewModel = IloginViewModel()
-       self.iloginViewModel.controller = self
+        self.iloginViewModel.controller = self
+        self.iloginViewModel.loginbuttonDelegate = self
         self.iloginViewModel.LoadData()
         
         //属性绑定
@@ -76,5 +79,13 @@ class ILoginController: IBaseViewController {
         self.txtPwd.rac_textSignal() ~> RAC(self.iloginViewModel, "Pwd")
         
          }
+    
+    func DisableLoginButton() {
+        self.btnLogin.userInteractionEnabled = false
+    }
+    
+    func EnableLoginButton() {
+        self.btnLogin.userInteractionEnabled = true
+    }
     
 }

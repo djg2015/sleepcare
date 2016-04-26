@@ -68,7 +68,7 @@ class SleepCareBussiness: SleepCareBussinessManager {
     //   from 开始记录序号(nil表示查询全部)
     //   max  返回最大记录数量(nil表示查询全部)
     func GetAlarmByLoginUser(mainCode:String,loginName:String,schemaCode:String,alarmTimeBegin:String,alarmTimeEnd:String,transferTypeCode:String,from:String?,max:String?)-> AlarmList{
-        //
+        
         var subject = MessageSubject(opera: "GetAlarmByLoginUser")
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("mainCode", value:mainCode )
@@ -95,5 +95,25 @@ class SleepCareBussiness: SleepCareBussinessManager {
         }
         return message as! AlarmList
     }
+    
+    //删除报警信息（已读）
+    //alarmCodes 报警编号(多个以半角逗号隔开)
+    //loginName 登录用户名
+    func DeleteAlarmMessage(alarmCodes:String,loginName:String)->ServerResult{
+    
+        var subject = MessageSubject(opera: "DeleteAlarmMessage")
+        var post = EMProperties(messageSubject: subject)
+        post.AddKeyValue("alarmCodes", value: alarmCodes)
+        post.AddKeyValue("loginName", value: loginName)
+        
+        var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
+        var message = xmpp?.SendData(post)
+        if(message is EMServiceException)
+        {
+            throw((message as! EMServiceException).code, (message as! EMServiceException).message)
+        }
+        return message as! ServerResult
+    }
+
 
 }

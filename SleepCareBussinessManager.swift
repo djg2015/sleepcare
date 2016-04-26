@@ -7,14 +7,12 @@
 //
 
 import Foundation
-//针对智能床业务模块全部接口定义
+//报警信息相关接口
 
 
 protocol SleepCareBussinessManager{
     func GetAlarmByUser(partCode:String,userCode:String,userNameLike:String,bedNumberLike:String,schemaCode:String,alarmTimeBegin:String,alarmTimeEnd:String, from:Int32?,max:Int32?)-> AlarmList
-    
-   
-    
+ 
     // 处理报警信息
     // 参数：alarmCode-> 报警编号
     //      transferType-> 处理类型 002:处理 003:误警报
@@ -22,4 +20,7 @@ protocol SleepCareBussinessManager{
     
     //根据当前登录用户、报警类型、报警时间段、报警处理状态等多条件获取关注老人的报警信息
     func GetAlarmByLoginUser(mainCode:String,loginName:String,schemaCode:String,alarmTimeBegin:String,alarmTimeEnd:String,transferTypeCode:String,from:String?,max:String?)-> AlarmList
+    
+    //删除报警信息（已读）
+    func DeleteAlarmMessage(alarmCodes:String,loginName:String)->ServerResult
 }

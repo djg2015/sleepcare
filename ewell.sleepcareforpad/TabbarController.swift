@@ -16,7 +16,7 @@ class TabbarController: UITabBarController {
     
         if (SessionForIphone.GetSession()?.CurPatientCode == "") {
             self.selectedIndex = 3
-                    }
+       }
       
     }
 
@@ -25,7 +25,13 @@ class TabbarController: UITabBarController {
         
         // Do any additional setup after loading the view.
         
-   
+      //为“我”的图标加载badge number
+        if IAlarmHelper.GetAlarmInstance().Warningcouts > 0{
+            let tabbar = self.viewControllers!.last as! MyConfigueTableViewController
+        tabbar.tabBarItem.badgeValue = String(IAlarmHelper.GetAlarmInstance().Warningcouts)
+       
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

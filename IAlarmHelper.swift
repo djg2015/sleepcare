@@ -12,7 +12,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     private static var alarmInstance: IAlarmHelper? = nil
     private var IsOpen:Bool = false
-    var alarmdelegate:ShowAlarmDelegate!
+ //   var alarmdelegate:ShowAlarmDelegate!
    
     var alarmpicdelegate:SetAlarmPicDelegate!
     var tabbarBadgeDelegate:SetTabbarBadgeDelegate!
@@ -102,7 +102,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     //开始报警提醒
     func BeginWaringAttention(){
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWariningAction", name: "TodoListShouldRefresh", object: nil)
+    //    NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWariningAction", name: "TodoListShouldRefresh", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "CloseWaringAttention", name: "WarningClose", object: nil)
     //    NSNotificationCenter.defaultCenter().addObserver(self,selector:"ReConnect", name:"ReConnectInternetForPhone", object: nil)
         self.IsOpen = true
@@ -119,12 +119,12 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         self.setAlarmTimer()
     }
     
-    //显示报警信息
-    func showWariningAction(){
-        if self.alarmdelegate != nil {
-            self.alarmdelegate.ShowAlarm()
-        }
-    }
+//    //显示报警信息
+//    func showWariningAction(){
+//        if self.alarmdelegate != nil {
+//            self.alarmdelegate.ShowAlarm()
+//        }
+//    }
     
     //获取报警信息数
     func GetAlarmCount()->Int{
@@ -172,7 +172,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             self.tabbarBadgeDelegate.SetTabbarBadge(self.Warningcouts)
         }
         //外部图标上的badge number
-        TodoList.sharedInstance.SetBadgeNumber(self._warningcouts)
+        TodoList.sharedInstance.SetBadgeNumber(self.Warningcouts)
     }
     
     
@@ -334,12 +334,8 @@ protocol SetAlarmPicDelegate{
     func SetAlarmPic(count:Int)
 }
 
-//点击报警推送消息，跳转alarm信息页面
-protocol ShowAlarmDelegate{
-    func ShowAlarm()
-}
 
-//
+//设置“我”上的报警数目
 protocol SetTabbarBadgeDelegate{
     func SetTabbarBadge(count:Int)
 }

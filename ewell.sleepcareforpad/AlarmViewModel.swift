@@ -64,9 +64,25 @@ class AlarmViewModel: BaseViewModel {
             )}
     }
     
-    //处理服务器端的报警信息，002为处理，003为误报警.delete按钮对应的是误报警操作
+    
+   //alarmcell删除操作
     func DeleteAlarm(alarmViewModel:AlarmTableCellViewModel){
-        var code = alarmViewModel.AlarmCode!
+         //调用服务器接口同步报警信息，标志为已读
+        let code = alarmViewModel.AlarmCode!
+        try {
+            ({
+                SleepCareBussiness().DeleteAlarmMessage(code, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+                },
+                catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+                },
+                finally: {
+                    
+                }
+            )}
+        
+        //从todolist和报警信息列表中删除这个老人相关的报警
         TodoList.sharedInstance.removeItemByID(code)
         var tempwarningList = IAlarmHelper.GetAlarmInstance().WarningList
         var codes = IAlarmHelper.GetAlarmInstance().Codes

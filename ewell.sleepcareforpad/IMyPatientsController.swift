@@ -24,14 +24,14 @@ class IMyPatientsController: UITableViewController  {
     @IBAction func ConfirmAddPatient(segue:UIStoryboardSegue){
         let choosePatientViewController = segue.sourceViewController as! IChoosePatientsController
         let addPatientList = choosePatientViewController.addList
-        //update the tableView and
+        //update the tableView
         for addPatient in addPatientList{
             self.MyPatientsArray.append(addPatient)
             let indexPath = NSIndexPath(forRow: self.MyPatientsArray.count - 1, inSection: 0)
             tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
           
         }
-        
+       
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -39,12 +39,7 @@ class IMyPatientsController: UITableViewController  {
          let vc = segue.destinationViewController as! IChoosePatientsController
            vc.allPatientInfo = self.viewModel
         }
-        if segue.identifier == "ShowDetails"
-        {
-//            let session = SessionForIphone.GetSession()
-//            session!.CurPatientCode = myPatientsTableViewModel.BedUserCode!
-//            SetValueIntoPlist("curPatientCode", myPatientsTableViewModel.BedUserCode!)
-        }
+   
 
     }
     
@@ -149,13 +144,6 @@ class IMyPatientsController: UITableViewController  {
     func rac_Setting(){
         self.viewModel = IMyPatientsViewModel()
         self.MyPatientsArray = self.viewModel!.MyPatientsArray
-//        self.imgAlarmView.hidden = true
-//        self.lblTitle.userInteractionEnabled = false
-//        var titleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "ClickTitle")
-//        self.lblTitle.addGestureRecognizer(titleTap)
-        
-    
-      
     }
     
     
@@ -183,30 +171,13 @@ class IMyPatientsController: UITableViewController  {
 //        self.realtimer!.fire()
 //        }
 //    }
-//    //监护人才有报警信息
-//    func AlarmFireMethod(timer: NSTimer) {
-//        
-//        if (session != nil && session!.User!.UserType == LoginUserType.Monitor){
-//            let count = IAlarmHelper.GetAlarmInstance().GetAlarmCount()
-//            if  count > 0{
-//                self.imgAlarmView.hidden = false
-//                self.lblAlarmCount.text = String(count)
-//                self.lblTitle.userInteractionEnabled = true
-//            }
-//            else{
-//            self.imgAlarmView.hidden = true
-//            self.lblAlarmCount.text = ""
-//            self.lblTitle.userInteractionEnabled = false
-//            }
+    
+//    func CloseTimer(){
+//        if self.realtimer != nil{
+//        self.realtimer = nil
 //        }
+//    
 //    }
-    
-    func CloseTimer(){
-        if self.realtimer != nil{
-        self.realtimer = nil
-        }
-    
-    }
     
 }
 //protocol EnableCellInteractionDelegate{

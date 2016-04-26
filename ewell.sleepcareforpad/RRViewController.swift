@@ -32,7 +32,7 @@ class RRViewController: UIViewController {
             }
             else
             {
-                lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width-10, (UIScreen.mainScreen().bounds.size.height-49) * 27/59 - 10))
+                lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width-10, (UIScreen.mainScreen().bounds.size.height-49) * 23/55 - 10))
              //    lineChart = PNLineChart(frame: CGRectMake(10, 10,  viewChart.frame.width-10, viewChart.frame.height-10))
                 
             }
