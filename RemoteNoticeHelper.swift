@@ -21,7 +21,7 @@ func CheckRemoteNotice(){
         //非首次登录
     else {
         
-     //   if deviceType == "iphone"{
+    
             //不要接收通知
             if   UIApplication.sharedApplication().currentUserNotificationSettings().types ==  UIUserNotificationType.None
             {
@@ -40,7 +40,6 @@ func CheckRemoteNotice(){
                     
                 }
             }
-     //   }
     }
 }
 

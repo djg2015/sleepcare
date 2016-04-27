@@ -17,12 +17,16 @@ class ILoginController: IBaseViewController,LoginButtonDelegate {
     @IBOutlet weak var btnLogin: BlueButtonForPhone!
    
     var iloginViewModel:IloginViewModel!
-    
-    
+
+    override func viewWillAppear(animated: Bool) {
+       
+        tag = 0
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        
         self.view.backgroundColor = themeColor[themeName]
         rac_settings()
     }

@@ -39,5 +39,6 @@ enum MessageEnum:Int{
     case ModifyAccountFail
     case NeedCheckProtol
     case UserTypeInfo
+    case CheckAlarmInfo
 
 }

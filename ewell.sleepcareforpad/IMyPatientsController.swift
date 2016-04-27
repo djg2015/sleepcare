@@ -19,7 +19,7 @@ class IMyPatientsController: UITableViewController  {
     let cellID = "patientCell"
     //我关注的老人集合
     var MyPatientsArray:Array<MyPatientsTableCellViewModel> = Array<MyPatientsTableCellViewModel>()
-    
+
     
     @IBAction func ConfirmAddPatient(segue:UIStoryboardSegue){
         let choosePatientViewController = segue.sourceViewController as! IChoosePatientsController
@@ -104,8 +104,14 @@ class IMyPatientsController: UITableViewController  {
         }
     }
 
+    override func viewWillAppear(animated: Bool) {
+       
+        tag = 2
+        currentController = self
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         self.navigationController?.navigationBar.barTintColor = themeColor[themeName]
         let navigationTitleAttribute: NSDictionary = NSDictionary(objectsAndKeys: UIColor.whiteColor(), NSForegroundColorAttributeName)

@@ -42,11 +42,7 @@
 		0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */; };
 		0DC2280E1C1FD65F00AF4737 /* JHSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */; };
 		0DC2284D1C212F0E00AF4737 /* PlistHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */; };
-		0DC2284F1C214D0D00AF4737 /* IAlarmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC2284E1C214D0D00AF4737 /* IAlarmTableViewCell.xib */; };
-		0DC228511C214D4000AF4737 /* IAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228501C214D4000AF4737 /* IAlarmTableViewCell.swift */; };
-		0DC228551C21527E00AF4737 /* IAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228541C21527E00AF4737 /* IAlarmViewController.swift */; };
 		0DC228571C224DD800AF4737 /* IAlarmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228561C224DD800AF4737 /* IAlarmHelper.swift */; };
-		0DC228591C23AE0900AF4737 /* IAlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228581C23AE0900AF4737 /* IAlarmViewModel.swift */; };
 		0DC6F95C1CC745E2005CECF2 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC6F95B1CC745E2005CECF2 /* TabbarController.swift */; };
 		0DC6F95E1CC74609005CECF2 /* MyConfigueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC6F95D1CC74609005CECF2 /* MyConfigueTableViewController.swift */; };
 		0DC6F9601CC74642005CECF2 /* HRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC6F95F1CC74642005CECF2 /* HRViewController.swift */; };
@@ -60,6 +56,9 @@
 		0DDA44291CC5D85000B0DF51 /* ShowInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */; };
 		0DEC19001C97DF54007BDF5D /* OpenFireServerInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC18FF1C97DF54007BDF5D /* OpenFireServerInfoHelper.swift */; };
 		0DF396FC1CBF84ED00E3ACD5 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF396FB1CBF84ED00E3ACD5 /* Root.storyboard */; };
+		0DF49A3A1CD0653E0096BE5E /* AlarmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF49A391CD0653E0096BE5E /* AlarmView.xib */; };
+		0DF49A3C1CD083BA0096BE5E /* ShowAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF49A3B1CD083BA0096BE5E /* ShowAlarmViewController.swift */; };
+		0DF49A3E1CD088110096BE5E /* alarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF49A3D1CD088110096BE5E /* alarmCell.xib */; };
 		0DF6BD651C55D43E007BF0A9 /* noalarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD641C55D43E007BF0A9 /* noalarm.png */; };
 		0DF6BD671C55E705007BF0A9 /* default_registCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD661C55E705007BF0A9 /* default_registCheck.png */; };
 		0DF6BD691C55E70A007BF0A9 /* default_registUncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD681C55E70A007BF0A9 /* default_registUncheck.png */; };
@@ -245,11 +244,7 @@
 		0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHSpinnerView.xib; sourceTree = "<group>"; };
 		0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHSpinnerView.swift; sourceTree = "<group>"; };
 		0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistHelper.swift; sourceTree = "<group>"; };
-		0DC2284E1C214D0D00AF4737 /* IAlarmTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IAlarmTableViewCell.xib; sourceTree = "<group>"; };
-		0DC228501C214D4000AF4737 /* IAlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmTableViewCell.swift; sourceTree = "<group>"; };
-		0DC228541C21527E00AF4737 /* IAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmViewController.swift; sourceTree = "<group>"; };
 		0DC228561C224DD800AF4737 /* IAlarmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmHelper.swift; sourceTree = "<group>"; };
-		0DC228581C23AE0900AF4737 /* IAlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmViewModel.swift; sourceTree = "<group>"; };
 		0DC6F95B1CC745E2005CECF2 /* TabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		0DC6F95D1CC74609005CECF2 /* MyConfigueTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyConfigueTableViewController.swift; sourceTree = "<group>"; };
 		0DC6F95F1CC74642005CECF2 /* HRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRViewController.swift; sourceTree = "<group>"; };
@@ -265,6 +260,9 @@
 		0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowInfoViewController.swift; sourceTree = "<group>"; };
 		0DEC18FF1C97DF54007BDF5D /* OpenFireServerInfoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenFireServerInfoHelper.swift; sourceTree = "<group>"; };
 		0DF396FB1CBF84ED00E3ACD5 /* Root.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
+		0DF49A391CD0653E0096BE5E /* AlarmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmView.xib; sourceTree = "<group>"; };
+		0DF49A3B1CD083BA0096BE5E /* ShowAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAlarmViewController.swift; sourceTree = "<group>"; };
+		0DF49A3D1CD088110096BE5E /* alarmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = alarmCell.xib; sourceTree = "<group>"; };
 		0DF6BD641C55D43E007BF0A9 /* noalarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noalarm.png; sourceTree = "<group>"; };
 		0DF6BD661C55E705007BF0A9 /* default_registCheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_registCheck.png; sourceTree = "<group>"; };
 		0DF6BD681C55E70A007BF0A9 /* default_registUncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_registUncheck.png; sourceTree = "<group>"; };
@@ -597,7 +595,7 @@
 				2C0DC3C81BF9A25F0048BEEA /* IEmailViewController.swift */,
 				3A680DBF1C02BD6800D77A22 /* IAccountSetController.swift */,
 				0D2C491B1CC8C884006D3CF5 /* AlarmTableViewController.swift */,
-				0DC228541C21527E00AF4737 /* IAlarmViewController.swift */,
+				0DF49A3B1CD083BA0096BE5E /* ShowAlarmViewController.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -625,6 +623,7 @@
 			children = (
 				0DF396FB1CBF84ED00E3ACD5 /* Root.storyboard */,
 				2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */,
+				0DF49A391CD0653E0096BE5E /* AlarmView.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -641,8 +640,7 @@
 				2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */,
 				2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */,
 				0D2C49151CC8C4C1006D3CF5 /* AlarmTableViewCell.swift */,
-				0DC228501C214D4000AF4737 /* IAlarmTableViewCell.swift */,
-				0DC2284E1C214D0D00AF4737 /* IAlarmTableViewCell.xib */,
+				0DF49A3D1CD088110096BE5E /* alarmCell.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -903,7 +901,6 @@
 				2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */,
 				0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */,
 				0D2C49171CC8C572006D3CF5 /* AlarmViewModel.swift */,
-				0DC228581C23AE0900AF4737 /* IAlarmViewModel.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1049,6 +1046,7 @@
 				0DB108591C5A0ED400721D74 /* black_registinputdownborder.png in Resources */,
 				3A91B3621BFB1D1C00DB3514 /* PartTableCell.xib in Resources */,
 				3A91F0981BF0475400C470D4 /* arrow_left@2x.png in Resources */,
+				0DF49A3E1CD088110096BE5E /* alarmCell.xib in Resources */,
 				3A91F0A11BF0475400C470D4 /* calendar_ok-disabled.png in Resources */,
 				3A91F0991BF0475400C470D4 /* arrow_right.png in Resources */,
 				3A39CA101BF2FF010024DD3E /* default_menuBack.png in Resources */,
@@ -1076,6 +1074,7 @@
 				3AC7B1021BF45BD4002DE94C /* fs_main_login_normal.png in Resources */,
 				3A91F0A91BF0475400C470D4 /* dialog_ok-disabled.png in Resources */,
 				2C0615751BF481D100A3F90C /* default_registinputborder.png in Resources */,
+				0DF49A3A1CD0653E0096BE5E /* AlarmView.xib in Resources */,
 				3A91F0B01BF0475400C470D4 /* THDatePickerViewController.xib in Resources */,
 				3A39CA0E1BF2FEF40024DD3E /* hrmenu.png in Resources */,
 				0DF6BD761C57181D007BF0A9 /* sendemail.png in Resources */,
@@ -1096,7 +1095,6 @@
 				3A8382D41BFACC7B00E4CC15 /* goright.png in Resources */,
 				0DB048571C86891000679849 /* black_registdownarrow.png in Resources */,
 				3AF652721BFABEBE00BA2329 /* bigadd.png in Resources */,
-				0DC2284F1C214D0D00AF4737 /* IAlarmTableViewCell.xib in Resources */,
 				3A91F0A71BF0475400C470D4 /* dialog_clear.png in Resources */,
 				0DF6BD781C5721DF007BF0A9 /* headfaceBg.png in Resources */,
 				0DB048511C86833900679849 /* black_background.png in Resources */,
@@ -1232,7 +1230,6 @@
 				0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */,
 				3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */,
 				3AC7B0F61BF45575002DE94C /* IRegistViewModel.swift in Sources */,
-				0DC228591C23AE0900AF4737 /* IAlarmViewModel.swift in Sources */,
 				3A33EF851BAA56D700D82A4D /* MessageSubject.swift in Sources */,
 				3A376E421BABB3B700D70953 /* EMString.swift in Sources */,
 				3A881B681BFC1FA3005F4D07 /* BedPatientCell.swift in Sources */,
@@ -1253,8 +1250,6 @@
 				3AB43E8D1BD4E1B9005023D3 /* DayCounter.swift in Sources */,
 				0DC6F95C1CC745E2005CECF2 /* TabbarController.swift in Sources */,
 				3A91F0B31BF066F500C470D4 /* THDate.swift in Sources */,
-				0DC228511C214D4000AF4737 /* IAlarmTableViewCell.swift in Sources */,
-				0DC228551C21527E00AF4737 /* IAlarmViewController.swift in Sources */,
 				0D2C49101CC87E42006D3CF5 /* SleepViewController.swift in Sources */,
 				0D79EE1B1CB65CE800B9DA5F /* Popover.swift in Sources */,
 				0D2C491C1CC8C884006D3CF5 /* AlarmTableViewController.swift in Sources */,
@@ -1273,6 +1268,7 @@
 				2C325CBE1BF5764600DD1DB7 /* ISleepQualityMonitorViewModel.swift in Sources */,
 				2C5181FF1BF1AB5F007DC2A3 /* IMainInfo.swift in Sources */,
 				3AC7B0E41BF42EFB002DE94C /* IloginViewModel.swift in Sources */,
+				0DF49A3C1CD083BA0096BE5E /* ShowAlarmViewController.swift in Sources */,
 				3AC7B10B1BF45D00002DE94C /* PopDownListForIphone.swift in Sources */,
 				0D2C49161CC8C4C1006D3CF5 /* AlarmTableViewCell.swift in Sources */,
 			);

@@ -18,6 +18,7 @@ class IChoosePatientsController: IBaseViewController {
     var allPatientInfo:IMyPatientsViewModel!
     var viewModel:IChoosePatientsViewModel!
     var addList:Array<MyPatientsTableCellViewModel>!
+   
     
     //科室下的床位用户集合
     var PartBedUserArray:Array<BedPatientViewModel>?{
@@ -47,10 +48,15 @@ class IChoosePatientsController: IBaseViewController {
         }
     }
    
+    override func viewWillAppear(animated: Bool) {
+       
+        tag = 2
+        currentController = self
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let session = SessionForIphone.GetSession()
         //当前是使用者 且bedlist.count>0，则提示先删除后添加一个老人
         if (session != nil && session!.BedUserCodeList.count > 0 && session!.User!.UserType == "1"){

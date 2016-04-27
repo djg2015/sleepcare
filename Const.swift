@@ -33,7 +33,6 @@ let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainM
 var documentsDirectory:String!
 var sleepcareResultDictionary:NSMutableDictionary?
 
-//
 var deviceType:String = "iphone"
 
  let PNGreenColor = UIColor(red: 77.0 / 255.0 , green: 196.0 / 255.0, blue: 122.0 / 255.0, alpha: 1.0)
@@ -44,3 +43,8 @@ var deviceType:String = "iphone"
 let LOWCOLOR:UIColor = UIColor.colorFromRGB(0xEF8626)
 let MEDIUMCOLOR:UIColor = UIColor.colorFromRGB(0x44A355)
 let HIGHCOLOR:UIColor = UIColor.redColor()
+
+
+//记录当前显示的页面controller：tag值规定，未登录前0，登录后主页面tabbar和4个字页面为1，报警页面为3，其他页面为2
+var tag:Int = 0
+var currentController:UIViewController!

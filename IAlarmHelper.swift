@@ -12,8 +12,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     private static var alarmInstance: IAlarmHelper? = nil
     private var IsOpen:Bool = false
- //   var alarmdelegate:ShowAlarmDelegate!
-   
+    
     var alarmpicdelegate:SetAlarmPicDelegate!
     var tabbarBadgeDelegate:SetTabbarBadgeDelegate!
     
@@ -102,7 +101,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     //开始报警提醒
     func BeginWaringAttention(){
-    //    NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWariningAction", name: "TodoListShouldRefresh", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWariningAction", name: "OpenAlarmView", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "CloseWaringAttention", name: "WarningClose", object: nil)
     //    NSNotificationCenter.defaultCenter().addObserver(self,selector:"ReConnect", name:"ReConnectInternetForPhone", object: nil)
         self.IsOpen = true
@@ -119,12 +118,20 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         self.setAlarmTimer()
     }
     
-//    //显示报警信息
-//    func showWariningAction(){
-//        if self.alarmdelegate != nil {
-//            self.alarmdelegate.ShowAlarm()
-//        }
-//    }
+    //显示报警信息
+    func showWariningAction(){
+        if (tag == 1 || tag == 2){
+        SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.CheckAlarmInfo), subTitle:"提示", style: AlertStyle.None,buttonTitle:"忽略",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"立即查看", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ShowAlarmInfo)
+        }
+    }
+    func ShowAlarmInfo(isOtherButton: Bool){
+        //点击“立即查看”,若当前不是alarmviewcontroller，则跳转alarmview页面
+    if !isOtherButton{
+        currentController.presentViewController(ShowAlarmViewController(nibName:"AlarmView", bundle:nil), animated: true, completion: nil)
+        
+        }
+    
+    }
     
     //获取报警信息数
     func GetAlarmCount()->Int{
@@ -241,7 +248,6 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             tempWarningList.append(warningInfo)
             
             //同意接收通知，才往todolist里加
-            
             TodoList.sharedInstance.addItem(todoItem)
             
             
@@ -326,7 +332,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         return false
     }
     
-   
+ 
     
 }
 //设置”我的“页面报警信息图标
@@ -339,6 +345,7 @@ protocol SetAlarmPicDelegate{
 protocol SetTabbarBadgeDelegate{
     func SetTabbarBadge(count:Int)
 }
+
 
 
 class WarningInfo{

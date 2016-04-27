@@ -21,7 +21,6 @@ class IAccountSetController: IBaseViewController, PopDownListItemChoosed{
     var popDownListForIphone:PopDownListForIphone?
     var iModifyViewModel:IModifyViewModel!
     
-    
     @IBAction func ClickCancle(sender:AnyObject){
     self.dismissViewControllerAnimated(false, completion: nil)
     }
@@ -39,8 +38,10 @@ class IAccountSetController: IBaseViewController, PopDownListItemChoosed{
         // Dispose of any resources that can be recreated.
     }
     
-    override func Clean() {
-        self.iModifyViewModel = nil
+    override func viewWillAppear(animated: Bool) {
+        tag = 2
+        
+        currentController = self
     }
 
     //-------------自定义方法处理---------------

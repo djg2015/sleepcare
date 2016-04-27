@@ -20,6 +20,7 @@ class HRViewController: UIViewController {
     var lblHR:UILabel!
     var _bedUserCode:String!
     var _bedUserName:String!
+ 
     
     var _hrTimeReportList:Array<IHRTimeReport> = Array<IHRTimeReport>()
     var HRTimeReportList:Array<IHRTimeReport> = [] {
@@ -105,11 +106,13 @@ class HRViewController: UIViewController {
             self._bedUserName = SessionForIphone.GetSession()?.CurPatientName
         self.hrMonitorViewModel!.BedUserCode = _bedUserCode
         self.hrMonitorViewModel!.BedUserName = _bedUserName
-        
-    
+
         self.hrMonitorViewModel!.loadPatientHR(_bedUserCode)
        
-        
+       
+            tag = 1
+           
+            currentController = self
     }
     
     

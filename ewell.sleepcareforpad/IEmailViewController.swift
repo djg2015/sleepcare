@@ -20,6 +20,7 @@ class IEmailViewController: IBaseViewController {
     var BedUserCode:String = ""
     var SleepDate:String = ""
     var ParentController:SleepViewController!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -72,6 +72,7 @@ class SleepViewController: UIViewController,SelectDateEndDelegate,SelectDateDele
     var lblLightSleepTimespan:UILabel?
     var lblAwakeningTimespan:UILabel?
     
+    
     // 当前周每天的睡眠质量
     var _sleepRange:Array<ISleepDateReport> = Array<ISleepDateReport>()
     var SleepRange:Array<ISleepDateReport> = [] {
@@ -165,6 +166,11 @@ class SleepViewController: UIViewController,SelectDateEndDelegate,SelectDateDele
             self._bedUserCode = SessionForIphone.GetSession()?.CurPatientCode
         self.sleepQualityViewModel?.BedUserCode = self._bedUserCode
         self.sleepQualityViewModel!.loadPatientSleep(self._bedUserCode)
+        
+      
+            tag = 1
+           
+            currentController = self
         
     }
     

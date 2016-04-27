@@ -409,14 +409,38 @@
         <scene sceneID="eFg-IP-8E0">
             <objects>
                 <tableViewController title="报警信息" hidesBottomBarWhenPushed="YES" id="cQV-PL-hzB" customClass="AlarmTableViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="182" sectionHeaderHeight="22" sectionFooterHeight="22" id="DJh-dq-bSI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="182" sectionHeaderHeight="22" sectionFooterHeight="22" id="DJh-dq-bSI">
                         <rect key="frame" x="0.0" y="44" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="yGL-cw-HQV">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="barTintColor" red="0.12549019607843137" green="0.32156862745098036" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </textAttributes>
+                            <items>
+                                <navigationItem title="报警信息" id="ixH-6x-C1w">
+                                    <barButtonItem key="leftBarButtonItem" title="关闭" style="plain" id="nPY-dt-o7V">
+                                        <connections>
+                                            <segue destination="qKW-oC-OVj" kind="unwind" unwindAction="CloseAlarmView:" id="iMa-ao-pMe"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" tag="10" title="管理" style="plain" id="IUZ-Qe-K5I">
+                                        <connections>
+                                            <action selector="RightButtonItemAction" destination="cQV-PL-hzB" id="64T-mR-RRD"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="alarmCell" rowHeight="160" id="EkK-GU-R3c" customClass="AlarmTableViewCell" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="alarmCell" rowHeight="160" id="EkK-GU-R3c" customClass="AlarmTableViewCell" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EkK-GU-R3c" id="SON-Zn-eV6">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -549,9 +573,6 @@
                     <navigationItem key="navigationItem" title="报警信息" id="ZQ6-bp-2wl">
                         <barButtonItem key="leftBarButtonItem" title="返回" style="plain" id="oAs-qV-xlB">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="qKW-oC-OVj" kind="unwind" unwindAction="CloseAlarmView:" id="u6C-wc-dQp"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" tag="10" title="管理" style="done" id="00r-dY-qsx">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -561,12 +582,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="barButtonItem" destination="00r-dY-qsx" id="m3G-Rj-H7j"/>
+                        <outlet property="barButtonItem" destination="IUZ-Qe-K5I" id="iGo-ta-7BW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B0y-u5-0iT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4488" y="1757"/>
+            <point key="canvasLocation" x="4230" y="1874"/>
         </scene>
         <!--添加老人-->
         <scene sceneID="8Ye-ct-pAt">
@@ -630,7 +651,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lC3-Lw-mLm">
                                                 <rect key="frame" x="41" y="14" width="127" height="30"/>
                                                 <animations/>
-                                                <color key="backgroundColor" red="0.15686274509803921" green="0.34901960784313724" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.15727987535474716" green="0.32156862745097964" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="127" id="geV-U7-ujM"/>
                                                     <constraint firstAttribute="height" constant="30" id="pyn-MR-61i"/>
@@ -857,7 +878,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <segue destination="4hN-zE-rYk" kind="modal" id="UPf-Fm-w5D"/>
+                                            <segue destination="cQV-PL-hzB" kind="modal" id="g6D-TD-w3v"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="250" id="2pI-ES-hmZ">
@@ -1916,7 +1937,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="7OL-Tf-fw4"/>
                                 </constraints>
-                                <color key="barTintColor" red="0.15686274509803921" green="0.34901960784313724" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.12549019607843137" green="0.32156862745098036" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </textAttributes>
@@ -2104,7 +2125,7 @@
                                 <segue destination="qKW-oC-OVj" kind="unwind" unwindAction="CloseMyPatients:" id="wfE-Cv-clh"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9NL-5S-S7h">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="9NL-5S-S7h">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="k6y-Jf-CPR" kind="push" identifier="ShowChoosePatient" id="XcU-WR-2FD"/>
@@ -2141,27 +2162,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aaK-pl-ABx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3452" y="1084"/>
-        </scene>
-        <!--报警-->
-        <scene sceneID="pKA-1u-9Hi">
-            <objects>
-                <navigationController title="报警" automaticallyAdjustsScrollViewInsets="NO" id="4hN-zE-rYk" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="aJK-9G-aIa"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MCd-8M-Ynq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="cQV-PL-hzB" kind="relationship" relationship="rootViewController" id="wGx-Bn-MiS"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="05D-dy-BP2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4016" y="1765"/>
         </scene>
     </scenes>
     <resources>

@@ -22,9 +22,9 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
 
     var popDownListForIphone:PopDownListForIphone?
     var TypeListForIphone:PopDownListForIphone?
-    
     var iRegistViewModel:IRegistViewModel!
     var checkBoxImageName:String = "default_registUncheck.png"
+  
     
     @IBAction func UnwindCloseProtocol(unwindsegue:UIStoryboardSegue){
        
@@ -52,7 +52,11 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
         // Do any additional setup after loading the view.
     }
 
-  
+    override func viewWillAppear(animated: Bool) {
+       
+        tag = 0
+       
+    }
     
 //    override func Clean() {
 //        self.iRegistViewModel = nil

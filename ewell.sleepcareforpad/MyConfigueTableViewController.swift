@@ -12,18 +12,21 @@ class MyConfigueTableViewController: UITableViewController,SetTabbarBadgeDelegat
     
     @IBOutlet weak var alarmTableCell: UITableViewCell!
     @IBOutlet weak var alarmImg: UIImageView!
-    
+   
     
     let session = SessionForIphone.GetSession()
     
     @IBAction func CloseShowTips(segue:UIStoryboardSegue){
         self.dismissViewControllerAnimated(true, completion: nil)
-        
+        tag = 1
+        currentController = self
     }
     
     
     @IBAction func CloseShowInfo(segue:UIStoryboardSegue){
         self.dismissViewControllerAnimated(true, completion: nil)
+        tag = 1
+        currentController = self
     }
     
     //关闭“我的老人窗口”，1更新父页面上的报警数目；2若是“监护人”且beduserlist不为空，则更新curbeduser信息为这个老人
@@ -58,20 +61,34 @@ class MyConfigueTableViewController: UITableViewController,SetTabbarBadgeDelegat
     }
     
     @IBAction func CloseAlarmView(segue:UIStoryboardSegue){
-        self.dismissViewControllerAnimated(true, completion: nil)
+    self.dismissViewControllerAnimated(true, completion: nil)
+        tag = 1
+        currentController = self
+    //self.navigationController?.popViewControllerAnimated(true)
+        
         
     }
     @IBAction func UnwindShowPatientDetail(unwindsegue:UIStoryboardSegue){
         self.dismissViewControllerAnimated(true, completion: nil)
+        tag = 1
+        currentController = self
         
     }
     
     override func viewWillAppear(animated: Bool) {
+        tag = 1
+        currentController = self
+        
         if SessionForIphone.GetSession()?.User?.UserType == LoginUserType.Monitor{
             let alarmcount =  IAlarmHelper.GetAlarmInstance().GetAlarmCount()
             self.SetTabbarBadge(alarmcount)
             self.SetAlarmPic(alarmcount)
+            
+            
         }
+        
+        
+        
     }
     
     override func viewDidLoad() {
@@ -99,6 +116,8 @@ class MyConfigueTableViewController: UITableViewController,SetTabbarBadgeDelegat
         }
         
         
+            
+    
     }
     
     override func didReceiveMemoryWarning() {

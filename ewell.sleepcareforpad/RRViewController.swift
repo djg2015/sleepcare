@@ -21,6 +21,7 @@ class RRViewController: UIViewController {
     var lblRR:UILabel!
     var _bedUserCode:String!
     var _bedUserName:String!
+ 
     
     var _rrTimeReportList:Array<IRRTimeReport> = Array<IRRTimeReport>()
     var RRTimeReportList:Array<IRRTimeReport> = [] {
@@ -110,6 +111,10 @@ class RRViewController: UIViewController {
         
         self.rrMonitorViewModel!.loadPatientRR(_bedUserCode)
         
+       
+            tag = 1
+            currentController = self
+      
     }
     
     

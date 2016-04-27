@@ -29,12 +29,8 @@ func getCurrentTime(dateFormat:String) -> String{
 
 //基本弹窗
 func showDialogMsg(msg:String,title:String? = "提示"){
-    if("ipad" == deviceType){
-        SweetAlert().showAlert(msg,subTitle: title, style: .None)
-    }
-    else{
+   
         SweetAlert(contentHeight: 300).showAlert(msg,subTitle: title, style: .None)
-    }
 }
 //弹窗带返回处理
 func showDialogMsg(msg:String,title:String?,buttonTitle:String? = "确定", action: ((isOtherButton: Bool) -> Void)? = nil){
@@ -42,12 +38,9 @@ func showDialogMsg(msg:String,title:String?,buttonTitle:String? = "确定", acti
     if(title == nil){
         inTitle = "提示"
     }
-    if("ipad" == deviceType){
-        SweetAlert().showAlert(msg, subTitle: inTitle, style: .None, buttonTitle: buttonTitle!, action: action)
-    }
-    else{
+   
         SweetAlert(contentHeight: 300).showAlert(msg, subTitle: inTitle, style: .None, buttonTitle: buttonTitle!, action: action)
-    }
+    
 }
 
 
@@ -103,4 +96,7 @@ extension String {
         }
         return self.componentsSeparatedByString(s)
     }
+    
+    
+   
 }

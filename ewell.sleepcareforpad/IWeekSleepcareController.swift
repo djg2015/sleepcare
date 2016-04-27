@@ -29,8 +29,12 @@ class IWeekSleepcareController: IBaseViewController {
     var bedUserCode:String!
     var sleepDate:String!
     var weekReport:IWeekReport!
-    
-    
+   
+    override func viewWillAppear(animated: Bool) {
+        tag = 2
+       
+        currentController = self
+    }
     
     
     override func viewDidLoad() {

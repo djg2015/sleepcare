@@ -101,7 +101,7 @@ class SleepCareBussiness: SleepCareBussinessManager {
     //loginName 登录用户名
     func DeleteAlarmMessage(alarmCodes:String,loginName:String)->ServerResult{
     
-        var subject = MessageSubject(opera: "DeleteAlarmMessage")
+        var subject = MessageSubject(opera: "DeleteAlarmMessage",bizcode: "sleepcareforiphone")
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("alarmCodes", value: alarmCodes)
         post.AddKeyValue("loginName", value: loginName)

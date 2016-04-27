@@ -65,13 +65,30 @@ class AlarmViewModel: BaseViewModel {
     }
     
     
-   //alarmcell删除操作
+   //alarmcell单个删除操作（滑动删除）
     func DeleteAlarm(alarmViewModel:AlarmTableCellViewModel){
-         //调用服务器接口同步报警信息，标志为已读
         let code = alarmViewModel.AlarmCode!
+        self.DeleteToServer(code)
+        self.DeleteFromTodolist(code)
+    }
+    
+    //alarmcell多个删除操作（edit模式下）
+    func DeleteMutipleAlarms(codes:String){
+       
+        self.DeleteToServer(codes)
+        let codeList = split(codes){$0 == ","}
+        for code in codeList{
+        self.DeleteFromTodolist(code)
+        }
+        
+    }
+    
+    
+    //调用服务器接口同步报警信息，标志为已读
+    func DeleteToServer(codes:String){
         try {
             ({
-                SleepCareBussiness().DeleteAlarmMessage(code, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+                SleepCareBussiness().DeleteAlarmMessage(codes, loginName: SessionForIphone.GetSession()!.User!.LoginName)
                 },
                 catch: { ex in
                     //异常处理
@@ -81,11 +98,15 @@ class AlarmViewModel: BaseViewModel {
                     
                 }
             )}
-        
+    }
+    
+    func DeleteFromTodolist(code:String){
         //从todolist和报警信息列表中删除这个老人相关的报警
         TodoList.sharedInstance.removeItemByID(code)
+        
         var tempwarningList = IAlarmHelper.GetAlarmInstance().WarningList
         var codes = IAlarmHelper.GetAlarmInstance().Codes
+        
         for(var i = 0; i < tempwarningList.count; i++){
             if code == tempwarningList[i].AlarmCode{
                 tempwarningList.removeAtIndex(i)
@@ -100,9 +121,6 @@ class AlarmViewModel: BaseViewModel {
                 break
             }
         }
-
-    
     }
-    
    
 }

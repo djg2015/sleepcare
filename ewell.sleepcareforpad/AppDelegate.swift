@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         NSThread.sleepForTimeInterval(1)
         
         InitPlistFile()
-            deviceType = "iphone"
+        
         
             //设置启动界面
 //            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -40,22 +40,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
 //        self.window!.addSubview(firstview.view)
         
         //判断是否由远程消息通知触发应用程序启动
-        if ((launchOptions) != nil && deviceType == "iphone") {
-            //                    //获取应用程序消息通知标记数（即小红圈中的数字）
-            //                    var badge = UIApplication.sharedApplication().applicationIconBadgeNumber;
-            //                    if (badge>0) {
-            //                        //如果应用程序消息通知标记数（即小红圈中的数字）大于0，清除标记。
-            //                        badge = badge - 1
-            //                        //清除标记。
-            //                        UIApplication.sharedApplication().applicationIconBadgeNumber = badge;
+        if ((launchOptions) != nil ) {
+             NSNotificationCenter.defaultCenter().postNotificationName("OpenAlarmView", object: self)
+           
             //            let Info = launchOptions! as NSDictionary
             //            let pushInfo = Info.objectForKey("UIApplicationLaunchOptionsRemoteNotificationKey") as! NSDictionary
             //            //获取推送详情
             //            var pushString = pushInfo.objectForKey("aps") as! String
 //            let alert = UIAlertView(title: "报警信息提示", message: "请点击一个老人后，到[我] ->［报警信息］下查看", delegate: nil, cancelButtonTitle: "确认")
 //            alert.show()
+             //      }
         }
-        //      }
         return true
     }
     
@@ -89,6 +84,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
 //            }
  //       }
         
+ //       NSNotificationCenter.defaultCenter().postNotificationName("OpenAlarmView", object: self)
+        
         self.isBackRun = false
     }
     
@@ -107,8 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         self.isBackRun = true
         
-        //按home键后执行，若当前页为Ialarmview，则关闭
-   //     IViewControllerManager.GetInstance()!.IsCurrentAlarmView()
+      
         //如果已存在后台任务，先将其设为完成
         if self.backgroundTask != nil {
             application.endBackgroundTask(self.backgroundTask)
@@ -134,8 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     //6 应用终止，保存上次终止时的重要用户信息
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-       
-        
+
         NSNotificationCenter.defaultCenter().postNotificationName("WarningClose", object: self)
     }
     
@@ -143,8 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     func application(application: UIApplication,
         didReceiveLocalNotification notification: UILocalNotification) {
             if(self.isBackRun){
-                //判断是否接收推送
-                NSNotificationCenter.defaultCenter().postNotificationName("TodoListShouldRefresh", object: self)
+
                 self.isBackRun = false
             }
     }
@@ -170,8 +164,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         
         //若在后台，判断是否登陆，是则跳至报警页面
         if (self.isBackRun && LOGINFLAG ) {
-            let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
-            IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IAlarmView", reload: true)
+           
         }
     }
     //成功注册通知后，获取device token
@@ -181,7 +174,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         token = token.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: " "))
         println("token==\(token)")
         NSUserDefaults.standardUserDefaults().setObject(token, forKey: "DeviceToken")
-        //068df3381f68a8bdca806926556daecc866dcfd90f31a0d2f7deea6ae1e9805c
         
         OpenNotice()
         

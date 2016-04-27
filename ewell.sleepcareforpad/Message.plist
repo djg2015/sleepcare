@@ -48,5 +48,7 @@
 	<string>请先阅读用户服务协议，打勾后才能注册账户！</string>
 	<key>23</key>
 	<string>&quot;使用者&quot;只能关注一个老人；&quot;监护人&quot;可以关注多个老人</string>
+	<key>24</key>
+	<string>您有新的报警信息，请注意查看</string>
 </dict>
 </plist>

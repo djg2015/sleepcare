@@ -23,10 +23,12 @@ class IServerSettingController:IBaseViewController {
     @IBOutlet weak var txtServerPwd: UITextField!
     
 
+    override func viewWillAppear(animated: Bool) {
+     tag = 0
+   
+    }
     
- 
-    
-    //-----------界面事件定义----------------
+
     override func viewDidLoad() {
         super.viewDidLoad()
      //   self.topView.backgroundColor = themeColor[themeName]
