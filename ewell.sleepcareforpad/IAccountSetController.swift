@@ -20,9 +20,13 @@ class IAccountSetController: IBaseViewController, PopDownListItemChoosed{
     
     var popDownListForIphone:PopDownListForIphone?
     var iModifyViewModel:IModifyViewModel!
+    var parentController:MyConfigueTableViewController!
     
     @IBAction func ClickCancle(sender:AnyObject){
     self.dismissViewControllerAnimated(false, completion: nil)
+        tag = 1
+        currentController = parentController
+        self.parentController.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
     }
     
     override func viewDidLoad() {
@@ -39,7 +43,7 @@ class IAccountSetController: IBaseViewController, PopDownListItemChoosed{
     }
     
     override func viewWillAppear(animated: Bool) {
-        tag = 2
+        tag = 1
         
         currentController = self
     }

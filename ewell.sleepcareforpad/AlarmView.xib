@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShowAlarmViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <connections>
                 <outlet property="alarmTableView" destination="HB6-HN-lIn" id="Zdp-UT-4Sr"/>
+                <outlet property="editButton" destination="D1Z-8c-P3Q" id="xfs-SE-hhd"/>
                 <outlet property="view" destination="UnG-0t-9LS" id="56W-md-Ljg"/>
             </connections>
         </placeholder>
@@ -15,24 +16,47 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HB6-HN-lIn">
-                    <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HB6-HN-lIn">
+                    <rect key="frame" x="0.0" y="60" width="320" height="506"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEy-S7-lyc">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="报警信息查看" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvB-1A-ilV">
-                            <rect key="frame" x="109" y="11" width="102" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="报警信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvB-1A-ilV">
+                            <rect key="frame" x="121" y="23" width="78" height="25"/>
                             <animations/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="78" id="SwC-KF-kOl"/>
+                                <constraint firstAttribute="height" constant="25" id="k7I-f8-K2l"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJj-mu-OoK">
-                            <rect key="frame" x="8" y="8" width="46" height="30"/>
+                        <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1Z-8c-P3Q">
+                            <rect key="frame" x="251" y="23" width="61" height="30"/>
                             <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="61" id="6Bp-iQ-P0G"/>
+                                <constraint firstAttribute="height" constant="30" id="T7q-hT-4Ih"/>
+                            </constraints>
+                            <state key="normal" title="管理">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="RightButtonItemAction" destination="-1" eventType="touchUpInside" id="7u0-Vt-oPN"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJj-mu-OoK">
+                            <rect key="frame" x="8" y="23" width="46" height="30"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="L6d-aN-97k"/>
+                                <constraint firstAttribute="width" constant="46" id="R72-fw-4L3"/>
+                            </constraints>
                             <state key="normal" title="关闭">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,25 +67,30 @@
                         </button>
                     </subviews>
                     <animations/>
-                    <color key="backgroundColor" red="0.15727987539999999" green="0.32156862749999998" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.15686274509803921" green="0.34901960784313724" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="c2K-tn-WhN"/>
+                        <constraint firstItem="bJj-mu-OoK" firstAttribute="leading" secondItem="hEy-S7-lyc" secondAttribute="leading" constant="8" id="3Vx-pT-377"/>
+                        <constraint firstItem="D1Z-8c-P3Q" firstAttribute="top" secondItem="hEy-S7-lyc" secondAttribute="top" constant="23" id="8Ek-tl-422"/>
+                        <constraint firstAttribute="centerX" secondItem="uvB-1A-ilV" secondAttribute="centerX" id="Imo-aM-x20"/>
+                        <constraint firstItem="uvB-1A-ilV" firstAttribute="top" secondItem="hEy-S7-lyc" secondAttribute="top" constant="23" id="PpV-IE-w8h"/>
+                        <constraint firstAttribute="height" constant="60" id="c2K-tn-WhN"/>
+                        <constraint firstAttribute="trailing" secondItem="D1Z-8c-P3Q" secondAttribute="trailing" constant="8" id="dET-sM-ITv"/>
+                        <constraint firstItem="bJj-mu-OoK" firstAttribute="top" secondItem="hEy-S7-lyc" secondAttribute="top" constant="23" id="omb-RF-8Sb"/>
                     </constraints>
                 </view>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="HB6-HN-lIn" secondAttribute="trailing" id="8YM-RA-m8r"/>
                 <constraint firstItem="hEy-S7-lyc" firstAttribute="leading" secondItem="UnG-0t-9LS" secondAttribute="leading" id="8oQ-5B-g5F"/>
                 <constraint firstItem="hEy-S7-lyc" firstAttribute="top" secondItem="UnG-0t-9LS" secondAttribute="top" id="Hkx-6W-cY7"/>
                 <constraint firstAttribute="trailing" secondItem="hEy-S7-lyc" secondAttribute="trailing" id="J0Y-jU-4ui"/>
                 <constraint firstItem="HB6-HN-lIn" firstAttribute="leading" secondItem="UnG-0t-9LS" secondAttribute="leading" id="LXg-9R-R2v"/>
-                <constraint firstAttribute="bottom" secondItem="HB6-HN-lIn" secondAttribute="bottom" id="c0X-5F-iTU"/>
+                <constraint firstAttribute="bottom" secondItem="HB6-HN-lIn" secondAttribute="bottom" constant="2" id="c0X-5F-iTU"/>
                 <constraint firstItem="HB6-HN-lIn" firstAttribute="top" secondItem="hEy-S7-lyc" secondAttribute="bottom" id="sGI-yT-awy"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <point key="canvasLocation" x="311" y="-80"/>
+            <point key="canvasLocation" x="627" y="-123"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

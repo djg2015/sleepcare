@@ -24,8 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         
         InitPlistFile()
         
-        
-            //设置启动界面
+                  //设置启动界面
 //            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
 //            self.window!.backgroundColor = UIColor.whiteColor()
 //            self.window!.makeKeyAndVisible()
@@ -39,9 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
 //        var firstview = storyboard.instantiateViewControllerWithIdentifier("RootNavigation") as! UINavigationController
 //        self.window!.addSubview(firstview.view)
         
-        //判断是否由远程消息通知触发应用程序启动
+        
         if ((launchOptions) != nil ) {
-             NSNotificationCenter.defaultCenter().postNotificationName("OpenAlarmView", object: self)
+           
            
             //            let Info = launchOptions! as NSDictionary
             //            let pushInfo = Info.objectForKey("UIApplicationLaunchOptionsRemoteNotificationKey") as! NSDictionary
@@ -87,6 +86,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
  //       NSNotificationCenter.defaultCenter().postNotificationName("OpenAlarmView", object: self)
         
         self.isBackRun = false
+        
+      
+        if (tag == 1 || tag == 3){
+        currentController.viewWillAppear(true)
+        }
     }
     
     
@@ -96,12 +100,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     }
     
 
+  
     func applicationWillResignActive(application: UIApplication) {
-        
+
     }
     
   
     func applicationDidEnterBackground(application: UIApplication) {
+        
+        
         self.isBackRun = true
         
       
@@ -162,10 +169,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         //        let alert = UIAlertView(title: "remote notification", message: Info.objectForKey("alert") as? String, delegate: nil, cancelButtonTitle: "ok")
         //        alert.show()
         
-        //若在后台，判断是否登陆，是则跳至报警页面
-        if (self.isBackRun && LOGINFLAG ) {
-           
+        //后台点击通知,   若已登陆，且报警页面未打开，则跳转报警页面
+        if self.isBackRun{
+         NSNotificationCenter.defaultCenter().postNotificationName("OpenAlarmView", object: self)
         }
+        
+              
     }
     //成功注册通知后，获取device token
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {

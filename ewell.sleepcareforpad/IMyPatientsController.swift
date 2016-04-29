@@ -106,18 +106,15 @@ class IMyPatientsController: UITableViewController  {
 
     override func viewWillAppear(animated: Bool) {
        
+
         tag = 2
         currentController = self
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        self.navigationController?.navigationBar.barTintColor = themeColor[themeName]
+  
         let navigationTitleAttribute: NSDictionary = NSDictionary(objectsAndKeys: UIColor.whiteColor(), NSForegroundColorAttributeName)
         self.navigationController?.navigationBar.titleTextAttributes = navigationTitleAttribute as [NSObject: AnyObject]
-      //  self.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
-      
         
         rac_Setting()
         

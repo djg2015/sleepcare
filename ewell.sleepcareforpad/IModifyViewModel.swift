@@ -212,6 +212,9 @@ class IModifyViewModel:BaseViewModel {
     func AfterModify(isOtherButton: Bool){
         if self.controller != nil{
     self.controller.dismissViewControllerAnimated(false, completion: nil)
+            tag = 1
+         currentController =  self.controller.parentController
+            self.controller.parentController.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         }
     }
     

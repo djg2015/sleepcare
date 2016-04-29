@@ -594,7 +594,6 @@
 				0D2C49111CC8AA78006D3CF5 /* IWeekSleepcareController.swift */,
 				2C0DC3C81BF9A25F0048BEEA /* IEmailViewController.swift */,
 				3A680DBF1C02BD6800D77A22 /* IAccountSetController.swift */,
-				0D2C491B1CC8C884006D3CF5 /* AlarmTableViewController.swift */,
 				0DF49A3B1CD083BA0096BE5E /* ShowAlarmViewController.swift */,
 			);
 			name = iphone;
@@ -621,6 +620,7 @@
 		3A28CA9F1BEC4A27007D9A3A /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				0D2C491B1CC8C884006D3CF5 /* AlarmTableViewController.swift */,
 				0DF396FB1CBF84ED00E3ACD5 /* Root.storyboard */,
 				2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */,
 				0DF49A391CD0653E0096BE5E /* AlarmView.xib */,

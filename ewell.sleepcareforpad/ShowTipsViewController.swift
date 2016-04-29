@@ -22,7 +22,7 @@ class ShowTipsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.webContent = WKWebView(frame: CGRectMake(0, 44, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-44))
+        self.webContent = WKWebView(frame: CGRectMake(0, 60, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-60))
         self.view.addSubview(self.webContent)
         //发出请求，打开url网页
         var URL = NSURL(string:"http://www.usleepcare.com/app/help.aspx")

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SleepViewController: UIViewController,SelectDateEndDelegate,SelectDateDelegate {
+class SleepViewController: IBaseViewController,SelectDateEndDelegate,SelectDateDelegate {
     @IBOutlet weak var process: CircularLoaderView!
     @IBOutlet weak var lblSelectDate: UILabel!
     @IBOutlet weak var viewSleepQuality: BackgroundCommon!
@@ -61,6 +61,8 @@ class SleepViewController: UIViewController,SelectDateEndDelegate,SelectDateDele
     
     @IBAction func CloseWeekReport(segue:UIStoryboardSegue){
         self.dismissViewControllerAnimated(true, completion: nil)
+        tag = 1
+        currentController = self
     }
 
     var _bedUserCode:String!
@@ -84,7 +86,7 @@ class SleepViewController: UIViewController,SelectDateEndDelegate,SelectDateDele
             }
             else
             {
-                lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width-10, (UIScreen.mainScreen().bounds.size.height-49) * 23/55 - 10))
+                lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width-10, (UIScreen.mainScreen().bounds.size.height-49) * 21/53 - 10))
             }
             
             lineChart!.yFixedValueMin = 1
@@ -163,17 +165,15 @@ class SleepViewController: UIViewController,SelectDateEndDelegate,SelectDateDele
     
     override func viewWillAppear(animated: Bool) {
         
-            self._bedUserCode = SessionForIphone.GetSession()?.CurPatientCode
+        self._bedUserCode = SessionForIphone.GetSession()?.CurPatientCode
         self.sleepQualityViewModel?.BedUserCode = self._bedUserCode
         self.sleepQualityViewModel!.loadPatientSleep(self._bedUserCode)
         
-      
-            tag = 1
-           
-            currentController = self
+        tag = 1
+        currentController = self
         
     }
-    
+  
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "WeekReport" {

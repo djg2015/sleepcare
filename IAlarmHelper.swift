@@ -15,6 +15,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     var alarmpicdelegate:SetAlarmPicDelegate!
     var tabbarBadgeDelegate:SetTabbarBadgeDelegate!
+    var alarmtableviewDelegate:ReloadAlarmTableViewDelegate!
     
     private var _wariningCaches:Array<AlarmInfo>!
     
@@ -118,21 +119,23 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         self.setAlarmTimer()
     }
     
-    //显示报警信息
+    //点击远程消息通知，若已登录且当前不是报警页面，则直接跳转报警信息页面
     func showWariningAction(){
         if (tag == 1 || tag == 2){
-        SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.CheckAlarmInfo), subTitle:"提示", style: AlertStyle.None,buttonTitle:"忽略",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"立即查看", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ShowAlarmInfo)
+           let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
+            nextController.parentController = currentController
+       currentController.presentViewController(nextController, animated: true, completion: nil)
+           
+        }
+            //当前是报警页面，则刷新
+        else if (tag == 3){
+            if self.alarmtableviewDelegate != nil{
+                self.alarmtableviewDelegate.ReloadAlarmTableView()
+            }
         }
     }
-    func ShowAlarmInfo(isOtherButton: Bool){
-        //点击“立即查看”,若当前不是alarmviewcontroller，则跳转alarmview页面
-    if !isOtherButton{
-        currentController.presentViewController(ShowAlarmViewController(nibName:"AlarmView", bundle:nil), animated: true, completion: nil)
-        
-        }
     
-    }
-    
+
     //获取报警信息数
     func GetAlarmCount()->Int{
     return self.Warningcouts
@@ -253,6 +256,9 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             
             self._wariningCaches.removeAtIndex(0)
             self.WarningList = tempWarningList
+            
+            self.showWariningNotification()
+            
         }
         self.Warningcouts = self.WarningList.count
         
@@ -265,6 +271,34 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         }
     }
     
+    //若当前已登录且不是报警页面，则弹窗提示
+    func showWariningNotification(){
+        if alarmAlert {
+            if (tag == 1 || tag == 2){
+            alarmAlert = false
+    SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.CheckAlarmInfo), subTitle:"提示", style: AlertStyle.None,buttonTitle:"忽略",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"立即查看", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ShowAlarmInfo)
+        }
+        }
+            //当前是报警页面，则刷新
+        else{
+            if self.alarmtableviewDelegate != nil{
+            self.alarmtableviewDelegate.ReloadAlarmTableView()
+            }
+        }
+    }
+    //弹窗按钮的具体操作
+    func ShowAlarmInfo(isOtherButton: Bool){
+       alarmAlert = true
+        //点击“立即查看”,则跳转alarmview页面
+        if !isOtherButton{
+            let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
+            nextController.parentController = currentController
+            currentController.presentViewController(nextController, animated: true, completion: nil)
+           
+        }
+        
+    }
+
     //获取原始报警数据warningcaches,通过bedcode过滤为需要的报警信息
     //检查是否已有alarmcode
     func GetWaringAttentionDelegate(alarmList:AlarmList){
@@ -303,7 +337,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                                     }//删除已处理的报警
                                 }
                                     
-                                    //不存在，则加入到codes和warningCaches里
+                                    //不存在此code信息，则加入到codes和warningCaches里
                                 else{
                                     if alarmList.alarmInfoList[i].HandleFlag == "0"
                                     {
@@ -346,7 +380,10 @@ protocol SetTabbarBadgeDelegate{
     func SetTabbarBadge(count:Int)
 }
 
-
+//刷新报警页面
+protocol ReloadAlarmTableViewDelegate{
+func ReloadAlarmTableView()
+}
 
 class WarningInfo{
     var AlarmCode:String = ""

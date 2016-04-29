@@ -8,8 +8,13 @@
 
 import UIKit
 
-class TabbarController: UITabBarController {
- 
+class TabbarController: UITabBarController{
+   
+    
+    @IBAction func UnwindShowPatientDetail(unwindsegue:UIStoryboardSegue){
+        
+        
+    }
    
     //每次页面显示时执行。如果curPatientCode＝＝nil，默认选择“我”；不为空，选择“心率”
     override func viewWillAppear(animated:Bool) {
@@ -72,3 +77,4 @@ class TabbarController: UITabBarController {
     }
 
 }
+

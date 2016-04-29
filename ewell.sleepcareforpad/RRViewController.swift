@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RRViewController: UIViewController {
+class RRViewController: IBaseViewController{
 
     @IBOutlet weak var statusImage: UIImageView!
     @IBOutlet weak var lblOnBedStatus: UILabel!
@@ -33,7 +33,7 @@ class RRViewController: UIViewController {
             }
             else
             {
-                lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width-10, (UIScreen.mainScreen().bounds.size.height-49) * 23/55 - 10))
+                lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width-10, (UIScreen.mainScreen().bounds.size.height-49) * 21/53 - 10))
              //    lineChart = PNLineChart(frame: CGRectMake(10, 10,  viewChart.frame.width-10, viewChart.frame.height-10))
                 
             }
@@ -103,28 +103,28 @@ class RRViewController: UIViewController {
     
     
     override func viewWillAppear(animated: Bool) {
-       
-            self._bedUserCode = SessionForIphone.GetSession()?.CurPatientCode
-            self._bedUserName = SessionForIphone.GetSession()?.CurPatientName
+        self._bedUserCode = SessionForIphone.GetSession()?.CurPatientCode
+        self._bedUserName = SessionForIphone.GetSession()?.CurPatientName
         self.rrMonitorViewModel!.BedUserCode = _bedUserCode
         self.rrMonitorViewModel!.BedUserName = _bedUserName
         
         self.rrMonitorViewModel!.loadPatientRR(_bedUserCode)
         
-       
-            tag = 1
-            currentController = self
-      
+        
+        tag = 1
+        currentController = self
+
+        
     }
     
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         rac_settings()
-        
-        
+ 
     }
     
     override func didReceiveMemoryWarning() {

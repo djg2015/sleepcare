@@ -50,6 +50,7 @@ class ILoginController: IBaseViewController,LoginButtonDelegate {
             
             CloseNotice()
             LOGINFLAG = false
+            alarmAlert = true
             IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
         }
         

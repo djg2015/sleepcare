@@ -97,6 +97,12 @@ extension String {
         return self.componentsSeparatedByString(s)
     }
     
-    
+//    func setStatusBarBackgroundColor() {
+//        
+//        if UIApplication.sharedApplication().valueForKey("statusBarWindow")?.valueForKey("statusBar") != nil{
+//         let statusBar = UIApplication.sharedApplication().valueForKey("statusBarWindow")?.valueForKey("statusBar") as! UIView
+//            statusBar.backgroundColor = themeColor[themeName]
+//        }
+//    }
    
 }

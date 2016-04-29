@@ -54,7 +54,7 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
     }
     func ShowRealTimeData(){
         for key in self.delegateList.keys{
-            if self.delegateList[key] != nil{
+            if (self.delegateList[key] != nil && self.realTimeCaches != nil){
             self.delegateList[key]!.GetRealtimeData(self.realTimeCaches!)
             }
         }

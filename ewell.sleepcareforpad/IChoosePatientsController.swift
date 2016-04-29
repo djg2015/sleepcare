@@ -26,13 +26,13 @@ class IChoosePatientsController: IBaseViewController {
             var session = SessionForIphone.GetSession()
             //使用者单选，右边页面显示tbPatients
             if(session!.User?.UserType == LoginUserType.UserSelf){
-                self.tbPatients.ShowTableView("BedPatientCell", cellID: "BedPatientCell",source: self.PartBedUserArray, cellHeight: 100)
+                self.tbPatients.ShowTableView("BedPatientCell", cellID: "BedPatientCell",source: self.PartBedUserArray, cellHeight: 77)
                 self.tbPatientsDouble.hidden = true
                 self.tbPatients.hidden = false
             }
             //监护人多选，右边页面显示tbPatientsDouble
             else{
-                self.tbPatientsDouble.ShowTableView("BedPatientCell", cellID: "BedPatientCell",source: self.PartBedUserArray, cellHeight: 100)
+                self.tbPatientsDouble.ShowTableView("BedPatientCell", cellID: "BedPatientCell",source: self.PartBedUserArray, cellHeight: 77)
                 self.tbPatientsDouble.hidden = false
                 self.tbPatients.hidden = true
             }
@@ -88,7 +88,7 @@ class IChoosePatientsController: IBaseViewController {
       
         RACObserve(self.viewModel, "PartBedUserArray") ~> RAC(self, "PartBedUserArray")
     //    self.btnConfirm.rac_command = self.viewModel.commitCommand
-        self.tbParts.ShowTableView("PartTableCell",cellID: "partCell", source: self.viewModel.PartArray, cellHeight: 100)
+        self.tbParts.ShowTableView("PartTableCell",cellID: "partCell", source: self.viewModel.PartArray, cellHeight: 77)
 
     }
 

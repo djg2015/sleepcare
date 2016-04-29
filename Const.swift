@@ -14,7 +14,7 @@ let xmpp_Timeout:NSTimeInterval = 3000
 var LOGINFLAG:Bool = false
 
 //主题颜色
-let DEFAULTCOLOR = UIColor.colorFromRGB(0x2052AA)
+let DEFAULTCOLOR = UIColor.colorFromRGB(0x2859AE)
 let BLACKCOLOR = UIColor.colorFromRGB(0x1F222C)
 var themeName:String = "default"
 var themeColor:Dictionary<String,UIColor> = ["default": DEFAULTCOLOR,"black": BLACKCOLOR]
@@ -48,3 +48,7 @@ let HIGHCOLOR:UIColor = UIColor.redColor()
 //记录当前显示的页面controller：tag值规定，未登录前0，登录后主页面tabbar和4个字页面为1，报警页面为3，其他页面为2
 var tag:Int = 0
 var currentController:UIViewController!
+//允许报警弹窗
+var alarmAlert:Bool = true
+
+

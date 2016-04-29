@@ -8,13 +8,14 @@
 
 import UIKit
 
-class HRViewController: UIViewController {
+class HRViewController: IBaseViewController {
      @IBOutlet weak var statusImage: UIImageView!
     @IBOutlet weak var lblOnBedStatus: UILabel!
     @IBOutlet weak var processHR: CircularLoaderView!
     @IBOutlet weak var lblLastHR: UILabel!
     @IBOutlet weak var viewChart: BackgroundCommon!
     @IBOutlet weak var lblBedUserName: UILabel!
+    
     
      var hrMonitorViewModel:IHRMonitorViewModel!
     var lblHR:UILabel!
@@ -32,7 +33,7 @@ class HRViewController: UIViewController {
             }
             else
             {
-          lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width-10, (UIScreen.mainScreen().bounds.size.height-49) * 23/55 - 10))
+          lineChart = PNLineChart(frame: CGRectMake(0, 10,  UIScreen.mainScreen().bounds.size.width-10, (UIScreen.mainScreen().bounds.size.height-49) * 21/53 - 10))
             //    lineChart = PNLineChart(frame: CGRectMake(10, 10,  viewChart.frame.width-10, viewChart.frame.height-10))
                 
             }
@@ -102,16 +103,14 @@ class HRViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
+        
             self._bedUserCode = SessionForIphone.GetSession()?.CurPatientCode
             self._bedUserName = SessionForIphone.GetSession()?.CurPatientName
-        self.hrMonitorViewModel!.BedUserCode = _bedUserCode
-        self.hrMonitorViewModel!.BedUserName = _bedUserName
-
-        self.hrMonitorViewModel!.loadPatientHR(_bedUserCode)
-       
-       
+            self.hrMonitorViewModel!.BedUserCode = _bedUserCode
+            self.hrMonitorViewModel!.BedUserName = _bedUserName
+            self.hrMonitorViewModel!.loadPatientHR(_bedUserCode)
+            
             tag = 1
-           
             currentController = self
     }
     
@@ -122,6 +121,7 @@ class HRViewController: UIViewController {
         // Do any additional setup after loading the view.
          rac_settings()
         
+
         
     }
 
@@ -130,6 +130,7 @@ class HRViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+   
     
     //加载初始画面
     func rac_settings(){
@@ -159,4 +160,7 @@ class HRViewController: UIViewController {
         RACObserve(self.hrMonitorViewModel, "BedUserName") ~> RAC(self.lblBedUserName, "text")
     }
    
+    
+   
 }
+

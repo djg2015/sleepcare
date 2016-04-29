@@ -57,7 +57,7 @@ class IViewControllerManager {
             var index = self.ControllerList.count - 1
             self.ControllerList[index].dismissViewControllerAnimated(false, completion: nil)
             var removecontroller = self.ControllerList.removeAtIndex(index)
-            removecontroller.Clean()
+          //  removecontroller.Clean()
         }
     }
     }
@@ -76,7 +76,7 @@ class IViewControllerManager {
              //需要reload，则从控制器列表中取出并清除
             if (reload && index >= 0){
                var removecontroller = self.ControllerList.removeAtIndex(index)
-                removecontroller.Clean()
+          //      removecontroller.Clean()
             }
             self.CurrentController!.presentViewController(nextcontroller, animated: true, completion: nil)
             self.ControllerList.append(nextcontroller)
@@ -89,7 +89,7 @@ class IViewControllerManager {
         self.CurrentController!.dismissViewControllerAnimated(false, completion: nil)
         var index = self.ControllerList.count - 1
         var removecontroller = self.ControllerList.removeAtIndex(index)
-        removecontroller.Clean()
+      //  removecontroller.Clean()
     }
     
     //判断控制器列表中找名为nibname的控制器,返回index值； 不存在，返回 －1

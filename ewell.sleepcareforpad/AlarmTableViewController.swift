@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlarmTableViewController: UITableViewController {
+class AlarmTableViewController: UITableViewController,ReloadAlarmTableViewDelegate {
     var alarmViewModel:AlarmViewModel?
     var _source:Array<AlarmTableCellViewModel>!
     
@@ -19,6 +19,9 @@ class AlarmTableViewController: UITableViewController {
     @IBOutlet weak var barButtonItem: UIBarButtonItem!
     
     
+  //  @IBAction func back(sender:AnyObject){
+ //    self.dismissViewControllerAnimated(true, completion: nil)
+  //    }
     override func viewWillAppear(animated: Bool) {
         if self.alarmViewModel == nil{
             self.alarmViewModel = AlarmViewModel()
@@ -37,18 +40,16 @@ class AlarmTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    
-//        self.navigationController?.navigationBar.barTintColor = themeColor[themeName]
-//        let navigationTitleAttribute: NSDictionary = NSDictionary(objectsAndKeys: UIColor.whiteColor(), NSForegroundColorAttributeName)
-//        self.navigationController?.navigationBar.titleTextAttributes = navigationTitleAttribute as [NSObject: AnyObject]
+
+        let navigationTitleAttribute: NSDictionary = NSDictionary(objectsAndKeys: UIColor.whiteColor(), NSForegroundColorAttributeName)
+        self.navigationController?.navigationBar.titleTextAttributes = navigationTitleAttribute as [NSObject: AnyObject]
         
         
         //初始化数据
         self.alarmViewModel = AlarmViewModel()
         self._source = self.alarmViewModel!.AlarmArray
         
-        
+        IAlarmHelper.GetAlarmInstance().alarmtableviewDelegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -193,4 +194,16 @@ class AlarmTableViewController: UITableViewController {
         }
     }
     
+    //协议
+    func ReloadAlarmTableView(){
+        if self.alarmViewModel == nil{
+            self.alarmViewModel = AlarmViewModel()
+        }
+        else{
+            self.alarmViewModel!.LoadData()
+        }
+        
+        self._source = self.alarmViewModel!.AlarmArray
+    
+    }
 }

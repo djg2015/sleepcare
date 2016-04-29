@@ -8,8 +8,12 @@
 
 import UIKit
 
-class MyConfigueTableViewController: UITableViewController,SetTabbarBadgeDelegate ,SetAlarmPicDelegate{
+class MyConfigueTableViewController:UITableViewController,SetTabbarBadgeDelegate ,SetAlarmPicDelegate{
     
+    @IBOutlet weak var usertypeLbl: UILabel!
+  
+    @IBOutlet weak var logoutCell: UITableViewCell!
+   
     @IBOutlet weak var alarmTableCell: UITableViewCell!
     @IBOutlet weak var alarmImg: UIImageView!
    
@@ -17,23 +21,23 @@ class MyConfigueTableViewController: UITableViewController,SetTabbarBadgeDelegat
     let session = SessionForIphone.GetSession()
     
     @IBAction func CloseShowTips(segue:UIStoryboardSegue){
-        self.dismissViewControllerAnimated(true, completion: nil)
-        tag = 1
+            tag = 1
         currentController = self
+      self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
     }
     
     
     @IBAction func CloseShowInfo(segue:UIStoryboardSegue){
-        self.dismissViewControllerAnimated(true, completion: nil)
+    
         tag = 1
         currentController = self
+       self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
     }
     
     //关闭“我的老人窗口”，1更新父页面上的报警数目；2若是“监护人”且beduserlist不为空，则更新curbeduser信息为这个老人
     @IBAction func CloseMyPatients(segue:UIStoryboardSegue){
         IAlarmHelper.GetAlarmInstance().ReloadUndealedWarning()
-        
-        
+
         if session?.User?.UserType == LoginUserType.UserSelf{
             try {
                 ({
@@ -56,51 +60,57 @@ class MyConfigueTableViewController: UITableViewController,SetTabbarBadgeDelegat
                 )}
         }
         
-        self.dismissViewControllerAnimated(true, completion: nil)
-        
-    }
     
-    @IBAction func CloseAlarmView(segue:UIStoryboardSegue){
-    self.dismissViewControllerAnimated(true, completion: nil)
         tag = 1
         currentController = self
-    //self.navigationController?.popViewControllerAnimated(true)
-        
-        
+       self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
     }
-    @IBAction func UnwindShowPatientDetail(unwindsegue:UIStoryboardSegue){
-        self.dismissViewControllerAnimated(true, completion: nil)
-        tag = 1
-        currentController = self
-        
+//    
+//    @IBAction func CloseAlarmView(segue:UIStoryboardSegue){
+// 
+//        tag = 1
+//        currentController = self
+//  
+//        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+//    }
+   
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ModifyAccount" {
+            let vc = segue.destinationViewController as! IAccountSetController
+            vc.parentController = self
+          
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
         tag = 1
         currentController = self
-        
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         if SessionForIphone.GetSession()?.User?.UserType == LoginUserType.Monitor{
             let alarmcount =  IAlarmHelper.GetAlarmInstance().GetAlarmCount()
             self.SetTabbarBadge(alarmcount)
             self.SetAlarmPic(alarmcount)
-            
-            
+
         }
-        
-        
-        
+       
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+       // self.logoutCell.frame = CGRectMake(0,368,  UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-412)
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+//        let naviframe = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 30)
+//        var navigationBar = UINavigationBar(frame:naviframe)
+//        navigationBar.backgroundColor = themeColor[themeName]
+//        var navigationItem = UINavigationItem(title: "监护人")
+//          navigationBar.pushNavigationItem(navigationItem,animated:true)
+//        self.tableView.tableHeaderView = navigationBar
+      
         
-        
+             
         //监护人显示报警cell，对使用者隐藏
         if SessionForIphone.GetSession()?.User?.UserType == LoginUserType.Monitor{
             self.alarmTableCell.hidden = false
@@ -110,9 +120,12 @@ class MyConfigueTableViewController: UITableViewController,SetTabbarBadgeDelegat
             }
             IAlarmHelper.GetAlarmInstance().tabbarBadgeDelegate = self
             IAlarmHelper.GetAlarmInstance().alarmpicdelegate = self
+            
+            self.usertypeLbl.text = "监护人"
         }
         else{
             self.alarmTableCell.hidden = true
+            self.usertypeLbl.text = "使用者"
         }
         
         
@@ -129,6 +142,11 @@ class MyConfigueTableViewController: UITableViewController,SetTabbarBadgeDelegat
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        if indexPath.row == 6{
+            let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
+            nextController.parentController = self
+        self.presentViewController(nextController, animated: true, completion: nil)
+        }
     }
     
     
