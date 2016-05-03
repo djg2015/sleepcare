@@ -60,7 +60,7 @@ class SleepViewController: IBaseViewController,SelectDateEndDelegate,SelectDateD
     }
     
     @IBAction func CloseWeekReport(segue:UIStoryboardSegue){
-        self.dismissViewControllerAnimated(true, completion: nil)
+   //     self.dismissViewControllerAnimated(true, completion: nil)
         tag = 1
         currentController = self
     }
@@ -166,9 +166,12 @@ class SleepViewController: IBaseViewController,SelectDateEndDelegate,SelectDateD
     override func viewWillAppear(animated: Bool) {
         
         self._bedUserCode = SessionForIphone.GetSession()?.CurPatientCode
-        self.sleepQualityViewModel?.BedUserCode = self._bedUserCode
-        self.sleepQualityViewModel!.loadPatientSleep(self._bedUserCode)
         
+        if self.sleepQualityViewModel == nil{
+        self.sleepQualityViewModel = ISleepQualityMonitorViewModel()
+        }
+        self.sleepQualityViewModel!.BedUserCode = self._bedUserCode
+        self.sleepQualityViewModel!.loadPatientSleep(self._bedUserCode)
         tag = 1
         currentController = self
         
@@ -182,12 +185,7 @@ class SleepViewController: IBaseViewController,SelectDateEndDelegate,SelectDateD
             vc.sleepDate = self.sleepReportDate
             
         }
-//        else if segue.identifier == "SendEmail" {
-//            let vc = segue.destinationViewController as! IEmailViewController
-//            vc.BedUserCode = self._bedUserCode
-//            vc.SleepDate = self.sleepReportDate
-//        }
-        
+
     }
     
     override func viewDidLoad() {
@@ -206,8 +204,6 @@ class SleepViewController: IBaseViewController,SelectDateEndDelegate,SelectDateD
     
     
     func rac_settings(){
-   
-       
     self.sleepQualityViewModel = ISleepQualityMonitorViewModel()
         
        

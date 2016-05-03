@@ -1,6 +1,6 @@
 //
 //  ShowAlarmViewController.swift
-//  
+//
 //
 //  Created by Qinyuan Liu on 4/27/16.
 //
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ShowAlarmViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,ReloadAlarmTableViewDelegate {
-
+class ShowAlarmViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var alarmTableView: UITableView!
     var source:Array<AlarmTableCellViewModel>!
@@ -19,11 +19,13 @@ class ShowAlarmViewController: UIViewController, UITableViewDelegate, UITableVie
     var parentController:UIViewController!
     
     @IBAction func Close(sender:AnyObject){
-    tag = 1
+        tag = 1
         if self.parentController != nil{
-    currentController = self.parentController
+            currentController = self.parentController
         }
-    self.dismissViewControllerAnimated(true, completion: nil)
+        
+              
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func RightButtonItemAction(){
@@ -42,23 +44,23 @@ class ShowAlarmViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.alarmTableView.dataSource = self
         self.alarmTableView.delegate = self
         self.alarmTableView.registerNib(UINib(nibName: "alarmCell", bundle:nil), forCellReuseIdentifier: "alarmCell")
-    
         
-         tag = 3
+        
+        tag = 3
         currentController = self
-         IAlarmHelper.GetAlarmInstance().alarmtableviewDelegate = self
+        
     }
     
     override func viewWillAppear(animated: Bool) {
-     print(self.parentController)
+        
         if self.alarmViewModel == nil{
             self.alarmViewModel = AlarmViewModel()
         }
@@ -68,8 +70,8 @@ class ShowAlarmViewController: UIViewController, UITableViewDelegate, UITableVie
         
         self.source = self.alarmViewModel!.AlarmArray
     }
-
-
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -96,9 +98,9 @@ class ShowAlarmViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle{
         return UITableViewCellEditingStyle.Delete
     }
-
+    
     //提交删除单个cell
-     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         if(editingStyle == UITableViewCellEditingStyle.Delete){
             //调用服务器接口方法删除这个老人信息（标记为已读，不进行处理，但不会再接收到这条报警）
             self.source[indexPath.row].deleteAlarmHandler!(alarmViewModel: self.source[indexPath.row])
@@ -106,8 +108,6 @@ class ShowAlarmViewController: UIViewController, UITableViewDelegate, UITableVie
             self.source.removeAtIndex(indexPath.row)
             //删除tableview中的这个老人
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-            //更新报警信息
-            // IAlarmHelper.GetAlarmInstance().Warningcouts = IAlarmHelper.GetAlarmInstance().Warningcouts - 1
             
             //数据源为空的时候管理按钮不能删除
             if self.source.count == 0{
@@ -116,27 +116,27 @@ class ShowAlarmViewController: UIViewController, UITableViewDelegate, UITableVie
             
         }
     }
-
+    
     //点击选中时，加入deleteDic
-     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if editButton.titleLabel!.text == "删除选中"{
             self.deleteDic[indexPath.row] = self.source[indexPath.row].AlarmCode!
         }
     }
     
     //点击取消选中时，从deleteDic中删除
-   func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         if editButton.titleLabel!.text == "删除选中"{
             self.deleteDic[indexPath.row] = nil
         }
     }
-
+    
     
     //自定义单元格
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell:AlarmTableViewCell! = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath) as! AlarmTableViewCell
-       
+        
         if(cell == nil){
             cell = AlarmTableViewCell()
         }
@@ -146,7 +146,7 @@ class ShowAlarmViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
         
     }
-   
+    
     //删除选中的cell
     func DeleteMutipleAlarm(){
         if self.deleteDic.count > 0{
@@ -173,9 +173,20 @@ class ShowAlarmViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             
             //data source中删除这个老人的信息
+            var tempsource = self.source
+            var tempsource2 = Array<AlarmTableCellViewModel>()
+            //把要删除的cell置空
             for index in tempAlarmIndex{
-                self.source.removeAtIndex(index)
+                tempsource[index] = AlarmTableCellViewModel()
             }
+            //从临时source数组中取出非空的cell，放入tempsource2
+            for tempcell in tempsource{
+                if tempcell.AlarmCode != nil{
+                    tempsource2.append(tempcell)
+                }
+            }
+            //把删除后的列表赋值给真正的source
+            self.source = tempsource2
             
             
             self.deleteDic = Dictionary<Int,String>()
@@ -189,18 +200,5 @@ class ShowAlarmViewController: UIViewController, UITableViewDelegate, UITableVie
             //刷新表格
             self.alarmTableView.reloadData()
         }
-    }
-    
-    //协议
-    func ReloadAlarmTableView(){
-        if self.alarmViewModel == nil{
-            self.alarmViewModel = AlarmViewModel()
-        }
-        else{
-            self.alarmViewModel!.LoadData()
-        }
-        
-        self.source = self.alarmViewModel!.AlarmArray
-        
     }
 }

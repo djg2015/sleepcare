@@ -129,13 +129,13 @@ class IRegistViewModel:BaseViewModel {
         
         try {
             ({
-                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                //用默认账户pad密码123连接openfire
-                let isLogin = xmppMsgManager!.RegistConnect()
-                if(!isLogin){
-                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-                }
-                else{
+//                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+//                //用默认账户pad密码123连接openfire
+//                let isLogin = xmppMsgManager!.RegistConnect()
+//                if(!isLogin){
+//                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+//                }
+//                else{
                     //获取当前所有养老院的名字
                     var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                     var mainInfoList:IMainInfoList =  sleepCareForIPhoneBussinessManager.GetAllMainInfo()
@@ -145,6 +145,7 @@ class IRegistViewModel:BaseViewModel {
                         item.value = mainInfoList.mainInfoList[i].MainName
                         self.MainBusinesses.append(item)
                     }
+                    MainHouseNames = self.MainBusinesses
                     
                     //设置账户类型：使用者，监护人
                     var item:PopDownListItem = PopDownListItem()
@@ -154,7 +155,7 @@ class IRegistViewModel:BaseViewModel {
                     item.key = LoginUserType.Monitor
                     item.value = "监护人"
                     self.TypeBusinesses.append(item)
-                }
+    //            }
                 },
                 catch: { ex in
                     //异常处理
@@ -195,25 +196,25 @@ class IRegistViewModel:BaseViewModel {
                 
                 //已经勾选了服务协议，尝试注册账户
                 if self.IsChecked{
-                    var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                    let isconnect = xmppMsgManager!.RegistConnect()
-                    if(!isconnect){
-                        showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-                    }
-                    else{
+//                    var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+//                    let isconnect = xmppMsgManager!.RegistConnect()
+//                    if(!isconnect){
+//                        showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+//                    }
+//                    else{
                         var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                         let result:ServerResult =  sleepCareForIPhoneBussinessManager.Regist(self.LoginName, loginPassword: self.Pwd, mainCode: self.MainCode)
                         //注册账户成功后，继续设置账户类型
                         if result.Result{
                         let result2:ServerResult = sleepCareForIPhoneBussinessManager.SaveUserType(self.LoginName, userType: self.LoginType)
                             if result2.Result{
-                                showDialogMsg(ShowMessage(MessageEnum.RegistAccountSuccess), "提示", buttonTitle: "确定", action: self.AfterRegist)
+                                showDialogMsg(ShowMessage(MessageEnum.RegistAccountSuccess), "提示", buttonTitle: "确定", action: self.AfterRegistSuccess)
                             }
                         }
                         else{
-                            showDialogMsg(ShowMessage(MessageEnum.RegistAccountFail),"提示" ,buttonTitle: "确定", action: self.AfterRegist)
+                            showDialogMsg(ShowMessage(MessageEnum.RegistAccountFail),"提示" ,buttonTitle: "确定", action: self.AfterRegistFail)
                         }
-                    }
+    //                }
                 }
                 else{
                     showDialogMsg(ShowMessage(MessageEnum.NeedCheckProtol))
@@ -234,13 +235,21 @@ class IRegistViewModel:BaseViewModel {
     }
     
     
-    //点击注册,弹窗后的操作
-    func AfterRegist(isOtherButton: Bool){
+    //点击注册成功,弹窗后的操作
+    func AfterRegistSuccess(isOtherButton: Bool){
+        
+        //关闭默认openfire账户的连接
+        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+        xmppMsgManager!.Close()
+
+    }
+    //点击注册失败,弹窗后的操作
+    func AfterRegistFail(isOtherButton: Bool){
         //关闭默认openfire账户的连接
         var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
         xmppMsgManager!.Close()
     }
-    
+
     
 }
 

@@ -23,6 +23,7 @@ class MyConfigueTableViewController:UITableViewController,SetTabbarBadgeDelegate
     @IBAction func CloseShowTips(segue:UIStoryboardSegue){
             tag = 1
         currentController = self
+        
       self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
     }
     
@@ -31,7 +32,7 @@ class MyConfigueTableViewController:UITableViewController,SetTabbarBadgeDelegate
     
         tag = 1
         currentController = self
-       self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+              self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
     }
     
     //关闭“我的老人窗口”，1更新父页面上的报警数目；2若是“监护人”且beduserlist不为空，则更新curbeduser信息为这个老人
@@ -63,6 +64,7 @@ class MyConfigueTableViewController:UITableViewController,SetTabbarBadgeDelegate
     
         tag = 1
         currentController = self
+        
        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
     }
 //    
@@ -87,6 +89,7 @@ class MyConfigueTableViewController:UITableViewController,SetTabbarBadgeDelegate
         tag = 1
         currentController = self
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        
         if SessionForIphone.GetSession()?.User?.UserType == LoginUserType.Monitor{
             let alarmcount =  IAlarmHelper.GetAlarmInstance().GetAlarmCount()
             self.SetTabbarBadge(alarmcount)
@@ -98,31 +101,20 @@ class MyConfigueTableViewController:UITableViewController,SetTabbarBadgeDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
-       // self.logoutCell.frame = CGRectMake(0,368,  UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height-412)
-        
-//        let naviframe = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 30)
-//        var navigationBar = UINavigationBar(frame:naviframe)
-//        navigationBar.backgroundColor = themeColor[themeName]
-//        var navigationItem = UINavigationItem(title: "监护人")
-//          navigationBar.pushNavigationItem(navigationItem,animated:true)
-//        self.tableView.tableHeaderView = navigationBar
-      
-        
              
         //监护人显示报警cell，对使用者隐藏
         if SessionForIphone.GetSession()?.User?.UserType == LoginUserType.Monitor{
             self.alarmTableCell.hidden = false
+
             //设置tabbar上的报警数目,设置实时报警代理
             if IAlarmHelper.GetAlarmInstance().Warningcouts > 0{
                 self.tabBarItem.badgeValue = String(IAlarmHelper.GetAlarmInstance().Warningcouts)
             }
             IAlarmHelper.GetAlarmInstance().tabbarBadgeDelegate = self
             IAlarmHelper.GetAlarmInstance().alarmpicdelegate = self
-            
             self.usertypeLbl.text = "监护人"
         }
+            //使用者
         else{
             self.alarmTableCell.hidden = true
             self.usertypeLbl.text = "使用者"

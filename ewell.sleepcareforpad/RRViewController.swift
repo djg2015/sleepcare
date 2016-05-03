@@ -105,12 +105,12 @@ class RRViewController: IBaseViewController{
     override func viewWillAppear(animated: Bool) {
         self._bedUserCode = SessionForIphone.GetSession()?.CurPatientCode
         self._bedUserName = SessionForIphone.GetSession()?.CurPatientName
+        if self.rrMonitorViewModel == nil{
+        self.rrMonitorViewModel = IRRMonitorViewModel()
+        }
         self.rrMonitorViewModel!.BedUserCode = _bedUserCode
         self.rrMonitorViewModel!.BedUserName = _bedUserName
-        
         self.rrMonitorViewModel!.loadPatientRR(_bedUserCode)
-        
-        
         tag = 1
         currentController = self
 

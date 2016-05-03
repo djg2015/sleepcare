@@ -14,7 +14,6 @@
 		0D2C49121CC8AA78006D3CF5 /* IWeekSleepcareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2C49111CC8AA78006D3CF5 /* IWeekSleepcareController.swift */; };
 		0D2C49161CC8C4C1006D3CF5 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2C49151CC8C4C1006D3CF5 /* AlarmTableViewCell.swift */; };
 		0D2C49181CC8C572006D3CF5 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2C49171CC8C572006D3CF5 /* AlarmViewModel.swift */; };
-		0D2C491C1CC8C884006D3CF5 /* AlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2C491B1CC8C884006D3CF5 /* AlarmTableViewController.swift */; };
 		0D336D0E1C92596D0049883F /* RemoteNoticeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */; };
 		0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */; };
 		0D35D5FA1C4CC3D8009F8EB2 /* Message.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D35D5F91C4CC3D8009F8EB2 /* Message.plist */; };
@@ -216,7 +215,6 @@
 		0D2C49111CC8AA78006D3CF5 /* IWeekSleepcareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IWeekSleepcareController.swift; sourceTree = "<group>"; };
 		0D2C49151CC8C4C1006D3CF5 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		0D2C49171CC8C572006D3CF5 /* AlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
-		0D2C491B1CC8C884006D3CF5 /* AlarmTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewController.swift; sourceTree = "<group>"; };
 		0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNoticeHelper.swift; sourceTree = "<group>"; };
 		0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHelper.swift; sourceTree = "<group>"; };
 		0D35D5F91C4CC3D8009F8EB2 /* Message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Message.plist; sourceTree = "<group>"; };
@@ -620,7 +618,6 @@
 		3A28CA9F1BEC4A27007D9A3A /* iphone */ = {
 			isa = PBXGroup;
 			children = (
-				0D2C491B1CC8C884006D3CF5 /* AlarmTableViewController.swift */,
 				0DF396FB1CBF84ED00E3ACD5 /* Root.storyboard */,
 				2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */,
 				0DF49A391CD0653E0096BE5E /* AlarmView.xib */,
@@ -765,6 +762,9 @@
 				3A3262DE1BB912180002687B /* OSSExceptionHelper.m */,
 				3A3262DF1BB912180002687B /* OSSTry.swift */,
 				3A41ADED1BA7B45D000C109B /* MessageDelegate.swift */,
+				0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */,
+				3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */,
+				3A1F16FE1BF5A5100051E9AF /* BusinessFactory.swift */,
 				3A41ADEE1BA7B45D000C109B /* ReactiveCocoa.swift */,
 				3A4CD3F71BA804D2002C8A1A /* XmppMsgManager.swift */,
 				3A4CD3F91BA80536002C8A1A /* CommonHelper.swift */,
@@ -773,11 +773,8 @@
 				0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */,
 				0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */,
 				3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */,
-				3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */,
-				3A1F16FE1BF5A5100051E9AF /* BusinessFactory.swift */,
-				0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */,
 				0DC228561C224DD800AF4737 /* IAlarmHelper.swift */,
-				0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */,
+				0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */,
 				0DF6BD811C59AB26007BF0A9 /* DateFormatterHelper.swift */,
 				0DF6BD7F1C599FEC007BF0A9 /* LoadImageHelper.swift */,
 				0D9AE0781C8E7FB800625D5E /* Const.swift */,
@@ -1252,7 +1249,6 @@
 				3A91F0B31BF066F500C470D4 /* THDate.swift in Sources */,
 				0D2C49101CC87E42006D3CF5 /* SleepViewController.swift in Sources */,
 				0D79EE1B1CB65CE800B9DA5F /* Popover.swift in Sources */,
-				0D2C491C1CC8C884006D3CF5 /* AlarmTableViewController.swift in Sources */,
 				3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */,
 				3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */,
 				3AC7B1091BF45CB9002DE94C /* ZSYPopoverListView.m in Sources */,

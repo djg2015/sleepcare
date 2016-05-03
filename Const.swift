@@ -50,5 +50,5 @@ var tag:Int = 0
 var currentController:UIViewController!
 //允许报警弹窗
 var alarmAlert:Bool = true
-
-
+//养老院名字集合
+var MainHouseNames:Array<PopDownListItem>=Array<PopDownListItem>()

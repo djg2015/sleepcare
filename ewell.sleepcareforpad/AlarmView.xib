@@ -31,17 +31,18 @@
                                 <constraint firstAttribute="width" constant="78" id="SwC-KF-kOl"/>
                                 <constraint firstAttribute="height" constant="25" id="k7I-f8-K2l"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1Z-8c-P3Q">
-                            <rect key="frame" x="251" y="23" width="61" height="30"/>
+                            <rect key="frame" x="243" y="23" width="65" height="30"/>
                             <animations/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="61" id="6Bp-iQ-P0G"/>
+                                <constraint firstAttribute="width" constant="65" id="6Bp-iQ-P0G"/>
                                 <constraint firstAttribute="height" constant="30" id="T7q-hT-4Ih"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="管理">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,6 +58,7 @@
                                 <constraint firstAttribute="height" constant="30" id="L6d-aN-97k"/>
                                 <constraint firstAttribute="width" constant="46" id="R72-fw-4L3"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="关闭">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,7 +76,7 @@
                         <constraint firstAttribute="centerX" secondItem="uvB-1A-ilV" secondAttribute="centerX" id="Imo-aM-x20"/>
                         <constraint firstItem="uvB-1A-ilV" firstAttribute="top" secondItem="hEy-S7-lyc" secondAttribute="top" constant="23" id="PpV-IE-w8h"/>
                         <constraint firstAttribute="height" constant="60" id="c2K-tn-WhN"/>
-                        <constraint firstAttribute="trailing" secondItem="D1Z-8c-P3Q" secondAttribute="trailing" constant="8" id="dET-sM-ITv"/>
+                        <constraint firstAttribute="trailing" secondItem="D1Z-8c-P3Q" secondAttribute="trailing" constant="12" id="dET-sM-ITv"/>
                         <constraint firstItem="bJj-mu-OoK" firstAttribute="top" secondItem="hEy-S7-lyc" secondAttribute="top" constant="23" id="omb-RF-8Sb"/>
                     </constraints>
                 </view>

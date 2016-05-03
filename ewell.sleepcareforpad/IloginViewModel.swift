@@ -159,13 +159,13 @@ class IloginViewModel: BaseViewModel {
                 let xmppusernamephone = self.LoginName + "@" + GetValueFromPlist("xmppserver","sleepcare.plist")
                 SetValueIntoPlist("xmppusernamephone", xmppusernamephone)
                 
-                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isLogin = xmppMsgManager!.Connect()
-                if(!isLogin){
-                    SetValueIntoPlist(USERIDPHONE, "")
-                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-                }
-                else{
+//               var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+//               let isLogin = xmppMsgManager!.Connect()
+//                if(!isLogin){
+//                    SetValueIntoPlist(USERIDPHONE, "")
+//                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+//                }
+//                else{
                     //获取当前帐户下的用户信息
                     
                     var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
@@ -256,7 +256,7 @@ class IloginViewModel: BaseViewModel {
                             
                         }
                     
-                }
+            //    }
                 //重新允许用户点击操作
                 if self.loginbuttonDelegate != nil{
                     self.loginbuttonDelegate.EnableLoginButton()

@@ -16,7 +16,7 @@ class HRViewController: IBaseViewController {
     @IBOutlet weak var viewChart: BackgroundCommon!
     @IBOutlet weak var lblBedUserName: UILabel!
     
-    
+  
      var hrMonitorViewModel:IHRMonitorViewModel!
     var lblHR:UILabel!
     var _bedUserCode:String!
@@ -102,16 +102,18 @@ class HRViewController: IBaseViewController {
 
     
     override func viewWillAppear(animated: Bool) {
-        
-        
+       
             self._bedUserCode = SessionForIphone.GetSession()?.CurPatientCode
             self._bedUserName = SessionForIphone.GetSession()?.CurPatientName
+        if self.hrMonitorViewModel == nil{
+        self.hrMonitorViewModel = IHRMonitorViewModel()
+        }
             self.hrMonitorViewModel!.BedUserCode = _bedUserCode
             self.hrMonitorViewModel!.BedUserName = _bedUserName
             self.hrMonitorViewModel!.loadPatientHR(_bedUserCode)
-            
             tag = 1
             currentController = self
+       
     }
     
     
@@ -121,7 +123,7 @@ class HRViewController: IBaseViewController {
         // Do any additional setup after loading the view.
          rac_settings()
         
-
+       
         
     }
 

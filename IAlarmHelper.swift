@@ -15,10 +15,24 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     var alarmpicdelegate:SetAlarmPicDelegate!
     var tabbarBadgeDelegate:SetTabbarBadgeDelegate!
-    var alarmtableviewDelegate:ReloadAlarmTableViewDelegate!
-    
+
+
     private var _wariningCaches:Array<AlarmInfo>!
     
+    //所有未读信息的code
+    var _unreadCodes:Array<String> = []
+    dynamic var UnreadCodes:Array<String>{
+        get
+        {
+            return self._unreadCodes
+        }
+        set(value)
+        {
+            self._unreadCodes = value
+        }
+    }
+    
+    //未读的未处理报警总数
     var _warningcouts:Int = 0
     dynamic var Warningcouts:Int{
         get
@@ -30,6 +44,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             self._warningcouts = value
         }
     }
+    
+    //所有未读的未处理报警code
     var _codes:Array<String> = []
     dynamic var Codes:Array<String>{
         get
@@ -42,6 +58,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         }
     }
     
+    //未读的未处理报警列表
     var _warningList:Array<WarningInfo>=[]
     dynamic var WarningList:Array<WarningInfo>{
         get
@@ -66,14 +83,76 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             xmppMsgManager?._waringAttentionDelegate = self.alarmInstance
             //开启警告信息
             self.alarmInstance!._wariningCaches = Array<AlarmInfo>()
+
+            
         }
         return self.alarmInstance!
     }
     
-    //取消对某个病人的关注，需要删除todolist(和warningList,codes)里对应的报警信息
+    
+    //若存在未读信息，则弹窗提示是否查看
+    func setTimer(){
+      var  realtimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "RunAlarmThread", userInfo: nil, repeats:true);
+        realtimer.fire()
+    }
+    
+    func RunAlarmThread(){
+        if self.UnreadCodes.count > 0{
+        self.showWariningNotification()
+        }
+    
+    }
+    
+    //实时报警处理线程
+    func setAlarmTimer(){
+        var realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
+        realtimer.fire()
+    }
+    
+    //线程处理报警信息，赋值给todolist
+    func alarmTimerFireMethod(timer: NSTimer) {
+        var tempWarningList = self.WarningList
+        if(self._wariningCaches.count > 0){
+            let alarmInfo:AlarmInfo = self._wariningCaches[0] as AlarmInfo
+            //deadline为报警信息收到后,立刻
+            let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.SchemaContent, UUID: alarmInfo.AlarmCode)
+            let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,partName: alarmInfo.PartName,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmDate: alarmInfo.AlarmTime)
+            tempWarningList.append(warningInfo)
+            
+            //同意接收通知，才往todolist里加
+            TodoList.sharedInstance.addItem(todoItem)
+            self._wariningCaches.removeAtIndex(0)
+            self.WarningList = tempWarningList
+            
+            
+            //程序在前台，收到报警，当前不是报警页面，则弹窗提示
+            if (tag == 1 || tag == 2){
+                self.showWariningNotification()
+            }
+                //                   当前是报警页面，则放入unreadcodes
+            else if tag == 3{
+                self.UnreadCodes.append(alarmInfo.AlarmCode)
+            }
+            
+        }
+        self.Warningcouts = self.WarningList.count
+        
+        if self.alarmpicdelegate != nil{
+            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
+        }
+        
+        if self.tabbarBadgeDelegate != nil{
+            self.tabbarBadgeDelegate.SetTabbarBadge(self.Warningcouts)
+        }
+    }
+
+    
+    //取消对某个病人的关注，需要删除todolist(和warningList,codes，unreadcodes)里对应的报警信息
     func DeletePatientAlarm(username:String){
         var currentCount = self.WarningList.count
         var willDeleteCodes = Array<String>()
+        
+        //需要删除的报警code放在willDeleteCodes中
         for(var i = 0;i<currentCount;i++){
             if self.WarningList[i].UserName == username{
                 TodoList.sharedInstance.removeItemByID(self.WarningList[i].AlarmCode)
@@ -98,6 +177,16 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                 }
             }
         }
+        
+        for(var i=0;i<willDeleteCodes.count;i++){
+            for(var j=0;j<self.UnreadCodes.count;j++){
+                if self.UnreadCodes[j] == willDeleteCodes[i]{
+                    self.UnreadCodes.removeAtIndex(j)
+                    break
+                }
+            }
+        }
+        
     }
     
     //开始报警提醒
@@ -113,26 +202,23 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                 TodoList.sharedInstance.removeItemByID(item.UUID)
             }
         }
-        //加入未处理的报警信息到warningList／codes
+        //初始化，加入未处理的报警信息到warningList／codes/unreadcodes
         self.ReloadUndealedWarning()
-    
+        self.UnreadCodes = self.Codes
+       
+        
         self.setAlarmTimer()
+        self.setTimer()
     }
     
-    //点击远程消息通知，若已登录且当前不是报警页面，则直接跳转报警信息页面
+    //点击远程消息通知后的操作：若已登录且当前不是报警页面，则直接跳转报警信息页面
     func showWariningAction(){
-        if (tag == 1 || tag == 2){
+        
            let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
             nextController.parentController = currentController
-       currentController.presentViewController(nextController, animated: true, completion: nil)
-           
-        }
-            //当前是报警页面，则刷新
-        else if (tag == 3){
-            if self.alarmtableviewDelegate != nil{
-                self.alarmtableviewDelegate.ReloadAlarmTableView()
-            }
-        }
+            currentController.presentViewController(nextController, animated: true, completion: nil)
+            
+        
     }
     
 
@@ -141,7 +227,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     return self.Warningcouts
     }
     
-    //加入未处理的报警信息到warningList／codes
+    //加入未处理的报警信息到warningList／codes/unreadcodes
     func ReloadUndealedWarning(){
         try {
             ({
@@ -161,6 +247,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                     tempCodes.append(alarmInfo.AlarmCode)
                 }
                 self.WarningList = tempWarningList
+               
                 self.Codes = tempCodes
                 self.Warningcouts = self.WarningList.count
                 },
@@ -197,33 +284,6 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     }
 
    
-    
-//    //断网后，重新登录
-//    func ReConnect(){
-//        //弹窗提示是否重连网络
-//         SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.ConnectFail), subTitle:"提示", style: AlertStyle.None,buttonTitle:"退出登录",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"重新连接", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ConnectAfterFail)
-//    }
-    
-//    func ConnectAfterFail(isOtherButton: Bool){
-//        if isOtherButton{
-//            if SessionForIphone.GetSession()!.User!.UserType == LoginUserType.Monitor{
-//            IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
-//            }
-//            SessionForIphone.ClearSession()
-//            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-//            xmppMsgManager?.Close()
-//            
-//            let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
-//            IViewControllerManager.GetInstance()!.ShowViewController(logincontroller, nibName: "ILogin", reload: true)
-//        }
-//        else{
-//            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-//            let isLogin = xmppMsgManager!.Connect()
-//            if(!isLogin){
-//                self.ReConnect()
-//            }
-//        }
-//    }
 
     //关闭报警提醒
     func CloseWaringAttention(){
@@ -231,70 +291,32 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         self.IsOpen = false
         self.Codes.removeAll()
+        self.UnreadCodes.removeAll()
         self.WarningList.removeAll()
     }
     
-    //实时报警处理线程
-    func setAlarmTimer(){
-        var realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
-        realtimer.fire()
-    }
     
-    //线程处理报警信息，赋值给todolist
-    func alarmTimerFireMethod(timer: NSTimer) {
-        var tempWarningList = self.WarningList
-        if(self._wariningCaches.count > 0){
-            let alarmInfo:AlarmInfo = self._wariningCaches[0] as AlarmInfo
-            //deadline为报警信息收到后,立刻
-            let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.SchemaContent, UUID: alarmInfo.AlarmCode)
-            let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,partName: alarmInfo.PartName,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmDate: alarmInfo.AlarmTime)
-            tempWarningList.append(warningInfo)
-            
-            //同意接收通知，才往todolist里加
-            TodoList.sharedInstance.addItem(todoItem)
-            
-            
-            self._wariningCaches.removeAtIndex(0)
-            self.WarningList = tempWarningList
-            
-            self.showWariningNotification()
-            
-        }
-        self.Warningcouts = self.WarningList.count
-        
-        if self.alarmpicdelegate != nil{
-            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
-        }
-       
-        if self.tabbarBadgeDelegate != nil{
-        self.tabbarBadgeDelegate.SetTabbarBadge(self.Warningcouts)
-        }
-    }
-    
-    //若当前已登录且不是报警页面，则弹窗提示
+    //则弹窗提示是否查看报警
     func showWariningNotification(){
-        if alarmAlert {
-            if (tag == 1 || tag == 2){
-            alarmAlert = false
-    SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.CheckAlarmInfo), subTitle:"提示", style: AlertStyle.None,buttonTitle:"忽略",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"立即查看", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ShowAlarmInfo)
-        }
-        }
-            //当前是报警页面，则刷新
-        else{
-            if self.alarmtableviewDelegate != nil{
-            self.alarmtableviewDelegate.ReloadAlarmTableView()
-            }
+        if(alarmAlert && tag != 3){
+           
+        alarmAlert = false
+         SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.CheckAlarmInfo), subTitle:"提示", style: AlertStyle.None,buttonTitle:"忽略",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"立即查看", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ShowAlarmInfo)
+        
         }
     }
     //弹窗按钮的具体操作
     func ShowAlarmInfo(isOtherButton: Bool){
+        //打开弹窗，unreadcodes清空，弹窗标志设置为true
        alarmAlert = true
+        self.UnreadCodes.removeAll()
+        
         //点击“立即查看”,则跳转alarmview页面
         if !isOtherButton{
             let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
             nextController.parentController = currentController
             currentController.presentViewController(nextController, animated: true, completion: nil)
-           
+          
         }
         
     }
@@ -380,10 +402,7 @@ protocol SetTabbarBadgeDelegate{
     func SetTabbarBadge(count:Int)
 }
 
-//刷新报警页面
-protocol ReloadAlarmTableViewDelegate{
-func ReloadAlarmTableView()
-}
+
 
 class WarningInfo{
     var AlarmCode:String = ""
@@ -402,3 +421,31 @@ class WarningInfo{
         
     }
 }
+
+//    //断网后，重新登录
+//    func ReConnect(){
+//        //弹窗提示是否重连网络
+//         SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.ConnectFail), subTitle:"提示", style: AlertStyle.None,buttonTitle:"退出登录",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"重新连接", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ConnectAfterFail)
+//    }
+
+//    func ConnectAfterFail(isOtherButton: Bool){
+//        if isOtherButton{
+//            if SessionForIphone.GetSession()!.User!.UserType == LoginUserType.Monitor{
+//            IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
+//            }
+//            SessionForIphone.ClearSession()
+//            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+//            xmppMsgManager?.Close()
+//
+//            let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
+//            IViewControllerManager.GetInstance()!.ShowViewController(logincontroller, nibName: "ILogin", reload: true)
+//        }
+//        else{
+//            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+//            let isLogin = xmppMsgManager!.Connect()
+//            if(!isLogin){
+//                self.ReConnect()
+//            }
+//        }
+//    }
+

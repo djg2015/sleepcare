@@ -17,7 +17,7 @@
 	<key>7</key>
 	<string>账号保存成功！</string>
 	<key>8</key>
-	<string>账号注册成功！</string>
+	<string>账号注册成功！请继续登录</string>
 	<key>9</key>
 	<string>邮件发送成功！</string>
 	<key>10</key>
@@ -29,7 +29,7 @@
 	<key>13</key>
 	<string>您尚未选择用户类型，无法查看信息！</string>
 	<key>14</key>
-	<string>无法完成当前操作，请稍后再试</string>
+	<string>数据加载失败！</string>
 	<key>15</key>
 	<string>检测到新版本，是否前往App Store更新？</string>
 	<key>16</key>
@@ -41,7 +41,7 @@
 	<key>19</key>
 	<string>操作失败！请确认用户名/密码是否正确，同时检查网络连接是否正常</string>
 	<key>20</key>
-	<string>注册账户失败！</string>
+	<string>注册账户失败！请重新注册</string>
 	<key>21</key>
 	<string>修改账户失败！</string>
 	<key>22</key>

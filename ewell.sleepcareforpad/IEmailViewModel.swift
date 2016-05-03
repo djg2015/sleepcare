@@ -80,19 +80,19 @@ class IEmailViewModel: BaseViewModel {
     func SendEmail() -> RACSignal{
         try {
             ({
-                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isconnect = xmppMsgManager!.Connect()
-                if(!isconnect){
-                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-                }
-                else{
+//                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+//                let isconnect = xmppMsgManager!.Connect()
+//                if(!isconnect){
+//                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+//                }
+//                else{
                 var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 sleepCareForIPhoneBLL.SendEmail(self.BedUserCode, sleepDate: self.SleepDate, email: self.EmailAddress)
                 //发送成功，则弹窗提示
                 showDialogMsg(ShowMessage(MessageEnum.SendEmailSuccess), title: nil)
                 //由父页面控制器关闭当前发送邮件子页面
                 self.ParentController.dismissSemiModalView()
-                }
+   //             }
                 },
                 catch: { ex in
                     //异常处理

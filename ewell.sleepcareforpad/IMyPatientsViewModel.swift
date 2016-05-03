@@ -50,12 +50,12 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     func InitData(){
         try {
             ({
-                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isconnect = xmppMsgManager!.Connect()
-                if(!isconnect){
-                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-                }
-                else{
+//                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+//                let isconnect = xmppMsgManager!.Connect()
+//                if(!isconnect){
+//                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+//                }
+//                else{
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
                 session!.BedUserCodeList = Array<String>()
@@ -83,7 +83,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 }
                 self.MyPatientsArray = curArray
                 self.bedUserCodeList = session!.BedUserCodeList
-                }
+//                }
                 },
                 catch: { ex in
                     //异常处理
@@ -110,13 +110,15 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     {$0.BedUserCode == realTimeReport.UserCode})
                 if(patient.count > 0){
                     for(var i = 0; i < patient.count; i++){
-                        patient[i].HR = realtimeData[patient[i].BedUserCode!]!.HR
-                        patient[i].RR = realtimeData[patient[i].BedUserCode!]!.RR
-                        patient[i].BedStatus = realtimeData[patient[i].BedUserCode!]!.OnBedStatus
-                         //111
-                        patient[i].BedNum = realtimeData[patient[i].BedUserCode!]!.BedNumber
-                       patient[i].BedUserName = realtimeData[patient[i].BedUserCode!]!.UserName
-                       patient[i].BedCode = realtimeData[patient[i].BedUserCode!]!.BedCode
+                        //实时数据是根据bedcode推送的
+                        patient[i].BedCode = realTimeReport.BedCode
+                        patient[i].HR = realTimeReport.HR
+                        patient[i].RR = realTimeReport.RR
+                        patient[i].BedStatus = realTimeReport.OnBedStatus
+                        
+                        patient[i].BedNum = realTimeReport.BedNumber
+                       patient[i].BedUserName = realTimeReport.UserName
+                      
                     }
                 }
                 

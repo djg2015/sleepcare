@@ -13,6 +13,7 @@ class TabbarController: UITabBarController{
     
     @IBAction func UnwindShowPatientDetail(unwindsegue:UIStoryboardSegue){
         
+        self.selectedIndex = 0
         
     }
    
