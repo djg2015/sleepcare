@@ -42,7 +42,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     override init(){
         super.init()
         
-        InitData()
+       
     }
     
     //自定义处理----------------------

@@ -425,22 +425,30 @@
                         <viewControllerLayoutGuide type="bottom" id="ms2-Um-95r"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OkU-nt-fgz" userLabel="view">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oO1-dC-0s8" userLabel="needtodelete">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oO1-dC-0s8" userLabel="needtodelete">
+                                <rect key="frame" x="0.0" y="44" width="320" height="460"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="当前账户类型为“使用者”，只能关注一个老人。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehz-kI-f2y">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前账户类型为“使用者”，只能关注一个老人。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehz-kI-f2y">
                                         <rect key="frame" x="3" y="64" width="315" height="33"/>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="rGX-Fu-PKO"/>
+                                            <constraint firstAttribute="width" constant="315" id="t4E-Sk-PNG"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="请先删除当前关注的老人后，再重新选择添加。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5H6-Ia-WRS">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请先删除当前关注的老人后，再重新选择添加。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5H6-Ia-WRS">
                                         <rect key="frame" x="3" y="100" width="315" height="33"/>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="315" id="KT4-sH-pGv"/>
+                                            <constraint firstAttribute="height" constant="33" id="jVM-Go-zzV"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -448,40 +456,47 @@
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="460" id="Chq-jx-gis"/>
+                                    <constraint firstAttribute="centerX" secondItem="5H6-Ia-WRS" secondAttribute="centerX" id="U9N-0z-UPj"/>
+                                    <constraint firstAttribute="centerX" secondItem="ehz-kI-f2y" secondAttribute="centerX" id="UuO-UF-Ygr"/>
+                                    <constraint firstItem="5H6-Ia-WRS" firstAttribute="top" secondItem="ehz-kI-f2y" secondAttribute="bottom" constant="3" id="WzO-Og-TuR"/>
+                                    <constraint firstItem="ehz-kI-f2y" firstAttribute="top" secondItem="oO1-dC-0s8" secondAttribute="top" constant="64" id="d6u-t3-XkM"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b4I-hf-Iop" userLabel="choosePatient">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Bdw-Vi-7sK" userLabel="Part Table View" customClass="CommonTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="92" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="92" height="568"/>
                                         <animations/>
                                         <color key="backgroundColor" red="0.76366908979696968" green="0.76366908979696968" blue="0.76366908979696968" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="92" id="mMO-Fq-kFv"/>
+                                            <constraint firstAttribute="width" constant="92" id="qgK-5g-c2l"/>
                                         </constraints>
                                     </tableView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zb1-tz-3Y9" userLabel="Patient Table View" customClass="CommonTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="92" y="0.0" width="228" height="447"/>
+                                        <rect key="frame" x="92" y="0.0" width="228" height="509"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="400" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Eqd-lq-obM" userLabel="Patient Table View2" customClass="CommonTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="92" y="0.0" width="228" height="447"/>
+                                        <rect key="frame" x="92" y="0.0" width="228" height="509"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="400" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMv-H3-Hv7">
-                                        <rect key="frame" x="92" y="447" width="228" height="57"/>
+                                        <rect key="frame" x="92" y="509" width="228" height="59"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lC3-Lw-mLm">
                                                 <rect key="frame" x="51" y="14" width="127" height="30"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.15686274509803921" green="0.34901960784313724" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="127" id="geV-U7-ujM"/>
-                                                    <constraint firstAttribute="height" constant="30" id="pyn-MR-61i"/>
+                                                    <constraint firstAttribute="height" constant="30" id="ppp-eg-pug"/>
+                                                    <constraint firstAttribute="width" constant="127" id="zpl-Z2-qMI"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="确认关注">
@@ -496,39 +511,42 @@
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="centerY" secondItem="lC3-Lw-mLm" secondAttribute="centerY" id="9B5-ap-PsF"/>
-                                            <constraint firstAttribute="centerX" secondItem="lC3-Lw-mLm" secondAttribute="centerX" id="S5m-D2-O5w"/>
-                                            <constraint firstAttribute="height" constant="57" id="Wti-JD-NK1"/>
+                                            <constraint firstAttribute="centerX" secondItem="lC3-Lw-mLm" secondAttribute="centerX" id="MsB-fD-Bti"/>
+                                            <constraint firstAttribute="height" constant="59" id="cMm-yG-gWV"/>
+                                            <constraint firstAttribute="centerY" secondItem="lC3-Lw-mLm" secondAttribute="centerY" id="j5t-kh-gGq"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Bdw-Vi-7sK" firstAttribute="leading" secondItem="b4I-hf-Iop" secondAttribute="leading" id="0c3-e8-o7e"/>
-                                    <constraint firstItem="sMv-H3-Hv7" firstAttribute="top" secondItem="Zb1-tz-3Y9" secondAttribute="bottom" id="9rn-wg-h9X"/>
-                                    <constraint firstItem="Eqd-lq-obM" firstAttribute="leading" secondItem="Bdw-Vi-7sK" secondAttribute="trailing" id="Av7-fY-ArT"/>
-                                    <constraint firstAttribute="trailing" secondItem="sMv-H3-Hv7" secondAttribute="trailing" id="BC5-43-PeG"/>
-                                    <constraint firstAttribute="bottom" secondItem="sMv-H3-Hv7" secondAttribute="bottom" id="Dev-rq-pUN"/>
-                                    <constraint firstAttribute="trailing" secondItem="Eqd-lq-obM" secondAttribute="trailing" id="HaE-lB-GAs"/>
-                                    <constraint firstItem="Bdw-Vi-7sK" firstAttribute="top" secondItem="b4I-hf-Iop" secondAttribute="top" id="KPn-b2-fU1"/>
-                                    <constraint firstAttribute="bottom" secondItem="Bdw-Vi-7sK" secondAttribute="bottom" id="SO5-0l-2fC"/>
-                                    <constraint firstItem="Zb1-tz-3Y9" firstAttribute="top" secondItem="b4I-hf-Iop" secondAttribute="top" id="YO8-4F-lqt"/>
-                                    <constraint firstItem="sMv-H3-Hv7" firstAttribute="leading" secondItem="Bdw-Vi-7sK" secondAttribute="trailing" id="cBd-oU-pdl"/>
-                                    <constraint firstItem="Eqd-lq-obM" firstAttribute="top" secondItem="b4I-hf-Iop" secondAttribute="top" id="cvG-X8-IO6"/>
-                                    <constraint firstItem="sMv-H3-Hv7" firstAttribute="top" secondItem="Eqd-lq-obM" secondAttribute="bottom" id="eAV-V0-P53"/>
-                                    <constraint firstItem="Zb1-tz-3Y9" firstAttribute="leading" secondItem="Bdw-Vi-7sK" secondAttribute="trailing" id="j22-Le-ZHu"/>
-                                    <constraint firstAttribute="trailing" secondItem="Zb1-tz-3Y9" secondAttribute="trailing" id="z51-Mr-l9F"/>
+                                    <constraint firstItem="Zb1-tz-3Y9" firstAttribute="leading" secondItem="Bdw-Vi-7sK" secondAttribute="trailing" id="1Oa-Ta-3Ci"/>
+                                    <constraint firstItem="sMv-H3-Hv7" firstAttribute="top" secondItem="Zb1-tz-3Y9" secondAttribute="bottom" id="75y-rI-xk9"/>
+                                    <constraint firstItem="Zb1-tz-3Y9" firstAttribute="top" secondItem="b4I-hf-Iop" secondAttribute="top" id="AFe-Lh-gvo"/>
+                                    <constraint firstItem="Bdw-Vi-7sK" firstAttribute="top" secondItem="b4I-hf-Iop" secondAttribute="top" id="Acl-jM-Rdl"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zb1-tz-3Y9" secondAttribute="trailing" id="ErU-AQ-gR9"/>
+                                    <constraint firstItem="Eqd-lq-obM" firstAttribute="leading" secondItem="Bdw-Vi-7sK" secondAttribute="trailing" id="G5B-1e-kbw"/>
+                                    <constraint firstItem="Bdw-Vi-7sK" firstAttribute="leading" secondItem="b4I-hf-Iop" secondAttribute="leading" id="Jx4-Xf-zLQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="sMv-H3-Hv7" secondAttribute="bottom" id="N7q-Pn-fES"/>
+                                    <constraint firstAttribute="trailing" secondItem="Eqd-lq-obM" secondAttribute="trailing" id="Qmi-YS-hmd"/>
+                                    <constraint firstItem="Eqd-lq-obM" firstAttribute="top" secondItem="b4I-hf-Iop" secondAttribute="top" id="a8N-PS-XGt"/>
+                                    <constraint firstItem="sMv-H3-Hv7" firstAttribute="top" secondItem="Eqd-lq-obM" secondAttribute="bottom" id="cG5-kF-f2c"/>
+                                    <constraint firstAttribute="trailing" secondItem="sMv-H3-Hv7" secondAttribute="trailing" id="ifY-TB-78e"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bdw-Vi-7sK" secondAttribute="bottom" id="jZy-DB-JBQ"/>
+                                    <constraint firstItem="sMv-H3-Hv7" firstAttribute="leading" secondItem="Bdw-Vi-7sK" secondAttribute="trailing" id="n8W-Mq-RyZ"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="b4I-hf-Iop" firstAttribute="top" secondItem="Fal-mg-KQY" secondAttribute="bottom" id="8sD-vv-uhS"/>
-                            <constraint firstItem="b4I-hf-Iop" firstAttribute="leading" secondItem="OkU-nt-fgz" secondAttribute="leadingMargin" constant="-16" id="HML-Au-nHi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="b4I-hf-Iop" secondAttribute="trailing" constant="-16" id="ezc-Za-rtR"/>
-                            <constraint firstItem="ms2-Um-95r" firstAttribute="top" secondItem="b4I-hf-Iop" secondAttribute="bottom" id="qkh-9v-BB7"/>
+                            <constraint firstItem="b4I-hf-Iop" firstAttribute="top" secondItem="OkU-nt-fgz" secondAttribute="topMargin" id="BhE-cF-NEI"/>
+                            <constraint firstItem="ms2-Um-95r" firstAttribute="top" secondItem="b4I-hf-Iop" secondAttribute="bottom" id="JKo-IT-5fx"/>
+                            <constraint firstItem="oO1-dC-0s8" firstAttribute="leading" secondItem="OkU-nt-fgz" secondAttribute="leadingMargin" constant="-16" id="Wxs-rJ-J7r"/>
+                            <constraint firstItem="b4I-hf-Iop" firstAttribute="leading" secondItem="OkU-nt-fgz" secondAttribute="leadingMargin" constant="-16" id="bYS-W6-No1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b4I-hf-Iop" secondAttribute="trailing" constant="-16" id="cqf-NE-n1A"/>
+                            <constraint firstItem="oO1-dC-0s8" firstAttribute="top" secondItem="Fal-mg-KQY" secondAttribute="bottom" constant="24" id="wpk-dK-yj5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oO1-dC-0s8" secondAttribute="trailing" constant="-16" id="xy9-Wa-mfv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="添加老人" id="lnG-UZ-Fch"/>
@@ -1868,7 +1886,7 @@
             <objects>
                 <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="O43-r3-W9Q" customClass="IMyPatientsController" customModule="ewell_sleepcareforpad" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="160" sectionHeaderHeight="22" sectionFooterHeight="22" id="Nlk-2X-dm0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

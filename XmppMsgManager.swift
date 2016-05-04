@@ -94,6 +94,7 @@ class XmppMsgManager:MessageDelegate{
             var now = NSDate()
             var sec:NSTimeInterval = 0
             while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {
+                
                 sec = NSDate().timeIntervalSinceDate(now)
                 if(sec > timeOut){
                     throw("-2", ShowMessage(MessageEnum.GetDataOvertime))
@@ -101,9 +102,10 @@ class XmppMsgManager:MessageDelegate{
             }
             result = requsetQuene.removeValueForKey(baseMessage.messageSubject.requestID!) as! BaseMessage
         }
-        else{
-            throw("-2", ShowMessage(MessageEnum.GetDataOvertime))
-        }
+        else {
+                throw("-2", ShowMessage(MessageEnum.ConnectFail))
+        
+                   }
         
         return result
     }
@@ -131,8 +133,12 @@ class XmppMsgManager:MessageDelegate{
             }
             result = requsetQuene.removeValueForKey(baseMessage.messageSubject.requestID!) as! BaseMessage
         }
-        else{
-            throw("-2", ShowMessage(MessageEnum.GetDataOvertime))
+        else if LOGIN{
+            throw("-2", ShowMessage(MessageEnum.ConnectFail))
+        
+        }
+       else{
+         throw("-2", ShowMessage(MessageEnum.AccountDontExist))
         }
         
         return result

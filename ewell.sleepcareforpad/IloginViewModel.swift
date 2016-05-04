@@ -163,6 +163,7 @@ class IloginViewModel: BaseViewModel {
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var loginUser:ILoginUser = sleepCareForIPhoneBussinessManager.Login(self.LoginName, loginPassword: self.Pwd)
                 
+               
                 //开启session，纪录登录名，密码
                 SessionForIphone.SetSession(loginUser)
                 self.session = SessionForIphone.GetSession()
@@ -235,6 +236,7 @@ class IloginViewModel: BaseViewModel {
                     
                     
                     //如果是监护人，开启报警监测
+                    LOGIN = true
                     if _usertype == LoginUserType.Monitor{
                         self.alarmHelper!.BeginWaringAttention()
                         LOGINFLAG = true
@@ -255,7 +257,8 @@ class IloginViewModel: BaseViewModel {
                 if self.loginbuttonDelegate != nil{
                     self.loginbuttonDelegate.EnableLoginButton()
                 }
-                
+            
+            
                 },
                 catch: { ex in
                     //异常处理

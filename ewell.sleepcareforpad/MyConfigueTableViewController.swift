@@ -37,7 +37,7 @@ class MyConfigueTableViewController:UITableViewController,SetTabbarBadgeDelegate
     
     //关闭“我的老人窗口”，1更新父页面上的报警数目；2若是“监护人”且beduserlist不为空，则更新curbeduser信息为这个老人
     @IBAction func CloseMyPatients(segue:UIStoryboardSegue){
-        IAlarmHelper.GetAlarmInstance().ReloadUndealedWarning()
+      //  IAlarmHelper.GetAlarmInstance().ReloadUndealedWarning()
 
         if session?.User?.UserType == LoginUserType.UserSelf{
             try {

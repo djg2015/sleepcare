@@ -104,6 +104,12 @@ class IMyPatientsController: UITableViewController  {
     override func viewWillAppear(animated: Bool) {
        
         currentController = self
+        if self.viewModel == nil{
+            self.viewModel = IMyPatientsViewModel()
+        
+        }
+        self.viewModel!.InitData()
+        self.MyPatientsArray = self.viewModel!.MyPatientsArray
     }
     
     
@@ -127,7 +133,7 @@ class IMyPatientsController: UITableViewController  {
     //初始化设置与属性等绑定
     func rac_Setting(){
         self.viewModel = IMyPatientsViewModel()
-        self.MyPatientsArray = self.viewModel!.MyPatientsArray
+       
     }
     
 }

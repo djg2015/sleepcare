@@ -49,19 +49,18 @@ class ILoginController: IBaseViewController,LoginButtonDelegate {
             
             CloseNotice()
             LOGINFLAG = false
-          
             IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
         }
         
         SetValueIntoPlist("loginusernamephone", "")
         SetValueIntoPlist("loginuserpwdphone", "")
         SetValueIntoPlist("xmppusernamephone", "")
-      
+        
         session = nil
         //关闭xmpp
-        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-        xmppMsgManager?.Close()
-        
+     //   var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+     //   xmppMsgManager?.Close()
+        LOGIN = false
     }
     
     @IBAction func UnwindCloseServerSetting(unwindsegue:UIStoryboardSegue){

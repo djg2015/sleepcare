@@ -55,11 +55,11 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
             
             
             
-            //此时没打开，则尝试连接
-            if (userId == "" || pass == "") {
-                print("plist文件里用户名／密码空")
-                return false
-            }
+//            //此时没打开，则尝试连接
+//            if (userId == "" || pass == "") {
+//                print("plist文件里用户名／密码空")
+//                return false
+//            }
             
             
             //设置用户
@@ -112,6 +112,7 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
             return false
         }
         }
+        
         println("xmppmsghelperforregist connect success!!!")
         return true
         
@@ -134,9 +135,11 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
     //连接服务器
     func xmppStreamDidConnect(sender:XMPPStream ){
         println("xmppStreamDidConnect \(xmppStream!.isConnected())")
-        isOpen = true;
+        isOpen = true
+        
+        //验证账户密码
         var error:NSError?
-        xmppStream!.authenticateWithPassword(password ,error:&error);
+        xmppStream?.authenticateWithPassword(password ,error:&error)
         if error != nil {
             println(error!)
         }
@@ -146,12 +149,17 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
     func xmppStreamDidAuthenticate(sender:XMPPStream ){
         println("xmppStreamDidAuthenticate")
         self.goOnline()
+        
         loginFlag=1
     }
     
+    //验证失败，断开xmpp连接
     func xmppStream(sender:XMPPStream , didNotAuthenticate error:DDXMLElement ){
         println("xmppStreamDidAuthenticate false")
+        xmppStream?.disconnect()
+        isOpen = false
         loginFlag=2
+        
     }
     
     //收到消息

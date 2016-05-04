@@ -16,8 +16,12 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     var alarmpicdelegate:SetAlarmPicDelegate!
     var tabbarBadgeDelegate:SetTabbarBadgeDelegate!
     var AlarmAlert = SweetAlert(contentHeight: 300)
-    
-   
+    //报警弹窗是否打开
+    var IsAlarmAlertOpened:Bool {
+        get {
+           return self.AlarmAlert.IsOpenFlag
+        }
+    }
     
    //-------------------类字段--------------------------
     //未读的未处理报警总数
@@ -94,7 +98,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         //初始化，加入未处理的报警信息到warningList／codes/unreadcodes
         self.ReloadUndealedWarning()
         
-        
+        //初始化定时器
         self.setAlarmTimer()
         self.setTimer()
     }
@@ -131,7 +135,6 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                     tempCodes.append(alarmInfo.AlarmCode)
                 }
                 self.WarningList = tempWarningList
-                
                 self.Codes = tempCodes
                 self.Warningcouts = self.WarningList.count
                 },
@@ -167,8 +170,9 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         }
     }
     
-    //获取报警信息数
+    //从后台进入前台，获取报警信息数，刷新页面数字
     func GetAlarmCount()->Int{
+     
         return self.Warningcouts
     }
     
@@ -260,15 +264,16 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     //--------------------------------报警弹窗和页面跳转---------------------------------
     //点击远程消息通知后的操作：若已登录且当前不是报警页面，则直接跳转报警信息页面
     func showWariningAction(){
+        if currentController != nil{
         let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
         nextController.parentController = currentController
         currentController.presentViewController(nextController, animated: true, completion: nil)
-        
+        }
     }
     
     //当前不是弹窗页面且没有打开的弹窗，则弹窗提示是否查看报警
     func showWariningNotification(){
-        if(!AlarmViewTag && !self.AlarmAlert.IsOpenFlag){
+        if((!AlarmViewTag && !self.AlarmAlert.IsOpenFlag) && LOGINFLAG){
             
             self.AlarmAlert.showAlert(ShowMessage(MessageEnum.CheckAlarmInfo), subTitle:"提示", style: AlertStyle.None,buttonTitle:"忽略",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"立即查看", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ShowAlarmInfo)
         }

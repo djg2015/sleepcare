@@ -51,3 +51,7 @@ var currentController:UIViewController!
 
 //养老院名字集合
 var MainHouseNames:Array<PopDownListItem>!
+
+
+//针对所有类型账户的登录标志
+var LOGIN = false

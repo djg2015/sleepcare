@@ -26,8 +26,10 @@ class ShowAlarmViewController: UIViewController, UITableViewDelegate, UITableVie
             currentController = self.parentController
         }
         
+        //把当前页面中的报警信息设置为“已读”
         IAlarmHelper.GetAlarmInstance().SetReadWarning(self.alarmViewModel!.codeList)
         AlarmViewTag = false
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

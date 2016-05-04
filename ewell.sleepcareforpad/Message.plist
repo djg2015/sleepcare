@@ -5,7 +5,7 @@
 	<key>1</key>
 	<string>无法获取有效服务器配置信息！点击重试后再试一次，点击关闭则稍后再试</string>
 	<key>2</key>
-	<string>网络连接发生中断，请检查网络连接是否正常</string>
+	<string>当前无法连接服务器，请检查网络状况是否正常</string>
 	<key>3</key>
 	<string>账户名不能为空！</string>
 	<key>4</key>
@@ -39,7 +39,7 @@
 	<key>18</key>
 	<string>密码不能包含空格，请重新输入</string>
 	<key>19</key>
-	<string>操作失败！请确认用户名/密码是否正确，同时检查网络连接是否正常</string>
+	<string>登录失败！请确认用户名/密码是否正确，并检查网络状况是否正常。</string>
 	<key>20</key>
 	<string>注册账户失败！请重新注册</string>
 	<key>21</key>
