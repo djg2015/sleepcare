@@ -14,7 +14,6 @@ class ShowInfoViewController: UIViewController {
     var webContent:WKWebView!
     
     override func viewWillAppear(animated: Bool) {
-        tag = 2
         
         currentController = self
     }

@@ -9,9 +9,6 @@
 import UIKit
 
 class IMyPatientsController: UITableViewController  {
-//    @IBOutlet weak var imgAlarmView: UIImageView!
-//    @IBOutlet weak var lblAlarmCount: UILabel!
-    //  var spinner:JHSpinnerView?
     
     var viewModel:IMyPatientsViewModel?
     let session = SessionForIphone.GetSession()
@@ -105,7 +102,7 @@ class IMyPatientsController: UITableViewController  {
     }
 
     override func viewWillAppear(animated: Bool) {
-        tag = 2
+       
         currentController = self
     }
     
@@ -118,23 +115,7 @@ class IMyPatientsController: UITableViewController  {
         
         rac_Setting()
         
-        //        if self.MyPatientsArray?.count > 0{
-        //         self._height = Int(self.myPatientTable.frame.height) - 62
-        //         self._width = Int(self.myPatientTable.frame.width)
-        //   self.spinner  = JHSpinnerView.showOnView(self.myPatientTable, spinnerColor:UIColor.whiteColor(), overlay:.Custom(CGRect(x:0,y:0,width:self._width,height:self._height), CGFloat(0.0)), overlayColor:UIColor.blackColor().colorWithAlphaComponent(0.9))
-        
-        //            if self.MyPatientsArray?.count > 0{
-        //            self.myPatientTable.userInteractionEnabled = false
-        //            }
-        //   self.cellDelegate = self.myPatientTable
-        //  self.setTimer()
-        
-        //创建支线程
-     //   self.thread = NSThread(target: self, selector: "RunThread", object: nil)
-        //启动
-       // self.thread!.start()
-      
-        //self.RunTimer()
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -149,40 +130,4 @@ class IMyPatientsController: UITableViewController  {
         self.MyPatientsArray = self.viewModel!.MyPatientsArray
     }
     
-    
-    //    //定时器查看是否已经载入数据
-    //    func setTimer(){
-    //        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFireMethod:", userInfo: nil, repeats:true);
-    //        timer.fire()
-    //    }
-    //    func timerFireMethod(timer: NSTimer) {
-    //        if self.viewModel.LoadingFlag >= self.viewModel.bedUserCodeList.count{
-    //         //   self.spinner!.dismiss()
-    //            self.viewModel.LoadingFlag = 0
-    //
-    //            if self.cellDelegate != nil{
-    //            self.cellDelegate.EnableCellInteraction()
-    //            }
-    //        }
-    //    }
-    
-    
-    //支线程判断当前是否有报警，有则跳转页面
-//    func RunTimer(){
-//        if self.realtimer == nil{
-//        self.realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "AlarmFireMethod:", userInfo: nil, repeats:true);
-//        self.realtimer!.fire()
-//        }
-//    }
-    
-//    func CloseTimer(){
-//        if self.realtimer != nil{
-//        self.realtimer = nil
-//        }
-//    
-//    }
-    
 }
-//protocol EnableCellInteractionDelegate{
-//func EnableCellInteraction()
-//}

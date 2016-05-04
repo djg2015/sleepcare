@@ -45,10 +45,9 @@ let MEDIUMCOLOR:UIColor = UIColor.colorFromRGB(0x44A355)
 let HIGHCOLOR:UIColor = UIColor.redColor()
 
 
-//记录当前显示的页面controller：tag值规定，未登录前0，登录后主页面tabbar和4个字页面为1，报警页面为3，其他页面为2
-var tag:Int = 0
+//记录当前显示的页面controller：AlarmViewTag标志：当前是否是报警页面
+var AlarmViewTag:Bool = false
 var currentController:UIViewController!
-//允许报警弹窗
-var alarmAlert:Bool = true
+
 //养老院名字集合
-var MainHouseNames:Array<PopDownListItem>=Array<PopDownListItem>()
+var MainHouseNames:Array<PopDownListItem>!

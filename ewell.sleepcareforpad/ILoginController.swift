@@ -19,8 +19,7 @@ class ILoginController: IBaseViewController,LoginButtonDelegate {
     var iloginViewModel:IloginViewModel!
 
     override func viewWillAppear(animated: Bool) {
-       
-        tag = 0
+     
     }
 
     override func viewDidLoad() {
@@ -50,7 +49,7 @@ class ILoginController: IBaseViewController,LoginButtonDelegate {
             
             CloseNotice()
             LOGINFLAG = false
-            alarmAlert = true
+          
             IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
         }
         

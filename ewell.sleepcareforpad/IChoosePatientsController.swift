@@ -50,7 +50,6 @@ class IChoosePatientsController: IBaseViewController {
    
     override func viewWillAppear(animated: Bool) {
        
-        tag = 2
         currentController = self
     }
     

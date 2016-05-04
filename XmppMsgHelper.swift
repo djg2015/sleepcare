@@ -84,17 +84,18 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
     }
     
     func RegistConnect(timeOut:NSTimeInterval) -> Bool{
+        self.setupStream()
+        
+        if (xmppStream!.isDisconnected()) {
         //初始化登录flag
         self.loginFlag = 0
-        self.setupStream()
-        //ipad连接测试
+        
+        //ipad连接测试／iphone注册账户相关链接测试
         var userId:String?  = GetValueFromPlist(USERID,"sleepcare.plist")
         var pass:String? = GetValueFromPlist(PASS,"sleepcare.plist")
         var server:String? = GetValueFromPlist(SERVER,"sleepcare.plist")
         var port:String? = GetValueFromPlist(PORT,"sleepcare.plist")
-        if (!xmppStream!.isDisconnected()) {
-            return true
-        }
+        
         
         //设置用户
         xmppStream!.myJID = XMPPJID.jidWithString(userId)
@@ -102,16 +103,17 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         xmppStream!.hostName = server
         xmppStream!.hostPort = UInt16(port!.toUInt()!)
         //密码
-        password = pass;
+        password = pass
         
         //连接服务器
         var error:NSError? ;
         if (!xmppStream!.connectWithTimeout(timeOut,error: &error)) {
             println("cannot connect \(server)")
-            return false;
+            return false
         }
-        println("connect success!!!")
-        return true;
+        }
+        println("xmppmsghelperforregist connect success!!!")
+        return true
         
     }
     
@@ -148,6 +150,7 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
     }
     
     func xmppStream(sender:XMPPStream , didNotAuthenticate error:DDXMLElement ){
+        println("xmppStreamDidAuthenticate false")
         loginFlag=2
     }
     

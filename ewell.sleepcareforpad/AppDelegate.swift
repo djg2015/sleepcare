@@ -86,9 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
  //       NSNotificationCenter.defaultCenter().postNotificationName("OpenAlarmView", object: self)
         
         self.isBackRun = false
-        
-      
-        if (tag == 1 || tag == 3){
+        if currentController != nil{
         currentController.viewWillAppear(true)
         }
     }
@@ -171,13 +169,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         
         //后台点击通知,   若已登陆，且报警页面未打开，则跳转报警页面
         if self.isBackRun{
-            if (tag == 1 || tag == 2){
+            if (!AlarmViewTag){
          NSNotificationCenter.defaultCenter().postNotificationName("OpenAlarmView", object: self)
             }
             
-            else if tag == 3{
             
-            }
         }
         
               

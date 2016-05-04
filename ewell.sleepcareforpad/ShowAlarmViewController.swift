@@ -18,13 +18,16 @@ class ShowAlarmViewController: UIViewController, UITableViewDelegate, UITableVie
     var deleteDic = Dictionary<Int,String>()
     var parentController:UIViewController!
     
+    
+    
     @IBAction func Close(sender:AnyObject){
-        tag = 1
+       
         if self.parentController != nil{
             currentController = self.parentController
         }
         
-              
+        IAlarmHelper.GetAlarmInstance().SetReadWarning(self.alarmViewModel!.codeList)
+        AlarmViewTag = false
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -54,7 +57,7 @@ class ShowAlarmViewController: UIViewController, UITableViewDelegate, UITableVie
         self.alarmTableView.registerNib(UINib(nibName: "alarmCell", bundle:nil), forCellReuseIdentifier: "alarmCell")
         
         
-        tag = 3
+       AlarmViewTag = true
         currentController = self
         
     }

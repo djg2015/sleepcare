@@ -50,5 +50,7 @@
 	<string>&quot;使用者&quot;只能关注一个老人；&quot;监护人&quot;可以关注多个老人</string>
 	<key>24</key>
 	<string>您有新的报警信息，请注意查看</string>
+	<key>25</key>
+	<string>账户类型不能为空！</string>
 </dict>
 </plist>

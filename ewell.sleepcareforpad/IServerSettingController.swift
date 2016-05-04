@@ -24,7 +24,7 @@ class IServerSettingController:IBaseViewController {
     
 
     override func viewWillAppear(animated: Bool) {
-     tag = 0
+  
    
     }
     

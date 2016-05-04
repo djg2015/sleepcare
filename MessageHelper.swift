@@ -40,5 +40,6 @@ enum MessageEnum:Int{
     case NeedCheckProtol
     case UserTypeInfo
     case CheckAlarmInfo
+    case LoginTypeNil
 
 }

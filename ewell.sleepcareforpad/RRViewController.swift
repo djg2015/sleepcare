@@ -111,7 +111,7 @@ class RRViewController: IBaseViewController{
         self.rrMonitorViewModel!.BedUserCode = _bedUserCode
         self.rrMonitorViewModel!.BedUserName = _bedUserName
         self.rrMonitorViewModel!.loadPatientRR(_bedUserCode)
-        tag = 1
+      
         currentController = self
 
         

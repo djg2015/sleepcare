@@ -50,12 +50,6 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     func InitData(){
         try {
             ({
-//                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-//                let isconnect = xmppMsgManager!.Connect()
-//                if(!isconnect){
-//                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-//                }
-//                else{
                 var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var session = SessionForIphone.GetSession()
                 session!.BedUserCodeList = Array<String>()
@@ -83,7 +77,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 }
                 self.MyPatientsArray = curArray
                 self.bedUserCodeList = session!.BedUserCodeList
-//                }
+
                 },
                 catch: { ex in
                     //异常处理

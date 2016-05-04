@@ -35,6 +35,13 @@ public class SweetAlert: UIViewController {
     var subTitleTextView = UITextView()
     var userAction:((isOtherButton: Bool) -> Void)? = nil
     let kFont = "Helvetica"
+    private var isOpenFlag = false
+    dynamic var IsOpenFlag:Bool{
+        get
+        {
+            return self.isOpenFlag
+        }
+    }
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -202,8 +209,10 @@ public class SweetAlert: UIViewController {
             self.view.alpha = 0.0
             }) { (Bool) -> Void in
                 self.view.removeFromSuperview()
+                
                 self.cleanUpAlert()
                 
+                self.isOpenFlag = false
                 //Releasing strong refrence of itself.
                 self.strongSelf = nil
         }
@@ -313,6 +322,7 @@ public class SweetAlert: UIViewController {
             else {
                 animateAlert()
             }
+            self.isOpenFlag = true
     }
     
     func animateAlert() {

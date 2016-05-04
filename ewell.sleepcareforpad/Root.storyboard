@@ -460,8 +460,8 @@
                                             <constraint firstAttribute="width" constant="92" id="mMO-Fq-kFv"/>
                                         </constraints>
                                     </tableView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zb1-tz-3Y9" userLabel="Patient Table View" customClass="CommonTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="111" y="0.0" width="209" height="469"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zb1-tz-3Y9" userLabel="Patient Table View" customClass="CommonTableView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="92" y="0.0" width="228" height="447"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="400" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -506,15 +506,19 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Bdw-Vi-7sK" firstAttribute="leading" secondItem="b4I-hf-Iop" secondAttribute="leading" id="0c3-e8-o7e"/>
+                                    <constraint firstItem="sMv-H3-Hv7" firstAttribute="top" secondItem="Zb1-tz-3Y9" secondAttribute="bottom" id="9rn-wg-h9X"/>
                                     <constraint firstItem="Eqd-lq-obM" firstAttribute="leading" secondItem="Bdw-Vi-7sK" secondAttribute="trailing" id="Av7-fY-ArT"/>
                                     <constraint firstAttribute="trailing" secondItem="sMv-H3-Hv7" secondAttribute="trailing" id="BC5-43-PeG"/>
                                     <constraint firstAttribute="bottom" secondItem="sMv-H3-Hv7" secondAttribute="bottom" id="Dev-rq-pUN"/>
                                     <constraint firstAttribute="trailing" secondItem="Eqd-lq-obM" secondAttribute="trailing" id="HaE-lB-GAs"/>
                                     <constraint firstItem="Bdw-Vi-7sK" firstAttribute="top" secondItem="b4I-hf-Iop" secondAttribute="top" id="KPn-b2-fU1"/>
                                     <constraint firstAttribute="bottom" secondItem="Bdw-Vi-7sK" secondAttribute="bottom" id="SO5-0l-2fC"/>
+                                    <constraint firstItem="Zb1-tz-3Y9" firstAttribute="top" secondItem="b4I-hf-Iop" secondAttribute="top" id="YO8-4F-lqt"/>
                                     <constraint firstItem="sMv-H3-Hv7" firstAttribute="leading" secondItem="Bdw-Vi-7sK" secondAttribute="trailing" id="cBd-oU-pdl"/>
                                     <constraint firstItem="Eqd-lq-obM" firstAttribute="top" secondItem="b4I-hf-Iop" secondAttribute="top" id="cvG-X8-IO6"/>
                                     <constraint firstItem="sMv-H3-Hv7" firstAttribute="top" secondItem="Eqd-lq-obM" secondAttribute="bottom" id="eAV-V0-P53"/>
+                                    <constraint firstItem="Zb1-tz-3Y9" firstAttribute="leading" secondItem="Bdw-Vi-7sK" secondAttribute="trailing" id="j22-Le-ZHu"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zb1-tz-3Y9" secondAttribute="trailing" id="z51-Mr-l9F"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -968,7 +972,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mw8-Lk-RfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3263" y="1118"/>
+            <point key="canvasLocation" x="3174" y="1165"/>
         </scene>
         <!--心率-->
         <scene sceneID="1rL-DD-vdH">
@@ -1582,6 +1586,14 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V6d-Q9-QeZ" userLabel="确认密码" customClass="BackgroundCommon" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                                 <rect key="frame" x="50" y="235" width="220" height="46"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="再次确认密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oMm-ce-rzL">
+                                        <rect key="frame" x="8" y="8" width="204" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="GVF-ga-z0Z"/>
@@ -1732,12 +1744,6 @@
                                     <segue destination="HKo-Uq-TOt" kind="unwind" unwindAction="UnwindToLogin:" id="jZu-LW-i5R"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="再次确认密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oMm-ce-rzL">
-                                <rect key="frame" x="58" y="243" width="204" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.34901960784313724" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
@@ -2091,7 +2097,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tjj-Sk-xoV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="uP3-rc-agq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4432" y="1381"/>
+            <point key="canvasLocation" x="4428" y="1328"/>
         </scene>
         <!--我-->
         <scene sceneID="1dY-m9-K99">
@@ -2116,7 +2122,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aaK-pl-ABx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3818" y="1682"/>
+            <point key="canvasLocation" x="3866" y="1761"/>
         </scene>
     </scenes>
     <resources>
@@ -2145,6 +2151,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mIz-QC-5a8"/>
+        <segue reference="Cd7-rT-t2T"/>
     </inferredMetricsTieBreakers>
 </document>

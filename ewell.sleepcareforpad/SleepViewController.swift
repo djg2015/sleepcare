@@ -61,7 +61,7 @@ class SleepViewController: IBaseViewController,SelectDateEndDelegate,SelectDateD
     
     @IBAction func CloseWeekReport(segue:UIStoryboardSegue){
    //     self.dismissViewControllerAnimated(true, completion: nil)
-        tag = 1
+    
         currentController = self
     }
 
@@ -172,7 +172,7 @@ class SleepViewController: IBaseViewController,SelectDateEndDelegate,SelectDateD
         }
         self.sleepQualityViewModel!.BedUserCode = self._bedUserCode
         self.sleepQualityViewModel!.loadPatientSleep(self._bedUserCode)
-        tag = 1
+       
         currentController = self
         
     }

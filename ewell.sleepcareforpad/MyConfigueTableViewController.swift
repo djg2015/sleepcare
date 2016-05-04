@@ -21,7 +21,7 @@ class MyConfigueTableViewController:UITableViewController,SetTabbarBadgeDelegate
     let session = SessionForIphone.GetSession()
     
     @IBAction func CloseShowTips(segue:UIStoryboardSegue){
-            tag = 1
+        
         currentController = self
         
       self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -30,7 +30,7 @@ class MyConfigueTableViewController:UITableViewController,SetTabbarBadgeDelegate
     
     @IBAction func CloseShowInfo(segue:UIStoryboardSegue){
     
-        tag = 1
+     
         currentController = self
               self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
     }
@@ -62,21 +62,12 @@ class MyConfigueTableViewController:UITableViewController,SetTabbarBadgeDelegate
         }
         
     
-        tag = 1
+      
         currentController = self
         
        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
     }
-//    
-//    @IBAction func CloseAlarmView(segue:UIStoryboardSegue){
-// 
-//        tag = 1
-//        currentController = self
-//  
-//        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
-//    }
-   
-    
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ModifyAccount" {
             let vc = segue.destinationViewController as! IAccountSetController
@@ -86,7 +77,7 @@ class MyConfigueTableViewController:UITableViewController,SetTabbarBadgeDelegate
     }
     
     override func viewWillAppear(animated: Bool) {
-        tag = 1
+       
         currentController = self
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         

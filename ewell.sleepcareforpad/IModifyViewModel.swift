@@ -102,14 +102,26 @@ class IModifyViewModel:BaseViewModel {
         
         try {
             ({
-                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isconnect = xmppMsgManager!.Connect()
-                if(!isconnect){
-                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+//                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+//                let isconnect = xmppMsgManager!.Connect()
+//                if(!isconnect){
+//                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
+//                }
+//                else{
+                if MainHouseNames == nil{
+                    var tempHouseNames:Array<PopDownListItem> = Array<PopDownListItem>()
+                    var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+                    var mainInfoList:IMainInfoList =  sleepCareForIPhoneBussinessManager.GetAllMainInfo()
+                    for(var i=0;i<mainInfoList.mainInfoList.count;i++){
+                        var item:PopDownListItem = PopDownListItem()
+                        item.key = mainInfoList.mainInfoList[i].MainCode
+                        item.value = mainInfoList.mainInfoList[i].MainName
+                        tempHouseNames.append(item)
+                    }
+                    MainHouseNames = tempHouseNames
                 }
-                else{
-                   self.MainBusinesses = MainHouseNames
-                    
+                self.MainBusinesses = MainHouseNames
+                
                     //初始化用户信息
                     var session = SessionForIphone.GetSession()
                     if(session != nil){
@@ -124,7 +136,7 @@ class IModifyViewModel:BaseViewModel {
                             self.MainName = curMain.value!
                         }
                     }
-                }
+   //             }
                 },
                 catch: { ex in
                     //异常处理
@@ -142,12 +154,6 @@ class IModifyViewModel:BaseViewModel {
     func Modify() -> RACSignal{
         try {
             ({
-//                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-//                let isconnect = xmppMsgManager!.Connect()
-//                if(!isconnect){
-//                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-//                }
-//                else{
                     //检查输入是否合法
                     if(self.Pwd == ""){
                         showDialogMsg(ShowMessage(MessageEnum.PwdNil))
@@ -188,7 +194,7 @@ class IModifyViewModel:BaseViewModel {
                     else{
                         showDialogMsg(ShowMessage(MessageEnum.ModifyAccountFail),"提示", buttonTitle: "确定",action: self.AfterModify)
                     }
-     //           }
+
                 },
                 catch: { ex in
                     handleException(ex,showDialog: true)
@@ -203,7 +209,6 @@ class IModifyViewModel:BaseViewModel {
     func AfterModify(isOtherButton: Bool){
         if self.controller != nil{
     self.controller.dismissViewControllerAnimated(false, completion: nil)
-            tag = 1
          currentController =  self.controller.parentController
             self.controller.parentController.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         }

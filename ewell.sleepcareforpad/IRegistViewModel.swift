@@ -117,6 +117,7 @@ class IRegistViewModel:BaseViewModel {
     //界面处理命令
     var registCommand: RACCommand?
     var IsChecked:Bool = false
+    var parentController:IRegistViewController!
     
     //构造函数
     override init(){
@@ -193,15 +194,13 @@ class IRegistViewModel:BaseViewModel {
                     showDialogMsg(ShowMessage(MessageEnum.MainhouseNil))
                     return
                 }
+                if self.LoginType == ""{
+                    showDialogMsg(ShowMessage(MessageEnum.LoginTypeNil))
+                    return
+                }
                 
                 //已经勾选了服务协议，尝试注册账户
                 if self.IsChecked{
-//                    var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-//                    let isconnect = xmppMsgManager!.RegistConnect()
-//                    if(!isconnect){
-//                        showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-//                    }
-//                    else{
                         var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                         let result:ServerResult =  sleepCareForIPhoneBussinessManager.Regist(self.LoginName, loginPassword: self.Pwd, mainCode: self.MainCode)
                         //注册账户成功后，继续设置账户类型
@@ -212,9 +211,8 @@ class IRegistViewModel:BaseViewModel {
                             }
                         }
                         else{
-                            showDialogMsg(ShowMessage(MessageEnum.RegistAccountFail),"提示" ,buttonTitle: "确定", action: self.AfterRegistFail)
+                            showDialogMsg(ShowMessage(MessageEnum.RegistAccountFail),"提示" ,buttonTitle: "确定", action:nil)
                         }
-    //                }
                 }
                 else{
                     showDialogMsg(ShowMessage(MessageEnum.NeedCheckProtol))
@@ -237,19 +235,11 @@ class IRegistViewModel:BaseViewModel {
     
     //点击注册成功,弹窗后的操作
     func AfterRegistSuccess(isOtherButton: Bool){
-        
-        //关闭默认openfire账户的连接
-        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-        xmppMsgManager!.Close()
-
+        if self.parentController != nil{
+        self.parentController.navigationController?.popViewControllerAnimated(true)
+        }
     }
-    //点击注册失败,弹窗后的操作
-    func AfterRegistFail(isOtherButton: Bool){
-        //关闭默认openfire账户的连接
-        var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-        xmppMsgManager!.Close()
-    }
-
+   
     
 }
 

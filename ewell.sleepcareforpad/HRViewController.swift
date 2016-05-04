@@ -111,7 +111,7 @@ class HRViewController: IBaseViewController {
             self.hrMonitorViewModel!.BedUserCode = _bedUserCode
             self.hrMonitorViewModel!.BedUserName = _bedUserName
             self.hrMonitorViewModel!.loadPatientHR(_bedUserCode)
-            tag = 1
+  
             currentController = self
        
     }

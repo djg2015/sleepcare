@@ -31,7 +31,7 @@ class IWeekSleepcareController: IBaseViewController {
     var weekReport:IWeekReport!
    
     override func viewWillAppear(animated: Bool) {
-        tag = 2
+  
        
         currentController = self
     }

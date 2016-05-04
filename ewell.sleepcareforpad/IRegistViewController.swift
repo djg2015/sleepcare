@@ -54,17 +54,15 @@ class IRegistViewController: IBaseViewController,PopDownListItemChoosed {
 
     override func viewWillAppear(animated: Bool) {
        
-        tag = 0
-       
+      
     }
     
-//    override func Clean() {
-//        self.iRegistViewModel = nil
-//    }
+
 
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iRegistViewModel = IRegistViewModel()
+        self.iRegistViewModel.parentController = self
         self.btnRegist!.rac_command = self.iRegistViewModel?.registCommand
         self.txtLoginName.rac_textSignal() ~> RAC(self.iRegistViewModel, "LoginName")
         self.txtPwd.rac_textSignal() ~> RAC(self.iRegistViewModel, "Pwd")

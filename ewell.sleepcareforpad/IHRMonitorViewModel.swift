@@ -162,13 +162,7 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
          
             if("" != bedusercode)
             {
-//                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-//                let isconnect = xmppMsgManager!.Connect()
-//                if(!isconnect){
-//                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-//                }
-//                else{
-                    //连接成功，获取某床位用户心率报告
+                    //获取某床位用户心率报告
                 var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
                 var hrRange:IHRRange = sleepCareForIPhoneBLL.GetHRTimeReport(bedusercode)
                 var tempHRTimeReport = Array<IHRTimeReport>()
@@ -182,7 +176,7 @@ class IHRMonitorViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 RealTimeHelper.GetRealTimeInstance().SetDelegate("IHRMonitorViewModel",currentViewModelDelegate: self)
                 RealTimeHelper.GetRealTimeInstance().setRealTimer()
                    
-  //          }
+
             }
             else{
                 //清空页面数据

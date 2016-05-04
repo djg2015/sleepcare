@@ -24,7 +24,6 @@ class IAccountSetController: IBaseViewController, PopDownListItemChoosed{
     
     @IBAction func ClickCancle(sender:AnyObject){
     self.dismissViewControllerAnimated(false, completion: nil)
-        tag = 1
         currentController = parentController
         self.parentController.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
     }
@@ -43,8 +42,7 @@ class IAccountSetController: IBaseViewController, PopDownListItemChoosed{
     }
     
     override func viewWillAppear(animated: Bool) {
-        tag = 1
-        
+    
         currentController = self
     }
 

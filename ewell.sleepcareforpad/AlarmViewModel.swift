@@ -21,6 +21,8 @@ class AlarmViewModel: BaseViewModel {
         }
     }
     
+    var codeList:Array<String>=Array<String>()
+    
     //构造函数
     override init(){
         super.init()
@@ -50,6 +52,7 @@ class AlarmViewModel: BaseViewModel {
                     tempAlarm.deleteAlarmHandler = self.DeleteAlarm
                     
                     tempAlarmArray.append(tempAlarm)
+                    self.codeList.append(info.AlarmCode)
                 }//for i
                 
                 self.AlarmArray = tempAlarmArray
@@ -63,6 +66,8 @@ class AlarmViewModel: BaseViewModel {
                 }
             )}
     }
+    
+    
     
     
    //alarmcell单个删除操作（滑动删除）
