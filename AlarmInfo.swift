@@ -16,11 +16,11 @@ class AlarmInfo{
     var PartName:String = ""
     var BedCode:String = ""
     var BedNumber:String = ""
-    var HandleFlag:String = ""
     var SchemaCode:String = ""
     var SchemaContent:String = ""
     var AlarmDate:String = ""
-    var AlarmTime:String = ""
+    var AlarmTime:String = ""  //yyyy-MM-dd 时:分:秒
     var FoobLevelCode:String = ""
     var BedSoreLevelCode:String = ""
+    var HandleFlag:String = ""
 }

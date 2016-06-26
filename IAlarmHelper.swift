@@ -119,10 +119,10 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     func ReloadUndealedWarning(){
         try {
             ({
-                var session = SessionForIphone.GetSession()
+                var session = SessionForSingle.GetSession()
                 var curDateString = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
-                var sleepCareBussinessManager = BusinessFactory<SleepCareBussinessManager>.GetBusinessInstance("SleepCareBussinessManager")
-                var alarmList:AlarmList = sleepCareBussinessManager.GetAlarmByLoginUser(session!.User!.MainCode,loginName:session!.User!.LoginName,schemaCode:"",alarmTimeBegin:"2016-01-01",alarmTimeEnd:curDateString,transferTypeCode:"001",from:nil,max:nil)
+               
+                var alarmList:AlarmList = SleepCareForSingle().GetSingleAlarmByLoginUser(session!.User!.LoginName,schemaCode:"",alarmTimeBegin:"2016-01-01",alarmTimeEnd:curDateString,transferTypeCode:"001",from:nil,max:nil)
                 
                 var alarmInfo:AlarmInfo
                 var tempWarningList:Array<WarningInfo>=[]
@@ -264,11 +264,11 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     //--------------------------------报警弹窗和页面跳转---------------------------------
     //点击远程消息通知后的操作：若已登录且当前不是报警页面，则直接跳转报警信息页面
     func showWariningAction(){
-        if currentController != nil{
-        let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
-        nextController.parentController = currentController
-        currentController.presentViewController(nextController, animated: true, completion: nil)
-        }
+//        if currentController != nil{
+//        let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
+//        nextController.parentController = currentController
+//        currentController.presentViewController(nextController, animated: true, completion: nil)
+//        }
     }
     
     //当前不是弹窗页面且没有打开的弹窗，则弹窗提示是否查看报警
@@ -280,19 +280,19 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     }
     //弹窗按钮的具体操作
     func ShowAlarmInfo(isOtherButton: Bool){
-        //点击“立即查看”,则跳转alarmview页面
-        if !isOtherButton{
-            let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
-            nextController.parentController = currentController
-            currentController.presentViewController(nextController, animated: true, completion: nil)
-            
-        }
-        else{
-            for warning in self.WarningList{
-                warning.IsRead = true
-            }
-        }
-        
+//        //点击“立即查看”,则跳转alarmview页面
+//        if !isOtherButton{
+//            let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
+//            nextController.parentController = currentController
+//            currentController.presentViewController(nextController, animated: true, completion: nil)
+//            
+//        }
+//        else{
+//            for warning in self.WarningList{
+//                warning.IsRead = true
+//            }
+//        }
+//        
     }
     
     func SetReadWarning(codeList:Array<String>){
@@ -310,7 +310,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     //获取原始报警数据warningcaches,通过bedcode过滤为需要的报警信息
     func GetWaringAttentionDelegate(alarmList:AlarmList){
         if(self.IsOpen){
-            var session = SessionForIphone.GetSession()
+            var session = SessionForSingle.GetSession()
             if (session != nil && session!.BedUserCodeList.count > 0){
                 var bedusercodeList = session!.BedUserCodeList
                 if bedusercodeList.count > 0 {

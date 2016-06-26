@@ -21,8 +21,10 @@ import UIKit
     @IBInspectable var ImageName:String? {
         didSet{
             if ImageName != nil{
-            var imgName = GetImg(ImageName!)
-                self.layer.contents = UIImage(named:imgName)?.CGImage
+         //   var imgName = GetImg(ImageName!)
+          //      self.layer.contents = UIImage(named:imgName)?.CGImage
+                 self.layer.contents = UIImage(named:ImageName!)?.CGImage
+             //  self.backgroundColor = UIColor(patternImage: UIImage(named:ImageName!)!)
                 self.backgroundColor = UIColor.clearColor()
             }
             

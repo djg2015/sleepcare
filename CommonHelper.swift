@@ -59,6 +59,45 @@ func handleException(ex:NSObject, showDialog:Bool = false,msg:String = ""){
 }
 
 
+func GetOpenfireInfo(){
+    var url = NSURL(string:"http://usleepcare.com/app/getApp.aspx")
+    
+    var data =  NSData(contentsOfURL: url!, options:  NSDataReadingOptions.DataReadingUncached, error: nil)
+    //var str = NSString(data: data, encoding: NSUTF8StringEncoding)
+    if data != nil{
+        var json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: nil)
+        if json != nil{
+            var apInfo: AnyObject? = json!.objectForKey("apinfo")
+            if apInfo != nil{
+                var ip:String? = apInfo!.objectForKey("IP") as? String
+                var port:Int? = apInfo!.objectForKey("OpenFirePort") as? Int
+                var server:String? =  apInfo!.objectForKey("ServerID") as? String
+                var pwd:String? = apInfo!.objectForKey("PWD") as? String
+                var username:String? = apInfo!.objectForKey("UserName") as? String
+                
+                if (ip != nil && port != nil && server != nil && pwd != nil && username != nil){
+                    SetValueIntoPlist(SERVER,ip!)
+                    SetValueIntoPlist(PORT,String(port!) )
+                    SetValueIntoPlist(SERVERJID, server!)
+                    SetValueIntoPlist(PASS, pwd!)
+                    SetValueIntoPlist(USERID, username! + "@" + ip!)
+                }
+                
+            }
+        }
+    }
+}
+
+
+//检查输入是否含空格,有空格返回true
+func IsBlankExist(input:String)->Bool{
+    for char in input{
+        if char == " " || char == " "{
+            return true
+        }
+    }
+    return false
+}
 
 //截取指定参数字符串
 extension String {
@@ -97,12 +136,5 @@ extension String {
         return self.componentsSeparatedByString(s)
     }
     
-//    func setStatusBarBackgroundColor() {
-//        
-//        if UIApplication.sharedApplication().valueForKey("statusBarWindow")?.valueForKey("statusBar") != nil{
-//         let statusBar = UIApplication.sharedApplication().valueForKey("statusBarWindow")?.valueForKey("statusBar") as! UIView
-//            statusBar.backgroundColor = themeColor[themeName]
-//        }
-//    }
-   
+
 }

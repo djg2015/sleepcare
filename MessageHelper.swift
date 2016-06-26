@@ -18,7 +18,7 @@ return messageDescription
 enum MessageEnum:Int{
     case ConnectOpenfireFail = 1
     case ConnectFail
-    case LoginnameNil
+    case TelephoneNil
     case PwdNil
     case ConfirmPwdWrong
     case MainhouseNil
@@ -41,5 +41,12 @@ enum MessageEnum:Int{
     case UserTypeInfo
     case CheckAlarmInfo
     case LoginTypeNil
-
+    case VerifyNumberNil
+    case ConfirmPatientInfo
+case NeedPhonenumber
+    case QRCodeNil
+    case NameNil
+    case ConfirmNewPwdSuccess
+    case ConfirmNewPwdFail
+    case AddDeviceReminder
 }

@@ -1,89 +1,49 @@
 //
 //  AppDelegate.swift
-//  ewell.sleepcare
+//  test
 //
-//  Created by djg on 15/8/21.
-//  Copyright (c) 2015年 djg. All rights reserved.
+//  Created by Qinyuan Liu on 6/1/16.
+//  Copyright (c) 2016 Qinyuan Liu. All rights reserved.
 //
-
 
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
-    
-    var window: UIWindow?
+class AppDelegate: UIResponder, UIApplicationDelegate ,XMPPStreamDelegate{
     //后台任务
     var backgroundTask:UIBackgroundTaskIdentifier! = nil
     var isBackRun:Bool = false
+    var window: UIWindow?
     
     //1由not running状态切换到inactive状态,程序初始化
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //延时启动界面
         NSThread.sleepForTimeInterval(1)
-        
+        //初始化plist文件
         InitPlistFile()
-        
-        if ((launchOptions) != nil ) {
-           
-           
-            //            let Info = launchOptions! as NSDictionary
-            //            let pushInfo = Info.objectForKey("UIApplicationLaunchOptionsRemoteNotificationKey") as! NSDictionary
-            //            //获取推送详情
-            //            var pushString = pushInfo.objectForKey("aps") as! String
-//            let alert = UIAlertView(title: "报警信息提示", message: "请点击一个老人后，到[我] ->［报警信息］下查看", delegate: nil, cancelButtonTitle: "确认")
-//            alert.show()
-             //      }
-        }
+//        //获取根控制器
+//        let story:UIStoryboard = UIStoryboard(name:"Main",bundle:nil) as UIStoryboard
+//        //是否已注册过账户:已注册，登录页面设置为root；未注册，注册页面设置为root
+//        let isRegistFlag =  GetValueFromPlist("isRegist","sleepcare.plist")
+//        if isRegistFlag == "false"{
+//        self.window?.rootViewController = story.instantiateViewControllerWithIdentifier("rootregist") as? UIViewController
+//        }
+//        else{
+//         self.window?.rootViewController = story.instantiateViewControllerWithIdentifier("rootlogin") as? UIViewController
+//        }
         return true
     }
     
-    //2由inactive状态切换到active状态
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-         
-        CheckRemoteNotice()
-         
-//                    var curUpdate = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
-//                    
-//                    var updateflag = UpdateHelper.GetUpdateInstance().CheckLocalUpdateDate(curUpdate)
-//                    if updateflag{
-//                        UpdateHelper.GetUpdateInstance().PrepareConnection()
-//                        UpdateHelper.GetUpdateInstance().LocalAppVersion()
-//                        //更新本地sleepcare.plist文件里updatedate
-//                        SetValueIntoPlist("updatedate",curUpdate)
-//                        //本地version对比store里最新的version大小
-//                        UpdateHelper.GetUpdateInstance().CheckUpdate(true)
-//                    }
-//                }
-//            }
-
-        
-        self.isBackRun = false
-        if currentController != nil{
-        currentController.viewWillAppear(true)
-        }
-    }
-    
-    
-    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> Int {
-
-        return (Int)(UIInterfaceOrientationMask.Portrait.rawValue)
-    }
-    
-
-  
     func applicationWillResignActive(application: UIApplication) {
-
+        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
     
-  
     func applicationDidEnterBackground(application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+         self.isBackRun = true
         
-        
-        self.isBackRun = true
-        
-      
         //如果已存在后台任务，先将其设为完成
         if self.backgroundTask != nil {
             application.endBackgroundTask(self.backgroundTask)
@@ -97,27 +57,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             application.endBackgroundTask(self.backgroundTask)
             self.backgroundTask = UIBackgroundTaskInvalid
         })
-        
+
     }
     
-    
-    //5切换回本来的App时，由running状态切换到inactive状态
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
     
-    //6 应用终止，保存上次终止时的重要用户信息
+    //2由inactive状态切换到active状态
+    func applicationDidBecomeActive(application: UIApplication) {
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        //远程消息设置
+        CheckRemoteNotice()
+        //日更新提示
+        var curUpdate = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
+        var updateflag = UpdateHelper.GetUpdateInstance().CheckLocalUpdateDate(curUpdate)
+        //更新本地sleepcare.plist文件里updatedate
+        SetValueIntoPlist("updatedate",curUpdate)
+        
+        if updateflag{
+            UpdateHelper.GetUpdateInstance().PrepareConnection()
+            //本地version对比store里最新的version大小
+            UpdateHelper.GetUpdateInstance().CheckUpdate()
+        }
+        
+        
+        self.isBackRun = false
+        if currentController != nil{
+            currentController.viewWillAppear(true)
+        }
+    }
+    
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-
         NSNotificationCenter.defaultCenter().postNotificationName("WarningClose", object: self)
+    }
+    
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> Int {
+        
+        return (Int)(UIInterfaceOrientationMask.Portrait.rawValue)
     }
     
     //接收本地通知
     func application(application: UIApplication,
         didReceiveLocalNotification notification: UILocalNotification) {
             if(self.isBackRun){
-
+                
                 self.isBackRun = false
             }
     }
@@ -126,7 +111,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         
     }
     
-    //-----------------------
     //接收远程推送通知
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         //  println("userInfo = \(userInfo)")
@@ -145,13 +129,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         if self.isBackRun{
             if (!AlarmViewTag && LOGINFLAG){
                 if !IAlarmHelper.GetAlarmInstance().IsAlarmAlertOpened{
-                   NSNotificationCenter.defaultCenter().postNotificationName("OpenAlarmView", object: self)
+                    NSNotificationCenter.defaultCenter().postNotificationName("OpenAlarmView", object: self)
                 }
             }
         }
     }
-    
-    
+
     //成功注册通知后，获取device token
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         
@@ -167,5 +150,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
     //当推送注册失败时
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
     }
-    
+
 }
+

@@ -8,28 +8,20 @@
 
 import Foundation
 
+//singleiphone
 let tag_realtimedata:String="<RealTimeReport"
-let tag_userinfo:String="<User"
-let tag_roleList:String="<EPRoleList"
-let tag_partInfo:String="<PartInfo"
-let tag_bedUser:String="<BedUser"
-let tag_sleepCareReportList:String="<EPSleepCareReportList"
-let tag_sleepCareReport:String="<SleepCareReport"
-let tag_turnOverAnalysList:String="<EPTurnOverAnalysList"
-let tag_alarmList:String="<EPAlarmInfoList"
-let tag_bedReportList:String="<EPBedReportList"
+let tag_single_loginUser:String="<LoginUser"
+let tag_single_serverResult:String="<ServerResult"
+let tag_single_bedUserInfo:String="<BedUserInfo"
+let tag_single_equipmentList:String="<EquipmentList"
+let tag_single_hrRange:String="<HRRange"
+let tag_single_rrRange:String="<RRRange"
+let tag_single_sleepQualityReport:String="<SleepQualityReport"
+let tag_single_weekSleep:String="<WeekSleep"
+let tag_single_alarmList:String="<AlarmList"
+//异常编码如下：0：表示业务异常 -1：一般错误
 let tag_EMServiceException:String="<EMServiceException"
-let tag_Result:String="<Result"
-let tag_IP_loginUser:String="<LoginUser"
-let tag_IP_serverResult:String="<ServerResult"
-let tag_IP_mainInfo:String="<MainInfo"
-let tag_IP_bedUserList:String="<EPBedUserList"
-let tag_IP_hrRange:String="<EPHRRange"
-let tag_IP_rrRange:String="<EPRRRange"
-let tag_IP_sleepQuality:String="<SleepQualityReport"
-let tag_IP_equipmentInfo:String="<EquipmentInfo"
-let tag_IP_mainInfoList:String="<EPMainInfoList"
-let tag_IP_weekReport:String="<WeekReport"
+
 
 class MessageFactory {
     //xmpp字符串节点
@@ -38,56 +30,44 @@ class MessageFactory {
         if(message.content.hasPrefix(tag_realtimedata)){
             return RealTimeReport.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-               else if(message.content.hasPrefix(tag_EMServiceException))
+            else if(message.content.hasPrefix(tag_EMServiceException))
         {
             return EMServiceException.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-        else if(message.content.hasPrefix(tag_alarmList)){
+        else if(message.content.hasPrefix(tag_single_alarmList)){
             return AlarmList.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-        else if(message.content.hasPrefix(tag_IP_loginUser))
+        else if(message.content.hasPrefix(tag_single_loginUser))
         {
-            return ILoginUser.XmlToMessage(message.subject, bodyXMl: message.content)
+            return LoginUser.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-        else if(message.content.hasPrefix(tag_Result))
+        else if(message.content.hasPrefix(tag_single_serverResult))
         {
             return ServerResult.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-        else if(message.content.hasPrefix(tag_IP_serverResult))
+        else if(message.content.hasPrefix(tag_single_bedUserInfo))
         {
-            return ServerResult.XmlToMessage(message.subject, bodyXMl: message.content)
+            return BedUserInfo.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-        else if(message.content.hasPrefix(tag_IP_mainInfo))
+        else if(message.content.hasPrefix(tag_single_equipmentList))
         {
-            return IMainInfo.XmlToMessage(message.subject, bodyXMl: message.content)
+            return EquipmentList.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-        else if(message.content.hasPrefix(tag_IP_bedUserList))
+        else if(message.content.hasPrefix(tag_single_hrRange))
         {
-            return IBedUserList.XmlToMessage(message.subject, bodyXMl: message.content)
+            return HRRange.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-        else if(message.content.hasPrefix(tag_IP_hrRange))
+        else if(message.content.hasPrefix(tag_single_rrRange))
         {
-            return IHRRange.XmlToMessage(message.subject, bodyXMl: message.content)
+            return RRRange.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-        else if(message.content.hasPrefix(tag_IP_rrRange))
+        else if(message.content.hasPrefix(tag_single_sleepQualityReport))
         {
-            return IRRRange.XmlToMessage(message.subject, bodyXMl: message.content)
+            return SleepQualityReport.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-        else if(message.content.hasPrefix(tag_IP_sleepQuality))
+        else if(message.content.hasPrefix(tag_single_weekSleep))
         {
-            return ISleepQualityReport.XmlToMessage(message.subject, bodyXMl: message.content)
-        }
-        else if(message.content.hasPrefix(tag_IP_weekReport))
-        {
-            return IWeekReport.XmlToMessage(message.subject, bodyXMl: message.content)
-        }
-        else if(message.content.hasPrefix(tag_IP_equipmentInfo))
-        {
-            return IEquipmentInfo.XmlToMessage(message.subject, bodyXMl: message.content)
-        }
-        else if(message.content.hasPrefix(tag_IP_mainInfoList))
-        {
-            return IMainInfoList.XmlToMessage(message.subject, bodyXMl: message.content)
+            return WeekSleep.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         else
         {

@@ -54,7 +54,7 @@ class BaseMessage:NSObject{
         //消息类型
         mes.addAttributeWithName("type",stringValue:"normal")
         //发送给谁
-        mes.addAttributeWithName("to" ,stringValue:"ewell@122.224.242.241")
+        mes.addAttributeWithName("to" ,stringValue:GetValueFromPlist(SERVERJID,"sleepcare.plist"))
         
         //由谁发送
         mes.addAttributeWithName("from" ,stringValue:NSUserDefaults.standardUserDefaults().stringForKey(USERID))

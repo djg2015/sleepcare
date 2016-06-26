@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>1</key>
-	<string>无法获取有效服务器配置信息！点击重试后再试一次，点击关闭则稍后再试</string>
+	<string>无法获取有效服务器配置信息！</string>
 	<key>2</key>
 	<string>当前无法连接服务器，请检查网络状况是否正常</string>
 	<key>3</key>
-	<string>账户名不能为空！</string>
+	<string>帐号（手机号）不能为空！</string>
 	<key>4</key>
 	<string>密码不能为空！</string>
 	<key>5</key>
@@ -52,5 +52,19 @@
 	<string>您有新的报警信息，请注意查看</string>
 	<key>25</key>
 	<string>账户类型不能为空！</string>
+	<key>26</key>
+	<string>验证码不能为空！</string>
+	<key>27</key>
+	<string>注册成功！请继续确认老人信息</string>
+	<key>28</key>
+	<string>请先输入手机号！</string>
+	<key>29</key>
+	<string>请点击&quot;扫一扫&quot;获取设备编码，扫描成功后才能注册账户。</string>
+	<key>30</key>
+	<string>请输入老人姓名！</string>
+	<key>31</key>
+	<string>修改密码成功！请继续登录</string>
+	<key>32</key>
+	<string>修改密码失败！请再试一次</string>
 </dict>
 </plist>

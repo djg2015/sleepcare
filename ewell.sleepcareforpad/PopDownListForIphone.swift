@@ -92,6 +92,7 @@ class PopDownListForIphone:NSObject,ZSYPopoverListDatasource, ZSYPopoverListDele
 struct PopDownListItem {
     var key:String?
     var value:String?
+    var equipmentcode:String?
 }
 
 protocol PopDownListItemChoosed{

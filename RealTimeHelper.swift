@@ -66,8 +66,8 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
     
     func GetRealTimeDelegate(realTimeReport:RealTimeReport){
         //key ＝ 病人code
-        let key = realTimeReport.UserCode
-        let session = SessionForIphone.GetSession()
+        let key = realTimeReport.BedUserCode
+        let session = SessionForSingle.GetSession()
         
         if session != nil{
         let usercodeList = session!.BedUserCodeList
@@ -89,7 +89,7 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
                 }
             }
             else{
-                self.realTimeCaches[realTimeReport.BedCode] = realTimeReport
+                self.realTimeCaches[realTimeReport.BedUserCode] = realTimeReport
             }
         }
 

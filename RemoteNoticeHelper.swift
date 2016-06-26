@@ -56,7 +56,7 @@ func OpenNotice(){
                 if LOGINFLAG{
                     var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
                     if token != nil{
-              BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").OpenNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+             SleepCareForSingle().OpenNotification(token!, loginName: SessionForSingle.GetSession()!.User!.LoginName)
                     }
                 }
             }
@@ -83,7 +83,7 @@ func CloseNotice(){
                 if LOGINFLAG{
                     var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
                     if token != nil{
-                        BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").CloseNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+                        SleepCareForSingle().CloseNotification(token!, loginName: SessionForSingle.GetSession()!.User!.LoginName)
                     }
                 }
             }

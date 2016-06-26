@@ -9,15 +9,12 @@
 import Foundation
 class RealTimeReport:BaseMessage{
     //定义实时数据字段
-    var BedCode:String = ""
-    var BedNumber:String = ""
-    var UserCode:String = ""
-    var UserName:String = ""
-    var CaseCode:String = ""
+    var BedUserCode:String = ""
+    var BedUserNumber:String = ""
     var HR:String = ""
     var RR:String = ""
-    var BodyTemperature:String = ""
     var OnBedStatus:String = ""
+    //(yyyy-MM-dd HH:mm:ss)
     var MsgTime:String = ""
     var LastedLeaveTime:String = ""
      var LastedAvgHR:String = ""
@@ -29,16 +26,11 @@ class RealTimeReport:BaseMessage{
         var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
         var realTimeReports = doc.nodesForXPath("//RealTimeReport", error:nil) as! [DDXMLElement]
         for realTimeReport in realTimeReports {
-            result.BedCode = realTimeReport.elementForName("BedCode").stringValue()
-            result.BedNumber = realTimeReport.elementForName("BedNumber").stringValue()
-            result.UserCode = realTimeReport.elementForName("UserCode").stringValue()
-            result.UserName = realTimeReport.elementForName("UserName").stringValue()
-            if(realTimeReport.elementForName("CaseCode") != nil){
-                result.CaseCode = realTimeReport.elementForName("CaseCode").stringValue()
-            }
+            result.BedUserCode = realTimeReport.elementForName("BedUserCode") != nil ? realTimeReport.elementForName("BedUserCode").stringValue() : ""
+            result.BedUserNumber = realTimeReport.elementForName("BedUserNumber") != nil ? realTimeReport.elementForName("BedUserNumber").stringValue() : ""
             result.HR = realTimeReport.elementForName("HR").stringValue()
             result.RR = realTimeReport.elementForName("RR").stringValue()
-            result.BodyTemperature = realTimeReport.elementForName("BodyTemperature") != nil ?realTimeReport.elementForName("BodyTemperature").stringValue() : ""
+          
             if realTimeReport.elementForName("OnBedStatus") != nil{
             result.OnBedStatus = realTimeReport.elementForName("OnBedStatus").stringValue()
             }

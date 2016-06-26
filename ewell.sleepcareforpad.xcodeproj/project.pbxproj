@@ -8,103 +8,141 @@
 
 /* Begin PBXBuildFile section */
 		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
-		0D1341BF1C4F7CF000051E2C /* IModifyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */; };
-		0D1341C71C50BAA900051E2C /* ThemeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1341C61C50BAA900051E2C /* ThemeHelper.swift */; };
-		0D2C49101CC87E42006D3CF5 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2C490F1CC87E42006D3CF5 /* SleepViewController.swift */; };
-		0D2C49121CC8AA78006D3CF5 /* IWeekSleepcareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2C49111CC8AA78006D3CF5 /* IWeekSleepcareController.swift */; };
+		0D1FC0791D1A344D00988A64 /* HRTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0781D1A344D00988A64 /* HRTabViewModel.swift */; };
+		0D1FC07B1D1A5F6900988A64 /* btn_changepatient.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC07A1D1A5F6900988A64 /* btn_changepatient.png */; };
+		0D1FC07D1D1A6F4A00988A64 /* icon_检测中.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC07C1D1A6F4A00988A64 /* icon_检测中.png */; };
+		0D1FC0801D1A6F5400988A64 /* icon_请假.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC07E1D1A6F5400988A64 /* icon_请假.png */; };
+		0D1FC0811D1A6F5400988A64 /* icon_异常.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC07F1D1A6F5400988A64 /* icon_异常.png */; };
+		0D1FC0831D1A727900988A64 /* SleepCareForSingleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0821D1A727900988A64 /* SleepCareForSingleManager.swift */; };
+		0D1FC0851D1A72B500988A64 /* SleepCareForSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0841D1A72B500988A64 /* SleepCareForSingle.swift */; };
+		0D1FC0881D1A776800988A64 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0871D1A776800988A64 /* LoginUser.swift */; };
+		0D1FC08A1D1A884600988A64 /* BedUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0891D1A884600988A64 /* BedUserInfo.swift */; };
+		0D1FC08C1D1A8D5700988A64 /* EquipmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC08B1D1A8D5700988A64 /* EquipmentList.swift */; };
+		0D1FC08E1D1A90A000988A64 /* HRRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC08D1D1A90A000988A64 /* HRRange.swift */; };
+		0D1FC0901D1B79DD00988A64 /* RRRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC08F1D1B79DD00988A64 /* RRRange.swift */; };
+		0D1FC0921D1B7BF300988A64 /* SleepQualityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0911D1B7BF300988A64 /* SleepQualityReport.swift */; };
+		0D1FC0941D1B839A00988A64 /* WeekSleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0931D1B839A00988A64 /* WeekSleep.swift */; };
+		0D1FC0961D1BB15300988A64 /* SessionForSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0951D1BB15300988A64 /* SessionForSingle.swift */; };
+		0D1FC0A21D1CDE2600988A64 /* icon_60s.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC0A11D1CDE2600988A64 /* icon_60s.png */; };
+		0D1FC0A41D1CDF1200988A64 /* image_添加设备.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC0A31D1CDF1200988A64 /* image_添加设备.png */; };
+		0D1FC0A61D1CE01600988A64 /* icon_获取验证码.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC0A51D1CE01600988A64 /* icon_获取验证码.png */; };
+		0D1FC0AA1D1CFBE900988A64 /* ForgetPwdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0A91D1CFBE900988A64 /* ForgetPwdController.swift */; };
+		0D1FC0AC1D1CFCAF00988A64 /* ForgetPwdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0AB1D1CFCAF00988A64 /* ForgetPwdViewModel.swift */; };
+		0D1FC0B01D1EC7AF00988A64 /* AccountSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0AF1D1EC7AF00988A64 /* AccountSettingController.swift */; };
+		0D1FC0B61D1F863200988A64 /* AccountSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0B51D1F863200988A64 /* AccountSettingViewModel.swift */; };
+		0D1FC0BA1D1F8A5B00988A64 /* ModifyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0B91D1F8A5B00988A64 /* ModifyAccountController.swift */; };
+		0D1FC0BC1D1F8A5F00988A64 /* ModifyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0BB1D1F8A5F00988A64 /* ModifyAccountViewModel.swift */; };
 		0D2C49161CC8C4C1006D3CF5 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2C49151CC8C4C1006D3CF5 /* AlarmTableViewCell.swift */; };
 		0D2C49181CC8C572006D3CF5 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2C49171CC8C572006D3CF5 /* AlarmViewModel.swift */; };
 		0D336D0E1C92596D0049883F /* RemoteNoticeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */; };
 		0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */; };
 		0D35D5FA1C4CC3D8009F8EB2 /* Message.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D35D5F91C4CC3D8009F8EB2 /* Message.plist */; };
-		0D4E5BEE1C2A85BD00D2ED92 /* IViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */; };
-		0D5CCED31C5AF8B80068746C /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D5CCED21C5AF8B80068746C /* alarm.png */; };
-		0D5CCED51C5B09670068746C /* default_registdownarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D5CCED41C5B09670068746C /* default_registdownarrow.png */; };
-		0D78FA101C71C07000364CF6 /* lightgreenpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D78FA0F1C71C07000364CF6 /* lightgreenpoint.png */; };
+		0D3D05851CFED58C00476819 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D05841CFED58C00476819 /* AppDelegate.swift */; };
+		0D3D058F1CFEDEED00476819 /* EquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D058A1CFEDEED00476819 /* EquipmentViewController.swift */; };
+		0D3D05911CFEDEED00476819 /* RootTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D058C1CFEDEED00476819 /* RootTabbarController.swift */; };
+		0D3D05921CFEDEED00476819 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D058D1CFEDEED00476819 /* ScanViewController.swift */; };
+		0D3D05941CFFC30D00476819 /* UpdateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D05931CFFC30D00476819 /* UpdateHelper.swift */; };
+		0D3D05981D0522DF00476819 /* RootRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D05971D0522DF00476819 /* RootRegistViewController.swift */; };
+		0D3D059C1D05231B00476819 /* RootLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D059B1D05231B00476819 /* RootLoginViewController.swift */; };
+		0D3EB0921D0FA75800928430 /* 登录背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0911D0FA75800928430 /* 登录背景.png */; };
+		0D3EB0961D0FA7BD00928430 /* icon_logo_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0951D0FA7BD00928430 /* icon_logo_2.png */; };
+		0D3EB09C1D0FAD0700928430 /* icon_登录.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB09B1D0FAD0700928430 /* icon_登录.png */; };
+		0D3EB0A21D0FAE6500928430 /* icon_password.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0A11D0FAE6500928430 /* icon_password.png */; };
+		0D3EB0A41D0FAE6B00928430 /* icon_telephone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0A31D0FAE6B00928430 /* icon_telephone.png */; };
+		0D3EB0A61D0FC6BA00928430 /* icon_logo_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0A51D0FC6BA00928430 /* icon_logo_1.png */; };
+		0D3EB0A81D0FC9F800928430 /* icon_短信校验码.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0A71D0FC9F800928430 /* icon_短信校验码.png */; };
+		0D3EB0AA1D0FCB0A00928430 /* icon_密码可见.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0A91D0FCB0A00928430 /* icon_密码可见.png */; };
+		0D3EB0AF1D0FD2EE00928430 /* icon_rememberpwd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0AB1D0FD2EE00928430 /* icon_rememberpwd.png */; };
+		0D3EB0B01D0FD2EE00928430 /* icon_checkyes.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0AC1D0FD2EE00928430 /* icon_checkyes.png */; };
+		0D3EB0B11D0FD2EE00928430 /* icon_checkno.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0AD1D0FD2EE00928430 /* icon_checkno.png */; };
+		0D3EB0B21D0FD2EE00928430 /* icon_椭圆.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0AE1D0FD2EE00928430 /* icon_椭圆.png */; };
+		0D3EB0B41D0FD37E00928430 /* icon_扫一扫.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0B31D0FD37E00928430 /* icon_扫一扫.png */; };
+		0D3EB0B61D0FD96700928430 /* btn_返回.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0B51D0FD96700928430 /* btn_返回.png */; };
+		0D3EB0B81D0FE1B500928430 /* icon_norememberpwd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0B71D0FE1B500928430 /* icon_norememberpwd.png */; };
+		0D3EB0BA1D0FE28100928430 /* icon_male.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0B91D0FE28100928430 /* icon_male.png */; };
+		0D3EB0BC1D0FE29300928430 /* icon_female_choose.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0BB1D0FE29300928430 /* icon_female_choose.png */; };
+		0D3EB0C01D0FE63600928430 /* icon_female.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0BD1D0FE63600928430 /* icon_female.png */; };
+		0D3EB0C11D0FE63600928430 /* icon_figure.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0BE1D0FE63600928430 /* icon_figure.png */; };
+		0D3EB0C21D0FE63600928430 /* icon_male_choose.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0BF1D0FE63600928430 /* icon_male_choose.png */; };
+		0D3EB0C41D0FE8B800928430 /* btn_address.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0C31D0FE8B800928430 /* btn_address.png */; };
+		0D3EB0C61D0FEB0600928430 /* icon_密码不可见.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0C51D0FEB0600928430 /* icon_密码不可见.png */; };
+		0D3EB0C91D0FEC7600928430 /* tab_呼吸－1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0C71D0FEC7600928430 /* tab_呼吸－1.png */; };
+		0D3EB0CA1D0FEC7600928430 /* tab_心率－1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0C81D0FEC7600928430 /* tab_心率－1.png */; };
+		0D3EB0CD1D0FEC7C00928430 /* tab_我的－1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0CB1D0FEC7C00928430 /* tab_我的－1.png */; };
+		0D3EB0CE1D0FEC7C00928430 /* tab_睡眠－1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0CC1D0FEC7C00928430 /* tab_睡眠－1.png */; };
+		0D3EB0D01D0FEF4700928430 /* btn_下拉.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0CF1D0FEF4700928430 /* btn_下拉.png */; };
+		0D3EB0D21D0FEF4C00928430 /* btn_有警报.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0D11D0FEF4C00928430 /* btn_有警报.png */; };
+		0D3EB0D41D0FEF5300928430 /* btn_无警报.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0D31D0FEF5300928430 /* btn_无警报.png */; };
+		0D3EB0D81D0FF84600928430 /* icon_offbed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0D51D0FF84600928430 /* icon_offbed.png */; };
+		0D3EB0D91D0FF84600928430 /* icon_onbed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0D61D0FF84600928430 /* icon_onbed.png */; };
+		0D3EB0DA1D0FF84600928430 /* icon_ergent.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0D71D0FF84600928430 /* icon_ergent.png */; };
+		0D3EB0E11D1001E500928430 /* icon_blue circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0DB1D1001E500928430 /* icon_blue circle.png */; };
+		0D3EB0E21D1001E500928430 /* icon_gray circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0DC1D1001E500928430 /* icon_gray circle.png */; };
+		0D3EB0E31D1001E500928430 /* icon_green circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0DD1D1001E500928430 /* icon_green circle.png */; };
+		0D3EB0E41D1001E500928430 /* icon_light green circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0DE1D1001E500928430 /* icon_light green circle.png */; };
+		0D3EB0E51D1001E500928430 /* icon_purple circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0DF1D1001E500928430 /* icon_purple circle.png */; };
+		0D3EB0E61D1001E500928430 /* icon_red circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0E01D1001E500928430 /* icon_red circle.png */; };
+		0D3EB0E81D1034A300928430 /* btn_右键.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0E71D1034A300928430 /* btn_右键.png */; };
+		0D3EB0EA1D1034BD00928430 /* icon_退出登录.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0E91D1034BD00928430 /* icon_退出登录.png */; };
+		0D3EB0EE1D10350A00928430 /* icon_set.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0EB1D10350A00928430 /* icon_set.png */; };
+		0D3EB0EF1D10350A00928430 /* icon_使用技巧.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0EC1D10350A00928430 /* icon_使用技巧.png */; };
+		0D3EB0F01D10350A00928430 /* icon_关于.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0ED1D10350A00928430 /* icon_关于.png */; };
+		0D3EB0F21D10352000928430 /* icon_当前版本.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0F11D10352000928430 /* icon_当前版本.png */; };
+		0D3EB0F41D10355800928430 /* icon_报警信息.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0F31D10355800928430 /* icon_报警信息.png */; };
+		0D3EB0F61D10356B00928430 /* icon_报警页面.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0F51D10356B00928430 /* icon_报警页面.png */; };
+		0D3EB0F81D10E88A00928430 /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0F71D10E88A00928430 /* icon_time.png */; };
+		0D3EB0FA1D10E8D500928430 /* icon_my devices.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0F91D10E8D500928430 /* icon_my devices.png */; };
+		0D3EB0FC1D10E8DF00928430 /* icon_nurse.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0FB1D10E8DF00928430 /* icon_nurse.png */; };
+		0D6898E91D17D2D60087A0FE /* icon_arrowdown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D6898E81D17D2D60087A0FE /* icon_arrowdown.png */; };
+		0D6898EF1D17DEE40087A0FE /* ChartScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6898EE1D17DEE40087A0FE /* ChartScrollView.swift */; };
+		0D6898F41D190AAA0087A0FE /* STLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6898F11D190AAA0087A0FE /* STLoopProgressView.m */; };
+		0D6898F51D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6898F31D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.m */; };
 		0D79EE0B1CB658B500B9DA5F /* AlarmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE0A1CB658B500B9DA5F /* AlarmList.swift */; };
 		0D79EE0D1CB6594000B9DA5F /* AlarmInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE0C1CB6593F00B9DA5F /* AlarmInfo.swift */; };
 		0D79EE0F1CB6597A00B9DA5F /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE0E1CB6597A00B9DA5F /* BaseViewModel.swift */; };
-		0D79EE111CB65B7D00B9DA5F /* SleepCareBussinessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE101CB65B7D00B9DA5F /* SleepCareBussinessManager.swift */; };
-		0D79EE131CB65B8300B9DA5F /* SleepCareBussiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE121CB65B8300B9DA5F /* SleepCareBussiness.swift */; };
 		0D79EE151CB65C3200B9DA5F /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE141CB65C3200B9DA5F /* DatePickerView.swift */; };
 		0D79EE171CB65C6900B9DA5F /* Li_common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE161CB65C6900B9DA5F /* Li_common.swift */; };
 		0D79EE191CB65CA800B9DA5F /* PopDownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE181CB65CA800B9DA5F /* PopDownList.swift */; };
 		0D79EE1B1CB65CE800B9DA5F /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE1A1CB65CE800B9DA5F /* Popover.swift */; };
 		0D9AE0791C8E7FB800625D5E /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9AE0781C8E7FB800625D5E /* Const.swift */; };
-		0DB0484F1C86754000679849 /* logotm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB0484E1C86754000679849 /* logotm.png */; };
-		0DB048511C86833900679849 /* black_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB048501C86833900679849 /* black_background.png */; };
-		0DB048531C86848A00679849 /* default_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB048521C86848A00679849 /* default_background.png */; };
-		0DB048571C86891000679849 /* black_registdownarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB048561C86891000679849 /* black_registdownarrow.png */; };
-		0DB108571C5A0EC600721D74 /* black_registinputborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB108561C5A0EC600721D74 /* black_registinputborder.png */; };
-		0DB108591C5A0ED400721D74 /* black_registinputdownborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB108581C5A0ED400721D74 /* black_registinputdownborder.png */; };
-		0DB1085B1C5A100B00721D74 /* black_menuBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB1085A1C5A100B00721D74 /* black_menuBack.png */; };
+		0DB05CCC1D13D62700018538 /* tab_心率－2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CCB1D13D62700018538 /* tab_心率－2.png */; };
+		0DB05CD61D13D65E00018538 /* tab_呼吸－2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CD31D13D65E00018538 /* tab_呼吸－2.png */; };
+		0DB05CD71D13D65E00018538 /* tab_我的－2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CD41D13D65E00018538 /* tab_我的－2.png */; };
+		0DB05CD81D13D65E00018538 /* tab_睡眠－2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CD51D13D65E00018538 /* tab_睡眠－2.png */; };
+		0DB05CDA1D13DA7600018538 /* HRTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB05CD91D13DA7600018538 /* HRTabViewController.swift */; };
+		0DB05CDE1D13DECD00018538 /* icon_needaddservices.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CDB1D13DECD00018538 /* icon_needaddservices.png */; };
+		0DB05CDF1D13DECD00018538 /* icon_equipmenttrash.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CDC1D13DECD00018538 /* icon_equipmenttrash.png */; };
+		0DB05CE01D13DECD00018538 /* icon_alarmtrash.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CDD1D13DECD00018538 /* icon_alarmtrash.png */; };
+		0DB05CE61D13F0D900018538 /* MeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB05CE51D13F0D900018538 /* MeTabViewController.swift */; };
+		0DB05CE81D13F7AC00018538 /* MyDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB05CE71D13F7AC00018538 /* MyDeviceViewController.swift */; };
+		0DB05CEC1D13FA2D00018538 /* AlarmInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB05CEB1D13FA2D00018538 /* AlarmInfoViewController.swift */; };
+		0DB05CF81D13FB1B00018538 /* btn_trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CF51D13FB1B00018538 /* btn_trash.png */; };
+		0DB05CF91D13FB1B00018538 /* icon_breath.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CF61D13FB1B00018538 /* icon_breath.png */; };
+		0DB05CFA1D13FB1B00018538 /* icon_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CF71D13FB1B00018538 /* icon_heart.png */; };
+		0DB05CFC1D13FB2300018538 /* btn_email.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CFB1D13FB2300018538 /* btn_email.png */; };
+		0DB05D041D1432D000018538 /* ChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB05CFF1D1432D000018538 /* ChartView.m */; };
+		0DB05D051D1432D000018538 /* ChatLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB05D011D1432D000018538 /* ChatLineView.m */; };
+		0DB05D061D1432D000018538 /* PointBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB05D031D1432D000018538 /* PointBtn.m */; };
+		0DB05D081D14332B00018538 /* SleepReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB05D071D14332B00018538 /* SleepReportViewController.swift */; };
+		0DB05D0A1D1455C400018538 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB05D091D1455C400018538 /* WebKit.framework */; };
+		0DB05D111D17910100018538 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05D101D17910100018538 /* Main.storyboard */; };
 		0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */; };
 		0DC2280E1C1FD65F00AF4737 /* JHSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */; };
 		0DC2284D1C212F0E00AF4737 /* PlistHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */; };
 		0DC228571C224DD800AF4737 /* IAlarmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228561C224DD800AF4737 /* IAlarmHelper.swift */; };
-		0DC6F95C1CC745E2005CECF2 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC6F95B1CC745E2005CECF2 /* TabbarController.swift */; };
-		0DC6F95E1CC74609005CECF2 /* MyConfigueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC6F95D1CC74609005CECF2 /* MyConfigueTableViewController.swift */; };
-		0DC6F9601CC74642005CECF2 /* HRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC6F95F1CC74642005CECF2 /* HRViewController.swift */; };
-		0DC6F9641CC746C2005CECF2 /* RRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC6F9631CC746C2005CECF2 /* RRViewController.swift */; };
 		0DCC7ABD1C34C71700CC2498 /* RealTimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */; };
-		0DCC7ABF1C3A022600CC2498 /* msg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DCC7ABE1C3A022600CC2498 /* msg.png */; };
 		0DD1D1611C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1D15F1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m */; };
 		0DDA44191CC4850300B0DF51 /* ShowProtocolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA44181CC4850300B0DF51 /* ShowProtocolViewController.swift */; };
-		0DDA441D1CC48DBD00B0DF51 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DDA441C1CC48DBD00B0DF51 /* question.png */; };
 		0DDA44251CC5D81E00B0DF51 /* ShowTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA44241CC5D81E00B0DF51 /* ShowTipsViewController.swift */; };
 		0DDA44291CC5D85000B0DF51 /* ShowInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */; };
 		0DEC19001C97DF54007BDF5D /* OpenFireServerInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC18FF1C97DF54007BDF5D /* OpenFireServerInfoHelper.swift */; };
-		0DF396FC1CBF84ED00E3ACD5 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF396FB1CBF84ED00E3ACD5 /* Root.storyboard */; };
 		0DF49A3A1CD0653E0096BE5E /* AlarmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF49A391CD0653E0096BE5E /* AlarmView.xib */; };
-		0DF49A3C1CD083BA0096BE5E /* ShowAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF49A3B1CD083BA0096BE5E /* ShowAlarmViewController.swift */; };
 		0DF49A3E1CD088110096BE5E /* alarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF49A3D1CD088110096BE5E /* alarmCell.xib */; };
-		0DF6BD651C55D43E007BF0A9 /* noalarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD641C55D43E007BF0A9 /* noalarm.png */; };
-		0DF6BD671C55E705007BF0A9 /* default_registCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD661C55E705007BF0A9 /* default_registCheck.png */; };
-		0DF6BD691C55E70A007BF0A9 /* default_registUncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD681C55E70A007BF0A9 /* default_registUncheck.png */; };
-		0DF6BD6D1C561C69007BF0A9 /* greenpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD6C1C561C69007BF0A9 /* greenpoint.png */; };
-		0DF6BD6F1C561C72007BF0A9 /* yellowpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD6E1C561C72007BF0A9 /* yellowpoint.png */; };
-		0DF6BD721C5706AE007BF0A9 /* greypoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD711C5706AE007BF0A9 /* greypoint.png */; };
-		0DF6BD741C571513007BF0A9 /* sleepreport.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD731C571513007BF0A9 /* sleepreport.png */; };
-		0DF6BD761C57181D007BF0A9 /* sendemail.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD751C57181D007BF0A9 /* sendemail.png */; };
-		0DF6BD781C5721DF007BF0A9 /* headfaceBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD771C5721DF007BF0A9 /* headfaceBg.png */; };
-		0DF6BD801C599FEC007BF0A9 /* LoadImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6BD7F1C599FEC007BF0A9 /* LoadImageHelper.swift */; };
 		0DF6BD821C59AB26007BF0A9 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6BD811C59AB26007BF0A9 /* DateFormatterHelper.swift */; };
-		0DF6BD871C59EB40007BF0A9 /* black_registCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD861C59EB40007BF0A9 /* black_registCheck.png */; };
-		0DF6BD891C59EB53007BF0A9 /* black_registUncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD881C59EB53007BF0A9 /* black_registUncheck.png */; };
-		0DF6BD8B1C59EB97007BF0A9 /* black_garyboxback.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD8A1C59EB97007BF0A9 /* black_garyboxback.png */; };
-		0DF6BD8D1C59ECD2007BF0A9 /* black_logininputborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6BD8C1C59ECD2007BF0A9 /* black_logininputborder.png */; };
-		2C06155D1BF47A3200A3F90C /* backBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06155C1BF47A3200A3F90C /* backBtn.png */; };
-		2C06156A1BF4813700A3F90C /* logotm_old.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615601BF4813600A3F90C /* logotm_old.png */; };
-		2C0615741BF481D100A3F90C /* default_registinputdownborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615721BF481D100A3F90C /* default_registinputdownborder.png */; };
-		2C0615751BF481D100A3F90C /* default_registinputborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615731BF481D100A3F90C /* default_registinputborder.png */; };
-		2C0615761BF4825400A3F90C /* default_logininputborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06154E1BF4660A00A3F90C /* default_logininputborder.png */; };
-		2C0615771BF4825400A3F90C /* loginname.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06154F1BF4660A00A3F90C /* loginname.png */; };
-		2C0615781BF4825400A3F90C /* loginpwd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0615501BF4660A00A3F90C /* loginpwd.png */; };
-		2C06157A1BF4825400A3F90C /* default_loginbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C06154C1BF465CC00A3F90C /* default_loginbackground.png */; };
 		2C0DC3C71BF9A20F0048BEEA /* IEmailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */; };
-		2C0DC3C91BF9A25F0048BEEA /* IEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0DC3C81BF9A25F0048BEEA /* IEmailViewController.swift */; };
 		2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28CA131BE87D3D000C46C4 /* ServerResult.swift */; };
-		2C325CBE1BF5764600DD1DB7 /* ISleepQualityMonitorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C325CBD1BF5764600DD1DB7 /* ISleepQualityMonitorViewModel.swift */; };
 		2C34482C1BF2D93A0068BD74 /* BlueButtonForPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */; };
-		2C4D31481BF98395001DB693 /* IServerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4D31471BF98395001DB693 /* IServerSettingController.swift */; };
-		2C5181F91BF18E7E007DC2A3 /* ILoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181F81BF18E7E007DC2A3 /* ILoginUser.swift */; };
-		2C5181FB1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181FA1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift */; };
-		2C5181FD1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181FC1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift */; };
-		2C5181FF1BF1AB5F007DC2A3 /* IMainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5181FE1BF1AB5F007DC2A3 /* IMainInfo.swift */; };
-		2C5182011BF1B5DF007DC2A3 /* IBedUserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5182001BF1B5DF007DC2A3 /* IBedUserList.swift */; };
-		2C5182031BF1B7DA007DC2A3 /* IHRRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5182021BF1B7DA007DC2A3 /* IHRRange.swift */; };
-		2C5182051BF1B8D6007DC2A3 /* IRRRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5182041BF1B8D6007DC2A3 /* IRRRange.swift */; };
-		2C5182071BF1B941007DC2A3 /* ISleepQualityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5182061BF1B941007DC2A3 /* ISleepQualityReport.swift */; };
-		2C5182091BF1BA83007DC2A3 /* IEquipmentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5182081BF1BA83007DC2A3 /* IEquipmentInfo.swift */; };
-		2C51820B1BF1BAF3007DC2A3 /* IMainInfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51820A1BF1BAF3007DC2A3 /* IMainInfoList.swift */; };
-		2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */; };
 		2CB427AB1BF9B11A00BF7E15 /* IEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */; };
-		2CB435321C069C28000751D1 /* IWeekReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB435311C069C28000751D1 /* IWeekReport.swift */; };
-		2CDF94101BF5C2BD00FCFAF7 /* moveRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */; };
-		2CDF94111BF5C2BD00FCFAF7 /* moveLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CDF940F1BF5C2BD00FCFAF7 /* moveLeft.png */; };
-		3A0B97171BF5791F00409AD9 /* SessionForIphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */; };
-		3A1F16FF1BF5A5100051E9AF /* BusinessFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F16FE1BF5A5100051E9AF /* BusinessFactory.swift */; };
-		3A2158751BEC8C460089CC01 /* ILoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2158741BEC8C460089CC01 /* ILoginController.swift */; };
 		3A2158771BEC8D580089CC01 /* IBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2158761BEC8D580089CC01 /* IBaseViewController.swift */; };
 		3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262DE1BB912180002687B /* OSSExceptionHelper.m */; };
 		3A3262E11BB912180002687B /* OSSTry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262DF1BB912180002687B /* OSSTry.swift */; };
@@ -114,17 +152,9 @@
 		3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B0221BA96648000F4AED /* RealTimeReport.swift */; };
 		3A376E421BABB3B700D70953 /* EMString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E411BABB3B700D70953 /* EMString.swift */; };
 		3A376E441BABB81100D70953 /* EMProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A376E431BABB81100D70953 /* EMProperties.swift */; };
-		3A39CA011BF2FCA70024DD3E /* default_garyboxback.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A39C9F81BF2FCA70024DD3E /* default_garyboxback.png */; };
-		3A39CA081BF2FCA70024DD3E /* waneBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A39C9FF1BF2FCA70024DD3E /* waneBg.png */; };
-		3A39CA0C1BF2FEF40024DD3E /* sleepmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A39CA091BF2FEF40024DD3E /* sleepmenu.png */; };
-		3A39CA0D1BF2FEF40024DD3E /* memenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A39CA0A1BF2FEF40024DD3E /* memenu.png */; };
-		3A39CA0E1BF2FEF40024DD3E /* hrmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A39CA0B1BF2FEF40024DD3E /* hrmenu.png */; };
-		3A39CA101BF2FF010024DD3E /* default_menuBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A39CA0F1BF2FF010024DD3E /* default_menuBack.png */; };
-		3A39CA121BF2FF0A0024DD3E /* rrmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A39CA111BF2FF0A0024DD3E /* rrmenu.png */; };
 		3A3D65E41BAA8E1100CEFB25 /* MessageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */; };
 		3A3EF7C01BDE05A800CDDAED /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3EF7BE1BDE05A800CDDAED /* TodoItem.swift */; };
 		3A3EF7C11BDE05A800CDDAED /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3EF7BF1BDE05A800CDDAED /* TodoList.swift */; };
-		3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADC01BA7A65A000C109B /* AppDelegate.swift */; };
 		3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A41ADC71BA7A65A000C109B /* Images.xcassets */; };
 		3A41ADD71BA7A65A000C109B /* ewell_sleepcareforpadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADD61BA7A65A000C109B /* ewell_sleepcareforpadTests.swift */; };
 		3A41ADF01BA7B45D000C109B /* MessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41ADED1BA7B45D000C109B /* MessageDelegate.swift */; };
@@ -134,15 +164,10 @@
 		3A4CD3FD1BA80852002C8A1A /* BaseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CD3FC1BA80852002C8A1A /* BaseMessage.swift */; };
 		3A4CD3FF1BA808C1002C8A1A /* XmppMsgHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CD3FE1BA808C1002C8A1A /* XmppMsgHelper.swift */; };
 		3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */; };
-		3A680DC01C02BD6800D77A22 /* IAccountSetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A680DBF1C02BD6800D77A22 /* IAccountSetController.swift */; };
-		3A8382D41BFACC7B00E4CC15 /* goright.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8382D21BFACC7B00E4CC15 /* goright.png */; };
 		3A881B621BFC1BC1005F4D07 /* BedPatientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A881B611BFC1BC1005F4D07 /* BedPatientCell.xib */; };
-		3A881B651BFC1EF3005F4D07 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A881B631BFC1EF3005F4D07 /* unchecked.png */; };
-		3A881B661BFC1EF3005F4D07 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A881B641BFC1EF3005F4D07 /* checked.png */; };
 		3A881B681BFC1FA3005F4D07 /* BedPatientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A881B671BFC1FA3005F4D07 /* BedPatientCell.swift */; };
 		3A91B3601BFB19E800DB3514 /* CommonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A91B35F1BFB19E800DB3514 /* CommonTableView.swift */; };
 		3A91B3621BFB1D1C00DB3514 /* PartTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A91B3611BFB1D1C00DB3514 /* PartTableCell.xib */; };
-		3A91B3641BFB1DF200DB3514 /* IChoosePatientsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A91B3631BFB1DF200DB3514 /* IChoosePatientsController.swift */; };
 		3A91B3661BFB251700DB3514 /* PartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A91B3651BFB251700DB3514 /* PartTableViewCell.swift */; };
 		3A91F0971BF0475400C470D4 /* arrow_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F07B1BF0475400C470D4 /* arrow_left.png */; };
 		3A91F0981BF0475400C470D4 /* arrow_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F07C1BF0475400C470D4 /* arrow_left@2x.png */; };
@@ -180,22 +205,15 @@
 		3AB43E8C1BD4E1B9005023D3 /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E7E1BD4E1B9005023D3 /* DateHelpers.swift */; };
 		3AB43E8D1BD4E1B9005023D3 /* DayCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E7F1BD4E1B9005023D3 /* DayCounter.swift */; };
 		3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E831BD4E1B9005023D3 /* Term.swift */; };
-		3AC70CBC1BF9982800814082 /* whiteMoveRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC70CBB1BF9982800814082 /* whiteMoveRight.png */; };
 		3AC7B0E41BF42EFB002DE94C /* IloginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B0E31BF42EFB002DE94C /* IloginViewModel.swift */; };
-		3AC7B0F41BF4554D002DE94C /* IRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F31BF4554D002DE94C /* IRegistViewController.swift */; };
 		3AC7B0F61BF45575002DE94C /* IRegistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B0F51BF45575002DE94C /* IRegistViewModel.swift */; };
 		3AC7B1021BF45BD4002DE94C /* fs_main_login_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B1001BF45BD4002DE94C /* fs_main_login_normal.png */; };
 		3AC7B1031BF45BD4002DE94C /* fs_main_login_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC7B1011BF45BD4002DE94C /* fs_main_login_selected.png */; };
 		3AC7B1091BF45CB9002DE94C /* ZSYPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B1081BF45CB9002DE94C /* ZSYPopoverListView.m */; };
 		3AC7B10B1BF45D00002DE94C /* PopDownListForIphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B10A1BF45D00002DE94C /* PopDownListForIphone.swift */; };
 		3AC7B10D1BF464D2002DE94C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC7B10C1BF464D2002DE94C /* Foundation.framework */; };
-		3ACD645E1BFC577A00FB62BB /* IChoosePatientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACD645D1BFC577A00FB62BB /* IChoosePatientsViewModel.swift */; };
-		3ACD64611BFC777400FB62BB /* IHRMonitorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACD645F1BFC777400FB62BB /* IHRMonitorViewModel.swift */; };
-		3ACD64621BFC777400FB62BB /* IRRMonitorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACD64601BFC777400FB62BB /* IRRMonitorViewModel.swift */; };
-		3AF6526F1BFABE2C00BA2329 /* IMyPatientsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF6526E1BFABE2C00BA2329 /* IMyPatientsController.swift */; };
-		3AF652721BFABEBE00BA2329 /* bigadd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF652701BFABEBE00BA2329 /* bigadd.png */; };
-		3AF652731BFABEBE00BA2329 /* smalladd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF652711BFABEBE00BA2329 /* smalladd.png */; };
-		3AF844C51BFD619E00B5EDE3 /* IMyPatientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF844C41BFD619E00B5EDE3 /* IMyPatientsViewModel.swift */; };
+		613FC4D01D17B3DD00FCCEB6 /* icon_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 613FC4CF1D17B3DD00FCCEB6 /* icon_arrow.png */; };
+		613FC4DA1D17B87900FCCEB6 /* EquipmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FC4D91D17B87900FCCEB6 /* EquipmentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,106 +227,149 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IModifyViewModel.swift; sourceTree = "<group>"; };
-		0D1341C61C50BAA900051E2C /* ThemeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeHelper.swift; sourceTree = "<group>"; };
-		0D2C490F1CC87E42006D3CF5 /* SleepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
-		0D2C49111CC8AA78006D3CF5 /* IWeekSleepcareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IWeekSleepcareController.swift; sourceTree = "<group>"; };
+		0D1FC0781D1A344D00988A64 /* HRTabViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRTabViewModel.swift; sourceTree = "<group>"; };
+		0D1FC07A1D1A5F6900988A64 /* btn_changepatient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_changepatient.png; sourceTree = "<group>"; };
+		0D1FC07C1D1A6F4A00988A64 /* icon_检测中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_检测中.png"; sourceTree = "<group>"; };
+		0D1FC07E1D1A6F5400988A64 /* icon_请假.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_请假.png"; sourceTree = "<group>"; };
+		0D1FC07F1D1A6F5400988A64 /* icon_异常.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_异常.png"; sourceTree = "<group>"; };
+		0D1FC0821D1A727900988A64 /* SleepCareForSingleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareForSingleManager.swift; sourceTree = "<group>"; };
+		0D1FC0841D1A72B500988A64 /* SleepCareForSingle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareForSingle.swift; sourceTree = "<group>"; };
+		0D1FC0871D1A776800988A64 /* LoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
+		0D1FC0891D1A884600988A64 /* BedUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BedUserInfo.swift; sourceTree = "<group>"; };
+		0D1FC08B1D1A8D5700988A64 /* EquipmentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentList.swift; sourceTree = "<group>"; };
+		0D1FC08D1D1A90A000988A64 /* HRRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRRange.swift; sourceTree = "<group>"; };
+		0D1FC08F1D1B79DD00988A64 /* RRRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRRange.swift; sourceTree = "<group>"; };
+		0D1FC0911D1B7BF300988A64 /* SleepQualityReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepQualityReport.swift; sourceTree = "<group>"; };
+		0D1FC0931D1B839A00988A64 /* WeekSleep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekSleep.swift; sourceTree = "<group>"; };
+		0D1FC0951D1BB15300988A64 /* SessionForSingle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionForSingle.swift; sourceTree = "<group>"; };
+		0D1FC0A11D1CDE2600988A64 /* icon_60s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_60s.png; sourceTree = "<group>"; };
+		0D1FC0A31D1CDF1200988A64 /* image_添加设备.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_添加设备.png"; sourceTree = "<group>"; };
+		0D1FC0A51D1CE01600988A64 /* icon_获取验证码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_获取验证码.png"; sourceTree = "<group>"; };
+		0D1FC0A91D1CFBE900988A64 /* ForgetPwdController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPwdController.swift; sourceTree = "<group>"; };
+		0D1FC0AB1D1CFCAF00988A64 /* ForgetPwdViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPwdViewModel.swift; sourceTree = "<group>"; };
+		0D1FC0AF1D1EC7AF00988A64 /* AccountSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingController.swift; sourceTree = "<group>"; };
+		0D1FC0B51D1F863200988A64 /* AccountSettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingViewModel.swift; sourceTree = "<group>"; };
+		0D1FC0B91D1F8A5B00988A64 /* ModifyAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyAccountController.swift; sourceTree = "<group>"; };
+		0D1FC0BB1D1F8A5F00988A64 /* ModifyAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyAccountViewModel.swift; sourceTree = "<group>"; };
 		0D2C49151CC8C4C1006D3CF5 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		0D2C49171CC8C572006D3CF5 /* AlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
 		0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNoticeHelper.swift; sourceTree = "<group>"; };
 		0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHelper.swift; sourceTree = "<group>"; };
 		0D35D5F91C4CC3D8009F8EB2 /* Message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Message.plist; sourceTree = "<group>"; };
-		0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IViewControllerManager.swift; sourceTree = "<group>"; };
-		0D5CCED21C5AF8B80068746C /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
-		0D5CCED41C5B09670068746C /* default_registdownarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_registdownarrow.png; sourceTree = "<group>"; };
-		0D78FA0F1C71C07000364CF6 /* lightgreenpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightgreenpoint.png; sourceTree = "<group>"; };
+		0D3D05841CFED58C00476819 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0D3D058A1CFEDEED00476819 /* EquipmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentViewController.swift; sourceTree = "<group>"; };
+		0D3D058C1CFEDEED00476819 /* RootTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabbarController.swift; sourceTree = "<group>"; };
+		0D3D058D1CFEDEED00476819 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		0D3D05931CFFC30D00476819 /* UpdateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHelper.swift; sourceTree = "<group>"; };
+		0D3D05971D0522DF00476819 /* RootRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRegistViewController.swift; sourceTree = "<group>"; };
+		0D3D059B1D05231B00476819 /* RootLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootLoginViewController.swift; sourceTree = "<group>"; };
+		0D3EB0911D0FA75800928430 /* 登录背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录背景.png"; sourceTree = "<group>"; };
+		0D3EB0951D0FA7BD00928430 /* icon_logo_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_logo_2.png; sourceTree = "<group>"; };
+		0D3EB09B1D0FAD0700928430 /* icon_登录.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_登录.png"; sourceTree = "<group>"; };
+		0D3EB0A11D0FAE6500928430 /* icon_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_password.png; sourceTree = "<group>"; };
+		0D3EB0A31D0FAE6B00928430 /* icon_telephone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_telephone.png; sourceTree = "<group>"; };
+		0D3EB0A51D0FC6BA00928430 /* icon_logo_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_logo_1.png; sourceTree = "<group>"; };
+		0D3EB0A71D0FC9F800928430 /* icon_短信校验码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_短信校验码.png"; sourceTree = "<group>"; };
+		0D3EB0A91D0FCB0A00928430 /* icon_密码可见.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_密码可见.png"; sourceTree = "<group>"; };
+		0D3EB0AB1D0FD2EE00928430 /* icon_rememberpwd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_rememberpwd.png; sourceTree = "<group>"; };
+		0D3EB0AC1D0FD2EE00928430 /* icon_checkyes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_checkyes.png; sourceTree = "<group>"; };
+		0D3EB0AD1D0FD2EE00928430 /* icon_checkno.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_checkno.png; sourceTree = "<group>"; };
+		0D3EB0AE1D0FD2EE00928430 /* icon_椭圆.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_椭圆.png"; sourceTree = "<group>"; };
+		0D3EB0B31D0FD37E00928430 /* icon_扫一扫.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_扫一扫.png"; sourceTree = "<group>"; };
+		0D3EB0B51D0FD96700928430 /* btn_返回.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_返回.png"; sourceTree = "<group>"; };
+		0D3EB0B71D0FE1B500928430 /* icon_norememberpwd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_norememberpwd.png; sourceTree = "<group>"; };
+		0D3EB0B91D0FE28100928430 /* icon_male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_male.png; sourceTree = "<group>"; };
+		0D3EB0BB1D0FE29300928430 /* icon_female_choose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_female_choose.png; sourceTree = "<group>"; };
+		0D3EB0BD1D0FE63600928430 /* icon_female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_female.png; sourceTree = "<group>"; };
+		0D3EB0BE1D0FE63600928430 /* icon_figure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_figure.png; sourceTree = "<group>"; };
+		0D3EB0BF1D0FE63600928430 /* icon_male_choose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_male_choose.png; sourceTree = "<group>"; };
+		0D3EB0C31D0FE8B800928430 /* btn_address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_address.png; sourceTree = "<group>"; };
+		0D3EB0C51D0FEB0600928430 /* icon_密码不可见.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_密码不可见.png"; sourceTree = "<group>"; };
+		0D3EB0C71D0FEC7600928430 /* tab_呼吸－1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_呼吸－1.png"; sourceTree = "<group>"; };
+		0D3EB0C81D0FEC7600928430 /* tab_心率－1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_心率－1.png"; sourceTree = "<group>"; };
+		0D3EB0CB1D0FEC7C00928430 /* tab_我的－1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_我的－1.png"; sourceTree = "<group>"; };
+		0D3EB0CC1D0FEC7C00928430 /* tab_睡眠－1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_睡眠－1.png"; sourceTree = "<group>"; };
+		0D3EB0CF1D0FEF4700928430 /* btn_下拉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_下拉.png"; sourceTree = "<group>"; };
+		0D3EB0D11D0FEF4C00928430 /* btn_有警报.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_有警报.png"; sourceTree = "<group>"; };
+		0D3EB0D31D0FEF5300928430 /* btn_无警报.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_无警报.png"; sourceTree = "<group>"; };
+		0D3EB0D51D0FF84600928430 /* icon_offbed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_offbed.png; sourceTree = "<group>"; };
+		0D3EB0D61D0FF84600928430 /* icon_onbed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_onbed.png; sourceTree = "<group>"; };
+		0D3EB0D71D0FF84600928430 /* icon_ergent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ergent.png; sourceTree = "<group>"; };
+		0D3EB0DB1D1001E500928430 /* icon_blue circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_blue circle.png"; sourceTree = "<group>"; };
+		0D3EB0DC1D1001E500928430 /* icon_gray circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_gray circle.png"; sourceTree = "<group>"; };
+		0D3EB0DD1D1001E500928430 /* icon_green circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_green circle.png"; sourceTree = "<group>"; };
+		0D3EB0DE1D1001E500928430 /* icon_light green circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_light green circle.png"; sourceTree = "<group>"; };
+		0D3EB0DF1D1001E500928430 /* icon_purple circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_purple circle.png"; sourceTree = "<group>"; };
+		0D3EB0E01D1001E500928430 /* icon_red circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_red circle.png"; sourceTree = "<group>"; };
+		0D3EB0E71D1034A300928430 /* btn_右键.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_右键.png"; sourceTree = "<group>"; };
+		0D3EB0E91D1034BD00928430 /* icon_退出登录.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_退出登录.png"; sourceTree = "<group>"; };
+		0D3EB0EB1D10350A00928430 /* icon_set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_set.png; sourceTree = "<group>"; };
+		0D3EB0EC1D10350A00928430 /* icon_使用技巧.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_使用技巧.png"; sourceTree = "<group>"; };
+		0D3EB0ED1D10350A00928430 /* icon_关于.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_关于.png"; sourceTree = "<group>"; };
+		0D3EB0F11D10352000928430 /* icon_当前版本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_当前版本.png"; sourceTree = "<group>"; };
+		0D3EB0F31D10355800928430 /* icon_报警信息.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_报警信息.png"; sourceTree = "<group>"; };
+		0D3EB0F51D10356B00928430 /* icon_报警页面.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_报警页面.png"; sourceTree = "<group>"; };
+		0D3EB0F71D10E88A00928430 /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time.png; sourceTree = "<group>"; };
+		0D3EB0F91D10E8D500928430 /* icon_my devices.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_my devices.png"; sourceTree = "<group>"; };
+		0D3EB0FB1D10E8DF00928430 /* icon_nurse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_nurse.png; sourceTree = "<group>"; };
+		0D6898E81D17D2D60087A0FE /* icon_arrowdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_arrowdown.png; path = "../../iSleepCare_切图/icon_arrowdown.png"; sourceTree = "<group>"; };
+		0D6898EE1D17DEE40087A0FE /* ChartScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartScrollView.swift; sourceTree = "<group>"; };
+		0D6898F01D190AAA0087A0FE /* STLoopProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLoopProgressView.h; sourceTree = "<group>"; };
+		0D6898F11D190AAA0087A0FE /* STLoopProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLoopProgressView.m; sourceTree = "<group>"; };
+		0D6898F21D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "STLoopProgressView+BaseConfiguration.h"; sourceTree = "<group>"; };
+		0D6898F31D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "STLoopProgressView+BaseConfiguration.m"; sourceTree = "<group>"; };
 		0D79EE0A1CB658B500B9DA5F /* AlarmList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmList.swift; sourceTree = "<group>"; };
 		0D79EE0C1CB6593F00B9DA5F /* AlarmInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmInfo.swift; sourceTree = "<group>"; };
 		0D79EE0E1CB6597A00B9DA5F /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		0D79EE101CB65B7D00B9DA5F /* SleepCareBussinessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareBussinessManager.swift; sourceTree = "<group>"; };
-		0D79EE121CB65B8300B9DA5F /* SleepCareBussiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareBussiness.swift; sourceTree = "<group>"; };
 		0D79EE141CB65C3200B9DA5F /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		0D79EE161CB65C6900B9DA5F /* Li_common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Li_common.swift; sourceTree = "<group>"; };
 		0D79EE181CB65CA800B9DA5F /* PopDownList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDownList.swift; sourceTree = "<group>"; };
 		0D79EE1A1CB65CE800B9DA5F /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
 		0D9AE0781C8E7FB800625D5E /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		0DB0484E1C86754000679849 /* logotm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logotm.png; sourceTree = "<group>"; };
-		0DB048501C86833900679849 /* black_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_background.png; sourceTree = "<group>"; };
-		0DB048521C86848A00679849 /* default_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_background.png; sourceTree = "<group>"; };
-		0DB048561C86891000679849 /* black_registdownarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_registdownarrow.png; sourceTree = "<group>"; };
-		0DB108561C5A0EC600721D74 /* black_registinputborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_registinputborder.png; sourceTree = "<group>"; };
-		0DB108581C5A0ED400721D74 /* black_registinputdownborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_registinputdownborder.png; sourceTree = "<group>"; };
-		0DB1085A1C5A100B00721D74 /* black_menuBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_menuBack.png; sourceTree = "<group>"; };
+		0DB05CCB1D13D62700018538 /* tab_心率－2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_心率－2.png"; sourceTree = "<group>"; };
+		0DB05CD31D13D65E00018538 /* tab_呼吸－2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_呼吸－2.png"; sourceTree = "<group>"; };
+		0DB05CD41D13D65E00018538 /* tab_我的－2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_我的－2.png"; sourceTree = "<group>"; };
+		0DB05CD51D13D65E00018538 /* tab_睡眠－2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_睡眠－2.png"; sourceTree = "<group>"; };
+		0DB05CD91D13DA7600018538 /* HRTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRTabViewController.swift; sourceTree = "<group>"; };
+		0DB05CDB1D13DECD00018538 /* icon_needaddservices.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_needaddservices.png; sourceTree = "<group>"; };
+		0DB05CDC1D13DECD00018538 /* icon_equipmenttrash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_equipmenttrash.png; sourceTree = "<group>"; };
+		0DB05CDD1D13DECD00018538 /* icon_alarmtrash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_alarmtrash.png; sourceTree = "<group>"; };
+		0DB05CE51D13F0D900018538 /* MeTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeTabViewController.swift; sourceTree = "<group>"; };
+		0DB05CE71D13F7AC00018538 /* MyDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDeviceViewController.swift; sourceTree = "<group>"; };
+		0DB05CEB1D13FA2D00018538 /* AlarmInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmInfoViewController.swift; sourceTree = "<group>"; };
+		0DB05CF51D13FB1B00018538 /* btn_trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_trash.png; sourceTree = "<group>"; };
+		0DB05CF61D13FB1B00018538 /* icon_breath.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_breath.png; sourceTree = "<group>"; };
+		0DB05CF71D13FB1B00018538 /* icon_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_heart.png; sourceTree = "<group>"; };
+		0DB05CFB1D13FB2300018538 /* btn_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_email.png; sourceTree = "<group>"; };
+		0DB05CFE1D1432D000018538 /* ChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartView.h; sourceTree = "<group>"; };
+		0DB05CFF1D1432D000018538 /* ChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartView.m; sourceTree = "<group>"; };
+		0DB05D001D1432D000018538 /* ChatLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatLineView.h; sourceTree = "<group>"; };
+		0DB05D011D1432D000018538 /* ChatLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatLineView.m; sourceTree = "<group>"; };
+		0DB05D021D1432D000018538 /* PointBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointBtn.h; sourceTree = "<group>"; };
+		0DB05D031D1432D000018538 /* PointBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointBtn.m; sourceTree = "<group>"; };
+		0DB05D071D14332B00018538 /* SleepReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepReportViewController.swift; sourceTree = "<group>"; };
+		0DB05D091D1455C400018538 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		0DB05D101D17910100018538 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0DC2280B1C1FD65600AF4737 /* JHSpinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHSpinnerView.xib; sourceTree = "<group>"; };
 		0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHSpinnerView.swift; sourceTree = "<group>"; };
 		0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistHelper.swift; sourceTree = "<group>"; };
 		0DC228561C224DD800AF4737 /* IAlarmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmHelper.swift; sourceTree = "<group>"; };
-		0DC6F95B1CC745E2005CECF2 /* TabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
-		0DC6F95D1CC74609005CECF2 /* MyConfigueTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyConfigueTableViewController.swift; sourceTree = "<group>"; };
-		0DC6F95F1CC74642005CECF2 /* HRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRViewController.swift; sourceTree = "<group>"; };
-		0DC6F9631CC746C2005CECF2 /* RRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRViewController.swift; sourceTree = "<group>"; };
 		0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeHelper.swift; sourceTree = "<group>"; };
-		0DCC7ABE1C3A022600CC2498 /* msg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = msg.png; sourceTree = "<group>"; };
 		0DD1D15E1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCMoreOptionTableViewCell.h; sourceTree = "<group>"; };
 		0DD1D15F1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCMoreOptionTableViewCell.m; sourceTree = "<group>"; };
 		0DD1D1631C292AB100C8FEE3 /* MSCMoreOptionTableViewCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSCMoreOptionTableViewCellDelegate.h; sourceTree = "<group>"; };
 		0DDA44181CC4850300B0DF51 /* ShowProtocolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowProtocolViewController.swift; sourceTree = "<group>"; };
-		0DDA441C1CC48DBD00B0DF51 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
 		0DDA44241CC5D81E00B0DF51 /* ShowTipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTipsViewController.swift; sourceTree = "<group>"; };
 		0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowInfoViewController.swift; sourceTree = "<group>"; };
 		0DEC18FF1C97DF54007BDF5D /* OpenFireServerInfoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenFireServerInfoHelper.swift; sourceTree = "<group>"; };
-		0DF396FB1CBF84ED00E3ACD5 /* Root.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		0DF49A391CD0653E0096BE5E /* AlarmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmView.xib; sourceTree = "<group>"; };
-		0DF49A3B1CD083BA0096BE5E /* ShowAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAlarmViewController.swift; sourceTree = "<group>"; };
 		0DF49A3D1CD088110096BE5E /* alarmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = alarmCell.xib; sourceTree = "<group>"; };
-		0DF6BD641C55D43E007BF0A9 /* noalarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noalarm.png; sourceTree = "<group>"; };
-		0DF6BD661C55E705007BF0A9 /* default_registCheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_registCheck.png; sourceTree = "<group>"; };
-		0DF6BD681C55E70A007BF0A9 /* default_registUncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_registUncheck.png; sourceTree = "<group>"; };
-		0DF6BD6C1C561C69007BF0A9 /* greenpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenpoint.png; sourceTree = "<group>"; };
-		0DF6BD6E1C561C72007BF0A9 /* yellowpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowpoint.png; sourceTree = "<group>"; };
-		0DF6BD711C5706AE007BF0A9 /* greypoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greypoint.png; sourceTree = "<group>"; };
-		0DF6BD731C571513007BF0A9 /* sleepreport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleepreport.png; sourceTree = "<group>"; };
-		0DF6BD751C57181D007BF0A9 /* sendemail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sendemail.png; sourceTree = "<group>"; };
-		0DF6BD771C5721DF007BF0A9 /* headfaceBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headfaceBg.png; sourceTree = "<group>"; };
-		0DF6BD7F1C599FEC007BF0A9 /* LoadImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadImageHelper.swift; sourceTree = "<group>"; };
 		0DF6BD811C59AB26007BF0A9 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
-		0DF6BD861C59EB40007BF0A9 /* black_registCheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_registCheck.png; sourceTree = "<group>"; };
-		0DF6BD881C59EB53007BF0A9 /* black_registUncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_registUncheck.png; sourceTree = "<group>"; };
-		0DF6BD8A1C59EB97007BF0A9 /* black_garyboxback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_garyboxback.png; sourceTree = "<group>"; };
-		0DF6BD8C1C59ECD2007BF0A9 /* black_logininputborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_logininputborder.png; sourceTree = "<group>"; };
-		2C06154C1BF465CC00A3F90C /* default_loginbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_loginbackground.png; sourceTree = "<group>"; };
-		2C06154E1BF4660A00A3F90C /* default_logininputborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_logininputborder.png; sourceTree = "<group>"; };
-		2C06154F1BF4660A00A3F90C /* loginname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginname.png; sourceTree = "<group>"; };
-		2C0615501BF4660A00A3F90C /* loginpwd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginpwd.png; sourceTree = "<group>"; };
-		2C06155C1BF47A3200A3F90C /* backBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backBtn.png; sourceTree = "<group>"; };
-		2C0615601BF4813600A3F90C /* logotm_old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logotm_old.png; sourceTree = "<group>"; };
-		2C0615721BF481D100A3F90C /* default_registinputdownborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_registinputdownborder.png; sourceTree = "<group>"; };
-		2C0615731BF481D100A3F90C /* default_registinputborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_registinputborder.png; sourceTree = "<group>"; };
 		2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IEmailView.xib; sourceTree = "<group>"; };
-		2C0DC3C81BF9A25F0048BEEA /* IEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEmailViewController.swift; sourceTree = "<group>"; };
 		2C28CA131BE87D3D000C46C4 /* ServerResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResult.swift; sourceTree = "<group>"; };
-		2C325CBD1BF5764600DD1DB7 /* ISleepQualityMonitorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISleepQualityMonitorViewModel.swift; sourceTree = "<group>"; };
 		2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueButtonForPhone.swift; sourceTree = "<group>"; };
-		2C4D31471BF98395001DB693 /* IServerSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IServerSettingController.swift; sourceTree = "<group>"; };
-		2C5181F81BF18E7E007DC2A3 /* ILoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginUser.swift; sourceTree = "<group>"; };
-		2C5181FA1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareForIPhoneBussinessManager.swift; sourceTree = "<group>"; };
-		2C5181FC1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareForIPhoneBussiness.swift; sourceTree = "<group>"; };
-		2C5181FE1BF1AB5F007DC2A3 /* IMainInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMainInfo.swift; sourceTree = "<group>"; };
-		2C5182001BF1B5DF007DC2A3 /* IBedUserList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBedUserList.swift; sourceTree = "<group>"; };
-		2C5182021BF1B7DA007DC2A3 /* IHRRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IHRRange.swift; sourceTree = "<group>"; };
-		2C5182041BF1B8D6007DC2A3 /* IRRRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRRRange.swift; sourceTree = "<group>"; };
-		2C5182061BF1B941007DC2A3 /* ISleepQualityReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISleepQualityReport.swift; sourceTree = "<group>"; };
-		2C5182081BF1BA83007DC2A3 /* IEquipmentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEquipmentInfo.swift; sourceTree = "<group>"; };
-		2C51820A1BF1BAF3007DC2A3 /* IMainInfoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMainInfoList.swift; sourceTree = "<group>"; };
-		2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
 		2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEmailViewModel.swift; sourceTree = "<group>"; };
-		2CB435311C069C28000751D1 /* IWeekReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IWeekReport.swift; sourceTree = "<group>"; };
 		2CB435331C06A6A9000751D1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveRight.png; sourceTree = "<group>"; };
-		2CDF940F1BF5C2BD00FCFAF7 /* moveLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveLeft.png; sourceTree = "<group>"; };
-		3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionForIphone.swift; sourceTree = "<group>"; };
-		3A1F16FE1BF5A5100051E9AF /* BusinessFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessFactory.swift; sourceTree = "<group>"; };
-		3A2158741BEC8C460089CC01 /* ILoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginController.swift; sourceTree = "<group>"; };
 		3A2158761BEC8D580089CC01 /* IBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBaseViewController.swift; sourceTree = "<group>"; };
 		3A3262DD1BB912180002687B /* OSSExceptionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSExceptionHelper.h; sourceTree = "<group>"; };
 		3A3262DE1BB912180002687B /* OSSExceptionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSSExceptionHelper.m; sourceTree = "<group>"; };
@@ -319,20 +380,12 @@
 		3A36B0221BA96648000F4AED /* RealTimeReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeReport.swift; sourceTree = "<group>"; };
 		3A376E411BABB3B700D70953 /* EMString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMString.swift; sourceTree = "<group>"; };
 		3A376E431BABB81100D70953 /* EMProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMProperties.swift; sourceTree = "<group>"; };
-		3A39C9F81BF2FCA70024DD3E /* default_garyboxback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_garyboxback.png; sourceTree = "<group>"; };
-		3A39C9FF1BF2FCA70024DD3E /* waneBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waneBg.png; sourceTree = "<group>"; };
-		3A39CA091BF2FEF40024DD3E /* sleepmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleepmenu.png; sourceTree = "<group>"; };
-		3A39CA0A1BF2FEF40024DD3E /* memenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = memenu.png; sourceTree = "<group>"; };
-		3A39CA0B1BF2FEF40024DD3E /* hrmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hrmenu.png; sourceTree = "<group>"; };
-		3A39CA0F1BF2FF010024DD3E /* default_menuBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_menuBack.png; sourceTree = "<group>"; };
-		3A39CA111BF2FF0A0024DD3E /* rrmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rrmenu.png; sourceTree = "<group>"; };
 		3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageFactory.swift; sourceTree = "<group>"; };
 		3A3D65E71BAAB67C00CEFB25 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		3A3EF7BE1BDE05A800CDDAED /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		3A3EF7BF1BDE05A800CDDAED /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		3A41ADBB1BA7A65A000C109B /* ewell.sleepcareforpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ewell.sleepcareforpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A41ADBF1BA7A65A000C109B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A41ADC01BA7A65A000C109B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A41ADC71BA7A65A000C109B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3A41ADD01BA7A65A000C109B /* ewell.sleepcareforpadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ewell.sleepcareforpadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A41ADD51BA7A65A000C109B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -345,15 +398,10 @@
 		3A4CD3FC1BA80852002C8A1A /* BaseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessage.swift; sourceTree = "<group>"; };
 		3A4CD3FE1BA808C1002C8A1A /* XmppMsgHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmppMsgHelper.swift; sourceTree = "<group>"; };
 		3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMServiceException.swift; sourceTree = "<group>"; };
-		3A680DBF1C02BD6800D77A22 /* IAccountSetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAccountSetController.swift; sourceTree = "<group>"; };
-		3A8382D21BFACC7B00E4CC15 /* goright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goright.png; sourceTree = "<group>"; };
 		3A881B611BFC1BC1005F4D07 /* BedPatientCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BedPatientCell.xib; sourceTree = "<group>"; };
-		3A881B631BFC1EF3005F4D07 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
-		3A881B641BFC1EF3005F4D07 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		3A881B671BFC1FA3005F4D07 /* BedPatientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BedPatientCell.swift; sourceTree = "<group>"; };
 		3A91B35F1BFB19E800DB3514 /* CommonTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTableView.swift; sourceTree = "<group>"; };
 		3A91B3611BFB1D1C00DB3514 /* PartTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartTableCell.xib; sourceTree = "<group>"; };
-		3A91B3631BFB1DF200DB3514 /* IChoosePatientsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IChoosePatientsController.swift; sourceTree = "<group>"; };
 		3A91B3651BFB251700DB3514 /* PartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartTableViewCell.swift; sourceTree = "<group>"; };
 		3A91F07B1BF0475400C470D4 /* arrow_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_left.png; sourceTree = "<group>"; };
 		3A91F07C1BF0475400C470D4 /* arrow_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_left@2x.png"; sourceTree = "<group>"; };
@@ -393,9 +441,7 @@
 		3AB43E7E1BD4E1B9005023D3 /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		3AB43E7F1BD4E1B9005023D3 /* DayCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCounter.swift; sourceTree = "<group>"; };
 		3AB43E831BD4E1B9005023D3 /* Term.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
-		3AC70CBB1BF9982800814082 /* whiteMoveRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteMoveRight.png; sourceTree = "<group>"; };
 		3AC7B0E31BF42EFB002DE94C /* IloginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IloginViewModel.swift; sourceTree = "<group>"; };
-		3AC7B0F31BF4554D002DE94C /* IRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRegistViewController.swift; sourceTree = "<group>"; };
 		3AC7B0F51BF45575002DE94C /* IRegistViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRegistViewModel.swift; sourceTree = "<group>"; };
 		3AC7B1001BF45BD4002DE94C /* fs_main_login_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fs_main_login_normal.png; sourceTree = "<group>"; };
 		3AC7B1011BF45BD4002DE94C /* fs_main_login_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fs_main_login_selected.png; sourceTree = "<group>"; };
@@ -403,15 +449,10 @@
 		3AC7B1081BF45CB9002DE94C /* ZSYPopoverListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSYPopoverListView.m; sourceTree = "<group>"; };
 		3AC7B10A1BF45D00002DE94C /* PopDownListForIphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDownListForIphone.swift; sourceTree = "<group>"; };
 		3AC7B10C1BF464D2002DE94C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3ACD645D1BFC577A00FB62BB /* IChoosePatientsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IChoosePatientsViewModel.swift; sourceTree = "<group>"; };
-		3ACD645F1BFC777400FB62BB /* IHRMonitorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IHRMonitorViewModel.swift; sourceTree = "<group>"; };
-		3ACD64601BFC777400FB62BB /* IRRMonitorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRRMonitorViewModel.swift; sourceTree = "<group>"; };
-		3AF6526E1BFABE2C00BA2329 /* IMyPatientsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMyPatientsController.swift; sourceTree = "<group>"; };
-		3AF652701BFABEBE00BA2329 /* bigadd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigadd.png; sourceTree = "<group>"; };
-		3AF652711BFABEBE00BA2329 /* smalladd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalladd.png; sourceTree = "<group>"; };
-		3AF844C41BFD619E00B5EDE3 /* IMyPatientsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMyPatientsViewModel.swift; sourceTree = "<group>"; };
 		54127559369C5508905B3990 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7856675DBD0F8296CBE665 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		613FC4CF1D17B3DD00FCCEB6 /* icon_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_arrow.png; path = "../../iSleepCare_切图/icon_arrow.png"; sourceTree = "<group>"; };
+		613FC4D91D17B87900FCCEB6 /* EquipmentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentViewModel.swift; sourceTree = "<group>"; };
 		8E709AD7A0D77B12CA43D3D0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -420,6 +461,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DB05D0A1D1455C400018538 /* WebKit.framework in Frameworks */,
 				3AC7B10D1BF464D2002DE94C /* Foundation.framework in Frameworks */,
 				014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */,
 			);
@@ -444,26 +486,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		0D0F02DF1C55B31D00927907 /* default */ = {
-			isa = PBXGroup;
-			children = (
-				0D5CCED41C5B09670068746C /* default_registdownarrow.png */,
-				0DB048521C86848A00679849 /* default_background.png */,
-				2C06154C1BF465CC00A3F90C /* default_loginbackground.png */,
-				0DF6BD661C55E705007BF0A9 /* default_registCheck.png */,
-				0DF6BD681C55E70A007BF0A9 /* default_registUncheck.png */,
-				3A39C9F81BF2FCA70024DD3E /* default_garyboxback.png */,
-				2C06154E1BF4660A00A3F90C /* default_logininputborder.png */,
-				2C0615731BF481D100A3F90C /* default_registinputborder.png */,
-				2C0615721BF481D100A3F90C /* default_registinputdownborder.png */,
-				3A39CA0F1BF2FF010024DD3E /* default_menuBack.png */,
-				3A881B641BFC1EF3005F4D07 /* checked.png */,
-				3A881B631BFC1EF3005F4D07 /* unchecked.png */,
-				2C06155C1BF47A3200A3F90C /* backBtn.png */,
-			);
-			name = default;
-			sourceTree = "<group>";
-		};
 		0D1341C01C50ADE000051E2C /* Theme */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,19 +497,14 @@
 		0D1341C11C50AE0E00051E2C /* iphone */ = {
 			isa = PBXGroup;
 			children = (
-				0D1341C21C50AE2600051E2C /* image */,
+				0D1FC0A01D1CD97E00988A64 /* 周报表 */,
+				0D1FC09F1D1CD93E00988A64 /* common */,
+				0D1FC09E1D1CD92500988A64 /* 报警 */,
+				0D1FC09D1D1CD80F00988A64 /* tab主页面 */,
+				0D1FC09C1D1CD80000988A64 /* 注册 */,
+				0D1FC09B1D1CD7ED00988A64 /* 登录 */,
 			);
 			name = iphone;
-			sourceTree = "<group>";
-		};
-		0D1341C21C50AE2600051E2C /* image */ = {
-			isa = PBXGroup;
-			children = (
-				0DF6BD831C59EAB7007BF0A9 /* black */,
-				0DF6BD701C561C80007BF0A9 /* common */,
-				0D0F02DF1C55B31D00927907 /* default */,
-			);
-			name = image;
 			sourceTree = "<group>";
 		};
 		0D1341C51C50B9F800051E2C /* common */ = {
@@ -504,13 +521,156 @@
 			name = common;
 			sourceTree = "<group>";
 		};
-		0D4E5BEC1C2A72AD00D2ED92 /* Common */ = {
+		0D1FC0861D1A774E00988A64 /* single_iphone */ = {
 			isa = PBXGroup;
 			children = (
-				0D1341C61C50BAA900051E2C /* ThemeHelper.swift */,
-				0D4E5BED1C2A85BD00D2ED92 /* IViewControllerManager.swift */,
+				0D1FC0871D1A776800988A64 /* LoginUser.swift */,
+				0D1FC0891D1A884600988A64 /* BedUserInfo.swift */,
+				0D1FC08B1D1A8D5700988A64 /* EquipmentList.swift */,
+				0D1FC08D1D1A90A000988A64 /* HRRange.swift */,
+				0D1FC08F1D1B79DD00988A64 /* RRRange.swift */,
+				0D1FC0911D1B7BF300988A64 /* SleepQualityReport.swift */,
+				0D1FC0931D1B839A00988A64 /* WeekSleep.swift */,
+				0D79EE0A1CB658B500B9DA5F /* AlarmList.swift */,
+				0D79EE0C1CB6593F00B9DA5F /* AlarmInfo.swift */,
 			);
-			name = Common;
+			name = single_iphone;
+			sourceTree = "<group>";
+		};
+		0D1FC09B1D1CD7ED00988A64 /* 登录 */ = {
+			isa = PBXGroup;
+			children = (
+				0D3EB0AB1D0FD2EE00928430 /* icon_rememberpwd.png */,
+				0D3EB0B71D0FE1B500928430 /* icon_norememberpwd.png */,
+				0D3EB0911D0FA75800928430 /* 登录背景.png */,
+				0D3EB09B1D0FAD0700928430 /* icon_登录.png */,
+			);
+			name = "登录";
+			sourceTree = "<group>";
+		};
+		0D1FC09C1D1CD80000988A64 /* 注册 */ = {
+			isa = PBXGroup;
+			children = (
+				0D3EB0AE1D0FD2EE00928430 /* icon_椭圆.png */,
+				0D1FC0A51D1CE01600988A64 /* icon_获取验证码.png */,
+				0D1FC0A11D1CDE2600988A64 /* icon_60s.png */,
+				0D3EB0AC1D0FD2EE00928430 /* icon_checkyes.png */,
+				0D3EB0AD1D0FD2EE00928430 /* icon_checkno.png */,
+				0D3EB0A91D0FCB0A00928430 /* icon_密码可见.png */,
+				0D3EB0C51D0FEB0600928430 /* icon_密码不可见.png */,
+				0D3EB0B31D0FD37E00928430 /* icon_扫一扫.png */,
+			);
+			name = "注册";
+			sourceTree = "<group>";
+		};
+		0D1FC09D1D1CD80F00988A64 /* tab主页面 */ = {
+			isa = PBXGroup;
+			children = (
+				0DB05CDB1D13DECD00018538 /* icon_needaddservices.png */,
+				0D3EB0EB1D10350A00928430 /* icon_set.png */,
+				0D3EB0EC1D10350A00928430 /* icon_使用技巧.png */,
+				0D3EB0F31D10355800928430 /* icon_报警信息.png */,
+				0D3EB0ED1D10350A00928430 /* icon_关于.png */,
+				0D3EB0F71D10E88A00928430 /* icon_time.png */,
+				0D3EB0F11D10352000928430 /* icon_当前版本.png */,
+				0D3EB0F91D10E8D500928430 /* icon_my devices.png */,
+				0D3EB0FB1D10E8DF00928430 /* icon_nurse.png */,
+				0D3EB0CB1D0FEC7C00928430 /* tab_我的－1.png */,
+				0D3EB0CC1D0FEC7C00928430 /* tab_睡眠－1.png */,
+				0D3EB0C71D0FEC7600928430 /* tab_呼吸－1.png */,
+				0D3EB0C81D0FEC7600928430 /* tab_心率－1.png */,
+				0DB05CCB1D13D62700018538 /* tab_心率－2.png */,
+				0DB05CD31D13D65E00018538 /* tab_呼吸－2.png */,
+				0DB05CD41D13D65E00018538 /* tab_我的－2.png */,
+				0DB05CD51D13D65E00018538 /* tab_睡眠－2.png */,
+				0D1FC07A1D1A5F6900988A64 /* btn_changepatient.png */,
+				0D1FC07C1D1A6F4A00988A64 /* icon_检测中.png */,
+				0D1FC07E1D1A6F5400988A64 /* icon_请假.png */,
+				0D1FC07F1D1A6F5400988A64 /* icon_异常.png */,
+				0D3EB0D51D0FF84600928430 /* icon_offbed.png */,
+				0D3EB0D61D0FF84600928430 /* icon_onbed.png */,
+				0D3EB0D71D0FF84600928430 /* icon_ergent.png */,
+				0D3EB0D11D0FEF4C00928430 /* btn_有警报.png */,
+				0D3EB0D31D0FEF5300928430 /* btn_无警报.png */,
+				0D3EB0DB1D1001E500928430 /* icon_blue circle.png */,
+				0D3EB0DC1D1001E500928430 /* icon_gray circle.png */,
+				0D3EB0DD1D1001E500928430 /* icon_green circle.png */,
+				0D3EB0DE1D1001E500928430 /* icon_light green circle.png */,
+				0D3EB0DF1D1001E500928430 /* icon_purple circle.png */,
+				0D3EB0E01D1001E500928430 /* icon_red circle.png */,
+				0D1FC0A31D1CDF1200988A64 /* image_添加设备.png */,
+			);
+			name = "tab主页面";
+			sourceTree = "<group>";
+		};
+		0D1FC09E1D1CD92500988A64 /* 报警 */ = {
+			isa = PBXGroup;
+			children = (
+				0DB05CDD1D13DECD00018538 /* icon_alarmtrash.png */,
+				0D3EB0F51D10356B00928430 /* icon_报警页面.png */,
+			);
+			name = "报警";
+			sourceTree = "<group>";
+		};
+		0D1FC09F1D1CD93E00988A64 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				0DB05CDC1D13DECD00018538 /* icon_equipmenttrash.png */,
+				0DB05CF51D13FB1B00018538 /* btn_trash.png */,
+				0D3EB0E91D1034BD00928430 /* icon_退出登录.png */,
+				0D3EB0951D0FA7BD00928430 /* icon_logo_2.png */,
+				0D3EB0A51D0FC6BA00928430 /* icon_logo_1.png */,
+				0D6898E81D17D2D60087A0FE /* icon_arrowdown.png */,
+				613FC4CF1D17B3DD00FCCEB6 /* icon_arrow.png */,
+				0D3EB0A31D0FAE6B00928430 /* icon_telephone.png */,
+				0D3EB0A11D0FAE6500928430 /* icon_password.png */,
+				0D3EB0C31D0FE8B800928430 /* btn_address.png */,
+				0D3EB0BE1D0FE63600928430 /* icon_figure.png */,
+				0D3EB0A71D0FC9F800928430 /* icon_短信校验码.png */,
+				0D3EB0BD1D0FE63600928430 /* icon_female.png */,
+				0D3EB0B91D0FE28100928430 /* icon_male.png */,
+				0D3EB0BF1D0FE63600928430 /* icon_male_choose.png */,
+				0D3EB0BB1D0FE29300928430 /* icon_female_choose.png */,
+				0D3EB0B51D0FD96700928430 /* btn_返回.png */,
+				0D3EB0CF1D0FEF4700928430 /* btn_下拉.png */,
+				0D3EB0E71D1034A300928430 /* btn_右键.png */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
+		0D1FC0A01D1CD97E00988A64 /* 周报表 */ = {
+			isa = PBXGroup;
+			children = (
+				0DB05CF61D13FB1B00018538 /* icon_breath.png */,
+				0DB05CFB1D13FB2300018538 /* btn_email.png */,
+				0DB05CF71D13FB1B00018538 /* icon_heart.png */,
+			);
+			name = "周报表";
+			sourceTree = "<group>";
+		};
+		0DB05CFD1D1432BF00018538 /* chartView */ = {
+			isa = PBXGroup;
+			children = (
+				0D6898EE1D17DEE40087A0FE /* ChartScrollView.swift */,
+				0DB05CFE1D1432D000018538 /* ChartView.h */,
+				0DB05CFF1D1432D000018538 /* ChartView.m */,
+				0DB05D001D1432D000018538 /* ChatLineView.h */,
+				0DB05D011D1432D000018538 /* ChatLineView.m */,
+				0DB05D021D1432D000018538 /* PointBtn.h */,
+				0DB05D031D1432D000018538 /* PointBtn.m */,
+			);
+			name = chartView;
+			sourceTree = "<group>";
+		};
+		0DB05D0F1D14585F00018538 /* circleView */ = {
+			isa = PBXGroup;
+			children = (
+				0D6898F01D190AAA0087A0FE /* STLoopProgressView.h */,
+				0D6898F11D190AAA0087A0FE /* STLoopProgressView.m */,
+				0D6898F21D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.h */,
+				0D6898F31D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.m */,
+			);
+			name = circleView;
 			sourceTree = "<group>";
 		};
 		0DD1D15D1C29279A00C8FEE3 /* MSCMoreOptionTableViewCell */ = {
@@ -523,102 +683,10 @@
 			name = MSCMoreOptionTableViewCell;
 			sourceTree = "<group>";
 		};
-		0DF6BD701C561C80007BF0A9 /* common */ = {
-			isa = PBXGroup;
-			children = (
-				3A39C9FF1BF2FCA70024DD3E /* waneBg.png */,
-				0DB0484E1C86754000679849 /* logotm.png */,
-				0DDA441C1CC48DBD00B0DF51 /* question.png */,
-				0DCC7ABE1C3A022600CC2498 /* msg.png */,
-				2C0615601BF4813600A3F90C /* logotm_old.png */,
-				0DF6BD6E1C561C72007BF0A9 /* yellowpoint.png */,
-				0DF6BD711C5706AE007BF0A9 /* greypoint.png */,
-				0D78FA0F1C71C07000364CF6 /* lightgreenpoint.png */,
-				0DF6BD6C1C561C69007BF0A9 /* greenpoint.png */,
-				0DF6BD641C55D43E007BF0A9 /* noalarm.png */,
-				0D5CCED21C5AF8B80068746C /* alarm.png */,
-				2CDF940E1BF5C2BD00FCFAF7 /* moveRight.png */,
-				2CDF940F1BF5C2BD00FCFAF7 /* moveLeft.png */,
-				3AF652711BFABEBE00BA2329 /* smalladd.png */,
-				3AF652701BFABEBE00BA2329 /* bigadd.png */,
-				0DF6BD751C57181D007BF0A9 /* sendemail.png */,
-				0DF6BD731C571513007BF0A9 /* sleepreport.png */,
-				2C06154F1BF4660A00A3F90C /* loginname.png */,
-				2C0615501BF4660A00A3F90C /* loginpwd.png */,
-				3A39CA091BF2FEF40024DD3E /* sleepmenu.png */,
-				0DF6BD771C5721DF007BF0A9 /* headfaceBg.png */,
-				3A39CA0B1BF2FEF40024DD3E /* hrmenu.png */,
-				3A39CA0A1BF2FEF40024DD3E /* memenu.png */,
-				3A39CA111BF2FF0A0024DD3E /* rrmenu.png */,
-				3AC70CBB1BF9982800814082 /* whiteMoveRight.png */,
-				3A8382D21BFACC7B00E4CC15 /* goright.png */,
-			);
-			name = common;
-			sourceTree = "<group>";
-		};
-		0DF6BD831C59EAB7007BF0A9 /* black */ = {
-			isa = PBXGroup;
-			children = (
-				0DB048501C86833900679849 /* black_background.png */,
-				0DF6BD861C59EB40007BF0A9 /* black_registCheck.png */,
-				0DF6BD881C59EB53007BF0A9 /* black_registUncheck.png */,
-				0DF6BD8A1C59EB97007BF0A9 /* black_garyboxback.png */,
-				0DF6BD8C1C59ECD2007BF0A9 /* black_logininputborder.png */,
-				0DB108561C5A0EC600721D74 /* black_registinputborder.png */,
-				0DB108581C5A0ED400721D74 /* black_registinputdownborder.png */,
-				0DB048561C86891000679849 /* black_registdownarrow.png */,
-				0DB1085A1C5A100B00721D74 /* black_menuBack.png */,
-			);
-			name = black;
-			sourceTree = "<group>";
-		};
-		3A2158731BEC8C140089CC01 /* iphone */ = {
-			isa = PBXGroup;
-			children = (
-				3A2158761BEC8D580089CC01 /* IBaseViewController.swift */,
-				2C4D31471BF98395001DB693 /* IServerSettingController.swift */,
-				3AC7B0F31BF4554D002DE94C /* IRegistViewController.swift */,
-				3A2158741BEC8C460089CC01 /* ILoginController.swift */,
-				0DDA44241CC5D81E00B0DF51 /* ShowTipsViewController.swift */,
-				0DDA44181CC4850300B0DF51 /* ShowProtocolViewController.swift */,
-				0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */,
-				0DC6F95B1CC745E2005CECF2 /* TabbarController.swift */,
-				0DC6F95D1CC74609005CECF2 /* MyConfigueTableViewController.swift */,
-				3AF6526E1BFABE2C00BA2329 /* IMyPatientsController.swift */,
-				3A91B3631BFB1DF200DB3514 /* IChoosePatientsController.swift */,
-				0DC6F95F1CC74642005CECF2 /* HRViewController.swift */,
-				0DC6F9631CC746C2005CECF2 /* RRViewController.swift */,
-				0D2C490F1CC87E42006D3CF5 /* SleepViewController.swift */,
-				0D2C49111CC8AA78006D3CF5 /* IWeekSleepcareController.swift */,
-				2C0DC3C81BF9A25F0048BEEA /* IEmailViewController.swift */,
-				3A680DBF1C02BD6800D77A22 /* IAccountSetController.swift */,
-				0DF49A3B1CD083BA0096BE5E /* ShowAlarmViewController.swift */,
-			);
-			name = iphone;
-			sourceTree = "<group>";
-		};
-		3A28CA9C1BEC49BD007D9A3A /* iphone */ = {
-			isa = PBXGroup;
-			children = (
-				2C5181FE1BF1AB5F007DC2A3 /* IMainInfo.swift */,
-				2C5181F81BF18E7E007DC2A3 /* ILoginUser.swift */,
-				2C5182001BF1B5DF007DC2A3 /* IBedUserList.swift */,
-				0D79EE0C1CB6593F00B9DA5F /* AlarmInfo.swift */,
-				2C5182021BF1B7DA007DC2A3 /* IHRRange.swift */,
-				2C5182041BF1B8D6007DC2A3 /* IRRRange.swift */,
-				2C5182061BF1B941007DC2A3 /* ISleepQualityReport.swift */,
-				2C5182081BF1BA83007DC2A3 /* IEquipmentInfo.swift */,
-				2C51820A1BF1BAF3007DC2A3 /* IMainInfoList.swift */,
-				2CB435311C069C28000751D1 /* IWeekReport.swift */,
-				0D79EE0A1CB658B500B9DA5F /* AlarmList.swift */,
-			);
-			name = iphone;
-			sourceTree = "<group>";
-		};
 		3A28CA9F1BEC4A27007D9A3A /* iphone */ = {
 			isa = PBXGroup;
 			children = (
-				0DF396FB1CBF84ED00E3ACD5 /* Root.storyboard */,
+				0DB05D101D17910100018538 /* Main.storyboard */,
 				2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */,
 				0DF49A391CD0653E0096BE5E /* AlarmView.xib */,
 			);
@@ -628,6 +696,8 @@
 		3A31CE701BEC67440039DFD0 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				0DB05D0F1D14585F00018538 /* circleView */,
+				0DB05CFD1D1432BF00018538 /* chartView */,
 				0DD1D15D1C29279A00C8FEE3 /* MSCMoreOptionTableViewCell */,
 				3A91B3671BFB259400DB3514 /* ChoosePatient */,
 				3A91B35F1BFB19E800DB3514 /* CommonTableView.swift */,
@@ -635,7 +705,6 @@
 				3AC7B0FF1BF45BB8002DE94C /* PopDownList */,
 				3A91F0B11BF066C400C470D4 /* Date */,
 				2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */,
-				2C70BC6A1BF332810060D804 /* CircularLoaderView.swift */,
 				0D2C49151CC8C4C1006D3CF5 /* AlarmTableViewCell.swift */,
 				0DF49A3D1CD088110096BE5E /* alarmCell.xib */,
 			);
@@ -679,12 +748,11 @@
 			isa = PBXGroup;
 			children = (
 				0D1341C01C50ADE000051E2C /* Theme */,
-				0D4E5BEC1C2A72AD00D2ED92 /* Common */,
 				3AB3CB091BD762C50067F9D4 /* UILib */,
 				3A41ADE41BA7B3E9000C109B /* ViewController */,
 				3A41ADE11BA7B3A2000C109B /* View */,
 				3A41ADE01BA7B396000C109B /* ViewModel */,
-				3A41ADC01BA7A65A000C109B /* AppDelegate.swift */,
+				0D3D05841CFED58C00476819 /* AppDelegate.swift */,
 				3A41ADC71BA7A65A000C109B /* Images.xcassets */,
 				3A41ADBE1BA7A65A000C109B /* Supporting Files */,
 				3A41ADF31BA7B543000C109B /* ewell.sleepcareforpad-Bridging-Header.h */,
@@ -722,6 +790,14 @@
 		3A41ADE01BA7B396000C109B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0D79EE0E1CB6597A00B9DA5F /* BaseViewModel.swift */,
+				3AC7B0E31BF42EFB002DE94C /* IloginViewModel.swift */,
+				0D1FC0AB1D1CFCAF00988A64 /* ForgetPwdViewModel.swift */,
+				3AC7B0F51BF45575002DE94C /* IRegistViewModel.swift */,
+				613FC4D91D17B87900FCCEB6 /* EquipmentViewModel.swift */,
+				0D1FC0781D1A344D00988A64 /* HRTabViewModel.swift */,
+				0D1FC0B51D1F863200988A64 /* AccountSettingViewModel.swift */,
+				0D1FC0BB1D1F8A5F00988A64 /* ModifyAccountViewModel.swift */,
 				3AC7B0E21BF42E4B002DE94C /* iphone */,
 			);
 			name = ViewModel;
@@ -738,7 +814,23 @@
 		3A41ADE41BA7B3E9000C109B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3A2158731BEC8C140089CC01 /* iphone */,
+				3A2158761BEC8D580089CC01 /* IBaseViewController.swift */,
+				0D3D059B1D05231B00476819 /* RootLoginViewController.swift */,
+				0D1FC0A91D1CFBE900988A64 /* ForgetPwdController.swift */,
+				0D3D05971D0522DF00476819 /* RootRegistViewController.swift */,
+				0DDA44181CC4850300B0DF51 /* ShowProtocolViewController.swift */,
+				0D3D058D1CFEDEED00476819 /* ScanViewController.swift */,
+				0D3D058A1CFEDEED00476819 /* EquipmentViewController.swift */,
+				0D3D058C1CFEDEED00476819 /* RootTabbarController.swift */,
+				0DB05CD91D13DA7600018538 /* HRTabViewController.swift */,
+				0DB05CE51D13F0D900018538 /* MeTabViewController.swift */,
+				0DB05CE71D13F7AC00018538 /* MyDeviceViewController.swift */,
+				0DB05CEB1D13FA2D00018538 /* AlarmInfoViewController.swift */,
+				0DB05D071D14332B00018538 /* SleepReportViewController.swift */,
+				0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */,
+				0DDA44241CC5D81E00B0DF51 /* ShowTipsViewController.swift */,
+				0D1FC0AF1D1EC7AF00988A64 /* AccountSettingController.swift */,
+				0D1FC0B91D1F8A5B00988A64 /* ModifyAccountController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -746,8 +838,7 @@
 		3A4B85C41BB14C3F006E4CF1 /* IBLL */ = {
 			isa = PBXGroup;
 			children = (
-				0D79EE101CB65B7D00B9DA5F /* SleepCareBussinessManager.swift */,
-				2C5181FA1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift */,
+				0D1FC0821D1A727900988A64 /* SleepCareForSingleManager.swift */,
 			);
 			name = IBLL;
 			sourceTree = "<group>";
@@ -763,20 +854,19 @@
 				3A3262DF1BB912180002687B /* OSSTry.swift */,
 				3A41ADED1BA7B45D000C109B /* MessageDelegate.swift */,
 				0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */,
-				3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */,
-				3A1F16FE1BF5A5100051E9AF /* BusinessFactory.swift */,
+				0D1FC0951D1BB15300988A64 /* SessionForSingle.swift */,
 				3A41ADEE1BA7B45D000C109B /* ReactiveCocoa.swift */,
 				3A4CD3F71BA804D2002C8A1A /* XmppMsgManager.swift */,
 				3A4CD3F91BA80536002C8A1A /* CommonHelper.swift */,
 				0DEC18FF1C97DF54007BDF5D /* OpenFireServerInfoHelper.swift */,
 				3A4CD3FE1BA808C1002C8A1A /* XmppMsgHelper.swift */,
 				0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */,
-				0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */,
 				3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */,
+				0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */,
 				0DC228561C224DD800AF4737 /* IAlarmHelper.swift */,
 				0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */,
 				0DF6BD811C59AB26007BF0A9 /* DateFormatterHelper.swift */,
-				0DF6BD7F1C599FEC007BF0A9 /* LoadImageHelper.swift */,
+				0D3D05931CFFC30D00476819 /* UpdateHelper.swift */,
 				0D9AE0781C8E7FB800625D5E /* Const.swift */,
 			);
 			name = Common;
@@ -785,8 +875,7 @@
 		3A4CD3F61BA80423002C8A1A /* BLL */ = {
 			isa = PBXGroup;
 			children = (
-				0D79EE121CB65B8300B9DA5F /* SleepCareBussiness.swift */,
-				2C5181FC1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift */,
+				0D1FC0841D1A72B500988A64 /* SleepCareForSingle.swift */,
 			);
 			name = BLL;
 			sourceTree = "<group>";
@@ -794,12 +883,11 @@
 		3A4CD3FB1BA80826002C8A1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3A28CA9C1BEC49BD007D9A3A /* iphone */,
+				0D1FC0861D1A774E00988A64 /* single_iphone */,
 				3A4CD3FC1BA80852002C8A1A /* BaseMessage.swift */,
 				3A33EF841BAA56D700D82A4D /* MessageSubject.swift */,
 				3A36B0221BA96648000F4AED /* RealTimeReport.swift */,
 				2C28CA131BE87D3D000C46C4 /* ServerResult.swift */,
-				3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */,
 				3A376E411BABB3B700D70953 /* EMString.swift */,
 				3A376E431BABB81100D70953 /* EMProperties.swift */,
 				3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */,
@@ -874,6 +962,7 @@
 		3AB43E761BD4E16B005023D3 /* Date */ = {
 			isa = PBXGroup;
 			children = (
+				3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */,
 				3AB43E7C1BD4E1B9005023D3 /* BizDayRule.swift */,
 				3AB43E7D1BD4E1B9005023D3 /* Calendar.swift */,
 				3AB43E7E1BD4E1B9005023D3 /* DateHelpers.swift */,
@@ -887,16 +976,7 @@
 		3AC7B0E21BF42E4B002DE94C /* iphone */ = {
 			isa = PBXGroup;
 			children = (
-				0D79EE0E1CB6597A00B9DA5F /* BaseViewModel.swift */,
-				3AC7B0E31BF42EFB002DE94C /* IloginViewModel.swift */,
-				3AC7B0F51BF45575002DE94C /* IRegistViewModel.swift */,
-				3ACD645D1BFC577A00FB62BB /* IChoosePatientsViewModel.swift */,
-				3AF844C41BFD619E00B5EDE3 /* IMyPatientsViewModel.swift */,
-				3ACD645F1BFC777400FB62BB /* IHRMonitorViewModel.swift */,
-				3ACD64601BFC777400FB62BB /* IRRMonitorViewModel.swift */,
-				2C325CBD1BF5764600DD1DB7 /* ISleepQualityMonitorViewModel.swift */,
 				2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */,
-				0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */,
 				0D2C49171CC8C572006D3CF5 /* AlarmViewModel.swift */,
 			);
 			name = iphone;
@@ -917,6 +997,7 @@
 		3F28D28F10171C3606C8ADEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DB05D091D1455C400018538 /* WebKit.framework */,
 				2CB435331C06A6A9000751D1 /* libxml2.dylib */,
 				3AC7B10C1BF464D2002DE94C /* Foundation.framework */,
 				3A3D65E71BAAB67C00CEFB25 /* libxml2.2.dylib */,
@@ -1016,90 +1097,111 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CDF94101BF5C2BD00FCFAF7 /* moveRight.png in Resources */,
-				2C0615761BF4825400A3F90C /* default_logininputborder.png in Resources */,
-				2C0615771BF4825400A3F90C /* loginname.png in Resources */,
-				2C0615781BF4825400A3F90C /* loginpwd.png in Resources */,
-				0DF396FC1CBF84ED00E3ACD5 /* Root.storyboard in Resources */,
-				0D5CCED31C5AF8B80068746C /* alarm.png in Resources */,
-				2C06157A1BF4825400A3F90C /* default_loginbackground.png in Resources */,
+				0D3EB0EE1D10350A00928430 /* icon_set.png in Resources */,
+				0D3EB0EF1D10350A00928430 /* icon_使用技巧.png in Resources */,
+				0D3EB0C01D0FE63600928430 /* icon_female.png in Resources */,
+				0D3EB0F81D10E88A00928430 /* icon_time.png in Resources */,
 				3A91F09F1BF0475400C470D4 /* calendar_littledot.png in Resources */,
+				0DB05CD81D13D65E00018538 /* tab_睡眠－2.png in Resources */,
 				2C0DC3C71BF9A20F0048BEEA /* IEmailView.xib in Resources */,
+				0D1FC07B1D1A5F6900988A64 /* btn_changepatient.png in Resources */,
+				0DB05CFA1D13FB1B00018538 /* icon_heart.png in Resources */,
+				0D3EB0E11D1001E500928430 /* icon_blue circle.png in Resources */,
+				0D1FC0A61D1CE01600988A64 /* icon_获取验证码.png in Resources */,
+				0D3EB0E21D1001E500928430 /* icon_gray circle.png in Resources */,
+				0D1FC0811D1A6F5400988A64 /* icon_异常.png in Resources */,
+				0DB05CE01D13DECD00018538 /* icon_alarmtrash.png in Resources */,
+				613FC4D01D17B3DD00FCCEB6 /* icon_arrow.png in Resources */,
 				3A91F0AE1BF0475400C470D4 /* THDateDay.xib in Resources */,
-				0DF6BD721C5706AE007BF0A9 /* greypoint.png in Resources */,
-				3AF652731BFABEBE00BA2329 /* smalladd.png in Resources */,
-				2C06156A1BF4813700A3F90C /* logotm_old.png in Resources */,
-				2C0615741BF481D100A3F90C /* default_registinputdownborder.png in Resources */,
-				2C06155D1BF47A3200A3F90C /* backBtn.png in Resources */,
+				0D3EB0B61D0FD96700928430 /* btn_返回.png in Resources */,
+				0D3EB0BA1D0FE28100928430 /* icon_male.png in Resources */,
+				0D3EB0D81D0FF84600928430 /* icon_offbed.png in Resources */,
+				0D3EB0AF1D0FD2EE00928430 /* icon_rememberpwd.png in Resources */,
+				0D3EB0EA1D1034BD00928430 /* icon_退出登录.png in Resources */,
 				3A91F09E1BF0475400C470D4 /* calendar_littledot-disabled@2x.png in Resources */,
-				0DF6BD671C55E705007BF0A9 /* default_registCheck.png in Resources */,
+				0D3EB0F61D10356B00928430 /* icon_报警页面.png in Resources */,
+				0DB05CDE1D13DECD00018538 /* icon_needaddservices.png in Resources */,
+				0D3EB0921D0FA75800928430 /* 登录背景.png in Resources */,
+				0D3EB0FC1D10E8DF00928430 /* icon_nurse.png in Resources */,
+				0D3EB0BC1D0FE29300928430 /* icon_female_choose.png in Resources */,
 				0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */,
-				0DB108571C5A0EC600721D74 /* black_registinputborder.png in Resources */,
 				3A91F0A31BF0475400C470D4 /* dialog_cancel.png in Resources */,
-				0DF6BD6D1C561C69007BF0A9 /* greenpoint.png in Resources */,
+				0D1FC07D1D1A6F4A00988A64 /* icon_检测中.png in Resources */,
 				3A91F0A51BF0475400C470D4 /* dialog_clear-disabled.png in Resources */,
 				3A91F0A81BF0475400C470D4 /* dialog_clear@2x.png in Resources */,
-				3A39CA121BF2FF0A0024DD3E /* rrmenu.png in Resources */,
-				0DB108591C5A0ED400721D74 /* black_registinputdownborder.png in Resources */,
+				0D3EB0D91D0FF84600928430 /* icon_onbed.png in Resources */,
 				3A91B3621BFB1D1C00DB3514 /* PartTableCell.xib in Resources */,
 				3A91F0981BF0475400C470D4 /* arrow_left@2x.png in Resources */,
 				0DF49A3E1CD088110096BE5E /* alarmCell.xib in Resources */,
 				3A91F0A11BF0475400C470D4 /* calendar_ok-disabled.png in Resources */,
 				3A91F0991BF0475400C470D4 /* arrow_right.png in Resources */,
-				3A39CA101BF2FF010024DD3E /* default_menuBack.png in Resources */,
-				3AC70CBC1BF9982800814082 /* whiteMoveRight.png in Resources */,
-				3A39CA011BF2FCA70024DD3E /* default_garyboxback.png in Resources */,
+				0D3EB0A61D0FC6BA00928430 /* icon_logo_1.png in Resources */,
+				0D3EB0E51D1001E500928430 /* icon_purple circle.png in Resources */,
+				0D3EB0A81D0FC9F800928430 /* icon_短信校验码.png in Resources */,
+				0DB05CFC1D13FB2300018538 /* btn_email.png in Resources */,
+				0D3EB0B81D0FE1B500928430 /* icon_norememberpwd.png in Resources */,
+				0D3EB0B41D0FD37E00928430 /* icon_扫一扫.png in Resources */,
+				0D3EB0D21D0FEF4C00928430 /* btn_有警报.png in Resources */,
+				0D3EB0961D0FA7BD00928430 /* icon_logo_2.png in Resources */,
+				0D3EB0C91D0FEC7600928430 /* tab_呼吸－1.png in Resources */,
 				3A91F0AC1BF0475400C470D4 /* dialog_ok@2x.png in Resources */,
 				3A91F0A21BF0475400C470D4 /* calendar_ok-disabled@2x.png in Resources */,
-				0DB1085B1C5A100B00721D74 /* black_menuBack.png in Resources */,
-				0DF6BD891C59EB53007BF0A9 /* black_registUncheck.png in Resources */,
 				3A91F0A61BF0475400C470D4 /* dialog_clear-disabled@2x.png in Resources */,
-				0DF6BD871C59EB40007BF0A9 /* black_registCheck.png in Resources */,
-				0DF6BD6F1C561C72007BF0A9 /* yellowpoint.png in Resources */,
+				0D3EB0B11D0FD2EE00928430 /* icon_checkno.png in Resources */,
+				0D3EB0AA1D0FCB0A00928430 /* icon_密码可见.png in Resources */,
+				0D1FC0A41D1CDF1200988A64 /* image_添加设备.png in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
-				0D78FA101C71C07000364CF6 /* lightgreenpoint.png in Resources */,
-				3A39CA0C1BF2FEF40024DD3E /* sleepmenu.png in Resources */,
-				0DB0484F1C86754000679849 /* logotm.png in Resources */,
-				0DDA441D1CC48DBD00B0DF51 /* question.png in Resources */,
+				0D3EB0DA1D0FF84600928430 /* icon_ergent.png in Resources */,
+				0D3EB09C1D0FAD0700928430 /* icon_登录.png in Resources */,
+				0DB05CCC1D13D62700018538 /* tab_心率－2.png in Resources */,
+				0DB05CF91D13FB1B00018538 /* icon_breath.png in Resources */,
+				0D3EB0CA1D0FEC7600928430 /* tab_心率－1.png in Resources */,
 				3A881B621BFC1BC1005F4D07 /* BedPatientCell.xib in Resources */,
-				0DF6BD651C55D43E007BF0A9 /* noalarm.png in Resources */,
+				0D3EB0C11D0FE63600928430 /* icon_figure.png in Resources */,
 				3A91F0A41BF0475400C470D4 /* dialog_cancel@2x.png in Resources */,
-				3A39CA0D1BF2FEF40024DD3E /* memenu.png in Resources */,
-				0DCC7ABF1C3A022600CC2498 /* msg.png in Resources */,
+				0D3EB0E81D1034A300928430 /* btn_右键.png in Resources */,
+				0D1FC0801D1A6F5400988A64 /* icon_请假.png in Resources */,
 				3A91F0A01BF0475400C470D4 /* calendar_littledot@2x.png in Resources */,
+				0DB05CD71D13D65E00018538 /* tab_我的－2.png in Resources */,
 				3A91F0971BF0475400C470D4 /* arrow_left.png in Resources */,
 				3AC7B1021BF45BD4002DE94C /* fs_main_login_normal.png in Resources */,
 				3A91F0A91BF0475400C470D4 /* dialog_ok-disabled.png in Resources */,
-				2C0615751BF481D100A3F90C /* default_registinputborder.png in Resources */,
+				0D3EB0E41D1001E500928430 /* icon_light green circle.png in Resources */,
+				0DB05CF81D13FB1B00018538 /* btn_trash.png in Resources */,
+				0D3EB0F01D10350A00928430 /* icon_关于.png in Resources */,
+				0D3EB0A41D0FAE6B00928430 /* icon_telephone.png in Resources */,
+				0DB05CDF1D13DECD00018538 /* icon_equipmenttrash.png in Resources */,
 				0DF49A3A1CD0653E0096BE5E /* AlarmView.xib in Resources */,
+				0D3EB0D41D0FEF5300928430 /* btn_无警报.png in Resources */,
+				0D1FC0A21D1CDE2600988A64 /* icon_60s.png in Resources */,
 				3A91F0B01BF0475400C470D4 /* THDatePickerViewController.xib in Resources */,
-				3A39CA0E1BF2FEF40024DD3E /* hrmenu.png in Resources */,
-				0DF6BD761C57181D007BF0A9 /* sendemail.png in Resources */,
-				3A881B661BFC1EF3005F4D07 /* checked.png in Resources */,
-				3A881B651BFC1EF3005F4D07 /* unchecked.png in Resources */,
+				0D3EB0A21D0FAE6500928430 /* icon_password.png in Resources */,
+				0D3EB0E31D1001E500928430 /* icon_green circle.png in Resources */,
 				3A91F0AB1BF0475400C470D4 /* dialog_ok.png in Resources */,
 				3AA3161D1BD0DD8500FC3C40 /* sleepcare.plist in Resources */,
 				3AC7B1031BF45BD4002DE94C /* fs_main_login_selected.png in Resources */,
-				0D5CCED51C5B09670068746C /* default_registdownarrow.png in Resources */,
+				0DB05D111D17910100018538 /* Main.storyboard in Resources */,
+				0D3EB0E61D1001E500928430 /* icon_red circle.png in Resources */,
 				0D35D5FA1C4CC3D8009F8EB2 /* Message.plist in Resources */,
+				0D3EB0F41D10355800928430 /* icon_报警信息.png in Resources */,
+				0D3EB0C41D0FE8B800928430 /* btn_address.png in Resources */,
 				3A91F09D1BF0475400C470D4 /* calendar_littledot-disabled.png in Resources */,
+				0D3EB0D01D0FEF4700928430 /* btn_下拉.png in Resources */,
+				0D3EB0C61D0FEB0600928430 /* icon_密码不可见.png in Resources */,
+				0D3EB0B21D0FD2EE00928430 /* icon_椭圆.png in Resources */,
 				3A91F0AA1BF0475400C470D4 /* dialog_ok-disabled@2x.png in Resources */,
-				0DF6BD741C571513007BF0A9 /* sleepreport.png in Resources */,
-				2CDF94111BF5C2BD00FCFAF7 /* moveLeft.png in Resources */,
-				0DF6BD8B1C59EB97007BF0A9 /* black_garyboxback.png in Resources */,
-				0DF6BD691C55E70A007BF0A9 /* default_registUncheck.png in Resources */,
-				0DB048531C86848A00679849 /* default_background.png in Resources */,
-				3A8382D41BFACC7B00E4CC15 /* goright.png in Resources */,
-				0DB048571C86891000679849 /* black_registdownarrow.png in Resources */,
-				3AF652721BFABEBE00BA2329 /* bigadd.png in Resources */,
+				0DB05CD61D13D65E00018538 /* tab_呼吸－2.png in Resources */,
+				0D3EB0B01D0FD2EE00928430 /* icon_checkyes.png in Resources */,
+				0D3EB0F21D10352000928430 /* icon_当前版本.png in Resources */,
+				0D6898E91D17D2D60087A0FE /* icon_arrowdown.png in Resources */,
+				0D3EB0FA1D10E8D500928430 /* icon_my devices.png in Resources */,
+				0D3EB0CE1D0FEC7C00928430 /* tab_睡眠－1.png in Resources */,
+				0D3EB0CD1D0FEC7C00928430 /* tab_我的－1.png in Resources */,
 				3A91F0A71BF0475400C470D4 /* dialog_clear.png in Resources */,
-				0DF6BD781C5721DF007BF0A9 /* headfaceBg.png in Resources */,
-				0DB048511C86833900679849 /* black_background.png in Resources */,
 				3A91F09A1BF0475400C470D4 /* arrow_right@2x.png in Resources */,
 				3A91F09C1BF0475400C470D4 /* calendar_clear-disabled@2x.png in Resources */,
 				3A91F09B1BF0475400C470D4 /* calendar_clear-disabled.png in Resources */,
-				0DF6BD8D1C59ECD2007BF0A9 /* black_logininputborder.png in Resources */,
-				3A39CA081BF2FCA70024DD3E /* waneBg.png in Resources */,
+				0D3EB0C21D0FE63600928430 /* icon_male_choose.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1166,107 +1268,103 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DF6BD821C59AB26007BF0A9 /* DateFormatterHelper.swift in Sources */,
-				0DC6F9601CC74642005CECF2 /* HRViewController.swift in Sources */,
+				0D1FC08A1D1A884600988A64 /* BedUserInfo.swift in Sources */,
 				0D79EE191CB65CA800B9DA5F /* PopDownList.swift in Sources */,
-				2C5182091BF1BA83007DC2A3 /* IEquipmentInfo.swift in Sources */,
-				3A2158751BEC8C460089CC01 /* ILoginController.swift in Sources */,
+				0D3D05911CFEDEED00476819 /* RootTabbarController.swift in Sources */,
+				0D1FC0BC1D1F8A5F00988A64 /* ModifyAccountViewModel.swift in Sources */,
+				0D1FC08E1D1A90A000988A64 /* HRRange.swift in Sources */,
+				0D1FC0831D1A727900988A64 /* SleepCareForSingleManager.swift in Sources */,
 				0D79EE171CB65C6900B9DA5F /* Li_common.swift in Sources */,
 				3A376E441BABB81100D70953 /* EMProperties.swift in Sources */,
-				2C5182031BF1B7DA007DC2A3 /* IHRRange.swift in Sources */,
-				2C5182011BF1B5DF007DC2A3 /* IBedUserList.swift in Sources */,
-				3ACD64611BFC777400FB62BB /* IHRMonitorViewModel.swift in Sources */,
-				2C5181FB1BF19667007DC2A3 /* SleepCareForIPhoneBussinessManager.swift in Sources */,
-				0D1341BF1C4F7CF000051E2C /* IModifyViewModel.swift in Sources */,
+				0D3D05981D0522DF00476819 /* RootRegistViewController.swift in Sources */,
 				3A4CD3F81BA804D2002C8A1A /* XmppMsgManager.swift in Sources */,
-				2C5181F91BF18E7E007DC2A3 /* ILoginUser.swift in Sources */,
-				2C4D31481BF98395001DB693 /* IServerSettingController.swift in Sources */,
-				2C0DC3C91BF9A25F0048BEEA /* IEmailViewController.swift in Sources */,
 				0DDA44251CC5D81E00B0DF51 /* ShowTipsViewController.swift in Sources */,
 				3A4CD3FF1BA808C1002C8A1A /* XmppMsgHelper.swift in Sources */,
-				3A0B97171BF5791F00409AD9 /* SessionForIphone.swift in Sources */,
 				3A41ADF01BA7B45D000C109B /* MessageDelegate.swift in Sources */,
 				3A3D65E41BAA8E1100CEFB25 /* MessageFactory.swift in Sources */,
 				0D79EE0D1CB6594000B9DA5F /* AlarmInfo.swift in Sources */,
+				0D1FC0B61D1F863200988A64 /* AccountSettingViewModel.swift in Sources */,
 				3AB43E8B1BD4E1B9005023D3 /* Calendar.swift in Sources */,
-				0D79EE111CB65B7D00B9DA5F /* SleepCareBussinessManager.swift in Sources */,
-				3A1F16FF1BF5A5100051E9AF /* BusinessFactory.swift in Sources */,
-				3AC7B0F41BF4554D002DE94C /* IRegistViewController.swift in Sources */,
+				0D1FC0941D1B839A00988A64 /* WeekSleep.swift in Sources */,
 				0D79EE151CB65C3200B9DA5F /* DatePickerView.swift in Sources */,
+				0DB05D061D1432D000018538 /* PointBtn.m in Sources */,
 				3A3262E11BB912180002687B /* OSSTry.swift in Sources */,
+				0D1FC0AA1D1CFBE900988A64 /* ForgetPwdController.swift in Sources */,
 				0DDA44191CC4850300B0DF51 /* ShowProtocolViewController.swift in Sources */,
-				2C5182071BF1B941007DC2A3 /* ISleepQualityReport.swift in Sources */,
 				0DC2280E1C1FD65F00AF4737 /* JHSpinnerView.swift in Sources */,
 				0DDA44291CC5D85000B0DF51 /* ShowInfoViewController.swift in Sources */,
-				0DF6BD801C599FEC007BF0A9 /* LoadImageHelper.swift in Sources */,
 				3A4CD3FD1BA80852002C8A1A /* BaseMessage.swift in Sources */,
-				0DC6F9641CC746C2005CECF2 /* RRViewController.swift in Sources */,
+				0D1FC0AC1D1CFCAF00988A64 /* ForgetPwdViewModel.swift in Sources */,
 				3A91F0AF1BF0475400C470D4 /* THDatePickerViewController.m in Sources */,
-				2C51820B1BF1BAF3007DC2A3 /* IMainInfoList.swift in Sources */,
-				2C5182051BF1B8D6007DC2A3 /* IRRRange.swift in Sources */,
-				3A91B3641BFB1DF200DB3514 /* IChoosePatientsController.swift in Sources */,
-				3AF844C51BFD619E00B5EDE3 /* IMyPatientsViewModel.swift in Sources */,
+				0D1FC08C1D1A8D5700988A64 /* EquipmentList.swift in Sources */,
+				0D1FC0961D1BB15300988A64 /* SessionForSingle.swift in Sources */,
+				0D1FC0BA1D1F8A5B00988A64 /* ModifyAccountController.swift in Sources */,
+				0DB05D051D1432D000018538 /* ChatLineView.m in Sources */,
+				0D3D05941CFFC30D00476819 /* UpdateHelper.swift in Sources */,
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
 				3AB3CB211BD762FE0067F9D4 /* MyPatientsTableViewCell.swift in Sources */,
-				0D79EE131CB65B8300B9DA5F /* SleepCareBussiness.swift in Sources */,
 				3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */,
-				2C5181FD1BF1975B007DC2A3 /* SleepCareForIPhoneBussiness.swift in Sources */,
-				3A680DC01C02BD6800D77A22 /* IAccountSetController.swift in Sources */,
+				0D1FC0851D1A72B500988A64 /* SleepCareForSingle.swift in Sources */,
 				2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */,
 				3A91F0AD1BF0475400C470D4 /* THDateDay.m in Sources */,
 				0D336D0E1C92596D0049883F /* RemoteNoticeHelper.swift in Sources */,
 				0DEC19001C97DF54007BDF5D /* OpenFireServerInfoHelper.swift in Sources */,
-				0D1341C71C50BAA900051E2C /* ThemeHelper.swift in Sources */,
+				0D1FC0901D1B79DD00988A64 /* RRRange.swift in Sources */,
 				3AB43E8A1BD4E1B9005023D3 /* BizDayRule.swift in Sources */,
-				2CB435321C069C28000751D1 /* IWeekReport.swift in Sources */,
 				3AB43E781BD4E17B005023D3 /* Date.swift in Sources */,
 				0D9AE0791C8E7FB800625D5E /* Const.swift in Sources */,
-				3A41ADC11BA7A65A000C109B /* AppDelegate.swift in Sources */,
-				2C70BC6B1BF332810060D804 /* CircularLoaderView.swift in Sources */,
+				0D1FC0791D1A344D00988A64 /* HRTabViewModel.swift in Sources */,
+				0DB05CEC1D13FA2D00018538 /* AlarmInfoViewController.swift in Sources */,
 				0D79EE0B1CB658B500B9DA5F /* AlarmList.swift in Sources */,
 				0D79EE0F1CB6597A00B9DA5F /* BaseViewModel.swift in Sources */,
 				0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */,
 				3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */,
 				3AC7B0F61BF45575002DE94C /* IRegistViewModel.swift in Sources */,
 				3A33EF851BAA56D700D82A4D /* MessageSubject.swift in Sources */,
+				0DB05D081D14332B00018538 /* SleepReportViewController.swift in Sources */,
 				3A376E421BABB3B700D70953 /* EMString.swift in Sources */,
 				3A881B681BFC1FA3005F4D07 /* BedPatientCell.swift in Sources */,
-				0DC6F95E1CC74609005CECF2 /* MyConfigueTableViewController.swift in Sources */,
+				613FC4DA1D17B87900FCCEB6 /* EquipmentViewModel.swift in Sources */,
 				3A4CD3FA1BA80536002C8A1A /* CommonHelper.swift in Sources */,
+				0D1FC0921D1B7BF300988A64 /* SleepQualityReport.swift in Sources */,
 				0DC2284D1C212F0E00AF4737 /* PlistHelper.swift in Sources */,
 				3A3EF7C01BDE05A800CDDAED /* TodoItem.swift in Sources */,
 				3AB43E8C1BD4E1B9005023D3 /* DateHelpers.swift in Sources */,
 				3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */,
-				3AF6526F1BFABE2C00BA2329 /* IMyPatientsController.swift in Sources */,
+				0DB05CE61D13F0D900018538 /* MeTabViewController.swift in Sources */,
+				0DB05CE81D13F7AC00018538 /* MyDeviceViewController.swift in Sources */,
+				0D6898F51D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.m in Sources */,
+				0DB05CDA1D13DA7600018538 /* HRTabViewController.swift in Sources */,
 				3A91B3601BFB19E800DB3514 /* CommonTableView.swift in Sources */,
 				0DCC7ABD1C34C71700CC2498 /* RealTimeHelper.swift in Sources */,
+				0D6898F41D190AAA0087A0FE /* STLoopProgressView.m in Sources */,
+				0D3D059C1D05231B00476819 /* RootLoginViewController.swift in Sources */,
 				3A91B3661BFB251700DB3514 /* PartTableViewCell.swift in Sources */,
 				2CB427AB1BF9B11A00BF7E15 /* IEmailViewModel.swift in Sources */,
-				3ACD64621BFC777400FB62BB /* IRRMonitorViewModel.swift in Sources */,
 				2C34482C1BF2D93A0068BD74 /* BlueButtonForPhone.swift in Sources */,
-				0D2C49121CC8AA78006D3CF5 /* IWeekSleepcareController.swift in Sources */,
 				3AB43E8D1BD4E1B9005023D3 /* DayCounter.swift in Sources */,
-				0DC6F95C1CC745E2005CECF2 /* TabbarController.swift in Sources */,
 				3A91F0B31BF066F500C470D4 /* THDate.swift in Sources */,
-				0D2C49101CC87E42006D3CF5 /* SleepViewController.swift in Sources */,
+				0D1FC0B01D1EC7AF00988A64 /* AccountSettingController.swift in Sources */,
+				0D6898EF1D17DEE40087A0FE /* ChartScrollView.swift in Sources */,
+				0D3D05851CFED58C00476819 /* AppDelegate.swift in Sources */,
 				0D79EE1B1CB65CE800B9DA5F /* Popover.swift in Sources */,
+				0D1FC0881D1A776800988A64 /* LoginUser.swift in Sources */,
 				3A41ADF11BA7B45D000C109B /* ReactiveCocoa.swift in Sources */,
 				3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */,
 				3AC7B1091BF45CB9002DE94C /* ZSYPopoverListView.m in Sources */,
+				0D3D058F1CFEDEED00476819 /* EquipmentViewController.swift in Sources */,
 				3A35AB651BCCE8B000ED3293 /* SweetAlert.swift in Sources */,
 				0DD1D1611C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m in Sources */,
-				0D4E5BEE1C2A85BD00D2ED92 /* IViewControllerManager.swift in Sources */,
-				3ACD645E1BFC577A00FB62BB /* IChoosePatientsViewModel.swift in Sources */,
 				3A3EF7C11BDE05A800CDDAED /* TodoList.swift in Sources */,
 				3A2158771BEC8D580089CC01 /* IBaseViewController.swift in Sources */,
 				0DC228571C224DD800AF4737 /* IAlarmHelper.swift in Sources */,
 				3AB3CB271BD763690067F9D4 /* BackgroundCommon.swift in Sources */,
 				0D2C49181CC8C572006D3CF5 /* AlarmViewModel.swift in Sources */,
-				2C325CBE1BF5764600DD1DB7 /* ISleepQualityMonitorViewModel.swift in Sources */,
-				2C5181FF1BF1AB5F007DC2A3 /* IMainInfo.swift in Sources */,
 				3AC7B0E41BF42EFB002DE94C /* IloginViewModel.swift in Sources */,
-				0DF49A3C1CD083BA0096BE5E /* ShowAlarmViewController.swift in Sources */,
 				3AC7B10B1BF45D00002DE94C /* PopDownListForIphone.swift in Sources */,
+				0DB05D041D1432D000018538 /* ChartView.m in Sources */,
 				0D2C49161CC8C4C1006D3CF5 /* AlarmTableViewCell.swift in Sources */,
+				0D3D05921CFEDEED00476819 /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1306,7 +1404,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Hangzhou smartcare Health Management Co., Ltd. (ZT8T3NTPYJ)";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1325,10 +1423,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "03c069fa-4c50-422d-99ee-154d3f92cfb7";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1351,7 +1449,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Hangzhou smartcare Health Management Co., Ltd. (ZT8T3NTPYJ)";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1364,9 +1462,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "03c069fa-4c50-422d-99ee-154d3f92cfb7";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1381,7 +1479,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Hangzhou smartcare Health Management Co., Ltd. (ZT8T3NTPYJ)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1405,13 +1502,13 @@
 					"$(SDKROOT)/usr/include/libresolv",
 				);
 				INFOPLIST_FILE = ewell.sleepcareforpad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "03c069fa-4c50-422d-99ee-154d3f92cfb7";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1424,7 +1521,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Hangzhou smartcare Health Management Co., Ltd. (ZT8T3NTPYJ)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1448,12 +1544,12 @@
 					"$(SDKROOT)/usr/include/libresolv",
 				);
 				INFOPLIST_FILE = ewell.sleepcareforpad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "03c069fa-4c50-422d-99ee-154d3f92cfb7";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1461,8 +1557,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1483,8 +1578,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
