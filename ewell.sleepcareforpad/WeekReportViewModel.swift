@@ -1,6 +1,6 @@
 //
 //  WeekReportViewModel.swift
-//  
+//
 //
 //  Created by Qinyuan Liu on 6/27/16.
 //
@@ -9,7 +9,7 @@
 import UIKit
 
 class WeekReportViewModel: BaseViewModel {
-   
+    
     //起始结束时间
     var _beginDate:String=""
     dynamic var BeginDate:String{
@@ -22,7 +22,7 @@ class WeekReportViewModel: BaseViewModel {
             self._beginDate=value
         }
     }
-  
+    
     var _endDate:String=""
     dynamic var EndDate:String{
         get
@@ -126,7 +126,7 @@ class WeekReportViewModel: BaseViewModel {
             self._leaveBedSum=value
         }
     }
-
+    
     var _leaveBedRange:LeaveBedChart = LeaveBedChart()
     dynamic var LeaveBedRange:LeaveBedChart{
         get
@@ -138,7 +138,7 @@ class WeekReportViewModel: BaseViewModel {
             self._leaveBedRange=value
         }
     }
-
+    
     
     //睡眠分析
     var _weekWakeHours:String=""
@@ -152,7 +152,7 @@ class WeekReportViewModel: BaseViewModel {
             self._weekWakeHours=value
         }
     }
-
+    
     
     var _weekLightSleepHours:String=""
     dynamic var WeekLightSleepHours:String{
@@ -239,7 +239,7 @@ class WeekReportViewModel: BaseViewModel {
             self._avgLeaveBedSum=value
         }
     }
-
+    
     var _avgTurnTimes:String=""
     dynamic var AvgTurnTimes:String{
         get
@@ -251,7 +251,7 @@ class WeekReportViewModel: BaseViewModel {
             self._avgTurnTimes=value
         }
     }
-
+    
     var _maxLeaveBedHours:String=""
     dynamic var MaxLeaveBedHours:String{
         get
@@ -263,7 +263,7 @@ class WeekReportViewModel: BaseViewModel {
             self._maxLeaveBedHours=value
         }
     }
-
+    
     var _turnsRate:String=""
     dynamic var TurnsRate:String{
         get
@@ -275,7 +275,7 @@ class WeekReportViewModel: BaseViewModel {
             self._turnsRate=value
         }
     }
-
+    
     var _sleepSuggest:String=""
     dynamic var SleepSuggest:String{
         get
@@ -326,7 +326,7 @@ class WeekReportViewModel: BaseViewModel {
             self._bedusercode = value
         }
     }
-
+    
     
     override init(){
         super.init()
@@ -338,16 +338,16 @@ class WeekReportViewModel: BaseViewModel {
         LoadData()
         
     }
-
+    
     func LoadData(){
         try {
             ({
-              
+                
                 
                 if self.bedusercode != ""{
                     //获取选择日期所在周的周睡眠
                     var weekreport:WeekSleep = SleepCareForSingle().GetWeekSleepofBedUser(self.bedusercode, reportDate: self.SelectDate)
-                
+                    
                     self.BeginDate = weekreport.BeginDate.subString(0, length: 4) +  "/" + weekreport.BeginDate.subString(5, length: 2) + "/" + weekreport.BeginDate.subString(8, length: 2)
                     self.EndDate = weekreport.EndDate.subString(0, length: 4) +  "/" + weekreport.EndDate.subString(5, length: 2) + "/" + weekreport.EndDate.subString(8, length: 2)
                     self.DateLabel = self.BeginDate + "-" + self.EndDate
@@ -363,7 +363,7 @@ class WeekReportViewModel: BaseViewModel {
                     self.WeekMaxRR = weekreport.WeekMaxRR
                     self.WeekMinRR = weekreport.WeekMinRR
                     self.WeekAvgRR = weekreport.WeekAvgRR
-                  //  self.HRRRRange = weekreport.HRRRRange
+                    //  self.HRRRRange = weekreport.HRRRRange
                     if weekreport.HRRRRange.count > 0{
                         for(var i = 0; i<weekreport.HRRRRange.count; i++){
                             var tempx:String = weekreport.HRRRRange[i].WeekDay.subString(2, length: 1)
@@ -393,16 +393,16 @@ class WeekReportViewModel: BaseViewModel {
                         for(var i = 0; i<weekreport.LeaveBedRange.count; i++){
                             var tempx:String = weekreport.LeaveBedRange[i].WeekDay.subString(2, length: 1)
                             if i == 0{
-                            tempx = "周" + tempx
+                                tempx = "周" + tempx
                             }
                             tempValueX.append(tempx)
                             tempValueY.append(weekreport.LeaveBedRange[i].LeaveBedTimes)
                         }
                         
-                         self.LeaveBedRange.flag = true
+                        self.LeaveBedRange.flag = true
                     }
                     else{
-                    self.LeaveBedRange.flag = false
+                        self.LeaveBedRange.flag = false
                     }
                     self.LeaveBedRange.ValueY = NSArray(objects:tempValueY)
                     self.LeaveBedRange.ValueX = tempValueX
@@ -421,7 +421,7 @@ class WeekReportViewModel: BaseViewModel {
                     
                     
                     
-                 //   self.SleepRange = weekreport.SleepRange
+                    //   self.SleepRange = weekreport.SleepRange
                     tempValueX = []
                     tempValueY = []
                     tempValueY2 = []
@@ -445,7 +445,7 @@ class WeekReportViewModel: BaseViewModel {
                     }
                     self.SleepRange.ValueY = NSArray(objects:tempValueY,tempValueY2,tempValueY3)
                     self.SleepRange.ValueX = tempValueX
-
+                    
                     self.AvgLeaveBedSum = weekreport.AvgLeaveBedSum
                     self.AvgTurnTimes = weekreport.AvgTurnTimes
                     self.MaxLeaveBedHours = weekreport.MaxLeaveBedHours
@@ -463,8 +463,8 @@ class WeekReportViewModel: BaseViewModel {
                 }
             )}
     }
-
-  
+    
+    
 }
 //心率呼吸chart
 class HRRRChart:NSObject{
@@ -492,7 +492,7 @@ class HRRRChart:NSObject{
         }
     }
     
-
+    
     var flag:Bool = true  //标志有没有chart数据
 }
 
@@ -522,7 +522,7 @@ class LeaveBedChart:NSObject{
             self._valueY=value
         }
     }
-
+    
     var flag:Bool = true  //标志有没有chart数据
 }
 

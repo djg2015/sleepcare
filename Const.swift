@@ -56,6 +56,10 @@ let bigCircleHeight = UIScreen.mainScreen().bounds.height/570*183
 let middleCircleHeight = UIScreen.mainScreen().bounds.height/570*154
 let smallCircleHeight = UIScreen.mainScreen().bounds.height/570*127
 
+//字体颜色
+let textGraycolor = UIColor(red: 146/255, green: 146/255, blue: 146/255, alpha: 1.0)
+let textBluecolor = UIColor(red: 86/255, green: 163/255, blue: 253/255, alpha: 1.0)
+
 //记录当前显示的页面controller：AlarmViewTag标志：当前是否是报警页面
 var AlarmViewTag:Bool = false
 var currentController:UIViewController!

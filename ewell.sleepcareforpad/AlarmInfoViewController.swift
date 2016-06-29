@@ -119,6 +119,7 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
             var timeLabel = UILabel(frame:CGRectMake(screenwidth-142, 18, 130, 21))
             timeLabel.text = self.source[indexPath.section].AlarmTime
             timeLabel.textAlignment = NSTextAlignment.Right
+            timeLabel.textColor = textGraycolor
             timeLabel.font = self.font12
             cell?.contentView.addSubview(timeLabel)
             
@@ -139,11 +140,13 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
             
             var nameLabel = UILabel(frame:CGRectMake(45, 59, 85, 21))
             nameLabel.text = self.source[indexPath.section].UserName
+            nameLabel.textColor = textGraycolor
             nameLabel.font = self.font14
             cell?.contentView.addSubview(nameLabel)
             
             var bednumberLabel = UILabel(frame:CGRectMake(138, 59, 60, 21))
             bednumberLabel.text = self.source[indexPath.section].UserName
+            bednumberLabel.textColor = textGraycolor
             bednumberLabel.font = self.font14
             cell?.contentView.addSubview(bednumberLabel)
             
@@ -151,6 +154,7 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
             
             var alarmcontentText = UITextView(frame:CGRectMake(38, 80,screenwidth-42 , 56))
             alarmcontentText.text =  self.source[indexPath.section].AlarmContent
+            alarmcontentText.textColor = textGraycolor
             alarmcontentText.font = self.font12
             alarmcontentText.editable = false
             cell?.contentView.addSubview(alarmcontentText)
@@ -162,6 +166,7 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
             var setnumberLabel = UILabel(frame:CGRectMake(screenwidth-162, 147, 150, 21))
             setnumberLabel.text = "设备编号  " + self.source[indexPath.section].EquipmentCode
             setnumberLabel.font = self.font12
+            setnumberLabel.textColor = textGraycolor
             setnumberLabel.textAlignment = NSTextAlignment.Right
             cell?.contentView.addSubview(setnumberLabel)
             
