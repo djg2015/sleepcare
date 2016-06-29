@@ -453,6 +453,43 @@ class WeekReportViewModel: BaseViewModel {
                     self.SleepSuggest = "睡眠建议: " + weekreport.SleepSuggest
                     
                 }
+                else{
+                //没有选择老人，默认值全为0
+                    var tempValueY:Array<String> = []
+                    var tempValueY2:Array<String> = []
+                    var tempValueY3:Array<String> = []
+                    var tempValueX: Array<String> = []
+                  self.DateLabel = ""
+                    self.WeekMaxHR = ""
+                    self.WeekMinHR = ""
+                    self.WeekAvgHR = ""
+                    self.WeekMaxRR = ""
+                    self.WeekMinRR = ""
+                    self.WeekAvgRR = ""
+                    self.HRRRRange.flag = false
+                    self.HRRRRange.ValueY = NSArray(objects:tempValueY,tempValueY2)
+                    self.HRRRRange.ValueX = tempValueX
+                    self.LeaveBedSum = ""
+                    self.LeaveBedRange.flag = false
+                    self.LeaveBedRange.ValueY = NSArray(objects:tempValueY)
+                    self.LeaveBedRange.ValueX = tempValueX
+                    self.WeekWakeHours = ""
+                    self.WeekLightSleepHours = ""
+                    self.WeekDeepSleepHours = ""
+                    self.WeekSleepHours = ""
+                    
+                    self.OnbedBeginTime = ""
+                    self.OnbedEndTime = ""
+                    self.SleepRange.flag = false
+                    self.SleepRange.ValueY = NSArray(objects:tempValueY,tempValueY2,tempValueY3)
+                    self.SleepRange.ValueX = tempValueX
+                    
+                    self.AvgLeaveBedSum = ""
+                    self.AvgTurnTimes = ""
+                    self.MaxLeaveBedHours = ""
+                    self.TurnsRate = ""
+                    self.SleepSuggest = "睡眠建议: "
+                }
                 },
                 catch: { ex in
                     //异常处理

@@ -96,12 +96,10 @@
 		0D3EB0EF1D10350A00928430 /* icon_使用技巧.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0EC1D10350A00928430 /* icon_使用技巧.png */; };
 		0D3EB0F01D10350A00928430 /* icon_关于.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0ED1D10350A00928430 /* icon_关于.png */; };
 		0D3EB0F21D10352000928430 /* icon_当前版本.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0F11D10352000928430 /* icon_当前版本.png */; };
-		0D3EB0F41D10355800928430 /* icon_报警信息.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0F31D10355800928430 /* icon_报警信息.png */; };
 		0D3EB0F61D10356B00928430 /* icon_报警页面.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0F51D10356B00928430 /* icon_报警页面.png */; };
 		0D3EB0F81D10E88A00928430 /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0F71D10E88A00928430 /* icon_time.png */; };
 		0D3EB0FA1D10E8D500928430 /* icon_my devices.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0F91D10E8D500928430 /* icon_my devices.png */; };
 		0D3EB0FC1D10E8DF00928430 /* icon_nurse.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0FB1D10E8DF00928430 /* icon_nurse.png */; };
-		0D6898E91D17D2D60087A0FE /* icon_arrowdown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D6898E81D17D2D60087A0FE /* icon_arrowdown.png */; };
 		0D6898EF1D17DEE40087A0FE /* ChartScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6898EE1D17DEE40087A0FE /* ChartScrollView.swift */; };
 		0D6898F41D190AAA0087A0FE /* STLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6898F11D190AAA0087A0FE /* STLoopProgressView.m */; };
 		0D6898F51D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6898F31D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.m */; };
@@ -145,6 +143,9 @@
 		0DDA44251CC5D81E00B0DF51 /* ShowTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA44241CC5D81E00B0DF51 /* ShowTipsViewController.swift */; };
 		0DDA44291CC5D85000B0DF51 /* ShowInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */; };
 		0DEC19001C97DF54007BDF5D /* OpenFireServerInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC18FF1C97DF54007BDF5D /* OpenFireServerInfoHelper.swift */; };
+		0DEF141A1D23AE3C00477365 /* icon_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF14181D23AE3C00477365 /* icon_arrow.png */; };
+		0DEF141B1D23AE3C00477365 /* icon_arrowdown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF14191D23AE3C00477365 /* icon_arrowdown.png */; };
+		0DEF141D1D23B0B700477365 /* icon_报警信息.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF141C1D23B0B700477365 /* icon_报警信息.png */; };
 		0DF49A3A1CD0653E0096BE5E /* AlarmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF49A391CD0653E0096BE5E /* AlarmView.xib */; };
 		0DF6BD821C59AB26007BF0A9 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6BD811C59AB26007BF0A9 /* DateFormatterHelper.swift */; };
 		2C0DC3C71BF9A20F0048BEEA /* IEmailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */; };
@@ -213,7 +214,6 @@
 		3AC7B1091BF45CB9002DE94C /* ZSYPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B1081BF45CB9002DE94C /* ZSYPopoverListView.m */; };
 		3AC7B10B1BF45D00002DE94C /* PopDownListForIphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7B10A1BF45D00002DE94C /* PopDownListForIphone.swift */; };
 		3AC7B10D1BF464D2002DE94C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC7B10C1BF464D2002DE94C /* Foundation.framework */; };
-		613FC4D01D17B3DD00FCCEB6 /* icon_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 613FC4CF1D17B3DD00FCCEB6 /* icon_arrow.png */; };
 		613FC4DA1D17B87900FCCEB6 /* EquipmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FC4D91D17B87900FCCEB6 /* EquipmentViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -316,12 +316,10 @@
 		0D3EB0EC1D10350A00928430 /* icon_使用技巧.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_使用技巧.png"; sourceTree = "<group>"; };
 		0D3EB0ED1D10350A00928430 /* icon_关于.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_关于.png"; sourceTree = "<group>"; };
 		0D3EB0F11D10352000928430 /* icon_当前版本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_当前版本.png"; sourceTree = "<group>"; };
-		0D3EB0F31D10355800928430 /* icon_报警信息.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_报警信息.png"; sourceTree = "<group>"; };
 		0D3EB0F51D10356B00928430 /* icon_报警页面.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_报警页面.png"; sourceTree = "<group>"; };
 		0D3EB0F71D10E88A00928430 /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time.png; sourceTree = "<group>"; };
 		0D3EB0F91D10E8D500928430 /* icon_my devices.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_my devices.png"; sourceTree = "<group>"; };
 		0D3EB0FB1D10E8DF00928430 /* icon_nurse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_nurse.png; sourceTree = "<group>"; };
-		0D6898E81D17D2D60087A0FE /* icon_arrowdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_arrowdown.png; path = "../../iSleepCare_切图/icon_arrowdown.png"; sourceTree = "<group>"; };
 		0D6898EE1D17DEE40087A0FE /* ChartScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartScrollView.swift; sourceTree = "<group>"; };
 		0D6898F01D190AAA0087A0FE /* STLoopProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLoopProgressView.h; sourceTree = "<group>"; };
 		0D6898F11D190AAA0087A0FE /* STLoopProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLoopProgressView.m; sourceTree = "<group>"; };
@@ -370,6 +368,9 @@
 		0DDA44241CC5D81E00B0DF51 /* ShowTipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTipsViewController.swift; sourceTree = "<group>"; };
 		0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowInfoViewController.swift; sourceTree = "<group>"; };
 		0DEC18FF1C97DF54007BDF5D /* OpenFireServerInfoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenFireServerInfoHelper.swift; sourceTree = "<group>"; };
+		0DEF14181D23AE3C00477365 /* icon_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_arrow.png; sourceTree = "<group>"; };
+		0DEF14191D23AE3C00477365 /* icon_arrowdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_arrowdown.png; sourceTree = "<group>"; };
+		0DEF141C1D23B0B700477365 /* icon_报警信息.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_报警信息.png"; sourceTree = "<group>"; };
 		0DF49A391CD0653E0096BE5E /* AlarmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmView.xib; sourceTree = "<group>"; };
 		0DF6BD811C59AB26007BF0A9 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IEmailView.xib; sourceTree = "<group>"; };
@@ -451,7 +452,6 @@
 		3AC7B10C1BF464D2002DE94C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		54127559369C5508905B3990 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7856675DBD0F8296CBE665 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		613FC4CF1D17B3DD00FCCEB6 /* icon_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_arrow.png; path = "../../iSleepCare_切图/icon_arrow.png"; sourceTree = "<group>"; };
 		613FC4D91D17B87900FCCEB6 /* EquipmentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentViewModel.swift; sourceTree = "<group>"; };
 		8E709AD7A0D77B12CA43D3D0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -569,8 +569,8 @@
 				0DB05CDB1D13DECD00018538 /* icon_needaddservices.png */,
 				0D3EB0EB1D10350A00928430 /* icon_set.png */,
 				0D3EB0EC1D10350A00928430 /* icon_使用技巧.png */,
-				0D3EB0F31D10355800928430 /* icon_报警信息.png */,
 				0D3EB0ED1D10350A00928430 /* icon_关于.png */,
+				0DEF141C1D23B0B700477365 /* icon_报警信息.png */,
 				0D3EB0F71D10E88A00928430 /* icon_time.png */,
 				0D3EB0F11D10352000928430 /* icon_当前版本.png */,
 				0D3EB0F91D10E8D500928430 /* icon_my devices.png */,
@@ -620,9 +620,9 @@
 				0D3EB0E91D1034BD00928430 /* icon_退出登录.png */,
 				0D3EB0951D0FA7BD00928430 /* icon_logo_2.png */,
 				0D3EB0A51D0FC6BA00928430 /* icon_logo_1.png */,
-				0D6898E81D17D2D60087A0FE /* icon_arrowdown.png */,
-				613FC4CF1D17B3DD00FCCEB6 /* icon_arrow.png */,
 				0D3EB0A31D0FAE6B00928430 /* icon_telephone.png */,
+				0DEF14181D23AE3C00477365 /* icon_arrow.png */,
+				0DEF14191D23AE3C00477365 /* icon_arrowdown.png */,
 				0D3EB0A11D0FAE6500928430 /* icon_password.png */,
 				0D3EB0C31D0FE8B800928430 /* btn_address.png */,
 				0D3EB0BE1D0FE63600928430 /* icon_figure.png */,
@@ -1086,7 +1086,6 @@
 				0D3EB0E21D1001E500928430 /* icon_gray circle.png in Resources */,
 				0D1FC0811D1A6F5400988A64 /* icon_异常.png in Resources */,
 				0DB05CE01D13DECD00018538 /* icon_alarmtrash.png in Resources */,
-				613FC4D01D17B3DD00FCCEB6 /* icon_arrow.png in Resources */,
 				3A91F0AE1BF0475400C470D4 /* THDateDay.xib in Resources */,
 				0D3EB0B61D0FD96700928430 /* btn_返回.png in Resources */,
 				0D3EB0BA1D0FE28100928430 /* icon_male.png in Resources */,
@@ -1096,9 +1095,11 @@
 				3A91F09E1BF0475400C470D4 /* calendar_littledot-disabled@2x.png in Resources */,
 				0D3EB0F61D10356B00928430 /* icon_报警页面.png in Resources */,
 				0DB05CDE1D13DECD00018538 /* icon_needaddservices.png in Resources */,
+				0DEF141B1D23AE3C00477365 /* icon_arrowdown.png in Resources */,
 				0D3EB0921D0FA75800928430 /* 登录背景.png in Resources */,
 				0D3EB0FC1D10E8DF00928430 /* icon_nurse.png in Resources */,
 				0D3EB0BC1D0FE29300928430 /* icon_female_choose.png in Resources */,
+				0DEF141A1D23AE3C00477365 /* icon_arrow.png in Resources */,
 				0D1E180E1D2396AE004B7BFD /* icon_email框.png in Resources */,
 				0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */,
 				3A91F0A31BF0475400C470D4 /* dialog_cancel.png in Resources */,
@@ -1156,7 +1157,6 @@
 				0DB05D111D17910100018538 /* Main.storyboard in Resources */,
 				0D3EB0E61D1001E500928430 /* icon_red circle.png in Resources */,
 				0D35D5FA1C4CC3D8009F8EB2 /* Message.plist in Resources */,
-				0D3EB0F41D10355800928430 /* icon_报警信息.png in Resources */,
 				0D3EB0C41D0FE8B800928430 /* btn_address.png in Resources */,
 				3A91F09D1BF0475400C470D4 /* calendar_littledot-disabled.png in Resources */,
 				0D3EB0D01D0FEF4700928430 /* btn_下拉.png in Resources */,
@@ -1166,8 +1166,8 @@
 				0DB05CD61D13D65E00018538 /* tab_呼吸－2.png in Resources */,
 				0D3EB0B01D0FD2EE00928430 /* icon_checkyes.png in Resources */,
 				0D3EB0F21D10352000928430 /* icon_当前版本.png in Resources */,
-				0D6898E91D17D2D60087A0FE /* icon_arrowdown.png in Resources */,
 				0D3EB0FA1D10E8D500928430 /* icon_my devices.png in Resources */,
+				0DEF141D1D23B0B700477365 /* icon_报警信息.png in Resources */,
 				0D3EB0CE1D0FEC7C00928430 /* tab_睡眠－1.png in Resources */,
 				0D3EB0CD1D0FEC7C00928430 /* tab_我的－1.png in Resources */,
 				3A91F0A71BF0475400C470D4 /* dialog_clear.png in Resources */,
