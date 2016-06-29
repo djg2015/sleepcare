@@ -81,6 +81,7 @@ class RootRegistViewController: IBaseViewController,SendVerifyTimerDelegate {
             let destinationVC = segue.destinationViewController as! EquipmentViewController
             destinationVC.qrcode = self.qrcode!
             destinationVC.registcontroller = self
+         
             
         }
     }

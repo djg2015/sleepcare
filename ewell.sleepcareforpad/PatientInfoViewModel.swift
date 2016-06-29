@@ -1,13 +1,14 @@
 //
-//  EquipmentViewModel.swift
+//  PatientInfoViewModel.swift
+//  
+//
+//  Created by Qinyuan Liu on 6/26/16.
 //
 //
-//  Created by System Administrator on 6/20/16.
-//
-//
+
 import Foundation
 
-class EquipmentViewModel: BaseViewModel {
+class PatientInfoViewModel: BaseViewModel {
     var _name:String = ""
     //名字
     dynamic var Name:String{
@@ -102,9 +103,9 @@ class EquipmentViewModel: BaseViewModel {
     var confirmCommand: RACCommand?
     var clickMaleCommand:RACCommand?
     var clickFemaleCommand:RACCommand?
-    var parentController:EquipmentViewController!
-
- 
+    var parentController:ConfirmPatientInfoController!
+    var qrCode:String = ""
+    
     
     
     //构造函数
@@ -127,18 +128,18 @@ class EquipmentViewModel: BaseViewModel {
             return self.ClickFemale()
         }
         
-        
-//        self.GetEquipmentInfo()
+       
+       
         
     }
     
     
     //获取设备绑定信息,可编辑修改
-    func GetEquipmentInfo(qrcode:String){
+    func GetEquipmentInfo(){
         try {
             ({
                 
-                var beduserinfo:BedUserInfo = SleepCareForSingle().GetBedUserInfoByEquipmentID(qrcode)
+                var beduserinfo:BedUserInfo = SleepCareForSingle().GetBedUserInfoByEquipmentID(self.qrCode)
                 self.BeduserCode = beduserinfo.BedUserCode
                 self.Name = beduserinfo.BedUserName
                 self.Gender = beduserinfo.Sex
@@ -170,23 +171,25 @@ class EquipmentViewModel: BaseViewModel {
     func Confirm()-> RACSignal{
         try {
             ({
-              //检查姓名不能为空
+                //检查姓名不能为空
                 if self.Name == ""{
-                showDialogMsg(ShowMessage(MessageEnum.NameNil))
+                    showDialogMsg(ShowMessage(MessageEnum.NameNil))
                     return
                 }
                 else{
-              //提交老人信息到服务器端，然后退回到登录页面
-            SleepCareForSingle().ModifyBedUserInfo(self.BeduserCode,bedUserName:self.Name,sex:self.Gender,mobilePhone:self.Telephone,address:self.Address)
-                    
-        if self.parentController != nil{
-            self.parentController.navigationController?.popToRootViewControllerAnimated(true)
-            
-        }
-        //代理:提交成功，则自动登录；不成功，手动登录
-        if AutologinDelegate != nil{
-            AutologinDelegate.AutoLoginAfterRegist()
-        }
+                    //提交老人信息到服务器端，然后退回到登录页面
+                  let result =  SleepCareForSingle().ModifyBedUserInfo(self.BeduserCode,bedUserName:self.Name,sex:self.Gender,mobilePhone:self.Telephone,address:self.Address)
+                   
+                    if result.Result{
+                       self.AfterConfirmSuccess()
+                    }
+                        
+                    else{
+                        showDialogMsg(ShowMessage(MessageEnum.ConfirmPatientFail),"提示" ,buttonTitle: "确定", action:nil)
+                        
+                    }
+
+                   
                 }
                 },
                 catch: { ex in
@@ -201,12 +204,29 @@ class EquipmentViewModel: BaseViewModel {
         return RACSignal.empty()
     }
     
+    //确认成功:add到mydevice的source列表，返回到mydevice页面
+    func AfterConfirmSuccess(){
+        if self.parentController != nil{
+            let mydeviceVC = self.parentController.parentController.parentController
+            if mydeviceVC != nil{
+                //方法一：手动添加此equipment到session的设备列表
+               //方法二：从服务器重新获取，刷新设备列表
+                mydeviceVC.mydeviceViewModel.LoadData()
+    
+            self.parentController.navigationController?.popToViewController(mydeviceVC, animated: true)
+            }
+        }
+       
+    }
+    
+    
     func ClickMale()-> RACSignal{
         if !self.IsMale
         {
             self.IsMale = true
             self.IsFemale = false
             self.Gender = "1"
+            
         }
         return RACSignal.empty()
     }
@@ -224,6 +244,4 @@ class EquipmentViewModel: BaseViewModel {
     }
 }
 
-protocol AutoLoginAfterRegistDelegate{
-    func AutoLoginAfterRegist()
-}
+

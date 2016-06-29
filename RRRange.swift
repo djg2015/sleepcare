@@ -21,8 +21,19 @@ class RRRange:BaseMessage{
         var reportList = doc.nodesForXPath("//RRTimeReport", error:nil) as! [DDXMLElement]
         for report in reportList{
             var timeReport = RRTimeReport(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
-            var hour:Int? = String.toInt(report.elementForName("ReportHour").stringValue().subString(11, length: 2))()
-            timeReport.ReportHour = String(hour!) + "点"
+            var time:String = report.elementForName("ReportHour") == "" ? "" : report.elementForName("ReportHour").stringValue()
+            if time != ""{
+                if count(time) > 10{
+                    timeReport.ReportHour = time.subString(11, length: 2) + "点"
+                }
+                else {
+                    timeReport.ReportHour = time.subString(8, length: 2) + "号"
+                }
+            }
+            else{
+                timeReport.ReportHour = ""
+            }
+
             timeReport.AvgRR = report.elementForName("AvgRR").stringValue()
             
             result.rrTimeReportList.append(timeReport)
@@ -36,11 +47,12 @@ class RRRange:BaseMessage{
 class RRTimeReport:BaseMessage {
     
     var ReportHour:String = ""
-    var AvgRR:String = "" {
-        didSet{
-            self.AvgRRNumber = CGFloat((self.AvgRR as NSString).floatValue)
-        }
-    }
+    var AvgRR:String = ""
+//        {
+//        didSet{
+//            self.AvgRRNumber = CGFloat((self.AvgRR as NSString).floatValue)
+//        }
+//    }
     
 
     var AvgRRNumber:CGFloat = 0

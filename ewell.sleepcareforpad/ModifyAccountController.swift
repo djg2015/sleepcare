@@ -37,7 +37,10 @@ class ModifyAccountController: IBaseViewController {
     }
     
     
-    
+    override func viewWillAppear(animated: Bool) {
+        currentController = self
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

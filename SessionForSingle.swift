@@ -52,16 +52,7 @@ class SessionForSingle {
             self._curPatientName = value
         }
     }
-    //设备号
-    private var _curEquipmentID:String=""
-    var CurEquipmentID:String{
-        get{
-            return self._curEquipmentID
-        }
-        set(value){
-            self._curEquipmentID = value
-        }
-    }
+
     
     //当前帐号下所有设备信息
     private var _equipmentList:Array<EquipmentInfo> = Array<EquipmentInfo>()
@@ -102,7 +93,9 @@ class SessionForSingle {
     class func GetSession() -> SessionForSingle? {
         if(self.instance == nil){
             print("session is nil")
-            return nil
+            //return nil
+            self.instance = SessionForSingle()
+           
         }
         return self.instance!
     }

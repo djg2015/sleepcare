@@ -1,42 +1,47 @@
 //
-//  ScanViewController.swift
+//  AddDeviceViewController.swift
 //  
 //
-//  Created by Qinyuan Liu on 6/1/16.
+//  Created by Qinyuan Liu on 6/26/16.
 //
 //
 import AVFoundation
 import UIKit
 
-class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate  {
- //    @IBOutlet weak var messageLabel:UILabel!
-     @IBOutlet weak var scanView: UIView!
+class AddDeviceViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate  {
+    @IBOutlet weak var scanView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var scanLabel: UILabel!
+    
+    
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     
     var qrCode:String = ""
-    var registController:RootRegistViewController!
+    var parentController:MyDeviceViewController!
+    
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "scantoequipmentinfo" {
-            let destinationVC = segue.destinationViewController as! EquipmentViewController
-           destinationVC.qrcode = self.qrCode
-            if self.registController != nil{
-            destinationVC.registcontroller = self.registController
-            }
+        if segue.identifier == "ConfirmPatientInfo"{
+            let destinationVC = segue.destinationViewController as! ConfirmPatientInfoController
+           
+            destinationVC.qrcode = self.qrCode
+            destinationVC.parentController = self
         }
+        
     }
     
-  
+    
+    override func viewWillAppear(animated: Bool) {
+        currentController = self
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video
-        // as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         //---------- Get an instance of the AVCaptureDeviceInput class using the previous device object.
         var error:NSError?
@@ -65,37 +70,24 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         //---------- Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer?.frame = CGRectMake(0, 0,UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
-       
+        
         
         self.view.layer.addSublayer(videoPreviewLayer)
         
         // Start video capture.
         captureSession?.startRunning()
-    
         
-        // Move the message label to the top view
-     //   view.bringSubviewToFront(messageLabel)
-        
-        
+       
         view.bringSubviewToFront(scanView)
         view.bringSubviewToFront(topView)
         view.bringSubviewToFront(scanLabel)
-        
-        //--------------- Initialize QR Code Frame to highlight the QR code
-        //        qrCodeFrameView = UIView()
-        //        qrCodeFrameView?.layer.borderColor = UIColor.greenColor().CGColor
-        //        //当检测到二维码时，我们再改变它的尺寸，那么它就会变成一个绿色的方框了
-        //        qrCodeFrameView?.layer.borderWidth = 2
-        //        self.view.addSubview(qrCodeFrameView!)
-        //       self.view.bringSubviewToFront(qrCodeFrameView!)
-        
-      //   self.BackToRegistWithQR()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     //解析二维码
     func captureOutput(captureOutput: AVCaptureOutput!,
         didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection
@@ -104,7 +96,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             // Check if the metadataObjects array is not nil and it contains at least one object.
             if metadataObjects == nil || metadataObjects.count == 0 {
                 //   qrCodeFrameView?.frame = CGRectZero
-           //     messageLabel.text = "二维码识别中....."
+                //     messageLabel.text = "二维码识别中....."
                 return
             }
             
@@ -122,38 +114,43 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
                 
                 //获取解析的内容,获取到设备二维码
                 if metadataObj.stringValue != nil {
-            
+                    
                     
                     self.qrCode = metadataObj.stringValue
                     captureSession?.stopRunning()
                     
                     
-                    //获取到二维码，将qrcode送回注册页面进行验证，返回注册页面
-                    self.BackToRegistWithQR()
+                    //获取到二维码，绑定老人和设备
+                    try {
+                        ({
+                            let loginname = SessionForSingle.GetSession()?.User?.LoginName
+                            
+                            let result = SleepCareForSingle().BindEquipmentofUser(self.qrCode,loginName:loginname!)
+                            //将qrcode送到“老人信息”页面
+                            if result.Result{
+                                self.performSegueWithIdentifier("ConfirmPatientInfo", sender: self)
+                            }
+                            else{
+                               showDialogMsg(ShowMessage(MessageEnum.BindFail))
+                            }
+                            
+                            },
+                            catch: { ex in
+                                //异常处理
+                                handleException(ex,showDialog: true)
+                            },
+                            finally: {
+                                
+                            }
+                        )}
+
+                  
                 }
             }
     }
     
     
-    func BackToRegistWithQR(){
-        try{
-            ({
-                self.registController.qrcode = self.qrCode
-                self.navigationController?.popViewControllerAnimated(false)
-                
-                },
-                catch: {ex in
-                    //异常处理
-                    handleException(ex,showDialog: true)
-               
-              
-                },
-                finally: {
-                }
-            )}
-        
-    }
-    
-    
-    
+  
+  
+   
 }

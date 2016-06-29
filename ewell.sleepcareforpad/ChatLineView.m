@@ -184,10 +184,12 @@
  
         //给点添加事件,scrollview中被scrollview的屏幕触碰方法截获，需要用touche方法传递到chartlineview类
         for (int j = 0 ; j < subArr.count ; j++) {
+         
             
             float y = (self.yValueArr.count -  [subArr[j] intValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
             float x =  (j + 2) * (rect.size.width * self.verticalSpace)+ 5 ;
            
+         
             PointBtn *clickBtn = [[PointBtn alloc]initWithFrame:CGRectMake(x - 4, y - 4, 7, 7)];
             [clickBtn setBackgroundImage:[UIImage imageNamed:@"circlepoint"] forState:UIControlStateNormal];
             clickBtn.yearStr = self.yearArr[i];
@@ -291,9 +293,25 @@
             }
         }
     }
-    
+    if (maxValue > 0.0){
     self.spaceValue = (maxValue  / [self getUnitWithMaxValue:maxValue]) / (rowNum - 1);
-
+    
+    }
+    else {
+        self.spaceValue = 10;
+        self.level = 1;
+        if ( [self.chartType  isEqual: @"3"]){
+            self.unitYStr = @"(小时)";
+        }
+        //离床
+        else if ([self.chartType  isEqual: @"4"]){
+            self.unitYStr = @"(次/日)";
+        }
+        //心率，呼吸
+        else {
+            self.unitYStr = @"(次/分)";
+        }
+    }
     int spaceInt = self.spaceValue;
     for (int i = 0 ; i < rowNum + 1; i++) {
         NSString *value = [NSString stringWithFormat:@"%d",spaceInt * i];
@@ -353,14 +371,11 @@
             moneyLable.textColor = [UIColor grayColor];
             clickBtn.backgroundColor = [UIColor grayColor];
         }
-        else if([clickBtn.valueStr intValue]<=8){
+        else {
             moneyLable.textColor = [UIColor greenColor];
              clickBtn.backgroundColor = [UIColor greenColor];
         }
-        else{
-            moneyLable.textColor = [UIColor redColor];
-             clickBtn.backgroundColor = [UIColor redColor];
-        }
+        
 
     }
     
@@ -388,35 +403,26 @@
 
 
 -(void)autoGetScale{
-//    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
-//    if(screenHeight == 480){//4s
-//        self.horizontalSpace = 17;
-//    }else if(screenHeight == 568){//5-5s
-//        self.horizontalSpace = 20;
-//    }else if(screenHeight == 667){//6
-//        self.horizontalSpace = 24;
-//    }else if(screenHeight == 736){//6p 414
-//        self.horizontalSpace = 27;
-//    }
+
     self.horizontalSpace = self.frame.size.height / 8  ;
 }
 
 
 -(int )getUnitWithMaxValue:(int )maxValue{
-    int unitNum = 0;
-    int tempValue = 1;
-    for(int i = 0 ; true ; i++){
-        tempValue *= 10;
-        if((maxValue / tempValue) == 0){
-            unitNum = i + 1;
-            break;
-        }
-    }
-
-    switch (unitNum) {
-        case 1:
-        case 2:
-        case 3:
+//    int unitNum = 0;
+//    int tempValue = 1;
+//    for(int i = 0 ; true ; i++){
+//        tempValue *= 10;
+//        if((maxValue / tempValue) == 0){
+//            unitNum = i + 1;
+//            break;
+//        }
+//    }
+//
+//    switch (unitNum) {
+//        case 1:
+//        case 2:
+//        case 3:
             //睡眠
             self.level = 1;
             if ( [self.chartType  isEqual: @"3"]){
@@ -430,7 +436,7 @@
             else {
             self.unitYStr = @"(次/分)";
             }
-            break;
+//            break;
 //        case 4://以百为单位 10,00
 //            self.level = tempValue/ 100;
 //            self.unitYStr = @"(次／小时)";
@@ -459,9 +465,9 @@
 //            self.level = tempValue/ 100;
 //            self.unitYStr = @"销售额(亿)";
 //            break;
-        default:
-            break;
-    }
+//        default:
+//            break;
+//    }
     return self.level;
 }
 
@@ -507,16 +513,13 @@
     while (touchpoint_x/width_screen>0){
         touchpoint_x = touchpoint_x - width_screen;
     }
-//    NSLog(@"%d",touchpoint_x);
-//    NSLog(@"%d",touchpoint_y);
-    
+ 
    
     //判断点击的地方是否在self.pointArr数组中某个点8像素内：是，显示这个点的值；否，不做任何操作
     for (PointBtn * clickBtn in self.pointArr) {
         int btn_x = (int)(clickBtn.frame.origin.x);
          int btn_y = (int)(clickBtn.frame.origin.y);
-//        NSLog(@"%d", btn_x);
-//        NSLog(@"%d", btn_y);
+
         
         if (abs(touchpoint_x-btn_x)<8) {
             if (abs(touchpoint_y-btn_y)<8){
@@ -560,13 +563,9 @@
                         moneyLable.textColor = [UIColor grayColor];
                         clickBtn.backgroundColor = [UIColor grayColor];
                     }
-                    else if([clickBtn.valueStr intValue]<=8){
+                    else {
                         moneyLable.textColor = [UIColor greenColor];
                         clickBtn.backgroundColor = [UIColor greenColor];
-                    }
-                    else{
-                        moneyLable.textColor = [UIColor redColor];
-                        clickBtn.backgroundColor = [UIColor redColor];
                     }
                     
                 }

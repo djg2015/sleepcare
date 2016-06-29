@@ -10,59 +10,60 @@ import UIKit
 
 class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var tableview1: UITableView!
-    
-   var source:Array<AlarmTableCell> = Array<AlarmTableCell>()
+    var alarmViewModel:AlarmViewModel!
+    var parentController:UIViewController!
     
     let font14 = UIFont.systemFontOfSize(14)
     let font12 = UIFont.systemFontOfSize(12)
     let screenwidth = UIScreen.mainScreen().bounds.width
     let seperatorColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+
+    
+    var source:Array<AlarmTableCell> = Array<AlarmTableCell>(){
+    didSet{
+    self.tableview1.reloadData()
+    }
+    }
+
+    
+    @IBAction func Close(sender:AnyObject){
+        
+        if self.parentController != nil{
+            currentController = self.parentController
+        }
+        
+        //把当前页面中的报警信息设置为“已读”
+        IAlarmHelper.GetAlarmInstance().SetReadWarning(self.alarmViewModel!.codeList)
+        AlarmViewTag = false
+        
+        //返回上一页
+        self.parentController.navigationController?.popViewControllerAnimated(true)
+    }
+
+    
+    override func viewWillAppear(animated: Bool) {
+        currentController = self
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.alarmViewModel = AlarmViewModel()
+        
         self.tableview1.delegate = self
         self.tableview1.dataSource = self
         
-        //初始化报警data
-        var alarm1 = AlarmTableCell()
-        alarm1.AlarmType = "离床"
-        alarm1.AlarmTime = "16/06/01  16:00:13"
-        alarm1.AlarmContent = "还是贷记卡了还是打了卡技术开发了就挖坑了几分才开始才能建立起核武器的封口处库马诺沃青年卡家呢好人"
-        alarm1.UserGender = "女"
-        alarm1.UserName = "王奶奶"
-        alarm1.UserBedNumber = "12床"
-        alarm1.EquipmentCode = "3786895674"
-        
-        var alarm2 = AlarmTableCell()
-        alarm2.AlarmType = "心率"
-        alarm2.AlarmTime = "16/06/01  16:00:15"
-        alarm2.AlarmContent = "受到法律框架阿斯利康觉得希拉克就到了卡简单"
-        alarm2.UserGender = "男"
-        alarm2.UserName = "江爷爷"
-        alarm2.UserBedNumber = "20床"
-        alarm2.EquipmentCode = "000000001"
-        
-        var alarm3 = AlarmTableCell()
-        alarm3.AlarmType = "呼吸"
-        alarm3.AlarmTime = "16/06/01  16:00:14"
-        alarm3.AlarmContent = "啊我是不讲理你了就看我能从快乐；jwpc "
-        alarm3.UserGender = "男"
-        alarm3.UserName = "毛爷爷"
-        alarm3.UserBedNumber = "111床"
-        alarm3.EquipmentCode = "00103283284"
-        
-        self.source.append(alarm1)
-        self.source.append(alarm2)
-        self.source.append(alarm3)
-        
+   
         
         //去除末尾多余的行
         self.tableview1.tableFooterView = UIView()
         
         //去除顶部留白
         self.automaticallyAdjustsScrollViewInsets = false
+        
+          RACObserve(self.alarmViewModel, "AlarmArray") ~> RAC(self, "source")
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,7 +116,7 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
             typeLabel.font = self.font14
             cell?.contentView.addSubview(typeLabel)
             
-            var timeLabel = UILabel(frame:CGRectMake(screenwidth-122, 18, 110, 21))
+            var timeLabel = UILabel(frame:CGRectMake(screenwidth-142, 18, 130, 21))
             timeLabel.text = self.source[indexPath.section].AlarmTime
             timeLabel.textAlignment = NSTextAlignment.Right
             timeLabel.font = self.font12
@@ -126,10 +127,10 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
             cell?.contentView.addSubview(underlineLabel1)
             
             var genderImageName:String = ""
-            if self.source[indexPath.section].UserGender == "男"{
+            if self.source[indexPath.section].UserGender == "1"{
                 genderImageName = "icon_male_choose.png"
             }
-            else if self.source[indexPath.section].UserGender == "女"{
+            else if self.source[indexPath.section].UserGender == "2"{
                 genderImageName = "icon_female_choose.png"
             }
             var genderImage =  UIImageView(frame: CGRectMake(19, 62, 13, 16))
@@ -186,6 +187,7 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         if(editingStyle == UITableViewCellEditingStyle.Delete){
             
+             self.source[indexPath.row].deleteAlarmHandler!(alarmcell: self.source[indexPath.row])
         }
     }
     func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
@@ -200,91 +202,3 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
     }
 }
 
-class AlarmTableCell:NSObject{
-    //属性定义
-    var _equipmentCode:String = ""
-    dynamic var EquipmentCode:String{
-        get
-        {
-            return self._equipmentCode
-        }
-        set(value)
-        {
-            self._equipmentCode=value
-        }
-    }
-    
-    var _userGender:String?
-    dynamic var UserGender:String?{
-        get
-        {
-            return self._userGender
-        }
-        set(value)
-        {
-            self._userGender=value
-        }
-    }
-    
-    var _userName:String?
-    dynamic var UserName:String?{
-        get
-        {
-            return self._userName
-        }
-        set(value)
-        {
-            self._userName=value
-        }
-    }
-    
-    var _userBedNumber:String?
-    dynamic var UserBedNumber:String?{
-        get
-        {
-            return self._userBedNumber
-        }
-        set(value)
-        {
-            self._userBedNumber=value
-        }
-    }
-    
-    var _alarmTime:String?
-    dynamic var AlarmTime:String?{
-        get
-        {
-            return self._alarmTime
-        }
-        set(value)
-        {
-            self._alarmTime=value
-        }
-    }
-    
-    
-    var _alarmContent:String?
-    dynamic var AlarmContent:String?{
-        get
-        {
-            return self._alarmContent
-        }
-        set(value)
-        {
-            self._alarmContent=value
-        }
-    }
-    
-    var _alarmType:String?
-    dynamic var AlarmType:String?{
-        get
-        {
-            return self._alarmType
-        }
-        set(value)
-        {
-            self._alarmType=value
-        }
-    }
-    
-}

@@ -9,8 +9,8 @@
 import Foundation
 
 class AlarmViewModel: BaseViewModel {
-    var _alarmArray:Array<AlarmTableCellViewModel>!
-    dynamic var AlarmArray:Array<AlarmTableCellViewModel>{
+    var _alarmArray:Array<AlarmTableCell>!
+    dynamic var AlarmArray:Array<AlarmTableCell>{
         get
         {
             return self._alarmArray
@@ -38,16 +38,18 @@ class AlarmViewModel: BaseViewModel {
                 //刷新todolist里信息
                 IAlarmHelper.GetAlarmInstance().ReloadTodoList()
                 
-                var tempAlarmArray = Array<AlarmTableCellViewModel>()
+                var tempAlarmArray = Array<AlarmTableCell>()
                 var warningList = IAlarmHelper.GetAlarmInstance().WarningList
                 for (var i = 0 ; i < warningList.count ; i++){
-                    var tempAlarm = AlarmTableCellViewModel()
+                    var tempAlarm = AlarmTableCell()
                     var info = warningList[i]
                     tempAlarm.AlarmCode = info.AlarmCode
-                    tempAlarm.PartName = info.PartName
-                    tempAlarm.UserName = "姓名:" + info.UserName
-                    tempAlarm.BedNumber = "床号:" + info.BedNumber
-                    tempAlarm.AlarmDate = "报警时间：" + info.AlarmDate
+                    tempAlarm.EquipmentCode = info.EquipmentID
+                    tempAlarm.UserCode = info.UserCode
+                    tempAlarm.UserGender = info.Sex
+                    tempAlarm.UserName = info.UserName
+                    tempAlarm.UserBedNumber =  info.BedNumber
+                    tempAlarm.AlarmTime = info.AlarmTime
                     tempAlarm.AlarmContent = info.AlarmContent
                     tempAlarm.deleteAlarmHandler = self.DeleteAlarm
                     
@@ -71,22 +73,22 @@ class AlarmViewModel: BaseViewModel {
     
     
    //alarmcell单个删除操作（滑动删除）
-    func DeleteAlarm(alarmViewModel:AlarmTableCellViewModel){
-        let code = alarmViewModel.AlarmCode!
+    func DeleteAlarm(alarmViewModel:AlarmTableCell){
+        let code = alarmViewModel.AlarmCode
         self.DeleteToServer(code)
         self.DeleteFromTodolist(code)
     }
     
-    //alarmcell多个删除操作（edit模式下）
-    func DeleteMutipleAlarms(codes:String){
-       
-        self.DeleteToServer(codes)
-        let codeList = split(codes){$0 == ","}
-        for code in codeList{
-        self.DeleteFromTodolist(code)
-        }
-        
-    }
+//    //alarmcell多个删除操作（edit模式下）
+//    func DeleteMutipleAlarms(codes:String){
+//       
+//        self.DeleteToServer(codes)
+//        let codeList = split(codes){$0 == ","}
+//        for code in codeList{
+//        self.DeleteFromTodolist(code)
+//        }
+//        
+//    }
     
     
     //调用服务器接口同步报警信息，标志为已读
@@ -129,3 +131,119 @@ class AlarmViewModel: BaseViewModel {
     }
    
 }
+
+class AlarmTableCell:NSObject{
+    //属性定义
+    var _alarmCode:String = ""
+    dynamic var AlarmCode:String{
+        get
+        {
+            return self._alarmCode
+        }
+        set(value)
+        {
+            self._alarmCode=value
+        }
+    }
+
+    var _equipmentCode:String = ""
+    dynamic var EquipmentCode:String{
+        get
+        {
+            return self._equipmentCode
+        }
+        set(value)
+        {
+            self._equipmentCode=value
+        }
+    }
+    
+    var _userGender:String?
+    dynamic var UserGender:String?{
+        get
+        {
+            return self._userGender
+        }
+        set(value)
+        {
+            self._userGender=value
+        }
+    }
+    
+    var _userName:String?
+    dynamic var UserName:String?{
+        get
+        {
+            return self._userName
+        }
+        set(value)
+        {
+            self._userName=value
+        }
+    }
+    var _userCode:String?
+    dynamic var UserCode:String?{
+        get
+        {
+            return self._userCode
+        }
+        set(value)
+        {
+            self._userCode=value
+        }
+    }
+    
+    var _userBedNumber:String?
+    dynamic var UserBedNumber:String?{
+        get
+        {
+            return self._userBedNumber
+        }
+        set(value)
+        {
+            self._userBedNumber=value
+        }
+    }
+    
+    var _alarmTime:String?
+    dynamic var AlarmTime:String?{
+        get
+        {
+            return self._alarmTime
+        }
+        set(value)
+        {
+            self._alarmTime=value
+        }
+    }
+    
+    
+    var _alarmContent:String?
+    dynamic var AlarmContent:String?{
+        get
+        {
+            return self._alarmContent
+        }
+        set(value)
+        {
+            self._alarmContent=value
+        }
+    }
+    
+    var _alarmType:String?
+    dynamic var AlarmType:String?{
+        get
+        {
+            return self._alarmType
+        }
+        set(value)
+        {
+            self._alarmType=value
+        }
+    }
+    
+    //操作定义
+    var deleteAlarmHandler: ((alarmcell:AlarmTableCell) -> ())?
+    
+}
+

@@ -10,52 +10,52 @@ import UIKit
 
 class MyDeviceViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
-     @IBOutlet weak var tableview1: UITableView!
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "adddevice"{
+         let adddeviceVC = segue.destinationViewController as! AddDeviceViewController
+            adddeviceVC.parentController = self
+        }
+    }
     
-   var source:Array<EquipmentTableCell>=Array<EquipmentTableCell>()
+    @IBAction func UnwindAdddevice(unwindsegue:UIStoryboardSegue){
+             currentController = self
+    }
+    
+    @IBOutlet weak var tableview1: UITableView!
+    
+    var source:Array<EquipmentTableCell>=Array<EquipmentTableCell>()
+        {
+        didSet{
+        self.tableview1.reloadData()
+        }
+    }
+    var mydeviceViewModel:MyDeviceViewModel!
     
     let font14 = UIFont.systemFontOfSize(14)
-    let font12 = UIFont.systemFontOfSize(12)
+    
     let screenwidth = UIScreen.mainScreen().bounds.width
      let seperatorColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
     
+    
+    override func viewWillAppear(animated: Bool) {
+        currentController = self
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        self.mydeviceViewModel = MyDeviceViewModel()
         self.tableview1.delegate = self
         self.tableview1.dataSource = self
-        
-                //初始化设备data
-                var equipment1 = EquipmentTableCell()
-                equipment1.UserName = "张爷爷"
-                equipment1.UserGender = "男"
-                equipment1.EquipmentAddress = "江苏省无锡市时间回复你脸上的肌肤立刻黑色的礼服回家吃完了卡首发恶俗发 i 就会问 iu "
-                equipment1.EquipmentCode = "00000000001"
-        
-                var equipment2 = EquipmentTableCell()
-                equipment2.UserName = "张奶奶"
-                equipment2.UserGender = "女"
-                equipment2.EquipmentAddress = "为史蒂芬斯洛伐克婚纱索科洛夫就饿哦情况为了假期哦复活节假期维护费和乌伦古湖期望"
-                equipment2.EquipmentCode = "00000000002"
-        
-                var equipment3 = EquipmentTableCell()
-                equipment3.UserName = "王奶奶"
-                equipment3.UserGender = "女"
-                equipment3.EquipmentAddress = "发生的风输入个人跟我二哥问"
-                equipment3.EquipmentCode = "0000000003"
-        
-                self.source.append(equipment1)
-                 self.source.append(equipment2)
-                 self.source.append(equipment3)
+
         
         //去除末尾多余的行
         self.tableview1.tableFooterView = UIView()
         
         //去除顶部留白
         self.automaticallyAdjustsScrollViewInsets = false
+          RACObserve(self.mydeviceViewModel, "DeviceArray") ~> RAC(self, "source")
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,13 +95,13 @@ class MyDeviceViewController: UIViewController,UITableViewDataSource,UITableView
                         //分割线
                         //地址图标 地址
                         var genderImageName:String = ""
-                        if self.source[indexPath.section].UserGender == "男"{
+                        if self.source[indexPath.section].UserGender == "1"{
                         genderImageName = "icon_male_choose.png"
                         }
-                        else if self.source[indexPath.section].UserGender == "女"{
+                        else if self.source[indexPath.section].UserGender == "2"{
                         genderImageName = "icon_female_choose.png"
                         }
-                        var genderImage =  UIImageView(frame: CGRectMake(19, 11, 13, 16))
+                        var genderImage =  UIImageView(frame: CGRectMake(19, 12, 13, 16))
                         genderImage.image = UIImage(named:genderImageName)
                         cell?.contentView.addSubview(genderImage)
             
@@ -110,9 +110,9 @@ class MyDeviceViewController: UIViewController,UITableViewDataSource,UITableView
                         nameLabel.font = self.font14
                         cell?.contentView.addSubview(nameLabel)
             
-                        var setnumberLabel = UILabel(frame:CGRectMake(screenwidth-160, 10, 150, 21))
+                        var setnumberLabel = UILabel(frame:CGRectMake(screenwidth-190, 10, 180, 21))
                         setnumberLabel.text = "设备编号  " + self.source[indexPath.section].EquipmentCode
-                        setnumberLabel.font = self.font12
+                        setnumberLabel.font = self.font14
                         setnumberLabel.textAlignment = NSTextAlignment.Right
                         cell?.contentView.addSubview(setnumberLabel)
             
@@ -120,14 +120,14 @@ class MyDeviceViewController: UIViewController,UITableViewDataSource,UITableView
                         underlineLabel.backgroundColor = self.seperatorColor
                         cell?.contentView.addSubview(underlineLabel)
             
-                        var addressImage =  UIImageView(frame: CGRectMake(19, 52, 14, 17))
+                        var addressImage =  UIImageView(frame: CGRectMake(19, 50, 14, 17))
                         addressImage.image = UIImage(named:"btn_address.png")
                         cell?.contentView.addSubview(addressImage)
             
             
                         var addressTextfield = UITextView(frame:CGRectMake(42, 42,screenwidth-42 , 48))
                         addressTextfield.text =  self.source[indexPath.section].EquipmentAddress
-                         addressTextfield.font = self.font12
+                         addressTextfield.font = self.font14
                        addressTextfield.editable = false
                         cell?.contentView.addSubview(addressTextfield)
             
@@ -150,7 +150,12 @@ class MyDeviceViewController: UIViewController,UITableViewDataSource,UITableView
     }
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         if(editingStyle == UITableViewCellEditingStyle.Delete){
-            
+            //调用服务器接口方法删除这个设备信息（
+            self.source[indexPath.row].deleteDeviceHandler!(devicecell: self.source[indexPath.row])
+//            //source中删除
+//            self.source.removeAtIndex(indexPath.row)
+//            //删除tableview中此设备
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
 //    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
@@ -202,7 +207,18 @@ class EquipmentTableCell:NSObject{
         }
     }
     
-    
+    var _userCode:String?
+    dynamic var UserCode:String?{
+        get
+        {
+            return self._userCode
+        }
+        set(value)
+        {
+            self._userCode=value
+        }
+    }
+
     
     var _equipmentAddress:String?
     dynamic var EquipmentAddress:String?{
@@ -215,5 +231,8 @@ class EquipmentTableCell:NSObject{
             self._equipmentAddress=value
         }
     }
+    
+    //操作定义
+    var deleteDeviceHandler: ((devicecell:EquipmentTableCell) -> ())?
 }
 

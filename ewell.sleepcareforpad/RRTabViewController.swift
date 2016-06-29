@@ -1,37 +1,37 @@
 //
-//  HRTabViewController.swift
+//  RRTabViewController.swift
+//  
 //
-//
-//  Created by Qinyuan Liu on 6/17/16.
+//  Created by Qinyuan Liu on 6/27/16.
 //
 //
 
 import UIKit
 
-class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItemChoosed {
-    
+class RRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItemChoosed {
+
     @IBOutlet weak var adddeviceView: UIView!
     @IBOutlet weak var topview: UIView!
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view3: UIView!
     
-    @IBOutlet weak var hrTabbar: UITabBarItem!
+    @IBOutlet weak var rrTabbar: UITabBarItem!
     //标题老人名字(为空时显示“选择老人”)
     @IBOutlet weak var NameLabel: UILabel!
     
-    //紧急状态图标：心率过高或过低
+    //紧急状态图标：呼吸过高或过低
     @IBOutlet weak var alarmNoticeImg: UIImageView!
     //切换当前老人
     @IBOutlet weak var ChangePatientBtn: UIButton!
     //在离床图标
     @IBOutlet weak var BedStatusImg: UIImageView!
     
-    //实时／平均心率数据
-    @IBOutlet weak var CurrentHRImg: UIImageView!
-    @IBOutlet weak var CurrentHRLabel: UILabel!
-    @IBOutlet weak var AvgHRLabel: UILabel!
-    @IBOutlet weak var circleHRLabel: UILabel!
+    //实时／平均呼吸数据
+    @IBOutlet weak var CurrentRRImg: UIImageView!
+    @IBOutlet weak var CurrentRRLabel: UILabel!
+    @IBOutlet weak var AvgRRLabel: UILabel!
+    @IBOutlet weak var circleRRLabel: UILabel!
     
     //滑动栏
     @IBOutlet weak var SelectUnderline: UILabel!
@@ -45,7 +45,7 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     //-------------------------------变量定义-------------------------------
     //滑动栏内选中的button
     var selectButton:UIButton!
-    var hrTabViewModel:HRTabViewModel!
+    var rrTabViewModel:RRTabViewModel!
     //当前查看的老人
     var _bedUserCode:String!
     var _bedUserName:String!
@@ -54,20 +54,21 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     var outercircleView: STLoopProgressView!
     var innercircleView: STLoopProgressView!
     
-    //心率最高值120（20-80-120三档）
-    var currentHR:String?{
+    
+    //呼吸最高值60(10-40-60三档)
+    var currentRR:String?{
         didSet{
-            if currentHR != nil{
-                self.outercircleView.persentage = CGFloat((currentHR! as NSString).floatValue)/120.0
+            if currentRR != nil{
+                self.outercircleView.persentage = CGFloat((currentRR! as NSString).floatValue)/60.0
                 
             }
         }
     }
     
-    var avgHR:String?{
+    var avgRR:String?{
         didSet{
-            if avgHR != nil{
-                self.innercircleView.persentage = CGFloat((avgHR! as NSString).floatValue)/120.0
+            if avgRR != nil{
+                self.innercircleView.persentage = CGFloat((avgRR! as NSString).floatValue)/60.0
             }
         }
     }
@@ -86,29 +87,29 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     
     
     //当前心率值（3个范围：低，正常，高）变化到其他范围时，变化点的颜色，圆圈内label的颜色
-    var currentHRImageName:String?
+    var currentRRImageName:String?
         {
         didSet{
-            if currentHRImageName != ""{
-                self.CurrentHRImg.image = UIImage(named:currentHRImageName!)
+            if currentRRImageName != ""{
+                self.CurrentRRImg.image = UIImage(named:currentRRImageName!)
                 
-                if currentHRImageName == "icon_gray circle.png"{
-                    self.circleHRLabel.textColor = grayColor
+                if currentRRImageName == "icon_gray circle.png"{
+                    self.circleRRLabel.textColor = grayColor
                 }
-                if currentHRImageName == "icon_blue circle.png"{
-                    self.circleHRLabel.textColor = startColor
+                if currentRRImageName == "icon_blue circle.png"{
+                    self.circleRRLabel.textColor = startColor
                 }
-                else if currentHRImageName == "icon_purple circle.png"{
-                    self.circleHRLabel.textColor = centerColor
+                else if currentRRImageName == "icon_purple circle.png"{
+                    self.circleRRLabel.textColor = centerColor
                 }
-                else if currentHRImageName == "icon_red circle.png"{
-                    self.circleHRLabel.textColor = endColor
+                else if currentRRImageName == "icon_red circle.png"{
+                    self.circleRRLabel.textColor = endColor
                 }
                 
             }
             else{
-                currentHRImageName == "icon_gray circle.png"
-                self.circleHRLabel.textColor = grayColor
+                currentRRImageName == "icon_gray circle.png"
+                self.circleRRLabel.textColor = grayColor
             }
         }
         
@@ -118,7 +119,7 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     
     //选择老人下拉列表
     var popDownListForIphone:PopDownListForIphone?
-    var patientDownlist:Array<PopDownListItem> = Array<PopDownListItem>()
+     var patientDownlist:Array<PopDownListItem> = Array<PopDownListItem>()
     
     //-------------------------------方法定义-------------------------------
     //点击滑动栏的button，显示对应的chart
@@ -126,7 +127,9 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         self.chartScrollView.setContentOffset(CGPointMake((CGFloat)(sender.tag) * chartwidth, 0.0),animated:true)
     }
     
+    
     @IBAction func ClickChangePatient(sender:UIButton){
+        
         if(self.popDownListForIphone == nil){
             
             self.popDownListForIphone = PopDownListForIphone()
@@ -139,23 +142,23 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
                 item.key = tempPatientList[i].BedUserCode
                 item.value = tempPatientList[i].BedUserName
                 item.equipmentcode = tempPatientList[i].EquipmentID
-                self.patientDownlist.append(item)
+                patientDownlist.append(item)
             }
 
         }
         
-        
-        self.popDownListForIphone?.Show("选择老人", source:self.patientDownlist)
+        self.popDownListForIphone?.Show("选择老人", source:patientDownlist)
     }
     
+    
     override func viewWillAppear(animated: Bool) {
-        self.popDownListForIphone = nil
+         self.popDownListForIphone = nil
         
-        if  self.hrTabViewModel == nil{
-            self.hrTabViewModel = HRTabViewModel()
+        if  self.rrTabViewModel == nil{
+            self.rrTabViewModel = RRTabViewModel()
         }
         
-        self.RefreshHRView()
+        self.RefreshRRView()
         
         currentController = self
         
@@ -171,7 +174,7 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         
         rac_settings()
         //第一次显示页面时手动调用viewwillappear？？bug
-        self.viewWillAppear(true)
+      //  self.viewWillAppear(true)
         
     }
     
@@ -181,7 +184,7 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     }
     
     func rac_settings(){
-        self.hrTabViewModel = HRTabViewModel()
+        self.rrTabViewModel = RRTabViewModel()
         
         self.chartScrollView.contentSize = CGSize(width: chartwidth * 3, height:chartheight)
         self.chartScrollView.delegate = self
@@ -214,9 +217,10 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         self.outercircleView.addCircleView(CGRectMake(outteroriginX, 15, outterCircleHeight, outterCircleHeight), withdefaultcolor: defaultColor,withstartcolor: startColor,withcentercolor: centerColor,withendcolor: endColor, withlinewidth:outterlinewidth)
         self.innercircleView = STLoopProgressView()
         self.innercircleView.addCircleView(CGRectMake(inneroriginX, 15+distance, innerCircleHeight, innerCircleHeight),withdefaultcolor:defaultColor,withstartcolor: avgColor,withcentercolor:avgColor,withendcolor: avgColor, withlinewidth:innerlinewidth)
+        
+        
         self.view1.addSubview(self.outercircleView)
         self.view1.addSubview(self.innercircleView)
-        
         
         //往scrollview里添加chartview集合
         self.chartScrollView.addSubview(chartScrollView.chartView1)
@@ -225,21 +229,23 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         //    self.chartScrollView.bringSubviewToFront(chartView2)
         self.chartScrollView.addSubview(chartScrollView.chartView3)
         
-
+        
+        
+        
         //模型绑定页面控件
-        RACObserve(self.hrTabViewModel, "BedUserName") ~> RAC(self.NameLabel, "text")
-        RACObserve(self.hrTabViewModel, "StatusImageName") ~> RAC(self, "statusImageName")
-        RACObserve(self.hrTabViewModel, "AlarmNoticeImage") ~> RAC(self.alarmNoticeImg, "image")
-        RACObserve(self.hrTabViewModel, "CurrentHRImage") ~> RAC(self, "currentHRImageName")
-        RACObserve(self.hrTabViewModel, "CurrentHR") ~> RAC(self.CurrentHRLabel, "text")
-        RACObserve(self.hrTabViewModel, "CurrentHR") ~> RAC(self.circleHRLabel, "text")
-        RACObserve(self.hrTabViewModel, "LastAvgHR") ~> RAC(self.AvgHRLabel, "text")
-        RACObserve(self.hrTabViewModel, "CurrentHR") ~> RAC(self, "currentHR")
-        RACObserve(self.hrTabViewModel, "LastAvgHR") ~> RAC(self, "avgHR")
+        RACObserve(self.rrTabViewModel, "BedUserName") ~> RAC(self.NameLabel, "text")
+        RACObserve(self.rrTabViewModel, "StatusImageName") ~> RAC(self, "statusImageName")
+        RACObserve(self.rrTabViewModel, "AlarmNoticeImage") ~> RAC(self.alarmNoticeImg, "image")
+        RACObserve(self.rrTabViewModel, "CurrentRRImage") ~> RAC(self, "currentRRImageName")
+        RACObserve(self.rrTabViewModel, "CurrentRR") ~> RAC(self.CurrentRRLabel, "text")
+        RACObserve(self.rrTabViewModel, "CurrentRR") ~> RAC(self.circleRRLabel, "text")
+        RACObserve(self.rrTabViewModel, "LastAvgRR") ~> RAC(self.AvgRRLabel, "text")
+        RACObserve(self.rrTabViewModel, "CurrentRR") ~> RAC(self, "currentRR")
+        RACObserve(self.rrTabViewModel, "LastAvgRR") ~> RAC(self, "avgRR")
         
         
-      
-      
+        
+     
     }
     
     
@@ -304,29 +310,28 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     
     //弹窗选择老人，进行点击后的操作
     func ChoosedItem(item:PopDownListItem){
-        if self.hrTabViewModel.BedUserCode != item.key!{
-        self.hrTabViewModel.realtimeFlag = false
+        if self.rrTabViewModel.BedUserCode != item.key!{
+        self.rrTabViewModel.realtimeFlag = false
+        
         SessionForSingle.GetSession()?.CurPatientCode = item.key!
         SessionForSingle.GetSession()?.CurPatientName = item.value!
-            
         
-        self.hrTabViewModel.BedUserCode = item.key!
-        self.hrTabViewModel.BedUserName = item.value!
+        self.rrTabViewModel.BedUserCode = item.key!
+        self.rrTabViewModel.BedUserName = item.value!
         
+            SetValueIntoPlist("curPatientCode", item.key!)
+            SetValueIntoPlist("curPatientName", item.value!)
+           
             
-        SetValueIntoPlist("curPatientCode", item.key!)
-        SetValueIntoPlist("curPatientName", item.value!)
-            
-            
-        self.RefreshHRView()
-        self.hrTabViewModel.realtimeFlag = true
-        }
+        self.RefreshRRView()
+        self.rrTabViewModel.realtimeFlag = true
+    }
     }
     
     //---------------------刷新页面数据---------------------
-    func RefreshHRView(){
+    func RefreshRRView(){
         
-        let flag = self.hrTabViewModel.LoadPatientHR()
+        let flag = self.rrTabViewModel.LoadPatientRR()
         //显示内容
         if flag == "1"{
             //清除scrollview中chartview的内容
@@ -335,27 +340,27 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
             self.chartScrollView.chartView3.RemoveTrendChartView()
             
             //刷新数据
-            if self.hrTabViewModel.HRDayReport.flag{
-            self.chartScrollView.chartView1.valueAll =  self.hrTabViewModel.HRDayReport.ValueY as [AnyObject]
-            self.chartScrollView.chartView1.valueXList = self.hrTabViewModel.HRDayReport.ValueX as [AnyObject]
-            self.chartScrollView.chartView1.valueTitleNames = self.hrTabViewModel.HRDayReport.ValueTitles as [AnyObject]
-            chartScrollView.chartView1.Type = self.hrTabViewModel.HRDayReport.Type
+            if self.rrTabViewModel.RRDayReport.flag{
+            self.chartScrollView.chartView1.valueAll =  self.rrTabViewModel.RRDayReport.ValueY as [AnyObject]
+            self.chartScrollView.chartView1.valueXList = self.rrTabViewModel.RRDayReport.ValueX as [AnyObject]
+            self.chartScrollView.chartView1.valueTitleNames = self.rrTabViewModel.RRDayReport.ValueTitles as [AnyObject]
+            chartScrollView.chartView1.Type = self.rrTabViewModel.RRDayReport.Type
             chartScrollView.chartView1.addTrendChartView(CGRectMake(0, 0, chartwidth, chartheight))
             }
             
-            if self.hrTabViewModel.HRWeekReport.flag {
-            self.chartScrollView.chartView2.valueAll =  self.hrTabViewModel.HRWeekReport.ValueY as [AnyObject]
-            self.chartScrollView.chartView2.valueXList = self.hrTabViewModel.HRWeekReport.ValueX as [AnyObject]
-            self.chartScrollView.chartView2.valueTitleNames = self.hrTabViewModel.HRWeekReport.ValueTitles as [AnyObject]
-            chartScrollView.chartView2.Type = self.hrTabViewModel.HRWeekReport.Type
+            if self.rrTabViewModel.RRWeekReport.flag{
+            self.chartScrollView.chartView2.valueAll =  self.rrTabViewModel.RRWeekReport.ValueY as [AnyObject]
+            self.chartScrollView.chartView2.valueXList = self.rrTabViewModel.RRWeekReport.ValueX as [AnyObject]
+            self.chartScrollView.chartView2.valueTitleNames = self.rrTabViewModel.RRWeekReport.ValueTitles as [AnyObject]
+            chartScrollView.chartView2.Type = self.rrTabViewModel.RRWeekReport.Type
             chartScrollView.chartView2.addTrendChartView(CGRectMake(chartwidth, 0, chartwidth, chartheight))
             }
             
-            if self.hrTabViewModel.HRMonthReport.flag{
-            self.chartScrollView.chartView3.valueAll =  self.hrTabViewModel.HRMonthReport.ValueY as [AnyObject]
-            self.chartScrollView.chartView3.valueXList = self.hrTabViewModel.HRMonthReport.ValueX as [AnyObject]
-            self.chartScrollView.chartView3.valueTitleNames = self.hrTabViewModel.HRMonthReport.ValueTitles as [AnyObject]
-            chartScrollView.chartView3.Type = self.hrTabViewModel.HRMonthReport.Type
+            if self.rrTabViewModel.RRMonthReport.flag{
+            self.chartScrollView.chartView3.valueAll =  self.rrTabViewModel.RRMonthReport.ValueY as [AnyObject]
+            self.chartScrollView.chartView3.valueXList = self.rrTabViewModel.RRMonthReport.ValueX as [AnyObject]
+            self.chartScrollView.chartView3.valueTitleNames = self.rrTabViewModel.RRMonthReport.ValueTitles as [AnyObject]
+            chartScrollView.chartView3.Type = self.rrTabViewModel.RRMonthReport.Type
             chartScrollView.chartView3.addTrendChartView(CGRectMake(chartwidth*2, 0, chartwidth, chartheight))
             }
             
@@ -390,5 +395,4 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         }
         
     }
-    
 }

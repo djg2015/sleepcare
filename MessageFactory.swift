@@ -13,12 +13,12 @@ let tag_realtimedata:String="<RealTimeReport"
 let tag_single_loginUser:String="<LoginUser"
 let tag_single_serverResult:String="<ServerResult"
 let tag_single_bedUserInfo:String="<BedUserInfo"
-let tag_single_equipmentList:String="<EquipmentList"
-let tag_single_hrRange:String="<HRRange"
-let tag_single_rrRange:String="<RRRange"
+let tag_single_equipmentList:String="<EPEquipmentInfoList"
+let tag_single_hrRange:String="<EPHRRange"
+let tag_single_rrRange:String="<EPRRRange"
 let tag_single_sleepQualityReport:String="<SleepQualityReport"
 let tag_single_weekSleep:String="<WeekSleep"
-let tag_single_alarmList:String="<AlarmList"
+let tag_single_alarmList:String="<EPAlarmInfoList"
 //异常编码如下：0：表示业务异常 -1：一般错误
 let tag_EMServiceException:String="<EMServiceException"
 
@@ -71,6 +71,7 @@ class MessageFactory {
         }
         else
         {
+            print(message.content)
             throw("-1", "请求发生错误，请重试！")
         }
         return BaseMessage.XmlToMessage(message.subject, bodyXMl: message.content)

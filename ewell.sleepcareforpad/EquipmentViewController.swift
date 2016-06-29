@@ -22,7 +22,7 @@ class EquipmentViewController: UIViewController,UITextViewDelegate {
     
     
  
-    
+
     
     override func viewWillAppear(animated: Bool) {
    
@@ -44,7 +44,6 @@ class EquipmentViewController: UIViewController,UITextViewDelegate {
     func rac_settings(){
         self.addressText.delegate = self
         self.equipmentViewModel = EquipmentViewModel()
-        self.equipmentViewModel.qrCode = self.qrcode
         self.equipmentViewModel.parentController = self
        
         
@@ -67,6 +66,8 @@ class EquipmentViewController: UIViewController,UITextViewDelegate {
         
         RACObserve(self.equipmentViewModel, "IsMale") ~> RAC(self.maleBtn, "selected")
         RACObserve(self.equipmentViewModel, "IsFemale") ~> RAC(self.femaleBtn, "selected")
+        
+        self.equipmentViewModel.GetEquipmentInfo(self.qrcode)
     }
     
     

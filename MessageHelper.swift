@@ -49,4 +49,6 @@ case NeedPhonenumber
     case ConfirmNewPwdSuccess
     case ConfirmNewPwdFail
     case AddDeviceReminder
+    case ConfirmPatientFail
+    case BindFail
 }

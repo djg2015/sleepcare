@@ -9,31 +9,28 @@
 import UIKit
 
 class AccountSettingViewModel: BaseViewModel {
-   
-    var logoutCommand: RACCommand?
     
     //构造函数
     override init(){
         super.init()
 
-       logoutCommand = RACCommand() {
-            (any:AnyObject!) -> RACSignal in
-            return self.Logout()
-        }
-        
+     
      
     }
     
-    
+    //根据开关设置alarmnoticeflag
    func SwitchAlarm(state:Bool){
-    
+    if state{
+    AlarmNoticeFlag = true
+        OpenNotice()
+    }
+    else{
+     AlarmNoticeFlag = false
+        CloseNotice()
+    }
     
     }
     
-    func Logout()-> RACSignal{
-    
-    
-        return RACSignal.empty()
-    }
+
     
 }

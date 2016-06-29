@@ -98,11 +98,11 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
                     if OnBedStatus == "在床"{
                         //在床：点变红，报警图标变红
                         CurrentHRImage = "icon_red circle.png"
-                        AlarmNoticeImage = "btn_有报警.png"
+                        AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
                     }
                     else{
                         CurrentHRImage = "icon_gray circle.png"
-                        AlarmNoticeImage = "btn_无报警.png"
+                        AlarmNoticeImage = UIImage(named:"btn_无警报.png")!
                     }
                     
                 }
@@ -113,21 +113,21 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
                 if oldvalue >= 20{
                     //点变蓝，报警图标变红
                     CurrentHRImage = "icon_blue circle.png"
-                    AlarmNoticeImage = "btn_有报警.png"
+                    AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
                 }
             }
             else if (value.toInt()>80 ){
                 //点变红，报警图标变红
                 if oldvalue <= 80{
                     CurrentHRImage = "icon_red circle.png"
-                    AlarmNoticeImage = "btn_有报警.png"
+                    AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
                 }
             }
             else {
                 //值处于20-80正常状态,圆紫色，报警图标变白色
                 if (oldvalue > 80 || oldvalue < 20){
                     CurrentHRImage = "icon_purple circle.png"
-                    AlarmNoticeImage = "btn_无报警.png"
+                    AlarmNoticeImage = UIImage(named:"btn_无警报.png")!
                 }
             }
             
@@ -150,8 +150,8 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
     }
     
     //报警状态的图片，默认无报警白色图
-    var _alarmNoticeImage:String="btn_无报警.png"
-    dynamic var AlarmNoticeImage:String{
+    var _alarmNoticeImage:UIImage=UIImage(named:"btn_无警报.png")!
+    dynamic var AlarmNoticeImage:UIImage{
         get
         {
             return self._alarmNoticeImage
@@ -211,43 +211,16 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
         }
     }
     
-    var _patientList:Array<PopDownListItem> = Array<PopDownListItem>()
-    //老人信息集合
-    var  PatientList:Array<PopDownListItem>{
-        get
-        {
-            return self._patientList
-        }
-        set(value)
-        {
-            self._patientList=value
-        }
-    }
-    
-    
+  
+ //---------------------------初始化-----------------------
     override init()
     {
         super.init()
         
-//        self.CurrentHR = "70"
-//        self.LastAvgHR = "0"
-//        
-//        //获取当前所有养老院的名字
-//        let telephone = SessionForSingle.GetSession()?.User?.LoginName
-//        if (telephone != nil && telephone != ""){
-//            var tempPatientList:EquipmentList =  SleepCareForSingle().GetEquipmentsByLoginName(telephone!)
-//            
-//            for(var i=0;i<tempPatientList.equipmentList.count;i++){
-//                var item:PopDownListItem = PopDownListItem()
-//                item.key = tempPatientList.equipmentList[i].BedUserCode
-//                item.value = tempPatientList.equipmentList[i].BedUserName
-//                item.equipmentcode = tempPatientList.equipmentList[i].EquipmentID
-//                self.PatientList.append(item)
-//            }
-//            
-//        }
+    
     }
     
+//------------------------载入hr图标值--------------------------
     //返回值：1 正常 2没选择老人  3没添加设备
     func LoadPatientHR()->String {
         var flag = "3"
@@ -294,57 +267,87 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
         //获取某床位用户日心率报告
         var tempDayRange:HRRange = SleepCareForSingle().GetSingleHRTimeReport(self.BedUserCode,searchType:"1")
         var tempDayReportList:Array<HRTimeReport> = tempDayRange.hrTimeReportList
-        //过滤原始日数据，赋值给HRDayReport
-        var tempDay:HRReportList=HRReportList()
+        //过滤原始日数据，赋值给HRDayReport(24个点选8个)
+
         var tempValueY:Array<String> = []
-        var tempValueX = NSArray()
-        var tempTitle = "心率"
-        for tempDayReport in tempDayReportList{
-            tempValueY.append(tempDayReport.ReportHour)
-            tempValueX.arrayByAddingObject(tempDayReport.AvgHR)
+        var tempValueX: Array<String> = []
+        var tempTitle = "平均心率"
+        
+        
+        if tempDayReportList.count > 0{
+        for (var i = 0;i<tempDayReportList.count;i+=3){
+            tempValueX.append(tempDayReportList[i].ReportHour)
+            tempValueY.append(tempDayReportList[i].AvgHR)
         }
-        tempDay.valueY = NSArray(objects:tempValueX)
-        tempDay.valueX = tempValueX
-        tempDay.valueTitles = NSArray(objects:tempTitle)
-        tempDay.Type = "1"
-        self.HRDayReport = tempDay
+           self.HRDayReport.flag = true
+        }
+        else{
+        self.HRDayReport.flag = false
+        }
+         self.HRDayReport.ValueY = NSArray(objects:tempValueY)
+         self.HRDayReport.ValueX = tempValueX
+         self.HRDayReport.ValueTitles = NSArray(objects:tempTitle)
+         self.HRDayReport.Type = "1"
+    
         
         //获取某床位用户周心率报告
         var tempWeekRange:HRRange = SleepCareForSingle().GetSingleHRTimeReport(self.BedUserCode,searchType:"2")
         var tempWeekReportList:Array<HRTimeReport> = tempWeekRange.hrTimeReportList
         //过滤原始周数据，赋值给HRWeekReport
-        var tempWeek:HRReportList=HRReportList()
+    
         tempValueY = []
-        tempValueX = NSArray()
-        tempTitle = "心率"
+        tempValueX = []
+        tempTitle = "平均心率"
+        
+        if tempWeekReportList.count > 0{
         for tempWeekReport in tempWeekReportList{
-            tempValueY.append(tempWeekReport.ReportHour)
-            tempValueX.arrayByAddingObject(tempWeekReport.AvgHR)
+            tempValueX.append(tempWeekReport.ReportHour)
+            tempValueY.append(tempWeekReport.AvgHR)
         }
-        tempWeek.valueY = NSArray(objects:tempValueX)
-        tempWeek.valueX = tempValueX
-        tempWeek.valueTitles = NSArray(objects:tempTitle)
-        tempWeek.Type = "1"
-        self.HRWeekReport = tempWeek
+          self.HRWeekReport.flag = true
+        }
+        else{
+        self.HRWeekReport.flag = false
+        }
+        self.HRWeekReport.ValueY = NSArray(objects:tempValueY)
+        self.HRWeekReport.ValueX = tempValueX
+        self.HRWeekReport.ValueTitles = NSArray(objects:tempTitle)
+        self.HRWeekReport.Type = "1"
+      
         
         
         //获取某床位用户月心率报告
         var tempMonthRange:HRRange = SleepCareForSingle().GetSingleHRTimeReport(self.BedUserCode,searchType:"3")
         var tempMonthReportList:Array<HRTimeReport> = tempWeekRange.hrTimeReportList
         //过滤原始月数据，赋值给HRMonthReport
-        var tempMonth:HRReportList=HRReportList()
         tempValueY = []
-        tempValueX = NSArray()
-        tempTitle = "心率"
-        for tempMonthReport in tempMonthReportList{
-            tempValueY.append(tempMonthReport.ReportHour)
-            tempValueX.arrayByAddingObject(tempMonthReport.AvgHR)
+        tempValueX = []
+        tempTitle = "平均心率"
+        
+        
+        if tempMonthReportList.count > 10{
+        for (var i = 0;i<tempMonthReportList.count;i+=3){
+            tempValueX.append(tempMonthReportList[i].ReportHour)
+            tempValueY.append(tempMonthReportList[i].AvgHR)
         }
-        tempMonth.valueY = NSArray(objects:tempValueX)
-        tempMonth.valueX = tempValueX
-        tempMonth.valueTitles = NSArray(objects:tempTitle)
-        tempMonth.Type = "1"
-        self.HRMonthReport = tempMonth
+            self.HRMonthReport.flag = true
+        }
+        else if tempMonthReportList.count > 0{
+        for tempMonthReport in tempMonthReportList{
+            tempValueX.append(tempMonthReport.ReportHour)
+            tempValueY.append(tempMonthReport.AvgHR)
+        }
+         self.HRMonthReport.flag = true
+        }
+            else{
+            self.HRMonthReport.flag = false
+            }
+        
+        self.HRMonthReport.ValueY = NSArray(objects:tempValueY)
+        self.HRMonthReport.ValueX = tempValueX
+        self.HRMonthReport.ValueTitles = NSArray(objects:tempTitle)
+        self.HRMonthReport.Type = "1"
+      
 
     }
     
@@ -354,35 +357,13 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
         self.realtimeFlag = false
         self.BedUserCode = ""
         self.BedUserName = ""
-        self.OnBedStatus = ""
-        self.CurrentHR = ""
-        self.LastAvgHR = ""
-        self.AlarmNoticeImage = ""
         self.HRDayReport = HRReportList()
         self.HRWeekReport = HRReportList()
         self.HRMonthReport = HRReportList()
     }
     
-    //切换老人: 若新选择的老人不同于上一个老人：更新session内当前关注的老人信息
-    //                                   更新viewmodel相关信息，调用接口获取hr数据
-    func ChangePatient(bedusercode:String,bedusername:String,equipmentid:String){
-        self.realtimeFlag = false
-        if bedusercode != self.BedUserCode{
-            
-            SessionForSingle.GetSession()?.CurPatientCode = bedusercode
-            SessionForSingle.GetSession()?.CurPatientName = bedusername
-            SessionForSingle.GetSession()?.CurEquipmentID = equipmentid
-            self.BedUserCode = bedusercode
-            self.BedUserName = bedusername
-            
-            self.GetHRReport()
-            
-        }
-        self.realtimeFlag = true
-        
-    }
-    
-    //获取实时数据
+
+    //--------------------------获取实时hr数据--------------------------
     func GetRealtimeData(realtimeData:Dictionary<String,RealTimeReport>){
         if realtimeFlag{
             for realTimeReport in realtimeData.values{
@@ -405,11 +386,43 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
     
 }
 
-
+//type ＝ 1
 class HRReportList:NSObject{
-    var valueX:NSArray = NSArray()
-    var valueY:NSArray = NSArray()
-    var valueTitles:NSArray = NSArray()
-    var Type:String = ""
+    var _valueX:NSArray = NSArray()
+    dynamic var ValueX:NSArray{
+        get
+        {
+            return self._valueX
+        }
+        set(value)
+        {
+            self._valueX=value
+        }
+    }
+ 
+    var _valueY:NSArray = NSArray()
+    dynamic var ValueY:NSArray{
+        get
+        {
+            return self._valueY
+        }
+        set(value)
+        {
+            self._valueY=value
+        }
+    }
+    var _valueTitles:NSArray = NSArray()
+    dynamic var ValueTitles:NSArray{
+        get
+        {
+            return self._valueTitles
+        }
+        set(value)
+        {
+            self._valueTitles=value
+        }
+    }
     
+    var Type:String = ""
+    var flag:Bool = true  //标志有没有chart数据
 }

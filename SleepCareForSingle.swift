@@ -319,7 +319,7 @@ class SleepCareForSingle:SleepCareForSingleManager{
     func GetSingleAlarmByLoginUser(loginName:String,schemaCode:String,alarmTimeBegin:String,alarmTimeEnd:String,transferTypeCode:String,from:String?,max:String?)->AlarmList
     {
     
-        var subject = MessageSubject(opera: "GetSingleAlarmByLoginUser")
+        var subject = MessageSubject(opera: "GetSingleAlarmByLoginUser", bizcode: "sleepcareforiphone")
         var post = EMProperties(messageSubject: subject)
         post.AddKeyValue("loginName", value:loginName )
         post.AddKeyValue("schemaCode", value:schemaCode )

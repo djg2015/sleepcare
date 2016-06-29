@@ -8,8 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
+		0D1ADE431D1F9F1B00DC58FF /* AddDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1ADE421D1F9F1B00DC58FF /* AddDeviceViewController.swift */; };
+		0D1ADE471D1FA20A00DC58FF /* ConfirmPatientInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1ADE461D1FA20A00DC58FF /* ConfirmPatientInfoController.swift */; };
+		0D1ADE491D1FC06200DC58FF /* PatientInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1ADE481D1FC06200DC58FF /* PatientInfoViewModel.swift */; };
+		0D1ADE4D1D1FC63700DC58FF /* MyDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1ADE4C1D1FC63700DC58FF /* MyDeviceViewModel.swift */; };
+		0D1ADE4F1D20BE1500DC58FF /* WeekReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1ADE4E1D20BE1500DC58FF /* WeekReportViewModel.swift */; };
+		0D1E18081D221864004B7BFD /* SleepTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E18071D221864004B7BFD /* SleepTabViewController.swift */; };
+		0D1E180C1D23931F004B7BFD /* IEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E180B1D23931F004B7BFD /* IEmailViewController.swift */; };
+		0D1E180E1D2396AE004B7BFD /* icon_email框.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1E180D1D2396AE004B7BFD /* icon_email框.png */; };
+		0D1E18101D239EE1004B7BFD /* SleepTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E180F1D239EE1004B7BFD /* SleepTabViewModel.swift */; };
 		0D1FC0791D1A344D00988A64 /* HRTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0781D1A344D00988A64 /* HRTabViewModel.swift */; };
-		0D1FC07B1D1A5F6900988A64 /* btn_changepatient.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC07A1D1A5F6900988A64 /* btn_changepatient.png */; };
+		0D1FC07B1D1A5F6900988A64 /* btn_changedate.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC07A1D1A5F6900988A64 /* btn_changedate.png */; };
 		0D1FC07D1D1A6F4A00988A64 /* icon_检测中.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC07C1D1A6F4A00988A64 /* icon_检测中.png */; };
 		0D1FC0801D1A6F5400988A64 /* icon_请假.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC07E1D1A6F5400988A64 /* icon_请假.png */; };
 		0D1FC0811D1A6F5400988A64 /* icon_异常.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC07F1D1A6F5400988A64 /* icon_异常.png */; };
@@ -32,7 +41,6 @@
 		0D1FC0B61D1F863200988A64 /* AccountSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0B51D1F863200988A64 /* AccountSettingViewModel.swift */; };
 		0D1FC0BA1D1F8A5B00988A64 /* ModifyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0B91D1F8A5B00988A64 /* ModifyAccountController.swift */; };
 		0D1FC0BC1D1F8A5F00988A64 /* ModifyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0BB1D1F8A5F00988A64 /* ModifyAccountViewModel.swift */; };
-		0D2C49161CC8C4C1006D3CF5 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2C49151CC8C4C1006D3CF5 /* AlarmTableViewCell.swift */; };
 		0D2C49181CC8C572006D3CF5 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2C49171CC8C572006D3CF5 /* AlarmViewModel.swift */; };
 		0D336D0E1C92596D0049883F /* RemoteNoticeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */; };
 		0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */; };
@@ -97,6 +105,8 @@
 		0D6898EF1D17DEE40087A0FE /* ChartScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6898EE1D17DEE40087A0FE /* ChartScrollView.swift */; };
 		0D6898F41D190AAA0087A0FE /* STLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6898F11D190AAA0087A0FE /* STLoopProgressView.m */; };
 		0D6898F51D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6898F31D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.m */; };
+		0D6D6CBD1D212942005CB9D2 /* RRTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6D6CBC1D212941005CB9D2 /* RRTabViewController.swift */; };
+		0D6D6CC11D212985005CB9D2 /* RRTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6D6CC01D212985005CB9D2 /* RRTabViewModel.swift */; };
 		0D79EE0B1CB658B500B9DA5F /* AlarmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE0A1CB658B500B9DA5F /* AlarmList.swift */; };
 		0D79EE0D1CB6594000B9DA5F /* AlarmInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE0C1CB6593F00B9DA5F /* AlarmInfo.swift */; };
 		0D79EE0F1CB6597A00B9DA5F /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE0E1CB6597A00B9DA5F /* BaseViewModel.swift */; };
@@ -131,17 +141,14 @@
 		0DC2284D1C212F0E00AF4737 /* PlistHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */; };
 		0DC228571C224DD800AF4737 /* IAlarmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228561C224DD800AF4737 /* IAlarmHelper.swift */; };
 		0DCC7ABD1C34C71700CC2498 /* RealTimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */; };
-		0DD1D1611C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1D15F1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m */; };
 		0DDA44191CC4850300B0DF51 /* ShowProtocolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA44181CC4850300B0DF51 /* ShowProtocolViewController.swift */; };
 		0DDA44251CC5D81E00B0DF51 /* ShowTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA44241CC5D81E00B0DF51 /* ShowTipsViewController.swift */; };
 		0DDA44291CC5D85000B0DF51 /* ShowInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */; };
 		0DEC19001C97DF54007BDF5D /* OpenFireServerInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC18FF1C97DF54007BDF5D /* OpenFireServerInfoHelper.swift */; };
 		0DF49A3A1CD0653E0096BE5E /* AlarmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF49A391CD0653E0096BE5E /* AlarmView.xib */; };
-		0DF49A3E1CD088110096BE5E /* alarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF49A3D1CD088110096BE5E /* alarmCell.xib */; };
 		0DF6BD821C59AB26007BF0A9 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6BD811C59AB26007BF0A9 /* DateFormatterHelper.swift */; };
 		2C0DC3C71BF9A20F0048BEEA /* IEmailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */; };
 		2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28CA131BE87D3D000C46C4 /* ServerResult.swift */; };
-		2C34482C1BF2D93A0068BD74 /* BlueButtonForPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */; };
 		2CB427AB1BF9B11A00BF7E15 /* IEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */; };
 		3A2158771BEC8D580089CC01 /* IBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2158761BEC8D580089CC01 /* IBaseViewController.swift */; };
 		3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262DE1BB912180002687B /* OSSExceptionHelper.m */; };
@@ -164,11 +171,6 @@
 		3A4CD3FD1BA80852002C8A1A /* BaseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CD3FC1BA80852002C8A1A /* BaseMessage.swift */; };
 		3A4CD3FF1BA808C1002C8A1A /* XmppMsgHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CD3FE1BA808C1002C8A1A /* XmppMsgHelper.swift */; };
 		3A4D17FF1BAFE33C00E0B862 /* EMServiceException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */; };
-		3A881B621BFC1BC1005F4D07 /* BedPatientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A881B611BFC1BC1005F4D07 /* BedPatientCell.xib */; };
-		3A881B681BFC1FA3005F4D07 /* BedPatientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A881B671BFC1FA3005F4D07 /* BedPatientCell.swift */; };
-		3A91B3601BFB19E800DB3514 /* CommonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A91B35F1BFB19E800DB3514 /* CommonTableView.swift */; };
-		3A91B3621BFB1D1C00DB3514 /* PartTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A91B3611BFB1D1C00DB3514 /* PartTableCell.xib */; };
-		3A91B3661BFB251700DB3514 /* PartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A91B3651BFB251700DB3514 /* PartTableViewCell.swift */; };
 		3A91F0971BF0475400C470D4 /* arrow_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F07B1BF0475400C470D4 /* arrow_left.png */; };
 		3A91F0981BF0475400C470D4 /* arrow_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F07C1BF0475400C470D4 /* arrow_left@2x.png */; };
 		3A91F0991BF0475400C470D4 /* arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F07D1BF0475400C470D4 /* arrow_right.png */; };
@@ -197,7 +199,6 @@
 		3A91F0B01BF0475400C470D4 /* THDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A91F0961BF0475400C470D4 /* THDatePickerViewController.xib */; };
 		3A91F0B31BF066F500C470D4 /* THDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A91F0B21BF066F500C470D4 /* THDate.swift */; };
 		3AA3161D1BD0DD8500FC3C40 /* sleepcare.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AA3161C1BD0DD8500FC3C40 /* sleepcare.plist */; };
-		3AB3CB211BD762FE0067F9D4 /* MyPatientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3CB141BD762FE0067F9D4 /* MyPatientsTableViewCell.swift */; };
 		3AB3CB271BD763690067F9D4 /* BackgroundCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3CB261BD763690067F9D4 /* BackgroundCommon.swift */; };
 		3AB43E781BD4E17B005023D3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E771BD4E17B005023D3 /* Date.swift */; };
 		3AB43E8A1BD4E1B9005023D3 /* BizDayRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E7C1BD4E1B9005023D3 /* BizDayRule.swift */; };
@@ -227,8 +228,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D1ADE421D1F9F1B00DC58FF /* AddDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDeviceViewController.swift; sourceTree = "<group>"; };
+		0D1ADE461D1FA20A00DC58FF /* ConfirmPatientInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPatientInfoController.swift; sourceTree = "<group>"; };
+		0D1ADE481D1FC06200DC58FF /* PatientInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientInfoViewModel.swift; sourceTree = "<group>"; };
+		0D1ADE4C1D1FC63700DC58FF /* MyDeviceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDeviceViewModel.swift; sourceTree = "<group>"; };
+		0D1ADE4E1D20BE1500DC58FF /* WeekReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekReportViewModel.swift; sourceTree = "<group>"; };
+		0D1E18071D221864004B7BFD /* SleepTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepTabViewController.swift; sourceTree = "<group>"; };
+		0D1E180B1D23931F004B7BFD /* IEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEmailViewController.swift; sourceTree = "<group>"; };
+		0D1E180D1D2396AE004B7BFD /* icon_email框.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_email框.png"; sourceTree = "<group>"; };
+		0D1E180F1D239EE1004B7BFD /* SleepTabViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepTabViewModel.swift; sourceTree = "<group>"; };
 		0D1FC0781D1A344D00988A64 /* HRTabViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRTabViewModel.swift; sourceTree = "<group>"; };
-		0D1FC07A1D1A5F6900988A64 /* btn_changepatient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_changepatient.png; sourceTree = "<group>"; };
+		0D1FC07A1D1A5F6900988A64 /* btn_changedate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_changedate.png; sourceTree = "<group>"; };
 		0D1FC07C1D1A6F4A00988A64 /* icon_检测中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_检测中.png"; sourceTree = "<group>"; };
 		0D1FC07E1D1A6F5400988A64 /* icon_请假.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_请假.png"; sourceTree = "<group>"; };
 		0D1FC07F1D1A6F5400988A64 /* icon_异常.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_异常.png"; sourceTree = "<group>"; };
@@ -251,7 +261,6 @@
 		0D1FC0B51D1F863200988A64 /* AccountSettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingViewModel.swift; sourceTree = "<group>"; };
 		0D1FC0B91D1F8A5B00988A64 /* ModifyAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyAccountController.swift; sourceTree = "<group>"; };
 		0D1FC0BB1D1F8A5F00988A64 /* ModifyAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyAccountViewModel.swift; sourceTree = "<group>"; };
-		0D2C49151CC8C4C1006D3CF5 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		0D2C49171CC8C572006D3CF5 /* AlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
 		0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNoticeHelper.swift; sourceTree = "<group>"; };
 		0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHelper.swift; sourceTree = "<group>"; };
@@ -318,6 +327,8 @@
 		0D6898F11D190AAA0087A0FE /* STLoopProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLoopProgressView.m; sourceTree = "<group>"; };
 		0D6898F21D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "STLoopProgressView+BaseConfiguration.h"; sourceTree = "<group>"; };
 		0D6898F31D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "STLoopProgressView+BaseConfiguration.m"; sourceTree = "<group>"; };
+		0D6D6CBC1D212941005CB9D2 /* RRTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRTabViewController.swift; sourceTree = "<group>"; };
+		0D6D6CC01D212985005CB9D2 /* RRTabViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRTabViewModel.swift; sourceTree = "<group>"; };
 		0D79EE0A1CB658B500B9DA5F /* AlarmList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmList.swift; sourceTree = "<group>"; };
 		0D79EE0C1CB6593F00B9DA5F /* AlarmInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmInfo.swift; sourceTree = "<group>"; };
 		0D79EE0E1CB6597A00B9DA5F /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -355,19 +366,14 @@
 		0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistHelper.swift; sourceTree = "<group>"; };
 		0DC228561C224DD800AF4737 /* IAlarmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmHelper.swift; sourceTree = "<group>"; };
 		0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeHelper.swift; sourceTree = "<group>"; };
-		0DD1D15E1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCMoreOptionTableViewCell.h; sourceTree = "<group>"; };
-		0DD1D15F1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCMoreOptionTableViewCell.m; sourceTree = "<group>"; };
-		0DD1D1631C292AB100C8FEE3 /* MSCMoreOptionTableViewCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSCMoreOptionTableViewCellDelegate.h; sourceTree = "<group>"; };
 		0DDA44181CC4850300B0DF51 /* ShowProtocolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowProtocolViewController.swift; sourceTree = "<group>"; };
 		0DDA44241CC5D81E00B0DF51 /* ShowTipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTipsViewController.swift; sourceTree = "<group>"; };
 		0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowInfoViewController.swift; sourceTree = "<group>"; };
 		0DEC18FF1C97DF54007BDF5D /* OpenFireServerInfoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenFireServerInfoHelper.swift; sourceTree = "<group>"; };
 		0DF49A391CD0653E0096BE5E /* AlarmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmView.xib; sourceTree = "<group>"; };
-		0DF49A3D1CD088110096BE5E /* alarmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = alarmCell.xib; sourceTree = "<group>"; };
 		0DF6BD811C59AB26007BF0A9 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IEmailView.xib; sourceTree = "<group>"; };
 		2C28CA131BE87D3D000C46C4 /* ServerResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResult.swift; sourceTree = "<group>"; };
-		2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueButtonForPhone.swift; sourceTree = "<group>"; };
 		2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEmailViewModel.swift; sourceTree = "<group>"; };
 		2CB435331C06A6A9000751D1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		3A2158761BEC8D580089CC01 /* IBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBaseViewController.swift; sourceTree = "<group>"; };
@@ -398,11 +404,6 @@
 		3A4CD3FC1BA80852002C8A1A /* BaseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessage.swift; sourceTree = "<group>"; };
 		3A4CD3FE1BA808C1002C8A1A /* XmppMsgHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmppMsgHelper.swift; sourceTree = "<group>"; };
 		3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMServiceException.swift; sourceTree = "<group>"; };
-		3A881B611BFC1BC1005F4D07 /* BedPatientCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BedPatientCell.xib; sourceTree = "<group>"; };
-		3A881B671BFC1FA3005F4D07 /* BedPatientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BedPatientCell.swift; sourceTree = "<group>"; };
-		3A91B35F1BFB19E800DB3514 /* CommonTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTableView.swift; sourceTree = "<group>"; };
-		3A91B3611BFB1D1C00DB3514 /* PartTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartTableCell.xib; sourceTree = "<group>"; };
-		3A91B3651BFB251700DB3514 /* PartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartTableViewCell.swift; sourceTree = "<group>"; };
 		3A91F07B1BF0475400C470D4 /* arrow_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_left.png; sourceTree = "<group>"; };
 		3A91F07C1BF0475400C470D4 /* arrow_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_left@2x.png"; sourceTree = "<group>"; };
 		3A91F07D1BF0475400C470D4 /* arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_right.png; sourceTree = "<group>"; };
@@ -433,7 +434,6 @@
 		3A91F0961BF0475400C470D4 /* THDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THDatePickerViewController.xib; sourceTree = "<group>"; };
 		3A91F0B21BF066F500C470D4 /* THDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THDate.swift; sourceTree = "<group>"; };
 		3AA3161C1BD0DD8500FC3C40 /* sleepcare.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = sleepcare.plist; path = ../sleepcare.plist; sourceTree = "<group>"; };
-		3AB3CB141BD762FE0067F9D4 /* MyPatientsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPatientsTableViewCell.swift; sourceTree = "<group>"; };
 		3AB3CB261BD763690067F9D4 /* BackgroundCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundCommon.swift; sourceTree = "<group>"; };
 		3AB43E771BD4E17B005023D3 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		3AB43E7C1BD4E1B9005023D3 /* BizDayRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BizDayRule.swift; sourceTree = "<group>"; };
@@ -583,7 +583,7 @@
 				0DB05CD31D13D65E00018538 /* tab_呼吸－2.png */,
 				0DB05CD41D13D65E00018538 /* tab_我的－2.png */,
 				0DB05CD51D13D65E00018538 /* tab_睡眠－2.png */,
-				0D1FC07A1D1A5F6900988A64 /* btn_changepatient.png */,
+				0D1FC07A1D1A5F6900988A64 /* btn_changedate.png */,
 				0D1FC07C1D1A6F4A00988A64 /* icon_检测中.png */,
 				0D1FC07E1D1A6F5400988A64 /* icon_请假.png */,
 				0D1FC07F1D1A6F5400988A64 /* icon_异常.png */,
@@ -642,6 +642,7 @@
 			isa = PBXGroup;
 			children = (
 				0DB05CF61D13FB1B00018538 /* icon_breath.png */,
+				0D1E180D1D2396AE004B7BFD /* icon_email框.png */,
 				0DB05CFB1D13FB2300018538 /* btn_email.png */,
 				0DB05CF71D13FB1B00018538 /* icon_heart.png */,
 			);
@@ -673,16 +674,6 @@
 			name = circleView;
 			sourceTree = "<group>";
 		};
-		0DD1D15D1C29279A00C8FEE3 /* MSCMoreOptionTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				0DD1D15E1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.h */,
-				0DD1D1631C292AB100C8FEE3 /* MSCMoreOptionTableViewCellDelegate.h */,
-				0DD1D15F1C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m */,
-			);
-			name = MSCMoreOptionTableViewCell;
-			sourceTree = "<group>";
-		};
 		3A28CA9F1BEC4A27007D9A3A /* iphone */ = {
 			isa = PBXGroup;
 			children = (
@@ -698,15 +689,8 @@
 			children = (
 				0DB05D0F1D14585F00018538 /* circleView */,
 				0DB05CFD1D1432BF00018538 /* chartView */,
-				0DD1D15D1C29279A00C8FEE3 /* MSCMoreOptionTableViewCell */,
-				3A91B3671BFB259400DB3514 /* ChoosePatient */,
-				3A91B35F1BFB19E800DB3514 /* CommonTableView.swift */,
-				3AB3CB141BD762FE0067F9D4 /* MyPatientsTableViewCell.swift */,
 				3AC7B0FF1BF45BB8002DE94C /* PopDownList */,
 				3A91F0B11BF066C400C470D4 /* Date */,
-				2C34482B1BF2D93A0068BD74 /* BlueButtonForPhone.swift */,
-				0D2C49151CC8C4C1006D3CF5 /* AlarmTableViewCell.swift */,
-				0DF49A3D1CD088110096BE5E /* alarmCell.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -796,9 +780,15 @@
 				3AC7B0F51BF45575002DE94C /* IRegistViewModel.swift */,
 				613FC4D91D17B87900FCCEB6 /* EquipmentViewModel.swift */,
 				0D1FC0781D1A344D00988A64 /* HRTabViewModel.swift */,
+				0D6D6CC01D212985005CB9D2 /* RRTabViewModel.swift */,
+				0D1E180F1D239EE1004B7BFD /* SleepTabViewModel.swift */,
+				0D1ADE4C1D1FC63700DC58FF /* MyDeviceViewModel.swift */,
+				0D1ADE481D1FC06200DC58FF /* PatientInfoViewModel.swift */,
 				0D1FC0B51D1F863200988A64 /* AccountSettingViewModel.swift */,
 				0D1FC0BB1D1F8A5F00988A64 /* ModifyAccountViewModel.swift */,
-				3AC7B0E21BF42E4B002DE94C /* iphone */,
+				0D2C49171CC8C572006D3CF5 /* AlarmViewModel.swift */,
+				0D1ADE4E1D20BE1500DC58FF /* WeekReportViewModel.swift */,
+				2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -823,14 +813,19 @@
 				0D3D058A1CFEDEED00476819 /* EquipmentViewController.swift */,
 				0D3D058C1CFEDEED00476819 /* RootTabbarController.swift */,
 				0DB05CD91D13DA7600018538 /* HRTabViewController.swift */,
+				0D6D6CBC1D212941005CB9D2 /* RRTabViewController.swift */,
+				0D1E18071D221864004B7BFD /* SleepTabViewController.swift */,
 				0DB05CE51D13F0D900018538 /* MeTabViewController.swift */,
 				0DB05CE71D13F7AC00018538 /* MyDeviceViewController.swift */,
-				0DB05CEB1D13FA2D00018538 /* AlarmInfoViewController.swift */,
-				0DB05D071D14332B00018538 /* SleepReportViewController.swift */,
+				0D1ADE421D1F9F1B00DC58FF /* AddDeviceViewController.swift */,
+				0D1ADE461D1FA20A00DC58FF /* ConfirmPatientInfoController.swift */,
 				0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */,
 				0DDA44241CC5D81E00B0DF51 /* ShowTipsViewController.swift */,
 				0D1FC0AF1D1EC7AF00988A64 /* AccountSettingController.swift */,
 				0D1FC0B91D1F8A5B00988A64 /* ModifyAccountController.swift */,
+				0DB05CEB1D13FA2D00018538 /* AlarmInfoViewController.swift */,
+				0DB05D071D14332B00018538 /* SleepReportViewController.swift */,
+				0D1E180B1D23931F004B7BFD /* IEmailViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -893,17 +888,6 @@
 				3A4D17FE1BAFE33C00E0B862 /* EMServiceException.swift */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		3A91B3671BFB259400DB3514 /* ChoosePatient */ = {
-			isa = PBXGroup;
-			children = (
-				3A91B3651BFB251700DB3514 /* PartTableViewCell.swift */,
-				3A91B3611BFB1D1C00DB3514 /* PartTableCell.xib */,
-				3A881B611BFC1BC1005F4D07 /* BedPatientCell.xib */,
-				3A881B671BFC1FA3005F4D07 /* BedPatientCell.swift */,
-			);
-			name = ChoosePatient;
 			sourceTree = "<group>";
 		};
 		3A91F07A1BF0475400C470D4 /* Images */ = {
@@ -971,15 +955,6 @@
 				3AB43E771BD4E17B005023D3 /* Date.swift */,
 			);
 			name = Date;
-			sourceTree = "<group>";
-		};
-		3AC7B0E21BF42E4B002DE94C /* iphone */ = {
-			isa = PBXGroup;
-			children = (
-				2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */,
-				0D2C49171CC8C572006D3CF5 /* AlarmViewModel.swift */,
-			);
-			name = iphone;
 			sourceTree = "<group>";
 		};
 		3AC7B0FF1BF45BB8002DE94C /* PopDownList */ = {
@@ -1104,7 +1079,7 @@
 				3A91F09F1BF0475400C470D4 /* calendar_littledot.png in Resources */,
 				0DB05CD81D13D65E00018538 /* tab_睡眠－2.png in Resources */,
 				2C0DC3C71BF9A20F0048BEEA /* IEmailView.xib in Resources */,
-				0D1FC07B1D1A5F6900988A64 /* btn_changepatient.png in Resources */,
+				0D1FC07B1D1A5F6900988A64 /* btn_changedate.png in Resources */,
 				0DB05CFA1D13FB1B00018538 /* icon_heart.png in Resources */,
 				0D3EB0E11D1001E500928430 /* icon_blue circle.png in Resources */,
 				0D1FC0A61D1CE01600988A64 /* icon_获取验证码.png in Resources */,
@@ -1124,15 +1099,14 @@
 				0D3EB0921D0FA75800928430 /* 登录背景.png in Resources */,
 				0D3EB0FC1D10E8DF00928430 /* icon_nurse.png in Resources */,
 				0D3EB0BC1D0FE29300928430 /* icon_female_choose.png in Resources */,
+				0D1E180E1D2396AE004B7BFD /* icon_email框.png in Resources */,
 				0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */,
 				3A91F0A31BF0475400C470D4 /* dialog_cancel.png in Resources */,
 				0D1FC07D1D1A6F4A00988A64 /* icon_检测中.png in Resources */,
 				3A91F0A51BF0475400C470D4 /* dialog_clear-disabled.png in Resources */,
 				3A91F0A81BF0475400C470D4 /* dialog_clear@2x.png in Resources */,
 				0D3EB0D91D0FF84600928430 /* icon_onbed.png in Resources */,
-				3A91B3621BFB1D1C00DB3514 /* PartTableCell.xib in Resources */,
 				3A91F0981BF0475400C470D4 /* arrow_left@2x.png in Resources */,
-				0DF49A3E1CD088110096BE5E /* alarmCell.xib in Resources */,
 				3A91F0A11BF0475400C470D4 /* calendar_ok-disabled.png in Resources */,
 				3A91F0991BF0475400C470D4 /* arrow_right.png in Resources */,
 				0D3EB0A61D0FC6BA00928430 /* icon_logo_1.png in Resources */,
@@ -1156,7 +1130,6 @@
 				0DB05CCC1D13D62700018538 /* tab_心率－2.png in Resources */,
 				0DB05CF91D13FB1B00018538 /* icon_breath.png in Resources */,
 				0D3EB0CA1D0FEC7600928430 /* tab_心率－1.png in Resources */,
-				3A881B621BFC1BC1005F4D07 /* BedPatientCell.xib in Resources */,
 				0D3EB0C11D0FE63600928430 /* icon_figure.png in Resources */,
 				3A91F0A41BF0475400C470D4 /* dialog_cancel@2x.png in Resources */,
 				0D3EB0E81D1034A300928430 /* btn_右键.png in Resources */,
@@ -1301,17 +1274,19 @@
 				0D1FC0BA1D1F8A5B00988A64 /* ModifyAccountController.swift in Sources */,
 				0DB05D051D1432D000018538 /* ChatLineView.m in Sources */,
 				0D3D05941CFFC30D00476819 /* UpdateHelper.swift in Sources */,
+				0D1ADE431D1F9F1B00DC58FF /* AddDeviceViewController.swift in Sources */,
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
-				3AB3CB211BD762FE0067F9D4 /* MyPatientsTableViewCell.swift in Sources */,
 				3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */,
 				0D1FC0851D1A72B500988A64 /* SleepCareForSingle.swift in Sources */,
 				2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */,
 				3A91F0AD1BF0475400C470D4 /* THDateDay.m in Sources */,
+				0D1E180C1D23931F004B7BFD /* IEmailViewController.swift in Sources */,
 				0D336D0E1C92596D0049883F /* RemoteNoticeHelper.swift in Sources */,
 				0DEC19001C97DF54007BDF5D /* OpenFireServerInfoHelper.swift in Sources */,
 				0D1FC0901D1B79DD00988A64 /* RRRange.swift in Sources */,
 				3AB43E8A1BD4E1B9005023D3 /* BizDayRule.swift in Sources */,
 				3AB43E781BD4E17B005023D3 /* Date.swift in Sources */,
+				0D1ADE4D1D1FC63700DC58FF /* MyDeviceViewModel.swift in Sources */,
 				0D9AE0791C8E7FB800625D5E /* Const.swift in Sources */,
 				0D1FC0791D1A344D00988A64 /* HRTabViewModel.swift in Sources */,
 				0DB05CEC1D13FA2D00018538 /* AlarmInfoViewController.swift in Sources */,
@@ -1320,28 +1295,29 @@
 				0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */,
 				3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */,
 				3AC7B0F61BF45575002DE94C /* IRegistViewModel.swift in Sources */,
+				0D6D6CC11D212985005CB9D2 /* RRTabViewModel.swift in Sources */,
+				0D1E18101D239EE1004B7BFD /* SleepTabViewModel.swift in Sources */,
 				3A33EF851BAA56D700D82A4D /* MessageSubject.swift in Sources */,
 				0DB05D081D14332B00018538 /* SleepReportViewController.swift in Sources */,
 				3A376E421BABB3B700D70953 /* EMString.swift in Sources */,
-				3A881B681BFC1FA3005F4D07 /* BedPatientCell.swift in Sources */,
 				613FC4DA1D17B87900FCCEB6 /* EquipmentViewModel.swift in Sources */,
 				3A4CD3FA1BA80536002C8A1A /* CommonHelper.swift in Sources */,
 				0D1FC0921D1B7BF300988A64 /* SleepQualityReport.swift in Sources */,
+				0D1E18081D221864004B7BFD /* SleepTabViewController.swift in Sources */,
 				0DC2284D1C212F0E00AF4737 /* PlistHelper.swift in Sources */,
 				3A3EF7C01BDE05A800CDDAED /* TodoItem.swift in Sources */,
+				0D1ADE4F1D20BE1500DC58FF /* WeekReportViewModel.swift in Sources */,
 				3AB43E8C1BD4E1B9005023D3 /* DateHelpers.swift in Sources */,
 				3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */,
+				0D1ADE491D1FC06200DC58FF /* PatientInfoViewModel.swift in Sources */,
 				0DB05CE61D13F0D900018538 /* MeTabViewController.swift in Sources */,
 				0DB05CE81D13F7AC00018538 /* MyDeviceViewController.swift in Sources */,
 				0D6898F51D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.m in Sources */,
 				0DB05CDA1D13DA7600018538 /* HRTabViewController.swift in Sources */,
-				3A91B3601BFB19E800DB3514 /* CommonTableView.swift in Sources */,
 				0DCC7ABD1C34C71700CC2498 /* RealTimeHelper.swift in Sources */,
 				0D6898F41D190AAA0087A0FE /* STLoopProgressView.m in Sources */,
 				0D3D059C1D05231B00476819 /* RootLoginViewController.swift in Sources */,
-				3A91B3661BFB251700DB3514 /* PartTableViewCell.swift in Sources */,
 				2CB427AB1BF9B11A00BF7E15 /* IEmailViewModel.swift in Sources */,
-				2C34482C1BF2D93A0068BD74 /* BlueButtonForPhone.swift in Sources */,
 				3AB43E8D1BD4E1B9005023D3 /* DayCounter.swift in Sources */,
 				3A91F0B31BF066F500C470D4 /* THDate.swift in Sources */,
 				0D1FC0B01D1EC7AF00988A64 /* AccountSettingController.swift in Sources */,
@@ -1354,16 +1330,16 @@
 				3AC7B1091BF45CB9002DE94C /* ZSYPopoverListView.m in Sources */,
 				0D3D058F1CFEDEED00476819 /* EquipmentViewController.swift in Sources */,
 				3A35AB651BCCE8B000ED3293 /* SweetAlert.swift in Sources */,
-				0DD1D1611C2927BC00C8FEE3 /* MSCMoreOptionTableViewCell.m in Sources */,
 				3A3EF7C11BDE05A800CDDAED /* TodoList.swift in Sources */,
 				3A2158771BEC8D580089CC01 /* IBaseViewController.swift in Sources */,
 				0DC228571C224DD800AF4737 /* IAlarmHelper.swift in Sources */,
+				0D6D6CBD1D212942005CB9D2 /* RRTabViewController.swift in Sources */,
 				3AB3CB271BD763690067F9D4 /* BackgroundCommon.swift in Sources */,
 				0D2C49181CC8C572006D3CF5 /* AlarmViewModel.swift in Sources */,
 				3AC7B0E41BF42EFB002DE94C /* IloginViewModel.swift in Sources */,
 				3AC7B10B1BF45D00002DE94C /* PopDownListForIphone.swift in Sources */,
+				0D1ADE471D1FA20A00DC58FF /* ConfirmPatientInfoController.swift in Sources */,
 				0DB05D041D1432D000018538 /* ChartView.m in Sources */,
-				0D2C49161CC8C4C1006D3CF5 /* AlarmTableViewCell.swift in Sources */,
 				0D3D05921CFEDEED00476819 /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

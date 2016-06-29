@@ -11,6 +11,8 @@ import UIKit
 class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var memuTable: UITableView!
     
+    @IBOutlet weak var meTabber: UITabBarItem!
+    
     var imageList:Array<Array<String>>!
     var titleList:Array<Array<String>>!
     
@@ -21,8 +23,20 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
        
     override func viewWillAppear(animated: Bool) {
-//        self.hiddenalarm = !self.hiddenalarm
+        let alarmcount:Int = IAlarmHelper.GetAlarmInstance().WarningList.count
+        if alarmcount > 0{
+               self.hiddenalarm = false
+                self.meTabber.badgeValue = String(alarmcount)
+        }
+        else{
+             self.meTabber.badgeValue = nil
+              self.hiddenalarm = true
+        }
+
 //        self.memuTable.reloadData()
+        self.memuTable.reloadRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 1)], withRowAnimation: UITableViewRowAnimation.None)
+        
+      currentController = self
     }
     
     
@@ -177,7 +191,10 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
             self.performSegueWithIdentifier("equipmentinfo", sender: self)
             }
             else if indexPath.row == 1{
-            self.performSegueWithIdentifier("alarminfo", sender: self)
+                let nextController = AlarmInfoViewController(nibName:"AlarmView", bundle:nil)
+                nextController.parentController = self
+                self.navigationController?.pushViewController(nextController, animated: true)
+         //   self.performSegueWithIdentifier("alarminfo", sender: self)
             }
             else{
             self.performSegueWithIdentifier("weekreportinfo", sender: self)

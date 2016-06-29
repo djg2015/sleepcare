@@ -13,8 +13,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     private static var alarmInstance: IAlarmHelper? = nil
     private var IsOpen:Bool = false
     private var _wariningCaches:Array<AlarmInfo>!
-    var alarmpicdelegate:SetAlarmPicDelegate!
-    var tabbarBadgeDelegate:SetTabbarBadgeDelegate!
+//var alarmpicdelegate:SetAlarmPicDelegate!
+//    var tabbarBadgeDelegate:SetTabbarBadgeDelegate!
     var AlarmAlert = SweetAlert(contentHeight: 300)
     //报警弹窗是否打开
     var IsAlarmAlertOpened:Bool {
@@ -120,9 +120,9 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         try {
             ({
                 var session = SessionForSingle.GetSession()
-                var curDateString = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
+             //   var curDateString = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
                
-                var alarmList:AlarmList = SleepCareForSingle().GetSingleAlarmByLoginUser(session!.User!.LoginName,schemaCode:"",alarmTimeBegin:"2016-01-01",alarmTimeEnd:curDateString,transferTypeCode:"001",from:nil,max:nil)
+                var alarmList:AlarmList = SleepCareForSingle().GetSingleAlarmByLoginUser(session!.User!.LoginName,schemaCode:"",alarmTimeBegin:"",alarmTimeEnd:"",transferTypeCode:"001",from:nil,max:nil)
                 
                 var alarmInfo:AlarmInfo
                 var tempWarningList:Array<WarningInfo>=[]
@@ -130,7 +130,19 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                 for(var i=0;i<alarmList.alarmInfoList.count;i++){
                     
                     alarmInfo = alarmList.alarmInfoList[i]
-                    let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,partName: alarmInfo.PartName,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmDate: alarmInfo.AlarmTime)
+                    let usercode = alarmInfo.UserCode
+                    //根据session 里equipmentlist找出usercode对应的equipmentid
+                    var equipmentid = ""
+                    let equipmentList:Array<EquipmentInfo> = SessionForSingle.GetSession()!.EquipmentList
+                    for equipment in equipmentList{
+                        if equipment.BedUserCode == usercode{
+                        equipmentid = equipment.EquipmentID
+                            break
+                        }
+                    }
+                    
+                    let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,userCode: alarmInfo.UserCode,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmTime: alarmInfo.AlarmTime,equipmentID:equipmentid,sex:alarmInfo.UserSex)
+                    
                     tempWarningList.append(warningInfo)
                     tempCodes.append(alarmInfo.AlarmCode)
                 }
@@ -147,14 +159,14 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                 }
             )}
         
-        
-        if self.alarmpicdelegate != nil{
-            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
-        }
-        if self.tabbarBadgeDelegate != nil{
-            print(self.Warningcouts)
-            self.tabbarBadgeDelegate.SetTabbarBadge(self.Warningcouts)
-        }
+//        
+//        if self.alarmpicdelegate != nil{
+//            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
+//        }
+//        if self.tabbarBadgeDelegate != nil{
+//            print(self.Warningcouts)
+//            self.tabbarBadgeDelegate.SetTabbarBadge(self.Warningcouts)
+//        }
         //外部图标上的badge number
         TodoList.sharedInstance.SetBadgeNumber(self.Warningcouts)
     }
@@ -185,12 +197,12 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     }
     
     func RunAlarmThread(){
-        
+        if AlarmNoticeFlag{
         var unread = self.WarningList.filter({$0.IsRead == false})
         if unread.count>0{
             self.showWariningNotification()
         }
-        
+        }
     }
     
     //实时报警处理线程
@@ -205,7 +217,17 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             let alarmInfo:AlarmInfo = self._wariningCaches[0] as AlarmInfo
             //deadline为报警信息收到后,立刻
             let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.SchemaContent, UUID: alarmInfo.AlarmCode)
-            let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,partName: alarmInfo.PartName,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmDate: alarmInfo.AlarmTime)
+            
+            //根据session 里equipmentlist找出usercode对应的equipmentid
+            var equipmentid = ""
+            let equipmentList:Array<EquipmentInfo> = SessionForSingle.GetSession()!.EquipmentList
+            for equipment in equipmentList{
+                if equipment.BedUserCode == alarmInfo.UserCode{
+                    equipmentid = equipment.EquipmentID
+                    break
+                }
+            }
+            let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,userCode: alarmInfo.UserCode,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmTime: alarmInfo.AlarmTime,equipmentID:equipmentid,sex:alarmInfo.UserSex)
             self.WarningList.append(warningInfo)
             
             //同意接收通知，才往todolist里加
@@ -215,13 +237,13 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         }
         self.Warningcouts = self.WarningList.count
         
-        if self.alarmpicdelegate != nil{
-            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
-        }
+//        if self.alarmpicdelegate != nil{
+//            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
+//        }
         
-        if self.tabbarBadgeDelegate != nil{
-            self.tabbarBadgeDelegate.SetTabbarBadge(self.Warningcouts)
-        }
+//        if self.tabbarBadgeDelegate != nil{
+//            self.tabbarBadgeDelegate.SetTabbarBadge(self.Warningcouts)
+//        }
     }
     
     
@@ -264,35 +286,37 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     //--------------------------------报警弹窗和页面跳转---------------------------------
     //点击远程消息通知后的操作：若已登录且当前不是报警页面，则直接跳转报警信息页面
     func showWariningAction(){
-//        if currentController != nil{
-//        let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
-//        nextController.parentController = currentController
-//        currentController.presentViewController(nextController, animated: true, completion: nil)
-//        }
+        if currentController != nil{
+        let nextController = AlarmInfoViewController(nibName:"AlarmView", bundle:nil)
+        nextController.parentController = currentController
+        currentController.navigationController?.pushViewController(nextController, animated: true)
+        }
     }
     
     //当前不是弹窗页面且没有打开的弹窗，则弹窗提示是否查看报警
     func showWariningNotification(){
-        if((!AlarmViewTag && !self.AlarmAlert.IsOpenFlag) && LOGINFLAG){
-            
+        if(LOGINFLAG && currentController.navigationController != nil){
+         let flag = currentController.navigationController!.topViewController.isKindOfClass(AlarmInfoViewController)
+          if flag{
             self.AlarmAlert.showAlert(ShowMessage(MessageEnum.CheckAlarmInfo), subTitle:"提示", style: AlertStyle.None,buttonTitle:"忽略",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"立即查看", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ShowAlarmInfo)
+            }
         }
     }
     //弹窗按钮的具体操作
     func ShowAlarmInfo(isOtherButton: Bool){
-//        //点击“立即查看”,则跳转alarmview页面
-//        if !isOtherButton{
-//            let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
-//            nextController.parentController = currentController
-//            currentController.presentViewController(nextController, animated: true, completion: nil)
-//            
-//        }
-//        else{
-//            for warning in self.WarningList{
-//                warning.IsRead = true
-//            }
-//        }
-//        
+        //点击“立即查看”,则跳转alarmview页面
+        if !isOtherButton{
+            let nextController = AlarmInfoViewController(nibName:"AlarmView", bundle:nil)
+            nextController.parentController = currentController
+            currentController.navigationController?.pushViewController(nextController, animated: true)
+            
+        }
+        else{
+            for warning in self.WarningList{
+                warning.IsRead = true
+            }
+        }
+        
     }
     
     func SetReadWarning(codeList:Array<String>){
@@ -378,34 +402,38 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
 }
 
 //------------------------------协议：设置页面上报警数字和图标---------------------------
-//设置”我的“页面报警信息图标
-protocol SetAlarmPicDelegate{
-    func SetAlarmPic(count:Int)
-}
+////设置”我的“页面报警信息图标
+//protocol SetAlarmPicDelegate{
+//    func SetAlarmPic(count:Int)
+//}
 
 
-//设置“我”上的报警数目
-protocol SetTabbarBadgeDelegate{
-    func SetTabbarBadge(count:Int)
-}
+////设置“我”上的报警数目
+//protocol SetTabbarBadgeDelegate{
+//    func SetTabbarBadge(count:Int)
+//}
 
 
 //----------------------------------报警信息类--------------------------------------
 class WarningInfo{
     var AlarmCode:String = ""
     var UserName:String = ""
-    var PartName:String = ""
+    var UserCode:String = ""
+    var Sex:String=""
     var BedNumber:String = ""
     var AlarmContent:String = ""
-    var AlarmDate:String = ""
+    var AlarmTime:String = ""
+    var EquipmentID:String = ""
     var IsRead:Bool = false
-    init(alarmCode:String, userName:String, partName:String,bedNumber:String, alarmContent:String,alarmDate:String){
+    init(alarmCode:String, userName:String,userCode:String,bedNumber:String, alarmContent:String,alarmTime:String,equipmentID:String,sex:String){
         self.AlarmCode = alarmCode
         self.AlarmContent = alarmContent
         self.UserName = userName
+        self.UserCode = userCode
+        self.Sex = sex
         self.BedNumber = bedNumber
-        self.PartName = partName
-        self.AlarmDate = alarmDate
+        self.AlarmTime = alarmTime
+        self.EquipmentID = equipmentID
 
     }
 }

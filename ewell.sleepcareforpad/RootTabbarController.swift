@@ -26,10 +26,10 @@ class RootTabbarController: UITabBarController{
         
     }
     
-    @IBAction func UnwindAlarminfo(unwindsegue:UIStoryboardSegue){
-        
-       self.selectedIndex = 3
-    }
+//    @IBAction func UnwindAlarminfo(unwindsegue:UIStoryboardSegue){
+//        
+//       self.selectedIndex = 3
+//    }
     
     @IBAction func UnwindWeekreport(unwindsegue:UIStoryboardSegue){
         
@@ -51,10 +51,10 @@ class RootTabbarController: UITabBarController{
 
     //每次页面显示时执行。如果curEquipmentCode＝＝nil，默认选择“我”；不为空，选择“心率”
     override func viewWillAppear(animated:Bool) {
-//        if SessionForSingle.GetSession()?.EquipmentList.count == 0{
-//            self.selectedIndex = 3
-//        }
-    self.selectedIndex = 3
+        if SessionForSingle.GetSession()?.EquipmentList.count == 0{
+            self.selectedIndex = 3
+        }
+  //  self.selectedIndex = 3
     }
 
     override func viewDidLoad() {

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IEmailViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target">
             <connections>
-                <outlet property="btnSendEmail" destination="yk3-Ej-LWI" id="ihh-fU-P1K"/>
-                <outlet property="emailView" destination="9WF-lc-qRz" id="WY3-kq-RVz"/>
-                <outlet property="txtEmailAddress" destination="zkc-Bx-2di" id="3Yp-po-p1K"/>
-                <outlet property="view" destination="iN0-l3-epB" id="zKr-ir-Dau"/>
+                <outlet property="btnSendEmail" destination="yk3-Ej-LWI" id="Z3m-Aa-A2q"/>
+                <outlet property="emailView" destination="9WF-lc-qRz" id="Nlp-MA-eT0"/>
+                <outlet property="txtEmailAddress" destination="zkc-Bx-2di" id="Q3W-eL-cAa"/>
+                <outlet property="view" destination="iN0-l3-epB" id="IsM-UH-sAi"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -41,29 +42,31 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmx-JF-gJj" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmx-JF-gJj">
                             <rect key="frame" x="153" y="76" width="58" height="30"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="58" id="IuS-lr-mhb"/>
                                 <constraint firstAttribute="height" constant="30" id="wFo-Nz-d2U"/>
                             </constraints>
-                            <state key="normal" title="取消">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="取消" backgroundImage="icon_email框.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="ClickCancle:" destination="-1" eventType="touchUpInside" id="r9f-P0-y65"/>
+                                <action selector="ClickCancle:" destination="-1" eventType="touchUpInside" id="52S-Dn-KVv"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk3-Ej-LWI" customClass="BlueButtonForPhone" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk3-Ej-LWI">
                             <rect key="frame" x="63" y="76" width="58" height="30"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="58" id="U2s-eY-ZxW"/>
                                 <constraint firstAttribute="height" constant="30" id="nVK-nu-y8G"/>
                             </constraints>
-                            <state key="normal" title="发送">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="发送" backgroundImage="icon_email框.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
                     </subviews>
@@ -89,9 +92,12 @@
                 <constraint firstAttribute="centerX" secondItem="9WF-lc-qRz" secondAttribute="centerX" id="RoS-Fu-vXF"/>
                 <constraint firstAttribute="centerY" secondItem="9WF-lc-qRz" secondAttribute="centerY" id="gNf-x4-c57"/>
             </constraints>
-            <point key="canvasLocation" x="-213" y="58"/>
+            <point key="canvasLocation" x="-245" y="51"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon_email框.png" width="58" height="30"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

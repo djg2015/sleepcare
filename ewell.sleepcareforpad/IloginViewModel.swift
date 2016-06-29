@@ -95,7 +95,7 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
             self.Pwd = temppwd
             
             //自动登录
-             self.Login()
+            self.Login()
         }
             //已注册且本地没有用户名密码的纪录，“记住密码”不选中。等待用户输入后再点击登录
         else if tempisregist == "true"{
@@ -177,51 +177,71 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
                     return
                 }
 
-//                 //获取当前帐户下的用户信息
-//                var loginUser:LoginUser = SleepCareForSingle().SingleLogin(self.Telephone, loginPassword: self.Pwd)
-//                
-//               //给openfire username赋值，＝loginname@server address
-//                let xmppusernamephone = self.Telephone + "@" + GetValueFromPlist("xmppserver","sleepcare.plist")
-//                SetValueIntoPlist("xmppusernamephone", xmppusernamephone)
-//                      
-//                //开启session，若选中记住密码，则在本地纪录登录名，密码
-//                SessionForSingle.SetSession(loginUser)
-//                self.session = SessionForSingle.GetSession()
-//                if self.IsRememberpwd{
-//                SetValueIntoPlist("logintelephonesingle", self.Telephone)
-//                SetValueIntoPlist("loginpwdsingle", self.Pwd)
-//                }
-//                else{
-//                    SetValueIntoPlist("logintelephonesingle", "")
-//                    SetValueIntoPlist("loginpwdsingle", "")
-//                }
-//                
-//                if self.session != nil{
-//                    self.session!.OldPwd = self.Pwd
-//                }
-//                
-//                
-//                   //获取关注的设备列表
-//                var tempEquipmentList:EquipmentList =  SleepCareForSingle().GetEquipmentsByLoginName(self.Telephone)
-//                //    设置session equipmentList
-//                    self.session!.EquipmentList = tempEquipmentList.equipmentList
+                 //获取当前帐户下的用户信息
+                var loginUser:LoginUser = SleepCareForSingle().SingleLogin(self.Telephone, loginPassword: self.Pwd)
+                
+               //给openfire username赋值，＝loginname@server address
+                let xmppusernamephone = self.Telephone + "@" + GetValueFromPlist("xmppserver","sleepcare.plist")
+                SetValueIntoPlist("xmppusernamephone", xmppusernamephone)
+                      
+                //开启session
+                SessionForSingle.SetSession(loginUser)
+                self.session = SessionForSingle.GetSession()
+                
+                if self.session != nil{
+                    self.session!.OldPwd = self.Pwd
+                }
+                
+                
+                   //获取关注的设备列表
+                var tempEquipmentList:EquipmentList =  SleepCareForSingle().GetEquipmentsByLoginName(self.Telephone)
+                    self.session!.EquipmentList = tempEquipmentList.equipmentList
+                
 //                var tempBedUserCodeList:Array<String> = Array<String>()
 //                for equipment in tempEquipmentList.equipmentList{
 //                tempBedUserCodeList.append(equipment.BedUserCode)
 //                }
 //                self.session!.BedUserCodeList = tempBedUserCodeList
-//            
-//                
-//               
-//                //开启报警监测
-//                 LOGIN = true
-//                self.alarmHelper!.BeginWaringAttention()
-//                 //开启远程通知（有token值的情况下）
-//                LOGINFLAG = true
-//                OpenNotice()
-                
 
                 
+               // 获取当前关注的设备；如果只有一个设备，默认选中
+               let localcode = GetValueFromPlist("curPatientCode","sleepcare.plist")
+                let localname = GetValueFromPlist("curPatientName","sleepcare.plist")
+                if (localcode != "" && localname != ""){
+                    self.session!.CurPatientCode = localcode
+                    self.session!.CurPatientName = localname
+                }
+                else if tempEquipmentList.equipmentList.count == 1{
+                    let tempcode = tempEquipmentList.equipmentList[0].BedUserCode
+                     let tempname = tempEquipmentList.equipmentList[0].BedUserName
+                    self.session!.CurPatientCode = tempcode
+                    self.session!.CurPatientName = tempname
+                    SetValueIntoPlist("curPatientCode", tempcode)
+                    SetValueIntoPlist("curPatientName", tempname)
+                    
+                }
+                
+                
+                //开启报警监测
+                 LOGIN = true
+                self.alarmHelper!.BeginWaringAttention()
+                 //开启远程通知（有token值的情况下）
+                LOGINFLAG = true
+                OpenNotice()
+                 
+                
+                //若选中记住密码，则在本地纪录登录名，密码;否则清空
+                if self.IsRememberpwd{
+                    SetValueIntoPlist("logintelephonesingle", self.Telephone)
+                    SetValueIntoPlist("loginpwdsingle", self.Pwd)
+                }
+                else{
+                    SetValueIntoPlist("logintelephonesingle", "")
+                    SetValueIntoPlist("loginpwdsingle", "")
+                    self.Telephone = ""
+                    self.Pwd = ""
+                }
+
                 
                  //跳转主页面
                     if self.controller != nil{

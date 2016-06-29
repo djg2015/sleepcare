@@ -18,7 +18,17 @@ class RootLoginViewController: IBaseViewController,LoginButtonDelegate{
 
    var iloginViewModel:IloginViewModel!
     
-    
+    @IBAction func UnwindLogout(unwindsegue:UIStoryboardSegue){
+        
+                    CloseNotice()
+                    LOGINFLAG = false
+                    IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
+                SetValueIntoPlist("xmppusernamephone", "")
+        
+             //  SessionForSingle.ClearSession()
+                LOGIN = false
+        currentController = nil
+    }
   
     @IBAction func UnwindRegist(unwindsegue:UIStoryboardSegue){
         
@@ -35,7 +45,6 @@ class RootLoginViewController: IBaseViewController,LoginButtonDelegate{
         // Do any additional setup after loading the view.
          rac_settings()
         
- 
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,6 +73,8 @@ class RootLoginViewController: IBaseViewController,LoginButtonDelegate{
         self.telephoneText.rac_textSignal() ~> RAC(self.iloginViewModel, "Telephone")
         self.passwordText.rac_textSignal() ~> RAC(self.iloginViewModel, "Pwd")
          RACObserve(self.iloginViewModel, "IsRememberpwd") ~> RAC(self.rememberPwdBtn, "selected")
+        
+        
     }
 
     func DisableLoginButton() {

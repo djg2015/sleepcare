@@ -13,7 +13,7 @@ class AccountSettingController: UIViewController,UITableViewDataSource,UITableVi
     
     @IBAction func UnwindModifyAccount(unwindsegue:UIStoryboardSegue){
        
-        
+        currentController = self
     }
     
     @IBOutlet weak var logoutBtn:UIButton!
@@ -30,13 +30,16 @@ class AccountSettingController: UIViewController,UITableViewDataSource,UITableVi
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        currentController = self
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         self.accountsettingViewModel = AccountSettingViewModel()
-        self.logoutBtn.rac_command = self.accountsettingViewModel.logoutCommand
+       // self.logoutBtn.rac_command = self.accountsettingViewModel.logoutCommand
         
         self.tableview1.delegate = self
         self.tableview1.dataSource = self
@@ -85,7 +88,7 @@ class AccountSettingController: UIViewController,UITableViewDataSource,UITableVi
             }
             else{
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "switchalarmcell")
-                cell?.textLabel!.text = "报警开关"
+                cell?.textLabel!.text = "报警提示"
                 cell?.textLabel?.font = self.font14
                 var sw = UISwitch()
                 sw.setOn(true, animated: false)

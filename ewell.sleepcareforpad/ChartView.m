@@ -63,13 +63,6 @@
     self.lineChartView.xValueArr = self.valueXList;
 
 
-    
-    // NSArray *valueArr2 = @[@"90000",@"70000",@"50000",@"60000",@"20000",@"50000",@"10000",@"80000",@"70000",@"20000",@"110000",@"130000"];
-    // NSString *valueArr2Year = @"2014";
-    // [self.yearArr addObject:valueArr2Year];
-    //    self.lineChartView.yearArr = @[valueArr1,valueArr2];
-    //    self.lineChartView.valueArr = @[valueArr1,valueArr2];
-//    self.lineChartView.yearArr = self.yearArr;
 
   
     [self addSubview:self.lineChartView];

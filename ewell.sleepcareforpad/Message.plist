@@ -15,7 +15,7 @@
 	<key>6</key>
 	<string>请选择所属养老院/医院！</string>
 	<key>7</key>
-	<string>账号保存成功！</string>
+	<string>账号密码修改成功！</string>
 	<key>8</key>
 	<string>账号注册成功！请继续登录</string>
 	<key>9</key>
@@ -66,5 +66,9 @@
 	<string>修改密码成功！请继续登录</string>
 	<key>32</key>
 	<string>修改密码失败！请再试一次</string>
+	<key>33</key>
+	<string>提交老人信息失败！请再试一次</string>
+	<key>34</key>
+	<string>设备绑定失败！请再试一次</string>
 </dict>
 </plist>

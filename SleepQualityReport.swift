@@ -12,7 +12,7 @@ import Foundation
 class SleepQualityReport: BaseMessage {
     
     var SleepQuality:String = ""
-    var BedTimespan:String = ""
+    var SleepTimespan:String = ""
     var DeepSleepTimespan:String = ""
     var LightSleepTimespan:String = ""
     var AwakeningTimespan:String = ""
@@ -26,7 +26,7 @@ class SleepQualityReport: BaseMessage {
         var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
         var qualityReport = doc.rootElement() as DDXMLElement!
         result.SleepQuality = qualityReport.elementForName("SleepQuality") == nil ? "" : qualityReport.elementForName("SleepQuality").stringValue()
-        result.BedTimespan = qualityReport.elementForName("BedTimespan") == nil ? "" : qualityReport.elementForName("BedTimespan").stringValue()
+        result.SleepTimespan = qualityReport.elementForName("SleepTimespan") == nil ? "" : qualityReport.elementForName("SleepTimespan").stringValue()
         result.DeepSleepTimespan = qualityReport.elementForName("DeepSleepTimespan") == nil ? "" : qualityReport.elementForName("DeepSleepTimespan").stringValue()
         result.LightSleepTimespan = qualityReport.elementForName("LightSleepTimespan") == nil ? "" : qualityReport.elementForName("LightSleepTimespan").stringValue()
         result.AwakeningTimespan = qualityReport.elementForName("AwakeningTimespan") == nil ? "" : qualityReport.elementForName("AwakeningTimespan").stringValue()
@@ -49,13 +49,18 @@ class SleepDateReport:BaseMessage {
     var ReportDate:String = ""
     var WeekDay:String = ""
     //睡眠时长
-    var SleepTimespan:String = ""{
-        didSet{
-            var hours:CGFloat = CGFloat((self.SleepTimespan.subString(0, length: 2) as NSString).floatValue)
-            var minutes:CGFloat = CGFloat((self.SleepTimespan.subString(3, length: 2) as NSString).floatValue)
-            self.SleepTimespanHours = hours + minutes/60
+    var SleepTimespan:String = ""
+       {
+       didSet{
+       
+            var temphour:Float = (self.SleepTimespan.subString(0, length: 2) as NSString).floatValue
+            var tempminute:Float = (self.SleepTimespan.subString(3, length: 2) as NSString).floatValue
+            var hours:String = String(stringInterpolationSegment:temphour + tempminute/60)
+            self.SleepTimespanHour = count(hours) > 4 ? hours.subString(0, length: 4) : hours
+        //            self.SleepTimespanHours = hours + minutes/60
         }
     }
+    var SleepTimespanHour:String = ""
     
     var SleepTimespanHours:CGFloat=0
    
