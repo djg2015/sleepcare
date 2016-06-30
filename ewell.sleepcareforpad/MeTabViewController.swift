@@ -224,7 +224,7 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
         }
         self.memuTable.reloadData()
         
-       // self.memuTable.reloadRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 1)], withRowAnimation: UITableViewRowAnimation.None)
+     
     }
     
     func SetTabbarBadge(count:Int){

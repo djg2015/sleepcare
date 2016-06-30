@@ -106,6 +106,7 @@
 		0D79EE191CB65CA800B9DA5F /* PopDownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE181CB65CA800B9DA5F /* PopDownList.swift */; };
 		0D79EE1B1CB65CE800B9DA5F /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE1A1CB65CE800B9DA5F /* Popover.swift */; };
 		0D9AE0791C8E7FB800625D5E /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9AE0781C8E7FB800625D5E /* Const.swift */; };
+		0DA783D01D24DFC900C82C6A /* icon_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA783CF1D24DFC900C82C6A /* icon_arrow.png */; };
 		0DB05CDA1D13DA7600018538 /* HRTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB05CD91D13DA7600018538 /* HRTabViewController.swift */; };
 		0DB05CDE1D13DECD00018538 /* icon_needaddservices.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CDB1D13DECD00018538 /* icon_needaddservices.png */; };
 		0DB05CDF1D13DECD00018538 /* icon_equipmenttrash.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CDC1D13DECD00018538 /* icon_equipmenttrash.png */; };
@@ -132,7 +133,6 @@
 		0DDA44251CC5D81E00B0DF51 /* ShowTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA44241CC5D81E00B0DF51 /* ShowTipsViewController.swift */; };
 		0DDA44291CC5D85000B0DF51 /* ShowInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */; };
 		0DEC19001C97DF54007BDF5D /* OpenFireServerInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC18FF1C97DF54007BDF5D /* OpenFireServerInfoHelper.swift */; };
-		0DEF141A1D23AE3C00477365 /* icon_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF14181D23AE3C00477365 /* icon_arrow.png */; };
 		0DEF141B1D23AE3C00477365 /* icon_arrowdown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF14191D23AE3C00477365 /* icon_arrowdown.png */; };
 		0DEF141D1D23B0B700477365 /* icon_报警信息.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF141C1D23B0B700477365 /* icon_报警信息.png */; };
 		0DEF14211D23BE8400477365 /* ChangePatientInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF14201D23BE8400477365 /* ChangePatientInfoController.swift */; };
@@ -146,11 +146,6 @@
 		2C0DC3C71BF9A20F0048BEEA /* IEmailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */; };
 		2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28CA131BE87D3D000C46C4 /* ServerResult.swift */; };
 		2CB427AB1BF9B11A00BF7E15 /* IEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */; };
-		3A12BAC71D23AED20021D7FE /* icon_arrow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A12BAC51D23AED20021D7FE /* icon_arrow.jpg */; };
-		3A12BAC81D23AED20021D7FE /* icon_arrowdown.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A12BAC61D23AED20021D7FE /* icon_arrowdown.jpg */; };
-		3A12BACA1D23AFEC0021D7FE /* icon_报警信息.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A12BAC91D23AFEC0021D7FE /* icon_报警信息.png */; };
-		3A12BACD1D23B0070021D7FE /* icon_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A12BACB1D23B0070021D7FE /* icon_arrow.png */; };
-		3A12BACE1D23B0070021D7FE /* icon_arrowdown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A12BACC1D23B0070021D7FE /* icon_arrowdown.png */; };
 		3A2158771BEC8D580089CC01 /* IBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2158761BEC8D580089CC01 /* IBaseViewController.swift */; };
 		3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262DE1BB912180002687B /* OSSExceptionHelper.m */; };
 		3A3262E11BB912180002687B /* OSSTry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262DF1BB912180002687B /* OSSTry.swift */; };
@@ -328,6 +323,7 @@
 		0D79EE181CB65CA800B9DA5F /* PopDownList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDownList.swift; sourceTree = "<group>"; };
 		0D79EE1A1CB65CE800B9DA5F /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
 		0D9AE0781C8E7FB800625D5E /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		0DA783CF1D24DFC900C82C6A /* icon_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_arrow.png; sourceTree = "<group>"; };
 		0DB05CD91D13DA7600018538 /* HRTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRTabViewController.swift; sourceTree = "<group>"; };
 		0DB05CDB1D13DECD00018538 /* icon_needaddservices.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_needaddservices.png; sourceTree = "<group>"; };
 		0DB05CDC1D13DECD00018538 /* icon_equipmenttrash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_equipmenttrash.png; sourceTree = "<group>"; };
@@ -357,7 +353,6 @@
 		0DDA44241CC5D81E00B0DF51 /* ShowTipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTipsViewController.swift; sourceTree = "<group>"; };
 		0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowInfoViewController.swift; sourceTree = "<group>"; };
 		0DEC18FF1C97DF54007BDF5D /* OpenFireServerInfoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenFireServerInfoHelper.swift; sourceTree = "<group>"; };
-		0DEF14181D23AE3C00477365 /* icon_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_arrow.png; sourceTree = "<group>"; };
 		0DEF14191D23AE3C00477365 /* icon_arrowdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_arrowdown.png; sourceTree = "<group>"; };
 		0DEF141C1D23B0B700477365 /* icon_报警信息.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_报警信息.png"; sourceTree = "<group>"; };
 		0DEF14201D23BE8400477365 /* ChangePatientInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePatientInfoController.swift; sourceTree = "<group>"; };
@@ -372,11 +367,6 @@
 		2C28CA131BE87D3D000C46C4 /* ServerResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResult.swift; sourceTree = "<group>"; };
 		2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEmailViewModel.swift; sourceTree = "<group>"; };
 		2CB435331C06A6A9000751D1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		3A12BAC51D23AED20021D7FE /* icon_arrow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon_arrow.jpg; sourceTree = "<group>"; };
-		3A12BAC61D23AED20021D7FE /* icon_arrowdown.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon_arrowdown.jpg; sourceTree = "<group>"; };
-		3A12BAC91D23AFEC0021D7FE /* icon_报警信息.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_报警信息.png"; path = "../../../../../Downloads/untitled folder/icon_报警信息.png"; sourceTree = "<group>"; };
-		3A12BACB1D23B0070021D7FE /* icon_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_arrow.png; path = "../../../../../Downloads/untitled folder(1)/icon_arrow.png"; sourceTree = "<group>"; };
-		3A12BACC1D23B0070021D7FE /* icon_arrowdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_arrowdown.png; path = "../../../../../Downloads/untitled folder(1)/icon_arrowdown.png"; sourceTree = "<group>"; };
 		3A2158761BEC8D580089CC01 /* IBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBaseViewController.swift; sourceTree = "<group>"; };
 		3A3262DD1BB912180002687B /* OSSExceptionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSExceptionHelper.h; sourceTree = "<group>"; };
 		3A3262DE1BB912180002687B /* OSSExceptionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSSExceptionHelper.m; sourceTree = "<group>"; };
@@ -552,9 +542,9 @@
 			isa = PBXGroup;
 			children = (
 				0DEF14281D24AA1C00477365 /* icon_60s.png */,
+				0DEF142A1D24AA2400477365 /* icon_获取验证码.png */,
 				0D3EB0AE1D0FD2EE00928430 /* icon_椭圆.png */,
 				0D3EB0AC1D0FD2EE00928430 /* icon_checkyes.png */,
-				0DEF142A1D24AA2400477365 /* icon_获取验证码.png */,
 				0D3EB0AD1D0FD2EE00928430 /* icon_checkno.png */,
 				0D3EB0A91D0FCB0A00928430 /* icon_密码可见.png */,
 				0D3EB0C51D0FEB0600928430 /* icon_密码不可见.png */,
@@ -566,7 +556,6 @@
 		0D1FC09D1D1CD80F00988A64 /* tab主页面 */ = {
 			isa = PBXGroup;
 			children = (
-				3A12BAC91D23AFEC0021D7FE /* icon_报警信息.png */,
 				0DB05CDB1D13DECD00018538 /* icon_needaddservices.png */,
 				0D3EB0EB1D10350A00928430 /* icon_set.png */,
 				0D3EB0EC1D10350A00928430 /* icon_使用技巧.png */,
@@ -614,8 +603,8 @@
 				0D3EB0E91D1034BD00928430 /* icon_退出登录.png */,
 				0D3EB0951D0FA7BD00928430 /* icon_logo_2.png */,
 				0D3EB0A51D0FC6BA00928430 /* icon_logo_1.png */,
+				0DA783CF1D24DFC900C82C6A /* icon_arrow.png */,
 				0D3EB0A31D0FAE6B00928430 /* icon_telephone.png */,
-				0DEF14181D23AE3C00477365 /* icon_arrow.png */,
 				0DEF14191D23AE3C00477365 /* icon_arrowdown.png */,
 				0D3EB0A11D0FAE6500928430 /* icon_password.png */,
 				0D3EB0C31D0FE8B800928430 /* btn_address.png */,
@@ -1093,7 +1082,6 @@
 				0D3EB0921D0FA75800928430 /* 登录背景.png in Resources */,
 				0D3EB0FC1D10E8DF00928430 /* icon_nurse.png in Resources */,
 				0D3EB0BC1D0FE29300928430 /* icon_female_choose.png in Resources */,
-				0DEF141A1D23AE3C00477365 /* icon_arrow.png in Resources */,
 				0D1E180E1D2396AE004B7BFD /* icon_email框.png in Resources */,
 				0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */,
 				3A91F0A31BF0475400C470D4 /* dialog_cancel.png in Resources */,
@@ -1127,10 +1115,10 @@
 				0D3EB0C11D0FE63600928430 /* icon_figure.png in Resources */,
 				3A91F0A41BF0475400C470D4 /* dialog_cancel@2x.png in Resources */,
 				0D3EB0E81D1034A300928430 /* btn_右键.png in Resources */,
-				3A12BACD1D23B0070021D7FE /* icon_arrow.png in Resources */,
 				0D1FC0801D1A6F5400988A64 /* icon_请假.png in Resources */,
 				3A91F0A01BF0475400C470D4 /* calendar_littledot@2x.png in Resources */,
 				3A91F0971BF0475400C470D4 /* arrow_left.png in Resources */,
+				0DA783D01D24DFC900C82C6A /* icon_arrow.png in Resources */,
 				3AC7B1021BF45BD4002DE94C /* fs_main_login_normal.png in Resources */,
 				3A91F0A91BF0475400C470D4 /* dialog_ok-disabled.png in Resources */,
 				0D3EB0E41D1001E500928430 /* icon_light green circle.png in Resources */,
@@ -1138,7 +1126,6 @@
 				0D3EB0F01D10350A00928430 /* icon_关于.png in Resources */,
 				0D3EB0A41D0FAE6B00928430 /* icon_telephone.png in Resources */,
 				0DB05CDF1D13DECD00018538 /* icon_equipmenttrash.png in Resources */,
-				3A12BAC71D23AED20021D7FE /* icon_arrow.jpg in Resources */,
 				0DF49A3A1CD0653E0096BE5E /* AlarmView.xib in Resources */,
 				0DEF14291D24AA1C00477365 /* icon_60s.png in Resources */,
 				0D3EB0D41D0FEF5300928430 /* btn_无警报.png in Resources */,

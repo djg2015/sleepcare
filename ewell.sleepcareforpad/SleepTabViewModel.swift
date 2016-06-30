@@ -8,7 +8,9 @@
 
 import UIKit
 
-class SleepTabViewModel: BaseViewModel {
+class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
+    var realtimeFlag:Bool = false
+    
     // 查看日期yyyy－mm－dd
     var _selectDate:String=""
     dynamic var SelectDate:String{
@@ -234,6 +236,10 @@ class SleepTabViewModel: BaseViewModel {
                 
                 if self.BedUserCode != ""{
                     self.GetSleepReport()
+                    //开启实时数据
+                    self.realtimeFlag = true
+                    RealTimeHelper.GetRealTimeInstance().SetDelegate("SleepTabViewModel",currentViewModelDelegate: self)
+                    RealTimeHelper.GetRealTimeInstance().setRealTimer()
                     flag = "1"
                 }
                     //当前有老人设备但没有选择：隐藏除topview之外的subviews，提示先选择一个老人
@@ -310,11 +316,17 @@ class SleepTabViewModel: BaseViewModel {
         var tempTitle = "睡眠时长"
         if tempSleepReportList.count>0{
         for(var i = 0; i<tempSleepReportList.count; i++){
-            var tempx:String = tempSleepReportList[i].WeekDay.subString(2, length: 1)
-            if i == 0{
-              tempx = "周" + tempx
+//            var tempx:String = tempSleepReportList[i].WeekDay.subString(2, length: 1)
+//            if i == 0{
+//              tempx = "周" + tempx
+//            }
+//                    tempValueX.append(tempx)
+//            tempValueX.append(tempSleepReportList[i].WeekDay.subString(2, length: 1))
+            var tempday = tempSleepReportList[i].ReportDate.subString(8, length: 2)
+            if tempday < "10"{
+            tempday = tempday.subString(1, length: 1)
             }
-                    tempValueX.append(tempx)
+            tempValueX.append(tempday)
                     tempValueY.append(tempSleepReportList[i].SleepTimespanHour)
         }
         self.SleepReport.flag = true
@@ -331,6 +343,7 @@ class SleepTabViewModel: BaseViewModel {
     
     
     func ClearSleepData(){
+         self.realtimeFlag = false
          self.BedUserName = ""
          self.BedUserCode = ""
         self.AwakeningTimespan = ""
@@ -341,6 +354,21 @@ class SleepTabViewModel: BaseViewModel {
         self.SleepReport = SleepReportList()
     }
     
+    
+    func GetRealtimeData(realtimeData:Dictionary<String,RealTimeReport>){
+        if realtimeFlag{
+            for realTimeReport in realtimeData.values{
+                if self.BedUserCode == realTimeReport.BedUserCode{
+                    self.OnBedStatus = realTimeReport.OnBedStatus
+                    return
+                }
+            }
+        }
+    }
+    //释放实时数据代理
+    func CleanRealtimeDelegate(){
+        RealTimeHelper.GetRealTimeInstance().SetDelegate("SleepTabViewModel", currentViewModelDelegate: nil)
+    }
     
 
 

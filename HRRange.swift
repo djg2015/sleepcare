@@ -28,7 +28,7 @@ class HRRange:BaseMessage{
             timeReport.ReportHour = time.subString(11, length: 2) + "点"
             }
             else {
-            timeReport.ReportHour = time.subString(8, length: 2) + "号"
+            timeReport.ReportHour = time.subString(8, length: 2)
             }
             }
             else{

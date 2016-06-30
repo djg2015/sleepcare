@@ -276,7 +276,7 @@ class RRTabViewModel: BaseViewModel,GetRealtimeDataDelegate  {
         var tempTitle = "平均呼吸"
         
         if tempDayReportList.count > 0{
-        for (var i = 0;i<tempDayReportList.count;i+=3){
+        for (var i = 2;i<tempDayReportList.count;i+=3){
             tempValueX.append(tempDayReportList[i].ReportHour)
             tempValueY.append(tempDayReportList[i].AvgRR)
         }
