@@ -127,11 +127,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,XMPPStreamDelegate{
         
         //后台点击通知,   若已登陆且报警页面未打开，则跳转报警页面
         if self.isBackRun{
-            if (!AlarmViewTag && LOGINFLAG){
-                if !IAlarmHelper.GetAlarmInstance().IsAlarmAlertOpened{
+            
                     NSNotificationCenter.defaultCenter().postNotificationName("OpenAlarmView", object: self)
-                }
-            }
+         
         }
     }
 

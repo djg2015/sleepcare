@@ -19,7 +19,6 @@
 		0D1E18101D239EE1004B7BFD /* SleepTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E180F1D239EE1004B7BFD /* SleepTabViewModel.swift */; };
 		0D1FC0791D1A344D00988A64 /* HRTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0781D1A344D00988A64 /* HRTabViewModel.swift */; };
 		0D1FC07B1D1A5F6900988A64 /* btn_changedate.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC07A1D1A5F6900988A64 /* btn_changedate.png */; };
-		0D1FC07D1D1A6F4A00988A64 /* icon_检测中.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC07C1D1A6F4A00988A64 /* icon_检测中.png */; };
 		0D1FC0801D1A6F5400988A64 /* icon_请假.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC07E1D1A6F5400988A64 /* icon_请假.png */; };
 		0D1FC0811D1A6F5400988A64 /* icon_异常.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC07F1D1A6F5400988A64 /* icon_异常.png */; };
 		0D1FC0831D1A727900988A64 /* SleepCareForSingleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0821D1A727900988A64 /* SleepCareForSingleManager.swift */; };
@@ -32,9 +31,7 @@
 		0D1FC0921D1B7BF300988A64 /* SleepQualityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0911D1B7BF300988A64 /* SleepQualityReport.swift */; };
 		0D1FC0941D1B839A00988A64 /* WeekSleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0931D1B839A00988A64 /* WeekSleep.swift */; };
 		0D1FC0961D1BB15300988A64 /* SessionForSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0951D1BB15300988A64 /* SessionForSingle.swift */; };
-		0D1FC0A21D1CDE2600988A64 /* icon_60s.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC0A11D1CDE2600988A64 /* icon_60s.png */; };
 		0D1FC0A41D1CDF1200988A64 /* image_添加设备.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC0A31D1CDF1200988A64 /* image_添加设备.png */; };
-		0D1FC0A61D1CE01600988A64 /* icon_获取验证码.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1FC0A51D1CE01600988A64 /* icon_获取验证码.png */; };
 		0D1FC0AA1D1CFBE900988A64 /* ForgetPwdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0A91D1CFBE900988A64 /* ForgetPwdController.swift */; };
 		0D1FC0AC1D1CFCAF00988A64 /* ForgetPwdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0AB1D1CFCAF00988A64 /* ForgetPwdViewModel.swift */; };
 		0D1FC0B01D1EC7AF00988A64 /* AccountSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1FC0AF1D1EC7AF00988A64 /* AccountSettingController.swift */; };
@@ -74,10 +71,6 @@
 		0D3EB0C21D0FE63600928430 /* icon_male_choose.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0BF1D0FE63600928430 /* icon_male_choose.png */; };
 		0D3EB0C41D0FE8B800928430 /* btn_address.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0C31D0FE8B800928430 /* btn_address.png */; };
 		0D3EB0C61D0FEB0600928430 /* icon_密码不可见.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0C51D0FEB0600928430 /* icon_密码不可见.png */; };
-		0D3EB0C91D0FEC7600928430 /* tab_呼吸－1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0C71D0FEC7600928430 /* tab_呼吸－1.png */; };
-		0D3EB0CA1D0FEC7600928430 /* tab_心率－1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0C81D0FEC7600928430 /* tab_心率－1.png */; };
-		0D3EB0CD1D0FEC7C00928430 /* tab_我的－1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0CB1D0FEC7C00928430 /* tab_我的－1.png */; };
-		0D3EB0CE1D0FEC7C00928430 /* tab_睡眠－1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0CC1D0FEC7C00928430 /* tab_睡眠－1.png */; };
 		0D3EB0D01D0FEF4700928430 /* btn_下拉.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0CF1D0FEF4700928430 /* btn_下拉.png */; };
 		0D3EB0D21D0FEF4C00928430 /* btn_有警报.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0D11D0FEF4C00928430 /* btn_有警报.png */; };
 		0D3EB0D41D0FEF5300928430 /* btn_无警报.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EB0D31D0FEF5300928430 /* btn_无警报.png */; };
@@ -113,10 +106,6 @@
 		0D79EE191CB65CA800B9DA5F /* PopDownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE181CB65CA800B9DA5F /* PopDownList.swift */; };
 		0D79EE1B1CB65CE800B9DA5F /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE1A1CB65CE800B9DA5F /* Popover.swift */; };
 		0D9AE0791C8E7FB800625D5E /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9AE0781C8E7FB800625D5E /* Const.swift */; };
-		0DB05CCC1D13D62700018538 /* tab_心率－2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CCB1D13D62700018538 /* tab_心率－2.png */; };
-		0DB05CD61D13D65E00018538 /* tab_呼吸－2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CD31D13D65E00018538 /* tab_呼吸－2.png */; };
-		0DB05CD71D13D65E00018538 /* tab_我的－2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CD41D13D65E00018538 /* tab_我的－2.png */; };
-		0DB05CD81D13D65E00018538 /* tab_睡眠－2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CD51D13D65E00018538 /* tab_睡眠－2.png */; };
 		0DB05CDA1D13DA7600018538 /* HRTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB05CD91D13DA7600018538 /* HRTabViewController.swift */; };
 		0DB05CDE1D13DECD00018538 /* icon_needaddservices.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CDB1D13DECD00018538 /* icon_needaddservices.png */; };
 		0DB05CDF1D13DECD00018538 /* icon_equipmenttrash.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB05CDC1D13DECD00018538 /* icon_equipmenttrash.png */; };
@@ -146,6 +135,12 @@
 		0DEF141A1D23AE3C00477365 /* icon_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF14181D23AE3C00477365 /* icon_arrow.png */; };
 		0DEF141B1D23AE3C00477365 /* icon_arrowdown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF14191D23AE3C00477365 /* icon_arrowdown.png */; };
 		0DEF141D1D23B0B700477365 /* icon_报警信息.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF141C1D23B0B700477365 /* icon_报警信息.png */; };
+		0DEF14211D23BE8400477365 /* ChangePatientInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF14201D23BE8400477365 /* ChangePatientInfoController.swift */; };
+		0DEF14231D23BEE000477365 /* ChangePatientInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF14221D23BEE000477365 /* ChangePatientInfoViewModel.swift */; };
+		0DEF14251D23C89F00477365 /* btn_选择日期.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF14241D23C89F00477365 /* btn_选择日期.png */; };
+		0DEF14291D24AA1C00477365 /* icon_60s.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF14281D24AA1C00477365 /* icon_60s.png */; };
+		0DEF142B1D24AA2400477365 /* icon_获取验证码.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF142A1D24AA2400477365 /* icon_获取验证码.png */; };
+		0DEF142D1D24B18D00477365 /* icon_检测中.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF142C1D24B18D00477365 /* icon_检测中.png */; };
 		0DF49A3A1CD0653E0096BE5E /* AlarmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF49A391CD0653E0096BE5E /* AlarmView.xib */; };
 		0DF6BD821C59AB26007BF0A9 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6BD811C59AB26007BF0A9 /* DateFormatterHelper.swift */; };
 		2C0DC3C71BF9A20F0048BEEA /* IEmailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */; };
@@ -239,7 +234,6 @@
 		0D1E180F1D239EE1004B7BFD /* SleepTabViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepTabViewModel.swift; sourceTree = "<group>"; };
 		0D1FC0781D1A344D00988A64 /* HRTabViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRTabViewModel.swift; sourceTree = "<group>"; };
 		0D1FC07A1D1A5F6900988A64 /* btn_changedate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_changedate.png; sourceTree = "<group>"; };
-		0D1FC07C1D1A6F4A00988A64 /* icon_检测中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_检测中.png"; sourceTree = "<group>"; };
 		0D1FC07E1D1A6F5400988A64 /* icon_请假.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_请假.png"; sourceTree = "<group>"; };
 		0D1FC07F1D1A6F5400988A64 /* icon_异常.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_异常.png"; sourceTree = "<group>"; };
 		0D1FC0821D1A727900988A64 /* SleepCareForSingleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepCareForSingleManager.swift; sourceTree = "<group>"; };
@@ -252,9 +246,7 @@
 		0D1FC0911D1B7BF300988A64 /* SleepQualityReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepQualityReport.swift; sourceTree = "<group>"; };
 		0D1FC0931D1B839A00988A64 /* WeekSleep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekSleep.swift; sourceTree = "<group>"; };
 		0D1FC0951D1BB15300988A64 /* SessionForSingle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionForSingle.swift; sourceTree = "<group>"; };
-		0D1FC0A11D1CDE2600988A64 /* icon_60s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_60s.png; sourceTree = "<group>"; };
 		0D1FC0A31D1CDF1200988A64 /* image_添加设备.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_添加设备.png"; sourceTree = "<group>"; };
-		0D1FC0A51D1CE01600988A64 /* icon_获取验证码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_获取验证码.png"; sourceTree = "<group>"; };
 		0D1FC0A91D1CFBE900988A64 /* ForgetPwdController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPwdController.swift; sourceTree = "<group>"; };
 		0D1FC0AB1D1CFCAF00988A64 /* ForgetPwdViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPwdViewModel.swift; sourceTree = "<group>"; };
 		0D1FC0AF1D1EC7AF00988A64 /* AccountSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingController.swift; sourceTree = "<group>"; };
@@ -294,10 +286,6 @@
 		0D3EB0BF1D0FE63600928430 /* icon_male_choose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_male_choose.png; sourceTree = "<group>"; };
 		0D3EB0C31D0FE8B800928430 /* btn_address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_address.png; sourceTree = "<group>"; };
 		0D3EB0C51D0FEB0600928430 /* icon_密码不可见.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_密码不可见.png"; sourceTree = "<group>"; };
-		0D3EB0C71D0FEC7600928430 /* tab_呼吸－1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_呼吸－1.png"; sourceTree = "<group>"; };
-		0D3EB0C81D0FEC7600928430 /* tab_心率－1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_心率－1.png"; sourceTree = "<group>"; };
-		0D3EB0CB1D0FEC7C00928430 /* tab_我的－1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_我的－1.png"; sourceTree = "<group>"; };
-		0D3EB0CC1D0FEC7C00928430 /* tab_睡眠－1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_睡眠－1.png"; sourceTree = "<group>"; };
 		0D3EB0CF1D0FEF4700928430 /* btn_下拉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_下拉.png"; sourceTree = "<group>"; };
 		0D3EB0D11D0FEF4C00928430 /* btn_有警报.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_有警报.png"; sourceTree = "<group>"; };
 		0D3EB0D31D0FEF5300928430 /* btn_无警报.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_无警报.png"; sourceTree = "<group>"; };
@@ -335,10 +323,6 @@
 		0D79EE181CB65CA800B9DA5F /* PopDownList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDownList.swift; sourceTree = "<group>"; };
 		0D79EE1A1CB65CE800B9DA5F /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
 		0D9AE0781C8E7FB800625D5E /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		0DB05CCB1D13D62700018538 /* tab_心率－2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_心率－2.png"; sourceTree = "<group>"; };
-		0DB05CD31D13D65E00018538 /* tab_呼吸－2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_呼吸－2.png"; sourceTree = "<group>"; };
-		0DB05CD41D13D65E00018538 /* tab_我的－2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_我的－2.png"; sourceTree = "<group>"; };
-		0DB05CD51D13D65E00018538 /* tab_睡眠－2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_睡眠－2.png"; sourceTree = "<group>"; };
 		0DB05CD91D13DA7600018538 /* HRTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRTabViewController.swift; sourceTree = "<group>"; };
 		0DB05CDB1D13DECD00018538 /* icon_needaddservices.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_needaddservices.png; sourceTree = "<group>"; };
 		0DB05CDC1D13DECD00018538 /* icon_equipmenttrash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_equipmenttrash.png; sourceTree = "<group>"; };
@@ -371,6 +355,12 @@
 		0DEF14181D23AE3C00477365 /* icon_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_arrow.png; sourceTree = "<group>"; };
 		0DEF14191D23AE3C00477365 /* icon_arrowdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_arrowdown.png; sourceTree = "<group>"; };
 		0DEF141C1D23B0B700477365 /* icon_报警信息.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_报警信息.png"; sourceTree = "<group>"; };
+		0DEF14201D23BE8400477365 /* ChangePatientInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePatientInfoController.swift; sourceTree = "<group>"; };
+		0DEF14221D23BEE000477365 /* ChangePatientInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePatientInfoViewModel.swift; sourceTree = "<group>"; };
+		0DEF14241D23C89F00477365 /* btn_选择日期.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_选择日期.png"; sourceTree = "<group>"; };
+		0DEF14281D24AA1C00477365 /* icon_60s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_60s.png; sourceTree = "<group>"; };
+		0DEF142A1D24AA2400477365 /* icon_获取验证码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_获取验证码.png"; sourceTree = "<group>"; };
+		0DEF142C1D24B18D00477365 /* icon_检测中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_检测中.png"; sourceTree = "<group>"; };
 		0DF49A391CD0653E0096BE5E /* AlarmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmView.xib; sourceTree = "<group>"; };
 		0DF6BD811C59AB26007BF0A9 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IEmailView.xib; sourceTree = "<group>"; };
@@ -551,10 +541,10 @@
 		0D1FC09C1D1CD80000988A64 /* 注册 */ = {
 			isa = PBXGroup;
 			children = (
+				0DEF14281D24AA1C00477365 /* icon_60s.png */,
 				0D3EB0AE1D0FD2EE00928430 /* icon_椭圆.png */,
-				0D1FC0A51D1CE01600988A64 /* icon_获取验证码.png */,
-				0D1FC0A11D1CDE2600988A64 /* icon_60s.png */,
 				0D3EB0AC1D0FD2EE00928430 /* icon_checkyes.png */,
+				0DEF142A1D24AA2400477365 /* icon_获取验证码.png */,
 				0D3EB0AD1D0FD2EE00928430 /* icon_checkno.png */,
 				0D3EB0A91D0FCB0A00928430 /* icon_密码可见.png */,
 				0D3EB0C51D0FEB0600928430 /* icon_密码不可见.png */,
@@ -575,16 +565,8 @@
 				0D3EB0F11D10352000928430 /* icon_当前版本.png */,
 				0D3EB0F91D10E8D500928430 /* icon_my devices.png */,
 				0D3EB0FB1D10E8DF00928430 /* icon_nurse.png */,
-				0D3EB0CB1D0FEC7C00928430 /* tab_我的－1.png */,
-				0D3EB0CC1D0FEC7C00928430 /* tab_睡眠－1.png */,
-				0D3EB0C71D0FEC7600928430 /* tab_呼吸－1.png */,
-				0D3EB0C81D0FEC7600928430 /* tab_心率－1.png */,
-				0DB05CCB1D13D62700018538 /* tab_心率－2.png */,
-				0DB05CD31D13D65E00018538 /* tab_呼吸－2.png */,
-				0DB05CD41D13D65E00018538 /* tab_我的－2.png */,
-				0DB05CD51D13D65E00018538 /* tab_睡眠－2.png */,
 				0D1FC07A1D1A5F6900988A64 /* btn_changedate.png */,
-				0D1FC07C1D1A6F4A00988A64 /* icon_检测中.png */,
+				0DEF142C1D24B18D00477365 /* icon_检测中.png */,
 				0D1FC07E1D1A6F5400988A64 /* icon_请假.png */,
 				0D1FC07F1D1A6F5400988A64 /* icon_异常.png */,
 				0D3EB0D51D0FF84600928430 /* icon_offbed.png */,
@@ -615,6 +597,7 @@
 		0D1FC09F1D1CD93E00988A64 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				0DEF14241D23C89F00477365 /* btn_选择日期.png */,
 				0DB05CDC1D13DECD00018538 /* icon_equipmenttrash.png */,
 				0DB05CF51D13FB1B00018538 /* btn_trash.png */,
 				0D3EB0E91D1034BD00928430 /* icon_退出登录.png */,
@@ -782,6 +765,7 @@
 				0D1FC0781D1A344D00988A64 /* HRTabViewModel.swift */,
 				0D6D6CC01D212985005CB9D2 /* RRTabViewModel.swift */,
 				0D1E180F1D239EE1004B7BFD /* SleepTabViewModel.swift */,
+				0DEF14221D23BEE000477365 /* ChangePatientInfoViewModel.swift */,
 				0D1ADE4C1D1FC63700DC58FF /* MyDeviceViewModel.swift */,
 				0D1ADE481D1FC06200DC58FF /* PatientInfoViewModel.swift */,
 				0D1FC0B51D1F863200988A64 /* AccountSettingViewModel.swift */,
@@ -816,6 +800,7 @@
 				0D6D6CBC1D212941005CB9D2 /* RRTabViewController.swift */,
 				0D1E18071D221864004B7BFD /* SleepTabViewController.swift */,
 				0DB05CE51D13F0D900018538 /* MeTabViewController.swift */,
+				0DEF14201D23BE8400477365 /* ChangePatientInfoController.swift */,
 				0DB05CE71D13F7AC00018538 /* MyDeviceViewController.swift */,
 				0D1ADE421D1F9F1B00DC58FF /* AddDeviceViewController.swift */,
 				0D1ADE461D1FA20A00DC58FF /* ConfirmPatientInfoController.swift */,
@@ -1077,12 +1062,10 @@
 				0D3EB0C01D0FE63600928430 /* icon_female.png in Resources */,
 				0D3EB0F81D10E88A00928430 /* icon_time.png in Resources */,
 				3A91F09F1BF0475400C470D4 /* calendar_littledot.png in Resources */,
-				0DB05CD81D13D65E00018538 /* tab_睡眠－2.png in Resources */,
 				2C0DC3C71BF9A20F0048BEEA /* IEmailView.xib in Resources */,
 				0D1FC07B1D1A5F6900988A64 /* btn_changedate.png in Resources */,
 				0DB05CFA1D13FB1B00018538 /* icon_heart.png in Resources */,
 				0D3EB0E11D1001E500928430 /* icon_blue circle.png in Resources */,
-				0D1FC0A61D1CE01600988A64 /* icon_获取验证码.png in Resources */,
 				0D3EB0E21D1001E500928430 /* icon_gray circle.png in Resources */,
 				0D1FC0811D1A6F5400988A64 /* icon_异常.png in Resources */,
 				0DB05CE01D13DECD00018538 /* icon_alarmtrash.png in Resources */,
@@ -1103,7 +1086,8 @@
 				0D1E180E1D2396AE004B7BFD /* icon_email框.png in Resources */,
 				0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */,
 				3A91F0A31BF0475400C470D4 /* dialog_cancel.png in Resources */,
-				0D1FC07D1D1A6F4A00988A64 /* icon_检测中.png in Resources */,
+				0DEF14251D23C89F00477365 /* btn_选择日期.png in Resources */,
+				0DEF142D1D24B18D00477365 /* icon_检测中.png in Resources */,
 				3A91F0A51BF0475400C470D4 /* dialog_clear-disabled.png in Resources */,
 				3A91F0A81BF0475400C470D4 /* dialog_clear@2x.png in Resources */,
 				0D3EB0D91D0FF84600928430 /* icon_onbed.png in Resources */,
@@ -1118,25 +1102,22 @@
 				0D3EB0B41D0FD37E00928430 /* icon_扫一扫.png in Resources */,
 				0D3EB0D21D0FEF4C00928430 /* btn_有警报.png in Resources */,
 				0D3EB0961D0FA7BD00928430 /* icon_logo_2.png in Resources */,
-				0D3EB0C91D0FEC7600928430 /* tab_呼吸－1.png in Resources */,
 				3A91F0AC1BF0475400C470D4 /* dialog_ok@2x.png in Resources */,
 				3A91F0A21BF0475400C470D4 /* calendar_ok-disabled@2x.png in Resources */,
 				3A91F0A61BF0475400C470D4 /* dialog_clear-disabled@2x.png in Resources */,
 				0D3EB0B11D0FD2EE00928430 /* icon_checkno.png in Resources */,
 				0D3EB0AA1D0FCB0A00928430 /* icon_密码可见.png in Resources */,
+				0DEF142B1D24AA2400477365 /* icon_获取验证码.png in Resources */,
 				0D1FC0A41D1CDF1200988A64 /* image_添加设备.png in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
 				0D3EB0DA1D0FF84600928430 /* icon_ergent.png in Resources */,
 				0D3EB09C1D0FAD0700928430 /* icon_登录.png in Resources */,
-				0DB05CCC1D13D62700018538 /* tab_心率－2.png in Resources */,
 				0DB05CF91D13FB1B00018538 /* icon_breath.png in Resources */,
-				0D3EB0CA1D0FEC7600928430 /* tab_心率－1.png in Resources */,
 				0D3EB0C11D0FE63600928430 /* icon_figure.png in Resources */,
 				3A91F0A41BF0475400C470D4 /* dialog_cancel@2x.png in Resources */,
 				0D3EB0E81D1034A300928430 /* btn_右键.png in Resources */,
 				0D1FC0801D1A6F5400988A64 /* icon_请假.png in Resources */,
 				3A91F0A01BF0475400C470D4 /* calendar_littledot@2x.png in Resources */,
-				0DB05CD71D13D65E00018538 /* tab_我的－2.png in Resources */,
 				3A91F0971BF0475400C470D4 /* arrow_left.png in Resources */,
 				3AC7B1021BF45BD4002DE94C /* fs_main_login_normal.png in Resources */,
 				3A91F0A91BF0475400C470D4 /* dialog_ok-disabled.png in Resources */,
@@ -1146,8 +1127,8 @@
 				0D3EB0A41D0FAE6B00928430 /* icon_telephone.png in Resources */,
 				0DB05CDF1D13DECD00018538 /* icon_equipmenttrash.png in Resources */,
 				0DF49A3A1CD0653E0096BE5E /* AlarmView.xib in Resources */,
+				0DEF14291D24AA1C00477365 /* icon_60s.png in Resources */,
 				0D3EB0D41D0FEF5300928430 /* btn_无警报.png in Resources */,
-				0D1FC0A21D1CDE2600988A64 /* icon_60s.png in Resources */,
 				3A91F0B01BF0475400C470D4 /* THDatePickerViewController.xib in Resources */,
 				0D3EB0A21D0FAE6500928430 /* icon_password.png in Resources */,
 				0D3EB0E31D1001E500928430 /* icon_green circle.png in Resources */,
@@ -1163,13 +1144,10 @@
 				0D3EB0C61D0FEB0600928430 /* icon_密码不可见.png in Resources */,
 				0D3EB0B21D0FD2EE00928430 /* icon_椭圆.png in Resources */,
 				3A91F0AA1BF0475400C470D4 /* dialog_ok-disabled@2x.png in Resources */,
-				0DB05CD61D13D65E00018538 /* tab_呼吸－2.png in Resources */,
 				0D3EB0B01D0FD2EE00928430 /* icon_checkyes.png in Resources */,
 				0D3EB0F21D10352000928430 /* icon_当前版本.png in Resources */,
 				0D3EB0FA1D10E8D500928430 /* icon_my devices.png in Resources */,
 				0DEF141D1D23B0B700477365 /* icon_报警信息.png in Resources */,
-				0D3EB0CE1D0FEC7C00928430 /* tab_睡眠－1.png in Resources */,
-				0D3EB0CD1D0FEC7C00928430 /* tab_我的－1.png in Resources */,
 				3A91F0A71BF0475400C470D4 /* dialog_clear.png in Resources */,
 				3A91F09A1BF0475400C470D4 /* arrow_right@2x.png in Resources */,
 				3A91F09C1BF0475400C470D4 /* calendar_clear-disabled@2x.png in Resources */,
@@ -1279,6 +1257,7 @@
 				3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */,
 				0D1FC0851D1A72B500988A64 /* SleepCareForSingle.swift in Sources */,
 				2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */,
+				0DEF14231D23BEE000477365 /* ChangePatientInfoViewModel.swift in Sources */,
 				3A91F0AD1BF0475400C470D4 /* THDateDay.m in Sources */,
 				0D1E180C1D23931F004B7BFD /* IEmailViewController.swift in Sources */,
 				0D336D0E1C92596D0049883F /* RemoteNoticeHelper.swift in Sources */,
@@ -1291,6 +1270,7 @@
 				0D1FC0791D1A344D00988A64 /* HRTabViewModel.swift in Sources */,
 				0DB05CEC1D13FA2D00018538 /* AlarmInfoViewController.swift in Sources */,
 				0D79EE0B1CB658B500B9DA5F /* AlarmList.swift in Sources */,
+				0DEF14211D23BE8400477365 /* ChangePatientInfoController.swift in Sources */,
 				0D79EE0F1CB6597A00B9DA5F /* BaseViewModel.swift in Sources */,
 				0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */,
 				3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */,

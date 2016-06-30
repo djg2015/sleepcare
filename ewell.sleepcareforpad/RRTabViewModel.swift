@@ -318,7 +318,7 @@ class RRTabViewModel: BaseViewModel,GetRealtimeDataDelegate  {
         
         //获取某床位用户月心率报告
         var tempMonthRange:RRRange = SleepCareForSingle().GetSingleRRTimeReport(self.BedUserCode,searchType:"3")
-        var tempMonthReportList:Array<RRTimeReport> = tempWeekRange.rrTimeReportList
+        var tempMonthReportList:Array<RRTimeReport> = tempMonthRange.rrTimeReportList
         //过滤原始月数据，赋值给RRMonthReport
         tempValueY = []
         tempValueX = []

@@ -318,7 +318,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
         
         //获取某床位用户月心率报告
         var tempMonthRange:HRRange = SleepCareForSingle().GetSingleHRTimeReport(self.BedUserCode,searchType:"3")
-        var tempMonthReportList:Array<HRTimeReport> = tempWeekRange.hrTimeReportList
+        var tempMonthReportList:Array<HRTimeReport> = tempMonthRange.hrTimeReportList
         //过滤原始月数据，赋值给HRMonthReport
         tempValueY = []
         tempValueX = []

@@ -44,6 +44,27 @@ class AlarmViewModel: BaseViewModel {
                     var tempAlarm = AlarmTableCell()
                     var info = warningList[i]
                     tempAlarm.AlarmCode = info.AlarmCode
+                    switch(info.AlarmType){
+                    case "ALM_TEMPERATURE":
+                        tempAlarm.AlarmType = "体温"
+                    case "ALM_HEARTBEAT":
+                        tempAlarm.AlarmType = "心率"
+                   case "ALM_BREATH":
+                        tempAlarm.AlarmType = "呼吸"
+                    case "ALM_BEDSTATUS":
+                        tempAlarm.AlarmType = "在离床"
+                   case  "ALM_FALLINGOUTOFBED":
+                        tempAlarm.AlarmType = "坠床风险"
+                   case  "ALM_BEDSORE":
+                        tempAlarm.AlarmType = "褥疮风险"
+                   case   "ALM_CALL":
+                        tempAlarm.AlarmType = "呼叫"
+                    default:
+                        tempAlarm.AlarmType = ""
+                        
+                        
+                    }
+                    
                     tempAlarm.EquipmentCode = info.EquipmentID
                     tempAlarm.UserCode = info.UserCode
                     tempAlarm.UserGender = info.Sex

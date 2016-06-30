@@ -14,6 +14,7 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
     
     @IBOutlet weak var lblDate: UILabel!
     
+       
     @IBAction func ChangeDate(sender:UIButton){
         if self.weekreportViewModel.bedusercode != ""{
             //设置日期弹出窗口
@@ -126,6 +127,7 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
     var SuggestionContentView:UIView!
     var suggestionContent:UITextView!
     
+   
     
     override func viewWillAppear(animated: Bool) {
         currentController = self

@@ -25,7 +25,7 @@ class EquipmentViewController: UIViewController,UITextViewDelegate {
 
     
     override func viewWillAppear(animated: Bool) {
-   
+   currentController = self
     }
     
     override func viewDidLoad() {

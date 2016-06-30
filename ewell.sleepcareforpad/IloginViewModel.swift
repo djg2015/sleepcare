@@ -53,7 +53,7 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
     //界面处理命令
     var loginCommand: RACCommand?
     var rememberCommand: RACCommand?
-    var alarmHelper:IAlarmHelper?
+  //  var alarmHelper:IAlarmHelper?
     var session:SessionForSingle?
     
     var controller:IBaseViewController?
@@ -76,7 +76,7 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
         }
         
         //显示alarm详细信息的代理
-        self.alarmHelper = IAlarmHelper.GetAlarmInstance()
+    //    self.alarmHelper = IAlarmHelper.GetAlarmInstance()
       
         //注册后自动登录的代理
          AutologinDelegate = self
@@ -197,11 +197,11 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
                 var tempEquipmentList:EquipmentList =  SleepCareForSingle().GetEquipmentsByLoginName(self.Telephone)
                     self.session!.EquipmentList = tempEquipmentList.equipmentList
                 
-//                var tempBedUserCodeList:Array<String> = Array<String>()
-//                for equipment in tempEquipmentList.equipmentList{
-//                tempBedUserCodeList.append(equipment.BedUserCode)
-//                }
-//                self.session!.BedUserCodeList = tempBedUserCodeList
+                var tempBedUserCodeList:Array<String> = Array<String>()
+                for equipment in tempEquipmentList.equipmentList{
+                tempBedUserCodeList.append(equipment.BedUserCode)
+                }
+                self.session!.BedUserCodeList = tempBedUserCodeList
 
                 
                // 获取当前关注的设备；如果只有一个设备，默认选中
@@ -224,7 +224,9 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
                 
                 //开启报警监测
                  LOGIN = true
-                self.alarmHelper!.BeginWaringAttention()
+                //开启报警，获取未处理的报警信息
+                IAlarmHelper.GetAlarmInstance().BeginWaringAttention()
+
                  //开启远程通知（有token值的情况下）
                 LOGINFLAG = true
                 OpenNotice()

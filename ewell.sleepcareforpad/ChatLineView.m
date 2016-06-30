@@ -105,7 +105,7 @@
         //平均心率／呼吸／睡眠的标题设置,右上角
         float x = [UIScreen mainScreen].bounds.size.width-10-(i+1)*65;
         float y = 16;
-        PointBtn *showPoint = [[PointBtn alloc]initWithFrame:CGRectMake(x-4 , y-2 , 7, 7)];
+        PointBtn *showPoint = [[PointBtn alloc]initWithFrame:CGRectMake(x-4 , y-4 , 7, 7)];
         [showPoint setBackgroundImage:[UIImage imageNamed:@"circlepoint"] forState:UIControlStateNormal];
         showPoint.backgroundColor = self.selectColor;
         showPoint.layer.cornerRadius = 4;

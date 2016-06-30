@@ -42,6 +42,7 @@ class MyDeviceViewModel: BaseViewModel {
                 //更新session的设备列表
                 SessionForSingle.GetSession()!.EquipmentList = equipmentArray
                 
+                
                 //赋值给设备的cellmodel
                 var tempDeviceArray = Array<EquipmentTableCell>()
             

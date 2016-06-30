@@ -127,10 +127,7 @@ class PatientInfoViewModel: BaseViewModel {
             (any:AnyObject!) -> RACSignal in
             return self.ClickFemale()
         }
-        
-       
-       
-        
+
     }
     
     
@@ -211,6 +208,7 @@ class PatientInfoViewModel: BaseViewModel {
             if mydeviceVC != nil{
                 //方法一：手动添加此equipment到session的设备列表
                //方法二：从服务器重新获取，刷新设备列表
+                SessionForSingle.GetSession()!.BedUserCodeList.append(self.BeduserCode)
                 mydeviceVC.mydeviceViewModel.LoadData()
     
             self.parentController.navigationController?.popToViewController(mydeviceVC, animated: true)

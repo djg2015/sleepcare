@@ -9,8 +9,10 @@
 import Foundation
 class RealTimeReport:BaseMessage{
     //定义实时数据字段
+    var BedCode:String=""
+    var BedNumber:String=""
     var BedUserCode:String = ""
-    var BedUserNumber:String = ""
+    var BedUserName:String = ""
     var HR:String = ""
     var RR:String = ""
     var OnBedStatus:String = ""
@@ -26,8 +28,10 @@ class RealTimeReport:BaseMessage{
         var doc = DDXMLDocument(XMLString: bodyXMl, options:0, error:nil)
         var realTimeReports = doc.nodesForXPath("//RealTimeReport", error:nil) as! [DDXMLElement]
         for realTimeReport in realTimeReports {
-            result.BedUserCode = realTimeReport.elementForName("BedUserCode") != nil ? realTimeReport.elementForName("BedUserCode").stringValue() : ""
-            result.BedUserNumber = realTimeReport.elementForName("BedUserNumber") != nil ? realTimeReport.elementForName("BedUserNumber").stringValue() : ""
+            result.BedCode = realTimeReport.elementForName("BedCode") != nil ? realTimeReport.elementForName("BedCode").stringValue() : ""
+            result.BedNumber = realTimeReport.elementForName("BedNumber") != nil ? realTimeReport.elementForName("BedNumber").stringValue() : ""
+            result.BedUserCode = realTimeReport.elementForName("UserCode") != nil ? realTimeReport.elementForName("UserCode").stringValue() : ""
+            result.BedUserName = realTimeReport.elementForName("UserName") != nil ? realTimeReport.elementForName("UserName").stringValue() : ""
             result.HR = realTimeReport.elementForName("HR").stringValue()
             result.RR = realTimeReport.elementForName("RR").stringValue()
           

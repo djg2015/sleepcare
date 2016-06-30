@@ -14,7 +14,7 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
     var parentController:UIViewController!
     
     let font14 = UIFont.systemFontOfSize(14)
-    let font12 = UIFont.systemFontOfSize(12)
+   
     let screenwidth = UIScreen.mainScreen().bounds.width
     let seperatorColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
 
@@ -40,6 +40,7 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
         self.parentController.navigationController?.popViewControllerAnimated(true)
     }
 
+    
     
     override func viewWillAppear(animated: Bool) {
         currentController = self
@@ -113,14 +114,15 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
             
             var typeLabel = UILabel(frame:CGRectMake(45, 18, 76, 21))
             typeLabel.text = self.source[indexPath.section].AlarmType
+            typeLabel.textColor = endColor
             typeLabel.font = self.font14
             cell?.contentView.addSubview(typeLabel)
             
-            var timeLabel = UILabel(frame:CGRectMake(screenwidth-142, 18, 130, 21))
+            var timeLabel = UILabel(frame:CGRectMake(screenwidth-182, 18, 170, 21))
             timeLabel.text = self.source[indexPath.section].AlarmTime
             timeLabel.textAlignment = NSTextAlignment.Right
             timeLabel.textColor = textGraycolor
-            timeLabel.font = self.font12
+            timeLabel.font = self.font14
             cell?.contentView.addSubview(timeLabel)
             
             var underlineLabel1 = UILabel(frame:CGRectMake(12, 47, screenwidth-24, 1))
@@ -145,7 +147,7 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
             cell?.contentView.addSubview(nameLabel)
             
             var bednumberLabel = UILabel(frame:CGRectMake(138, 59, 60, 21))
-            bednumberLabel.text = self.source[indexPath.section].UserName
+            bednumberLabel.text = "床号: " + self.source[indexPath.section].UserBedNumber!
             bednumberLabel.textColor = textGraycolor
             bednumberLabel.font = self.font14
             cell?.contentView.addSubview(bednumberLabel)
@@ -155,7 +157,7 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
             var alarmcontentText = UITextView(frame:CGRectMake(38, 80,screenwidth-42 , 56))
             alarmcontentText.text =  self.source[indexPath.section].AlarmContent
             alarmcontentText.textColor = textGraycolor
-            alarmcontentText.font = self.font12
+            alarmcontentText.font = self.font14
             alarmcontentText.editable = false
             cell?.contentView.addSubview(alarmcontentText)
             
@@ -163,9 +165,9 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
             underlineLabel2.backgroundColor = self.seperatorColor
             cell?.contentView.addSubview(underlineLabel2)
             
-            var setnumberLabel = UILabel(frame:CGRectMake(screenwidth-162, 147, 150, 21))
+            var setnumberLabel = UILabel(frame:CGRectMake(screenwidth-192, 147, 180, 21))
             setnumberLabel.text = "设备编号  " + self.source[indexPath.section].EquipmentCode
-            setnumberLabel.font = self.font12
+            setnumberLabel.font = self.font14
             setnumberLabel.textColor = textGraycolor
             setnumberLabel.textAlignment = NSTextAlignment.Right
             cell?.contentView.addSubview(setnumberLabel)
@@ -193,6 +195,7 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
         if(editingStyle == UITableViewCellEditingStyle.Delete){
             
              self.source[indexPath.row].deleteAlarmHandler!(alarmcell: self.source[indexPath.row])
+            self.source.removeAtIndex(indexPath.row)
         }
     }
     func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {

@@ -8,35 +8,24 @@
 
 import UIKit
 
-class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,SetAlarmPicDelegate,SetTabbarBadgeDelegate{
     @IBOutlet weak var memuTable: UITableView!
     
     @IBOutlet weak var meTabber: UITabBarItem!
     
     var imageList:Array<Array<String>>!
     var titleList:Array<Array<String>>!
-    
     let screenwidth = UIScreen.mainScreen().bounds.width
     let titleFont =  UIFont.systemFontOfSize(15)
+    var hiddenalarm:Bool = true
     
-    var hiddenalarm:Bool = false
-    
-       
-    override func viewWillAppear(animated: Bool) {
-        let alarmcount:Int = IAlarmHelper.GetAlarmInstance().WarningList.count
-        if alarmcount > 0{
-               self.hiddenalarm = false
-                self.meTabber.badgeValue = String(alarmcount)
-        }
-        else{
-             self.meTabber.badgeValue = nil
-              self.hiddenalarm = true
-        }
 
-//        self.memuTable.reloadData()
-        self.memuTable.reloadRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 1)], withRowAnimation: UITableViewRowAnimation.None)
-        
-      currentController = self
+    
+
+    
+    override func viewWillAppear(animated: Bool) {
+     
+        currentController = self
     }
     
     
@@ -44,13 +33,16 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-   
+          
+        IAlarmHelper.GetAlarmInstance().alarmpicdelegate = self
+         IAlarmHelper.GetAlarmInstance().tabbarBadgeDelegate = self
+         
 
         self.memuTable.delegate = self
         self.memuTable.dataSource = self
         
         self.imageList = [["icon_nurse.png"],["icon_my devices.png","icon_报警信息.png","icon_time.png"],["icon_关于.png","icon_使用技巧.png","icon_当前版本.png"],["icon_set.png"]]
-        self.titleList = [["姓名"],["设备","报警信息","周报表"],["关于","使用技巧","当前版本"],["设置"]]
+        self.titleList = [["老人信息"],["设备","报警信息","周报表"],["关于","使用技巧","当前版本"],["设置"]]
         
         //去除末尾多余的行
         self.memuTable.tableFooterView = UIView()
@@ -186,7 +178,13 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.section == 1){
+        if (indexPath.section == 0){
+            if SessionForSingle.GetSession()!.CurPatientName != ""{
+            
+                self.performSegueWithIdentifier("modifypatientinfo", sender: self)
+            }
+        }
+        else if (indexPath.section == 1){
             if indexPath.row == 0{
             self.performSegueWithIdentifier("equipmentinfo", sender: self)
             }
@@ -194,7 +192,7 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 let nextController = AlarmInfoViewController(nibName:"AlarmView", bundle:nil)
                 nextController.parentController = self
                 self.navigationController?.pushViewController(nextController, animated: true)
-         //   self.performSegueWithIdentifier("alarminfo", sender: self)
+        
             }
             else{
             self.performSegueWithIdentifier("weekreportinfo", sender: self)
@@ -215,6 +213,29 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
+    
+    func SetAlarmPic(count:Int){
+        if count > 0{
+            self.hiddenalarm = false
+          
+        }
+        else{
+            self.hiddenalarm = true
+        }
+        self.memuTable.reloadData()
+        
+       // self.memuTable.reloadRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 1)], withRowAnimation: UITableViewRowAnimation.None)
+    }
+    
+    func SetTabbarBadge(count:Int){
+        if count > 0{
+           
+            self.meTabber.badgeValue = String(count)
+        }
+        else{
+            self.meTabber.badgeValue = nil
+        }
+    }
  
 
 }
