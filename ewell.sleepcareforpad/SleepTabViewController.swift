@@ -52,25 +52,9 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
     
     @IBAction func ClickChangePatient(sender:UIButton){
         
-        if(self.popDownListForIphone == nil){
-            
-            self.popDownListForIphone = PopDownListForIphone()
-            self.popDownListForIphone?.delegate = self
-            
-            var tempPatientList:Array<EquipmentInfo> = SessionForSingle.GetSession()!.EquipmentList
-            self.patientDownlist = Array<PopDownListItem>()
-            for(var i=0;i<tempPatientList.count;i++){
-                var item:PopDownListItem = PopDownListItem()
-                item.key = tempPatientList[i].BedUserCode
-                item.value = tempPatientList[i].BedUserName
-                item.equipmentcode = tempPatientList[i].EquipmentID
-                patientDownlist.append(item)
-            }
-            
-        }
-        
-        self.popDownListForIphone?.Show("选择老人", source:patientDownlist)
+         self.ChangePatient()
     }
+    
     
     
     override func viewWillAppear(animated: Bool) {
@@ -101,6 +85,30 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func ChangePatient(){
+        if(self.popDownListForIphone == nil){
+            
+            self.popDownListForIphone = PopDownListForIphone()
+            self.popDownListForIphone?.delegate = self
+            
+            var tempPatientList:Array<EquipmentInfo> = SessionForSingle.GetSession()!.EquipmentList
+            self.patientDownlist = Array<PopDownListItem>()
+            for(var i=0;i<tempPatientList.count;i++){
+                var item:PopDownListItem = PopDownListItem()
+                item.key = tempPatientList[i].BedUserCode
+                item.value = tempPatientList[i].BedUserName
+                item.equipmentcode = tempPatientList[i].EquipmentID
+                patientDownlist.append(item)
+            }
+            
+        }
+        
+        self.popDownListForIphone?.Show("选择老人", source:patientDownlist)
+    }
+
+    
+    
     func rac_settings(){
     self.sleepTabViewModel = SleepTabViewModel()
         
@@ -119,13 +127,13 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
         var smalllinewidth:CGFloat = 0
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         if(screenHeight == 480){//4s
-            biglinewidth = 11
-            middlelinewidth = 9
+            biglinewidth = 10
+            middlelinewidth = 8
             smalllinewidth = 6
         }else if(screenHeight == 568){//5-5s
             biglinewidth = 12
-            middlelinewidth = 10
-            smalllinewidth = 7
+            middlelinewidth = 8
+            smalllinewidth = 8
            
         }else if(screenHeight == 667){//6
             biglinewidth = 13
@@ -171,6 +179,12 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
         var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "ChangeDate")
         self.ChangeDateLabel.addGestureRecognizer(singleTap)
         self.ChangeDateLabel.userInteractionEnabled = true
+        
+        
+        //点击名字，切换老人
+        var singleTap2:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "ChangePatient")
+        self.NameLabel.addGestureRecognizer(singleTap2)
+        self.NameLabel.userInteractionEnabled = true
         
     }
     

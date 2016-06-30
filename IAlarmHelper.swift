@@ -31,8 +31,21 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             self._warningcouts = value
         }
     }
+    //未读的报警code
+    var _unreadCodes:Array<String> = []
+    dynamic var UnreadCodes:Array<String>{
+        get
+        {
+            return self._unreadCodes
+        }
+        set(value)
+        {
+            self._unreadCodes = value
+        }
+    }
+
     
-    //所有未读的未处理报警code
+    //所有未处理报警code
     var _codes:Array<String> = []
     dynamic var Codes:Array<String>{
         get
@@ -188,9 +201,9 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     }
     
     func RunAlarmThread(){
-        if AlarmNoticeFlag{
-        var unread = self.WarningList.filter({$0.IsRead == false})
-        if unread.count>0{
+        if (AlarmNoticeFlag){
+        
+        if self.UnreadCodes.count>0{
             self.showWariningNotification()
         }
         }
@@ -221,20 +234,24 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,userCode: alarmInfo.UserCode,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmTime: alarmInfo.AlarmTime,equipmentID:equipmentid,sex:alarmInfo.UserSex,alarmType:alarmInfo.SchemaCode)
             self.WarningList.append(warningInfo)
             
+            self.UnreadCodes.append(alarmInfo.AlarmCode)
+            
             //同意接收通知，才往todolist里加
             TodoList.sharedInstance.addItem(todoItem)
             self._wariningCaches.removeAtIndex(0)
             
+            
+             self.Warningcouts = self.WarningList.count
+            if self.alarmpicdelegate != nil{
+                self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
+            }
+            
+            if self.tabbarBadgeDelegate != nil{
+                self.tabbarBadgeDelegate.SetTabbarBadge(self.Warningcouts)
+            }
+            
         }
-        self.Warningcouts = self.WarningList.count
-        
-        if self.alarmpicdelegate != nil{
-            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
-        }
-        
-        if self.tabbarBadgeDelegate != nil{
-            self.tabbarBadgeDelegate.SetTabbarBadge(self.Warningcouts)
-        }
+
     }
     
     
@@ -318,12 +335,12 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     func SetReadWarning(codeList:Array<String>){
         for code in codeList{
-            var tempList = self.WarningList.filter({$0.AlarmCode == code})
-            if tempList.count > 0{
-                tempList[0].IsRead = true
+            var index:Int = FindCodeIndex(code)
+            if index >= 0 {
+              self.UnreadCodes.removeAtIndex(index)
             }
         }
-        
+ 
     }
     
     
@@ -340,12 +357,17 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                             if code == alarmList.alarmInfoList[i].UserCode{
                                 //如果存在此code的报警信息，判断是否已处理
                                 if self.IsCodeExist(alarmList.alarmInfoList[i].AlarmCode){
-                                    //已处理，则从codes&warninglist&todolist里删除
+                                    //已处理，则从codes&warninglist&todolist&unreadcodes里删除
                                     if alarmList.alarmInfoList[i].HandleFlag == "1" {
                                         var code = alarmList.alarmInfoList[i].AlarmCode
                                         var tempwarningList = self.WarningList
                                         var codes = self.Codes
                                         TodoList.sharedInstance.removeItemByID(code)
+                                        
+                                        let index = FindCodeIndex(code)
+                                        if (index >= 0){
+                                        self.UnreadCodes.removeAtIndex(index)
+                                        }
                                         
                                         for(var i = 0; i < tempwarningList.count; i++){
                                             if code == tempwarningList[i].AlarmCode{
@@ -394,7 +416,14 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         return false
     }
     
-    
+    func FindCodeIndex(code:String)->Int{
+        for(var i = 0; i < self.UnreadCodes.count; i++){
+            if self.UnreadCodes[i] == code{
+            return i
+            }
+        }
+        return -1
+    }
     
 }
 

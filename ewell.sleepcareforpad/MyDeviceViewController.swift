@@ -103,7 +103,7 @@ class MyDeviceViewController: UIViewController,UITableViewDataSource,UITableView
             else if self.source[indexPath.section].UserGender == "2"{
                 genderImageName = "icon_female_choose.png"
             }
-            var genderImage =  UIImageView(frame: CGRectMake(19, 12, 13, 16))
+            var genderImage =  UIImageView(frame: CGRectMake(18, 12, 16, 16))
             genderImage.image = UIImage(named:genderImageName)
             cell?.contentView.addSubview(genderImage)
             
@@ -124,7 +124,7 @@ class MyDeviceViewController: UIViewController,UITableViewDataSource,UITableView
             underlineLabel.backgroundColor = self.seperatorColor
             cell?.contentView.addSubview(underlineLabel)
             
-            var addressImage =  UIImageView(frame: CGRectMake(19, 50, 14, 17))
+            var addressImage =  UIImageView(frame: CGRectMake(19, 50, 12, 18))
             addressImage.image = UIImage(named:"btn_address.png")
             cell?.contentView.addSubview(addressImage)
             
@@ -166,6 +166,11 @@ class MyDeviceViewController: UIViewController,UITableViewDataSource,UITableView
     //    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
     //        return "删除"
     //    }
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         var footerView = UIView(frame:CGRectMake(0, 0, screenwidth,15))

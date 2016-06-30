@@ -273,9 +273,9 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
         var tempValueX: Array<String> = []
         var tempTitle = "平均心率"
         
-        
+        //24个值
         if tempDayReportList.count > 0{
-        for (var i = 2;i<tempDayReportList.count;i+=3){
+        for (var i = 0;i<tempDayReportList.count;i++){
             tempValueX.append(tempDayReportList[i].ReportHour)
             tempValueY.append(tempDayReportList[i].AvgHR)
         }
@@ -299,6 +299,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
         tempValueX = []
         tempTitle = "平均心率"
         
+        //7个值
         if tempWeekReportList.count > 0{
         for tempWeekReport in tempWeekReportList{
             tempValueX.append(tempWeekReport.ReportHour)
@@ -324,21 +325,15 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
         tempValueX = []
         tempTitle = "平均心率"
         
-        
-        if tempMonthReportList.count > 10{
-        for (var i = 0;i<tempMonthReportList.count;i+=3){
+        //<=31个值
+        if (tempMonthReportList.count>0){
+        for (var i = 0;i<tempMonthReportList.count;i++){
             tempValueX.append(tempMonthReportList[i].ReportHour)
             tempValueY.append(tempMonthReportList[i].AvgHR)
         }
             self.HRMonthReport.flag = true
         }
-        else if tempMonthReportList.count > 0{
-        for tempMonthReport in tempMonthReportList{
-            tempValueX.append(tempMonthReport.ReportHour)
-            tempValueY.append(tempMonthReport.AvgHR)
-        }
-         self.HRMonthReport.flag = true
-        }
+       
             else{
             self.HRMonthReport.flag = false
             }

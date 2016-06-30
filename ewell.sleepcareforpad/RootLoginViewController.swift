@@ -26,7 +26,7 @@ class RootLoginViewController: IBaseViewController,LoginButtonDelegate{
                 SetValueIntoPlist("xmppusernamephone", "")
         
              //  SessionForSingle.ClearSession()
-                LOGIN = false
+         AlarmTimerFlag = false
         currentController = nil
     }
   

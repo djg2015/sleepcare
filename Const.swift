@@ -13,8 +13,8 @@ let xmpp_Timeout:NSTimeInterval = 3000
 
 //是否成功登陆的标志
 var LOGINFLAG:Bool = false
-//
-var LOGIN:Bool = false
+//是否开启报警弹窗的定时器
+var AlarmTimerFlag:Bool = false
 
 //sleepcare.plist文件读取,jasonHelper
 let USERID:String = "xmppusername"
@@ -60,8 +60,7 @@ let smallCircleHeight = UIScreen.mainScreen().bounds.height/570*127
 let textGraycolor = UIColor(red: 146/255, green: 146/255, blue: 146/255, alpha: 1.0)
 let textBluecolor = UIColor(red: 86/255, green: 163/255, blue: 253/255, alpha: 1.0)
 
-//记录当前显示的页面controller：AlarmViewTag标志：当前是否是报警页面
-var AlarmViewTag:Bool = false
+//记录当前显示的页面controller：
 var currentController:UIViewController!
 
 

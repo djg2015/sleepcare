@@ -177,12 +177,14 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
                     return
                 }
 
+                //给openfire username赋值，＝loginname@server address
+                let xmppusernamephone = self.Telephone + "@" + GetValueFromPlist("xmppserver","sleepcare.plist")
+                SetValueIntoPlist("xmppusernamephone", xmppusernamephone)
+                
                  //获取当前帐户下的用户信息
                 var loginUser:LoginUser = SleepCareForSingle().SingleLogin(self.Telephone, loginPassword: self.Pwd)
                 
-               //给openfire username赋值，＝loginname@server address
-                let xmppusernamephone = self.Telephone + "@" + GetValueFromPlist("xmppserver","sleepcare.plist")
-                SetValueIntoPlist("xmppusernamephone", xmppusernamephone)
+               
                       
                 //开启session
                 SessionForSingle.SetSession(loginUser)
@@ -222,8 +224,7 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
                 }
                 
                 
-                //开启报警监测
-                 LOGIN = true
+               
                 //开启报警，获取未处理的报警信息
                 IAlarmHelper.GetAlarmInstance().BeginWaringAttention()
 

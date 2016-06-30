@@ -25,7 +25,8 @@ class RootRegistViewController: IBaseViewController,SendVerifyTimerDelegate {
     @IBOutlet weak var QRcodeLabel: UILabel!
     @IBOutlet weak var ScanImage: UIImageView!
     
-    @IBOutlet weak var lblTimer: UILabel!
+    @IBOutlet weak var verifyLabel: UILabel!
+  
 
     
     var registViewModel:IRegistViewModel!
@@ -135,7 +136,7 @@ class RootRegistViewController: IBaseViewController,SendVerifyTimerDelegate {
     func SendVerifyTimer(){
         seconds = 60
         self.btnSendVerify.userInteractionEnabled = false
-            self.lblTimer.hidden = false
+        self.verifyLabel.textColor = textGraycolor
         realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "SpnnerTimerFireMethod:", userInfo: nil, repeats:true);
         realtimer.fire()
         
@@ -143,14 +144,21 @@ class RootRegistViewController: IBaseViewController,SendVerifyTimerDelegate {
     }
     func SpnnerTimerFireMethod(timer: NSTimer) {
         seconds -= 1
-        self.lblTimer.text = String(seconds)
-        
+        self.verifyLabel.text = String(seconds) + "s后重发"
+       
         if seconds == 0{
-            realtimer.invalidate()
-            self.lblTimer.hidden = true
-            self.btnSendVerify.userInteractionEnabled = true
-            self.btnSendVerify.selected = false
+           self.CloseVerifyTimer2()
         }
     }
     
+    
+   func CloseVerifyTimer2(){
+    realtimer.invalidate()
+    
+    self.btnSendVerify.userInteractionEnabled = true
+    self.btnSendVerify.selected = false
+    self.verifyLabel.textColor = textBluecolor
+    self.verifyLabel.text = "获取验证码"
+    
+    }
 }

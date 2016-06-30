@@ -227,6 +227,10 @@ class ForgetPwdViewModel: BaseViewModel {
                 catch: { ex in
                     //异常处理
                     handleException(ex,showDialog: true)
+                    if self.parentController != nil{
+                        self.parentController.CloseVerifyTimer()
+                    }
+
                 },
                 finally: {
                     

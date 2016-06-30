@@ -27,15 +27,22 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
 
     
     @IBAction func Close(sender:AnyObject){
-        
-        if self.parentController != nil{
-            currentController = self.parentController
-        }
-        
         //把当前页面中的报警信息设置为“已读”
         IAlarmHelper.GetAlarmInstance().SetReadWarning(self.alarmViewModel!.codeList)
-        AlarmViewTag = false
         
+        if self.parentController.isKindOfClass(MeTabViewController){
+        let count = IAlarmHelper.GetAlarmInstance().WarningList.count
+        let vc = self.parentController as! MeTabViewController
+            if count > 0{
+            vc.meTabber.badgeValue = String(count)
+            vc.hiddenalarm = false
+            }
+            else{
+            vc.meTabber.badgeValue = nil
+              vc.hiddenalarm = true
+            }
+            vc.memuTable.reloadData()
+        }
         //返回上一页
         self.parentController.navigationController?.popViewControllerAnimated(true)
     }
@@ -99,7 +106,7 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
         if cell == nil{
                        //报警信息cell
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "alarmCell")
-           
+        
             //报警图标 报警类型 时间
             //分割线
             //性别图标   姓名  床号
@@ -136,7 +143,7 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
             else if self.source[indexPath.section].UserGender == "2"{
                 genderImageName = "icon_female_choose.png"
             }
-            var genderImage =  UIImageView(frame: CGRectMake(19, 62, 13, 16))
+            var genderImage =  UIImageView(frame: CGRectMake(19, 62, 16, 16))
             genderImage.image = UIImage(named:genderImageName)
             cell?.contentView.addSubview(genderImage)
             
@@ -201,7 +208,11 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
     func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
         return "删除"
     }
-
+    
+    
+func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    }
 
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         var footerView = UIView(frame:CGRectMake(0, 0, screenwidth,15))

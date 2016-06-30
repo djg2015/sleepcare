@@ -46,20 +46,20 @@ class RootTabbarController: UITabBarController{
         if SessionForSingle.GetSession()?.EquipmentList.count == 0{
             self.selectedIndex = 3
             self.tabBar.selectedItem?.selectedImage = selectmeImage
-            
+          
         }
             //有未读的报警信息，则默认选择“我的”页面
         else if(IAlarmHelper.GetAlarmInstance().WarningList.count>0){
         self.selectedIndex = 3
             self.tabBar.selectedItem?.selectedImage = selectmeImage
+            self.tabBar.selectedItem?.badgeValue = String(IAlarmHelper.GetAlarmInstance().WarningList.count)
         }
-        
+      
 
     }
 
     override func viewDidLoad() {
-                
-       //去除选中图片背景蓝色tint
+        //去除选中图片背景蓝色tint
         selecthrImage = selecthrImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         selectrrImage = selectrrImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         selectsleepImage = selectsleepImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
@@ -68,9 +68,6 @@ class RootTabbarController: UITabBarController{
         self.selectedIndex = 0
         self.tabBar.selectedItem?.selectedImage = selecthrImage
 
-     
-        
-      
     }
     
     
@@ -103,6 +100,10 @@ class RootTabbarController: UITabBarController{
             print("未知按钮")
         }
     }
+    
+    
+    
+  
 
 }
 

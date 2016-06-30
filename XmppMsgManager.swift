@@ -133,7 +133,7 @@ class XmppMsgManager:MessageDelegate{
             }
             result = requsetQuene.removeValueForKey(baseMessage.messageSubject.requestID!) as! BaseMessage
         }
-        else if LOGIN{
+        else if LOGINFLAG{
             throw("-2", ShowMessage(MessageEnum.ConnectFail))
         
         }

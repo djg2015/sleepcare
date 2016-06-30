@@ -18,7 +18,8 @@ class ForgetPwdController: IBaseViewController ,SendVerifyTimer2Delegate{
     @IBOutlet weak var btnSendVerify: UIButton!
     @IBOutlet weak var btnSecurePwd: UIButton!
     
-    @IBOutlet weak var lblTimer: UILabel!
+  
+    @IBOutlet weak var verifyLabel: UILabel!
     
     var forgetpwdViewModel:ForgetPwdViewModel!
     
@@ -57,15 +58,19 @@ class ForgetPwdController: IBaseViewController ,SendVerifyTimer2Delegate{
         
         self.btnSecurePwd.setBackgroundImage(UIImage(named: "icon_密码不可见.png"), forState: UIControlState.Normal)
         self.btnSecurePwd.setBackgroundImage(UIImage(named: "icon_密码可见.png"), forState: UIControlState.Selected)
- 
+        self.btnSendVerify.setBackgroundImage(UIImage(named: "icon_60s.png"), forState: UIControlState.Selected)
+        self.btnSendVerify.setBackgroundImage(UIImage(named: "icon_获取验证码.png"), forState: UIControlState.Normal)
+        
         self.txtPhone.rac_textSignal() ~> RAC(self.forgetpwdViewModel, "Phone")
         self.txtVerify.rac_textSignal() ~> RAC(self.forgetpwdViewModel, "VerifyNumber")
         self.txtPass.rac_textSignal() ~> RAC(self.forgetpwdViewModel, "Pwd")
         self.txtConfirmPass.rac_textSignal() ~> RAC(self.forgetpwdViewModel, "ConfirmPwd")
-        
+         RACObserve(self.forgetpwdViewModel, "ClickSendVerify") ~> RAC(self.btnSendVerify, "selected")
 
         self.btnSendVerify!.rac_command = self.forgetpwdViewModel?.SendVerifyCommand
         self.btnConfirm!.rac_command = self.forgetpwdViewModel?.ConfirmCommand
+        
+        
     }
 
     //60s倒计时定时器
@@ -75,7 +80,7 @@ class ForgetPwdController: IBaseViewController ,SendVerifyTimer2Delegate{
     func SendVerifyTimer2(){
         seconds = 60
         self.btnSendVerify.userInteractionEnabled = false
-        self.lblTimer.hidden = false
+         self.verifyLabel.textColor = textGraycolor
         realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "SpnnerTimerFireMethod:", userInfo: nil, repeats:true);
         realtimer.fire()
         
@@ -83,16 +88,18 @@ class ForgetPwdController: IBaseViewController ,SendVerifyTimer2Delegate{
     }
     func SpnnerTimerFireMethod(timer: NSTimer) {
         seconds -= 1
-        self.lblTimer.text = String(seconds)
-        
+         self.verifyLabel.text = String(seconds) + "s后重发"
         if seconds == 0{
-            realtimer.invalidate()
-            self.lblTimer.hidden = true
-            self.btnSendVerify.userInteractionEnabled = true
-            self.btnSendVerify.selected = false
+            self.CloseVerifyTimer()
         }
     }
 
-   
-
+    func CloseVerifyTimer(){
+    realtimer.invalidate()
+    
+    self.btnSendVerify.userInteractionEnabled = true
+    self.btnSendVerify.selected = false
+    self.verifyLabel.textColor = textBluecolor
+    self.verifyLabel.text = "获取验证码"
+    }
 }

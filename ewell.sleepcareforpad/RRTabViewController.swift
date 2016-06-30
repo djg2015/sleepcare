@@ -129,7 +129,13 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     
     
     @IBAction func ClickChangePatient(sender:UIButton){
+        self.ChangePatient()
         
+    }
+    
+    
+    
+     func ChangePatient(){
         if(self.popDownListForIphone == nil){
             
             self.popDownListForIphone = PopDownListForIphone()
@@ -144,11 +150,12 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
                 item.equipmentcode = tempPatientList[i].EquipmentID
                 patientDownlist.append(item)
             }
-
+            
         }
         
         self.popDownListForIphone?.Show("选择老人", source:patientDownlist)
     }
+    
     
     
     override func viewWillAppear(animated: Bool) {
@@ -244,7 +251,10 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         RACObserve(self.rrTabViewModel, "LastAvgRR") ~> RAC(self, "avgRR")
         
         
-        
+        //点击名字，切换老人
+        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "ChangePatient")
+        self.NameLabel.addGestureRecognizer(singleTap)
+        self.NameLabel.userInteractionEnabled = true
      
     }
     

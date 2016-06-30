@@ -321,12 +321,16 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
 //              tempx = "周" + tempx
 //            }
 //                    tempValueX.append(tempx)
-//            tempValueX.append(tempSleepReportList[i].WeekDay.subString(2, length: 1))
-            var tempday = tempSleepReportList[i].ReportDate.subString(8, length: 2)
-            if tempday < "10"{
-            tempday = tempday.subString(1, length: 1)
-            }
-            tempValueX.append(tempday)
+            
+            //星期几
+            tempValueX.append(tempSleepReportList[i].WeekDay.subString(2, length: 1))
+            
+            //yyyy-mm-dd
+//            var tempday = tempSleepReportList[i].ReportDate.subString(8, length: 2)
+//            if tempday < "10"{
+//            tempday = tempday.subString(1, length: 1)
+//            }
+//            tempValueX.append(tempday)
                     tempValueY.append(tempSleepReportList[i].SleepTimespanHour)
         }
         self.SleepReport.flag = true

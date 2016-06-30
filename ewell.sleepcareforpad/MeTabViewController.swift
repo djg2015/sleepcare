@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,SetAlarmPicDelegate,SetTabbarBadgeDelegate{
+class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,SetTabbarBadgeDelegate,SetAlarmPicDelegate{
     @IBOutlet weak var memuTable: UITableView!
     
     @IBOutlet weak var meTabber: UITabBarItem!
@@ -20,11 +20,17 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
     var hiddenalarm:Bool = true
     
 
-    
-
-    
     override func viewWillAppear(animated: Bool) {
-     
+        let count = IAlarmHelper.GetAlarmInstance().WarningList.count
+        if count > 0{
+            self.hiddenalarm = false
+            
+        }
+        else{
+            self.hiddenalarm = true
+        }
+        self.memuTable.reloadData()
+        
         currentController = self
     }
     
@@ -33,10 +39,8 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-          
+        IAlarmHelper.GetAlarmInstance().tabbarBadgeDelegate = self
         IAlarmHelper.GetAlarmInstance().alarmpicdelegate = self
-         IAlarmHelper.GetAlarmInstance().tabbarBadgeDelegate = self
-         
 
         self.memuTable.delegate = self
         self.memuTable.dataSource = self
@@ -55,6 +59,9 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+   
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -214,28 +221,30 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
 
     
+    
     func SetAlarmPic(count:Int){
-        if count > 0{
-            self.hiddenalarm = false
-          
-        }
-        else{
-            self.hiddenalarm = true
-        }
-        self.memuTable.reloadData()
-        
-     
+    
+    if count > 0{
+    self.hiddenalarm = false
+    
+    }
+    else{
+    self.hiddenalarm = true
+    }
+    self.memuTable.reloadData()
     }
     
-    func SetTabbarBadge(count:Int){
-        if count > 0{
-           
-            self.meTabber.badgeValue = String(count)
+    
+        func SetTabbarBadge(count:Int){
+            if count > 0{
+    
+                self.meTabber.badgeValue = String(count)
+            }
+            else{
+                self.meTabber.badgeValue = nil
+            }
         }
-        else{
-            self.meTabber.badgeValue = nil
-        }
-    }
- 
+    
+
 
 }

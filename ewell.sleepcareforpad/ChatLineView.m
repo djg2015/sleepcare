@@ -138,7 +138,15 @@
     //2绘制横轴
     [[UIColor lightGrayColor] set];
     for (int i = 0 ; i < self.xValueArr.count ; i++) {
+        //15+个x值，每隔3个点选一个标记在chart里
+        if(self.xValueArr.count>14){
+            if(i%3 == 2){
+            [self.xValueArr[i] drawInRect:CGRectMake((i + 2) * (rect.size.width * self.verticalSpace),(self.yValueArr.count + 1) * self.horizontalSpace ,30 ,10) withFont:font];
+            }
+        }
+        else{
         [self.xValueArr[i] drawInRect:CGRectMake((i + 2) * (rect.size.width * self.verticalSpace),(self.yValueArr.count + 1) * self.horizontalSpace ,30 ,10) withFont:font];
+        }
     }
     
 //    NSString *unitXStr = @"(点)";
@@ -189,8 +197,8 @@
             float y = (self.yValueArr.count -  [subArr[j] intValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
             float x =  (j + 2) * (rect.size.width * self.verticalSpace)+ 5 ;
            
-         
-            PointBtn *clickBtn = [[PointBtn alloc]initWithFrame:CGRectMake(x - 4, y - 4, 7, 7)];
+         //test1 x-4
+            PointBtn *clickBtn = [[PointBtn alloc]initWithFrame:CGRectMake(x+4 , y - 4, 7, 7)];
             [clickBtn setBackgroundImage:[UIImage imageNamed:@"circlepoint"] forState:UIControlStateNormal];
             clickBtn.yearStr = self.yearArr[i];
             clickBtn.valueStr = subArr[j];
@@ -207,14 +215,14 @@
 
         }
         
-        //绘制蒙版
+        //绘制蒙版 test2 x+5
         //4绘制折线
         float firstY = (self.yValueArr.count -  0 / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
-        float firstX =   2 * (rect.size.width * self.verticalSpace)+ 5 ;
+        float firstX =   2 * (rect.size.width * self.verticalSpace)+ 13 ;
         CGContextMoveToPoint(context, firstX, firstY);
         for (int j = 0 ; j < subArr.count ; j++) {
             float y = (self.yValueArr.count -  [subArr[j] intValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
-            float x =  (j + 2) * (rect.size.width * self.verticalSpace)+ 5 ;
+            float x =  (j + 2) * (rect.size.width * self.verticalSpace)+ 13 ;
             if(j == 0){
                 CGContextMoveToPoint(context, x, y);
             }else{
@@ -225,20 +233,20 @@
         CGContextSetLineDash(context, 0, 0, 0);
         CGContextStrokePath(context);
         
-        //绘制蒙版
+        //绘制蒙版  test3  x+5
         CGContextRef context1 = UIGraphicsGetCurrentContext();
         CGMutablePathRef path = CGPathCreateMutable();
         //1.起始点
         CGPathMoveToPoint(path, NULL, firstX, firstY);
         for (int j = 0 ; j < subArr.count ; j++) {
             float y = (self.yValueArr.count -  [subArr[j] intValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
-            float x =  (j + 2) * (rect.size.width * self.verticalSpace)+ 5 ;
+            float x =  (j + 2) * (rect.size.width * self.verticalSpace)+ 13 ;
             CGPathAddLineToPoint(path, NULL, x, y);
         }
         
         //2.绘制终点
         float lastY = (self.yValueArr.count -  0 / (self.spaceValue * self.level) ) * self.horizontalSpace + 6;
-        float lastX =  (subArr.count + 1) * (rect.size.width * self.verticalSpace)+ 5;
+        float lastX =  (subArr.count + 1) * (rect.size.width * self.verticalSpace)+ 13;
         CGPathAddLineToPoint(path, NULL, lastX, lastY);
         CGContextSetLineWidth(context1, 3.0);
         CGContextSetLineDash(context1, 0, 0, 0);

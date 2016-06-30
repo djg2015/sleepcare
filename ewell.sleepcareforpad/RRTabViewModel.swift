@@ -276,7 +276,7 @@ class RRTabViewModel: BaseViewModel,GetRealtimeDataDelegate  {
         var tempTitle = "平均呼吸"
         
         if tempDayReportList.count > 0{
-        for (var i = 2;i<tempDayReportList.count;i+=3){
+        for (var i = 0;i<tempDayReportList.count;i++){
             tempValueX.append(tempDayReportList[i].ReportHour)
             tempValueY.append(tempDayReportList[i].AvgRR)
         }
@@ -324,15 +324,7 @@ class RRTabViewModel: BaseViewModel,GetRealtimeDataDelegate  {
         tempValueX = []
         tempTitle = "平均呼吸"
         
-        
-        if tempMonthReportList.count > 10{
-            for (var i = 0;i<tempMonthReportList.count;i+=3){
-                tempValueX.append(tempMonthReportList[i].ReportHour)
-                tempValueY.append(tempMonthReportList[i].AvgRR)
-            }
-             self.RRMonthReport.flag = true
-        }
-        else if tempMonthReportList.count > 0{
+       if tempMonthReportList.count > 0{
             for tempMonthReport in tempMonthReportList{
                 tempValueX.append(tempMonthReport.ReportHour)
                 tempValueY.append(tempMonthReport.AvgRR)
