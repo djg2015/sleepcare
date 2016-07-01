@@ -80,8 +80,11 @@ class MyDeviceViewModel: BaseViewModel {
         if devicecell.UserCode == SessionForSingle.GetSession()!.CurPatientCode{
           SessionForSingle.GetSession()?.CurPatientCode = ""
           SessionForSingle.GetSession()?.CurPatientName = ""
-            SetValueIntoPlist("curPatientCode", "")
-            SetValueIntoPlist("curPatientName", "")
+            
+            PLISTHELPER.CurPatientCode = ""
+            PLISTHELPER.CurPatientName = ""
+//            SetValueIntoPlist("curPatientCode", "")
+//            SetValueIntoPlist("curPatientName", "")
         }
         
         //source更新

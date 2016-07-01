@@ -23,13 +23,19 @@ class RootLoginViewController: IBaseViewController,LoginButtonDelegate{
                     CloseNotice()
                     LOGINFLAG = false
                     IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
-                SetValueIntoPlist("xmppusernamephone", "")
-        SetValueIntoPlist("curPatientCode", "")
-        SetValueIntoPlist("curPatientName", "")
+        PLISTHELPER.XmppUsernamePhone = ""
+        PLISTHELPER.CurPatientName = ""
+        PLISTHELPER.CurPatientCode = ""
+//        
+//       SetValueIntoPlist("xmppusernamephone", "")
+//        SetValueIntoPlist("curPatientCode", "")
+//        SetValueIntoPlist("curPatientName", "")
         
         
              //  SessionForSingle.ClearSession()
-        SetValueIntoPlist("alarmnotice", String(stringInterpolationSegment: AlarmNoticeFlag))
+        
+        PLISTHELPER.AlarmNotice = String(stringInterpolationSegment: AlarmNoticeFlag)
+      //  SetValueIntoPlist("alarmnotice", String(stringInterpolationSegment: AlarmNoticeFlag))
          AlarmTimerFlag = false
         currentController = nil
     }

@@ -20,17 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,XMPPStreamDelegate{
         //延时启动界面
         NSThread.sleepForTimeInterval(1)
         //初始化plist文件
-        InitPlistFile()
-//        //获取根控制器
-//        let story:UIStoryboard = UIStoryboard(name:"Main",bundle:nil) as UIStoryboard
-//        //是否已注册过账户:已注册，登录页面设置为root；未注册，注册页面设置为root
-//        let isRegistFlag =  GetValueFromPlist("isRegist","sleepcare.plist")
-//        if isRegistFlag == "false"{
-//        self.window?.rootViewController = story.instantiateViewControllerWithIdentifier("rootregist") as? UIViewController
-//        }
-//        else{
-//         self.window?.rootViewController = story.instantiateViewControllerWithIdentifier("rootlogin") as? UIViewController
-//        }
+        PLISTHELPER = PlistHelper()
+        PLISTHELPER.InitPlistFile()
+        
+        //读取sleepcare.plist文件到本地
+         PLISTHELPER.GetValueFromSleepcarePlist()
+        //读取Message.plist到本地
+        PLISTHELPER.GetValueFromMessagePlist()
+        
+
         return true
     }
     
@@ -73,7 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,XMPPStreamDelegate{
         var curUpdate = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
         var updateflag = UpdateHelper.GetUpdateInstance().CheckLocalUpdateDate(curUpdate)
         //更新本地sleepcare.plist文件里updatedate
-        SetValueIntoPlist("updatedate",curUpdate)
+       PLISTHELPER.UpdateDate = curUpdate
+        //SetValueIntoPlist("updatedate",curUpdate)
         
         if updateflag{
             UpdateHelper.GetUpdateInstance().PrepareConnection()

@@ -56,6 +56,10 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
     }
     
     
+    @IBAction func ClickChangeDate(sender:UIButton){
+    self.ChangeDate()
+    }
+    
     
     override func viewWillAppear(animated: Bool) {
          self.popDownListForIphone = nil
@@ -234,9 +238,11 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
         self.sleepTabViewModel.BedUserCode = item.key!
         self.sleepTabViewModel.BedUserName = item.value!
         
-            SetValueIntoPlist("curPatientCode", item.key!)
-            SetValueIntoPlist("curPatientName", item.value!)
-           
+//            SetValueIntoPlist("curPatientCode", item.key!)
+//            SetValueIntoPlist("curPatientName", item.value!)
+            
+            PLISTHELPER.CurPatientName = item.value!
+            PLISTHELPER.CurPatientCode = item.key!
             
         self.RefreshSleepView()
         }

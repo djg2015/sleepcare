@@ -10,7 +10,7 @@ import Foundation
 
 func ShowMessage(MessageTitle:MessageEnum)->String {
     
-var messageDescription = GetValueFromReadOnlyPlist(String(MessageTitle.rawValue),"Message")
+var messageDescription = PLISTHELPER.MessageList[MessageTitle.rawValue]
 return messageDescription
 }
 
@@ -43,7 +43,7 @@ enum MessageEnum:Int{
     case LoginTypeNil
     case VerifyNumberNil
     case ConfirmPatientInfo
-case NeedPhonenumber
+    case NeedPhonenumber
     case QRCodeNil
     case NameNil
     case ConfirmNewPwdSuccess

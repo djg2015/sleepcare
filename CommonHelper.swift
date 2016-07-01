@@ -76,11 +76,17 @@ func GetOpenfireInfo(){
                 var username:String? = apInfo!.objectForKey("UserName") as? String
                 
                 if (ip != nil && port != nil && server != nil && pwd != nil && username != nil){
-                    SetValueIntoPlist(SERVER,ip!)
-                    SetValueIntoPlist(PORT,String(port!) )
-                    SetValueIntoPlist(SERVERJID, server!)
-                    SetValueIntoPlist(PASS, pwd!)
-                    SetValueIntoPlist(USERID, username! + "@" + ip!)
+                    PLISTHELPER.XmppServer = ip!
+                    PLISTHELPER.XmppPort = String(port!)
+                    PLISTHELPER.ServerJID = server!
+                    PLISTHELPER.XmppUserpwd = pwd!
+                    PLISTHELPER.XmppUsername = username! + "@" + ip!
+                    
+//                    SetValueIntoPlist(SERVER,ip!)
+//                    SetValueIntoPlist(PORT,String(port!) )
+//                    SetValueIntoPlist(SERVERJID, server!)
+//                    SetValueIntoPlist(PASS, pwd!)
+//                    SetValueIntoPlist(USERID, username! + "@" + ip!)
                 }
                 
             }

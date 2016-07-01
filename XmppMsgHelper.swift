@@ -48,10 +48,10 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
             //初始化登录flag
             self.loginFlag = 0
             //iphone连接测试
-            var userId:String?  = GetValueFromPlist(USERIDPHONE,"sleepcare.plist")
-            var pass:String? = GetValueFromPlist(PASS,"sleepcare.plist")
-            var server:String? = GetValueFromPlist(SERVER,"sleepcare.plist")
-            var port:String? = GetValueFromPlist(PORT,"sleepcare.plist")
+            var userId:String?  = PLISTHELPER.XmppUsernamePhone
+            var pass:String? = PLISTHELPER.XmppUserpwd
+            var server:String? = PLISTHELPER.XmppServer
+            var port:String? = PLISTHELPER.XmppPort
             
             
             
@@ -91,10 +91,10 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         self.loginFlag = 0
         
         //ipad连接测试／iphone注册账户相关链接测试
-        var userId:String?  = GetValueFromPlist(USERID,"sleepcare.plist")
-        var pass:String? = GetValueFromPlist(PASS,"sleepcare.plist")
-        var server:String? = GetValueFromPlist(SERVER,"sleepcare.plist")
-        var port:String? = GetValueFromPlist(PORT,"sleepcare.plist")
+        var userId:String?  = PLISTHELPER.XmppUsername
+        var pass:String? = PLISTHELPER.XmppUserpwd
+        var server:String? = PLISTHELPER.XmppServer
+        var port:String? = PLISTHELPER.XmppPort
         
         
         //设置用户

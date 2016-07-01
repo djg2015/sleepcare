@@ -198,8 +198,8 @@ class ForgetPwdViewModel: BaseViewModel {
     
 
     func AfterConfirmSuccess(isOtherButton: Bool){
-       
-        SetValueIntoPlist("loginpwdsingle", self.Pwd)
+          PLISTHELPER.LoginPwdSingle = self.Pwd
+   //     SetValueIntoPlist("loginpwdsingle", self.Pwd)
         
         if self.parentController != nil{
             self.parentController.navigationController?.popViewControllerAnimated(true)

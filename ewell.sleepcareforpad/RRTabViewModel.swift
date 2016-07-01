@@ -109,23 +109,23 @@ class RRTabViewModel: BaseViewModel,GetRealtimeDataDelegate  {
                 
             }
                 
-            else if (value.toInt() < 10 ){
-                if oldvalue >= 10{
+            else if (value.toInt() < RRLOW ){
+                if oldvalue >= RRLOW{
                     //点变蓝，报警图标变红
                     CurrentRRImage = "icon_blue circle.png"
                     AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
                 }
             }
-            else if (value.toInt() > 40 ){
+            else if (value.toInt() > RRMIDDLE ){
                 //点变红，报警图标变红
-                if oldvalue <= 40{
+                if oldvalue <= RRMIDDLE{
                     CurrentRRImage = "icon_red circle.png"
                     AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
                 }
             }
             else {
-                //值处于10-40正常状态,圆紫色，报警图标变白色
-                if (oldvalue > 40 || oldvalue < 10){
+                //值处于8-30正常状态,圆紫色，报警图标变白色
+                if (oldvalue > RRMAX || oldvalue < RRLOW){
                     CurrentRRImage = "icon_purple circle.png"
                     AlarmNoticeImage = UIImage(named:"btn_无警报.png")!
                 }

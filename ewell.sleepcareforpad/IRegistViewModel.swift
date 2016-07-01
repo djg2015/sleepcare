@@ -252,9 +252,13 @@ class IRegistViewModel:BaseViewModel {
     
     //点击注册成功,弹窗后的操作:登录信息写入本地，跳转“老人信息”页面
     func AfterRegistSuccess(isOtherButton: Bool){
-        SetValueIntoPlist("logintelephonesingle", self.Phone)
-        SetValueIntoPlist("loginpwdsingle", self.Pwd)
-        SetValueIntoPlist("isRegist", "true")
+        PLISTHELPER.LoginTelephoneSingle = self.Phone
+        PLISTHELPER.LoginPwdSingle = self.Pwd
+        PLISTHELPER.IsRegist = "true"
+        
+//        SetValueIntoPlist("logintelephonesingle", self.Phone)
+//        SetValueIntoPlist("loginpwdsingle", self.Pwd)
+//        SetValueIntoPlist("isRegist", "true")
         
         
         if self.parentController != nil{

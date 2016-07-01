@@ -86,9 +86,9 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
     
     //读取本地文件中的登录名密码，非空则自动登录
     func LoadData(){
-       let temptelephone = GetValueFromPlist("logintelephonesingle","sleepcare.plist")
-        let temppwd = GetValueFromPlist("loginpwdsingle","sleepcare.plist")
-        let tempisregist = GetValueFromPlist("isRegist","sleepcare.plist")
+       let temptelephone = PLISTHELPER.LoginTelephoneSingle
+        let temppwd = PLISTHELPER.LoginPwdSingle
+        let tempisregist = PLISTHELPER.IsRegist
         
         if (temptelephone != "" && temppwd != ""){
             self.Telephone = temptelephone
@@ -119,8 +119,8 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
     
     //代理：实现新注册成功后自动登录
     func AutoLoginAfterRegist() {
-        self.Telephone = GetValueFromPlist("logintelephonesingle","sleepcare.plist")
-        self.Pwd = GetValueFromPlist("loginpwdsingle","sleepcare.plist")
+        self.Telephone = PLISTHELPER.LoginTelephoneSingle
+        self.Pwd = PLISTHELPER.LoginPwdSingle
         //等待层？？？？
         self.Login()
     }
@@ -178,8 +178,9 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
                 }
 
                 //给openfire username赋值，＝loginname@server address
-                let xmppusernamephone = self.Telephone + "@" + GetValueFromPlist("xmppserver","sleepcare.plist")
-                SetValueIntoPlist("xmppusernamephone", xmppusernamephone)
+                let xmppusernamephone = self.Telephone + "@" + PLISTHELPER.XmppServer
+                PLISTHELPER.XmppUsernamePhone = xmppusernamephone
+            //    SetValueIntoPlist("xmppusernamephone", xmppusernamephone)
                 
                  //获取当前帐户下的用户信息
                 var loginUser:LoginUser = SleepCareForSingle().SingleLogin(self.Telephone, loginPassword: self.Pwd)
@@ -195,7 +196,7 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
                 }
                 
                 //获取报警弹窗标志
-               let tempflag = GetValueFromPlist("alarmnotice","sleepcare.plist")
+               let tempflag = PLISTHELPER.AlarmNotice
                 AlarmNoticeFlag = tempflag == "true" ? true : false
                 
                    //获取关注的设备列表
@@ -210,8 +211,8 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
 
                 
                // 获取当前关注的设备；如果只有一个设备，默认选中
-               let localcode = GetValueFromPlist("curPatientCode","sleepcare.plist")
-                let localname = GetValueFromPlist("curPatientName","sleepcare.plist")
+               let localcode = PLISTHELPER.CurPatientCode
+                let localname = PLISTHELPER.CurPatientName
                 if (localcode != "" && localname != ""){
                     self.session!.CurPatientCode = localcode
                     self.session!.CurPatientName = localname
@@ -221,8 +222,11 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
                      let tempname = tempEquipmentList.equipmentList[0].BedUserName
                     self.session!.CurPatientCode = tempcode
                     self.session!.CurPatientName = tempname
-                    SetValueIntoPlist("curPatientCode", tempcode)
-                    SetValueIntoPlist("curPatientName", tempname)
+                    
+                    PLISTHELPER.CurPatientCode = tempcode
+                    PLISTHELPER.CurPatientName = tempname
+//                    SetValueIntoPlist("curPatientCode", tempcode)
+//                    SetValueIntoPlist("curPatientName", tempname)
                     
                 }
                 
@@ -238,12 +242,18 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
                 
                 //若选中记住密码，则在本地纪录登录名，密码;否则清空
                 if self.IsRememberpwd{
-                    SetValueIntoPlist("logintelephonesingle", self.Telephone)
-                    SetValueIntoPlist("loginpwdsingle", self.Pwd)
+                    PLISTHELPER.LoginTelephoneSingle = self.Telephone
+                    PLISTHELPER.LoginPwdSingle = self.Pwd
+                    
+//                    SetValueIntoPlist("logintelephonesingle", self.Telephone)
+//                    SetValueIntoPlist("loginpwdsingle", self.Pwd)
                 }
                 else{
-                    SetValueIntoPlist("logintelephonesingle", "")
-                    SetValueIntoPlist("loginpwdsingle", "")
+                    
+                    PLISTHELPER.LoginTelephoneSingle = ""
+                    PLISTHELPER.LoginPwdSingle = ""
+//                    SetValueIntoPlist("logintelephonesingle", "")
+//                    SetValueIntoPlist("loginpwdsingle", "")
                     self.Telephone = ""
                     self.Pwd = ""
                 }

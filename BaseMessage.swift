@@ -22,13 +22,13 @@ class BaseMessage:NSObject{
         //消息类型
         mes.addAttributeWithName("type",stringValue:"normal")
         //发送给谁
-        mes.addAttributeWithName("to" ,stringValue: GetValueFromPlist(SERVERJID,"sleepcare.plist"))
+        mes.addAttributeWithName("to" ,stringValue:PLISTHELPER.ServerJID)
         //由谁发送
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone{
-        mes.addAttributeWithName("from" ,stringValue:GetValueFromPlist(USERIDPHONE,"sleepcare.plist"))
+        mes.addAttributeWithName("from" ,stringValue:PLISTHELPER.XmppUsernamePhone)
         }
         else{
-        mes.addAttributeWithName("from" ,stringValue:GetValueFromPlist(USERID,"sleepcare.plist"))
+        mes.addAttributeWithName("from" ,stringValue: PLISTHELPER.XmppUsername)
         }
         //组合
         mes.addChild(self.messageSubject.ParseSubjectToXml())
@@ -54,7 +54,7 @@ class BaseMessage:NSObject{
         //消息类型
         mes.addAttributeWithName("type",stringValue:"normal")
         //发送给谁
-        mes.addAttributeWithName("to" ,stringValue:GetValueFromPlist(SERVERJID,"sleepcare.plist"))
+        mes.addAttributeWithName("to" ,stringValue:PLISTHELPER.ServerJID)
         
         //由谁发送
         mes.addAttributeWithName("from" ,stringValue:NSUserDefaults.standardUserDefaults().stringForKey(USERID))

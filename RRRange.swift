@@ -24,10 +24,23 @@ class RRRange:BaseMessage{
             var time:String = report.elementForName("ReportHour") == "" ? "" : report.elementForName("ReportHour").stringValue()
             if time != ""{
                 if count(time) > 10{
-                    timeReport.ReportHour = time.subString(11, length: 2) + "点"
+                    let temptime = time.subString(11, length: 2)
+                    if temptime < "10"{
+                        timeReport.ReportHour = temptime.subString(1, length: 1) + "点"
+                    }
+                    else{
+                        timeReport.ReportHour = temptime + "点"
+                    }
                 }
                 else {
-                    timeReport.ReportHour = time.subString(8, length: 2) 
+                    let tempday = time.subString(8, length: 2)
+                    if tempday < "10"{
+                        timeReport.ReportHour = tempday.subString(1, length: 1)
+                    }
+                    else{
+                        timeReport.ReportHour = tempday
+                    }
+
                 }
             }
             else{

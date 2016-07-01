@@ -29,7 +29,8 @@ class AccountSettingViewModel: BaseViewModel {
         CloseNotice()
     }
     
-     SetValueIntoPlist("alarmnotice", String(stringInterpolationSegment: AlarmNoticeFlag))
+    PLISTHELPER.AlarmNotice = String(stringInterpolationSegment: AlarmNoticeFlag)
+   //  SetValueIntoPlist("alarmnotice", String(stringInterpolationSegment: AlarmNoticeFlag))
     
     }
     

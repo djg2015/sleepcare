@@ -174,6 +174,7 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
     func Refresh(){
         HrRrChartView.RemoveTrendChartView()
         if self.weekreportViewModel.HRRRRange.flag{
+          
             HrRrChartView.Type = "1"
             let titleNameList1 = "心率"
             let titleNameList2 = "呼吸"
@@ -215,7 +216,8 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         SleepChartView.RemoveTrendChartView()
         if self.weekreportViewModel.SleepRange.flag{
             SleepChartView.frame = CGRectMake(0, 732, screenwidth, 200)
-            SleepChartView.Type = "3"
+            //＝＝“3”的折线效果，但无遮层
+            SleepChartView.Type = "6"
             let titleNameList1 = "深睡"
             let titleNameList2 = "浅睡"
             let titleNameList3 = "清醒"

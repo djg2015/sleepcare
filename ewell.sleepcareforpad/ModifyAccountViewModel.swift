@@ -150,8 +150,10 @@ class ModifyAccountViewModel: BaseViewModel {
     
     func AfterModifySuccess(isOtherButton: Bool){
     //修改本地文件信息 pwd
-        if GetValueFromPlist("loginpwdsingle","sleepcare.plist") != ""{
-         SetValueIntoPlist("loginpwdsingle", self.NewPwd)
+        if PLISTHELPER.LoginPwdSingle != ""{
+            PLISTHELPER.LoginPwdSingle = self.NewPwd
+            
+       //  SetValueIntoPlist("loginpwdsingle", self.NewPwd)
         }
         //修改session信息 oldpwd
         SessionForSingle.GetSession()?.OldPwd = self.NewPwd

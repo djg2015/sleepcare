@@ -54,7 +54,7 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     var outercircleView: STLoopProgressView!
     var innercircleView: STLoopProgressView!
     
-    //心率最高值120（20-80-120三档）
+    //心率最高值120（30-100-120三档）
     var currentHR:String?{
         didSet{
             if currentHR != nil{
@@ -322,8 +322,10 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         self.hrTabViewModel.BedUserName = item.value!
         
             
-        SetValueIntoPlist("curPatientCode", item.key!)
-        SetValueIntoPlist("curPatientName", item.value!)
+            PLISTHELPER.CurPatientName = item.value!
+             PLISTHELPER.CurPatientCode = item.key!
+//        SetValueIntoPlist("curPatientCode", item.key!)
+//        SetValueIntoPlist("curPatientName", item.value!)
             
             
         self.RefreshHRView()

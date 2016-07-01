@@ -109,23 +109,23 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
                 
             }
                 
-            else if (value.toInt() < 20 ){
-                if oldvalue >= 20{
+            else if (value.toInt() < HRLOW){
+                if oldvalue >= HRLOW{
                     //点变蓝，报警图标变红
                     CurrentHRImage = "icon_blue circle.png"
                     AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
                 }
             }
-            else if (value.toInt()>80 ){
+            else if (value.toInt()>HRMIDDLE ){
                 //点变红，报警图标变红
-                if oldvalue <= 80{
+                if oldvalue <= HRMIDDLE{
                     CurrentHRImage = "icon_red circle.png"
                     AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
                 }
             }
             else {
                 //值处于20-80正常状态,圆紫色，报警图标变白色
-                if (oldvalue > 80 || oldvalue < 20){
+                if (oldvalue > HRMIDDLE || oldvalue < HRLOW){
                     CurrentHRImage = "icon_purple circle.png"
                     AlarmNoticeImage = UIImage(named:"btn_无警报.png")!
                 }

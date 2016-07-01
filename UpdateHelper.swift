@@ -31,7 +31,7 @@ class UpdateHelper:NSObject,UIAlertViewDelegate,NSURLConnectionDataDelegate{
     
     //检查sleepcare.plist里updatedate的值和当前时间哪个大（格式yyyy-MM-dd）,返回true需要检查更新
     func CheckLocalUpdateDate(curupdate:String)->Bool{
-        var localupdate = GetValueFromPlist("updatedate","sleepcare.plist")
+        var localupdate = PLISTHELPER.UpdateDate
         if localupdate == "" {
             //首次安装登录,不用更新
         return false

@@ -24,11 +24,6 @@ let SERVER:String = "xmppserver"
 let PORT:String = "xmppport"
 let SERVERJID:String = "serverjid"
 
-//plistHelper
-var fileManager = NSFileManager.defaultManager()
-let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
-var documentsDirectory:String!
-var sleepcareResultDictionary:NSMutableDictionary?
 
 var deviceType:String = "iphone"
 
@@ -70,3 +65,29 @@ var AutologinDelegate:AutoLoginAfterRegistDelegate!
 
 //是否显示报警通知,默认开启true（通过设置可关闭，为false）
 var AlarmNoticeFlag = true
+
+
+//心率区间0-100-120
+let HRMAX = 120
+let HRMIDDLE = 100
+let HRLOW = 30
+
+//呼吸区间0-30-40
+let RRMAX = 40
+let RRMIDDLE = 30
+let RRLOW = 8
+
+
+
+var PLISTHELPER:PlistHelper!
+
+
+
+
+
+
+
+
+
+
+

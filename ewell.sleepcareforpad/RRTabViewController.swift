@@ -55,11 +55,11 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     var innercircleView: STLoopProgressView!
     
     
-    //呼吸最高值60(10-40-60三档)
+    //呼吸最高值60(8-30-40三档)
     var currentRR:String?{
         didSet{
             if currentRR != nil{
-                self.outercircleView.persentage = CGFloat((currentRR! as NSString).floatValue)/60.0
+                self.outercircleView.persentage = CGFloat((currentRR! as NSString).floatValue)/40.0
                 
             }
         }
@@ -68,7 +68,7 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     var avgRR:String?{
         didSet{
             if avgRR != nil{
-                self.innercircleView.persentage = CGFloat((avgRR! as NSString).floatValue)/60.0
+                self.innercircleView.persentage = CGFloat((avgRR! as NSString).floatValue)/40.0
             }
         }
     }
@@ -329,9 +329,11 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         self.rrTabViewModel.BedUserCode = item.key!
         self.rrTabViewModel.BedUserName = item.value!
         
-            SetValueIntoPlist("curPatientCode", item.key!)
-            SetValueIntoPlist("curPatientName", item.value!)
-           
+//            SetValueIntoPlist("curPatientCode", item.key!)
+//            SetValueIntoPlist("curPatientName", item.value!)
+            
+            PLISTHELPER.CurPatientName = item.value!
+            PLISTHELPER.CurPatientCode = item.key!
             
         self.RefreshRRView()
         self.rrTabViewModel.realtimeFlag = true
