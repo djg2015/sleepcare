@@ -89,7 +89,7 @@ class AccountSettingController: UIViewController,UITableViewDataSource,UITableVi
             }
             else{
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "switchalarmcell")
-                cell?.textLabel!.text = "报警提示"
+                cell?.textLabel!.text = "报警通知"
                 cell?.textLabel?.font = self.font14
                 var sw = UISwitch()
                 

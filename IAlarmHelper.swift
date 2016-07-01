@@ -325,10 +325,9 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             currentController.navigationController?.pushViewController(nextController, animated: true)
             
         }
+           //忽略,从unreadcodes里去除
         else{
-            for warning in self.WarningList{
-                warning.IsRead = true
-            }
+           self.UnreadCodes.removeAll()
         }
         
     }
@@ -384,6 +383,16 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                                                 break
                                             }
                                         }
+                                        
+                                        //已处理报警信息，刷新badgenumber
+                                        if self.alarmpicdelegate != nil{
+                                            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
+                                        }
+                                        
+                                        if self.tabbarBadgeDelegate != nil{
+                                            self.tabbarBadgeDelegate.SetTabbarBadge(self.Warningcouts)
+                                        }
+                                        
                                         break
                                     }//删除已处理的报警
                                 }

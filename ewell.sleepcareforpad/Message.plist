@@ -29,7 +29,7 @@
 	<key>13</key>
 	<string>您尚未选择用户类型，无法查看信息！</string>
 	<key>14</key>
-	<string>数据加载失败！</string>
+	<string>服务器连接失败！请检查网络或重新尝试。</string>
 	<key>15</key>
 	<string>检测到新版本，是否前往App Store更新？</string>
 	<key>16</key>

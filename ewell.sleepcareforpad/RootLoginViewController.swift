@@ -24,6 +24,9 @@ class RootLoginViewController: IBaseViewController,LoginButtonDelegate{
                     LOGINFLAG = false
                     IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
                 SetValueIntoPlist("xmppusernamephone", "")
+        SetValueIntoPlist("curPatientCode", "")
+        SetValueIntoPlist("curPatientName", "")
+        
         
              //  SessionForSingle.ClearSession()
         SetValueIntoPlist("alarmnotice", String(stringInterpolationSegment: AlarmNoticeFlag))

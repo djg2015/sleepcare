@@ -53,7 +53,7 @@ func OpenNotice(){
             let isconnect = xmppMsgManager!.Connect()
             
             if(isconnect){
-                if LOGINFLAG{
+                if (AlarmNoticeFlag && LOGINFLAG){
                     var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
                     if token != nil{
              SleepCareForSingle().OpenNotification(token!, loginName: SessionForSingle.GetSession()!.User!.LoginName)
