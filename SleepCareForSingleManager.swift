@@ -101,7 +101,7 @@ protocol SleepCareForSingleManager{
     //参数： loginName
     //      schemaCode->报警类型
     //      alarmTimeBegin,alarmTimeEnd->报警开始结束时间yyyy-MM-dd
-    //      transferTypeCode->报警处理类型
+    //      transferTypeCode->报警处理类型 001未处理  002已处理  003误报警
     //      from->开始记录序号 (为空表示查询全部）
     //      max->返回最大记录数量 (为空表示查询全部 )
     func GetSingleAlarmByLoginUser(loginName:String,schemaCode:String,alarmTimeBegin:String,alarmTimeEnd:String,transferTypeCode:String,from:String?,max:String?)->AlarmList

@@ -194,6 +194,9 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
                     self.session!.OldPwd = self.Pwd
                 }
                 
+                //获取报警弹窗标志
+               let tempflag = GetValueFromPlist("alarmnotice","sleepcare.plist")
+                AlarmNoticeFlag = tempflag == "true" ? true : false
                 
                    //获取关注的设备列表
                 var tempEquipmentList:EquipmentList =  SleepCareForSingle().GetEquipmentsByLoginName(self.Telephone)

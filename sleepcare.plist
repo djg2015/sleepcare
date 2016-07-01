@@ -28,5 +28,7 @@
 	<string></string>
 	<key>isRegist</key>
 	<string>false</string>
+	<key>alarmnotice</key>
+	<string>true</string>
 </dict>
 </plist>

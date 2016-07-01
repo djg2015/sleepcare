@@ -355,6 +355,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                     for(var i = 0;i < alarmList.alarmInfoList.count;i++){
                         for code in bedusercodeList {
                             if code == alarmList.alarmInfoList[i].UserCode{
+                                
                                 //如果存在此code的报警信息，判断是否已处理
                                 if self.IsCodeExist(alarmList.alarmInfoList[i].AlarmCode){
                                     //已处理，则从codes&warninglist&todolist&unreadcodes里删除

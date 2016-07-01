@@ -29,6 +29,8 @@ class AccountSettingViewModel: BaseViewModel {
         CloseNotice()
     }
     
+     SetValueIntoPlist("alarmnotice", String(stringInterpolationSegment: AlarmNoticeFlag))
+    
     }
     
 

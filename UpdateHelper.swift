@@ -47,7 +47,7 @@ class UpdateHelper:NSObject,UIAlertViewDelegate,NSURLConnectionDataDelegate{
     //发送请求到app store
     func PrepareConnection(){
         //精确查找
-        var stringURL = "http://itunes.apple.com/cn/lookup?id=1101021028"
+        var stringURL = "http://itunes.apple.com/cn/lookup?id=1130152312"
         //模糊查找
         // var stringURL = "http://itunes.apple.com/search?term=智能床&entity=software"
         //如果程序中有非英文名称，需要转码

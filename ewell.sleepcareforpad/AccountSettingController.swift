@@ -92,7 +92,8 @@ class AccountSettingController: UIViewController,UITableViewDataSource,UITableVi
                 cell?.textLabel!.text = "报警提示"
                 cell?.textLabel?.font = self.font14
                 var sw = UISwitch()
-                sw.setOn(true, animated: false)
+                
+                sw.setOn(AlarmNoticeFlag, animated: false)
                 sw.addTarget(self, action: "SwitchValueChange:", forControlEvents: UIControlEvents.ValueChanged)
                 cell?.accessoryView = sw
             }

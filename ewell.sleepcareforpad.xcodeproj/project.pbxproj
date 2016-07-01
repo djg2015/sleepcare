@@ -93,10 +93,10 @@
 		0D6898F51D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6898F31D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.m */; };
 		0D6D6CBD1D212942005CB9D2 /* RRTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6D6CBC1D212941005CB9D2 /* RRTabViewController.swift */; };
 		0D6D6CC11D212985005CB9D2 /* RRTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6D6CC01D212985005CB9D2 /* RRTabViewModel.swift */; };
-		0D71FF541D25591500F0B127 /* icon_male_choose.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D71FF531D25591500F0B127 /* icon_male_choose.png */; };
 		0D71FF561D25591D00F0B127 /* icon_female.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D71FF551D25591D00F0B127 /* icon_female.png */; };
 		0D71FF581D25592300F0B127 /* icon_female_choose.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D71FF571D25592300F0B127 /* icon_female_choose.png */; };
-		0D71FF5A1D25593300F0B127 /* icon_male.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D71FF591D25593300F0B127 /* icon_male.png */; };
+		0D71FF5C1D25FC1200F0B127 /* icon_male.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D71FF5B1D25FC1200F0B127 /* icon_male.png */; };
+		0D71FF5E1D25FC1500F0B127 /* icon_male_choose.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D71FF5D1D25FC1500F0B127 /* icon_male_choose.png */; };
 		0D79EE0B1CB658B500B9DA5F /* AlarmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE0A1CB658B500B9DA5F /* AlarmList.swift */; };
 		0D79EE0D1CB6594000B9DA5F /* AlarmInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE0C1CB6593F00B9DA5F /* AlarmInfo.swift */; };
 		0D79EE0F1CB6597A00B9DA5F /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79EE0E1CB6597A00B9DA5F /* BaseViewModel.swift */; };
@@ -309,10 +309,10 @@
 		0D6898F31D190AAA0087A0FE /* STLoopProgressView+BaseConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "STLoopProgressView+BaseConfiguration.m"; sourceTree = "<group>"; };
 		0D6D6CBC1D212941005CB9D2 /* RRTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRTabViewController.swift; sourceTree = "<group>"; };
 		0D6D6CC01D212985005CB9D2 /* RRTabViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRTabViewModel.swift; sourceTree = "<group>"; };
-		0D71FF531D25591500F0B127 /* icon_male_choose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_male_choose.png; sourceTree = "<group>"; };
 		0D71FF551D25591D00F0B127 /* icon_female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_female.png; sourceTree = "<group>"; };
 		0D71FF571D25592300F0B127 /* icon_female_choose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_female_choose.png; sourceTree = "<group>"; };
-		0D71FF591D25593300F0B127 /* icon_male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_male.png; sourceTree = "<group>"; };
+		0D71FF5B1D25FC1200F0B127 /* icon_male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_male.png; sourceTree = "<group>"; };
+		0D71FF5D1D25FC1500F0B127 /* icon_male_choose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_male_choose.png; sourceTree = "<group>"; };
 		0D79EE0A1CB658B500B9DA5F /* AlarmList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmList.swift; sourceTree = "<group>"; };
 		0D79EE0C1CB6593F00B9DA5F /* AlarmInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmInfo.swift; sourceTree = "<group>"; };
 		0D79EE0E1CB6597A00B9DA5F /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -603,11 +603,11 @@
 				0DA783CF1D24DFC900C82C6A /* icon_arrow.png */,
 				0D3EB0A31D0FAE6B00928430 /* icon_telephone.png */,
 				0DEF14191D23AE3C00477365 /* icon_arrowdown.png */,
+				0D71FF5B1D25FC1200F0B127 /* icon_male.png */,
+				0D71FF5D1D25FC1500F0B127 /* icon_male_choose.png */,
 				0D3EB0A11D0FAE6500928430 /* icon_password.png */,
 				0D3EB0C31D0FE8B800928430 /* btn_address.png */,
 				0D3EB0BE1D0FE63600928430 /* icon_figure.png */,
-				0D71FF591D25593300F0B127 /* icon_male.png */,
-				0D71FF531D25591500F0B127 /* icon_male_choose.png */,
 				0D71FF571D25592300F0B127 /* icon_female_choose.png */,
 				0D71FF551D25591D00F0B127 /* icon_female.png */,
 				0D3EB0A71D0FC9F800928430 /* icon_短信校验码.png */,
@@ -1069,6 +1069,7 @@
 				3A91F0AE1BF0475400C470D4 /* THDateDay.xib in Resources */,
 				0D3EB0B61D0FD96700928430 /* btn_返回.png in Resources */,
 				0DA783D41D250EE500C82C6A /* icon_60s.png in Resources */,
+				0D71FF5C1D25FC1200F0B127 /* icon_male.png in Resources */,
 				0D3EB0D81D0FF84600928430 /* icon_offbed.png in Resources */,
 				0D3EB0AF1D0FD2EE00928430 /* icon_rememberpwd.png in Resources */,
 				0D3EB0EA1D1034BD00928430 /* icon_退出登录.png in Resources */,
@@ -1088,7 +1089,6 @@
 				3A91F0A51BF0475400C470D4 /* dialog_clear-disabled.png in Resources */,
 				3A91F0A81BF0475400C470D4 /* dialog_clear@2x.png in Resources */,
 				0D3EB0D91D0FF84600928430 /* icon_onbed.png in Resources */,
-				0D71FF5A1D25593300F0B127 /* icon_male.png in Resources */,
 				3A91F0981BF0475400C470D4 /* arrow_left@2x.png in Resources */,
 				3A91F0A11BF0475400C470D4 /* calendar_ok-disabled.png in Resources */,
 				3A91F0991BF0475400C470D4 /* arrow_right.png in Resources */,
@@ -1098,6 +1098,7 @@
 				0DB05CFC1D13FB2300018538 /* btn_email.png in Resources */,
 				0D3EB0B81D0FE1B500928430 /* icon_norememberpwd.png in Resources */,
 				0D3EB0B41D0FD37E00928430 /* icon_扫一扫.png in Resources */,
+				0D71FF5E1D25FC1500F0B127 /* icon_male_choose.png in Resources */,
 				0D3EB0D21D0FEF4C00928430 /* btn_有警报.png in Resources */,
 				0D3EB0961D0FA7BD00928430 /* icon_logo_2.png in Resources */,
 				3A91F0AC1BF0475400C470D4 /* dialog_ok@2x.png in Resources */,
@@ -1111,7 +1112,6 @@
 				0D3EB09C1D0FAD0700928430 /* icon_登录.png in Resources */,
 				0DB05CF91D13FB1B00018538 /* icon_breath.png in Resources */,
 				0D3EB0C11D0FE63600928430 /* icon_figure.png in Resources */,
-				0D71FF541D25591500F0B127 /* icon_male_choose.png in Resources */,
 				3A91F0A41BF0475400C470D4 /* dialog_cancel@2x.png in Resources */,
 				0D3EB0E81D1034A300928430 /* btn_右键.png in Resources */,
 				0D1FC0801D1A6F5400988A64 /* icon_请假.png in Resources */,
@@ -1356,7 +1356,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1378,7 +1378,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0cb50ede-7253-4952-9775-ba2ee0f352f3";
 				SDKROOT = iphoneos8.3;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1401,7 +1401,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1416,7 +1416,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0cb50ede-7253-4952-9775-ba2ee0f352f3";
 				SDKROOT = iphoneos8.3;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1430,7 +1430,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1457,7 +1457,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0cb50ede-7253-4952-9775-ba2ee0f352f3";
 				SDKROOT = iphoneos8.3;
 				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1473,7 +1473,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1500,7 +1500,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0cb50ede-7253-4952-9775-ba2ee0f352f3";
 				SDKROOT = iphoneos8.3;
 				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1511,7 +1511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1523,7 +1523,7 @@
 				INFOPLIST_FILE = ewell.sleepcareforpadTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0cb50ede-7253-4952-9775-ba2ee0f352f3";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ewell.sleepcareforpad.app/ewell.sleepcareforpad";
 			};
 			name = Debug;
@@ -1532,7 +1532,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1540,7 +1540,7 @@
 				INFOPLIST_FILE = ewell.sleepcareforpadTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0cb50ede-7253-4952-9775-ba2ee0f352f3";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ewell.sleepcareforpad.app/ewell.sleepcareforpad";
 			};
 			name = Release;
