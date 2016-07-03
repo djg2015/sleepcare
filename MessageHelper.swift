@@ -10,7 +10,7 @@ import Foundation
 
 func ShowMessage(MessageTitle:MessageEnum)->String {
     
-var messageDescription = PLISTHELPER.MessageList[MessageTitle.rawValue]
+var messageDescription = PLISTHELPER.MessageList[MessageTitle.rawValue - 1]
 return messageDescription
 }
 

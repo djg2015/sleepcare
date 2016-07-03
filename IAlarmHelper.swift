@@ -233,8 +233,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             }
             let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,userCode: alarmInfo.UserCode,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmTime: alarmInfo.AlarmTime,equipmentID:equipmentid,sex:alarmInfo.UserSex,alarmType:alarmInfo.SchemaCode)
             self.WarningList.append(warningInfo)
-            
-            self.UnreadCodes.append(alarmInfo.AlarmCode)
+            self._codes.append(alarmInfo.AlarmCode)
+            self._unreadCodes.append(alarmInfo.AlarmCode)
             
             //同意接收通知，才往todolist里加
             TodoList.sharedInstance.addItem(todoItem)
@@ -357,11 +357,12 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                                 
                                 //如果存在此code的报警信息，判断是否已处理
                                 if self.IsCodeExist(alarmList.alarmInfoList[i].AlarmCode){
-                                    //已处理，则从codes&warninglist&todolist&unreadcodes里删除
-                                    if alarmList.alarmInfoList[i].HandleFlag == "1" {
+                                    //已处理或误报警，则从codes&warninglist&todolist&unreadcodes里删除
+                                    if (alarmList.alarmInfoList[i].HandleFlag == "1" || alarmList.alarmInfoList[i].HandleFlag == "2"){
                                         var code = alarmList.alarmInfoList[i].AlarmCode
                                         var tempwarningList = self.WarningList
                                         var codes = self.Codes
+                                        
                                         TodoList.sharedInstance.removeItemByID(code)
                                         
                                         let index = FindCodeIndex(code)
@@ -384,7 +385,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                                             }
                                         }
                                         
-                                        //已处理报警信息，刷新badgenumber
+                                        //刷新badgenumber和圆点图片
                                         if self.alarmpicdelegate != nil{
                                             self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
                                         }
@@ -394,14 +395,13 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                                         }
                                         
                                         break
-                                    }//删除已处理的报警
+                                    }//删除已处理或误报警的报警信息
                                 }
                                     
                                     //不存在此code信息，则加入到codes和warningCaches里
                                 else{
                                     if alarmList.alarmInfoList[i].HandleFlag == "0"
                                     {
-                                        self._codes.append(alarmList.alarmInfoList[i].AlarmCode)
                                         self._wariningCaches.append(alarmList.alarmInfoList[i])
                                         break
                                     }

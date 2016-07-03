@@ -93,14 +93,17 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
             let oldvalue = self._currentHR.toInt()
             self._currentHR = value
             if (value.toInt() <= 0 ){
-                if oldvalue > 0{
+              
                     //非在床：点变灰，报警图标变白
                     if OnBedStatus == "在床"{
+                        if CurrentHRImage != "icon_red circle.png"{
                         //在床：点变红，报警图标变红
                         CurrentHRImage = "icon_red circle.png"
                         AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
+                        }
                     }
                     else{
+                         if CurrentHRImage != "icon_gray circle.png"{
                         CurrentHRImage = "icon_gray circle.png"
                         AlarmNoticeImage = UIImage(named:"btn_无警报.png")!
                     }
@@ -110,7 +113,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
             }
                 
             else if (value.toInt() < HRLOW){
-                if oldvalue >= HRLOW{
+                if CurrentHRImage != "icon_blue circle.png"{
                     //点变蓝，报警图标变红
                     CurrentHRImage = "icon_blue circle.png"
                     AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
@@ -118,14 +121,14 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
             }
             else if (value.toInt()>HRMIDDLE ){
                 //点变红，报警图标变红
-                if oldvalue <= HRMIDDLE{
+                if CurrentHRImage != "icon_red circle.png"{
                     CurrentHRImage = "icon_red circle.png"
                     AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
                 }
             }
             else {
                 //值处于20-80正常状态,圆紫色，报警图标变白色
-                if (oldvalue > HRMIDDLE || oldvalue < HRLOW){
+                if CurrentHRImage != "icon_purple circle.png"{
                     CurrentHRImage = "icon_purple circle.png"
                     AlarmNoticeImage = UIImage(named:"btn_无警报.png")!
                 }

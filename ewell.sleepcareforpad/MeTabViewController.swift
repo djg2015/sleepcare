@@ -24,10 +24,11 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
         let count = IAlarmHelper.GetAlarmInstance().WarningList.count
         if count > 0{
             self.hiddenalarm = false
-            
+             self.meTabber.badgeValue = String(count)
         }
         else{
             self.hiddenalarm = true
+             self.meTabber.badgeValue = nil
         }
         self.memuTable.reloadData()
         
