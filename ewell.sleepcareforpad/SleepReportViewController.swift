@@ -420,7 +420,7 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         leavebedSubTitleLabel.font = self.font14
         leavebedSubTitleLabel.textColor = self.leavebedcolor
         LeaveBedFiguresView.addSubview(leavebedSubTitleLabel)
-        leavebedValueLabel = UILabel(frame: CGRectMake(130, 23, 120, 25))
+        leavebedValueLabel = UILabel(frame: CGRectMake(115, 23, 195, 25))
         // leavebedValueLabel.text = self.weekreportViewModel.LeaveBedSum
         leavebedValueLabel.font = self.font14
         leavebedValueLabel.textColor = self.lighrgraybackgroundcolor

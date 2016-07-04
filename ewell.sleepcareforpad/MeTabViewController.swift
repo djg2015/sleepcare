@@ -45,6 +45,7 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
 
         self.memuTable.delegate = self
         self.memuTable.dataSource = self
+        self.memuTable.contentSize = CGSize(width: UIScreen.mainScreen().bounds.height - 100, height:screenwidth)
         
         self.imageList = [["icon_nurse.png"],["icon_my devices.png","icon_报警信息.png","icon_time.png"],["icon_关于.png","icon_使用技巧.png","icon_当前版本.png"],["icon_set.png"]]
         self.titleList = [["老人信息"],["设备","报警信息","周报表"],["关于","使用技巧","当前版本"],["设置"]]

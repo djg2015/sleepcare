@@ -263,7 +263,11 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
                 self.chartScrollView.chartView1.valueXList = self.sleepTabViewModel.SleepReport.ValueX as [AnyObject]
                 self.chartScrollView.chartView1.valueTitleNames = self.sleepTabViewModel.SleepReport.ValueTitles as [AnyObject]
                 chartScrollView.chartView1.Type = self.sleepTabViewModel.SleepReport.Type
+             
                 chartScrollView.chartView1.addTrendChartView(CGRectMake(0, 0, chartwidth, chartheight))
+                print( chartScrollView.frame)
+          
+                print("\n")
         }
           
             

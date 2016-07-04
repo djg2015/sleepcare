@@ -28,7 +28,8 @@ class RootLoginViewController: IBaseViewController,LoginButtonDelegate{
 //        PLISTHELPER.CurPatientCode = ""
 
         
-        
+           var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+           xmppMsgManager?.Close()
              //  SessionForSingle.ClearSession()
         
         PLISTHELPER.AlarmNotice = String(stringInterpolationSegment: AlarmNoticeFlag)

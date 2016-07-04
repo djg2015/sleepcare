@@ -225,20 +225,17 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
                     self.session!.CurPatientName = localname
                 }
                 else{
+                    PLISTHELPER.CurPatientCode = ""
+                    PLISTHELPER.CurPatientName = ""
                     self.session!.CurPatientCode = ""
                     self.session!.CurPatientName = ""
                     // 获取当前关注的设备；如果只有一个设备，默认选中
                     
-                    if (localcode != "" && localname != ""){
-                        self.session!.CurPatientCode = localcode
-                        self.session!.CurPatientName = localname
-                    }
-                    else if tempEquipmentList.equipmentList.count == 1{
+                    if tempEquipmentList.equipmentList.count == 1{
                         let tempcode = tempEquipmentList.equipmentList[0].BedUserCode
                         let tempname = tempEquipmentList.equipmentList[0].BedUserName
                         self.session!.CurPatientCode = tempcode
                         self.session!.CurPatientName = tempname
-                        
                         PLISTHELPER.CurPatientCode = tempcode
                         PLISTHELPER.CurPatientName = tempname
  

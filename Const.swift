@@ -31,6 +31,7 @@ var deviceType:String = "iphone"
 let selectunderlineWidth = (UIScreen.mainScreen().bounds.width-40)/3
 let chartwidth = UIScreen.mainScreen().bounds.width
 let chartheight = UIScreen.mainScreen().bounds.height/570*200
+
 let selectColor = UIColor(red: 86/255, green: 163/255, blue: 253/255, alpha: 1.0)
 let noselectColor = UIColor(red: 146/255, green: 146/255, blue: 146/255, alpha: 1.0)
 let outterCircleHeight = UIScreen.mainScreen().bounds.height/570*150
