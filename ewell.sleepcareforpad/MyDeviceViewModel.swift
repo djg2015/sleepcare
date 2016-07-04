@@ -83,17 +83,16 @@ class MyDeviceViewModel: BaseViewModel {
             
             PLISTHELPER.CurPatientCode = ""
             PLISTHELPER.CurPatientName = ""
-//            SetValueIntoPlist("curPatientCode", "")
-//            SetValueIntoPlist("curPatientName", "")
+
         }
         
-        //source更新
-      for(var i = 0 ; i < self.DeviceArray.count; i++){
-        if self.DeviceArray[i].EquipmentCode == devicecell.EquipmentCode{
-        self.DeviceArray.removeAtIndex(i)
-            break
-        }
-        }
+////        //source更新
+//      for(var i = 0 ; i < self.DeviceArray.count; i++){
+//        if self.DeviceArray[i].EquipmentCode == devicecell.EquipmentCode{
+//        self.DeviceArray.removeAtIndex(i)
+//            break
+//        }
+//        }
         //session里的equipmentlist，bedusercode更新
         var sessionEquipmentList:Array<EquipmentInfo> = SessionForSingle.GetSession()!.EquipmentList
         for(var i = 0 ; i < sessionEquipmentList.count; i++){

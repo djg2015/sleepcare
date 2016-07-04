@@ -26,11 +26,8 @@ class MyDeviceViewController: UIViewController,UITableViewDataSource,UITableView
     @IBOutlet weak var tableview1: UITableView!
     
     var source:Array<EquipmentTableCell>=Array<EquipmentTableCell>()
-        {
-        didSet{
-            self.tableview1.reloadData()
-        }
-    }
+    
+    
     var mydeviceViewModel:MyDeviceViewModel!
     
     let font14 = UIFont.systemFontOfSize(14)
@@ -40,6 +37,7 @@ class MyDeviceViewController: UIViewController,UITableViewDataSource,UITableView
     
     
     override func viewWillAppear(animated: Bool) {
+        self.tableview1.reloadData()
         currentController = self
     }
     
@@ -156,16 +154,16 @@ class MyDeviceViewController: UIViewController,UITableViewDataSource,UITableView
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         if(editingStyle == UITableViewCellEditingStyle.Delete){
             //调用服务器接口方法删除这个设备信息（
-            self.source[indexPath.row].deleteDeviceHandler!(devicecell: self.source[indexPath.row])
+            self.source[indexPath.section].deleteDeviceHandler!(devicecell: self.source[indexPath.section])
             //            //source中删除
-            //            self.source.removeAtIndex(indexPath.row)
+                       self.source.removeAtIndex(indexPath.section)
+          
             //            //删除tableview中此设备
-            //            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+       //    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            self.tableview1.reloadData()
         }
     }
-    //    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
-    //        return "删除"
-    //    }
+
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

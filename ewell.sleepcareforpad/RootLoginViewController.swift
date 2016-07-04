@@ -24,12 +24,9 @@ class RootLoginViewController: IBaseViewController,LoginButtonDelegate{
                     LOGINFLAG = false
                     IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
         PLISTHELPER.XmppUsernamePhone = ""
-        PLISTHELPER.CurPatientName = ""
-        PLISTHELPER.CurPatientCode = ""
-//        
-//       SetValueIntoPlist("xmppusernamephone", "")
-//        SetValueIntoPlist("curPatientCode", "")
-//        SetValueIntoPlist("curPatientName", "")
+//        PLISTHELPER.CurPatientName = ""
+//        PLISTHELPER.CurPatientCode = ""
+
         
         
              //  SessionForSingle.ClearSession()

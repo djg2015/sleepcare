@@ -146,6 +146,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,XMPPStreamDelegate{
     
     //当推送注册失败时
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        print("regist remote notice fail\n")
     }
 
 }

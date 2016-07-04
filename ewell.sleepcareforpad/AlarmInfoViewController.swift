@@ -19,11 +19,9 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
     let seperatorColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
 
     
-    var source:Array<AlarmTableCell> = Array<AlarmTableCell>(){
-    didSet{
-    self.tableview1.reloadData()
-    }
-    }
+    var source:Array<AlarmTableCell> = Array<AlarmTableCell>()
+  
+   
 
     
     @IBAction func Close(sender:AnyObject){
@@ -50,6 +48,7 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
     
     
     override func viewWillAppear(animated: Bool) {
+        self.tableview1.reloadData()
         currentController = self
     }
     
@@ -201,8 +200,9 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         if(editingStyle == UITableViewCellEditingStyle.Delete){
             
-             self.source[indexPath.row].deleteAlarmHandler!(alarmcell: self.source[indexPath.row])
-            self.source.removeAtIndex(indexPath.row)
+             self.source[indexPath.section].deleteAlarmHandler!(alarmcell: self.source[indexPath.section])
+            self.source.removeAtIndex(indexPath.section)
+            self.tableview1.reloadData()
         }
     }
     func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {

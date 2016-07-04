@@ -209,26 +209,43 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
                 }
                 self.session!.BedUserCodeList = tempBedUserCodeList
 
-                
-               // 获取当前关注的设备；如果只有一个设备，默认选中
-               let localcode = PLISTHELPER.CurPatientCode
+                //判断本地curpatientcode是否在bedusercodelist内
+                let localcode = PLISTHELPER.CurPatientCode
                 let localname = PLISTHELPER.CurPatientName
-                if (localcode != "" && localname != ""){
+                var verifycodeflag = false
+                for(var i=0;i<tempBedUserCodeList.count;i++){
+                    if localcode == tempBedUserCodeList[i]{
+                    verifycodeflag = true
+                        break
+                    }
+                }
+                if verifycodeflag{
+                
                     self.session!.CurPatientCode = localcode
                     self.session!.CurPatientName = localname
                 }
-                else if tempEquipmentList.equipmentList.count == 1{
-                    let tempcode = tempEquipmentList.equipmentList[0].BedUserCode
-                     let tempname = tempEquipmentList.equipmentList[0].BedUserName
-                    self.session!.CurPatientCode = tempcode
-                    self.session!.CurPatientName = tempname
+                else{
+                    self.session!.CurPatientCode = ""
+                    self.session!.CurPatientName = ""
+                    // 获取当前关注的设备；如果只有一个设备，默认选中
                     
-                    PLISTHELPER.CurPatientCode = tempcode
-                    PLISTHELPER.CurPatientName = tempname
-//                    SetValueIntoPlist("curPatientCode", tempcode)
-//                    SetValueIntoPlist("curPatientName", tempname)
-                    
+                    if (localcode != "" && localname != ""){
+                        self.session!.CurPatientCode = localcode
+                        self.session!.CurPatientName = localname
+                    }
+                    else if tempEquipmentList.equipmentList.count == 1{
+                        let tempcode = tempEquipmentList.equipmentList[0].BedUserCode
+                        let tempname = tempEquipmentList.equipmentList[0].BedUserName
+                        self.session!.CurPatientCode = tempcode
+                        self.session!.CurPatientName = tempname
+                        
+                        PLISTHELPER.CurPatientCode = tempcode
+                        PLISTHELPER.CurPatientName = tempname
+ 
+                    }
                 }
+                
+             
                 
                 
                
