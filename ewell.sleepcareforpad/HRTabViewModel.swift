@@ -301,7 +301,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
         tempValueY = []
         tempValueX = []
         tempTitle = "平均心率"
-        
+
         //7个值
         if tempWeekReportList.count > 0{
         for tempWeekReport in tempWeekReportList{
@@ -317,7 +317,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
         self.HRWeekReport.ValueX = tempValueX
         self.HRWeekReport.ValueTitles = NSArray(objects:tempTitle)
         self.HRWeekReport.Type = "1"
-      
+
         
         
         //获取某床位用户月心率报告

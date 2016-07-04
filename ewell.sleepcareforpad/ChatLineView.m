@@ -194,7 +194,9 @@
         for (int j = 0 ; j < subArr.count ; j++) {
             
             
-            float y = (self.yValueArr.count -  [subArr[j] intValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
+//            float y = (self.yValueArr.count -  [subArr[j] intValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
+           
+             float y = (self.yValueArr.count -  [subArr[j] floatValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
             float x =  (j + 2) * (rect.size.width * self.verticalSpace)+ 5 ;
             
             //test1 x-4
@@ -221,7 +223,7 @@
         float firstX =   2 * (rect.size.width * self.verticalSpace)+ 13 ;
         CGContextMoveToPoint(context, firstX, firstY);
         for (int j = 0 ; j < subArr.count ; j++) {
-            float y = (self.yValueArr.count -  [subArr[j] intValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
+            float y = (self.yValueArr.count -  [subArr[j] floatValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
             float x =  (j + 2) * (rect.size.width * self.verticalSpace)+ 13 ;
             if(j == 0){
                 CGContextMoveToPoint(context, x, y);
@@ -241,7 +243,7 @@
             //1.起始点
             CGPathMoveToPoint(path, NULL, firstX, firstY);
             for (int j = 0 ; j < subArr.count ; j++) {
-                float y = (self.yValueArr.count -  [subArr[j] intValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
+                float y = (self.yValueArr.count -  [subArr[j] floatValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
                 float x =  (j + 2) * (rect.size.width * self.verticalSpace)+ 13 ;
                 CGPathAddLineToPoint(path, NULL, x, y);
             }
@@ -304,7 +306,8 @@
         }
     }
     if (maxValue > 0.0){
-        self.spaceValue = (maxValue  / [self getUnitWithMaxValue:maxValue]) / (rowNum - 1);
+        
+        self.spaceValue = (maxValue  / [self getUnitWithMaxValue:maxValue]) / (rowNum) ;
         
     }
     else {
@@ -322,10 +325,20 @@
             self.unitYStr = @"(次/分)";
         }
     }
-    int spaceInt = self.spaceValue;
+    int spaceInt = ceil(self.spaceValue);
+    self.spaceValue = ceil(self.spaceValue);
+    if (self.spaceValue<1.0){
+        
+        for (int i = 0 ; i <rowNum + 1; i++) {
+                NSString *value2 = [NSString stringWithFormat:@"%d", i];
+                [self.yValueArr addObject:value2];
+                  }
+    }
+    else{
     for (int i = 0 ; i < rowNum + 1; i++) {
         NSString *value = [NSString stringWithFormat:@"%d",spaceInt * i];
         [self.yValueArr addObject:value];
+    }
     }
 }
 

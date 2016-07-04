@@ -1851,12 +1851,12 @@
                                             <constraint firstAttribute="width" constant="10" id="Tgr-Xr-Vt4"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昨日平均心率" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dg6-G8-e2r">
-                                        <rect key="frame" x="170" y="48" width="95" height="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均心率" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dg6-G8-e2r">
+                                        <rect key="frame" x="170" y="48" width="75" height="19"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19" id="2Tk-Ck-Onk"/>
-                                            <constraint firstAttribute="width" constant="95" id="Jqf-Jv-Et5"/>
+                                            <constraint firstAttribute="width" constant="75" id="Jqf-Jv-Et5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
@@ -1877,7 +1877,7 @@
                                     <constraint firstAttribute="centerY" secondItem="hGj-YQ-tfd" secondAttribute="centerY" id="rPi-wb-8av"/>
                                     <constraint firstItem="dCS-2e-z6n" firstAttribute="leading" secondItem="ckQ-3v-Gqw" secondAttribute="trailing" constant="8" id="sHL-kR-8N0"/>
                                     <constraint firstItem="Dg6-G8-e2r" firstAttribute="top" secondItem="hGj-YQ-tfd" secondAttribute="bottom" constant="1" id="scd-vm-2BV"/>
-                                    <constraint firstAttribute="centerX" secondItem="Dg6-G8-e2r" secondAttribute="centerX" constant="-87.5" id="wzn-dr-D60"/>
+                                    <constraint firstAttribute="centerX" secondItem="Dg6-G8-e2r" secondAttribute="centerX" constant="-77.5" id="wzn-dr-D60"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -3011,12 +3011,12 @@
                                             <constraint firstAttribute="height" constant="10" id="zeV-KM-z9b"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昨日平均呼吸" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpJ-yf-Mlw">
-                                        <rect key="frame" x="170" y="48" width="95" height="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均呼吸" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpJ-yf-Mlw">
+                                        <rect key="frame" x="170" y="48" width="75" height="19"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19" id="dkF-hj-i8w"/>
-                                            <constraint firstAttribute="width" constant="95" id="gK6-lv-B0V"/>
+                                            <constraint firstAttribute="width" constant="75" id="gK6-lv-B0V"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -3034,7 +3034,7 @@
                                     <constraint firstAttribute="width" constant="260" id="gfv-83-zSx"/>
                                     <constraint firstItem="NpJ-yf-Mlw" firstAttribute="top" secondItem="Ufm-zD-5GP" secondAttribute="bottom" constant="1" id="lQ7-8h-ahk"/>
                                     <constraint firstAttribute="centerX" secondItem="VaB-YN-9RB" secondAttribute="centerX" constant="28" id="nOu-jb-zCh"/>
-                                    <constraint firstAttribute="centerX" secondItem="NpJ-yf-Mlw" secondAttribute="centerX" constant="-87.5" id="nat-1m-F8t"/>
+                                    <constraint firstAttribute="centerX" secondItem="NpJ-yf-Mlw" secondAttribute="centerX" constant="-77.5" id="nat-1m-F8t"/>
                                     <constraint firstItem="VaB-YN-9RB" firstAttribute="leading" secondItem="lwO-A1-b72" secondAttribute="trailing" constant="8" id="q0A-Gg-uuI"/>
                                     <constraint firstAttribute="centerX" secondItem="Ufm-zD-5GP" secondAttribute="centerX" constant="-79" id="rKV-36-nCb"/>
                                     <constraint firstAttribute="centerX" secondItem="sh0-5S-W49" secondAttribute="centerX" constant="37.5" id="zvq-zN-4h4"/>

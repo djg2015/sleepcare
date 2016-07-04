@@ -44,8 +44,6 @@
     self.lineChartView = chatLineView;
     self.lineChartView.backgroundColor = [UIColor whiteColor];
  
-    //    NSString *valueArr1Year = @"平均心率";
-    //    [self.yearArr addObject:valueArr1Year];
     int i;
     for(i=0;i<valueTitleNames.count;i++){
         [self.yearArr addObject:[valueTitleNames objectAtIndex:i]];
@@ -53,13 +51,10 @@
     self.lineChartView.yearArr = self.yearArr;
     
     self.lineChartView.chartType = self.Type;
-  //   self.lineChartView.chartType = @"1";
-    
-    
- //   NSArray *valueArr1 = @[@"10",@"15",@"90",@"70",@"30",@"40",@"20",@"50",@"20",@"60",@"110",@"80"];
-    //   self.lineChartView.valueArr = @[valueArr1];
+
+ 
     self.lineChartView.valueArr = valueAll;
-  //  self.lineChartView.xValueArr = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12"];
+  
     self.lineChartView.xValueArr = self.valueXList;
 
 

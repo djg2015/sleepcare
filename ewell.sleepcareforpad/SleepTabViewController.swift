@@ -238,9 +238,6 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
         self.sleepTabViewModel.BedUserCode = item.key!
         self.sleepTabViewModel.BedUserName = item.value!
         
-//            SetValueIntoPlist("curPatientCode", item.key!)
-//            SetValueIntoPlist("curPatientName", item.value!)
-            
             PLISTHELPER.CurPatientName = item.value!
             PLISTHELPER.CurPatientCode = item.key!
             

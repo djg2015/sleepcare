@@ -52,14 +52,7 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
             var pass:String? = PLISTHELPER.XmppUserpwd
             var server:String? = PLISTHELPER.XmppServer
             var port:String? = PLISTHELPER.XmppPort
-            
-            
-            
-//            //此时没打开，则尝试连接
-//            if (userId == "" || pass == "") {
-//                print("plist文件里用户名／密码空")
-//                return false
-//            }
+        
             
             
             //设置用户
@@ -73,12 +66,12 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
             //连接服务器
             var error:NSError?
             if (!xmppStream!.connectWithTimeout(timeOut,error: &error)) {
-                println("cannot connect \(server)")
+                println("xmppmsghelper cannot connect \(server)")
                 return false
             }
             
         }
-        println("xmppmsghelper connect success")
+        println("xmppmsghelper connect success\n")
         return true
         
     }

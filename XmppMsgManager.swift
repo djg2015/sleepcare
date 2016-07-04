@@ -41,7 +41,8 @@ class XmppMsgManager:MessageDelegate{
             var sec:NSTimeInterval = 0
             while _xmppMsgHelper!.loginFlag == 0 {
                 sec = NSDate().timeIntervalSinceDate(curTime)
-                if(sec > 4){
+                if(sec > 5){
+                    print("xmppmsgmanager connect overtime\n")
                     return false
                 }
             }
@@ -50,7 +51,7 @@ class XmppMsgManager:MessageDelegate{
             }
             return _xmppMsgHelper!.loginFlag == 1 ? true : false
         }
-        print("xmppmsgmanager connect false")
+        print("xmppmsgmanager connect false\n")
         return false
     }
     
