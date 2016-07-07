@@ -23,8 +23,6 @@ let PASS:String = "xmppuserpwd"
 let SERVER:String = "xmppserver"
 let PORT:String = "xmppport"
 let SERVERJID:String = "serverjid"
-
-
 var deviceType:String = "iphone"
 
 //hr,rr页面常量值定义
@@ -42,7 +40,7 @@ let endColor = UIColor(red: 254/255, green: 79/255, blue: 74/255, alpha: 1.0)
 let avgColor = UIColor(red: 75/255, green: 224/255, blue: 211/255, alpha: 1.0)
 let defaultColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 0.5)
 let grayColor = UIColor(red: 146/255, green: 146/255, blue: 146/255, alpha: 1.0)
-
+ let seperatorColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
 
 //sleep页面常量
 let awakeColor = UIColor(red: 125/255, green: 249/255, blue: 60/255, alpha: 1.0)
@@ -52,9 +50,17 @@ let bigCircleHeight = UIScreen.mainScreen().bounds.height/570*183
 let middleCircleHeight = UIScreen.mainScreen().bounds.height/570*154
 let smallCircleHeight = UIScreen.mainScreen().bounds.height/570*127
 
-//字体颜色
+//周报表
+let lighrgraybackgroundcolor = UIColor(red: 197/255, green: 197/255, blue: 197/255, alpha: 1.0)
+let hrcolor = UIColor(red: 75/255, green: 224/255, blue: 211/255, alpha: 1.0)
+let rrcolor = UIColor(red: 86/255, green: 163/255, blue: 253/255, alpha: 1.0)
 let textGraycolor = UIColor(red: 146/255, green: 146/255, blue: 146/255, alpha: 1.0)
 let textBluecolor = UIColor(red: 86/255, green: 163/255, blue: 253/255, alpha: 1.0)
+let leavebedcolor = UIColor(red: 254/255, green: 79/255, blue: 74/255, alpha: 1.0)
+let hrFigureWidth = UIScreen.mainScreen().bounds.width / 4
+let rrFigureWidth = UIScreen.mainScreen().bounds.width / 4
+let sleepFigureWidth = (UIScreen.mainScreen().bounds.width-4)/3
+let suggestionFigureWidth = (UIScreen.mainScreen().bounds.width-2)/2
 
 //记录当前显示的页面controller：
 var currentController:UIViewController!
@@ -79,10 +85,23 @@ let RRMIDDLE = 30
 let RRLOW = 8
 
 
-
+//plist文件读写单例
 var PLISTHELPER:PlistHelper!
 
 
+//心率呼吸睡眠圆圈内的文字  ：system bold 37
+//周报表上文字 ：system23
+let font23 =  UIFont.systemFontOfSize(23)
+//按钮上的文字 ：system 18
+//登录注册老人信息文本框的文字／心率呼吸里滑动烂的文字／心率呼吸圆点右边的数字  ：system16
+ let font16 = UIFont.systemFontOfSize(16)
+//扫一扫页面的文字／“扫一扫”文字／“返回”文字：system bold 15
+//心率呼吸睡眠页面文字／表格里文字  ：system 14
+ let font14 = UIFont.systemFontOfSize(14)
+//同意协议的文字：system bold 12
+//周睡眠报表文字： system 12
+let font12 = UIFont.systemFontOfSize(12)
+//获取验证码：system 11
 
 
 

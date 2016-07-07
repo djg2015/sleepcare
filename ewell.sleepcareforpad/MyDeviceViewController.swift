@@ -30,7 +30,7 @@ class MyDeviceViewController: UIViewController,UITableViewDataSource,UITableView
     
     var mydeviceViewModel:MyDeviceViewModel!
     
-    let font14 = UIFont.systemFontOfSize(14)
+
     
     let screenwidth = UIScreen.mainScreen().bounds.width
     let seperatorColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
@@ -107,13 +107,13 @@ class MyDeviceViewController: UIViewController,UITableViewDataSource,UITableView
             
             var nameLabel = UILabel(frame:CGRectMake(49, 10, 93, 21))
             nameLabel.text = self.source[indexPath.section].UserName
-            nameLabel.font = self.font14
+            nameLabel.font = font14
             nameLabel.textColor = textGraycolor
             cell?.contentView.addSubview(nameLabel)
             
             var setnumberLabel = UILabel(frame:CGRectMake(screenwidth-190, 10, 180, 21))
             setnumberLabel.text = "设备编号  " + self.source[indexPath.section].EquipmentCode
-            setnumberLabel.font = self.font14
+            setnumberLabel.font = font14
             setnumberLabel.textColor = textBluecolor
             setnumberLabel.textAlignment = NSTextAlignment.Right
             cell?.contentView.addSubview(setnumberLabel)
@@ -129,7 +129,7 @@ class MyDeviceViewController: UIViewController,UITableViewDataSource,UITableView
             
             var addressTextfield = UITextView(frame:CGRectMake(42, 42,screenwidth-42 , 48))
             addressTextfield.text =  self.source[indexPath.section].EquipmentAddress
-            addressTextfield.font = self.font14
+            addressTextfield.font = font14
             addressTextfield.textColor = textGraycolor
             addressTextfield.editable = false
             cell?.contentView.addSubview(addressTextfield)

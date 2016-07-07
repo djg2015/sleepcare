@@ -20,8 +20,8 @@ class AccountSettingController: UIViewController,UITableViewDataSource,UITableVi
     @IBOutlet weak var logoutBtn:UIButton!
     @IBOutlet weak var tableview1: UITableView!
 
-    let font14 = UIFont.systemFontOfSize(14)
-    let seperatorColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+   
+   
     
     var accountsettingViewModel:AccountSettingViewModel!
     
@@ -84,13 +84,13 @@ class AccountSettingController: UIViewController,UITableViewDataSource,UITableVi
             if (indexPath.row==0) {
                cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "modifyaccountcell")
                  cell?.textLabel!.text = "帐号与安全"
-                cell?.textLabel?.font = self.font14
+                cell?.textLabel?.font = font14
                 cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             }
             else{
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "switchalarmcell")
                 cell?.textLabel!.text = "报警通知"
-                cell?.textLabel?.font = self.font14
+                cell?.textLabel?.font = font14
                 var sw = UISwitch()
                 
                 sw.setOn(AlarmNoticeFlag, animated: false)

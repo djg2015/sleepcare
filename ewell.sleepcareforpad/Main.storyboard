@@ -33,7 +33,7 @@
                                             <segue destination="Yhv-Ju-Bxw" kind="unwind" unwindAction="UnwindAbout:" id="9eD-Nl-fgR"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于uSleepCare" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ioz-Bh-JnM">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于uSleepCare" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ioz-Bh-JnM" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                                         <rect key="frame" x="79" y="26" width="163" height="21"/>
                                         <animations/>
                                         <constraints>
@@ -95,11 +95,11 @@
                                             <segue destination="Yhv-Ju-Bxw" kind="unwind" unwindAction="UnwindAccountSetting:" id="x4O-K7-Srx"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帐号设置" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oj0-fz-38U">
-                                        <rect key="frame" x="115" y="26" width="90" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帐号设置" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oj0-fz-38U" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="115" y="26" width="100" height="21"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="90" id="gBS-xq-l3B"/>
+                                            <constraint firstAttribute="width" constant="100" id="gBS-xq-l3B"/>
                                             <constraint firstAttribute="height" constant="21" id="owp-EZ-Gec"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -110,7 +110,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.33725490200000002" green="0.63921568630000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="Oj0-fz-38U" secondAttribute="centerX" id="1f4-L6-cnX"/>
+                                    <constraint firstAttribute="centerX" secondItem="Oj0-fz-38U" secondAttribute="centerX" constant="-5" id="1f4-L6-cnX"/>
                                     <constraint firstAttribute="height" constant="60" id="cWh-N4-3Md"/>
                                     <constraint firstItem="Oj0-fz-38U" firstAttribute="top" secondItem="Ut4-wr-ZfB" secondAttribute="top" constant="26" id="gcL-3O-iQJ"/>
                                 </constraints>
@@ -182,11 +182,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klQ-nE-bhU" userLabel="topView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="修改账户" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tg4-Fp-jKx">
-                                        <rect key="frame" x="118" y="26" width="85" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="修改账户" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tg4-Fp-jKx" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="103" y="26" width="109" height="21"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="85" id="4d2-1M-CWb"/>
+                                            <constraint firstAttribute="width" constant="109" id="4d2-1M-CWb"/>
                                             <constraint firstAttribute="height" constant="21" id="qRb-e6-Hvs"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -210,7 +210,7 @@
                                 <color key="backgroundColor" red="0.33725490200000002" green="0.63921568630000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Tg4-Fp-jKx" firstAttribute="top" secondItem="klQ-nE-bhU" secondAttribute="top" constant="26" id="Qk8-zs-mYE"/>
-                                    <constraint firstAttribute="centerX" secondItem="Tg4-Fp-jKx" secondAttribute="centerX" id="bGW-Nd-xEC"/>
+                                    <constraint firstAttribute="centerX" secondItem="Tg4-Fp-jKx" secondAttribute="centerX" constant="2.5" id="bGW-Nd-xEC"/>
                                     <constraint firstAttribute="height" constant="60" id="k2d-5H-8N6"/>
                                 </constraints>
                             </view>
@@ -242,7 +242,7 @@
                                         <rect key="frame" x="46" y="5" width="206" height="30"/>
                                         <animations/>
                                         <color key="textColor" red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
                                     </textField>
                                 </subviews>
@@ -285,7 +285,7 @@
                                         <rect key="frame" x="46" y="5" width="172" height="30"/>
                                         <animations/>
                                         <color key="textColor" red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
@@ -302,7 +302,7 @@
                                         <rect key="frame" x="46" y="5" width="206" height="30"/>
                                         <animations/>
                                         <color key="textColor" red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJ6-sA-CvC">
@@ -344,7 +344,7 @@
                                         <rect key="frame" x="46" y="5" width="206" height="30"/>
                                         <animations/>
                                         <color key="textColor" red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRf-UT-Qk4">
@@ -417,11 +417,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZh-D8-guv" userLabel="topView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="监护人" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oko-pa-7VV">
-                                        <rect key="frame" x="127" y="26" width="67" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="监护人" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oko-pa-7VV" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="112" y="26" width="90" height="21"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="67" id="TcP-2W-COO"/>
+                                            <constraint firstAttribute="width" constant="90" id="TcP-2W-COO"/>
                                             <constraint firstAttribute="height" constant="21" id="cg2-7G-JHJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -434,7 +434,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ILV-Rm-YvT"/>
                                     <constraint firstItem="Oko-pa-7VV" firstAttribute="top" secondItem="RZh-D8-guv" secondAttribute="top" constant="26" id="PV0-FN-MTR"/>
-                                    <constraint firstAttribute="centerX" secondItem="Oko-pa-7VV" secondAttribute="centerX" id="T8l-Pe-kb9"/>
+                                    <constraint firstAttribute="centerX" secondItem="Oko-pa-7VV" secondAttribute="centerX" constant="3" id="T8l-Pe-kb9"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="45" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="AlJ-02-WLq">
@@ -493,7 +493,7 @@
                                             <constraint firstAttribute="height" constant="21" id="DFg-JZ-Eb8"/>
                                             <constraint firstAttribute="width" constant="60" id="dMC-cN-I1d"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -613,12 +613,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFv-3h-bij" userLabel="topView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的设备" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2S-ai-odG">
-                                        <rect key="frame" x="122" y="26" width="84" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的设备" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2S-ai-odG" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="109" y="26" width="101" height="21"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="5ZR-BH-U5X"/>
-                                            <constraint firstAttribute="width" constant="84" id="Lps-Nr-GYh"/>
+                                            <constraint firstAttribute="width" constant="101" id="Lps-Nr-GYh"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -660,7 +660,7 @@
                                     <constraint firstItem="oWZ-lH-zwl" firstAttribute="top" secondItem="dFv-3h-bij" secondAttribute="top" constant="20" id="bXr-AX-DUS"/>
                                     <constraint firstAttribute="height" constant="60" id="dh0-eO-owA"/>
                                     <constraint firstItem="H2S-ai-odG" firstAttribute="top" secondItem="dFv-3h-bij" secondAttribute="top" constant="26" id="jVb-DB-uvB"/>
-                                    <constraint firstAttribute="centerX" secondItem="H2S-ai-odG" secondAttribute="centerX" constant="-4" id="m2c-CF-J02"/>
+                                    <constraint firstAttribute="centerX" secondItem="H2S-ai-odG" secondAttribute="centerX" constant="0.5" id="m2c-CF-J02"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="63" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="KxJ-wq-fEW">
@@ -723,13 +723,13 @@
                                             <segue destination="y0u-Nh-knw" kind="unwind" unwindAction="UnwindShowProtocol:" id="9WV-x9-Wqe"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务协议" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3m-Id-SJn">
-                                        <rect key="frame" x="126" y="26" width="81" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务协议" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3m-Id-SJn" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="116" y="26" width="100" height="21"/>
                                         <animations/>
                                         <color key="backgroundColor" red="0.33725490200000002" green="0.63921568630000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.33725490200000002" green="0.63921568630000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="81" id="d0t-yl-ykj"/>
+                                            <constraint firstAttribute="width" constant="100" id="d0t-yl-ykj"/>
                                             <constraint firstAttribute="height" constant="21" id="lgT-56-hWf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -817,7 +817,7 @@
                                     <constraint firstAttribute="height" constant="27" id="f2A-1V-zJk"/>
                                     <constraint firstAttribute="width" constant="44" id="ptf-ot-F9S"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="返回">
                                     <color key="titleColor" red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1313,11 +1313,11 @@
                                             <segue destination="QdJ-qE-Nwm" kind="unwind" unwindAction="UnwindForgetPwd:" id="Iex-Op-yiY"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置新密码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOs-93-fCW">
-                                        <rect key="frame" x="112" y="26" width="97" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置新密码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOs-93-fCW" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="103" y="26" width="106" height="21"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="97" id="EQH-cP-Vfl"/>
+                                            <constraint firstAttribute="width" constant="106" id="EQH-cP-Vfl"/>
                                             <constraint firstAttribute="height" constant="21" id="o4o-P5-ziM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -1330,7 +1330,7 @@
                                 <constraints>
                                     <constraint firstItem="1It-7s-chu" firstAttribute="leading" secondItem="vBg-Cj-iPk" secondAttribute="leading" id="2Lp-bT-pzc"/>
                                     <constraint firstItem="SOs-93-fCW" firstAttribute="top" secondItem="vBg-Cj-iPk" secondAttribute="top" constant="26" id="Bc8-rs-R7D"/>
-                                    <constraint firstAttribute="centerX" secondItem="SOs-93-fCW" secondAttribute="centerX" id="XkM-60-V1t"/>
+                                    <constraint firstAttribute="centerX" secondItem="SOs-93-fCW" secondAttribute="centerX" constant="4" id="XkM-60-V1t"/>
                                     <constraint firstAttribute="height" constant="60" id="g9Q-c2-cDp"/>
                                     <constraint firstItem="1It-7s-chu" firstAttribute="top" secondItem="vBg-Cj-iPk" secondAttribute="top" id="vwJ-gc-rAV"/>
                                 </constraints>
@@ -1639,14 +1639,14 @@
                                             <action selector="ClickChangePatient:" destination="0UK-4g-VFZ" eventType="touchUpInside" id="HU8-I6-Aea"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hu-5n-G5E">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hu-5n-G5E" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                                         <rect key="frame" x="123" y="28" width="80" height="20"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Quh-Fh-IXs"/>
                                             <constraint firstAttribute="width" constant="80" id="bPn-fR-kER"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1966,13 +1966,13 @@
                                             <segue destination="y0u-Nh-knw" kind="unwind" unwindAction="UnwindScan:" id="MMI-ZE-eSe"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="扫一扫" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xM-C3-Hft">
-                                        <rect key="frame" x="126" y="26" width="68" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="扫一扫" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xM-C3-Hft" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="114" y="26" width="88" height="21"/>
                                         <animations/>
                                         <color key="backgroundColor" red="0.33725490196078434" green="0.63921568627450975" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.33725490200000002" green="0.63921568630000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="68" id="QGW-xY-kp3"/>
+                                            <constraint firstAttribute="width" constant="88" id="QGW-xY-kp3"/>
                                             <constraint firstAttribute="height" constant="21" id="ag0-sY-q10"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -1986,7 +1986,7 @@
                                     <constraint firstItem="P8X-x1-u0k" firstAttribute="leading" secondItem="6jG-Rk-okH" secondAttribute="leading" id="NnU-5r-58q"/>
                                     <constraint firstItem="6xM-C3-Hft" firstAttribute="top" secondItem="6jG-Rk-okH" secondAttribute="top" constant="26" id="R2A-4X-ZJ0"/>
                                     <constraint firstAttribute="height" constant="60" id="dOn-i2-qhi"/>
-                                    <constraint firstAttribute="centerX" secondItem="6xM-C3-Hft" secondAttribute="centerX" id="e30-ng-Vev"/>
+                                    <constraint firstAttribute="centerX" secondItem="6xM-C3-Hft" secondAttribute="centerX" constant="2" id="e30-ng-Vev"/>
                                     <constraint firstItem="P8X-x1-u0k" firstAttribute="top" secondItem="6jG-Rk-okH" secondAttribute="top" id="wHk-vn-B6K"/>
                                 </constraints>
                             </view>
@@ -2075,7 +2075,7 @@
                                     <constraint firstAttribute="height" constant="21" id="SR3-7U-DUM"/>
                                     <constraint firstAttribute="width" constant="230" id="ZsV-lm-BRb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -2233,12 +2233,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nr3-Yh-F5x">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="老人信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Joq-bp-sh3">
-                                        <rect key="frame" x="118" y="26" width="84" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="老人信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Joq-bp-sh3" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="112" y="26" width="96" height="21"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="7Mw-h7-To9"/>
-                                            <constraint firstAttribute="width" constant="84" id="nTS-Du-6XV"/>
+                                            <constraint firstAttribute="width" constant="96" id="nTS-Du-6XV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2348,7 +2348,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9x5-IT-CIV" userLabel="topView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用技巧" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVn-Di-0gO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用技巧" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVn-Di-0gO" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                                         <rect key="frame" x="114" y="26" width="93" height="21"/>
                                         <animations/>
                                         <constraints>
@@ -2410,14 +2410,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQt-OL-EPj" userLabel="topView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZX-3C-0Dk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZX-3C-0Dk" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                                         <rect key="frame" x="123" y="28" width="80" height="20"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="XoR-rU-NCn"/>
                                             <constraint firstAttribute="height" constant="20" id="xOo-Qy-SU9"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -2490,7 +2490,7 @@
                                         <color key="textColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_blue circle.png" translatesAutoresizingMaskIntoConstraints="NO" id="zi1-2e-EAT">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_purple circle.png" translatesAutoresizingMaskIntoConstraints="NO" id="zi1-2e-EAT">
                                         <rect key="frame" x="194" y="21" width="10" height="10"/>
                                         <animations/>
                                         <constraints>
@@ -2606,14 +2606,14 @@
                                         <color key="textColor" red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="38" translatesAutoresizingMaskIntoConstraints="NO" id="j6K-6U-BsF">
-                                        <rect key="frame" x="111" y="71" width="51" height="51"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="35" translatesAutoresizingMaskIntoConstraints="NO" id="j6K-6U-BsF">
+                                        <rect key="frame" x="114" y="75" width="48" height="48"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="51" id="2Qj-cc-BaY"/>
-                                            <constraint firstAttribute="width" constant="51" id="xao-ak-fSm"/>
+                                            <constraint firstAttribute="height" constant="48" id="2Qj-cc-BaY"/>
+                                            <constraint firstAttribute="width" constant="48" id="xao-ak-fSm"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
                                         <color key="textColor" red="0.33725490196078434" green="0.63921568627450975" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -2631,9 +2631,9 @@
                                 </subviews>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="j6K-6U-BsF" secondAttribute="centerX" constant="23.5" id="0eq-Tw-BgY"/>
-                                    <constraint firstAttribute="centerY" secondItem="j6K-6U-BsF" secondAttribute="centerY" constant="-5" id="299-ns-ker"/>
-                                    <constraint firstItem="CbH-Eb-QU8" firstAttribute="top" secondItem="j6K-6U-BsF" secondAttribute="bottom" constant="5" id="4Ea-hG-XjD"/>
+                                    <constraint firstAttribute="centerX" secondItem="j6K-6U-BsF" secondAttribute="centerX" constant="22" id="0eq-Tw-BgY"/>
+                                    <constraint firstAttribute="centerY" secondItem="j6K-6U-BsF" secondAttribute="centerY" constant="-7.5" id="299-ns-ker"/>
+                                    <constraint firstItem="CbH-Eb-QU8" firstAttribute="top" secondItem="j6K-6U-BsF" secondAttribute="bottom" constant="4" id="4Ea-hG-XjD"/>
                                     <constraint firstAttribute="trailing" secondItem="iDV-hU-CkT" secondAttribute="trailing" constant="9" id="CRD-Cm-WBo"/>
                                     <constraint firstAttribute="centerY" secondItem="EkG-Uq-45c" secondAttribute="centerY" constant="-14.5" id="Sjd-Td-LNU"/>
                                     <constraint firstAttribute="centerX" secondItem="CbH-Eb-QU8" secondAttribute="centerX" id="YMJ-rQ-13E"/>
@@ -2799,14 +2799,14 @@
                                             <action selector="ClickChangePatient:" destination="Yy0-PA-P5s" eventType="touchUpInside" id="XOT-B1-A36"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RF-dd-FSl">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RF-dd-FSl" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
                                         <rect key="frame" x="123" y="28" width="80" height="20"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="gBZ-rd-rkQ"/>
                                             <constraint firstAttribute="width" constant="80" id="hPr-9j-VXE"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -2969,7 +2969,7 @@
                                             <constraint firstAttribute="width" constant="41" id="cCx-VC-3GH"/>
                                             <constraint firstAttribute="height" constant="19" id="kUC-Mm-BHa"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -3126,13 +3126,13 @@
                                             <segue destination="Wys-Kf-DJO" kind="unwind" unwindAction="UnwindAdddevice:" id="Edr-EZ-C5W"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="扫一扫" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7G-Op-FCs">
-                                        <rect key="frame" x="126" y="26" width="68" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="扫一扫" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7G-Op-FCs" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="119" y="26" width="77" height="21"/>
                                         <animations/>
                                         <color key="backgroundColor" red="0.33725490200000002" green="0.63921568630000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.33725490200000002" green="0.63921568630000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="68" id="h8W-X3-QKK"/>
+                                            <constraint firstAttribute="width" constant="77" id="h8W-X3-QKK"/>
                                             <constraint firstAttribute="height" constant="21" id="pns-KU-YjJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -3143,7 +3143,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.33725490200000002" green="0.63921568630000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="b7G-Op-FCs" secondAttribute="centerX" id="1hp-K6-SmV"/>
+                                    <constraint firstAttribute="centerX" secondItem="b7G-Op-FCs" secondAttribute="centerX" constant="2.5" id="1hp-K6-SmV"/>
                                     <constraint firstItem="RBb-qA-E1R" firstAttribute="top" secondItem="WR9-ZB-WAt" secondAttribute="top" id="KJs-Ld-qY5"/>
                                     <constraint firstItem="RBb-qA-E1R" firstAttribute="leading" secondItem="WR9-ZB-WAt" secondAttribute="leading" id="bP5-Ee-Alw"/>
                                     <constraint firstItem="b7G-Op-FCs" firstAttribute="top" secondItem="WR9-ZB-WAt" secondAttribute="top" constant="26" id="kQr-ZN-7hx"/>
@@ -3235,7 +3235,7 @@
                                     <constraint firstAttribute="width" constant="197" id="0FC-wX-yLI"/>
                                     <constraint firstAttribute="height" constant="21" id="5LT-UP-gtW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -3386,11 +3386,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPq-fQ-wPU">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="老人信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRi-go-aPf">
-                                        <rect key="frame" x="118" y="26" width="84" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="老人信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRi-go-aPf" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="107" y="26" width="96" height="21"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="84" id="nSx-zW-Oht"/>
+                                            <constraint firstAttribute="width" constant="96" id="nSx-zW-Oht"/>
                                             <constraint firstAttribute="height" constant="21" id="tvD-Gu-U58"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -3401,7 +3401,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.33725490200000002" green="0.63921568630000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="RRi-go-aPf" secondAttribute="centerX" id="Gyu-2T-I9K"/>
+                                    <constraint firstAttribute="centerX" secondItem="RRi-go-aPf" secondAttribute="centerX" constant="5" id="Gyu-2T-I9K"/>
                                     <constraint firstItem="RRi-go-aPf" firstAttribute="top" secondItem="OPq-fQ-wPU" secondAttribute="top" constant="26" id="SeZ-ah-xkH"/>
                                     <constraint firstAttribute="height" constant="60" id="gal-F2-WvZ"/>
                                 </constraints>
@@ -3628,12 +3628,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yd8-Ro-sja">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="完善老人信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HU9-rb-aTb">
-                                        <rect key="frame" x="104" y="26" width="119" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="完善老人信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HU9-rb-aTb" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="85" y="26" width="140" height="21"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="RHa-kM-XyN"/>
-                                            <constraint firstAttribute="width" constant="119" id="mEY-Gz-FMf"/>
+                                            <constraint firstAttribute="width" constant="140" id="mEY-Gz-FMf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3657,7 +3657,7 @@
                                 <constraints>
                                     <constraint firstItem="HU9-rb-aTb" firstAttribute="top" secondItem="yd8-Ro-sja" secondAttribute="top" constant="26" id="Aco-gO-EOL"/>
                                     <constraint firstAttribute="height" constant="60" id="BGQ-BS-jPy"/>
-                                    <constraint firstAttribute="centerX" secondItem="HU9-rb-aTb" secondAttribute="centerX" constant="-3.5" id="eTd-zd-tAY"/>
+                                    <constraint firstAttribute="centerX" secondItem="HU9-rb-aTb" secondAttribute="centerX" constant="5" id="eTd-zd-tAY"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -3717,6 +3717,7 @@
         <image name="icon_needaddservices.png" width="120" height="120"/>
         <image name="icon_onbed.png" width="70" height="38"/>
         <image name="icon_password.png" width="26" height="32"/>
+        <image name="icon_purple circle.png" width="16" height="16"/>
         <image name="icon_rememberpwd.png" width="20" height="20"/>
         <image name="icon_telephone.png" width="28" height="28"/>
         <image name="icon_密码不可见.png" width="30" height="18"/>

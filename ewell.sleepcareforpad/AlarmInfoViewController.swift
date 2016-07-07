@@ -13,10 +13,10 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
     var alarmViewModel:AlarmViewModel!
     var parentController:UIViewController!
     
-    let font14 = UIFont.systemFontOfSize(14)
+   
    
     let screenwidth = UIScreen.mainScreen().bounds.width
-    let seperatorColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+   
 
     
     var source:Array<AlarmTableCell> = Array<AlarmTableCell>()
@@ -121,18 +121,18 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
             var typeLabel = UILabel(frame:CGRectMake(45, 18, 76, 21))
             typeLabel.text = self.source[indexPath.section].AlarmType
             typeLabel.textColor = endColor
-            typeLabel.font = self.font14
+            typeLabel.font = font14
             cell?.contentView.addSubview(typeLabel)
             
             var timeLabel = UILabel(frame:CGRectMake(screenwidth-182, 18, 170, 21))
             timeLabel.text = self.source[indexPath.section].AlarmTime
             timeLabel.textAlignment = NSTextAlignment.Right
             timeLabel.textColor = textGraycolor
-            timeLabel.font = self.font14
+            timeLabel.font = font14
             cell?.contentView.addSubview(timeLabel)
             
             var underlineLabel1 = UILabel(frame:CGRectMake(12, 47, screenwidth-24, 1))
-            underlineLabel1.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+            underlineLabel1.backgroundColor = seperatorColor
             cell?.contentView.addSubview(underlineLabel1)
             
             var genderImageName:String = ""
@@ -149,13 +149,13 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
             var nameLabel = UILabel(frame:CGRectMake(45, 59, 85, 21))
             nameLabel.text = self.source[indexPath.section].UserName
             nameLabel.textColor = textGraycolor
-            nameLabel.font = self.font14
+            nameLabel.font = font14
             cell?.contentView.addSubview(nameLabel)
             
             var bednumberLabel = UILabel(frame:CGRectMake(138, 59, 60, 21))
             bednumberLabel.text = "床号: " + self.source[indexPath.section].UserBedNumber!
             bednumberLabel.textColor = textGraycolor
-            bednumberLabel.font = self.font14
+            bednumberLabel.font = font14
             cell?.contentView.addSubview(bednumberLabel)
             
             
@@ -163,17 +163,17 @@ class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableVie
             var alarmcontentText = UITextView(frame:CGRectMake(38, 80,screenwidth-42 , 56))
             alarmcontentText.text =  self.source[indexPath.section].AlarmContent
             alarmcontentText.textColor = textGraycolor
-            alarmcontentText.font = self.font14
+            alarmcontentText.font = font14
             alarmcontentText.editable = false
             cell?.contentView.addSubview(alarmcontentText)
             
             var underlineLabel2 = UILabel(frame:CGRectMake(12, 136, screenwidth-24, 1))
-            underlineLabel2.backgroundColor = self.seperatorColor
+            underlineLabel2.backgroundColor = seperatorColor
             cell?.contentView.addSubview(underlineLabel2)
             
             var setnumberLabel = UILabel(frame:CGRectMake(screenwidth-192, 147, 180, 21))
             setnumberLabel.text = "设备编号  " + self.source[indexPath.section].EquipmentCode
-            setnumberLabel.font = self.font14
+            setnumberLabel.font = font14
             setnumberLabel.textColor = textGraycolor
             setnumberLabel.textAlignment = NSTextAlignment.Right
             cell?.contentView.addSubview(setnumberLabel)
@@ -216,7 +216,7 @@ func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSInde
 
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         var footerView = UIView(frame:CGRectMake(0, 0, screenwidth,15))
-        footerView.backgroundColor = self.seperatorColor
+        footerView.backgroundColor = seperatorColor
         return footerView
     }
 }

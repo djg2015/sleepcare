@@ -15,6 +15,7 @@ func CheckRemoteNotice(){
     if  UIDevice.currentDevice().systemVersion.compare( "8.0.0" , options: NSStringCompareOptions.NumericSearch) == .OrderedAscending{
         if PLISTHELPER.FirstLaunch == "true"{
             UIApplication.sharedApplication().registerForRemoteNotificationTypes(UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound | UIRemoteNotificationType.Badge)
+            
             PLISTHELPER.FirstLaunch = "false"
         }
         else{

@@ -298,7 +298,7 @@ func GetValueFromSleepcarePlist(){
 //         print(XMPPUSERNAMEVALUE+"\n")
 //         print(XMPPUSERPWDVALUE+"\n")
 //         print(XMPPUSERNAMEPHONEVALUE+"\n")
-//         print(FIRSTLAUNCHVALUE+"\n")
+//         print( self._firstLaunch+"\n")
 //         print(CURPATIENTNAMEVALUE+"\n")
 //         print(CURPATIENTCODEVALUE+"\n")
 //         print(LOGINTELEPHONESINGLEVALUE+"\n")

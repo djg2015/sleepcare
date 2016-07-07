@@ -16,7 +16,7 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
     var imageList:Array<Array<String>>!
     var titleList:Array<Array<String>>!
     let screenwidth = UIScreen.mainScreen().bounds.width
-    let titleFont =  UIFont.systemFontOfSize(15)
+
     var hiddenalarm:Bool = true
     
 
@@ -101,7 +101,7 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
                 var label1 = UILabel(frame:CGRectMake(79, 24, 114, 21))
                 label1.text = self.titleList[indexPath.section][indexPath.row]
-                label1.font = self.titleFont
+                label1.font = font16
                 cell?.contentView.addSubview(label1)
                 
                 cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
@@ -114,14 +114,14 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
                 var label2 = UILabel(frame:CGRectMake(56, 11, 122, 21))
                 label2.text = self.titleList[indexPath.section][indexPath.row]
-                label2.font = self.titleFont
+                label2.font = font16
                 cell?.contentView.addSubview(label2)
                 
                 
                 var label2_2 = UILabel(frame:CGRectMake(self.screenwidth-60, 11, 40, 21))
                 label2_2.text = "1.0.0"
                 label2_2.textAlignment = NSTextAlignment.Right
-                label2_2.font = self.titleFont
+                label2_2.font = font16
                 cell?.contentView.addSubview(label2_2)
             }
             else if (indexPath.section == 1 && indexPath.row == 1){
@@ -132,7 +132,7 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
                 var label3 = UILabel(frame:CGRectMake(56, 11, 70, 21))
                 label3.text = self.titleList[indexPath.section][indexPath.row]
-                label3.font = self.titleFont
+                label3.font = font16
                 cell?.contentView.addSubview(label3)
                 
                 if !self.hiddenalarm{
@@ -152,7 +152,7 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
                 var label4 = UILabel(frame:CGRectMake(56, 11, 122, 21))
                 label4.text = self.titleList[indexPath.section][indexPath.row]
-                label4.font = self.titleFont
+                label4.font = font16
                 cell?.contentView.addSubview(label4)
                 
                 cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
