@@ -99,8 +99,9 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 image1.image = UIImage(named:self.imageList[indexPath.section][indexPath.row])
                 cell?.contentView.addSubview(image1)
                 
-                var label1 = UILabel(frame:CGRectMake(79, 24, 114, 21))
-                label1.font = font16
+              //  var label1 = UILabel(frame:CGRectMake(79, 24, 114, 21))
+              //  label1.font = font16
+                var label1 = MeTabLabel(frame:CGRectMake(79, 24, 114, 21))
                 label1.text = self.titleList[indexPath.section][indexPath.row]
                 cell?.contentView.addSubview(label1)
                 
@@ -112,14 +113,16 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 image2.image = UIImage(named:self.imageList[indexPath.section][indexPath.row])
                 cell?.contentView.addSubview(image2)
                 
-                var label2 = UILabel(frame:CGRectMake(56, 11, 122, 21))
+              //  var label2 = UILabel(frame:CGRectMake(56, 11, 122, 21))
+                // label2.font = font16
+                var label2 = MeTabLabel(frame:CGRectMake(56, 11, 122, 21))
                 label2.text = self.titleList[indexPath.section][indexPath.row]
-                label2.font = font16
                 cell?.contentView.addSubview(label2)
                 
                 
                 var label2_2 = UILabel(frame:CGRectMake(self.screenwidth-60, 11, 40, 21))
                 label2_2.text = "1.0.0"
+                label2_2.textColor = textGraycolor
                 label2_2.textAlignment = NSTextAlignment.Right
                 label2_2.font = font16
                 cell?.contentView.addSubview(label2_2)
@@ -130,9 +133,9 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 image3.image = UIImage(named:self.imageList[indexPath.section][indexPath.row])
                 cell?.contentView.addSubview(image3)
                 
-                var label3 = UILabel(frame:CGRectMake(56, 11, 70, 21))
+                var label3 = MeTabLabel(frame:CGRectMake(56, 11, 70, 21))
                 label3.text = self.titleList[indexPath.section][indexPath.row]
-                label3.font = font16
+             //   label3.font = font16
                 cell?.contentView.addSubview(label3)
                 
                 if !self.hiddenalarm{
@@ -150,9 +153,9 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 image4.image = UIImage(named:self.imageList[indexPath.section][indexPath.row])
                 cell?.contentView.addSubview(image4)
                 
-                var label4 = UILabel(frame:CGRectMake(56, 11, 122, 21))
+                var label4 = MeTabLabel(frame:CGRectMake(56, 11, 122, 21))
                 label4.text = self.titleList[indexPath.section][indexPath.row]
-                label4.font = font16
+               // label4.font = font16
                 cell?.contentView.addSubview(label4)
                 
                 cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator

@@ -237,6 +237,7 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
     
     func AddHrRrTitle(){
         hrTitleLabel = UILabel(frame: CGRectMake(0, 0, screenwidth, 35))
+       
         hrTitleLabel.text = "心率和呼吸"
         hrTitleLabel.font = font16
         hrTitleLabel.textColor = rrcolor
@@ -271,24 +272,24 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         maxhrLabel.textAlignment = NSTextAlignment.Left
         maxhrLabel.textColor = hrcolor
         hrFiguresView.addSubview(maxhrLabel)
-        maxhrTitleLabel = UILabel(frame:CGRectMake(hrFigureWidth, 46, hrFigureWidth, 20))
-        maxhrTitleLabel.font = font14
+        maxhrTitleLabel = WeekreportLabel(frame:CGRectMake(hrFigureWidth, 46, hrFigureWidth, 20))
+      //  maxhrTitleLabel.font = font14
         maxhrTitleLabel.text = "周最大"
         maxhrTitleLabel.textAlignment = NSTextAlignment.Left
-        maxhrTitleLabel.textColor = UIColor.lightGrayColor()
+     //   maxhrTitleLabel.textColor = UIColor.lightGrayColor()
         hrFiguresView.addSubview(maxhrTitleLabel)
         
         minhrLabel = UILabel(frame:CGRectMake(hrFigureWidth*2, 7, hrFigureWidth, 38))
         minhrLabel.font = font23
-        //   minhrLabel.text = self.weekreportViewModel.WeekMinHR
+       
         minhrLabel.textAlignment = NSTextAlignment.Left
         minhrLabel.textColor = hrcolor
         hrFiguresView.addSubview(minhrLabel)
-        minhrTitleLabel = UILabel(frame:CGRectMake(hrFigureWidth*2, 46, hrFigureWidth, 20))
-        minhrTitleLabel.font = font14
+        minhrTitleLabel = WeekreportLabel(frame:CGRectMake(hrFigureWidth*2, 46, hrFigureWidth, 20))
+      //  minhrTitleLabel.font = font14
         minhrTitleLabel.text = "周最小"
         minhrTitleLabel.textAlignment = NSTextAlignment.Left
-        minhrTitleLabel.textColor = UIColor.lightGrayColor()
+     //   minhrTitleLabel.textColor = UIColor.lightGrayColor()
         hrFiguresView.addSubview(minhrTitleLabel)
         
         avghrLabel = UILabel(frame:CGRectMake(hrFigureWidth*3, 7, hrFigureWidth, 38))
@@ -297,11 +298,11 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         avghrLabel.textAlignment = NSTextAlignment.Left
         avghrLabel.textColor = hrcolor
         hrFiguresView.addSubview(avghrLabel)
-        avghrTitleLabel = UILabel(frame:CGRectMake(hrFigureWidth*3, 46, hrFigureWidth, 20))
-        avghrTitleLabel.font = font14
+        avghrTitleLabel = WeekreportLabel(frame:CGRectMake(hrFigureWidth*3, 46, hrFigureWidth, 20))
+       // avghrTitleLabel.font = font14
         avghrTitleLabel.text = "周平均"
         avghrTitleLabel.textAlignment = NSTextAlignment.Left
-        avghrTitleLabel.textColor = UIColor.lightGrayColor()
+     //   avghrTitleLabel.textColor = UIColor.lightGrayColor()
         hrFiguresView.addSubview(avghrTitleLabel)
         
         self.mainscrollView.addSubview(hrFiguresView)
@@ -326,11 +327,11 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         maxrrLabel.textAlignment = NSTextAlignment.Left
         maxrrLabel.textColor = rrcolor
         rrFiguresView.addSubview(maxrrLabel)
-        maxrrTitleLabel = UILabel(frame:CGRectMake(rrFigureWidth, 46, rrFigureWidth, 20))
-        maxrrTitleLabel.font = font14
+        maxrrTitleLabel = WeekreportLabel(frame:CGRectMake(rrFigureWidth, 46, rrFigureWidth, 20))
+    //    maxrrTitleLabel.font = font14
         maxrrTitleLabel.text = "周最快"
         maxrrTitleLabel.textAlignment = NSTextAlignment.Left
-        maxrrTitleLabel.textColor = UIColor.lightGrayColor()
+   //     maxrrTitleLabel.textColor = UIColor.lightGrayColor()
         rrFiguresView.addSubview(maxrrTitleLabel)
         
         minrrLabel = UILabel(frame:CGRectMake(rrFigureWidth*2, 7, rrFigureWidth, 38))
@@ -339,11 +340,11 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         minrrLabel.textAlignment = NSTextAlignment.Left
         minrrLabel.textColor = rrcolor
         rrFiguresView.addSubview(minrrLabel)
-        minrrTitleLabel = UILabel(frame:CGRectMake(rrFigureWidth*2, 46, rrFigureWidth, 20))
-        minrrTitleLabel.font = font14
+        minrrTitleLabel = WeekreportLabel(frame:CGRectMake(rrFigureWidth*2, 46, rrFigureWidth, 20))
+     //   minrrTitleLabel.font = font14
         minrrTitleLabel.text = "周最慢"
         minrrTitleLabel.textAlignment = NSTextAlignment.Left
-        minrrTitleLabel.textColor = UIColor.lightGrayColor()
+     //   minrrTitleLabel.textColor = UIColor.lightGrayColor()
         rrFiguresView.addSubview(minrrTitleLabel)
         
         avgrrLabel = UILabel(frame:CGRectMake(rrFigureWidth*3, 7, rrFigureWidth, 38))
@@ -352,11 +353,11 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         avgrrLabel.textAlignment = NSTextAlignment.Left
         avgrrLabel.textColor = rrcolor
         rrFiguresView.addSubview(avgrrLabel)
-        avgrrTitleLabel = UILabel(frame:CGRectMake(rrFigureWidth*3, 46, rrFigureWidth, 20))
-        avgrrTitleLabel.font = font14
+        avgrrTitleLabel = WeekreportLabel(frame:CGRectMake(rrFigureWidth*3, 46, rrFigureWidth, 20))
+     //   avgrrTitleLabel.font = font14
         avgrrTitleLabel.text = "周平均"
         avgrrTitleLabel.textAlignment = NSTextAlignment.Left
-        avgrrTitleLabel.textColor = UIColor.lightGrayColor()
+  //      avgrrTitleLabel.textColor = UIColor.lightGrayColor()
         rrFiguresView.addSubview(avgrrTitleLabel)
         
         self.mainscrollView.addSubview(rrFiguresView)
@@ -438,11 +439,11 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         awakeLabel.textAlignment = NSTextAlignment.Center
         awakeLabel.textColor = awakeColor
         awakeView.addSubview(awakeLabel)
-        awakeTitleLabel = UILabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
-        awakeTitleLabel.font = font14
+        awakeTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
+      //  awakeTitleLabel.font = font14
         awakeTitleLabel.text = "清醒"
         awakeTitleLabel.textAlignment = NSTextAlignment.Center
-        awakeTitleLabel.textColor = UIColor.lightGrayColor()
+     //   awakeTitleLabel.textColor = UIColor.lightGrayColor()
         awakeView.addSubview(awakeTitleLabel)
         
         lightsleepLabel = UILabel(frame:CGRectMake(0, 7, sleepFigureWidth, 38))
@@ -451,11 +452,11 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         lightsleepLabel.textAlignment = NSTextAlignment.Center
         lightsleepLabel.textColor = lightsleepColor
         lightsleepView.addSubview(lightsleepLabel)
-        lightsleepTitleLabel = UILabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
-        lightsleepTitleLabel.font = font14
+        lightsleepTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
+    //    lightsleepTitleLabel.font = font14
         lightsleepTitleLabel.text = "浅睡"
         lightsleepTitleLabel.textAlignment = NSTextAlignment.Center
-        lightsleepTitleLabel.textColor = UIColor.lightGrayColor()
+   //     lightsleepTitleLabel.textColor = UIColor.lightGrayColor()
         lightsleepView.addSubview(lightsleepTitleLabel)
         
         deepsleepLabel = UILabel(frame:CGRectMake(0, 7, sleepFigureWidth, 38))
@@ -464,11 +465,11 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         deepsleepLabel.textAlignment = NSTextAlignment.Center
         deepsleepLabel.textColor = deepsleepColor
         deepsleepView.addSubview(deepsleepLabel)
-        deepsleepTitleLabel = UILabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
-        deepsleepTitleLabel.font = font14
+        deepsleepTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
+    //    deepsleepTitleLabel.font = font14
         deepsleepTitleLabel.text = "深睡"
         deepsleepTitleLabel.textAlignment = NSTextAlignment.Center
-        deepsleepTitleLabel.textColor = UIColor.lightGrayColor()
+     //   deepsleepTitleLabel.textColor = UIColor.lightGrayColor()
         deepsleepView.addSubview(deepsleepTitleLabel)
         
         sleeptimeLabel = UILabel(frame:CGRectMake(0, 7, sleepFigureWidth, 38))
@@ -477,11 +478,11 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         sleeptimeLabel.textAlignment = NSTextAlignment.Center
         sleeptimeLabel.textColor = textGraycolor
         sleeptimeView.addSubview(sleeptimeLabel)
-        sleeptimeTitleLabel = UILabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
-        sleeptimeTitleLabel.font = font14
+        sleeptimeTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
+     //   sleeptimeTitleLabel.font = font14
         sleeptimeTitleLabel.text = "睡眠时长"
         sleeptimeTitleLabel.textAlignment = NSTextAlignment.Center
-        sleeptimeTitleLabel.textColor = UIColor.lightGrayColor()
+     //   sleeptimeTitleLabel.textColor = UIColor.lightGrayColor()
         sleeptimeView.addSubview(sleeptimeTitleLabel)
         
         onbedtimeLabel = UILabel(frame:CGRectMake(0, 7, sleepFigureWidth, 38))
@@ -490,11 +491,11 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         onbedtimeLabel.textAlignment = NSTextAlignment.Center
         onbedtimeLabel.textColor = textGraycolor
         onbedtimeView.addSubview(onbedtimeLabel)
-        onbedtimeTitleLabel = UILabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
-        onbedtimeTitleLabel.font = font14
+        onbedtimeTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
+     //   onbedtimeTitleLabel.font = font14
         onbedtimeTitleLabel.text = "在床时间"
         onbedtimeTitleLabel.textAlignment = NSTextAlignment.Center
-        onbedtimeTitleLabel.textColor = UIColor.lightGrayColor()
+    //    onbedtimeTitleLabel.textColor = UIColor.lightGrayColor()
         onbedtimeView.addSubview(onbedtimeTitleLabel)
         
         leavebedtimeLabel = UILabel(frame:CGRectMake(0, 7, sleepFigureWidth, 38))
@@ -503,11 +504,11 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         leavebedtimeLabel.textAlignment = NSTextAlignment.Center
         leavebedtimeLabel.textColor = textGraycolor
         leavebedtimeView.addSubview(leavebedtimeLabel)
-        leavebedtimeTitleLabel = UILabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
-        leavebedtimeTitleLabel.font = font14
+        leavebedtimeTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
+    //    leavebedtimeTitleLabel.font = font14
         leavebedtimeTitleLabel.text = "离床时间"
         leavebedtimeTitleLabel.textAlignment = NSTextAlignment.Center
-        leavebedtimeTitleLabel.textColor = UIColor.lightGrayColor()
+ //       leavebedtimeTitleLabel.textColor = UIColor.lightGrayColor()
         leavebedtimeView.addSubview(leavebedtimeTitleLabel)
         
         self.mainscrollView.addSubview(SleepFiguresView)
@@ -548,11 +549,11 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         leavebedtimesLabel.textAlignment = NSTextAlignment.Center
         leavebedtimesLabel.textColor = textGraycolor
         leavebedtimesView.addSubview(leavebedtimesLabel)
-        leavebedtimesTitleLabel = UILabel(frame:CGRectMake(0, 46, suggestionFigureWidth, 20))
-        leavebedtimesTitleLabel.font = font14
+        leavebedtimesTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, suggestionFigureWidth, 20))
+     //   leavebedtimesTitleLabel.font = font14
         leavebedtimesTitleLabel.text = "离床次数"
         leavebedtimesTitleLabel.textAlignment = NSTextAlignment.Center
-        leavebedtimesTitleLabel.textColor = UIColor.lightGrayColor()
+     //   leavebedtimesTitleLabel.textColor = UIColor.lightGrayColor()
         leavebedtimesView.addSubview(leavebedtimesTitleLabel)
         
         turnovertimesLabel = UILabel(frame:CGRectMake(0, 7, suggestionFigureWidth, 38))
@@ -561,11 +562,11 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         turnovertimesLabel.textAlignment = NSTextAlignment.Center
         turnovertimesLabel.textColor = textGraycolor
         turnovertimesView.addSubview(turnovertimesLabel)
-        turnovertimesTitleLabel = UILabel(frame:CGRectMake(0, 46, suggestionFigureWidth, 20))
-        turnovertimesTitleLabel.font = font14
+        turnovertimesTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, suggestionFigureWidth, 20))
+    //    turnovertimesTitleLabel.font = font14
         turnovertimesTitleLabel.text = "翻身次数"
         turnovertimesTitleLabel.textAlignment = NSTextAlignment.Center
-        turnovertimesTitleLabel.textColor = UIColor.lightGrayColor()
+    //    turnovertimesTitleLabel.textColor = UIColor.lightGrayColor()
         turnovertimesView.addSubview(turnovertimesTitleLabel)
         
         leavebedmaxLabel = UILabel(frame:CGRectMake(0, 7, suggestionFigureWidth, 38))
@@ -574,11 +575,11 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         leavebedmaxLabel.textAlignment = NSTextAlignment.Center
         leavebedmaxLabel.textColor = textGraycolor
         leavebedmaxView.addSubview(leavebedmaxLabel)
-        leavebedmaxTitleLabel = UILabel(frame:CGRectMake(0, 46, suggestionFigureWidth, 20))
-        leavebedmaxTitleLabel.font = font14
+        leavebedmaxTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, suggestionFigureWidth, 20))
+   //     leavebedmaxTitleLabel.font = font14
         leavebedmaxTitleLabel.text = "最高离床时间"
         leavebedmaxTitleLabel.textAlignment = NSTextAlignment.Center
-        leavebedmaxTitleLabel.textColor = UIColor.lightGrayColor()
+    //    leavebedmaxTitleLabel.textColor = UIColor.lightGrayColor()
         leavebedmaxView.addSubview(leavebedmaxTitleLabel)
         
         turnoverrateLabel = UILabel(frame:CGRectMake(0, 7, suggestionFigureWidth, 38))
@@ -587,11 +588,11 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         turnoverrateLabel.textAlignment = NSTextAlignment.Center
         turnoverrateLabel.textColor = textGraycolor
         turnoverrateView.addSubview(turnoverrateLabel)
-        turnoverrateTitleLabel = UILabel(frame:CGRectMake(0, 46, suggestionFigureWidth, 20))
-        turnoverrateTitleLabel.font = font14
+        turnoverrateTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, suggestionFigureWidth, 20))
+   //     turnoverrateTitleLabel.font = font14
         turnoverrateTitleLabel.text = "翻身频率"
         turnoverrateTitleLabel.textAlignment = NSTextAlignment.Center
-        turnoverrateTitleLabel.textColor = UIColor.lightGrayColor()
+  //      turnoverrateTitleLabel.textColor = UIColor.lightGrayColor()
         turnoverrateView.addSubview(turnoverrateTitleLabel)
         
         

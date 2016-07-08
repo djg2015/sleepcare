@@ -44,6 +44,7 @@ let avgColor = UIColor(red: 75/255, green: 224/255, blue: 211/255, alpha: 1.0)
 let defaultColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 0.5)
 let grayColor = UIColor(red: 146/255, green: 146/255, blue: 146/255, alpha: 1.0)
  let seperatorColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+let textDarkgrey = UIColor(red: 174/255, green: 173/255, blue: 173/255, alpha: 1.0)
 
 //sleep页面常量
 let awakeColor = UIColor(red: 125/255, green: 249/255, blue: 60/255, alpha: 1.0)

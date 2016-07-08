@@ -84,19 +84,19 @@ class AccountSettingController: UIViewController,UITableViewDataSource,UITableVi
             if (indexPath.row==0) {
                cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "modifyaccountcell")
                  cell?.textLabel!.text = "帐号与安全"
-                cell?.textLabel?.font = font14
                 cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             }
             else{
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "switchalarmcell")
                 cell?.textLabel!.text = "报警通知"
-                cell?.textLabel?.font = font14
                 var sw = UISwitch()
                 
                 sw.setOn(AlarmNoticeFlag, animated: false)
                 sw.addTarget(self, action: "SwitchValueChange:", forControlEvents: UIControlEvents.ValueChanged)
                 cell?.accessoryView = sw
             }
+            cell?.textLabel?.textColor = textGraycolor
+            cell?.textLabel?.font = font16
 
         }
         return cell!

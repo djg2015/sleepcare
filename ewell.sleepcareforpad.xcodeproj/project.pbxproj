@@ -42,6 +42,9 @@
 		0D336D0E1C92596D0049883F /* RemoteNoticeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */; };
 		0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */; };
 		0D35D5FA1C4CC3D8009F8EB2 /* Message.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D35D5F91C4CC3D8009F8EB2 /* Message.plist */; };
+		0D367E591D2F76CD004DA788 /* MeTabLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D367E581D2F76CD004DA788 /* MeTabLabel.swift */; };
+		0D367E5B1D2F7CBB004DA788 /* HrRrSleepTabLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D367E5A1D2F7CBB004DA788 /* HrRrSleepTabLabel.swift */; };
+		0D367E5D1D2F7F5D004DA788 /* WeekreportLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D367E5C1D2F7F5D004DA788 /* WeekreportLabel.swift */; };
 		0D3D05851CFED58C00476819 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D05841CFED58C00476819 /* AppDelegate.swift */; };
 		0D3D058F1CFEDEED00476819 /* EquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D058A1CFEDEED00476819 /* EquipmentViewController.swift */; };
 		0D3D05911CFEDEED00476819 /* RootTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D058C1CFEDEED00476819 /* RootTabbarController.swift */; };
@@ -257,6 +260,9 @@
 		0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNoticeHelper.swift; sourceTree = "<group>"; };
 		0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHelper.swift; sourceTree = "<group>"; };
 		0D35D5F91C4CC3D8009F8EB2 /* Message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Message.plist; sourceTree = "<group>"; };
+		0D367E581D2F76CD004DA788 /* MeTabLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeTabLabel.swift; sourceTree = "<group>"; };
+		0D367E5A1D2F7CBB004DA788 /* HrRrSleepTabLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HrRrSleepTabLabel.swift; sourceTree = "<group>"; };
+		0D367E5C1D2F7F5D004DA788 /* WeekreportLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekreportLabel.swift; sourceTree = "<group>"; };
 		0D3D05841CFED58C00476819 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D3D058A1CFEDEED00476819 /* EquipmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentViewController.swift; sourceTree = "<group>"; };
 		0D3D058C1CFEDEED00476819 /* RootTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabbarController.swift; sourceTree = "<group>"; };
@@ -672,6 +678,9 @@
 				3AC7B0FF1BF45BB8002DE94C /* PopDownList */,
 				3A91F0B11BF066C400C470D4 /* Date */,
 				0D172FBC1D2DEB2E00BFCDCC /* TitleLabel.swift */,
+				0D367E581D2F76CD004DA788 /* MeTabLabel.swift */,
+				0D367E5A1D2F7CBB004DA788 /* HrRrSleepTabLabel.swift */,
+				0D367E5C1D2F7F5D004DA788 /* WeekreportLabel.swift */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1227,6 +1236,7 @@
 				0D3D05981D0522DF00476819 /* RootRegistViewController.swift in Sources */,
 				3A4CD3F81BA804D2002C8A1A /* XmppMsgManager.swift in Sources */,
 				0DDA44251CC5D81E00B0DF51 /* ShowTipsViewController.swift in Sources */,
+				0D367E5D1D2F7F5D004DA788 /* WeekreportLabel.swift in Sources */,
 				3A4CD3FF1BA808C1002C8A1A /* XmppMsgHelper.swift in Sources */,
 				3A41ADF01BA7B45D000C109B /* MessageDelegate.swift in Sources */,
 				3A3D65E41BAA8E1100CEFB25 /* MessageFactory.swift in Sources */,
@@ -1249,6 +1259,7 @@
 				0D1FC0961D1BB15300988A64 /* SessionForSingle.swift in Sources */,
 				0D1FC0BA1D1F8A5B00988A64 /* ModifyAccountController.swift in Sources */,
 				0DB05D051D1432D000018538 /* ChatLineView.m in Sources */,
+				0D367E5B1D2F7CBB004DA788 /* HrRrSleepTabLabel.swift in Sources */,
 				0D3D05941CFFC30D00476819 /* UpdateHelper.swift in Sources */,
 				0D1ADE431D1F9F1B00DC58FF /* AddDeviceViewController.swift in Sources */,
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
@@ -1310,6 +1321,7 @@
 				3A35AB651BCCE8B000ED3293 /* SweetAlert.swift in Sources */,
 				3A3EF7C11BDE05A800CDDAED /* TodoList.swift in Sources */,
 				3A2158771BEC8D580089CC01 /* IBaseViewController.swift in Sources */,
+				0D367E591D2F76CD004DA788 /* MeTabLabel.swift in Sources */,
 				0DC228571C224DD800AF4737 /* IAlarmHelper.swift in Sources */,
 				0D6D6CBD1D212942005CB9D2 /* RRTabViewController.swift in Sources */,
 				3AB3CB271BD763690067F9D4 /* BackgroundCommon.swift in Sources */,
