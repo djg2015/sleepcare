@@ -175,6 +175,9 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         // Do any additional setup after loading the view.
         
         rac_settings()
+        if SessionForSingle.GetSession()!.CurPatientCode == ""{
+            self.ChangePatient()
+        }
         //第一次显示页面时手动调用viewwillappear？？bug
         self.viewWillAppear(true)
         

@@ -188,6 +188,7 @@ class ChangePatientInfoViewModel: BaseViewModel {
                     let result =  SleepCareForSingle().ModifyBedUserInfo(self.BeduserCode,bedUserName:self.Name,sex:self.Gender,mobilePhone:self.Telephone,address:self.Address)
                     
                     if result.Result{
+                        
                         self.AfterConfirmSuccess()
                     }
                         
@@ -211,8 +212,23 @@ class ChangePatientInfoViewModel: BaseViewModel {
         return RACSignal.empty()
     }
     
-    //确认成功:add到mydevice的source列表，返回到mydevice页面
+    //确认成功:更新session里的equipmentlis/curpatientname，返回到my页面
     func AfterConfirmSuccess(){
+        let temppatientlist = SessionForSingle.GetSession()!.EquipmentList
+        for (var i = 0;i<temppatientlist.count;i++){
+            if temppatientlist[i].BedUserCode == self.BeduserCode{
+            temppatientlist[i].BedUserName = self.Name
+                if SessionForSingle.GetSession()!.CurPatientCode == self.BeduserCode{
+                    if SessionForSingle.GetSession()!.CurPatientName != self.Name{
+                    SessionForSingle.GetSession()!.CurPatientName = self.Name
+                    PLISTHELPER.CurPatientName = self.Name
+                    }
+                    
+                }
+                break
+            }
+        }
+        
         if self.parentController != nil{
           self.parentController.navigationController?.popViewControllerAnimated(true)
             

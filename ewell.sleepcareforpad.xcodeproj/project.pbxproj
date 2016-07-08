@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
 		0D172FBD1D2DEB2E00BFCDCC /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D172FBC1D2DEB2E00BFCDCC /* TitleLabel.swift */; };
 		0D1ADE431D1F9F1B00DC58FF /* AddDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1ADE421D1F9F1B00DC58FF /* AddDeviceViewController.swift */; };
 		0D1ADE471D1FA20A00DC58FF /* ConfirmPatientInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1ADE461D1FA20A00DC58FF /* ConfirmPatientInfoController.swift */; };
@@ -453,7 +452,6 @@
 			files = (
 				0DB05D0A1D1455C400018538 /* WebKit.framework in Frameworks */,
 				3AC7B10D1BF464D2002DE94C /* Foundation.framework in Frameworks */,
-				014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

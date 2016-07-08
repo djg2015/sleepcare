@@ -100,8 +100,8 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 cell?.contentView.addSubview(image1)
                 
                 var label1 = UILabel(frame:CGRectMake(79, 24, 114, 21))
-                label1.text = self.titleList[indexPath.section][indexPath.row]
                 label1.font = font16
+                label1.text = self.titleList[indexPath.section][indexPath.row]
                 cell?.contentView.addSubview(label1)
                 
                 cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator

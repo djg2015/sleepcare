@@ -101,7 +101,7 @@ class PlistHelper:NSObject{
         }
         set(value){
             self._curPatientCode = value
-            self.SetValueIntoPlist("CurPatientCode", value:self._curPatientCode)
+            self.SetValueIntoPlist("curPatientCode", value:self._curPatientCode)
         }
     }
 
@@ -112,7 +112,7 @@ class PlistHelper:NSObject{
         }
         set(value){
             self._curPatientName = value
-            self.SetValueIntoPlist("CurPatientName", value:self._curPatientName)
+            self.SetValueIntoPlist("curPatientName", value:self._curPatientName)
         }
     }
 
@@ -292,19 +292,7 @@ func GetValueFromSleepcarePlist(){
         value = NSMutableDictionary(contentsOfFile: path)!.valueForKey("alarmnotice")
         self._alarmNotice = (value == nil) ? "" : (value as! String)
         
-//        print(SERVERJIDVALUE+"\n")
-//        print(XMPPSERVERVALUE+"\n")
-//         print(XMPPPORTVALUE+"\n")
-//         print(XMPPUSERNAMEVALUE+"\n")
-//         print(XMPPUSERPWDVALUE+"\n")
-//         print(XMPPUSERNAMEPHONEVALUE+"\n")
-//         print( self._firstLaunch+"\n")
-//         print(CURPATIENTNAMEVALUE+"\n")
-//         print(CURPATIENTCODEVALUE+"\n")
-//         print(LOGINTELEPHONESINGLEVALUE+"\n")
-//         print(LOGINPWDSINGLEVALUE+"\n")
-//         print(ISREGISTVALUE+"\n")
-//         print(ALARMNOTICEVALUE+"\n")
+print(self.CurPatientName)
       
     } else {
         println("WARNING: sleepcare.plist doesn't exist! return 空!")

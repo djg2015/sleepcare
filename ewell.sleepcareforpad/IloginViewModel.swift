@@ -19,7 +19,7 @@ class IloginViewModel: BaseViewModel,AutoLoginAfterRegistDelegate {
         }
         set(value)
         {
-            self._telephone=value
+            self._telephone=value 
         }
     }
     

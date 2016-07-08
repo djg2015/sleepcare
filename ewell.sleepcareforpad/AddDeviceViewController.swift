@@ -13,6 +13,10 @@ class AddDeviceViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var scanLabel: UILabel!
     
+    @IBOutlet weak var topgreyView: UIView!
+    @IBOutlet weak var leftgreyView: UIView!
+    @IBOutlet weak var bottongreyView: UIView!
+    @IBOutlet weak var rightgreyView: UIView!
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -59,7 +63,10 @@ class AddDeviceViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         captureSession?.addInput(input as! AVCaptureInput)
         
         //--------- Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
-        let captureMetadataOutput = AVCaptureMetadataOutput()
+        var captureMetadataOutput = AVCaptureMetadataOutput()
+        //设置扫描区域（原点在右上角，宽高相反,（0，0，1，1））
+        captureMetadataOutput.rectOfInterest = CGRectMake((SCREENHIGHT-160)/2/SCREENHIGHT,((SCREENWIDTH-160)/2)/SCREENWIDTH,160/SCREENHIGHT,160/SCREENWIDTH)
+        
         captureSession?.addOutput(captureMetadataOutput)
         
         // Set delegate and use the default dispatch queue to execute the call back
@@ -80,6 +87,10 @@ class AddDeviceViewController: UIViewController, AVCaptureMetadataOutputObjectsD
        
         view.bringSubviewToFront(scanView)
         view.bringSubviewToFront(topView)
+        view.bringSubviewToFront(topgreyView)
+        view.bringSubviewToFront(leftgreyView)
+        view.bringSubviewToFront(bottongreyView)
+        view.bringSubviewToFront(rightgreyView)
         view.bringSubviewToFront(scanLabel)
     }
 

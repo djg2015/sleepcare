@@ -89,6 +89,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,XMPPStreamDelegate{
     
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+        
         NSNotificationCenter.defaultCenter().postNotificationName("WarningClose", object: self)
     }
     

@@ -13,6 +13,12 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
      @IBOutlet weak var scanView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var scanLabel: UILabel!
+    @IBOutlet weak var topgreyView: UIView!
+    @IBOutlet weak var leftgreyView: UIView!
+    @IBOutlet weak var bottomgreyView: UIView!
+    @IBOutlet weak var rightgreyView: UIView!
+    
+    
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     
@@ -55,6 +61,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         
         //--------- Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
         let captureMetadataOutput = AVCaptureMetadataOutput()
+        //设置扫描区域（原点在右上角，宽高相反,（0，0，1，1））
+        captureMetadataOutput.rectOfInterest = CGRectMake((SCREENHIGHT-160)/2/SCREENHIGHT,((SCREENWIDTH-160)/2)/SCREENWIDTH,160/SCREENHIGHT,160/SCREENWIDTH)
+
+    
         captureSession?.addOutput(captureMetadataOutput)
         
         // Set delegate and use the default dispatch queue to execute the call back
@@ -79,7 +89,12 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         
         view.bringSubviewToFront(scanView)
         view.bringSubviewToFront(topView)
+         view.bringSubviewToFront(topgreyView)
+         view.bringSubviewToFront(leftgreyView)
+         view.bringSubviewToFront(bottomgreyView)
+         view.bringSubviewToFront(rightgreyView)
         view.bringSubviewToFront(scanLabel)
+       
         
         //--------------- Initialize QR Code Frame to highlight the QR code
         //        qrCodeFrameView = UIView()

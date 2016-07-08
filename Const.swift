@@ -25,6 +25,9 @@ let PORT:String = "xmppport"
 let SERVERJID:String = "serverjid"
 var deviceType:String = "iphone"
 
+let SCREENWIDTH = UIScreen.mainScreen().bounds.width
+let SCREENHIGHT = UIScreen.mainScreen().bounds.height
+
 //hr,rr页面常量值定义
 let selectunderlineWidth = (UIScreen.mainScreen().bounds.width-40)/3
 let chartwidth = UIScreen.mainScreen().bounds.width
