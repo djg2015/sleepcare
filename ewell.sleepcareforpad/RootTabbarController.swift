@@ -55,7 +55,11 @@ class RootTabbarController: UITabBarController{
             self.tabBar.selectedItem?.badgeValue = String(IAlarmHelper.GetAlarmInstance().WarningList.count)
         }
       
+        else{
+            self.selectedIndex = 0
+            self.tabBar.selectedItem?.selectedImage = selecthrImage
 
+        }
     }
 
     override func viewDidLoad() {
@@ -65,9 +69,7 @@ class RootTabbarController: UITabBarController{
         selectsleepImage = selectsleepImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         selectmeImage = selectmeImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
-        self.selectedIndex = 0
-        self.tabBar.selectedItem?.selectedImage = selecthrImage
-
+      
     }
     
     
