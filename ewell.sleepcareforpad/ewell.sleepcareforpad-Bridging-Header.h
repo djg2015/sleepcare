@@ -18,3 +18,5 @@
 #import "PointBtn.h"
 
 #import "STLoopProgressView.h"
+
+#import "sleepcircle.h"

@@ -13,6 +13,7 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     @IBOutlet weak var adddeviceView: UIView!
     @IBOutlet weak var topview: UIView!
     @IBOutlet weak var view1: UIView!
+   
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view3: UIView!
     
@@ -27,11 +28,11 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     //在离床图标
     @IBOutlet weak var BedStatusImg: UIImageView!
     
-    //实时／平均心率数据
-    @IBOutlet weak var CurrentHRImg: UIImageView!
-    @IBOutlet weak var CurrentHRLabel: UILabel!
-    @IBOutlet weak var AvgHRLabel: UILabel!
+ //圆圈内当前心率
     @IBOutlet weak var circleHRLabel: UILabel!
+    // 值
+    @IBOutlet weak var currentHRLabel: HrRrSleepTabLabel!
+    @IBOutlet weak var avgHRLabel: HrRrSleepTabLabel!
     
     //滑动栏
     @IBOutlet weak var SelectUnderline: UILabel!
@@ -41,6 +42,7 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     //放图表的容器scrollview
     @IBOutlet weak var chartScrollView: ChartScrollView!
     
+    @IBOutlet weak var longlineLabel: UILabel!
     
     //-------------------------------变量定义-------------------------------
     //滑动栏内选中的button
@@ -52,7 +54,7 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     
     //两个hr圆圈
     var outercircleView: STLoopProgressView!
-    var innercircleView: STLoopProgressView!
+   
     
     //心率最高值120（30-100-120三档）
     var currentHR:String?{
@@ -64,13 +66,7 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         }
     }
     
-    var avgHR:String?{
-        didSet{
-            if avgHR != nil{
-                self.innercircleView.persentage = CGFloat((avgHR! as NSString).floatValue)/120.0
-            }
-        }
-    }
+    
     
     var statusImageName:String?
         {
@@ -90,10 +86,11 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         {
         didSet{
             if currentHRImageName != ""{
-                self.CurrentHRImg.image = UIImage(named:currentHRImageName!)
+               
                 
                 if currentHRImageName == "icon_gray circle.png"{
                     self.circleHRLabel.textColor = grayColor
+                   
                 }
                 if currentHRImageName == "icon_blue circle.png"{
                     self.circleHRLabel.textColor = startColor
@@ -190,47 +187,60 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     
     func rac_settings(){
         self.hrTabViewModel = HRTabViewModel()
-        
+     
         self.chartScrollView.contentSize = CGSize(width: chartwidth * 3, height:chartheight)
         self.chartScrollView.delegate = self
         self.selectButton = self.HourBtn
         
+         let screenHeight = UIScreen.mainScreen().bounds.size.height
+         if(screenHeight == 480){//4s
+       //  outterCircleHeight = outterCircleHeight*0.9;
+            circleHRLabel.font = UIFont.systemFontOfSize(55);
+        }
+         else if(screenHeight == 736){//6p 414
+        //  outterCircleHeight = outterCircleHeight*1.1;
+             circleHRLabel.font = UIFont.systemFontOfSize(75);
+        }
+
+        //
+        self.currentHRLabel.textColor = selectColor
+        self.avgHRLabel.textColor = avgColor
+        
+       
         //画圆
         let outteroriginX = (UIScreen.mainScreen().bounds.width-outterCircleHeight)/2
-        let distance = (outterCircleHeight-innerCircleHeight)/2
-        let inneroriginX = outteroriginX + distance
+       
         //圆圈粗细根据不同机型确定
         var outterlinewidth:CGFloat = 0
-        var innerlinewidth:CGFloat = 0
-        let screenHeight = UIScreen.mainScreen().bounds.size.height
         if(screenHeight == 480){//4s
-            outterlinewidth = 9
-            innerlinewidth = 5
-        }else if(screenHeight == 568){//5-5s
-            outterlinewidth = 10
-            innerlinewidth = 6
-        }else if(screenHeight == 667){//6
             outterlinewidth = 11
-            innerlinewidth = 7
+           
+        }else if(screenHeight == 568){//5-5s
+            outterlinewidth = 14
+            
+        }else if(screenHeight == 667){//6
+            outterlinewidth = 16
+            
         }else if(screenHeight == 736){//6p 414
-            outterlinewidth = 12
-            innerlinewidth = 8
+            outterlinewidth = 18
+            
         }
         
+        //6以上的scrollview没有边框，需要手动添加longline
+//        if(screenHeight > 650){
+//        longlineLabel.hidden = false
+//        }
+
         
         self.outercircleView = STLoopProgressView()
-        self.outercircleView.addCircleView(CGRectMake(outteroriginX, 15, outterCircleHeight, outterCircleHeight), withdefaultcolor: defaultColor,withstartcolor: startColor,withcentercolor: centerColor,withendcolor: endColor, withlinewidth:outterlinewidth)
-        self.innercircleView = STLoopProgressView()
-        self.innercircleView.addCircleView(CGRectMake(inneroriginX, 15+distance, innerCircleHeight, innerCircleHeight),withdefaultcolor:defaultColor,withstartcolor: avgColor,withcentercolor:avgColor,withendcolor: avgColor, withlinewidth:innerlinewidth)
+        self.outercircleView.addCircleView(CGRectMake(outteroriginX, 10, outterCircleHeight, outterCircleHeight), withdefaultcolor: defaultColor,withstartcolor: startColor,withcentercolor: centerColor,withendcolor: endColor, withlinewidth:outterlinewidth)
         self.view1.addSubview(self.outercircleView)
-        self.view1.addSubview(self.innercircleView)
         
         
         //往scrollview里添加chartview集合
+    
         self.chartScrollView.addSubview(chartScrollView.chartView1)
-        //   self.chartScrollView.bringSubviewToFront(chartView1)
         self.chartScrollView.addSubview(chartScrollView.chartView2)
-        //    self.chartScrollView.bringSubviewToFront(chartView2)
         self.chartScrollView.addSubview(chartScrollView.chartView3)
         
 
@@ -239,12 +249,10 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         RACObserve(self.hrTabViewModel, "StatusImageName") ~> RAC(self, "statusImageName")
         RACObserve(self.hrTabViewModel, "AlarmNoticeImage") ~> RAC(self.alarmNoticeImg, "image")
         RACObserve(self.hrTabViewModel, "CurrentHRImage") ~> RAC(self, "currentHRImageName")
-        RACObserve(self.hrTabViewModel, "CurrentHR") ~> RAC(self.CurrentHRLabel, "text")
         RACObserve(self.hrTabViewModel, "CurrentHR") ~> RAC(self.circleHRLabel, "text")
-        RACObserve(self.hrTabViewModel, "LastAvgHR") ~> RAC(self.AvgHRLabel, "text")
         RACObserve(self.hrTabViewModel, "CurrentHR") ~> RAC(self, "currentHR")
-        RACObserve(self.hrTabViewModel, "LastAvgHR") ~> RAC(self, "avgHR")
-        
+        RACObserve(self.hrTabViewModel, "CurrentHR") ~> RAC(self.currentHRLabel, "text")
+         RACObserve(self.hrTabViewModel, "LastAvgHR") ~> RAC(self.avgHRLabel, "text")
         
         //点击名字，切换老人
         var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "ChangePatient")
@@ -258,8 +266,8 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     func scrollViewDidScroll(scrollView: UIScrollView) {
         //topview中的导航栏label随着scrollview滑动
         var offset = self.chartScrollView.contentOffset.x
-        var offsetScale = offset/self.view.frame.size.width
-        self.SelectUnderline.frame = CGRectMake(offsetScale*selectunderlineWidth,30,selectunderlineWidth, 2)
+        var offsetScale = offset/(self.view.frame.size.width-40)
+        self.SelectUnderline.frame = CGRectMake(offsetScale*selectunderlineWidth,31,selectunderlineWidth, 2)
         
         var buttonindex = Int(offsetScale)
         switch(buttonindex){
@@ -294,7 +302,7 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         self.chartScrollView.delaysContentTouches = false
         //根据偏移量确定传递给哪个chatview
         var offset = self.chartScrollView.contentOffset.x
-        var index:Int = Int(Float(offset)/Float(UIScreen.mainScreen().bounds.width))
+        var index:Int = Int(Float(offset)/Float(UIScreen.mainScreen().bounds.width-40 ))
         switch(index){
         case 0:
             self.chartScrollView.chartView1.touchesBegan(touches, withEvent: event)
@@ -327,8 +335,6 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
             
             PLISTHELPER.CurPatientName = item.value!
              PLISTHELPER.CurPatientCode = item.key!
-//        SetValueIntoPlist("curPatientCode", item.key!)
-//        SetValueIntoPlist("curPatientName", item.value!)
             
             
         self.RefreshHRView()
@@ -385,7 +391,7 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
             //当前有老人设备但没有选择：隐藏除topview之外的subviews，需要选择一个老人后再刷新页面显示具体内容
         else if flag == "2"{
             self.view1.hidden = true
-            self.view2.hidden = true
+        self.view2.hidden = true
             self.view3.hidden = true
             self.chartScrollView.hidden = true
             self.adddeviceView.hidden = true
@@ -395,7 +401,7 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
             //当前没有设备：隐藏页面内所有的subviews,提示添加noticeview提示先添加设备
         else if  flag == "3"{
             self.view1.hidden = true
-            self.view2.hidden = true
+             self.view2.hidden = true
             self.view3.hidden = true
             self.chartScrollView.hidden = true
             self.adddeviceView.hidden = false

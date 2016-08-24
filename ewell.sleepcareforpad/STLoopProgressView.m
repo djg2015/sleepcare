@@ -20,13 +20,6 @@
 
 - (void)addCircleView:(CGRect)frame withdefaultcolor:(UIColor *)defaultColor withstartcolor:(UIColor*)startColor withcentercolor:(UIColor*)centerColor withendcolor:(UIColor*)endColor withlinewidth:(CGFloat)linewidth;
 
-//自定义初始化设置
-//@property (nonatomic,strong)IBInspectable UIColor *startColor;// 起始颜色
-//@property (nonatomic,strong)IBInspectable UIColor *centerColor;// 中间过渡颜色
-//@property (nonatomic,strong)IBInspectable UIColor *endColor;// 结束颜色
-//@property (nonatomic,strong)IBInspectable UIColor *defaultbackgroundColor;// 空环背景颜色
-//
-//@property (nonatomic,assign)IBInspectable CGFloat lineWidth; // 线宽
 
 
 

@@ -132,7 +132,16 @@
 		0DC2280E1C1FD65F00AF4737 /* JHSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */; };
 		0DC2284D1C212F0E00AF4737 /* PlistHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */; };
 		0DC228571C224DD800AF4737 /* IAlarmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC228561C224DD800AF4737 /* IAlarmHelper.swift */; };
+		0DC6E8381D4DC042008BD0D2 /* libCocoaAsyncSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC6E8371D4DC042008BD0D2 /* libCocoaAsyncSocket.a */; };
+		0DC6E8401D4DC06C008BD0D2 /* libCocoaLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC6E8391D4DC06C008BD0D2 /* libCocoaLumberjack.a */; };
+		0DC6E8411D4DC06C008BD0D2 /* libKNSemiModalViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC6E83A1D4DC06C008BD0D2 /* libKNSemiModalViewController.a */; };
+		0DC6E8421D4DC06C008BD0D2 /* libPNChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC6E83B1D4DC06C008BD0D2 /* libPNChart.a */; };
+		0DC6E8431D4DC06C008BD0D2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC6E83C1D4DC06C008BD0D2 /* libPods.a */; };
+		0DC6E8441D4DC06C008BD0D2 /* libReactiveCocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC6E83D1D4DC06C008BD0D2 /* libReactiveCocoa.a */; };
+		0DC6E8451D4DC06C008BD0D2 /* libUICountingLabel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC6E83E1D4DC06C008BD0D2 /* libUICountingLabel.a */; };
+		0DC6E8461D4DC06C008BD0D2 /* libXMPPFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC6E83F1D4DC06C008BD0D2 /* libXMPPFramework.a */; };
 		0DCC7ABD1C34C71700CC2498 /* RealTimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */; };
+		0DD71F9A1D6AEBB5005669E1 /* sleepcircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD71F991D6AEBB5005669E1 /* sleepcircle.m */; };
 		0DDA44191CC4850300B0DF51 /* ShowProtocolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA44181CC4850300B0DF51 /* ShowProtocolViewController.swift */; };
 		0DDA44251CC5D81E00B0DF51 /* ShowTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA44241CC5D81E00B0DF51 /* ShowTipsViewController.swift */; };
 		0DDA44291CC5D85000B0DF51 /* ShowInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */; };
@@ -355,7 +364,17 @@
 		0DC2280D1C1FD65F00AF4737 /* JHSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHSpinnerView.swift; sourceTree = "<group>"; };
 		0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistHelper.swift; sourceTree = "<group>"; };
 		0DC228561C224DD800AF4737 /* IAlarmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmHelper.swift; sourceTree = "<group>"; };
+		0DC6E8371D4DC042008BD0D2 /* libCocoaAsyncSocket.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCocoaAsyncSocket.a; path = "Pods/../build/Debug-iphoneos/libCocoaAsyncSocket.a"; sourceTree = "<group>"; };
+		0DC6E8391D4DC06C008BD0D2 /* libCocoaLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCocoaLumberjack.a; path = "Pods/../build/Debug-iphoneos/libCocoaLumberjack.a"; sourceTree = "<group>"; };
+		0DC6E83A1D4DC06C008BD0D2 /* libKNSemiModalViewController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKNSemiModalViewController.a; path = "Pods/../build/Debug-iphoneos/libKNSemiModalViewController.a"; sourceTree = "<group>"; };
+		0DC6E83B1D4DC06C008BD0D2 /* libPNChart.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPNChart.a; path = "Pods/../build/Debug-iphoneos/libPNChart.a"; sourceTree = "<group>"; };
+		0DC6E83C1D4DC06C008BD0D2 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		0DC6E83D1D4DC06C008BD0D2 /* libReactiveCocoa.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libReactiveCocoa.a; path = "Pods/../build/Debug-iphoneos/libReactiveCocoa.a"; sourceTree = "<group>"; };
+		0DC6E83E1D4DC06C008BD0D2 /* libUICountingLabel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUICountingLabel.a; path = "Pods/../build/Debug-iphoneos/libUICountingLabel.a"; sourceTree = "<group>"; };
+		0DC6E83F1D4DC06C008BD0D2 /* libXMPPFramework.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libXMPPFramework.a; path = "Pods/../build/Debug-iphoneos/libXMPPFramework.a"; sourceTree = "<group>"; };
 		0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeHelper.swift; sourceTree = "<group>"; };
+		0DD71F981D6AEBB5005669E1 /* sleepcircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sleepcircle.h; sourceTree = "<group>"; };
+		0DD71F991D6AEBB5005669E1 /* sleepcircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sleepcircle.m; sourceTree = "<group>"; };
 		0DDA44181CC4850300B0DF51 /* ShowProtocolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowProtocolViewController.swift; sourceTree = "<group>"; };
 		0DDA44241CC5D81E00B0DF51 /* ShowTipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTipsViewController.swift; sourceTree = "<group>"; };
 		0DDA44281CC5D85000B0DF51 /* ShowInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowInfoViewController.swift; sourceTree = "<group>"; };
@@ -456,6 +475,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC6E8401D4DC06C008BD0D2 /* libCocoaLumberjack.a in Frameworks */,
+				0DC6E8411D4DC06C008BD0D2 /* libKNSemiModalViewController.a in Frameworks */,
+				0DC6E8421D4DC06C008BD0D2 /* libPNChart.a in Frameworks */,
+				0DC6E8431D4DC06C008BD0D2 /* libPods.a in Frameworks */,
+				0DC6E8441D4DC06C008BD0D2 /* libReactiveCocoa.a in Frameworks */,
+				0DC6E8451D4DC06C008BD0D2 /* libUICountingLabel.a in Frameworks */,
+				0DC6E8461D4DC06C008BD0D2 /* libXMPPFramework.a in Frameworks */,
+				0DC6E8381D4DC042008BD0D2 /* libCocoaAsyncSocket.a in Frameworks */,
 				0DB05D0A1D1455C400018538 /* WebKit.framework in Frameworks */,
 				3AC7B10D1BF464D2002DE94C /* Foundation.framework in Frameworks */,
 			);
@@ -635,6 +662,15 @@
 			name = "周报表";
 			sourceTree = "<group>";
 		};
+		0D74033B1D6446E200C32E76 /* sleepcircle */ = {
+			isa = PBXGroup;
+			children = (
+				0DD71F981D6AEBB5005669E1 /* sleepcircle.h */,
+				0DD71F991D6AEBB5005669E1 /* sleepcircle.m */,
+			);
+			name = sleepcircle;
+			sourceTree = "<group>";
+		};
 		0DB05CFD1D1432BF00018538 /* chartView */ = {
 			isa = PBXGroup;
 			children = (
@@ -673,6 +709,7 @@
 		3A31CE701BEC67440039DFD0 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				0D74033B1D6446E200C32E76 /* sleepcircle */,
 				0DB05D0F1D14585F00018538 /* circleView */,
 				0DB05CFD1D1432BF00018538 /* chartView */,
 				3AC7B0FF1BF45BB8002DE94C /* PopDownList */,
@@ -833,6 +870,7 @@
 		3A4CD3F51BA80408002C8A1A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */,
 				3A3EF7BD1BDE058100CDDAED /* Notify */,
 				3AB43E761BD4E16B005023D3 /* Date */,
 				3A35AB641BCCE8B000ED3293 /* SweetAlert.swift */,
@@ -938,7 +976,6 @@
 		3AB43E761BD4E16B005023D3 /* Date */ = {
 			isa = PBXGroup;
 			children = (
-				3A3D65E31BAA8E1100CEFB25 /* MessageFactory.swift */,
 				3AB43E7C1BD4E1B9005023D3 /* BizDayRule.swift */,
 				3AB43E7D1BD4E1B9005023D3 /* Calendar.swift */,
 				3AB43E7E1BD4E1B9005023D3 /* DateHelpers.swift */,
@@ -964,6 +1001,14 @@
 		3F28D28F10171C3606C8ADEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DC6E8391D4DC06C008BD0D2 /* libCocoaLumberjack.a */,
+				0DC6E83A1D4DC06C008BD0D2 /* libKNSemiModalViewController.a */,
+				0DC6E83B1D4DC06C008BD0D2 /* libPNChart.a */,
+				0DC6E83C1D4DC06C008BD0D2 /* libPods.a */,
+				0DC6E83D1D4DC06C008BD0D2 /* libReactiveCocoa.a */,
+				0DC6E83E1D4DC06C008BD0D2 /* libUICountingLabel.a */,
+				0DC6E83F1D4DC06C008BD0D2 /* libXMPPFramework.a */,
+				0DC6E8371D4DC042008BD0D2 /* libCocoaAsyncSocket.a */,
 				0DB05D091D1455C400018538 /* WebKit.framework */,
 				2CB435331C06A6A9000751D1 /* libxml2.dylib */,
 				3AC7B10C1BF464D2002DE94C /* Foundation.framework */,
@@ -1267,6 +1312,7 @@
 				0D1FC0851D1A72B500988A64 /* SleepCareForSingle.swift in Sources */,
 				2C28CA141BE87D3D000C46C4 /* ServerResult.swift in Sources */,
 				0DEF14231D23BEE000477365 /* ChangePatientInfoViewModel.swift in Sources */,
+				0DD71F9A1D6AEBB5005669E1 /* sleepcircle.m in Sources */,
 				3A91F0AD1BF0475400C470D4 /* THDateDay.m in Sources */,
 				0D1E180C1D23931F004B7BFD /* IEmailViewController.swift in Sources */,
 				0D336D0E1C92596D0049883F /* RemoteNoticeHelper.swift in Sources */,
@@ -1370,7 +1416,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1392,7 +1438,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "0cb50ede-7253-4952-9775-ba2ee0f352f3";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos8.3;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1415,7 +1461,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1430,7 +1476,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "0cb50ede-7253-4952-9775-ba2ee0f352f3";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos8.3;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1444,7 +1490,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1470,8 +1516,12 @@
 				INFOPLIST_FILE = ewell.sleepcareforpad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0cb50ede-7253-4952-9775-ba2ee0f352f3";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos8.3;
 				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1487,7 +1537,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1513,8 +1563,12 @@
 				INFOPLIST_FILE = ewell.sleepcareforpad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0cb50ede-7253-4952-9775-ba2ee0f352f3";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos8.3;
 				SWIFT_OBJC_BRIDGING_HEADER = "ewell.sleepcareforpad/ewell.sleepcareforpad-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1525,7 +1579,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1537,7 +1591,7 @@
 				INFOPLIST_FILE = ewell.sleepcareforpadTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0cb50ede-7253-4952-9775-ba2ee0f352f3";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ewell.sleepcareforpad.app/ewell.sleepcareforpad";
 			};
 			name = Debug;
@@ -1546,7 +1600,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: xianzhen liu (U8UC3H7KH2)";
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1554,7 +1608,7 @@
 				INFOPLIST_FILE = ewell.sleepcareforpadTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0cb50ede-7253-4952-9775-ba2ee0f352f3";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ewell.sleepcareforpad.app/ewell.sleepcareforpad";
 			};
 			name = Release;

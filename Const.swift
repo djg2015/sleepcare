@@ -30,13 +30,13 @@ let SCREENHIGHT = UIScreen.mainScreen().bounds.height
 
 //hr,rr页面常量值定义
 let selectunderlineWidth = (UIScreen.mainScreen().bounds.width-40)/3
-let chartwidth = UIScreen.mainScreen().bounds.width
-let chartheight = UIScreen.mainScreen().bounds.height/570*200
+let chartwidth = UIScreen.mainScreen().bounds.width-40
+let chartheight = UIScreen.mainScreen().bounds.height/570*190
 
 let selectColor = UIColor(red: 86/255, green: 163/255, blue: 253/255, alpha: 1.0)
 let noselectColor = UIColor(red: 146/255, green: 146/255, blue: 146/255, alpha: 1.0)
-let outterCircleHeight = UIScreen.mainScreen().bounds.height/570*150
-let innerCircleHeight = UIScreen.mainScreen().bounds.height/570*125
+var outterCircleHeight = UIScreen.mainScreen().bounds.height/570*380-180
+
 let startColor = UIColor(red: 86/255, green: 163/255, blue: 253/255, alpha: 1.0)
 let centerColor = UIColor(red: 195/255, green: 114/255, blue: 168/255, alpha: 1.0)
 let endColor = UIColor(red: 254/255, green: 79/255, blue: 74/255, alpha: 1.0)
@@ -50,9 +50,8 @@ let textDarkgrey = UIColor(red: 174/255, green: 173/255, blue: 173/255, alpha: 1
 let awakeColor = UIColor(red: 125/255, green: 249/255, blue: 60/255, alpha: 1.0)
 let lightsleepColor = UIColor(red: 75/255, green: 224/255, blue: 211/255, alpha: 1.0)
 let deepsleepColor = UIColor(red: 92/255, green: 130/255, blue: 245/255, alpha: 1.0)
-let bigCircleHeight = UIScreen.mainScreen().bounds.height/570*183
-let middleCircleHeight = UIScreen.mainScreen().bounds.height/570*154
-let smallCircleHeight = UIScreen.mainScreen().bounds.height/570*127
+let bigCircleHeight = UIScreen.mainScreen().bounds.height/570*370 - 200
+
 
 //周报表
 let lighrgraybackgroundcolor = UIColor(red: 197/255, green: 197/255, blue: 197/255, alpha: 1.0)

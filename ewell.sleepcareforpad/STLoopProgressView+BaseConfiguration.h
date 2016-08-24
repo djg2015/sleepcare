@@ -10,20 +10,6 @@
 
 @interface STLoopProgressView (BaseConfiguration)
 
-//// 起始颜色
-//+ (UIColor *)startColor;
-//
-//// 中间颜色
-//+ (UIColor *)centerColor;
-//
-//// 结束颜色
-//+ (UIColor *)endColor;
-//
-//// 背景色
-//+ (UIColor *)defaultbackgroundColor;
-//
-//// 线宽
-//+ (CGFloat)lineWidth;
 
 // 起始角度（根据顺时针计算，逆时针则是结束角度）
 + (CGFloat)startAngle;

@@ -121,7 +121,7 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
                 
                 var label2_2 = UILabel(frame:CGRectMake(self.screenwidth-60, 11, 40, 21))
-                label2_2.text = "1.0.0"
+                label2_2.text = "1.1.0"
                 label2_2.textColor = textGraycolor
                 label2_2.textAlignment = NSTextAlignment.Right
                 label2_2.font = font16

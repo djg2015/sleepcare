@@ -33,7 +33,10 @@ class DateFormatterHelper{
     func GetStringDateFromCurrent(style:String)->String{
       self.dateFormatter?.dateFormat = style
       var curDate = NSDate()
-      return  self.dateFormatter!.stringFromDate(curDate)
+        if(self.dateFormatter != nil){
+            return  self.dateFormatter!.stringFromDate(curDate)
+        }
+      return ""
     }
 
     

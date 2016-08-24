@@ -164,7 +164,7 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
             HrRrChartView.valueAll = self.weekreportViewModel.HRRRRange.ValueY as [AnyObject]
             HrRrChartView.valueXList =  self.weekreportViewModel.HRRRRange.ValueX as [AnyObject]
             HrRrChartView.valueTitleNames = NSArray(objects:titleNameList1,titleNameList2) as [AnyObject]
-            HrRrChartView.addTrendChartView(CGRectMake(0, 0, screenwidth, 200))
+            HrRrChartView.addTrendChartView(CGRectMake(15, 0, screenwidth-30, 200))
             self.mainscrollView.addSubview(HrRrChartView)
         }
         
@@ -189,7 +189,7 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
             LeaveBedChartView.valueAll = self.weekreportViewModel.LeaveBedRange.ValueY as [AnyObject]
             LeaveBedChartView.valueXList = self.weekreportViewModel.LeaveBedRange.ValueX as [AnyObject]
             LeaveBedChartView.valueTitleNames = NSArray(objects:titleNameList1) as [AnyObject]
-            LeaveBedChartView.addTrendChartView(CGRectMake(0, 0, screenwidth, 200))
+            LeaveBedChartView.addTrendChartView(CGRectMake(15, 0, screenwidth-30, 200))
             self.mainscrollView.addSubview(LeaveBedChartView)
         }
         
@@ -198,7 +198,7 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
         
         SleepChartView.RemoveTrendChartView()
         if self.weekreportViewModel.SleepRange.flag{
-            SleepChartView.frame = CGRectMake(0, 732, screenwidth, 200)
+            SleepChartView.frame = CGRectMake(0, 732, screenwidth-30, 200)
             //＝＝“3”的折线效果，但无遮层
             SleepChartView.Type = "6"
             let titleNameList1 = "深睡"
@@ -207,7 +207,7 @@ class SleepReportViewController: UIViewController,UIScrollViewDelegate,SelectDat
             SleepChartView.valueAll = self.weekreportViewModel.SleepRange.ValueY as [AnyObject]
             SleepChartView.valueXList =  self.weekreportViewModel.SleepRange.ValueX as [AnyObject]
             SleepChartView.valueTitleNames = NSArray(objects:titleNameList1,titleNameList2,titleNameList3) as [AnyObject]
-            SleepChartView.addTrendChartView(CGRectMake(0, 0, screenwidth, 200))
+            SleepChartView.addTrendChartView(CGRectMake(15, 0, screenwidth-30, 200))
             self.mainscrollView.addSubview(SleepChartView)
         }
         

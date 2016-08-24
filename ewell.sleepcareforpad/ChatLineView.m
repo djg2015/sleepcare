@@ -8,10 +8,10 @@
 #import "ChatLineView.h"
 #import "PointBtn.h"
 #define rowNum 5
-#define distanceToBtm 20
+#define distanceToBtm 15
 
 //#define verticalSpace 0.065
-#define distanceToLeft 20
+#define distanceToLeft 0
 
 
 @interface ChatLineView()
@@ -57,12 +57,13 @@
     //适配机型
     [self autoGetScale];
     
-    self.verticalSpace = 1.0/(self.xValueArr.count+3.2);
+    self.verticalSpace = 1.0/(self.xValueArr.count+1);
     //1绘制纵轴
     CGContextRef context = UIGraphicsGetCurrentContext();
     [[UIColor lightGrayColor]set];
     NSString *unitYStr = self.unitYStr;
-    UIFont *font = [UIFont boldSystemFontOfSize:12.0];//设置
+    
+    UIFont *font = [UIFont systemFontOfSize:11.0];//设置
     //  NSDictionary *dict = @{NSFontAttributeName:font};
     
     //  [unitYStr drawInRect:CGRectMake(distanceToLeft,0,100,10) withAttributes:dict];
@@ -102,19 +103,19 @@
         }
         
         
-        //平均心率／呼吸／睡眠的标题设置,右上角
-        float x = [UIScreen mainScreen].bounds.size.width-10-(i+1)*65;
-        float y = 16;
-        PointBtn *showPoint = [[PointBtn alloc]initWithFrame:CGRectMake(x-4 , y-4 , 7, 7)];
-        [showPoint setBackgroundImage:[UIImage imageNamed:@"circlepoint"] forState:UIControlStateNormal];
-        showPoint.backgroundColor = self.selectColor;
-        showPoint.layer.cornerRadius = 4;
-        showPoint.layer.masksToBounds = YES;
-        showPoint.userInteractionEnabled = NO;
-        [self addSubview:showPoint];
-        
-        //        //self.yearArr[i]圆圈代表什么
-        [self.yearArr[i] drawInRect:CGRectMake( x+10,8,50,10) withFont:font];
+//        //平均心率／呼吸／睡眠的标题设置,右上角
+//        float x = [UIScreen mainScreen].bounds.size.width-10-(i+1)*65;
+//        float y = 16;
+//        PointBtn *showPoint = [[PointBtn alloc]initWithFrame:CGRectMake(x-4 , y-4 , 7, 7)];
+//        [showPoint setBackgroundImage:[UIImage imageNamed:@"circlepoint"] forState:UIControlStateNormal];
+//        showPoint.backgroundColor = self.selectColor;
+//        showPoint.layer.cornerRadius = 4;
+//        showPoint.layer.masksToBounds = YES;
+//        showPoint.userInteractionEnabled = NO;
+//        [self addSubview:showPoint];
+//        
+//        //        //self.yearArr[i]圆圈代表什么
+//        [self.yearArr[i] drawInRect:CGRectMake( x+10,8,50,10) withFont:font];
     }
     
     
@@ -127,8 +128,8 @@
     //1.1绘制虚线
     [[UIColor colorWithRed:245/255.0 green: 245/255.0 blue: 245/255.0 alpha:1.0] set];
     for (int i = 0 ; i < self.yValueArr.count ; i++) {
-        CGContextMoveToPoint(context, distanceToLeft + 30, (self.yValueArr.count - i) * self.horizontalSpace + 8);
-        CGContextAddLineToPoint(context, (self.xValueArr.count + 2.1) * (rect.size.width * self.verticalSpace), (self.yValueArr.count - i) * self.horizontalSpace + 8);
+        CGContextMoveToPoint(context, distanceToLeft + 20, (self.yValueArr.count - i) * self.horizontalSpace + 10);
+        CGContextAddLineToPoint(context, (self.xValueArr.count + 3) * (rect.size.width * self.verticalSpace), (self.yValueArr.count - i) * self.horizontalSpace + 10);
         //这里为其单独设置虚线
         //      CGFloat lengths[] = {3,1};
         //      CGContextSetLineDash(context, 0, lengths, 2);
@@ -141,16 +142,18 @@
         //15+个x值，每隔2个点选一个标记在chart里
         if(self.xValueArr.count>14){
             if(i%2 == 1){
-                [self.xValueArr[i] drawInRect:CGRectMake((i + 2) * (rect.size.width * self.verticalSpace),(self.yValueArr.count + 1) * self.horizontalSpace ,30 ,10) withFont:font];
+                [self.xValueArr[i] drawInRect:CGRectMake((i + 0.7) * (rect.size.width * self.verticalSpace),(self.yValueArr.count + 1) * self.horizontalSpace ,20 ,10) withFont:font];
             }
         }
+        else if(self.xValueArr.count<5){
+            [self.xValueArr[i] drawInRect:CGRectMake((i + 1) * (rect.size.width * self.verticalSpace),(self.yValueArr.count + 1) * self.horizontalSpace ,20 ,10) withFont:font];
+        }
         else{
-            [self.xValueArr[i] drawInRect:CGRectMake((i + 2) * (rect.size.width * self.verticalSpace),(self.yValueArr.count + 1) * self.horizontalSpace ,30 ,10) withFont:font];
+            [self.xValueArr[i] drawInRect:CGRectMake((i + 0.7) * (rect.size.width * self.verticalSpace),(self.yValueArr.count + 1) * self.horizontalSpace ,20 ,10) withFont:font];
         }
     }
     
-    //    NSString *unitXStr = @"(点)";
-    //    [unitXStr drawInRect:CGRectMake((self.xValueArr.count + 1.9) * (rect.size.width * self.verticalSpace),(self.yValueArr.count + 1) * self.horizontalSpace ,30 ,10) withFont:font];
+
     
     //3绘制点： else表示第二条折线的颜色
     for (int i = 0 ; i < self.valueArr.count ; i++) {
@@ -193,11 +196,9 @@
         //给点添加事件,scrollview中被scrollview的屏幕触碰方法截获，需要用touche方法传递到chartlineview类
         for (int j = 0 ; j < subArr.count ; j++) {
             
-            
-//            float y = (self.yValueArr.count -  [subArr[j] intValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
-           
+      
              float y = (self.yValueArr.count -  [subArr[j] floatValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
-            float x =  (j + 2) * (rect.size.width * self.verticalSpace)+ 5 ;
+            float x =  (j + 1) * (rect.size.width * self.verticalSpace)-8 ;
             
             //test1 x-4
             PointBtn *clickBtn = [[PointBtn alloc]initWithFrame:CGRectMake(x+4 , y - 4, 7, 7)];
@@ -216,43 +217,43 @@
             [self.pointArr addObject:clickBtn];
             
         }
-        
-        //绘制蒙版 test2 x+5
+       
+        //绘制蒙版
         //4绘制折线
         float firstY = (self.yValueArr.count -  0 / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
-        float firstX =   2 * (rect.size.width * self.verticalSpace)+ 13 ;
+        float firstX =   1 * (rect.size.width * self.verticalSpace);
         CGContextMoveToPoint(context, firstX, firstY);
         for (int j = 0 ; j < subArr.count ; j++) {
             float y = (self.yValueArr.count -  [subArr[j] floatValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
-            float x =  (j + 2) * (rect.size.width * self.verticalSpace)+ 13 ;
+            float x =  (j + 1) * (rect.size.width * self.verticalSpace) ;
             if(j == 0){
                 CGContextMoveToPoint(context, x, y);
             }else{
                 CGContextAddLineToPoint(context, x, y);
             }
         }
-        CGContextSetLineWidth(context, 1.0);
+        CGContextSetLineWidth(context, 2.0);
         CGContextSetLineDash(context, 0, 0, 0);
         CGContextStrokePath(context);
         
         
         if(![self.chartType isEqual: @"6"]){
-            //绘制蒙版  test3  x+5
+            //绘制蒙版
             CGContextRef context1 = UIGraphicsGetCurrentContext();
             CGMutablePathRef path = CGPathCreateMutable();
             //1.起始点
             CGPathMoveToPoint(path, NULL, firstX, firstY);
             for (int j = 0 ; j < subArr.count ; j++) {
                 float y = (self.yValueArr.count -  [subArr[j] floatValue] / (self.spaceValue * self.level) ) * self.horizontalSpace + 8;
-                float x =  (j + 2) * (rect.size.width * self.verticalSpace)+ 13 ;
+                float x =  (j +1) * (rect.size.width * self.verticalSpace);
                 CGPathAddLineToPoint(path, NULL, x, y);
             }
             
             //2.绘制终点
             float lastY = (self.yValueArr.count -  0 / (self.spaceValue * self.level) ) * self.horizontalSpace + 6;
-            float lastX =  (subArr.count + 1) * (rect.size.width * self.verticalSpace)+ 13;
+            float lastX =  (subArr.count ) * (rect.size.width * self.verticalSpace);
             CGPathAddLineToPoint(path, NULL, lastX, lastY);
-            CGContextSetLineWidth(context1, 3.0);
+            CGContextSetLineWidth(context1, 2.0);
             CGContextSetLineDash(context1, 0, 0, 0);
             
             
@@ -314,15 +315,18 @@
         self.spaceValue = 10;
         self.level = 1;
         if ( [self.chartType  isEqual: @"3"]|| [self.chartType isEqual: @"6"]){
-            self.unitYStr = @"(小时)";
+            self.unitYStr = @"睡眠周期(时/日)";
         }
         //离床
         else if ([self.chartType  isEqual: @"4"]){
-            self.unitYStr = @"(次/日)";
+            self.unitYStr = @"离床(次/日)";
         }
         //心率，呼吸
-        else {
-            self.unitYStr = @"(次/分)";
+        else if ([self.chartType  isEqual: @"1"]){
+            self.unitYStr = @"心率(次/分)";
+        }
+        else if ([self.chartType  isEqual: @"2"]){
+            self.unitYStr = @"呼吸(次/分)";
         }
     }
     int spaceInt = ceil(self.spaceValue);
@@ -349,13 +353,8 @@
      */
     CGPoint btnOrigin = clickBtn.frame.origin;
     UIColor *defaultColor = clickBtn.backgroundColor;
-    
-    //    UILabel *yearLable = [[UILabel alloc]init];
-    //    yearLable.text = [NSString stringWithFormat:@"%@年%@月",clickBtn.yearStr,clickBtn.monthStr];
-    //    [yearLable sizeToFit];
-    /**
-     *金额
-     */
+ 
+  
     UILabel *moneyLable = [[UILabel alloc]initWithFrame:CGRectMake(btnOrigin.x, btnOrigin.y-25,30, 20)];
     moneyLable.text = [NSString stringWithFormat:@"%@",clickBtn.valueStr];
     
@@ -395,8 +394,8 @@
             clickBtn.backgroundColor = [UIColor grayColor];
         }
         else {
-            moneyLable.textColor = [UIColor greenColor];
-            clickBtn.backgroundColor = [UIColor greenColor];
+            moneyLable.textColor = [UIColor blueColor];
+            clickBtn.backgroundColor = [UIColor blueColor];
         }
         
         
@@ -406,21 +405,13 @@
     [moneyLable sizeToFit];
     
     [self addSubview:moneyLable];
-    //    UIView *showView = [[UIView alloc]initWithFrame:CGRectMake(self.frame.size.width/2 - (yearLable.frame.size.width + moneyLable.frame.size.width) / 2 ,165, yearLable.frame.size.width + moneyLable.frame.size.width , 30)];
-    //    showView.backgroundColor = [UIColor whiteColor];
-    //
-    //    yearLable.frame = CGRectMake(0, 0, yearLable.frame.size.width, 30);
-    //    moneyLable.frame =CGRectMake(CGRectGetMaxX(yearLable.frame), 0, moneyLable.frame.size.width, 30);
-    //    [showView addSubview:yearLable];
-    //    [showView addSubview:moneyLable];
-    //    [self addSubview:showView];
+    
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //   yearLable.alpha = 0;
+    
         moneyLable.alpha = 0;
-        //    showView.alpha = 0;
         clickBtn.backgroundColor = defaultColor;
-        //    [showView removeFromSuperview];
+     
     });
 }
 
@@ -432,65 +423,24 @@
 
 
 -(int )getUnitWithMaxValue:(int )maxValue{
-    //    int unitNum = 0;
-    //    int tempValue = 1;
-    //    for(int i = 0 ; true ; i++){
-    //        tempValue *= 10;
-    //        if((maxValue / tempValue) == 0){
-    //            unitNum = i + 1;
-    //            break;
-    //        }
-    //    }
-    //
-    //    switch (unitNum) {
-    //        case 1:
-    //        case 2:
-    //        case 3:
+
     //睡眠
     self.level = 1;
     if ( [self.chartType  isEqual: @"3"]|| [self.chartType isEqual: @"6"]){
-        self.unitYStr = @"(小时)";
+        self.unitYStr = @"睡眠周期(时/日)";
     }
     //离床
     else if ([self.chartType  isEqual: @"4"]){
-        self.unitYStr = @"(次/日)";
+        self.unitYStr = @"离床(次/日)";
     }
     //心率，呼吸
-    else {
-        self.unitYStr = @"(次/分)";
+    else if ([self.chartType  isEqual: @"1"]){
+        self.unitYStr = @"心率(次/分)";
     }
-    //            break;
-    //        case 4://以百为单位 10,00
-    //            self.level = tempValue/ 100;
-    //            self.unitYStr = @"(次／小时)";
-    //            break;
-    //        case 5://以千为单位 10,000
-    //            self.level = tempValue/ 100;
-    //            self.unitYStr = @"销售额(千)";
-    //            break;
-    //        case 6://以万为单位 10,0000
-    //            self.level = tempValue/ 100;
-    //            self.unitYStr = @"销售额(万)";
-    //            break;
-    //        case 7://以十万为单位 10,00000
-    //            self.level = tempValue / 100;
-    //            self.unitYStr = @"销售额(十万)";
-    //            break;
-    //        case 8://以百万为单位 10,000000
-    //            self.level = tempValue/ 100;
-    //            self.unitYStr = @"销售额(百万)";
-    //            break;
-    //        case 9://以千万为单位 10,0000000
-    //            self.level = tempValue/ 100;
-    //            self.unitYStr = @"销售额(千万)";
-    //            break;
-    //        case 10://以亿为单位 10,00000000
-    //            self.level = tempValue/ 100;
-    //            self.unitYStr = @"销售额(亿)";
-    //            break;
-    //        default:
-    //            break;
-    //    }
+    else if ([self.chartType  isEqual: @"2"]){
+        self.unitYStr = @"呼吸(次/分)";
+    }
+
     return self.level;
 }
 
@@ -531,7 +481,7 @@
     CGPoint touchPoint = [touch locationInView:touch.view];
     int touchpoint_x = (int)(touchPoint.x);
     int touchpoint_y = (int)(touchPoint.y);
-    int width_screen = (int)([UIScreen mainScreen].bounds.size.width);
+    int width_screen = (int)([UIScreen mainScreen].bounds.size.width-40);
     //去掉touchpoint_x的偏移量
     while (touchpoint_x/width_screen>0){
         touchpoint_x = touchpoint_x - width_screen;

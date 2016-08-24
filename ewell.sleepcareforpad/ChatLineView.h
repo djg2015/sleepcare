@@ -27,11 +27,11 @@
 @property(nonatomic, strong) NSArray *yearArr;
 
 /**
- *  销售额度
+ *  y轴单位
  */
 @property(nonatomic, copy) NSString *unitYStr;
 
-//chart类型：1心率，2呼吸，3书面
+//chart类型：1心率，2呼吸，3 睡眠
 @property(nonatomic, strong) NSString *chartType;
 
 

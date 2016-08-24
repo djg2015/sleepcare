@@ -45,10 +45,12 @@ class SleepQualityReport: BaseMessage {
 }
 
 class SleepDateReport:BaseMessage {
-    
+    //"yyyy-mm-dd"
     var ReportDate:String = ""
+    //星期x
     var WeekDay:String = ""
     //睡眠时长
+    //"hh:mm:ss"
     var SleepTimespan:String = ""
        {
        didSet{

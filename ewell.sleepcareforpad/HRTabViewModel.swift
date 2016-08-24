@@ -226,7 +226,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
 //------------------------载入hr图标值--------------------------
     //返回值：1 正常 2没选择老人  3没添加设备
     func LoadPatientHR()->String {
-        var flag = "3"
+        var flag = "2"
         try {({
             if SessionForSingle.GetSession() != nil{
             self.BedUserCode = SessionForSingle.GetSession()!.CurPatientCode

@@ -14,7 +14,7 @@
 //@property(nonatomic, readwrite) NSMutableArray *valueAll;
 @property(nonatomic, strong) NSArray *valueXList;
 @property(nonatomic, readwrite) NSArray *valueTitleNames;
-//chart类型：1心率，2呼吸，3书面
+//chart类型：1心率，2呼吸，3睡眠
 @property(nonatomic, strong) NSString *Type;
 
 -(void)addTrendChartView:(CGRect) chartframe;

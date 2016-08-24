@@ -39,10 +39,11 @@
  *  走势图
  */
 -(void)addTrendChartView:(CGRect) chartframe{
- self.backgroundColor = [UIColor colorWithRed:245/255.0 green: 245/255.0 blue: 245/255.0 alpha:1.0];
+ self.backgroundColor = [UIColor whiteColor];
      ChatLineView *chatLineView = [[ChatLineView alloc]initWithFrame:chartframe];
     self.lineChartView = chatLineView;
     self.lineChartView.backgroundColor = [UIColor whiteColor];
+   
  
     int i;
     for(i=0;i<valueTitleNames.count;i++){
