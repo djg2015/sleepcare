@@ -329,7 +329,7 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
         tempcirclevalur.append(self.DeepSleepCircleValue)
         tempcirclevalur.append(self.LightSleepCircleValue)
         tempcirclevalur.append(self.AwakeCircleValue)
-        self._circleValueList = tempcirclevalur
+        self.CircleValueList = tempcirclevalur
         
         
        //睡眠图表值

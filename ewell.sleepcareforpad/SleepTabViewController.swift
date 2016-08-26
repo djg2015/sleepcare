@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItemChoosed,SelectDateDelegate {
+class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItemChoosed{
     
     @IBOutlet weak var adddeviceView: UIView!
     @IBOutlet weak var topview: UIView!
@@ -41,8 +41,10 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
     var sleepTabViewModel:SleepTabViewModel!
     //圆圈
     var bigcircleView: sleepcircle!
+     var biglinewidth:CGFloat = 0
     
-    
+    //画圆
+    let bigoriginX = (UIScreen.mainScreen().bounds.width-bigCircleHeight)/2
     
     //选择老人下拉列表
     var popDownListForIphone:PopDownListForIphone?
@@ -123,8 +125,7 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
         self.chartScrollView.contentSize = CGSize(width: chartwidth , height:chartheight)
         self.chartScrollView.delegate = self
         
-        //画圆
-        let bigoriginX = (UIScreen.mainScreen().bounds.width-bigCircleHeight)/2
+       
         
         AwakingLabel.textColor = awakeColor
         LightSleepLabel.textColor = lightsleepColor
@@ -132,7 +133,7 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
         
         
         //圆圈粗细根据不同机型确定
-        var biglinewidth:CGFloat = 0
+    
         let screenHeight = UIScreen.mainScreen().bounds.size.height
         if(screenHeight == 480){//4s
             biglinewidth = 10
@@ -149,16 +150,7 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
             
         }
         
-        self.bigcircleView = sleepcircle(frame: CGRectMake(bigoriginX, 30, bigCircleHeight, bigCircleHeight))
-        self.bigcircleView.lineWidth = biglinewidth
-        self.bigcircleView.lightsleeplineColor = lightsleepColor
-         self.bigcircleView.lightsleepvalue = 0.0
-        self.bigcircleView.deepsleeplineColor = deepsleepColor
-        self.bigcircleView.deepsleepvalue = 0.0
-        self.bigcircleView.awakelineColor = awakeColor
-       self.bigcircleView.awakevalue = 0.0
-        self.bigcircleView.drawcircle()
-        self.view1.addSubview(self.bigcircleView)
+      
         
         
         
@@ -203,24 +195,24 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
     
     
     //选择日期，弹窗
-    func ChangeDate(){
-        if self.sleepTabViewModel.BedUserCode == ""{
-            showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder))
-        }
-        else{
-            //设置日期弹出窗口
-            var alertview:DatePickerView = DatePickerView(frame:UIScreen.mainScreen().bounds)
-            alertview.datedelegate = self
-            self.view.addSubview(alertview)
-        }
-        
-    }
+//    func ChangeDate(){
+//        if self.sleepTabViewModel.BedUserCode == ""{
+//            showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder))
+//        }
+//        else{
+//            //设置日期弹出窗口
+//            var alertview:DatePickerView = DatePickerView(frame:UIScreen.mainScreen().bounds)
+//            alertview.datedelegate = self
+//            self.view.addSubview(alertview)
+//        }
+//        
+//    }
     
-    func SelectDate(sender: UIView, dateString: String) {
-        self.sleepTabViewModel.SelectDate = dateString
-        
-        self.RefreshSleepView()
-    }
+//    func SelectDate(sender: UIView, dateString: String) {
+//        self.sleepTabViewModel.SelectDate = dateString
+//        
+//        self.RefreshSleepView()
+//    }
     
     
     //弹窗选择老人，进行点击后的操作
@@ -236,12 +228,29 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
             PLISTHELPER.CurPatientName = item.value!
             PLISTHELPER.CurPatientCode = item.key!
             
+        
+            
             self.RefreshSleepView()
         }
     }
     
     //---------------------刷新页面数据---------------------
     func RefreshSleepView(){
+        //清除圆圈
+        if(self.bigcircleView != nil){
+        self.bigcircleView.removeFromSuperview()
+        }
+        
+        self.bigcircleView = sleepcircle(frame: CGRectMake(bigoriginX, 30, bigCircleHeight, bigCircleHeight))
+        self.bigcircleView.lineWidth = biglinewidth
+        self.bigcircleView.lightsleeplineColor = lightsleepColor
+        self.bigcircleView.lightsleepvalue = 0.0
+        self.bigcircleView.deepsleeplineColor = deepsleepColor
+        self.bigcircleView.deepsleepvalue = 0.0
+        self.bigcircleView.awakelineColor = awakeColor
+        self.bigcircleView.awakevalue = 0.0
+        self.bigcircleView.drawcircle()
+        self.view1.addSubview(self.bigcircleView)
         
         let flag = self.sleepTabViewModel.LoadPatientSleep()
         //显示内容
@@ -249,17 +258,18 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
             //清除scrollview中chartview的内容
             self.chartScrollView.chartView1.RemoveTrendChartView()
             
+           
+           
+            
+            
             if self.sleepTabViewModel.SleepReport.flag{
                 //刷新数据
                 self.chartScrollView.chartView1.valueAll =  self.sleepTabViewModel.SleepReport.ValueY as [AnyObject]
                 self.chartScrollView.chartView1.valueXList = self.sleepTabViewModel.SleepReport.ValueX as [AnyObject]
                 self.chartScrollView.chartView1.valueTitleNames = self.sleepTabViewModel.SleepReport.ValueTitles as [AnyObject]
                 chartScrollView.chartView1.Type = self.sleepTabViewModel.SleepReport.Type
-                
                 chartScrollView.chartView1.addTrendChartView(CGRectMake(0, 0, chartwidth, chartheight))
-                print( chartScrollView.frame)
-                
-                print("\n")
+              
             }
             
             

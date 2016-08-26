@@ -1779,7 +1779,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWk-QB-KCE">
-                                        <rect key="frame" x="214" y="0.0" width="20" height="60"/>
+                                        <rect key="frame" x="220" y="0.0" width="20" height="60"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="iNV-3o-ZZH"/>
@@ -1792,12 +1792,12 @@
                                             <action selector="ClickChangePatient:" destination="0UK-4g-VFZ" eventType="touchUpInside" id="HU8-I6-Aea"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hu-5n-G5E" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="123" y="28" width="80" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="9Hu-5n-G5E" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="102" y="28" width="115" height="20"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Quh-Fh-IXs"/>
-                                            <constraint firstAttribute="width" constant="80" id="bPn-fR-kER"/>
+                                            <constraint firstAttribute="width" constant="115" id="bPn-fR-kER"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1810,8 +1810,8 @@
                                     <constraint firstAttribute="height" constant="60" id="2Nk-1b-s9x"/>
                                     <constraint firstItem="BQU-WY-9Qa" firstAttribute="top" secondItem="947-Yq-bVy" secondAttribute="top" constant="30" id="L9R-nx-fhY"/>
                                     <constraint firstAttribute="trailing" secondItem="BQU-WY-9Qa" secondAttribute="trailing" constant="20" id="W03-cw-2qI"/>
-                                    <constraint firstItem="QWk-QB-KCE" firstAttribute="leading" secondItem="9Hu-5n-G5E" secondAttribute="trailing" constant="11" id="pOV-nx-5CY"/>
-                                    <constraint firstAttribute="centerX" secondItem="9Hu-5n-G5E" secondAttribute="centerX" constant="-3" id="tVf-im-mf7"/>
+                                    <constraint firstItem="QWk-QB-KCE" firstAttribute="leading" secondItem="9Hu-5n-G5E" secondAttribute="trailing" constant="3" id="pOV-nx-5CY"/>
+                                    <constraint firstAttribute="centerX" secondItem="9Hu-5n-G5E" secondAttribute="centerX" constant="0.5" id="tVf-im-mf7"/>
                                     <constraint firstItem="QWk-QB-KCE" firstAttribute="top" secondItem="947-Yq-bVy" secondAttribute="top" id="wTg-0I-rHw"/>
                                     <constraint firstItem="9Hu-5n-G5E" firstAttribute="top" secondItem="947-Yq-bVy" secondAttribute="top" constant="28" id="wiU-ls-O51"/>
                                 </constraints>
@@ -2576,11 +2576,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQt-OL-EPj" userLabel="topView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZX-3C-0Dk" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="123" y="28" width="80" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="qZX-3C-0Dk" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="102" y="28" width="115" height="20"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="XoR-rU-NCn"/>
+                                            <constraint firstAttribute="width" constant="115" id="XoR-rU-NCn"/>
                                             <constraint firstAttribute="height" constant="20" id="xOo-Qy-SU9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
@@ -2588,7 +2588,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFa-cI-0jE">
-                                        <rect key="frame" x="214" y="0.0" width="20" height="60"/>
+                                        <rect key="frame" x="220" y="0.0" width="20" height="60"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="5az-z1-URA"/>
@@ -2606,9 +2606,9 @@
                                 <color key="backgroundColor" red="0.33725490200000002" green="0.63921568630000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="qZX-3C-0Dk" firstAttribute="top" secondItem="YQt-OL-EPj" secondAttribute="top" constant="28" id="VVj-Qi-OaS"/>
-                                    <constraint firstAttribute="centerX" secondItem="qZX-3C-0Dk" secondAttribute="centerX" constant="-3" id="bfl-xt-kDJ"/>
+                                    <constraint firstAttribute="centerX" secondItem="qZX-3C-0Dk" secondAttribute="centerX" constant="0.5" id="bfl-xt-kDJ"/>
                                     <constraint firstItem="AFa-cI-0jE" firstAttribute="top" secondItem="YQt-OL-EPj" secondAttribute="top" id="lfC-hc-yJo"/>
-                                    <constraint firstItem="AFa-cI-0jE" firstAttribute="leading" secondItem="qZX-3C-0Dk" secondAttribute="trailing" constant="11" id="mmG-F1-ncd"/>
+                                    <constraint firstItem="AFa-cI-0jE" firstAttribute="leading" secondItem="qZX-3C-0Dk" secondAttribute="trailing" constant="3" id="mmG-F1-ncd"/>
                                     <constraint firstAttribute="height" constant="60" id="sMx-x5-QOG"/>
                                 </constraints>
                             </view>
@@ -2627,9 +2627,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浅睡" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yF-9b-VuA" customClass="HrRrSleepTabLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="131" y="18" width="22" height="14"/>
+                                        <rect key="frame" x="128" y="18" width="26" height="16"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -2645,9 +2645,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="清醒" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="to0-BO-oSR" customClass="HrRrSleepTabLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="196" y="18" width="22" height="14"/>
+                                        <rect key="frame" x="194" y="18" width="26" height="16"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -2663,28 +2663,28 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="深睡" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwR-14-PtX" customClass="HrRrSleepTabLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="63" y="18" width="22" height="14"/>
+                                        <rect key="frame" x="61" y="18" width="26" height="16"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstItem="to0-BO-oSR" firstAttribute="leading" secondItem="6yF-9b-VuA" secondAttribute="trailing" constant="43" id="0uV-Rz-ita"/>
+                                    <constraint firstItem="to0-BO-oSR" firstAttribute="leading" secondItem="6yF-9b-VuA" secondAttribute="trailing" constant="40" id="0uV-Rz-ita"/>
                                     <constraint firstItem="t6w-3l-071" firstAttribute="leading" secondItem="C9p-O2-7fO" secondAttribute="trailing" constant="31" id="1Js-J3-XCC"/>
                                     <constraint firstAttribute="centerX" secondItem="C9p-O2-7fO" secondAttribute="centerX" constant="2" id="5dD-kQ-2Xy"/>
-                                    <constraint firstItem="6yF-9b-VuA" firstAttribute="leading" secondItem="UwR-14-PtX" secondAttribute="trailing" constant="46" id="GqZ-2e-PJB"/>
+                                    <constraint firstItem="6yF-9b-VuA" firstAttribute="leading" secondItem="UwR-14-PtX" secondAttribute="trailing" constant="41" id="GqZ-2e-PJB"/>
                                     <constraint firstItem="to0-BO-oSR" firstAttribute="top" secondItem="t6w-3l-071" secondAttribute="bottom" constant="2" id="Kk8-gL-k8S"/>
                                     <constraint firstItem="0WD-dt-kNa" firstAttribute="top" secondItem="ese-SY-KUo" secondAttribute="top" id="Lcc-yO-a7H"/>
-                                    <constraint firstAttribute="centerX" secondItem="6yF-9b-VuA" secondAttribute="centerX" constant="2" id="MBf-LF-uBO"/>
+                                    <constraint firstAttribute="centerX" secondItem="6yF-9b-VuA" secondAttribute="centerX" constant="3" id="MBf-LF-uBO"/>
                                     <constraint firstItem="UwR-14-PtX" firstAttribute="top" secondItem="0WD-dt-kNa" secondAttribute="bottom" constant="2" id="Mny-qX-HHL"/>
                                     <constraint firstItem="t6w-3l-071" firstAttribute="top" secondItem="ese-SY-KUo" secondAttribute="top" id="Vnh-iH-PFd"/>
-                                    <constraint firstItem="C9p-O2-7fO" firstAttribute="leading" secondItem="0WD-dt-kNa" secondAttribute="trailing" constant="31" id="XSk-Qh-2a6"/>
                                     <constraint firstItem="6yF-9b-VuA" firstAttribute="top" secondItem="C9p-O2-7fO" secondAttribute="bottom" constant="2" id="eLp-EO-D2k"/>
                                     <constraint firstItem="C9p-O2-7fO" firstAttribute="top" secondItem="ese-SY-KUo" secondAttribute="top" id="iVJ-2M-iru"/>
                                     <constraint firstAttribute="height" constant="35" id="mqa-Ha-ywD"/>
+                                    <constraint firstItem="C9p-O2-7fO" firstAttribute="leading" secondItem="0WD-dt-kNa" secondAttribute="trailing" constant="31" id="pxw-Qb-RU4"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgN-K9-xvr" userLabel="view1">
@@ -2705,8 +2705,8 @@
                                         <color key="textColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="35" translatesAutoresizingMaskIntoConstraints="NO" id="j6K-6U-BsF">
-                                        <rect key="frame" x="102" y="82" width="64" height="53"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="35" translatesAutoresizingMaskIntoConstraints="NO" id="j6K-6U-BsF">
+                                        <rect key="frame" x="90" y="82" width="64" height="53"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="53" id="2Qj-cc-BaY"/>
@@ -2730,12 +2730,12 @@
                                 </subviews>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="j6K-6U-BsF" secondAttribute="centerX" constant="26" id="0eq-Tw-BgY"/>
+                                    <constraint firstAttribute="centerX" secondItem="j6K-6U-BsF" secondAttribute="centerX" constant="38" id="0eq-Tw-BgY"/>
                                     <constraint firstAttribute="centerY" secondItem="j6K-6U-BsF" secondAttribute="centerY" constant="-8.5" id="299-ns-ker"/>
                                     <constraint firstItem="CbH-Eb-QU8" firstAttribute="top" secondItem="j6K-6U-BsF" secondAttribute="bottom" constant="5" id="4Ea-hG-XjD"/>
                                     <constraint firstAttribute="centerY" secondItem="EkG-Uq-45c" secondAttribute="centerY" constant="-19.5" id="Sjd-Td-LNU"/>
                                     <constraint firstAttribute="centerX" secondItem="CbH-Eb-QU8" secondAttribute="centerX" id="YMJ-rQ-13E"/>
-                                    <constraint firstItem="EkG-Uq-45c" firstAttribute="leading" secondItem="j6K-6U-BsF" secondAttribute="trailing" constant="-8" id="hh4-Mt-hqf"/>
+                                    <constraint firstItem="EkG-Uq-45c" firstAttribute="leading" secondItem="j6K-6U-BsF" secondAttribute="trailing" constant="4" id="hh4-Mt-hqf"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xva-MA-xRc" customClass="ChartScrollView" customModule="ewell_sleepcareforpad" customModuleProvider="target">
@@ -2907,7 +2907,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zs6-pO-1bC">
-                                        <rect key="frame" x="214" y="0.0" width="20" height="60"/>
+                                        <rect key="frame" x="220" y="0.0" width="20" height="60"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="aOK-Ws-Mgg"/>
@@ -2920,12 +2920,12 @@
                                             <action selector="ClickChangePatient:" destination="Yy0-PA-P5s" eventType="touchUpInside" id="XOT-B1-A36"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RF-dd-FSl" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="123" y="28" width="80" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="0RF-dd-FSl" customClass="TitleLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="102" y="28" width="115" height="20"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="gBZ-rd-rkQ"/>
-                                            <constraint firstAttribute="width" constant="80" id="hPr-9j-VXE"/>
+                                            <constraint firstAttribute="width" constant="115" id="hPr-9j-VXE"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2935,8 +2935,8 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.33725490200000002" green="0.63921568630000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Zs6-pO-1bC" firstAttribute="leading" secondItem="0RF-dd-FSl" secondAttribute="trailing" constant="11" id="9Ah-uo-xlC"/>
-                                    <constraint firstAttribute="centerX" secondItem="0RF-dd-FSl" secondAttribute="centerX" constant="-3" id="QLP-SX-bDG"/>
+                                    <constraint firstItem="Zs6-pO-1bC" firstAttribute="leading" secondItem="0RF-dd-FSl" secondAttribute="trailing" constant="3" id="9Ah-uo-xlC"/>
+                                    <constraint firstAttribute="centerX" secondItem="0RF-dd-FSl" secondAttribute="centerX" constant="0.5" id="QLP-SX-bDG"/>
                                     <constraint firstItem="bFw-Es-pIZ" firstAttribute="top" secondItem="mI3-PO-RNc" secondAttribute="top" constant="30" id="Wa6-wb-T4f"/>
                                     <constraint firstAttribute="trailing" secondItem="bFw-Es-pIZ" secondAttribute="trailing" constant="20" id="a6d-uC-phQ"/>
                                     <constraint firstItem="Zs6-pO-1bC" firstAttribute="top" secondItem="mI3-PO-RNc" secondAttribute="top" id="q6k-eA-BEL"/>
