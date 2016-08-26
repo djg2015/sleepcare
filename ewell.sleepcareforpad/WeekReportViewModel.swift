@@ -322,7 +322,7 @@ class WeekReportViewModel: BaseViewModel {
             return self._bedusercode
         }
         set(value)
-        {
+        {                                                      1
             self._bedusercode = value
         }
     }

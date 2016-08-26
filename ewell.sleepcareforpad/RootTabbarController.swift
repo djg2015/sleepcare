@@ -55,7 +55,7 @@ class RootTabbarController: UITabBarController{
             self.tabBar.selectedItem?.badgeValue = String(IAlarmHelper.GetAlarmInstance().WarningList.count)
         }
       
-        else{
+        else if(self.selectedIndex != 3){
             self.selectedIndex = 0
             self.tabBar.selectedItem?.selectedImage = selecthrImage
 
