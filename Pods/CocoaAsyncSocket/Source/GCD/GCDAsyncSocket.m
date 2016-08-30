@@ -2195,7 +2195,8 @@ enum GCDAsyncSocketConfig
 	
 	// Determine socket type
 	
-	BOOL preferIPv6 = (config & kPreferIPv6) ? YES : NO;
+    BOOL preferIPv6 = YES;
+      //(config & kPreferIPv6) ? YES : NO;
 	
 	BOOL useIPv6 = ((preferIPv6 && address6) || (address4 == nil));
 	
