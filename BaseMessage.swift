@@ -24,12 +24,8 @@ class BaseMessage:NSObject{
         //发送给谁
         mes.addAttributeWithName("to" ,stringValue: GetValueFromPlist(SERVERJID,"sleepcare.plist"))
         //由谁发送
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone{
-        mes.addAttributeWithName("from" ,stringValue:GetValueFromPlist(USERIDPHONE,"sleepcare.plist"))
-        }
-        else{
         mes.addAttributeWithName("from" ,stringValue:GetValueFromPlist(USERID,"sleepcare.plist"))
-        }
+      
         //组合
         mes.addChild(self.messageSubject.ParseSubjectToXml())
         mes.addChild(body)

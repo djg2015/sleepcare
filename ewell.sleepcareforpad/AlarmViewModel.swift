@@ -1,196 +1,131 @@
 //
 //  AlarmViewModel.swift
-//  ewell.sleepcareforpad
+//  
 //
-//  Created by zhaoyin on 15/10/8.
-//  Copyright (c) 2015年 djg. All rights reserved.
+//  Created by Qinyuan Liu on 4/21/16.
+//
 //
 
-import UIKit
+import Foundation
 
-class AlarmViewModel:BaseViewModel{
-    
-    //属性定义
-    var _funcSelectedIndex:Int
-    // 当前功能选项卡选择的索引
-    dynamic var FuncSelectedIndex:Int{
+class AlarmViewModel: BaseViewModel {
+    var _alarmArray:Array<AlarmTableCellViewModel>!
+    dynamic var AlarmArray:Array<AlarmTableCellViewModel>{
         get
         {
-            return self._funcSelectedIndex
+            return self._alarmArray
         }
         set(value)
         {
-            self._funcSelectedIndex=value        }
-    }
-    
-    var _userCode:String = ""
-    // 用户编码
-    dynamic var UserCode:String{
-        get
-        {
-            return self._userCode
-        }
-        set(value)
-        {
-            self._userCode=value
-            try {
-                ({
-                    var sleepCareBLL = SleepCareBussiness()
-                    // 返回在离床报警
-                    var reportList:LeaveBedReportList = sleepCareBLL.GetLeaveBedReport(Session.GetSession().CurPartCode, userCode: self.UserCode, userNameLike: "", bedNumberLike: "", leaveBedTimeBegin: "", leaveBedTimeEnd: "", from: 1, max: 20)
-                    for report in reportList.reportList
-                    {
-                        var alarmVM:OnBedAlarmViewModel = OnBedAlarmViewModel();
-                        alarmVM.LeaveBedTime = report.StartTime;
-                        alarmVM.LeaveBedTimeSpan = report.LeaveBedTimespan;
-                        self.AlarmInfoList.append(alarmVM)
-                    }
-                    // 返回体动/翻身
-                    var turnList:TurnOverAnalysList = sleepCareBLL.GetTurnOverAnalysByUser(self.UserCode, analysDateBegin: "", analysDateEnd: "", from: nil, max: nil)
-                    
-                    for report in turnList.turnOverAnalysReportList
-                    {
-                        var turnOverVM:TurnOverViewModel = TurnOverViewModel();
-                        turnOverVM.Date = report.ReportDate;
-                        turnOverVM.TurnOverTimes = report.TurnOverTime;
-                        turnOverVM.TurnOverRate = report.TurnOverRate;
-                        self.TurnOverList.append(turnOverVM)
-                    }
-                    },
-                    catch: { ex in
-                        //异常处理
-                        handleException(ex,showDialog: true)
-                    },
-                    finally: {
-                        
-                    }
-                )}
+            self._alarmArray=value
         }
     }
     
+    var codeList:Array<String>=Array<String>()
     
-    // 初始化
-    override init()
-    {
-        self._funcSelectedIndex = 0
+    //构造函数
+    override init(){
         super.init()
+        
+        LoadData()
     }
     
-    var _alarmList:Array<OnBedAlarmViewModel> =  Array<OnBedAlarmViewModel>();
-    dynamic var AlarmInfoList:Array<OnBedAlarmViewModel>{
-        get
-        {
-            return self._alarmList
-        }
-        set(value)
-        {
-            self._alarmList=value
-        }
+    func LoadData(){
+        try {
+            ({
+                //每次打开IAlarmView页面，从服务器获取未处理的信息，刷新table内容
+                IAlarmHelper.GetAlarmInstance().ReloadUndealedWarning()
+                //刷新todolist里信息
+                IAlarmHelper.GetAlarmInstance().ReloadTodoList()
+                
+                var tempAlarmArray = Array<AlarmTableCellViewModel>()
+                var warningList = IAlarmHelper.GetAlarmInstance().WarningList
+                for (var i = 0 ; i < warningList.count ; i++){
+                    var tempAlarm = AlarmTableCellViewModel()
+                    var info = warningList[i]
+                    tempAlarm.AlarmCode = info.AlarmCode
+                    tempAlarm.PartName = info.PartName
+                    tempAlarm.UserName = "姓名:" + info.UserName
+                    tempAlarm.BedNumber = "床号:" + info.BedNumber
+                    tempAlarm.AlarmDate = "报警时间：" + info.AlarmDate
+                    tempAlarm.AlarmContent = info.AlarmContent
+                    tempAlarm.deleteAlarmHandler = self.DeleteAlarm
+                    
+                    tempAlarmArray.append(tempAlarm)
+                    self.codeList.append(info.AlarmCode)
+                }//for i
+                
+                self.AlarmArray = tempAlarmArray
+                },
+                catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+                },
+                finally: {
+                    
+                }
+            )}
     }
     
-    var _turnOverList:Array<TurnOverViewModel> =  Array<TurnOverViewModel>();
-    dynamic var TurnOverList:Array<TurnOverViewModel>{
-        get
-        {
-            return self._turnOverList
-        }
-        set(value)
-        {
-            self._turnOverList=value
-        }
+    
+    
+    
+   //alarmcell单个删除操作（滑动删除）
+    func DeleteAlarm(alarmViewModel:AlarmTableCellViewModel){
+        let code = alarmViewModel.AlarmCode!
+        self.DeleteToServer(code)
+        self.DeleteFromTodolist(code)
     }
     
-    
-    //自定义方法
-    func SelectChange(selectIndex:Int)
-    {
-        self.FuncSelectedIndex = selectIndex;
-    }
-    
-    
-    // 在离床报警ViewModel
-    class OnBedAlarmViewModel: NSObject{
-        
-        // 属性
-        // 离床时长
-        var _leaveBedTimeSpan:String = "";
-        dynamic var LeaveBedTimeSpan:String
-            {
-            get
-            {
-                return self._leaveBedTimeSpan;
-            }
-            set(value)
-            {
-                self._leaveBedTimeSpan = value;
-            }
-        }
-        
-        // 离床时间
-        var _leaveBedTime:String = "";
-        dynamic var LeaveBedTime:String
-            {
-            get
-            {
-                return self._leaveBedTime;
-            }
-            set(value)
-            {
-                self._leaveBedTime = value;
-            }
-        }
-        
-        override init()
-        {
-            super.init();
-        }
-    }
-    
-    // 体动/翻身ViewModel
-    class TurnOverViewModel: NSObject{
-        
-        // 属性
-        // 分析日期
-        var _date:String = "";
-        dynamic var Date:String
-            {
-            get
-            {
-                return self._date;
-            }
-            set(value)
-            {
-                self._date = value;
-            }
-        }
-        
-        // 翻身次数
-        var _turnOverTimes:String = "";
-        dynamic var TurnOverTimes:String
-            {
-            get
-            {
-                return self._turnOverTimes;
-            }
-            set(value)
-            {
-                self._turnOverTimes = value;
-            }
-        }
-        
-        // 翻身频率
-        var _turnOverRate:String = "";
-        dynamic var TurnOverRate:String
-            {
-            get
-            {
-                return self._turnOverRate;
-            }
-            set(value)
-            {
-                self._turnOverRate = value;
-            }
+    //alarmcell多个删除操作（edit模式下）
+    func DeleteMutipleAlarms(codes:String){
+       
+        self.DeleteToServer(codes)
+        let codeList = split(codes){$0 == ","}
+        for code in codeList{
+        self.DeleteFromTodolist(code)
         }
         
     }
+    
+    
+    //调用服务器接口同步报警信息，标志为已读
+    func DeleteToServer(codes:String){
+        try {
+            ({
+                SleepCareBussiness().DeleteAlarmMessage(codes, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+                },
+                catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+                },
+                finally: {
+                    
+                }
+            )}
+    }
+    
+    func DeleteFromTodolist(code:String){
+        //从todolist和报警信息列表中删除这个老人相关的报警
+        TodoList.sharedInstance.removeItemByID(code)
+        
+        var tempwarningList = IAlarmHelper.GetAlarmInstance().WarningList
+        var codes = IAlarmHelper.GetAlarmInstance().Codes
+        
+        for(var i = 0; i < tempwarningList.count; i++){
+            if code == tempwarningList[i].AlarmCode{
+                tempwarningList.removeAtIndex(i)
+                IAlarmHelper.GetAlarmInstance().WarningList = tempwarningList
+                break
+            }
+        }
+        for (var i = 0; i < codes.count; i++){
+            if code == codes[i]{
+                codes.removeAtIndex(i)
+                IAlarmHelper.GetAlarmInstance().Codes = codes
+                break
+            }
+        }
+    }
+   
 }

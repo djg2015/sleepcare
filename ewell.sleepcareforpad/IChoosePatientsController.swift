@@ -11,44 +11,63 @@ class IChoosePatientsController: IBaseViewController {
     @IBOutlet weak var tbParts: CommonTableView!
     @IBOutlet weak var tbPatients: CommonTableView!
     @IBOutlet weak var tbPatientsDouble: CommonTableView!
-    @IBOutlet weak var imgBack: UIImageView!
-    @IBOutlet weak var btnConfirm: UIButton!
     
+    @IBOutlet weak var forbidChooseView: UIView!
+    @IBOutlet weak var choosePatientView: UIView!
     
-    
+    var allPatientInfo:IMyPatientsViewModel!
     var viewModel:IChoosePatientsViewModel!
-    var myPatientsViewModel:IMyPatientsViewModel!
+    var addList:Array<MyPatientsTableCellViewModel>!
+   
+    
     //科室下的床位用户集合
     var PartBedUserArray:Array<BedPatientViewModel>?{
         didSet{
             var session = SessionForIphone.GetSession()
             //使用者单选，右边页面显示tbPatients
             if(session!.User?.UserType == LoginUserType.UserSelf){
-                self.tbPatients.ShowTableView("BedPatientCell", cellID: "BedPatientCell",source: self.PartBedUserArray, cellHeight: 70)
+                self.tbPatients.ShowTableView("BedPatientCell", cellID: "BedPatientCell",source: self.PartBedUserArray, cellHeight: 77)
                 self.tbPatientsDouble.hidden = true
                 self.tbPatients.hidden = false
             }
             //监护人多选，右边页面显示tbPatientsDouble
             else{
-                self.tbPatientsDouble.ShowTableView("BedPatientCell", cellID: "BedPatientCell",source: self.PartBedUserArray, cellHeight: 70)
+                self.tbPatientsDouble.ShowTableView("BedPatientCell", cellID: "BedPatientCell",source: self.PartBedUserArray, cellHeight: 77)
                 self.tbPatientsDouble.hidden = false
                 self.tbPatients.hidden = true
             }
         }
     }
     
-    required init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,myPatientsViewModel:IMyPatientsViewModel) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        self.myPatientsViewModel = myPatientsViewModel
+   
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ConfirmAddPatient" {
+            self.viewModel.myPatientsViewModel = allPatientInfo
+           self.viewModel.commit()
+            self.addList = self.viewModel.choosedPatients
+        }
     }
-    
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+   
+    override func viewWillAppear(animated: Bool) {
+       
+        currentController = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let session = SessionForIphone.GetSession()
+        //当前是使用者 且bedlist.count>0，则提示先删除后添加一个老人
+        if (session != nil && session!.BedUserCodeList.count > 0 && session!.User!.UserType == "1"){
+           self.forbidChooseView.hidden = false
+        self.choosePatientView.hidden = true
+        }
+        else{
+            self.forbidChooseView.hidden = true
+            self.choosePatientView.hidden = false
         rac_Setting()
+            
+        }
     }
 
     
@@ -57,38 +76,19 @@ class IChoosePatientsController: IBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func Clean() {
-    
-        self.myPatientsViewModel = nil
-        self.viewModel = nil
-        self.tbParts = nil
-        self.tbPatients = nil
-        self.tbPatientsDouble = nil
-
-    }
+   
 
     
     //初始化设置与属性等绑定
     func rac_Setting(){
-        self.view.backgroundColor = themeColor[themeName]
         
-        self.btnConfirm.backgroundColor = themeColor[themeName]
         self.viewModel = IChoosePatientsViewModel()
-        self.viewModel.myPatientsViewModel = self.myPatientsViewModel
+        self.viewModel.myPatientsViewModel = self.allPatientInfo
+      
         RACObserve(self.viewModel, "PartBedUserArray") ~> RAC(self, "PartBedUserArray")
-        self.btnConfirm.rac_command = self.viewModel.commitCommand
-        self.tbParts.ShowTableView("PartTableCell",cellID: "partCell", source: self.viewModel.PartArray, cellHeight: 70)
-        
-        //设置选择查找类型
-        self.imgBack.userInteractionEnabled = true
-        var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
-        self.imgBack .addGestureRecognizer(singleTap)
-        
+    //    self.btnConfirm.rac_command = self.viewModel.commitCommand
+        self.tbParts.ShowTableView("PartTableCell",cellID: "partCell", source: self.viewModel.PartArray, cellHeight: 77)
+
     }
-    
-    //返回
-    func imageViewTouch(){
-        IViewControllerManager.GetInstance()!.CloseViewController()
-    }
-    
+
    }

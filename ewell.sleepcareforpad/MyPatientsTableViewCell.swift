@@ -22,7 +22,7 @@ class MyPatientsTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var imgStatus: UIImageView!
-    @IBOutlet weak var layerView: BackgroundCommon!
+  //  @IBOutlet weak var layerView: BackgroundCommon!
     
     var source:MyPatientsTableCellViewModel!
     var bindFlag:Bool = false
@@ -46,9 +46,7 @@ class MyPatientsTableViewCell: UITableViewCell {
         self.source.RoomNum = (data as MyPatientsTableCellViewModel).RoomNum
         self.source.BedNum = (data as MyPatientsTableCellViewModel).BedNum
         self.source.PartCode = (data as MyPatientsTableCellViewModel).PartCode
-        //新增“院名 ”
         self.source.MainName = (data as MyPatientsTableCellViewModel).MainName
-        
         self.source.PartName = (data as MyPatientsTableCellViewModel).PartName
         self.source.selectedBedUserHandler = (data as MyPatientsTableCellViewModel).selectedBedUserHandler
         self.source.deleteBedUserHandler = (data as MyPatientsTableCellViewModel).deleteBedUserHandler
@@ -58,13 +56,11 @@ class MyPatientsTableViewCell: UITableViewCell {
         RACObserve(data, "HR") ~> RAC(self.source, "HR")
         RACObserve(data, "RR") ~> RAC(self.source, "RR")
         RACObserve(data, "BedStatus") ~> RAC(self.source, "BedStatus")
-        //222222222
          RACObserve(data, "BedNum") ~> RAC(self.source, "BedNum")
          RACObserve(data, "BedCode") ~> RAC(self.source, "BedCode")
          RACObserve(data, "BedUserName") ~> RAC(self.source, "BedUserName")
-        //33333
+     
         RACObserve(self.source, "MainName") ~> RAC(self.lblMainName, "text")
-        
         RACObserve(self.source, "PartName") ~> RAC(self.lblPartName, "text")
         RACObserve(self.source, "BedStatus") ~> RAC(self.lblBedStatus, "text")
         RACObserve(self.source, "HR") ~> RAC(self.lblHR, "text")
@@ -79,7 +75,7 @@ class MyPatientsTableViewCell: UITableViewCell {
         //            //设置箭头点击查看明细
         //           self.imgDetail.userInteractionEnabled = true
         //           var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
-        //            self.imgDetail .addGestureRecognizer(singleTap)
+        //            self.imgDetail.addGestureRecognizer(singleTap)
         //            self.bindFlag = true
         //        }
         

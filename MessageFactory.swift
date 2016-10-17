@@ -38,44 +38,20 @@ class MessageFactory {
         if(message.content.hasPrefix(tag_realtimedata)){
             return RealTimeReport.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-        else if(message.content.hasPrefix(tag_userinfo)){
-            return User.XmlToMessage(message.subject, bodyXMl: message.content)
-        }
-        else if(message.content.hasPrefix(tag_roleList)){
-            return RoleList.XmlToMessage(message.subject, bodyXMl: message.content)
-        }
-        else if(message.content.hasPrefix(tag_partInfo)){
-            return PartInfo.XmlToMessage(message.subject, bodyXMl: message.content)
-        }
-        else if(message.content.hasPrefix(tag_bedUser)){
-            return BedUser.XmlToMessage(message.subject, bodyXMl: message.content)
-        }
-        else if(message.content.hasPrefix(tag_sleepCareReportList)){
-            return SleepCareReportList.XmlToMessage(message.subject, bodyXMl: message.content)
-        }
-        else if(message.content.hasPrefix(tag_sleepCareReport)){
-            return SleepCareReport.XmlToMessage(message.subject, bodyXMl: message.content)
-        }
-        else if(message.content.hasPrefix(tag_turnOverAnalysList)){
-            return TurnOverAnalysList.XmlToMessage(message.subject, bodyXMl: message.content)
+               else if(message.content.hasPrefix(tag_EMServiceException))
+        {
+            return EMServiceException.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         else if(message.content.hasPrefix(tag_alarmList)){
             return AlarmList.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-        else if(message.content.hasPrefix(tag_bedReportList)){
-            return LeaveBedReportList.XmlToMessage(message.subject, bodyXMl: message.content)
-        }
-        else if(message.content.hasPrefix(tag_EMServiceException))
+        else if(message.content.hasPrefix(tag_IP_loginUser))
         {
-            return EMServiceException.XmlToMessage(message.subject, bodyXMl: message.content)
+            return ILoginUser.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         else if(message.content.hasPrefix(tag_Result))
         {
             return ServerResult.XmlToMessage(message.subject, bodyXMl: message.content)
-        }
-        else if(message.content.hasPrefix(tag_IP_loginUser))
-        {
-            return ILoginUser.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         else if(message.content.hasPrefix(tag_IP_serverResult))
         {

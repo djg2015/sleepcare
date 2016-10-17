@@ -2,9 +2,7 @@
 //  SleepCareForIPhoneBussinessManager.swift
 //  ewell.sleepcareforpad
 //
-//  Created by zhaoyin on 15/11/10.
-//  Copyright (c) 2015年 djg. All rights reserved.
-//
+
 
 import Foundation
 
@@ -15,26 +13,11 @@ protocol SleepCareForIPhoneBussinessManager{
     //      loginPassword->登录密码
     func Login(loginName:String,loginPassword:String) -> ILoginUser
     
-        // 注册用户信息
-    // 参数：loginName->登录账户
-    //      loginPassword->登录密码
-    //      mainCode->医院/养老院编号
-    func Regist(loginName:String,loginPassword:String,mainCode:String)-> ServerResult
-    
-    
-    //注册设备
-    // 参数：token->设备token
-    //      deviceType->设备类型
-    func RegistDevice(token:String, deviceType:String)-> ServerResult
+  
     
     
     
-    // 保存选择的用户类型
-    // 参数：loginName->登录账户
-    //      userType->用户类型
-    func SaveUserType(loginName:String,userType:String)-> ServerResult
-    
-    // 根据医院/养老院编号获取楼层以及床位用户信息
+      // 根据医院/养老院编号获取楼层以及床位用户信息
     // 参数：mainCode->医院/养老院编号
     func GetPartInfoByMainCode(mainCode:String)->IMainInfo
     
@@ -90,18 +73,39 @@ protocol SleepCareForIPhoneBussinessManager{
     //      mainCode->医院/养老院编码
     func ModifyLoginUser(loginName:String,oldPassword:String,newPassword:String,mainCode:String)->ServerResult
     
-    // 根据设备ID查询设备的状态
-    // 参数：equipmentID->设备ID
-    func GetEquipmentInfo(equipmentID:String)->IEquipmentInfo
+   
+    //注册设备
+    // 参数：token->设备token
+    //      deviceType->设备类型
+    func RegistDevice(token:String, deviceType:String)-> ServerResult
     
-    // 获取所有的医院/养老院
-    func GetAllMainInfo()->IMainInfoList
     
     //开启远程通知
-     func OpenNotification(token:String, loginName:String)->ServerResult
+    func OpenNotification(token:String, loginName:String)->ServerResult
     
     //关闭远程通知
     func CloseNotification(token:String, loginName:String)->ServerResult
+    
+    //12获取心率曲线图
+    //参数：bedUserCode
+    //     searchType－>查询类型（1：近 24 小时 2：近一周  3：近一月）
+    func GetSingleHRTimeReport(bedUserCode:String,searchType:String)->HRRange
+    
+    
+    
+    //13获取呼吸曲线图
+    //参数：bedUserCode
+    //     searchType－>查询类型（1：近 24 小时 2：近一周  3：近一月）
+    func GetSingleRRTimeReport(bedUserCode:String,searchType:String)->RRRange
+    
+    
+    
+    //14查询老人睡眠质量
+    //参数：bedUserCode
+    //     reportDate ->查询时间yyyy-MM-dd
+    func GetSleepQualityofBedUser(bedUserCode:String,reportDate:String)->SleepQualityReport
+
+    
     
     
 }

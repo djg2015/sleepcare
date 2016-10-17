@@ -11,17 +11,16 @@ import UIKit
 
 class IEmailViewController: IBaseViewController {
     
-
-    @IBOutlet weak var txtEmailAddress: UITextField!
-    
+  
     @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var txtEmailAddress: UITextField!
     @IBOutlet weak var btnSendEmail: BlueButtonForPhone!
     
     var emailViewModel:IEmailViewModel?
-    
     var BedUserCode:String = ""
     var SleepDate:String = ""
-    var ParentController:IBaseViewController!
+    var ParentController:SleepViewController!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +30,7 @@ class IEmailViewController: IBaseViewController {
         self.rac_settings()
     }
     
-    override func Clean(){
-        self.emailView = nil
-        self.emailViewModel = nil
-    }
-    
+ 
     
     func rac_settings(){
         // 绑定界面元素
@@ -52,7 +47,9 @@ class IEmailViewController: IBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func btnBackClick(sender: AnyObject) {
-         self.ParentController.dismissSemiModalView()
+    @IBAction func ClickCancle(sender:AnyObject){
+        self.ParentController.dismissSemiModalView()
+        
     }
-}
+    
+   }

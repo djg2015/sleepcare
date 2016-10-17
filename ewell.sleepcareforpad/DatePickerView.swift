@@ -34,12 +34,12 @@ import UIKit
         datePicker.datePickerMode = .Date
         datePicker.locale = NSLocale(localeIdentifier: "Chinese")
         datePicker.backgroundColor = UIColor.whiteColor()
-        datePicker.frame = CGRect(x:(deviceWidth - 300)/2,y:100,width:300,height:216)
+        datePicker.frame = CGRect(x:(deviceWidth - 300)/2,y:100,width:300,height:220)
         
         //设置 确定 和 取消 按钮
         var li_common:Li_common = Li_common()
-        var selectedButton:UIButton = li_common.Li_createButton("确定",x:(deviceWidth - 300)/2,y:317,width:150,height:35,target:self, action: Selector("selectedAction"))
-        var cancelButton:UIButton = li_common.Li_createButton("取消",x:(deviceWidth - 300)/2 + 150,y:317,width:150,height:35,target:self, action: Selector("cancelAction"))
+        var selectedButton:UIButton = li_common.Li_createButton("确定",x:(deviceWidth - 300)/2,y:312,width:150,height:35,target:self, action: Selector("selectedAction"))
+        var cancelButton:UIButton = li_common.Li_createButton("取消",x:(deviceWidth - 300)/2 + 150,y:312,width:150,height:35,target:self, action: Selector("cancelAction"))
         
         self.addSubview(datePicker)
         self.addSubview(selectedButton)

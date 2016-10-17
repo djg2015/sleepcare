@@ -12,11 +12,11 @@ class MessageSubject{
     var postMethod:String = "Request"
     var authCode:String = "1234567890"
     var version:String = "1.0"
-    var biz:String = "sleepcareforpad"
+    var biz:String = "sleepcarehospital"
     var operate:String? = nil
     var requestID:String? = nil
     var random = ["1","2","3","4","5","6","7","8","9","0","a","b","c","d","e","f","g","h"]
-    init(opera:String,bizcode:String = "sleepcareforpad"){
+    init(opera:String,bizcode:String = "sleepcarehospital"){
         self.operate = opera
         self.biz = bizcode
     }
