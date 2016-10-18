@@ -42,6 +42,17 @@ class SessionForIphone {
             self._curPatientCode = value
         }
     }
+    
+    private var _curPatientName:String?
+    var CurPatientName:String?{
+        get{
+            return self._curPatientName
+        }
+        set(value){
+            self._curPatientName = value
+        }
+    }
+    
     //当前关注的病人的code集合
     private var _bedUserCodeList:Array<String> = Array<String>()
     var BedUserCodeList:Array<String>{

@@ -56,11 +56,11 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
                 }
                 else{
-                var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+               
                 var session = SessionForIphone.GetSession()
                 session!.BedUserCodeList = Array<String>()
                 
-                var bedUserList:IBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(session!.User!.LoginName, mainCode: session!.User!.MainCode)
+                var bedUserList:IBedUserList = SleepCareForIPhoneBussiness().GetBedUsersByLoginName(session!.User!.LoginName, mainCode: session!.User!.MainCode)
                 self.MyPatientsArray = Array<MyPatientsTableCellViewModel>()
                 
                 var curArray = Array<MyPatientsTableCellViewModel>()
@@ -138,8 +138,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     func ShowPatientDetail(myPatientsTableViewModel:MyPatientsTableCellViewModel){
         var session = SessionForIphone.GetSession()
         session!.CurPatientCode = myPatientsTableViewModel.BedUserCode!
-        let controller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:myPatientsTableViewModel.BedUserCode!,equipmentID:myPatientsTableViewModel.EquipmentID,bedUserName:myPatientsTableViewModel.BedUserName!)
-        IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMainFrame", reload: true)
+       
     }
     
     //移除指定床位用户，更新服务器端，更新当前session的关注老人床位号列表
@@ -148,7 +147,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
         if(exist.count > 0){
             try {
                 ({
-                    var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+                   
                     var session = SessionForIphone.GetSession()
                     var tempList = session!.BedUserCodeList
                     for(var i = 0 ; i < tempList.count ; i++){
@@ -161,7 +160,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     self.bedUserCodeList = tempList
                     
                     IAlarmHelper.GetAlarmInstance().DeletePatientAlarm(myPatientsTableViewModel.BedUserName!)
-                    sleepCareForIPhoneBussinessManager.RemoveFollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode!)
+                    SleepCareForIPhoneBussiness().RemoveFollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode!)
                     },
                     catch: { ex in
                         //异常处理
@@ -185,12 +184,12 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     func AddPatients(myPatientsTableViewModels:Array<MyPatientsTableCellViewModel>){
         try {
             ({
-                var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+               
                 var session = SessionForIphone.GetSession()
                 var tempList = session!.BedUserCodeList
                 
                 for(var i=0;i<myPatientsTableViewModels.count;i++){
-                    sleepCareForIPhoneBussinessManager.FollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModels[i].BedUserCode!, mainCode: session!.User!.MainCode)
+                    SleepCareForIPhoneBussiness().FollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModels[i].BedUserCode!, mainCode: session!.User!.MainCode)
                   //  var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModels[i].BedUserCode})
                  //   if(exist.count == 0){
                         myPatientsTableViewModels[i].selectedBedUserHandler = self.ShowPatientDetail

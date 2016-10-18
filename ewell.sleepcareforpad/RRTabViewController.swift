@@ -139,16 +139,16 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
             self.popDownListForIphone = PopDownListForIphone()
             self.popDownListForIphone?.delegate = self
             
-            var tempPatientList:Array<EquipmentInfo> = SessionForSingle.GetSession()!.EquipmentList
+           
             self.patientDownlist = Array<PopDownListItem>()
-            for(var i=0;i<tempPatientList.count;i++){
-                var item:PopDownListItem = PopDownListItem()
-                item.key = tempPatientList[i].BedUserCode
-                item.value = tempPatientList[i].BedUserName
-                item.equipmentcode = tempPatientList[i].EquipmentID
-                patientDownlist.append(item)
-            }
-            
+//            for(var i=0;i<tempPatientList.count;i++){
+//                var item:PopDownListItem = PopDownListItem()
+//                item.key = tempPatientList[i].BedUserCode
+//                item.value = tempPatientList[i].BedUserName
+//                item.equipmentcode = tempPatientList[i].EquipmentID
+//                patientDownlist.append(item)
+//            }
+//            
         }
         
         self.popDownListForIphone?.Show("选择老人", source:patientDownlist)
@@ -330,8 +330,8 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         if self.rrTabViewModel.BedUserCode != item.key!{
         self.rrTabViewModel.realtimeFlag = false
         
-        SessionForSingle.GetSession()?.CurPatientCode = item.key!
-        SessionForSingle.GetSession()?.CurPatientName = item.value!
+        SessionForIphone.GetSession()?.CurPatientCode! = item.key!
+        SessionForIphone.GetSession()?.CurPatientName! = item.value!
         
         self.rrTabViewModel.BedUserCode = item.key!
         self.rrTabViewModel.BedUserName = item.value!

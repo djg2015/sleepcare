@@ -33,29 +33,26 @@ class IServerSettingController:IBaseViewController {
         super.viewDidLoad()
      //   self.topView.backgroundColor = themeColor[themeName]
         
-        self.txtServerJid.text = GetValueFromPlist("serverjid","sleepcare.plist")
-        self.txtServerAddress.text = GetValueFromPlist("xmppserver","sleepcare.plist")
-        self.txtServerPort.text = GetValueFromPlist("xmppport","sleepcare.plist")
-        self.txtServerLoginName.text = GetValueFromPlist("xmppusernamephone","sleepcare.plist")
-        self.txtServerPwd.text = GetValueFromPlist("xmppuserpwd","sleepcare.plist")
+        self.txtServerJid.text = PLISTHELPER.ServerJID
+        self.txtServerAddress.text = PLISTHELPER.XmppServer
+        self.txtServerPort.text = PLISTHELPER.XmppPort
+        self.txtServerLoginName.text = PLISTHELPER.XmppUsername
+        self.txtServerPwd.text = PLISTHELPER.XmppUserpwd
         
         
     }
    
-    
-    func imageViewTouch(){
-      IViewControllerManager.GetInstance()!.CloseViewController()
-    }
+
     
     //保存服务器信息，写入本地plist文件，弹窗提示操作成功
     @IBAction func btnSave(sender: AnyObject) {
         try {
             ({
-                SetValueIntoPlist("serverjid",self.txtServerJid.text)
-                SetValueIntoPlist("xmppserver",self.txtServerAddress.text)
-                SetValueIntoPlist("xmppport",self.txtServerPort.text)
-                SetValueIntoPlist("xmppusernamephone",self.txtServerLoginName.text)
-                SetValueIntoPlist("xmppuserpwd",self.txtServerPwd.text)
+               PLISTHELPER.ServerJID = self.txtServerJid.text
+              PLISTHELPER.XmppServer = self.txtServerAddress.text
+              PLISTHELPER.XmppPort  = self.txtServerPort.text
+              PLISTHELPER.XmppUsername  = self.txtServerLoginName.text
+              PLISTHELPER.XmppUserpwd = self.txtServerPwd.text
                 
                 showDialogMsg(ShowMessage(MessageEnum.ServerSettingSuccess), "提示", buttonTitle: "确定", action: nil)
                 },

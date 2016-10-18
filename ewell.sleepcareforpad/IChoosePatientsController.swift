@@ -44,7 +44,7 @@ class IChoosePatientsController: IBaseViewController {
         if segue.identifier == "ConfirmAddPatient" {
             self.viewModel.myPatientsViewModel = allPatientInfo
            self.viewModel.commit()
-            self.addList = self.viewModel.choosedPatients
+          //   self.addList = self.viewModel.choosedPatients
         }
     }
    

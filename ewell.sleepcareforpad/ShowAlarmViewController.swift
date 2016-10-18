@@ -49,7 +49,7 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
     
     override func viewWillAppear(animated: Bool) {
         self.tableview1.reloadData()
-        currentController = self
+        
     }
     
     
@@ -57,7 +57,7 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.alarmViewModel = AlarmViewModel()
+        self.alarmViewModel = IAlarmViewModel()
         
         self.tableview1.delegate = self
         self.tableview1.dataSource = self

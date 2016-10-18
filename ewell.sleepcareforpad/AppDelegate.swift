@@ -22,9 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         //延时启动界面
         NSThread.sleepForTimeInterval(1)
         
-        InitPlistFile()
+        //初始化plist文件
+        PLISTHELPER = PlistHelper()
+        PLISTHELPER.InitPlistFile()
         
-        if ((launchOptions) != nil ) {
+        //读取sleepcare.plist文件到本地
+        PLISTHELPER.GetValueFromSleepcarePlist()
+        //读取Message.plist到本地
+        PLISTHELPER.GetValueFromMessagePlist()
+
+        
+          //if ((launchOptions) != nil ) {
             
             
             //            let Info = launchOptions! as NSDictionary
@@ -34,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
             //            let alert = UIAlertView(title: "报警信息提示", message: "请点击一个老人后，到[我] ->［报警信息］下查看", delegate: nil, cancelButtonTitle: "确认")
             //            alert.show()
             //      }
-        }
+      //  }
         return true
     }
     
@@ -143,11 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,XMPPStreamDelegate {
         
         //后台点击通知,   若已登陆且报警页面未打开，则跳转报警页面
         if self.isBackRun{
-            if (!AlarmViewTag && LOGINFLAG){
-                if !IAlarmHelper.GetAlarmInstance().IsAlarmAlertOpened{
-                    NSNotificationCenter.defaultCenter().postNotificationName("OpenAlarmView", object: self)
-                }
-            }
+            NSNotificationCenter.defaultCenter().postNotificationName("OpenAlarmView", object: self)
         }
     }
     

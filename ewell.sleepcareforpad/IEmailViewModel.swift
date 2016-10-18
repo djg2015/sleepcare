@@ -86,8 +86,8 @@ class IEmailViewModel: BaseViewModel {
                     showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
                 }
                 else{
-                var sleepCareForIPhoneBLL = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-                sleepCareForIPhoneBLL.SendEmail(self.BedUserCode, sleepDate: self.SleepDate, email: self.EmailAddress)
+              
+                SleepCareForIPhoneBussiness().SendEmail(self.BedUserCode, sleepDate: self.SleepDate, email: self.EmailAddress)
                 //发送成功，则弹窗提示
                 showDialogMsg(ShowMessage(MessageEnum.SendEmailSuccess), title: nil)
                 //由父页面控制器关闭当前发送邮件子页面

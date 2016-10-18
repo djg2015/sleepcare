@@ -101,23 +101,7 @@ class IModifyViewModel:BaseViewModel {
         
         try {
             ({
-                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isconnect = xmppMsgManager!.Connect()
-                if(!isconnect){
-                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-                }
-                else{
-                    //获取当前所有养老院的名字
-                    var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-                    var mainInfoList:IMainInfoList =  sleepCareForIPhoneBussinessManager.GetAllMainInfo()
-                    for(var i=0;i<mainInfoList.mainInfoList.count;i++){
-                        var item:PopDownListItem = PopDownListItem()
-                        item.key = mainInfoList.mainInfoList[i].MainCode
-                        item.value = mainInfoList.mainInfoList[i].MainName
-                        self.MainBusinesses.append(item)
-                    }
-                    
-                    
+                
                     //初始化用户信息
                     var session = SessionForIphone.GetSession()
                     if(session != nil){
@@ -132,7 +116,7 @@ class IModifyViewModel:BaseViewModel {
                             self.MainName = curMain.value!
                         }
                     }
-                }
+              
                 },
                 catch: { ex in
                     //异常处理
@@ -171,7 +155,7 @@ class IModifyViewModel:BaseViewModel {
                         return
                     }
                     
-                    var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+                   
                     var session = SessionForIphone.GetSession()
                     
                     //如果改变了养老院，则当前关注的老人置空
@@ -179,7 +163,7 @@ class IModifyViewModel:BaseViewModel {
                         session!.CurPatientCode = ""
                     }
                     //修改账户到服务器端
-                    let result:ServerResult = sleepCareForIPhoneBussinessManager.ModifyLoginUser(self.LoginName, oldPassword: session!.OldPwd!, newPassword: self.Pwd, mainCode: self.MainCode)
+                    let result:ServerResult = SleepCareForIPhoneBussiness().ModifyLoginUser(self.LoginName, oldPassword: session!.OldPwd!, newPassword: self.Pwd, mainCode: self.MainCode)
                     session?.OldPwd = self.Pwd
                     session?.User?.MainCode = self.MainCode
                     //提示修改账户是否成功
@@ -203,12 +187,12 @@ class IModifyViewModel:BaseViewModel {
     
     //失去连接后处理
     func ConnectLost(isOtherButton: Bool){
-        IViewControllerManager.GetInstance()!.CloseViewController()
+       // IViewControllerManager.GetInstance()!.CloseViewController()
         
     }
     //关闭当前页面
     func AfterModify(isOtherButton: Bool){
-        IViewControllerManager.GetInstance()!.CloseViewController()
+        
     }
     
 }

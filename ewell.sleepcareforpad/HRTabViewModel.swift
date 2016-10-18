@@ -228,9 +228,9 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
     func LoadPatientHR()->String {
         var flag = "2"
         try {({
-            if SessionForSingle.GetSession() != nil{
-            self.BedUserCode = SessionForSingle.GetSession()!.CurPatientCode
-            self.BedUserName = SessionForSingle.GetSession()!.CurPatientName
+            if SessionForIphone.GetSession() != nil{
+            self.BedUserCode = SessionForIphone.GetSession()!.CurPatientCode!
+            self.BedUserName = SessionForIphone.GetSession()!.CurPatientName!
             
             if self.BedUserCode != ""{
                self.GetHRReport()
@@ -241,11 +241,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
                 RealTimeHelper.GetRealTimeInstance().setRealTimer()
                 flag = "1"
             }
-                //当前有老人设备但没有选择：隐藏除topview之外的subviews，提示先选择一个老人
-            else if (SessionForSingle.GetSession()?.EquipmentList.count > 0){
-                self.ClearHRData()
-                flag = "2"
-            }
+           
                 //当前没有设备：隐藏页面内所有的subviews,提示添加noticeview提示先添加设备
             else{
                 self.ClearHRData()
@@ -268,7 +264,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
     //获取chart图表数据
     func GetHRReport(){
         //获取某床位用户日心率报告
-        var tempDayRange:HRRange = SleepCareForSingle().GetSingleHRTimeReport(self.BedUserCode,searchType:"1")
+        var tempDayRange:HRRange = SleepCareForIPhoneBussiness().GetSingleHRTimeReport(self.BedUserCode,searchType:"1")
         var tempDayReportList:Array<HRTimeReport> = tempDayRange.hrTimeReportList
         //过滤原始日数据，赋值给HRDayReport(24个点选8个)
 
@@ -294,7 +290,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
     
         
         //获取某床位用户周心率报告
-        var tempWeekRange:HRRange = SleepCareForSingle().GetSingleHRTimeReport(self.BedUserCode,searchType:"2")
+        var tempWeekRange:HRRange = SleepCareForIPhoneBussiness().GetSingleHRTimeReport(self.BedUserCode,searchType:"2")
         var tempWeekReportList:Array<HRTimeReport> = tempWeekRange.hrTimeReportList
         //过滤原始周数据，赋值给HRWeekReport
     
@@ -321,7 +317,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
         
         
         //获取某床位用户月心率报告
-        var tempMonthRange:HRRange = SleepCareForSingle().GetSingleHRTimeReport(self.BedUserCode,searchType:"3")
+        var tempMonthRange:HRRange = SleepCareForIPhoneBussiness().GetSingleHRTimeReport(self.BedUserCode,searchType:"3")
         var tempMonthReportList:Array<HRTimeReport> = tempMonthRange.hrTimeReportList
         //过滤原始月数据，赋值给HRMonthReport
         tempValueY = []
@@ -365,7 +361,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
     func GetRealtimeData(realtimeData:Dictionary<String,RealTimeReport>){
         if realtimeFlag{
             for realTimeReport in realtimeData.values{
-                if self.BedUserCode == realTimeReport.BedUserCode{
+                if self.BedUserCode == realTimeReport.UserCode{
                     self.OnBedStatus = realTimeReport.OnBedStatus
                     self.CurrentHR = realTimeReport.HR
                     // self.InnerCircleValue = CGFloat((realTimeReport.LastedAvgHR as NSString).floatValue)/120.0

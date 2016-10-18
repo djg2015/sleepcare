@@ -13,9 +13,9 @@ import Foundation
 func CheckRemoteNotice(){
     
     //首次启动app，要弹窗提示是否接受通知
-    if GetValueFromPlist("firstLaunch","sleepcare.plist") == "true"{
+    if PLISTHELPER.FirstLaunch == "true"{
         UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
-        SetValueIntoPlist("firstLaunch","false")
+        PLISTHELPER.FirstLaunch = "false"
         
     }
         //非首次登录
@@ -57,7 +57,7 @@ func OpenNotice(){
                 if LOGINFLAG{
                     var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
                     if token != nil{
-              BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").OpenNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+             SleepCareForIPhoneBussiness().OpenNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
                     }
                 }
             }
@@ -84,7 +84,7 @@ func CloseNotice(){
                 if LOGINFLAG{
                     var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
                     if token != nil{
-                        BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager").CloseNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+                      SleepCareForIPhoneBussiness().CloseNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
                     }
                 }
             }

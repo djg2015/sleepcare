@@ -135,15 +135,15 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
             self.popDownListForIphone = PopDownListForIphone()
             self.popDownListForIphone?.delegate = self
             
-            var tempPatientList:Array<EquipmentInfo> = SessionForSingle.GetSession()!.EquipmentList
+          
             self.patientDownlist = Array<PopDownListItem>()
-            for(var i=0;i<tempPatientList.count;i++){
-                var item:PopDownListItem = PopDownListItem()
-                item.key = tempPatientList[i].BedUserCode
-                item.value = tempPatientList[i].BedUserName
-                item.equipmentcode = tempPatientList[i].EquipmentID
-                self.patientDownlist.append(item)
-            }
+//            for(var i=0;i<tempPatientList.count;i++){
+//                var item:PopDownListItem = PopDownListItem()
+//                item.key = tempPatientList[i].BedUserCode
+//                item.value = tempPatientList[i].BedUserName
+//                item.equipmentcode = tempPatientList[i].EquipmentID
+//                self.patientDownlist.append(item)
+//            }
 
         }
         self.popDownListForIphone?.Show("选择老人", source:self.patientDownlist)
@@ -159,7 +159,7 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         
         self.RefreshHRView()
         
-        currentController = self
+       
         
         
         
@@ -172,9 +172,7 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
         // Do any additional setup after loading the view.
         
         rac_settings()
-        if SessionForSingle.GetSession()!.CurPatientCode == ""{
-            self.ChangePatient()
-        }
+       
         //第一次显示页面时手动调用viewwillappear？？bug
         self.viewWillAppear(true)
         
@@ -325,8 +323,8 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItem
     func ChoosedItem(item:PopDownListItem){
         if self.hrTabViewModel.BedUserCode != item.key!{
         self.hrTabViewModel.realtimeFlag = false
-        SessionForSingle.GetSession()?.CurPatientCode = item.key!
-        SessionForSingle.GetSession()?.CurPatientName = item.value!
+        SessionForIphone.GetSession()?.CurPatientCode = item.key!
+        SessionForIphone.GetSession()?.CurPatientName = item.value!
             
         
         self.hrTabViewModel.BedUserCode = item.key!

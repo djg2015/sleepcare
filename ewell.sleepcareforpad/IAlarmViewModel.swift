@@ -116,7 +116,7 @@ class IAlarmViewModel: BaseViewModel {
     func DeleteToServer(codes:String){
         try {
             ({
-                SleepCareForSingle().DeleteAlarmMessage(codes, loginName: SessionForSingle.GetSession()!.User!.LoginName)
+                SleepCareForIPhoneBussiness().DeleteAlarmMessage(codes, loginName: SessionForIphone.GetSession()!.User!.LoginName)
                 },
                 catch: { ex in
                     //异常处理

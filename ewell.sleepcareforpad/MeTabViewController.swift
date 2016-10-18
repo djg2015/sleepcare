@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,SetTabbarBadgeDelegate,SetAlarmPicDelegate{
+class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
     @IBOutlet weak var memuTable: UITableView!
     
     @IBOutlet weak var meTabber: UITabBarItem!
@@ -40,8 +40,7 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        IAlarmHelper.GetAlarmInstance().tabbarBadgeDelegate = self
-        IAlarmHelper.GetAlarmInstance().alarmpicdelegate = self
+       
 
         self.memuTable.delegate = self
         self.memuTable.dataSource = self
@@ -191,7 +190,7 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.section == 0){
-            if SessionForSingle.GetSession()!.CurPatientName != ""{
+            if SessionForIphone.GetSession()!.CurPatientName != ""{
             
                 self.performSegueWithIdentifier("modifypatientinfo", sender: self)
             }
@@ -201,9 +200,9 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
             self.performSegueWithIdentifier("equipmentinfo", sender: self)
             }
             else if indexPath.row == 1{
-                let nextController = AlarmInfoViewController(nibName:"AlarmView", bundle:nil)
-                nextController.parentController = self
-                self.navigationController?.pushViewController(nextController, animated: true)
+//                let nextController = AlarmInfoViewController(nibName:"AlarmView", bundle:nil)
+//                nextController.parentController = self
+//                self.navigationController?.pushViewController(nextController, animated: true)
         
             }
             else{

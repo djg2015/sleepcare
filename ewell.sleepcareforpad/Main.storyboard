@@ -53,7 +53,7 @@
         <!--登录-->
         <scene sceneID="zZe-Vg-Fiv">
             <objects>
-                <viewController storyboardIdentifier="login" title="登录" id="o4i-LS-2ko" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" title="登录" id="o4i-LS-2ko" customClass="LoginViewController" customModule="ewell_sleepcareforpad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hlZ-LP-Pjc"/>
                         <viewControllerLayoutGuide type="bottom" id="Gag-51-7Uw"/>
@@ -115,7 +115,7 @@
                                         <rect key="frame" x="10" y="11" width="17" height="17"/>
                                         <animations/>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="请输入手机号" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gTd-WO-Vbw">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="请输入账号" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gTd-WO-Vbw">
                                         <rect key="frame" x="46" y="5" width="206" height="30"/>
                                         <animations/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,7 +157,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="xiJ-2g-BaM"/>
                     <connections>
+                        <outlet property="loginBtn" destination="8hO-bE-8a8" id="yM6-59-Nbk"/>
+                        <outlet property="loginnameText" destination="gTd-WO-Vbw" id="gYk-AQ-9a7"/>
+                        <outlet property="passwordText" destination="8LY-kY-o1M" id="fDF-m9-Uat"/>
+                        <outlet property="rememberPwdBtn" destination="BZb-HI-SJu" id="vwE-m2-OQP"/>
                         <segue destination="AVW-ge-Lrw" kind="push" identifier="serversetting" id="37C-dx-GDm"/>
+                        <segue destination="iEl-DH-Kk7" kind="push" identifier="patientlist" id="MJj-HA-QV0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BAs-H9-Qj8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -219,6 +224,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cpB-I2-Kti"/>
                     <connections>
                         <segue destination="f7r-ty-nb6" kind="push" identifier="showpatient" id="YeZ-ec-Vgg"/>
                     </connections>

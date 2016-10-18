@@ -1,344 +1,135 @@
 //
-//  IWeekSleepcareController.swift
+//  ViewController.swift
+//  周报表demo
 //
-//
-//  Created by djg on 15/11/25.
-//
+//  Created by Qinyuan Liu on 6/16/16.
+//  Copyright (c) 2016 Qinyuan Liu. All rights reserved.
 //
 
 import UIKit
 
-class IWeekSleepcareController: IBaseViewController {
-    @IBOutlet weak var svSleep: UIScrollView!
-   
-    let height1:CGFloat = 167
-    let height2:CGFloat = 83
-    let height3:CGFloat = 135
-    let height4:CGFloat = 40
-    let height5:CGFloat = 200
-    let height6:CGFloat = 120
-    let height7:CGFloat = 250
-    var uione:UIView!
-    var uitwo: UIView!
-    var uithree: UIView!
-    var uifour: UIView!
-    var uifive: UIView!
-    var uisix: UIView!
-    var uiseven: UIView!
-    var lblTitle = UILabel()
-    var bedUserCode:String!
-    var sleepDate:String!
-    var weekReport:IWeekReport!
-   
+class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDateDelegate  {
+    
+    @IBOutlet weak var mainscrollView: UIScrollView!
+    
+    @IBOutlet weak var lblDate: UILabel!
+    
+    
+    @IBAction func ChangeDate(sender:UIButton){
+        if self.weekreportViewModel.bedusercode != ""{
+            //设置日期弹出窗口
+            var alertview:DatePickerView = DatePickerView(frame:UIScreen.mainScreen().bounds)
+            alertview.datedelegate = self
+            self.view.addSubview(alertview)
+        }
+    }
+    
+    @IBAction func SendEmail(sender:UIButton){
+        if self.weekreportViewModel.bedusercode != ""{
+            
+            self.email = IEmailViewController(nibName: "IEmailView", bundle: nil)
+            self.email!.BedUserCode = self.weekreportViewModel.bedusercode
+            self.email!.SleepDate = self.weekreportViewModel.SelectDate
+         //   self.email!.ParentController = self
+            var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",
+                KNSemiModalOptionKeys.animationDuration:"0.2",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
+            
+            self.presentSemiViewController(self.email, withOptions: kNSemiModalOptionKeys)
+        }
+        
+    }
+    
+    
+    
+    var weekreportViewModel:WeekReportViewModel!
+    var email:IEmailViewController?
+    
+    let screenwidth = UIScreen.mainScreen().bounds.width
+    
+    
+    var hrTitleLabel:UILabel!
+    var HrRrChartView = ChartView()
+    var hrFiguresView:UIView!
+    var hrSubTitleLabel:UILabel!
+    var hrImage :UIImageView!
+    var maxhrLabel:UILabel!
+    var maxhrTitleLabel:UILabel!
+    var minhrLabel:UILabel!
+    var minhrTitleLabel:UILabel!
+    var avghrLabel:UILabel!
+    var avghrTitleLabel:UILabel!
+    var rrFiguresView:UIView!
+    var rrImage:UIImageView!
+    var rrTitleLabel:UILabel!
+    var maxrrLabel:UILabel!
+    var maxrrTitleLabel:UILabel!
+    var minrrLabel:UILabel!
+    var minrrTitleLabel: UILabel!
+    var avgrrLabel: UILabel!
+    var avgrrTitleLabel:UILabel!
+    var leavebedTitleLabel:UILabel!
+    var LeaveBedChartView = ChartView()
+    var LeaveBedFiguresView: UIView!
+    var leavebedSubTitleLabel:UILabel!
+    var leavebedValueLabel: UILabel!
+    var sleepTitleLabel:UILabel!
+    var SleepChartView = ChartView()
+    var SleepFiguresView:UIView!
+    var awakeView:UIView!
+    var lightsleepView:UIView!
+    var deepsleepView:UIView!
+    var sleeptimeView:UIView!
+    var onbedtimeView:UIView!
+    var leavebedtimeView:UIView!
+    var awakeLabel: UILabel!
+    var awakeTitleLabel: UILabel!
+    var lightsleepLabel: UILabel!
+    var lightsleepTitleLabel: UILabel!
+    var deepsleepLabel: UILabel!
+    var deepsleepTitleLabel: UILabel!
+    var sleeptimeLabel: UILabel!
+    var sleeptimeTitleLabel: UILabel!
+    var onbedtimeLabel: UILabel!
+    var onbedtimeTitleLabel: UILabel!
+    var leavebedtimeLabel: UILabel!
+    var leavebedtimeTitleLabel: UILabel!
+    var suggestionTitleLabel: UILabel!
+    var SuggestionFiguresView: UIView!
+    var leavebedtimesView: UIView!
+    var turnovertimesView : UIView!
+    var leavebedmaxView: UIView!
+    var turnoverrateView : UIView!
+    var leavebedtimesLabel: UILabel!
+    var leavebedtimesTitleLabel: UILabel!
+    var turnovertimesLabel: UILabel!
+    var turnovertimesTitleLabel: UILabel!
+    var leavebedmaxLabel: UILabel!
+    var leavebedmaxTitleLabel: UILabel!
+    var turnoverrateLabel: UILabel!
+    var turnoverrateTitleLabel : UILabel!
+    var SuggestionContentView:UIView!
+    var suggestionContent:UITextView!
+    
+    
+    
     override func viewWillAppear(animated: Bool) {
-  
-       
         currentController = self
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        // Do any additional setup after loading the view, typically from a nib.
+        self.weekreportViewModel = WeekReportViewModel()
         
-     //   self.view.backgroundColor = themeColor[themeName]
-         uione = UIView()
-        uitwo = UIView()
-        uithree = UIView()
-        uifour = UIView()
-        uifive = UIView()
-        uisix = UIView()
-        uiseven = UIView()
-        //设置滚动区域7个区域元素
-        var screenWidth = UIScreen.mainScreen().bounds.width
-        self.svSleep.contentSize = CGSize(width: screenWidth, height: (height1+height2+height3+height4+height5+height6+height7))
-        self.lblTitle.text = "2015-10-11~2015-10-17"
-        self.lblTitle.textColor = UIColor.blackColor()
-        self.lblTitle.frame = CGRectMake((screenWidth/2 - 110), 3, 220, 30)
-        self.svSleep.addSubview(lblTitle)
+        RACObserve(self.weekreportViewModel, "DateLabel") ~> RAC(self.lblDate, "text")
         
-        self.uione.frame = CGRectMake(0, 33, screenWidth, height1)
-        self.uione.backgroundColor = UIColor.lightGrayColor()
-       // self.uione.layer.contents = UIImage(named: "garyboxback.png")?.CGImage
-        self.svSleep.addSubview(uione)
+        self.mainscrollView.delegate = self
+        self.mainscrollView.contentSize = CGSize(width:screenwidth,height:1370)
         
-        self.uitwo.frame = CGRectMake(0, height1+33, screenWidth, height2)
-        self.uitwo.backgroundColor = UIColor.whiteColor()
-        self.svSleep.addSubview(uitwo)
         
-        self.uithree.frame = CGRectMake(0, height1 + height2+33, screenWidth, height3)
-        self.uithree.backgroundColor = UIColor.lightGrayColor()
-       // self.uithree.layer.contents = UIImage(named: "garyboxback.png")?.CGImage
-        self.svSleep.addSubview(uithree)
+        self.rac_settings()
+        self.Refresh()
         
-        self.uifour.frame = CGRectMake(0, height1 + height2 + height3+33, screenWidth, height4)
-        self.uifour.backgroundColor = UIColor.whiteColor()
-        self.svSleep.addSubview(uifour)
-        
-        self.uifive.frame = CGRectMake(0, height1 + height2 + height3 + height4+33, screenWidth, height5)
-        self.uifive.backgroundColor = UIColor.lightGrayColor()
-       // self.uifive.layer.contents = UIImage(named: "garyboxback.png")?.CGImage
-        self.svSleep.addSubview(uifive)
-        
-        self.uisix.frame = CGRectMake(0, height1 + height2 + height3 + height4 + height5+33, screenWidth, height6)
-        self.uisix.backgroundColor = UIColor.whiteColor()
-        self.svSleep.addSubview(uisix)
-        
-        self.uiseven.frame = CGRectMake(0, height1 + height2 + height3 + height4 + height5 + height6+33, screenWidth, height7)
-        self.uiseven.backgroundColor = UIColor.lightGrayColor()
-        self.svSleep.addSubview(uiseven)
-     
-        self.LoadData()
-    }
-    
-    
-    //加载初始数据
-    func LoadData(){
-        //查询底层数据
-        var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-        self.weekReport = sleepCareForIPhoneBussinessManager.GetWeekReportByUser(self.bedUserCode, reportDate: self.sleepDate)
-        
-        //设置7个区域显示
-        self.lblTitle.text = weekReport.WeekBeginDate + "~" + weekReport.WeekEndDate
-        //区域1
-        self.Setchart1(weekReport.SignWeekReport!.SignRangeList)
-        
-        //区域2
-        var label2_1 = UILabel()
-        label2_1.text = "周最大心率:"
-        label2_1.font = label2_1.font.fontWithSize(15)
-        label2_1.frame = CGRectMake(10, 5, 80, 20)
-        self.uitwo.addSubview(label2_1)
-        
-        var label2_2 = UILabel()
-        label2_2.text = SplitStr(weekReport.SignWeekReport!.WeekMaxHR) + "次/分"
-        label2_2.font = label2_2.font.fontWithSize(15)
-        label2_2.frame = CGRectMake(95, 5, 60, 20)
-        self.uitwo.addSubview(label2_2)
-        
-        var label2_3 = UILabel()
-        label2_3.text = "周最快呼吸:"
-        label2_3.font = label2_3.font.fontWithSize(15)
-        label2_3.frame = CGRectMake(165, 5, 80, 20)
-        self.uitwo.addSubview(label2_3)
-        
-        var label2_4 = UILabel()
-        label2_4.text = SplitStr(weekReport.SignWeekReport!.WeekMaxRR) + "次/分"
-        label2_4.font = label2_4.font.fontWithSize(15)
-        label2_4.frame = CGRectMake(250, 5, 60, 20)
-        self.uitwo.addSubview(label2_4)
-        
-        var label2_5 = UILabel()
-        label2_5.text = "周最小心率:"
-        label2_5.font = label2_5.font.fontWithSize(15)
-        label2_5.frame = CGRectMake(10, 25, 80, 20)
-        self.uitwo.addSubview(label2_5)
-        
-        var label2_6 = UILabel()
-        label2_6.text = SplitStr(weekReport.SignWeekReport!.WeekMimHR) + "次/分"
-        label2_6.font = label2_6.font.fontWithSize(15)
-        label2_6.frame = CGRectMake(95, 25, 60, 20)
-        self.uitwo.addSubview(label2_6)
-        
-        var label2_7 = UILabel()
-        label2_7.text = "周最慢呼吸:"
-        label2_7.font = label2_7.font.fontWithSize(15)
-        label2_7.frame = CGRectMake(165, 25, 80, 20)
-        self.uitwo.addSubview(label2_7)
-        
-        var label2_8 = UILabel()
-        label2_8.text = SplitStr(weekReport.SignWeekReport!.WeekMimRR) + "次/分"
-        label2_8.font = label2_8.font.fontWithSize(15)
-        label2_8.frame = CGRectMake(250, 25, 60, 20)
-        self.uitwo.addSubview(label2_8)
-        
-        var label2_9 = UILabel()
-        label2_9.text = "周平均心率:"
-        label2_9.font = label2_9.font.fontWithSize(15)
-        label2_9.frame = CGRectMake(10, 45, 80, 20)
-        self.uitwo.addSubview(label2_9)
-        
-        var label2_10 = UILabel()
-        label2_10.text = SplitStr(weekReport.SignWeekReport!.WeekMaxHR) + "次/分"
-        label2_10.font = label2_10.font.fontWithSize(15)
-        label2_10.frame = CGRectMake(95, 45, 60, 20)
-        self.uitwo.addSubview(label2_10)
-        
-        var label2_11 = UILabel()
-        label2_11.text = "周平均呼吸:"
-        label2_11.font = label2_11.font.fontWithSize(15)
-        label2_11.frame = CGRectMake(165, 45, 80, 20)
-        self.uitwo.addSubview(label2_11)
-        
-        var label2_12 = UILabel()
-        label2_12.text = SplitStr(weekReport.SignWeekReport!.WeekAvgRR) + "次/分"
-        label2_12.font = label2_12.font.fontWithSize(15)
-        label2_12.frame = CGRectMake(250, 45, 60, 20)
-        self.uitwo.addSubview(label2_12)
-        
-        //区域3
-        self.Setchart3(weekReport.LeaveBedWeekReport!.LeaveBedRangeList)
-        
-        //区域4
-        var label4_1 = UILabel()
-        label4_1.text = "离床频繁"
-        label4_1.font = label2_12.font.fontWithSize(15)
-        label4_1.frame = CGRectMake(10, 10, 60, 20)
-        self.uifour.addSubview(label4_1)
-        
-        var label4_2 = UILabel()
-        label4_2.text = weekReport.LeaveBedWeekReport!.MaxWeekday
-        label4_2.font = label4_2.font.fontWithSize(15)
-        label4_2.frame = CGRectMake(80, 10, 200, 20)
-        self.uifour.addSubview(label4_2)
-        
-        //区域5
-        self.Setchart5(weekReport.SleepWeekReport!.SleepRangeList)
-        
-        //区域6
-        var label6_1 = UILabel()
-        label6_1.text = "睡眠时长"
-        label6_1.font = label6_1.font.fontWithSize(15)
-        label6_1.frame = CGRectMake(15, 5, 60, 20)
-        self.uisix.addSubview(label6_1)
-        
-        var label6_2 = UILabel()
-        label6_2.text = "深睡时长"
-        label6_2.font = label6_2.font.fontWithSize(15)
-        label6_2.frame = CGRectMake(120, 5, 60, 20)
-        self.uisix.addSubview(label6_2)
-        
-        var label6_3 = UILabel()
-        label6_3.text = "浅睡时长"
-        label6_3.font = label6_3.font.fontWithSize(15)
-        label6_3.frame = CGRectMake(225, 5, 60, 20)
-        self.uisix.addSubview(label6_3)
-        
-        var label6_4 = UILabel()
-        label6_4.text = weekReport.SleepWeekReport?.SleepTimespan
-        label6_4.font = label6_4.font.fontWithSize(17)
-        label6_4.frame = CGRectMake(10, 27, 100, 20)
-        self.uisix.addSubview(label6_4)
-        
-        var label6_5 = UILabel()
-        label6_5.text = weekReport.SleepWeekReport?.DeepSleepTimespan
-        label6_5.font = label6_5.font.fontWithSize(17)
-        label6_5.frame = CGRectMake(115, 27, 100, 20)
-        self.uisix.addSubview(label6_5)
-        
-        var label6_6 = UILabel()
-        label6_6.text = weekReport.SleepWeekReport?.LightSleepTimespan
-        label6_6.font = label6_6.font.fontWithSize(17)
-        label6_6.frame = CGRectMake(220, 27, 100, 20)
-        self.uisix.addSubview(label6_6)
-        
-        var label6_7 = UILabel()
-        label6_7.text = "上床时间"
-        label6_7.font = label6_7.font.fontWithSize(15)
-        label6_7.frame = CGRectMake(15, 60, 60, 20)
-        self.uisix.addSubview(label6_7)
-        
-        var label6_8 = UILabel()
-        label6_8.text = "起床时间"
-        label6_8.font = label6_8.font.fontWithSize(15)
-        label6_8.frame = CGRectMake(120, 60, 60, 20)
-        self.uisix.addSubview(label6_8)
-        
-        var label6_9 = UILabel()
-        label6_9.text = "清醒时长"
-        label6_9.font = label6_9.font.fontWithSize(15)
-        label6_9.frame = CGRectMake(225, 60, 60, 20)
-        self.uisix.addSubview(label6_9)
-        
-        var label6_10 = UILabel()
-        if(weekReport.SleepWeekReport!.SleepBeginTime != ""){
-            label6_10.text = "下午" + weekReport.SleepWeekReport!.SleepBeginTime.split(" ")[1].subString(0, length: 5)
-        }
-        label6_10.font = label6_10.font.fontWithSize(17)
-        label6_10.frame = CGRectMake(10, 82, 100, 20)
-        self.uisix.addSubview(label6_10)
-        
-        var label6_11 = UILabel()
-        if(weekReport.SleepWeekReport!.SleepBeginTime != ""){
-            label6_11.text = "上午" + weekReport.SleepWeekReport!.SleepEndTime.split(" ")[1].subString(0, length: 5)
-        }
-        label6_11.font = label6_11.font.fontWithSize(17)
-        label6_11.frame = CGRectMake(115, 82, 100, 20)
-        self.uisix.addSubview(label6_11)
-        
-        var label6_12 = UILabel()
-        label6_12.text = weekReport.SleepWeekReport?.AwakeningTimespan
-        label6_12.font = label6_12.font.fontWithSize(17)
-        label6_12.frame = CGRectMake(220, 82, 100, 20)
-        self.uisix.addSubview(label6_12)
-        
-        //区域7
-        var label7_1 = UILabel()
-        label7_1.text = "睡眠建议"
-        label7_1.font = UIFont.boldSystemFontOfSize(17)
-        label7_1.frame = CGRectMake(10, 5, 100, 20)
-        self.uiseven.addSubview(label7_1)
-        
-        var label7_2 = UILabel()
-        label7_2.text = "离床次数"
-        label7_2.font = label7_2.font.fontWithSize(15)
-        label7_2.frame = CGRectMake(13, 30, 60, 20)
-        self.uiseven.addSubview(label7_2)
-        
-        var label7_3 = UILabel()
-        label7_3.text = weekReport.SleepWeekReport?.Suggest.LeaveBedCount
-        label7_3.font = label7_3.font.fontWithSize(15)
-        label7_3.frame = CGRectMake(80, 30, 60, 20)
-        self.uiseven.addSubview(label7_3)
-        
-        var label7_4 = UILabel()
-        label7_4.text = "最高离床时间"
-        label7_4.font = label7_4.font.fontWithSize(15)
-        label7_4.frame = CGRectMake(150, 30, 90, 20)
-        self.uiseven.addSubview(label7_4)
-        
-        var label7_5 = UILabel()
-        label7_5.text = weekReport.SleepWeekReport?.Suggest.MaxLeaveBedTimespan
-        label7_5.font = label7_5.font.fontWithSize(15)
-        label7_5.frame = CGRectMake(247, 30, 90, 20)
-        self.uiseven.addSubview(label7_5)
-        
-        var label7_6 = UILabel()
-        label7_6.text = "翻身次数"
-        label7_6.font = label7_6.font.fontWithSize(15)
-        label7_6.frame = CGRectMake(13, 55, 60, 20)
-        self.uiseven.addSubview(label7_6)
-        
-        var label7_7 = UILabel()
-        label7_7.text = weekReport.SleepWeekReport?.Suggest.TurnOverCount
-        label7_7.font = label7_7.font.fontWithSize(15)
-        label7_7.frame = CGRectMake(80, 55, 60, 20)
-        self.uiseven.addSubview(label7_7)
-        
-        var label7_8 = UILabel()
-        label7_8.text = "翻身频率"
-        label7_8.font = label7_8.font.fontWithSize(15)
-        label7_8.frame = CGRectMake(150, 55, 60, 20)
-        self.uiseven.addSubview(label7_8)
-        
-        var label7_9 = UILabel()
-        label7_9.text = weekReport.SleepWeekReport?.Suggest.TurnOverRate
-        label7_9.font = label7_9.font.fontWithSize(15)
-        label7_9.frame = CGRectMake(217, 55, 80, 20)
-        self.uiseven.addSubview(label7_9)
-        
-        var label7_10 = UILabel()
-        label7_10.text = "建议意见"
-        label7_10.font = label7_10.font.fontWithSize(15)
-        label7_10.frame = CGRectMake(13, 85, 60, 20)
-        self.uiseven.addSubview(label7_10)
-        
-        var label7_11 = UILabel()
-        label7_11.text = weekReport.SleepWeekReport?.Suggest.LeaveBedCount
-        label7_11.lineBreakMode = NSLineBreakMode.ByCharWrapping
-        label7_11.font = label7_11.font.fontWithSize(15)
-        label7_11.frame = CGRectMake(80, 85, self.uiseven.frame.width - 90, 500)
-        self.uiseven.addSubview(label7_11)
         
     }
     
@@ -347,203 +138,489 @@ class IWeekSleepcareController: IBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func Setchart1(SignRangeList:Array<ISignRange>){
-        //设置心率曲线
-        var data01Array: [CGFloat] = []
-        for(var i = 0;i < SignRangeList.count;i++){
-            data01Array.append(CGFloat((SignRangeList[i].AvgHR as NSString).floatValue))
+    func rac_settings(){
+        self.AddHrRrTitle()
+        self.AddHrRrChart()
+        self.AddHrFigures()
+        self.AddRrFigures()
+        self.AddLeaveBedTitle()
+        self.AddLeaveBedChart()
+        self.AddLeaveBedFigures()
+        self.AddSleepTitle()
+        self.AddSleepChart()
+        self.AddSleepFigures()
+        self.AddSuggestionTitle()
+        self.AddSuggestionFigures()
+        self.AddSuggestionContent()
+    }
+    
+    func Refresh(){
+        HrRrChartView.RemoveTrendChartView()
+        if self.weekreportViewModel.HRRRRange.flag{
+            
+            HrRrChartView.Type = "1"
+            let titleNameList1 = "心率"
+            let titleNameList2 = "呼吸"
+            HrRrChartView.valueAll = self.weekreportViewModel.HRRRRange.ValueY as [AnyObject]
+            HrRrChartView.valueXList =  self.weekreportViewModel.HRRRRange.ValueX as [AnyObject]
+            HrRrChartView.valueTitleNames = NSArray(objects:titleNameList1,titleNameList2) as [AnyObject]
+            HrRrChartView.addTrendChartView(CGRectMake(15, 0, screenwidth-30, 200))
+            self.mainscrollView.addSubview(HrRrChartView)
         }
-        var data01:PNLineChartData = PNLineChartData()
-        data01.color = UIColor.magentaColor()
-        data01.itemCount = UInt(data01Array.count)
-        data01.dataTitle = "心率"
-        data01.getData = ({(index: UInt)  in
-            var yValue:CGFloat = data01Array[Int(index)]
-            var item = PNLineChartDataItem(y: yValue)
-            return item
-        })
         
-        //设置呼吸曲线
-        var data02Array: [CGFloat] = []
-        for(var i = 0;i < SignRangeList.count;i++){
-            data02Array.append(CGFloat((SignRangeList[i].AvgRR as NSString).floatValue))
+        
+        maxhrLabel.text = self.weekreportViewModel.WeekMaxHR
+        
+        minhrLabel.text = self.weekreportViewModel.WeekMinHR
+        
+        avghrLabel.text = self.weekreportViewModel.WeekAvgHR
+        
+        maxrrLabel.text = self.weekreportViewModel.WeekMaxRR
+        
+        minrrLabel.text = self.weekreportViewModel.WeekMinRR
+        
+        avgrrLabel.text = self.weekreportViewModel.WeekAvgRR
+        
+        LeaveBedChartView.RemoveTrendChartView()
+        if  self.weekreportViewModel.LeaveBedRange.flag{
+            LeaveBedChartView.frame = CGRectMake(0, 420, screenwidth, 200)
+            LeaveBedChartView.Type = "4"
+            let titleNameList1 = "离床"
+            LeaveBedChartView.valueAll = self.weekreportViewModel.LeaveBedRange.ValueY as [AnyObject]
+            LeaveBedChartView.valueXList = self.weekreportViewModel.LeaveBedRange.ValueX as [AnyObject]
+            LeaveBedChartView.valueTitleNames = NSArray(objects:titleNameList1) as [AnyObject]
+            LeaveBedChartView.addTrendChartView(CGRectMake(15, 0, screenwidth-30, 200))
+            self.mainscrollView.addSubview(LeaveBedChartView)
         }
-        var data02:PNLineChartData = PNLineChartData()
-        data02.color = PNGreenColor
-        data02.itemCount = UInt(data02Array.count)
-        data02.dataTitle = "呼吸"
-        data02.getData = ({(index: UInt)  in
-            var yValue:CGFloat = data02Array[Int(index)]
-            var item = PNLineChartDataItem(y: yValue)
-            return item
-        })
         
-        var lineChart:PNLineChart? = PNLineChart(frame: CGRectMake(0, 10, self.uione.frame.width - 10, self.uione.frame.height))
-        lineChart!.yLabelFormat = "%1.f"
-        lineChart!.yFixedValueMin = 0
-        lineChart!.showLabel = true
-        lineChart!.backgroundColor = UIColor.clearColor()
-        lineChart!.xLabels = []
-        for(var i = 0;i < SignRangeList.count;i++){
-            //            var xlable = self.SignReports![i].ReportHour.subString(11, length: 2)
-            //            if(xlable.hasPrefix("0")){
-            //                xlable = xlable.subString(1, length: 1)
-            //            }
-            //            xlable = xlable + "点"
-            lineChart!.xLabels.append(SignRangeList[i].Weekday)
+        leavebedValueLabel.text = self.weekreportViewModel.LeaveBedSum
+        
+        
+        SleepChartView.RemoveTrendChartView()
+        if self.weekreportViewModel.SleepRange.flag{
+            SleepChartView.frame = CGRectMake(0, 732, screenwidth-30, 200)
+            //＝＝“3”的折线效果，但无遮层
+            SleepChartView.Type = "6"
+            let titleNameList1 = "深睡"
+            let titleNameList2 = "浅睡"
+            let titleNameList3 = "清醒"
+            SleepChartView.valueAll = self.weekreportViewModel.SleepRange.ValueY as [AnyObject]
+            SleepChartView.valueXList =  self.weekreportViewModel.SleepRange.ValueX as [AnyObject]
+            SleepChartView.valueTitleNames = NSArray(objects:titleNameList1,titleNameList2,titleNameList3) as [AnyObject]
+            SleepChartView.addTrendChartView(CGRectMake(15, 0, screenwidth-30, 200))
+            self.mainscrollView.addSubview(SleepChartView)
         }
-        //lineChart.xLabels = ["08:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00"]
-        lineChart!.showCoordinateAxis = true
         
         
-        lineChart!.chartData = [data01,data02]
-        lineChart!.strokeChart()
-        self.uione.addSubview(lineChart!)
+        awakeLabel.text = self.weekreportViewModel.WeekWakeHours
         
+        lightsleepLabel.text = self.weekreportViewModel.WeekLightSleepHours
         
-        lineChart!.legendStyle = PNLegendItemStyle.Serial
-        let legend = lineChart!.getLegendWithMaxWidth(self.uione.frame.width)
-        legend.frame = CGRectMake(80, 3, self.uione.frame.width, self.uione.frame.height)
-        self.uione.addSubview(legend)
+        deepsleepLabel.text = self.weekreportViewModel.WeekDeepSleepHours
         
+        sleeptimeLabel.text = self.weekreportViewModel.WeekSleepHours
+        
+        onbedtimeLabel.text = self.weekreportViewModel.OnbedBeginTime
+        
+        leavebedtimeLabel.text = self.weekreportViewModel.OnbedEndTime
+        
+        leavebedtimesLabel.text = self.weekreportViewModel.AvgLeaveBedSum
+        
+        turnovertimesLabel.text = self.weekreportViewModel.AvgTurnTimes
+        
+        leavebedmaxLabel.text = self.weekreportViewModel.MaxLeaveBedHours
+        
+        turnoverrateLabel.text = self.weekreportViewModel.TurnsRate
+        
+        suggestionContent.text = self.weekreportViewModel.SleepSuggest
+    }
+    
+    func AddHrRrTitle(){
+        hrTitleLabel = UILabel(frame: CGRectMake(0, 0, screenwidth, 35))
+        
+        hrTitleLabel.text = "心率和呼吸"
+        hrTitleLabel.font = font16
+        hrTitleLabel.textColor = rrcolor
+        hrTitleLabel.textAlignment = NSTextAlignment.Center
+        hrTitleLabel.backgroundColor = UIColor.clearColor()
+        self.mainscrollView.addSubview(hrTitleLabel)
         
     }
     
-    func Setchart3(LeaveBedRangeList:Array<ILeaveBedRange>){
-        //设置心率曲线
-        var data01Array: [CGFloat] = []
-        for(var i = 0;i < LeaveBedRangeList.count;i++){
-            data01Array.append(CGFloat((LeaveBedRangeList[i].LeaveBedCount as NSString).floatValue))
-        }
-        var data01:PNLineChartData = PNLineChartData()
-        data01.color = UIColor.redColor()
-        data01.itemCount = UInt(data01Array.count)
-        data01.dataTitle = "离床(次数)"
-        data01.getData = ({(index: UInt)  in
-            var yValue:CGFloat = data01Array[Int(index)]
-            var item = PNLineChartDataItem(y: yValue)
-            return item
-        })
+    func AddHrRrChart(){
         
-        
-        var lineChart:PNLineChart? = PNLineChart(frame: CGRectMake(0, 10, self.uithree.frame.width - 10, self.uithree.frame.height))
-        lineChart!.yLabelFormat = "%1.f"
-        lineChart!.yFixedValueMin = 0
-        lineChart!.showLabel = true
-        lineChart!.backgroundColor = UIColor.clearColor()
-        lineChart!.xLabels = []
-        for(var i = 0;i < LeaveBedRangeList.count;i++){
-            //            var xlable = self.SignReports![i].ReportHour.subString(11, length: 2)
-            //            if(xlable.hasPrefix("0")){
-            //                xlable = xlable.subString(1, length: 1)
-            //            }
-            //            xlable = xlable + "点"
-            lineChart!.xLabels.append(LeaveBedRangeList[i].Weekday)
-        }
-        //lineChart.xLabels = ["08:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00"]
-        lineChart!.showCoordinateAxis = true
-        
-        
-        lineChart!.chartData = [data01]
-        lineChart!.strokeChart()
-        self.uithree.addSubview(lineChart!)
-        
-        
-        lineChart!.legendStyle = PNLegendItemStyle.Serial
-        let legend = lineChart!.getLegendWithMaxWidth(self.uithree.frame.width)
-        legend.frame = CGRectMake(self.uithree.frame.width - 95, 3, self.uithree.frame.width, self.uithree.frame.height)
-        self.uithree.addSubview(legend)
-        
+        HrRrChartView.frame = CGRectMake(0, 35, screenwidth, 200)
         
     }
     
-    func Setchart5(SleepRangeList:Array<ISleepWeekReport>){
-        //设置浅睡曲线
-        var data01Array: [CGFloat] = []
-        for(var i = 0;i < SleepRangeList.count;i++){
-            let lightHour:Float = (SleepRangeList[i].LightSleepTimespan.split(":")[0] as NSString).floatValue + (SleepRangeList[i].LightSleepTimespan.split(":")[1] as NSString).floatValue / 60
-            data01Array.append(CGFloat(lightHour))
-        }
-        var data01:PNLineChartData = PNLineChartData()
-        data01.color = UIColor.brownColor()
-        data01.itemCount = UInt(data01Array.count)
-        data01.dataTitle = "浅睡"
-        data01.getData = ({(index: UInt)  in
-            var yValue:CGFloat = data01Array[Int(index)]
-            var item = PNLineChartDataItem(y: yValue)
-            return item
-        })
+    func AddHrFigures(){
+        hrFiguresView = UIView(frame:CGRectMake(0, 237, screenwidth, 73))
+        hrFiguresView.backgroundColor = UIColor.whiteColor()
+        hrImage = UIImageView(frame:CGRectMake(hrFigureWidth/2 - 13, 16, 26, 23))
+        hrImage.image = UIImage(named:"icon_heart.png")
+        hrFiguresView.addSubview(hrImage)
+        hrSubTitleLabel = UILabel(frame:CGRectMake(0, 46, hrFigureWidth, 20))
+        hrSubTitleLabel.font = font12
+        hrSubTitleLabel.text = "次/分"
+        hrSubTitleLabel.textAlignment = NSTextAlignment.Center
+        hrSubTitleLabel.textColor = lighrgraybackgroundcolor
+        hrFiguresView.addSubview(hrSubTitleLabel)
         
-        //设置呼吸曲线
-        var data02Array: [CGFloat] = []
-        for(var i = 0;i < SleepRangeList.count;i++){
-            let lightHour:Float = (SleepRangeList[i].DeepSleepTimespan.split(":")[0] as NSString).floatValue + (SleepRangeList[i].DeepSleepTimespan.split(":")[1] as NSString).floatValue / 60
-            data02Array.append(CGFloat(lightHour))
-        }
-        var data02:PNLineChartData = PNLineChartData()
-        data02.color = UIColor.blueColor()
-        data02.itemCount = UInt(data02Array.count)
-        data02.dataTitle = "深睡"
-        data02.getData = ({(index: UInt)  in
-            var yValue:CGFloat = data02Array[Int(index)]
-            var item = PNLineChartDataItem(y: yValue)
-            return item
-        })
+        maxhrLabel = UILabel(frame:CGRectMake(hrFigureWidth, 7, hrFigureWidth, 38))
+        maxhrLabel.font = font23
+        //  maxhrLabel.text = self.weekreportViewModel.WeekMaxHR
+        maxhrLabel.textAlignment = NSTextAlignment.Left
+        maxhrLabel.textColor = hrcolor
+        hrFiguresView.addSubview(maxhrLabel)
+        maxhrTitleLabel = WeekreportLabel(frame:CGRectMake(hrFigureWidth, 46, hrFigureWidth, 20))
+        //  maxhrTitleLabel.font = font14
+        maxhrTitleLabel.text = "周最大"
+        maxhrTitleLabel.textAlignment = NSTextAlignment.Left
+        //   maxhrTitleLabel.textColor = UIColor.lightGrayColor()
+        hrFiguresView.addSubview(maxhrTitleLabel)
         
-        //设置呼吸曲线
-        var data03Array: [CGFloat] = []
-        for(var i = 0;i < SleepRangeList.count;i++){
-            let lightHour:Float = (SleepRangeList[i].AwakeningTimespan.split(":")[0] as NSString).floatValue + (SleepRangeList[i].AwakeningTimespan.split(":")[1] as NSString).floatValue / 60
-            data03Array.append(CGFloat(lightHour))
-        }
-        var data03:PNLineChartData = PNLineChartData()
-        data03.color = UIColor.yellowColor()
-        data03.itemCount = UInt(data03Array.count)
-        data03.dataTitle = "清醒"
-        data03.getData = ({(index: UInt)  in
-            var yValue:CGFloat = data03Array[Int(index)]
-            var item = PNLineChartDataItem(y: yValue)
-            return item
-        })
+        minhrLabel = UILabel(frame:CGRectMake(hrFigureWidth*2, 7, hrFigureWidth, 38))
+        minhrLabel.font = font23
         
-        var lineChart:PNLineChart? = PNLineChart(frame: CGRectMake(0, 10, self.uione.frame.width - 10, self.uione.frame.height))
-        lineChart!.yLabelFormat = "%1.f"
-        lineChart!.yFixedValueMin = 0
-        lineChart!.showLabel = true
-        lineChart!.backgroundColor = UIColor.clearColor()
-        lineChart!.xLabels = []
-        for(var i = 0;i < SleepRangeList.count;i++){
-            //            var xlable = self.SignReports![i].ReportHour.subString(11, length: 2)
-            //            if(xlable.hasPrefix("0")){
-            //                xlable = xlable.subString(1, length: 1)
-            //            }
-            //            xlable = xlable + "点"
-            lineChart!.xLabels.append(SleepRangeList[i].Weekday)
-        }
-        //lineChart.xLabels = ["08:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00","09:00"]
-        lineChart!.showCoordinateAxis = true
+        minhrLabel.textAlignment = NSTextAlignment.Left
+        minhrLabel.textColor = hrcolor
+        hrFiguresView.addSubview(minhrLabel)
+        minhrTitleLabel = WeekreportLabel(frame:CGRectMake(hrFigureWidth*2, 46, hrFigureWidth, 20))
+        //  minhrTitleLabel.font = font14
+        minhrTitleLabel.text = "周最小"
+        minhrTitleLabel.textAlignment = NSTextAlignment.Left
+        //   minhrTitleLabel.textColor = UIColor.lightGrayColor()
+        hrFiguresView.addSubview(minhrTitleLabel)
         
+        avghrLabel = UILabel(frame:CGRectMake(hrFigureWidth*3, 7, hrFigureWidth, 38))
+        avghrLabel.font = font23
+        //   avghrLabel.text = self.weekreportViewModel.WeekAvgHR
+        avghrLabel.textAlignment = NSTextAlignment.Left
+        avghrLabel.textColor = hrcolor
+        hrFiguresView.addSubview(avghrLabel)
+        avghrTitleLabel = WeekreportLabel(frame:CGRectMake(hrFigureWidth*3, 46, hrFigureWidth, 20))
+        // avghrTitleLabel.font = font14
+        avghrTitleLabel.text = "周平均"
+        avghrTitleLabel.textAlignment = NSTextAlignment.Left
+        //   avghrTitleLabel.textColor = UIColor.lightGrayColor()
+        hrFiguresView.addSubview(avghrTitleLabel)
         
-        lineChart!.chartData = [data01,data02,data03]
-        lineChart!.strokeChart()
-        self.uifive.addSubview(lineChart!)
+        self.mainscrollView.addSubview(hrFiguresView)
+    }
+    
+    func AddRrFigures(){
+        rrFiguresView = UIView(frame:CGRectMake(0, 312, screenwidth, 73))
+        rrFiguresView.backgroundColor = UIColor.whiteColor()
+        rrImage = UIImageView(frame:CGRectMake(rrFigureWidth/2 - 13, 16, 26, 23))
+        rrImage.image = UIImage(named:"icon_breath.png")
+        rrFiguresView.addSubview(rrImage)
+        rrTitleLabel = UILabel(frame:CGRectMake(0, 46, hrFigureWidth, 20))
+        rrTitleLabel.font = font12
+        rrTitleLabel.text = "次/分"
+        rrTitleLabel.textAlignment = NSTextAlignment.Center
+        rrTitleLabel.textColor = lighrgraybackgroundcolor
+        rrFiguresView.addSubview(rrTitleLabel)
         
+        maxrrLabel = UILabel(frame:CGRectMake(rrFigureWidth, 7, rrFigureWidth, 38))
+        maxrrLabel.font = font23
+        //  maxrrLabel.text = self.weekreportViewModel.WeekMaxRR
+        maxrrLabel.textAlignment = NSTextAlignment.Left
+        maxrrLabel.textColor = rrcolor
+        rrFiguresView.addSubview(maxrrLabel)
+        maxrrTitleLabel = WeekreportLabel(frame:CGRectMake(rrFigureWidth, 46, rrFigureWidth, 20))
+        //    maxrrTitleLabel.font = font14
+        maxrrTitleLabel.text = "周最快"
+        maxrrTitleLabel.textAlignment = NSTextAlignment.Left
+        //     maxrrTitleLabel.textColor = UIColor.lightGrayColor()
+        rrFiguresView.addSubview(maxrrTitleLabel)
         
-        lineChart!.legendStyle = PNLegendItemStyle.Serial
-        let legend = lineChart!.getLegendWithMaxWidth(self.uifive.frame.width)
-        legend.frame = CGRectMake(60, 3, self.uifive.frame.width, self.uifive.frame.height)
-        self.uifive.addSubview(legend)
+        minrrLabel = UILabel(frame:CGRectMake(rrFigureWidth*2, 7, rrFigureWidth, 38))
+        minrrLabel.font = font23
+        //  minrrLabel.text = self.weekreportViewModel.WeekMinRR
+        minrrLabel.textAlignment = NSTextAlignment.Left
+        minrrLabel.textColor = rrcolor
+        rrFiguresView.addSubview(minrrLabel)
+        minrrTitleLabel = WeekreportLabel(frame:CGRectMake(rrFigureWidth*2, 46, rrFigureWidth, 20))
+        //   minrrTitleLabel.font = font14
+        minrrTitleLabel.text = "周最慢"
+        minrrTitleLabel.textAlignment = NSTextAlignment.Left
+        //   minrrTitleLabel.textColor = UIColor.lightGrayColor()
+        rrFiguresView.addSubview(minrrTitleLabel)
         
+        avgrrLabel = UILabel(frame:CGRectMake(rrFigureWidth*3, 7, rrFigureWidth, 38))
+        avgrrLabel.font = font23
+        //  avgrrLabel.text = self.weekreportViewModel.WeekAvgRR
+        avgrrLabel.textAlignment = NSTextAlignment.Left
+        avgrrLabel.textColor = rrcolor
+        rrFiguresView.addSubview(avgrrLabel)
+        avgrrTitleLabel = WeekreportLabel(frame:CGRectMake(rrFigureWidth*3, 46, rrFigureWidth, 20))
+        //   avgrrTitleLabel.font = font14
+        avgrrTitleLabel.text = "周平均"
+        avgrrTitleLabel.textAlignment = NSTextAlignment.Left
+        //      avgrrTitleLabel.textColor = UIColor.lightGrayColor()
+        rrFiguresView.addSubview(avgrrTitleLabel)
+        
+        self.mainscrollView.addSubview(rrFiguresView)
+    }
+    
+    func AddLeaveBedTitle(){
+        leavebedTitleLabel = UILabel(frame: CGRectMake(0, 385, screenwidth, 35))
+        leavebedTitleLabel.text = "离床时间"
+        leavebedTitleLabel.font = font16
+        leavebedTitleLabel.textColor = rrcolor
+        leavebedTitleLabel.textAlignment = NSTextAlignment.Center
+        leavebedTitleLabel.backgroundColor = UIColor.clearColor()
+        self.mainscrollView.addSubview(leavebedTitleLabel)
+    }
+    
+    func AddLeaveBedChart(){
+    }
+    
+    func AddLeaveBedFigures(){
+        LeaveBedFiguresView = UIView(frame:CGRectMake(0, 622, screenwidth, 73))
+        LeaveBedFiguresView.backgroundColor = UIColor.whiteColor()
+        
+        leavebedSubTitleLabel = UILabel(frame: CGRectMake(35, 23, 70, 25))
+        leavebedSubTitleLabel.text = "离床频繁"
+        leavebedSubTitleLabel.font = font14
+        leavebedSubTitleLabel.textColor = leavebedcolor
+        LeaveBedFiguresView.addSubview(leavebedSubTitleLabel)
+        leavebedValueLabel = UILabel(frame: CGRectMake(115, 23, 195, 25))
+        // leavebedValueLabel.text = self.weekreportViewModel.LeaveBedSum
+        leavebedValueLabel.font = font14
+        leavebedValueLabel.textColor = lighrgraybackgroundcolor
+        LeaveBedFiguresView.addSubview(leavebedValueLabel)
+        
+        self.mainscrollView.addSubview(LeaveBedFiguresView)
+    }
+    
+    func AddSleepTitle(){
+        var sleepTitleLabel = UILabel(frame: CGRectMake(0, 695, screenwidth, 35))
+        sleepTitleLabel.text = "睡眠时间"
+        sleepTitleLabel.font = font16
+        sleepTitleLabel.textColor = rrcolor
+        sleepTitleLabel.textAlignment = NSTextAlignment.Center
+        sleepTitleLabel.backgroundColor = UIColor.clearColor()
+        self.mainscrollView.addSubview(sleepTitleLabel)
+    }
+    
+    
+    func AddSleepChart(){
         
     }
     
-    func SplitStr(str:String) -> String{
+    
+    func AddSleepFigures(){
+        SleepFiguresView = UIView(frame:CGRectMake(0, 934, screenwidth, 148))
+        SleepFiguresView.backgroundColor = UIColor.clearColor()
         
-        let strs = str.split(".")
-        return strs[0] as String
+        awakeView = UIView(frame:CGRectMake(0, 0, sleepFigureWidth, 73))
+        awakeView.backgroundColor = UIColor.whiteColor()
+        SleepFiguresView.addSubview(awakeView)
+        lightsleepView = UIView(frame:CGRectMake(sleepFigureWidth+2, 0, sleepFigureWidth, 73))
+        lightsleepView.backgroundColor = UIColor.whiteColor()
+        SleepFiguresView.addSubview(lightsleepView)
+        deepsleepView = UIView(frame:CGRectMake(sleepFigureWidth*2+4, 0, sleepFigureWidth, 73))
+        deepsleepView.backgroundColor = UIColor.whiteColor()
+        SleepFiguresView.addSubview(deepsleepView)
+        sleeptimeView = UIView(frame:CGRectMake(0, 75, sleepFigureWidth, 73))
+        sleeptimeView.backgroundColor = UIColor.whiteColor()
+        SleepFiguresView.addSubview(sleeptimeView)
+        onbedtimeView = UIView(frame:CGRectMake(sleepFigureWidth+2, 75, sleepFigureWidth, 73))
+        onbedtimeView.backgroundColor = UIColor.whiteColor()
+        SleepFiguresView.addSubview(onbedtimeView)
+        leavebedtimeView = UIView(frame:CGRectMake(sleepFigureWidth*2+4, 75, sleepFigureWidth, 73))
+        leavebedtimeView.backgroundColor = UIColor.whiteColor()
+        SleepFiguresView.addSubview(leavebedtimeView)
+        
+        awakeLabel = UILabel(frame:CGRectMake(0, 7, sleepFigureWidth, 38))
+        awakeLabel.font = font23
+        //  awakeLabel.text = self.weekreportViewModel.WeekWakeHours
+        awakeLabel.textAlignment = NSTextAlignment.Center
+        awakeLabel.textColor = awakeColor
+        awakeView.addSubview(awakeLabel)
+        awakeTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
+        //  awakeTitleLabel.font = font14
+        awakeTitleLabel.text = "清醒"
+        awakeTitleLabel.textAlignment = NSTextAlignment.Center
+        //   awakeTitleLabel.textColor = UIColor.lightGrayColor()
+        awakeView.addSubview(awakeTitleLabel)
+        
+        lightsleepLabel = UILabel(frame:CGRectMake(0, 7, sleepFigureWidth, 38))
+        lightsleepLabel.font = font23
+        // lightsleepLabel.text = self.weekreportViewModel.WeekLightSleepHours
+        lightsleepLabel.textAlignment = NSTextAlignment.Center
+        lightsleepLabel.textColor = lightsleepColor
+        lightsleepView.addSubview(lightsleepLabel)
+        lightsleepTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
+        //    lightsleepTitleLabel.font = font14
+        lightsleepTitleLabel.text = "浅睡"
+        lightsleepTitleLabel.textAlignment = NSTextAlignment.Center
+        //     lightsleepTitleLabel.textColor = UIColor.lightGrayColor()
+        lightsleepView.addSubview(lightsleepTitleLabel)
+        
+        deepsleepLabel = UILabel(frame:CGRectMake(0, 7, sleepFigureWidth, 38))
+        deepsleepLabel.font = font23
+        // deepsleepLabel.text = self.weekreportViewModel.WeekDeepSleepHours
+        deepsleepLabel.textAlignment = NSTextAlignment.Center
+        deepsleepLabel.textColor = deepsleepColor
+        deepsleepView.addSubview(deepsleepLabel)
+        deepsleepTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
+        //    deepsleepTitleLabel.font = font14
+        deepsleepTitleLabel.text = "深睡"
+        deepsleepTitleLabel.textAlignment = NSTextAlignment.Center
+        //   deepsleepTitleLabel.textColor = UIColor.lightGrayColor()
+        deepsleepView.addSubview(deepsleepTitleLabel)
+        
+        sleeptimeLabel = UILabel(frame:CGRectMake(0, 7, sleepFigureWidth, 38))
+        sleeptimeLabel.font = font23
+        //  sleeptimeLabel.text = self.weekreportViewModel.WeekSleepHours
+        sleeptimeLabel.textAlignment = NSTextAlignment.Center
+        sleeptimeLabel.textColor = textGraycolor
+        sleeptimeView.addSubview(sleeptimeLabel)
+        sleeptimeTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
+        //   sleeptimeTitleLabel.font = font14
+        sleeptimeTitleLabel.text = "睡眠时长"
+        sleeptimeTitleLabel.textAlignment = NSTextAlignment.Center
+        //   sleeptimeTitleLabel.textColor = UIColor.lightGrayColor()
+        sleeptimeView.addSubview(sleeptimeTitleLabel)
+        
+        onbedtimeLabel = UILabel(frame:CGRectMake(0, 7, sleepFigureWidth, 38))
+        onbedtimeLabel.font = font23
+        // onbedtimeLabel.text = self.weekreportViewModel.OnbedBeginTime
+        onbedtimeLabel.textAlignment = NSTextAlignment.Center
+        onbedtimeLabel.textColor = textGraycolor
+        onbedtimeView.addSubview(onbedtimeLabel)
+        onbedtimeTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
+        //   onbedtimeTitleLabel.font = font14
+        onbedtimeTitleLabel.text = "在床时间"
+        onbedtimeTitleLabel.textAlignment = NSTextAlignment.Center
+        //    onbedtimeTitleLabel.textColor = UIColor.lightGrayColor()
+        onbedtimeView.addSubview(onbedtimeTitleLabel)
+        
+        leavebedtimeLabel = UILabel(frame:CGRectMake(0, 7, sleepFigureWidth, 38))
+        leavebedtimeLabel.font = font23
+        //  leavebedtimeLabel.text = self.weekreportViewModel.OnbedEndTime
+        leavebedtimeLabel.textAlignment = NSTextAlignment.Center
+        leavebedtimeLabel.textColor = textGraycolor
+        leavebedtimeView.addSubview(leavebedtimeLabel)
+        leavebedtimeTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, sleepFigureWidth, 20))
+        //    leavebedtimeTitleLabel.font = font14
+        leavebedtimeTitleLabel.text = "离床时间"
+        leavebedtimeTitleLabel.textAlignment = NSTextAlignment.Center
+        //       leavebedtimeTitleLabel.textColor = UIColor.lightGrayColor()
+        leavebedtimeView.addSubview(leavebedtimeTitleLabel)
+        
+        self.mainscrollView.addSubview(SleepFiguresView)
+        
     }
     
-   
-   
+    func AddSuggestionTitle(){
+        suggestionTitleLabel = UILabel(frame: CGRectMake(0, 1082, screenwidth, 35))
+        suggestionTitleLabel.text = "睡眠建议"
+        suggestionTitleLabel.font = font16
+        suggestionTitleLabel.textColor = rrcolor
+        suggestionTitleLabel.textAlignment = NSTextAlignment.Center
+        suggestionTitleLabel.backgroundColor = UIColor.clearColor()
+        self.mainscrollView.addSubview(suggestionTitleLabel)
+    }
+    
+    func AddSuggestionFigures(){
+        SuggestionFiguresView = UIView(frame:CGRectMake(0, 1117, screenwidth, 148))
+        SuggestionFiguresView.backgroundColor = UIColor.clearColor()
+        
+        leavebedtimesView = UIView(frame:CGRectMake(0, 0, suggestionFigureWidth, 73))
+        leavebedtimesView.backgroundColor = UIColor.whiteColor()
+        SuggestionFiguresView.addSubview(leavebedtimesView)
+        turnovertimesView = UIView(frame:CGRectMake(suggestionFigureWidth+2, 0, suggestionFigureWidth, 73))
+        turnovertimesView.backgroundColor = UIColor.whiteColor()
+        SuggestionFiguresView.addSubview(turnovertimesView)
+        leavebedmaxView = UIView(frame:CGRectMake(0, 75, suggestionFigureWidth, 73))
+        leavebedmaxView.backgroundColor = UIColor.whiteColor()
+        SuggestionFiguresView.addSubview(leavebedmaxView)
+        turnoverrateView = UIView(frame:CGRectMake(suggestionFigureWidth+2, 75, suggestionFigureWidth, 73))
+        turnoverrateView.backgroundColor = UIColor.whiteColor()
+        SuggestionFiguresView.addSubview(turnoverrateView)
+        
+        
+        leavebedtimesLabel = UILabel(frame:CGRectMake(0, 7, suggestionFigureWidth, 38))
+        leavebedtimesLabel.font = font23
+        // leavebedtimesLabel.text = self.weekreportViewModel.AvgLeaveBedSum
+        leavebedtimesLabel.textAlignment = NSTextAlignment.Center
+        leavebedtimesLabel.textColor = textGraycolor
+        leavebedtimesView.addSubview(leavebedtimesLabel)
+        leavebedtimesTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, suggestionFigureWidth, 20))
+        //   leavebedtimesTitleLabel.font = font14
+        leavebedtimesTitleLabel.text = "离床次数"
+        leavebedtimesTitleLabel.textAlignment = NSTextAlignment.Center
+        //   leavebedtimesTitleLabel.textColor = UIColor.lightGrayColor()
+        leavebedtimesView.addSubview(leavebedtimesTitleLabel)
+        
+        turnovertimesLabel = UILabel(frame:CGRectMake(0, 7, suggestionFigureWidth, 38))
+        turnovertimesLabel.font = font23
+        //  turnovertimesLabel.text = self.weekreportViewModel.AvgTurnTimes
+        turnovertimesLabel.textAlignment = NSTextAlignment.Center
+        turnovertimesLabel.textColor = textGraycolor
+        turnovertimesView.addSubview(turnovertimesLabel)
+        turnovertimesTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, suggestionFigureWidth, 20))
+        //    turnovertimesTitleLabel.font = font14
+        turnovertimesTitleLabel.text = "翻身次数"
+        turnovertimesTitleLabel.textAlignment = NSTextAlignment.Center
+        //    turnovertimesTitleLabel.textColor = UIColor.lightGrayColor()
+        turnovertimesView.addSubview(turnovertimesTitleLabel)
+        
+        leavebedmaxLabel = UILabel(frame:CGRectMake(0, 7, suggestionFigureWidth, 38))
+        leavebedmaxLabel.font = font23
+        //  leavebedmaxLabel.text = self.weekreportViewModel.MaxLeaveBedHours
+        leavebedmaxLabel.textAlignment = NSTextAlignment.Center
+        leavebedmaxLabel.textColor = textGraycolor
+        leavebedmaxView.addSubview(leavebedmaxLabel)
+        leavebedmaxTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, suggestionFigureWidth, 20))
+        //     leavebedmaxTitleLabel.font = font14
+        leavebedmaxTitleLabel.text = "最高离床时间"
+        leavebedmaxTitleLabel.textAlignment = NSTextAlignment.Center
+        //    leavebedmaxTitleLabel.textColor = UIColor.lightGrayColor()
+        leavebedmaxView.addSubview(leavebedmaxTitleLabel)
+        
+        turnoverrateLabel = UILabel(frame:CGRectMake(0, 7, suggestionFigureWidth, 38))
+        turnoverrateLabel.font = font23
+        //  turnoverrateLabel.text = self.weekreportViewModel.TurnsRate
+        turnoverrateLabel.textAlignment = NSTextAlignment.Center
+        turnoverrateLabel.textColor = textGraycolor
+        turnoverrateView.addSubview(turnoverrateLabel)
+        turnoverrateTitleLabel = WeekreportLabel(frame:CGRectMake(0, 46, suggestionFigureWidth, 20))
+        //     turnoverrateTitleLabel.font = font14
+        turnoverrateTitleLabel.text = "翻身频率"
+        turnoverrateTitleLabel.textAlignment = NSTextAlignment.Center
+        //      turnoverrateTitleLabel.textColor = UIColor.lightGrayColor()
+        turnoverrateView.addSubview(turnoverrateTitleLabel)
+        
+        
+        self.mainscrollView.addSubview(SuggestionFiguresView)
+    }
+    
+    func AddSuggestionContent(){
+        SuggestionContentView = UIView(frame:CGRectMake(0, 1267, screenwidth, 103))
+        SuggestionContentView.backgroundColor = UIColor.whiteColor()
+        suggestionContent = UITextView(frame:CGRectMake(30, 10, screenwidth-50, 90))
+        //  suggestionContent.text = self.weekreportViewModel.SleepSuggest
+        suggestionContent.editable = false
+        suggestionContent.font = font14
+        suggestionContent.textColor = UIColor.lightGrayColor()
+        SuggestionContentView.addSubview(suggestionContent)
+        self.mainscrollView.addSubview(SuggestionContentView)
+        
+    }
+    
+    
+    func SelectDate(sender: UIView, dateString: String) {
+        self.weekreportViewModel.SelectDate = dateString
+        
+        self.weekreportViewModel.LoadData()
+        
+        self.Refresh()
+    }
+    
+    
 }
 

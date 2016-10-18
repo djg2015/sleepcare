@@ -10,8 +10,9 @@ import Foundation
 
 func ShowMessage(MessageTitle:MessageEnum)->String {
     
-var messageDescription = GetValueFromReadOnlyPlist(String(MessageTitle.rawValue),"Message")
-return messageDescription
+    
+    var messageDescription = PLISTHELPER.MessageList[MessageTitle.rawValue - 1]
+    return messageDescription
 }
 
 

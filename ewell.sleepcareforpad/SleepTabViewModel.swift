@@ -244,9 +244,9 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
     func LoadPatientSleep()->String {
         var flag = "2"
         try {({
-            if SessionForSingle.GetSession() != nil{
-                self.BedUserCode = SessionForSingle.GetSession()!.CurPatientCode
-                self.BedUserName = SessionForSingle.GetSession()!.CurPatientName
+            if SessionForIphone.GetSession() != nil{
+                self.BedUserCode = SessionForIphone.GetSession()!.CurPatientCode!
+                self.BedUserName = SessionForIphone.GetSession()!.CurPatientName!
                 
                 if self.BedUserCode != ""{
                     //需要捕获异常
@@ -257,12 +257,8 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
                     RealTimeHelper.GetRealTimeInstance().setRealTimer()
                     flag = "1"
                 }
-                    //当前有老人设备但没有选择：隐藏除topview之外的subviews，提示先选择一个老人
-                else if (SessionForSingle.GetSession()?.EquipmentList.count > 0){
-                    self.ClearSleepData()
-                    flag = "2"
-                }
-                    //当前没有设备：隐藏页面内所有的subviews,提示添加noticeview提示先添加设备
+                    
+                                  //当前没有设备：隐藏页面内所有的subviews,提示添加noticeview提示先添加设备
                 else{
                     self.ClearSleepData()
                     flag = "3"
@@ -285,7 +281,7 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
     
     func GetSleepReport(){
         //获取某床位用户睡眠报告
-        var tempSleepRange:SleepQualityReport = SleepCareForSingle().GetSleepQualityofBedUser(self.BedUserCode,reportDate:self.SelectDate)
+        var tempSleepRange:SleepQualityReport = SleepCareForIPhoneBussiness().GetSleepQualityofBedUser(self.BedUserCode,reportDate:self.SelectDate)
         
        
         //圆圈内值
@@ -376,7 +372,7 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
     func GetRealtimeData(realtimeData:Dictionary<String,RealTimeReport>){
         if realtimeFlag{
             for realTimeReport in realtimeData.values{
-                if self.BedUserCode == realTimeReport.BedUserCode{
+                if self.BedUserCode == realTimeReport.UserCode{
                     self.OnBedStatus = realTimeReport.OnBedStatus
                     return
                 }

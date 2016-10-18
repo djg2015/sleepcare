@@ -76,7 +76,7 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
         
         self.RefreshSleepView()
         
-        currentController = self
+      
         
     }
     
@@ -102,15 +102,15 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
             self.popDownListForIphone = PopDownListForIphone()
             self.popDownListForIphone?.delegate = self
             
-            var tempPatientList:Array<EquipmentInfo> = SessionForSingle.GetSession()!.EquipmentList
+         
             self.patientDownlist = Array<PopDownListItem>()
-            for(var i=0;i<tempPatientList.count;i++){
-                var item:PopDownListItem = PopDownListItem()
-                item.key = tempPatientList[i].BedUserCode
-                item.value = tempPatientList[i].BedUserName
-                item.equipmentcode = tempPatientList[i].EquipmentID
-                patientDownlist.append(item)
-            }
+//            for(var i=0;i<tempPatientList.count;i++){
+//                var item:PopDownListItem = PopDownListItem()
+//                item.key = tempPatientList[i].BedUserCode
+//                item.value = tempPatientList[i].BedUserName
+//                item.equipmentcode = tempPatientList[i].EquipmentID
+//                patientDownlist.append(item)
+//            }
             
         }
         
@@ -219,8 +219,8 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
     func ChoosedItem(item:PopDownListItem){
         if self.sleepTabViewModel.BedUserCode != item.key!{
             
-            SessionForSingle.GetSession()?.CurPatientCode = item.key!
-            SessionForSingle.GetSession()?.CurPatientName = item.value!
+            SessionForIphone.GetSession()?.CurPatientCode = item.key!
+            SessionForIphone.GetSession()?.CurPatientName = item.value!
             
             self.sleepTabViewModel.BedUserCode = item.key!
             self.sleepTabViewModel.BedUserName = item.value!

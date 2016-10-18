@@ -9,11 +9,11 @@
 import UIKit
 
 class BaseViewModel: NSObject {
-    var controller:BaseViewController?
+    var controller:IBaseViewController?
   //  var controllerForIphone:IBaseViewController?
 
     //跳转界面
-    func JumpPage(jumpedViewController:BaseViewController){
+    func JumpPage(jumpedViewController:IBaseViewController){
         if(controller != nil){
             self.controller!.presentViewController(jumpedViewController, animated: false, completion: nil)
         }

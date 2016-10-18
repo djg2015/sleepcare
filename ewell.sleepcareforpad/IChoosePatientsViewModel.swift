@@ -77,9 +77,9 @@ class IChoosePatientsViewModel: BaseViewModel {
                     showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
                 }
                 else{
-                var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
+               
                 var session = SessionForIphone.GetSession()
-                var mainInfo:IMainInfo = sleepCareForIPhoneBussinessManager.GetPartInfoWithoutFollowBedUser(session!.User!.LoginName,mainCode:session!.User!.MainCode)
+                var mainInfo:IMainInfo = SleepCareForIPhoneBussiness().GetPartInfoWithoutFollowBedUser(session!.User!.LoginName,mainCode:session!.User!.MainCode)
              
                 self.PartArray = Array<PartTableViewModel>()
                 self.PartBedUserDic = Dictionary<String,Array<BedPatientViewModel>>()
@@ -155,7 +155,7 @@ class IChoosePatientsViewModel: BaseViewModel {
                 if flag{
                     self.myPatientsViewModel.AddPatients(choosedPatients)
                 }
-                IViewControllerManager.GetInstance()!.CloseViewController()
+              //  IViewControllerManager.GetInstance()!.CloseViewController()
                 
                 
                 

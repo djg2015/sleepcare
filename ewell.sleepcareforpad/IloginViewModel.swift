@@ -8,18 +8,18 @@
 
 
 import Foundation
-class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
+class IloginViewModel: BaseViewModel {
     //------------属性定义------------
-    var _loginName:String = ""
+    var _loginname:String = ""
     //登录用户名
-    dynamic var LoginName:String{
+    dynamic var Loginname:String{
         get
         {
-            return self._loginName
+            return self._loginname
         }
         set(value)
         {
-            self._loginName=value
+            self._loginname=value
         }
     }
     
@@ -36,12 +36,28 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         }
     }
     
+    var _isRememberpwd:Bool=true
+    //记住密码:首次注册后登录默认true，本地有记录登录名密码时为true，其他情况为false
+    dynamic var IsRememberpwd:Bool{
+        get
+        {
+            return self._isRememberpwd
+        }
+        set(value)
+        {
+            self._isRememberpwd=value
+        }
+    }
+    
     
     //界面处理命令
     var loginCommand: RACCommand?
-    var iBedUserList:IBedUserList?
-    var alarmHelper:IAlarmHelper?
+    var rememberCommand: RACCommand?
+    //  var alarmHelper:IAlarmHelper?
     var session:SessionForIphone?
+    
+    var parentcontroller:IBaseViewController?
+    var loginbuttonDelegate:LoginButtonDelegate!
     
     //构造函数
     override init(){
@@ -53,52 +69,147 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
             (any:AnyObject!) -> RACSignal in
             return self.Login()
         }
-        //显示alarm详细信息的代理
-        self.alarmHelper = IAlarmHelper.GetAlarmInstance()
-        self.alarmHelper!.alarmdelegate = self
         
-        self.AutoLogin()
+        rememberCommand = RACCommand(){
+            (any:AnyObject!) -> RACSignal in
+            return self.RememberPwd()
+        }
+        
+        //显示alarm详细信息的代理
+        //    self.alarmHelper = IAlarmHelper.GetAlarmInstance()
+        
+      
+        
     }
     
-    
-    
-    //自动登录
-    func AutoLogin(){
-        //加载记住密码的相关配置数据
-        var temploginname = GetValueFromPlist("loginusernamephone","sleepcare.plist")
-        var temppwd = GetValueFromPlist("loginuserpwdphone","sleepcare.plist")
-        //密码和用户名都不为空，则执行登录操作
+    //读取本地文件中的登录名密码，非空则自动登录
+    func LoadData(){
+        let temploginname = PLISTHELPER.LoginUsername
+        let temppwd = PLISTHELPER.LoginUserpwd
+     
+        
         if (temploginname != "" && temppwd != ""){
-            self.LoginName = temploginname
+            self.Loginname = temploginname
             self.Pwd = temppwd
+            
+            //自动登录
             self.Login()
         }
+        
     }
     
     
     
-    //检查输入是否含空格,有空格返回true
-    func IsBlankExist(input:String)->Bool{
-        for char in input{
-            if char == " " || char == " "{
-                return true
-            }
-        }
-        return false
+    
+    //点击记住密码框，选中或取消选中
+    func RememberPwd()-> RACSignal{
+        
+        self.IsRememberpwd = !self.IsRememberpwd
+        
+        return RACSignal.empty()
     }
+    
+    
+    
     
     /**
     登录操作
     */
-    func Login() -> RACSignal{
+    func Login()-> RACSignal{
         try {
             ({
-                let openfireHelper = OpenFireServerInfoHelper(_backActionHandler:self.LoginAction)
-                openfireHelper.CheckServerInfo()
+                //点击登录按钮后，取消用户点击操作
+                if self.loginbuttonDelegate != nil{
+                    self.loginbuttonDelegate.DisableLoginButton()
+                }
+                
+                
+               // self.LoginAction()
+                //检查输入是否合法
+                if(self.Loginname == ""){
+                    showDialogMsg(ShowMessage(MessageEnum.LoginnameNil))
+                    //重新允许用户点击操作
+                    if self.loginbuttonDelegate != nil{
+                        self.loginbuttonDelegate.EnableLoginButton()
+                    }
+                    return
+                }
+                if(self.Pwd == ""){
+                    showDialogMsg(ShowMessage(MessageEnum.PwdNil))
+                    //重新允许用户点击操作
+                    if self.loginbuttonDelegate != nil{
+                        self.loginbuttonDelegate.EnableLoginButton()
+                    }
+                    return
+                }
+                //给openfire username赋值，＝loginname@server address
+                let xmppusernamephone = self.Loginname + "@" + PLISTHELPER.XmppServer
+                PLISTHELPER.XmppUsernamePhone = xmppusernamephone
+                
+                
+                //获取当前帐户下的用户信息
+                var loginUser:ILoginUser = SleepCareForIPhoneBussiness().Login(self.Loginname, loginPassword: self.Pwd)
+                
+                //开启session
+                SessionForIphone.SetSession(loginUser)
+                self.session = SessionForIphone.GetSession()
+                
+                if self.session != nil{
+                    self.session!.OldPwd = self.Pwd
+                }
+                
+
+                
+                
+//                //关注的病人列表
+//                var tempBedUserCodeList:Array<String> = Array<String>()
+//                for equipment in tempEquipmentList.equipmentList{
+//                    tempBedUserCodeList.append(equipment.BedUserCode)
+//                }
+//                self.session!.BedUserCodeList = tempBedUserCodeList
+//                
+//                
+                
+                //开启报警，获取未处理的报警信息
+                IAlarmHelper.GetAlarmInstance().BeginWaringAttention()
+                
+                //开启远程通知（有token值的情况下）
+                LOGINFLAG = true
+                OpenNotice()
+                
+                //若选中记住密码，则在本地纪录登录名，密码;否则清空
+                if self.IsRememberpwd{
+                    PLISTHELPER.LoginUsername = self.Loginname
+                    PLISTHELPER.LoginUserpwd = self.Pwd
+                    
+                }
+                else{
+                    
+                    PLISTHELPER.LoginUsername = ""
+                    PLISTHELPER.LoginUserpwd  = ""
+                    self.Loginname = ""
+                    self.Pwd = ""
+                }
+                
+                //跳转主页面
+                if self.controller != nil{
+                    self.controller!.performSegueWithIdentifier("patientlist",sender:self.controller!)
+                }
+                
+                //登录业务完成后，重新允许用户点击登录按钮操作
+                if self.loginbuttonDelegate != nil{
+                    self.loginbuttonDelegate.EnableLoginButton()
+                }
+                
+                
+                
                 },
                 catch: { ex in
                     //异常处理
                     handleException(ex,showDialog: true)
+                    if self.loginbuttonDelegate != nil{
+                        self.loginbuttonDelegate.EnableLoginButton()
+                    }
                 },
                 finally: {
                     
@@ -108,117 +219,11 @@ class IloginViewModel: BaseViewModel,ShowAlarmDelegate {
         return RACSignal.empty()
     }
     
-    //登录业务处理
-    func LoginAction(){
-        try {
-            ({
-                //检查输入是否合法
-                if(self.LoginName == ""){
-                    showDialogMsg(ShowMessage(MessageEnum.LoginnameNil))
-                    return
-                }
-                if self.IsBlankExist(self.LoginName){
-                    showDialogMsg(ShowMessage(MessageEnum.LoginNameExistBlank))
-                    return
-                }
-                
-                if(self.Pwd == ""){
-                    showDialogMsg(ShowMessage(MessageEnum.PwdNil))
-                    return
-                }
-                if self.IsBlankExist(self.Pwd){
-                    showDialogMsg(ShowMessage(MessageEnum.PwdExistBlank))
-                    return
-                }
-                
-                
-                //给openfire username赋值，＝loginname@server address
-                let xmppusernamephone = self.LoginName + "@" + GetValueFromPlist("xmppserver","sleepcare.plist")
-                SetValueIntoPlist("xmppusernamephone", xmppusernamephone)
-                
-                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isLogin = xmppMsgManager!.Connect()
-                if(!isLogin){
-                    SetValueIntoPlist(USERIDPHONE, "")
-                    showDialogMsg(ShowMessage(MessageEnum.AccountDontExist))
-                }
-                else{
-                    //获取当前帐户下的用户信息
-                    
-                    
-                    var sleepCareForIPhoneBussinessManager = BusinessFactory<SleepCareForIPhoneBussinessManager>.GetBusinessInstance("SleepCareForIPhoneBussinessManager")
-                    var loginUser:ILoginUser = sleepCareForIPhoneBussinessManager.Login(self.LoginName, loginPassword: self.Pwd)
-                    
-                    
-                    //开启session，纪录登录名，密码
-                    SessionForIphone.SetSession(loginUser)
-                    self.session = SessionForIphone.GetSession()
-                    SetValueIntoPlist("loginusernamephone", self.LoginName)
-                    SetValueIntoPlist("loginuserpwdphone", self.Pwd)
-                    if self.session != nil{
-                        self.session!.OldPwd = self.Pwd
-                    }
-                    
-                    
-                    
-                    //跳转选择用户类型
-                    if(loginUser.UserType == LoginUserType.UnKnow){
-                        let nextcontroller = ISetUserTypeController(nibName:"ISetUserType", bundle:nil)
-                        IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "ISetUserType", reload: true)
-                    }
-                    else{
-                        //获取当前关注的老人
-                        if self.session != nil{
-                            self.session!.BedUserCodeList = Array<String>()
-                        }
-                        self.iBedUserList = sleepCareForIPhoneBussinessManager.GetBedUsersByLoginName(loginUser.LoginName, mainCode: loginUser.MainCode)
-                        
-                        //如果是监护人，开启报警监测
-                        var _usertype = self.session!.User!.UserType
-                        if _usertype == LoginUserType.Monitor{
-                            self.alarmHelper!.BeginWaringAttention()
-                            LOGINFLAG = true
-                            //开启通知
-                            OpenNotice()
-                        }
-                        
-                        if(self.iBedUserList!.bedUserInfoList.count > 0){
-                            //当前为使用者类型，直接跳转主页面
-                            if(loginUser.UserType == LoginUserType.UserSelf){
-                                self.session!.BedUserCodeList.append(self.iBedUserList!.bedUserInfoList[0].BedUserCode)
-                                
-                                let nextcontroller = IMainFrameViewController(nibName:"IMainFrame", bundle:nil,bedUserCode:self.iBedUserList!.bedUserInfoList[0].BedUserCode,equipmentID:self.iBedUserList!.bedUserInfoList[0].EquipmentID,bedUserName:self.iBedUserList!.bedUserInfoList[0].BedUserName)
-                                IViewControllerManager.GetInstance()!.ShowViewController(nextcontroller, nibName: "IMainFrame", reload: true)
-                            }
-                            else{
-                                //当前为监护人类型，则跳转我的老人页面，选择一个老人进行关注
-                                let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
-                                controller.isGoLogin = true
-                                IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
-                            }
-                        }
-                        else{
-                            //当前没有关注过老人，则跳转选择我的老人，提示添加老人
-                            let controller = IMyPatientsController(nibName:"IMyPatients", bundle:nil)
-                            controller.isGoLogin = true
-                            IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IMyPatients", reload: true)
-                        }
-                    }
-                }
-                },
-                catch: { ex in
-                    //异常处理
-                    handleException(ex,showDialog: true)
-                },
-                finally: {
-                    
-                }
-            )}
-    }
-    
-    //跳转报警信息页面
-    func ShowAlarm() {
-        let controller = IAlarmViewController(nibName:"IAlarmView", bundle:nil)
-        IViewControllerManager.GetInstance()!.ShowViewController(controller, nibName: "IAlarmView", reload: true)
-    }
 }
+
+//防止重复点击登陆按钮
+protocol LoginButtonDelegate{
+    func DisableLoginButton()
+    func EnableLoginButton()
+}
+

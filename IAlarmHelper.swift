@@ -13,17 +13,11 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     private static var alarmInstance: IAlarmHelper? = nil
     private var IsOpen:Bool = false
     private var _wariningCaches:Array<AlarmInfo>!
-    var alarmpicdelegate:SetAlarmPicDelegate!
-    var tabbarBadgeDelegate:SetTabbarBadgeDelegate!
+
     var AlarmAlert = SweetAlert(contentHeight: 300)
-    //报警弹窗是否打开
-    var IsAlarmAlertOpened:Bool {
-        get {
-           return self.AlarmAlert.IsOpenFlag
-        }
-    }
+    var equipmentid = ""
     
-   //-------------------类字段--------------------------
+    //-------------------类字段--------------------------
     //未读的未处理报警总数
     var _warningcouts:Int = 0
     dynamic var Warningcouts:Int{
@@ -121,8 +115,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             ({
                 var session = SessionForIphone.GetSession()
                 var curDateString = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
-                var sleepCareBussinessManager = BusinessFactory<SleepCareBussinessManager>.GetBusinessInstance("SleepCareBussinessManager")
-                var alarmList:AlarmList = sleepCareBussinessManager.GetAlarmByLoginUser(session!.User!.MainCode,loginName:session!.User!.LoginName,schemaCode:"",alarmTimeBegin:"2016-01-01",alarmTimeEnd:curDateString,transferTypeCode:"001",from:nil,max:nil)
+              
+                var alarmList:AlarmList = SleepCareForIPhoneBussiness().GetAlarmByLoginUser(session!.User!.MainCode,loginName:session!.User!.LoginName,schemaCode:"",alarmTimeBegin:"2016-01-01",alarmTimeEnd:curDateString,transferTypeCode:"001",from:nil,max:nil)
                 
                 var alarmInfo:AlarmInfo
                 var tempWarningList:Array<WarningInfo>=[]
@@ -130,7 +124,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                 for(var i=0;i<alarmList.alarmInfoList.count;i++){
                     
                     alarmInfo = alarmList.alarmInfoList[i]
-                    let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,partName: alarmInfo.PartName,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmDate: alarmInfo.AlarmTime)
+                    let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,userCode: alarmInfo.UserCode,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmTime: alarmInfo.AlarmTime,equipmentID:self.equipmentid,sex:alarmInfo.UserSex,alarmType:alarmInfo.SchemaCode)
+                    
                     tempWarningList.append(warningInfo)
                     tempCodes.append(alarmInfo.AlarmCode)
                 }
@@ -148,13 +143,10 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             )}
         
         
-        if self.alarmpicdelegate != nil{
-            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
-        }
-        if self.tabbarBadgeDelegate != nil{
-            print(self.Warningcouts)
-            self.tabbarBadgeDelegate.SetTabbarBadge(self.Warningcouts)
-        }
+//        if self.alarmpicdelegate != nil{
+//            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
+//        }
+       
         //外部图标上的badge number
         TodoList.sharedInstance.SetBadgeNumber(self.Warningcouts)
     }
@@ -172,7 +164,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     //从后台进入前台，获取报警信息数，刷新页面数字
     func GetAlarmCount()->Int{
-     
+        
         return self.Warningcouts
     }
     
@@ -205,7 +197,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             let alarmInfo:AlarmInfo = self._wariningCaches[0] as AlarmInfo
             //deadline为报警信息收到后,立刻
             let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.SchemaContent, UUID: alarmInfo.AlarmCode)
-            let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,partName: alarmInfo.PartName,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmDate: alarmInfo.AlarmTime)
+           let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,userCode: alarmInfo.UserCode,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmTime: alarmInfo.AlarmTime,equipmentID:equipmentid,sex:alarmInfo.UserSex,alarmType:alarmInfo.SchemaCode)
+            
             self.WarningList.append(warningInfo)
             
             //同意接收通知，才往todolist里加
@@ -215,13 +208,11 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         }
         self.Warningcouts = self.WarningList.count
         
-        if self.alarmpicdelegate != nil{
-            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
-        }
+//        if self.alarmpicdelegate != nil{
+//            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
+//        }
         
-        if self.tabbarBadgeDelegate != nil{
-            self.tabbarBadgeDelegate.SetTabbarBadge(self.Warningcouts)
-        }
+       
     }
     
     
@@ -265,17 +256,17 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     //点击远程消息通知后的操作：若已登录且当前不是报警页面，则直接跳转报警信息页面
     func showWariningAction(){
         if currentController != nil{
-        let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
-        nextController.parentController = currentController
-        currentController.presentViewController(nextController, animated: true, completion: nil)
+            let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
+            nextController.parentController = currentController
+            currentController.presentViewController(nextController, animated: true, completion: nil)
         }
     }
     
     //当前不是弹窗页面且没有打开的弹窗，则弹窗提示是否查看报警
     func showWariningNotification(){
-        if((!AlarmViewTag && !self.AlarmAlert.IsOpenFlag) && LOGINFLAG){
+        if(LOGINFLAG){
             
-            self.AlarmAlert.showAlert(ShowMessage(MessageEnum.CheckAlarmInfo), subTitle:"提示", style: AlertStyle.None,buttonTitle:"忽略",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"立即查看", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ShowAlarmInfo)
+            self.AlarmAlert.showAlert("新报警", subTitle:"提示", style: AlertStyle.None,buttonTitle:"忽略",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"立即查看", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ShowAlarmInfo)
         }
     }
     //弹窗按钮的具体操作
@@ -378,62 +369,37 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
 }
 
 //------------------------------协议：设置页面上报警数字和图标---------------------------
-//设置”我的“页面报警信息图标
-protocol SetAlarmPicDelegate{
-    func SetAlarmPic(count:Int)
-}
+////设置”我的“页面报警信息图标
+//protocol SetAlarmPicDelegate{
+//    func SetAlarmPic(count:Int)
+//}
 
 
-//设置“我”上的报警数目
-protocol SetTabbarBadgeDelegate{
-    func SetTabbarBadge(count:Int)
-}
 
 
 //----------------------------------报警信息类--------------------------------------
 class WarningInfo{
     var AlarmCode:String = ""
+    var AlarmType:String = ""
     var UserName:String = ""
-    var PartName:String = ""
+    var UserCode:String = ""
+    var Sex:String=""
     var BedNumber:String = ""
     var AlarmContent:String = ""
-    var AlarmDate:String = ""
+    var AlarmTime:String = ""
+    var EquipmentID:String = ""
     var IsRead:Bool = false
-    init(alarmCode:String, userName:String, partName:String,bedNumber:String, alarmContent:String,alarmDate:String){
+    init(alarmCode:String, userName:String,userCode:String,bedNumber:String, alarmContent:String,alarmTime:String,equipmentID:String,sex:String,alarmType:String){
         self.AlarmCode = alarmCode
         self.AlarmContent = alarmContent
         self.UserName = userName
+        self.UserCode = userCode
+        self.Sex = sex
         self.BedNumber = bedNumber
-        self.PartName = partName
-        self.AlarmDate = alarmDate
-
+        self.AlarmTime = alarmTime
+        self.EquipmentID = equipmentID
+        self.AlarmType = alarmType
+        
     }
 }
-
-//    //断网后，重新登录
-//    func ReConnect(){
-//        //弹窗提示是否重连网络
-//         SweetAlert(contentHeight: 300).showAlert(ShowMessage(MessageEnum.ConnectFail), subTitle:"提示", style: AlertStyle.None,buttonTitle:"退出登录",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"重新连接", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ConnectAfterFail)
-//    }
-
-//    func ConnectAfterFail(isOtherButton: Bool){
-//        if isOtherButton{
-//            if SessionForIphone.GetSession()!.User!.UserType == LoginUserType.Monitor{
-//            IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
-//            }
-//            SessionForIphone.ClearSession()
-//            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-//            xmppMsgManager?.Close()
-//
-//            let logincontroller = ILoginController(nibName:"ILogin", bundle:nil)
-//            IViewControllerManager.GetInstance()!.ShowViewController(logincontroller, nibName: "ILogin", reload: true)
-//        }
-//        else{
-//            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-//            let isLogin = xmppMsgManager!.Connect()
-//            if(!isLogin){
-//                self.ReConnect()
-//            }
-//        }
-//    }
 

@@ -78,8 +78,8 @@ class IMyPatientsController: UITableViewController  {
         let session = SessionForIphone.GetSession()
         session!.CurPatientCode = cell.source.BedUserCode!
         session!.CurPatientName = cell.source.BedUserName!
-        SetValueIntoPlist("curPatientCode", cell.source.BedUserCode!)
-        SetValueIntoPlist("curPatientName", cell.source.BedUserName!)
+       PLISTHELPER.CurPatientCode = cell.source.BedUserCode!
+        PLISTHELPER.CurPatientCode = cell.source.BedUserName!
     }
     
     //显示删除样式

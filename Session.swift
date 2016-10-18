@@ -13,11 +13,11 @@ class Session {
     
     }
     
-    private var _user:User?
-    var LoginUser:User?{
+    private var _loginUser:ILoginUser?
+    var LoginUser:ILoginUser?{
         get
         {
-            return self._user
+            return self._loginUser
         }
     }
 
@@ -32,26 +32,16 @@ class Session {
         }
     }
     
-    //当前选中的场景code
-    private var _PartCodes:Array<Role> = Array<Role>()
-    var PartCodes:Array<Role>{
-        get{
-            return self._PartCodes
-        }
-        set(value){
-            self._PartCodes=value
-        }
-    }
 
     
     private static var instance:Session? = nil
     
     //设置登录用户信息
-    class func SetSession(user:User){
+    class func SetSession(user:ILoginUser){
         if(self.instance == nil){
         self.instance = Session()
         }
-        self.instance!._user = user
+        self.instance!._loginUser = user
     }
     
     class func ClearSession(){

@@ -9,25 +9,15 @@
 import Foundation
 
 let tag_realtimedata:String="<RealTimeReport"
-let tag_userinfo:String="<User"
-let tag_roleList:String="<EPRoleList"
-let tag_partInfo:String="<PartInfo"
-let tag_bedUser:String="<BedUser"
-let tag_sleepCareReportList:String="<EPSleepCareReportList"
-let tag_sleepCareReport:String="<SleepCareReport"
-let tag_turnOverAnalysList:String="<EPTurnOverAnalysList"
 let tag_alarmList:String="<EPAlarmInfoList"
-let tag_bedReportList:String="<EPBedReportList"
 let tag_EMServiceException:String="<EMServiceException"
 let tag_Result:String="<Result"
 let tag_IP_loginUser:String="<LoginUser"
 let tag_IP_serverResult:String="<ServerResult"
-let tag_IP_mainInfo:String="<MainInfo"
 let tag_IP_bedUserList:String="<EPBedUserList"
 let tag_IP_hrRange:String="<EPHRRange"
 let tag_IP_rrRange:String="<EPRRRange"
 let tag_IP_sleepQuality:String="<SleepQualityReport"
-let tag_IP_equipmentInfo:String="<EquipmentInfo"
 let tag_IP_mainInfoList:String="<EPMainInfoList"
 let tag_IP_weekReport:String="<WeekReport"
 
@@ -57,10 +47,7 @@ class MessageFactory {
         {
             return ServerResult.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-        else if(message.content.hasPrefix(tag_IP_mainInfo))
-        {
-            return IMainInfo.XmlToMessage(message.subject, bodyXMl: message.content)
-        }
+       
         else if(message.content.hasPrefix(tag_IP_bedUserList))
         {
             return IBedUserList.XmlToMessage(message.subject, bodyXMl: message.content)
@@ -81,10 +68,7 @@ class MessageFactory {
         {
             return IWeekReport.XmlToMessage(message.subject, bodyXMl: message.content)
         }
-        else if(message.content.hasPrefix(tag_IP_equipmentInfo))
-        {
-            return IEquipmentInfo.XmlToMessage(message.subject, bodyXMl: message.content)
-        }
+        
         else if(message.content.hasPrefix(tag_IP_mainInfoList))
         {
             return IMainInfoList.XmlToMessage(message.subject, bodyXMl: message.content)

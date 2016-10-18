@@ -2,9 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>loginusername</key>
+	<key>loginUsername</key>
 	<string>yuanzhang</string>
-	<key>loginuserpwd</key>
+	<key>loginUserpwd</key>
 	<string>123</string>
 	<key>serverjid</key>
 	<string>ewell@122.224.242.241</string>
@@ -16,9 +16,15 @@
 	<string>pad@122.224.242.241</string>
 	<key>xmppuserpwd</key>
 	<string>123</string>
+	<key>xmppusernamephone</key>
+	<string></string>
 	<key>updatedate</key>
 	<string></string>
 	<key>firstLaunch</key>
 	<string>true</string>
+	<key>curPatientCode</key>
+	<string></string>
+	<key>curPatientName</key>
+	<string></string>
 </dict>
 </plist>

@@ -14,7 +14,7 @@ class TabbarController: UITabBarController{
     var selectrrImage = UIImage(named:"icon_breath_blue_")
     var selectsleepImage = UIImage(named:"icon_sleep_blue_")
    
-    
+    var selectedImage:UIImage!
     
     
    
@@ -37,7 +37,8 @@ class TabbarController: UITabBarController{
         selectsleepImage = selectsleepImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
      
         self.selectedIndex = 1
-        self.tabBar.selectedItem?.selectedImage = selectmeImage
+        selectedImage = selecthrImage
+        self.tabBar.selectedItem?.selectedImage = selectedImage
         
     }
     

@@ -106,6 +106,19 @@ protocol SleepCareForIPhoneBussinessManager{
     func GetSleepQualityofBedUser(bedUserCode:String,reportDate:String)->SleepQualityReport
 
     
+    // 处理报警信息
+    // 参数：alarmCode-> 报警编号
+    //      transferType-> 处理类型 002:处理 003:误警报
+    func HandleAlarm(alarmCode:String,transferType:String)->ServerResult
     
+    //根据当前登录用户、报警类型、报警时间段、报警处理状态等多条件获取关注老人的报警信息
+    func GetAlarmByLoginUser(mainCode:String,loginName:String,schemaCode:String,alarmTimeBegin:String,alarmTimeEnd:String,transferTypeCode:String,from:String?,max:String?)-> AlarmList
     
+    //删除报警信息（已读）
+    func DeleteAlarmMessage(alarmCodes:String,loginName:String)->ServerResult
+    
+    //16查询指定日期所在周的老人睡眠报表
+    //参数：bedUserCode
+    //     reportDate ->查询时间yyyy-MM-dd
+    func GetWeekSleepofBedUser(bedUserCode:String,reportDate:String)->WeekSleep
 }

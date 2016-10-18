@@ -7,85 +7,285 @@
 //
 
 import Foundation
-
-
-
-
-//初始化，载入默认数据
-func InitPlistFile(){
-    documentsDirectory = paths[0] as! String
-    let path = documentsDirectory.stringByAppendingPathComponent("sleepcare.plist")
+class PlistHelper:NSObject{
+    //sleepcare.plit内数据
+    var _serverJID:String = ""
+    dynamic var ServerJID:String{
+        get{
+            return self._serverJID
+        }
+        set(value){
+            self._serverJID = value
+            self.SetValueIntoPlist("serverjid", value:self._serverJID)
+        }
+    }
+    var _xmppServer:String = ""
+    dynamic var XmppServer:String{
+        get{
+            return self._xmppServer
+        }
+        set(value){
+            self._xmppServer = value
+            self.SetValueIntoPlist("xmppserver", value:self._xmppServer)
+        }
+    }
+    var _xmppPort:String = ""
+    dynamic var XmppPort:String{
+        get{
+            return self._xmppPort
+        }
+        set(value){
+            self._xmppPort = value
+            self.SetValueIntoPlist("xmppport", value:self._xmppPort)
+        }
+    }
+    var _xmppUsername:String = ""
+    dynamic var XmppUsername:String{
+        get{
+            return self._xmppUsername
+        }
+        set(value){
+            self._xmppUsername = value
+            self.SetValueIntoPlist("xmppusername", value:self._xmppUsername)
+        }
+    }
     
-    //check if XXX.plist exists
-    if(!fileManager.fileExistsAtPath(path)) {
-        // If it doesn't, copy it from the default file in the Bundle
-        if let bundlePath = NSBundle.mainBundle().pathForResource("sleepcare", ofType: "plist") {
-            let resultDictionary = NSMutableDictionary(contentsOfFile: bundlePath)
+    var _xmppUserpwd:String = ""
+    dynamic var XmppUserpwd:String{
+        get{
+            return self._xmppUserpwd
+        }
+        set(value){
+            self._xmppUserpwd = value
+            self.SetValueIntoPlist("xmppuserpwd", value: self._xmppUserpwd)
+        }
+    }
+    
+    var _xmppUsernamePhone:String = ""
+    dynamic var XmppUsernamePhone:String{
+        get{
+            return self._xmppUsernamePhone
+        }
+        set(value){
+            self._xmppUsernamePhone = value
+            self.SetValueIntoPlist("xmppusernamephone", value:self._xmppUsernamePhone)
+        }
+    }
+    
+    var _updateDate:String = ""
+    dynamic var UpdateDate:String{
+        get{
+            return self._updateDate
+        }
+        set(value){
+            self._updateDate = value
+            self.SetValueIntoPlist("updatedate", value: self._updateDate)
+        }
+    }
+    
+    var _firstLaunch:String = ""
+    dynamic var FirstLaunch:String{
+        get{
+            return self._firstLaunch
+        }
+        set(value){
+            self._firstLaunch = value
+            self.SetValueIntoPlist("firstLaunch", value:self._firstLaunch)
+        }
+    }
+    
+    var _curPatientCode:String = ""
+    dynamic var CurPatientCode:String{
+        get{
+            return self._curPatientCode
+        }
+        set(value){
+            self._curPatientCode = value
+            self.SetValueIntoPlist("curPatientCode", value:self._curPatientCode)
+        }
+    }
+    
+    var _curPatientName:String = ""
+    dynamic var CurPatientName:String{
+        get{
+            return self._curPatientName
+        }
+        set(value){
+            self._curPatientName = value
+            self.SetValueIntoPlist("curPatientName", value:self._curPatientName)
+        }
+    }
+    
+    
+    
+    //错误提示的文字信息
+    var _messageList:Array<String> = Array<String>()
+    dynamic var MessageList:Array<String>{
+        get{
+            return self._messageList
+        }
+        set(value){
+            self._messageList = value
+            
+        }
+    }
+    
+    
+    var _loginUsername:String = ""
+    dynamic var LoginUsername:String{
+        get{
+            return self._loginUsername
+        }
+        set(value){
+            self._loginUsername = value
+            self.SetValueIntoPlist("loginUsername", value:self._loginUsername)
+        }
+    }
+    
+    
+    var _loginUserpwd:String = ""
+    dynamic var LoginUserpwd:String{
+        get{
+            return self._loginUserpwd
+        }
+        set(value){
+            self._loginUserpwd = value
+            self.SetValueIntoPlist("loginUserpwd", value:self._loginUserpwd)
+        }
+    }
 
-            fileManager.copyItemAtPath(bundlePath, toPath: path, error: nil)
-            println("copy plist file from bundle file")
+    
+    //plistHelper
+    var fileManager = NSFileManager.defaultManager()
+    let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
+    var documentsDirectory:String!
+    var sleepcareResultDictionary:NSMutableDictionary?
+    
+    
+    
+    //初始化，载入默认数据
+    func InitPlistFile(){
+        documentsDirectory = paths[0] as! String
+        let path = documentsDirectory.stringByAppendingPathComponent("sleepcare.plist")
+        
+        //check if XXX.plist exists
+        if(!fileManager.fileExistsAtPath(path)) {
+            // If it doesn't, copy it from the default file in the Bundle
+            if let bundlePath = NSBundle.mainBundle().pathForResource("sleepcare", ofType: "plist") {
+                let resultDictionary = NSMutableDictionary(contentsOfFile: bundlePath)
+                
+                fileManager.copyItemAtPath(bundlePath, toPath: path, error: nil)
+                println("copy plist file from bundle file")
+            }
+            else {
+                println("local sleepcare.plist file not found.")
+            }
         }
         else {
-            println("local sleepcare.plist file not found.")
+            println("sleepcare.plist already exits.")
+            //  fileManager.removeItemAtPath(path, error: nil)
         }
+        sleepcareResultDictionary = NSMutableDictionary(contentsOfFile: path)
     }
-    else {
-        println("sleepcare.plist already exits.")
-      //  fileManager.removeItemAtPath(path, error: nil)
-    }
-    sleepcareResultDictionary = NSMutableDictionary(contentsOfFile: path)
-}
-
-
-//只读plist文件值
-func GetValueFromReadOnlyPlist(key:String,filename:String) ->String{
-        var path = NSBundle.mainBundle().pathForResource(filename, ofType: "plist")
+    
+    
+    
+    
+    //从message.plist文件读值
+    //func GetValueFromReadOnlyPlist(key:String,filename:String) ->String{
+    //        var path = NSBundle.mainBundle().pathForResource(filename, ofType: "plist")
+    //        var fileManager = NSFileManager.defaultManager()
+    //        var fileExists:Bool = fileManager.fileExistsAtPath(path!)
+    //        var data :NSMutableDictionary?
+    //        if(fileExists){
+    //            data=NSMutableDictionary(contentsOfFile: path!)
+    //            return data?.valueForKey(key) as! String
+    //        }
+    //        return ""
+    //}
+    
+    func GetValueFromMessagePlist(){
+        var path = NSBundle.mainBundle().pathForResource("Message", ofType: "plist")
         var fileManager = NSFileManager.defaultManager()
         var fileExists:Bool = fileManager.fileExistsAtPath(path!)
         var data :NSMutableDictionary?
         if(fileExists){
-            data=NSMutableDictionary(contentsOfFile: path!)
-            return data?.valueForKey(key) as! String
+            //   data=NSMutableDictionary(contentsOfFile: path!)
+            //读取到messagelist
+            
+            for(var i = 1;i<35;i++){
+                let data: AnyObject? = NSMutableDictionary(contentsOfFile: path!)!.valueForKey(String(i))
+                var message = data == nil ? "" : data as! String
+                self._messageList.append(message)
+                //  print(message+"\n")
+            }
+            // return data?.valueForKey(key) as! String
         }
-        return ""
-}
-
-//从本地plist读取键值
-func GetValueFromPlist(key:String,filename:String) -> String{
-    let path = documentsDirectory.stringByAppendingPathComponent(filename)
-    if fileManager.fileExistsAtPath(path) {
-       
-        var value: AnyObject? = NSMutableDictionary(contentsOfFile: path)!.valueForKey(key)
-        if value != nil{
-            return value as! String
+            
+        else{
+            println("WARNING: Message.plist doesn't exist! return 空!")
         }
-    } else {
-        println("WARNING: sleepcare.plist doesn't exist! return 空!")
     }
-    return ""
     
-}
-
-//写本地plist键值
-func SetValueIntoPlist(key:String, value:String){
-    let path = documentsDirectory.stringByAppendingPathComponent("sleepcare.plist")
-    sleepcareResultDictionary!.setValue(value, forKey: key)
-    sleepcareResultDictionary!.writeToFile(path, atomically: false)
-   
-}
-
-//判断和server有关的信息是否为空
-func IsPlistDataEmpty()->Bool{
-    var ip =  GetValueFromPlist("xmppserver","sleepcare.plist")
-    var port =  GetValueFromPlist("xmppport","sleepcare.plist")
-    var server =  GetValueFromPlist("serverjid","sleepcare.plist")
+    //
+    ////从sleepcare.plist读取键值
+    //func GetValueFromPlist(key:String,filename:String) -> String{
+    //    let path = documentsDirectory.stringByAppendingPathComponent(filename)
+    //    if fileManager.fileExistsAtPath(path) {
+    //
+    //        var value: AnyObject? = NSMutableDictionary(contentsOfFile: path)!.valueForKey(key)
+    //        if value != nil{
+    //            return value as! String
+    //        }
+    //    } else {
+    //        println("WARNING: sleepcare.plist doesn't exist! return 空!")
+    //    }
+    //    return ""
+    //
+    //}
     
-    var ipaduser = GetValueFromPlist("xmppusername","sleepcare.plist")
-    var ipadpwd = GetValueFromPlist("xmppuserpwd","sleepcare.plist")
-    
-    if (ip=="" || port=="" ||  server=="" || ipaduser=="" || ipadpwd==""){
-        return true
+    func GetValueFromSleepcarePlist(){
+        let path = documentsDirectory.stringByAppendingPathComponent("sleepcare.plist")
+        if fileManager.fileExistsAtPath(path) {
+            
+            var value: AnyObject? = NSMutableDictionary(contentsOfFile: path)!.valueForKey("serverjid")
+            self._serverJID = (value == nil) ? "" : (value as! String)
+            value = NSMutableDictionary(contentsOfFile: path)!.valueForKey("xmppserver")
+            self._xmppServer = (value == nil) ? "" : (value as! String)
+            value = NSMutableDictionary(contentsOfFile: path)!.valueForKey("xmppport")
+            self._xmppPort = (value == nil) ? "" : (value as! String)
+            value = NSMutableDictionary(contentsOfFile: path)!.valueForKey("xmppusername")
+            self._xmppUsername = (value == nil) ? "" : (value as! String)
+            value = NSMutableDictionary(contentsOfFile: path)!.valueForKey("xmppuserpwd")
+            self._xmppUserpwd = (value == nil) ? "" : (value as! String)
+            value = NSMutableDictionary(contentsOfFile: path)!.valueForKey("xmppusernamephone")
+            self._xmppUsernamePhone = (value == nil) ? "" : (value as! String)
+            value = NSMutableDictionary(contentsOfFile: path)!.valueForKey("firstLaunch")
+            self._firstLaunch = (value == nil) ? "" : (value as! String)
+            
+            value = NSMutableDictionary(contentsOfFile: path)!.valueForKey("curPatientCode")
+            self._curPatientCode = (value == nil) ? "" : (value as! String)
+            value = NSMutableDictionary(contentsOfFile: path)!.valueForKey("curPatientName")
+            self._curPatientName = (value == nil) ? "" : (value as! String)
+          
+            
+            print(self.CurPatientName)
+            
+        } else {
+            println("WARNING: sleepcare.plist doesn't exist! return 空!")
+        }
+        
+        
     }
-    return false
-}
+    
+    
+    //写本地plist键值
+    func SetValueIntoPlist(key:String, value:String){
+        let path = documentsDirectory.stringByAppendingPathComponent("sleepcare.plist")
+        sleepcareResultDictionary!.setValue(value, forKey: key)
+        sleepcareResultDictionary!.writeToFile(path, atomically: false)
+        
+    }
+    
 
+}
