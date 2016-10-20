@@ -54,24 +54,24 @@ class MessageFactory {
         }
         else if(message.content.hasPrefix(tag_IP_hrRange))
         {
-            return IHRRange.XmlToMessage(message.subject, bodyXMl: message.content)
+            return HRRange.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         else if(message.content.hasPrefix(tag_IP_rrRange))
         {
-            return IRRRange.XmlToMessage(message.subject, bodyXMl: message.content)
+            return RRRange.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         else if(message.content.hasPrefix(tag_IP_sleepQuality))
         {
-            return ISleepQualityReport.XmlToMessage(message.subject, bodyXMl: message.content)
+            return SleepQualityReport.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         else if(message.content.hasPrefix(tag_IP_weekReport))
         {
-            return IWeekReport.XmlToMessage(message.subject, bodyXMl: message.content)
+            return WeekSleep.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         
         else if(message.content.hasPrefix(tag_IP_mainInfoList))
         {
-            return IMainInfoList.XmlToMessage(message.subject, bodyXMl: message.content)
+            return IMainInfo.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         else
         {

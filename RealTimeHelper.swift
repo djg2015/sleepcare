@@ -86,7 +86,7 @@ class RealTimeHelper:NSObject, RealTimeDelegate{
                 }
             }
             else{
-                self.realTimeCaches[realTimeReport.BedCode] = realTimeReport
+                self.realTimeCaches[realTimeReport.UserCode] = realTimeReport
             }
         }
 

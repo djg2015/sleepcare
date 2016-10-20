@@ -13,17 +13,12 @@
 		0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */; };
 		0D35D5FA1C4CC3D8009F8EB2 /* Message.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D35D5F91C4CC3D8009F8EB2 /* Message.plist */; };
 		0D652BD11DB49E1100110E63 /* IAlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D652BD01DB49E1100110E63 /* IAlarmViewModel.swift */; };
+		0D6B4CBB1DB768EC00C6DD3E /* IBedUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B4CBA1DB768EC00C6DD3E /* IBedUserInfo.swift */; };
 		0D85F7171DB497E3000E5ADC /* AlarmInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F70C1DB497E3000E5ADC /* AlarmInfo.swift */; };
 		0D85F7181DB497E3000E5ADC /* AlarmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F70D1DB497E3000E5ADC /* AlarmList.swift */; };
 		0D85F7191DB497E3000E5ADC /* IBedUserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F70E1DB497E3000E5ADC /* IBedUserList.swift */; };
-		0D85F71A1DB497E3000E5ADC /* IEquipmentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F70F1DB497E3000E5ADC /* IEquipmentInfo.swift */; };
-		0D85F71B1DB497E3000E5ADC /* IHRRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7101DB497E3000E5ADC /* IHRRange.swift */; };
 		0D85F71C1DB497E3000E5ADC /* ILoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7111DB497E3000E5ADC /* ILoginUser.swift */; };
 		0D85F71D1DB497E3000E5ADC /* IMainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7121DB497E3000E5ADC /* IMainInfo.swift */; };
-		0D85F71E1DB497E3000E5ADC /* IMainInfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7131DB497E3000E5ADC /* IMainInfoList.swift */; };
-		0D85F71F1DB497E3000E5ADC /* IRRRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7141DB497E3000E5ADC /* IRRRange.swift */; };
-		0D85F7201DB497E3000E5ADC /* ISleepQualityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7151DB497E3000E5ADC /* ISleepQualityReport.swift */; };
-		0D85F7211DB497E3000E5ADC /* IWeekReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7161DB497E3000E5ADC /* IWeekReport.swift */; };
 		0D85F7271DB49817000E5ADC /* EMProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7221DB49817000E5ADC /* EMProperties.swift */; };
 		0D85F7281DB49817000E5ADC /* EMServiceException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7231DB49817000E5ADC /* EMServiceException.swift */; };
 		0D85F7291DB49817000E5ADC /* EMString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7241DB49817000E5ADC /* EMString.swift */; };
@@ -62,8 +57,6 @@
 		0D85F7841DB49B0A000E5ADC /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7721DB49B0A000E5ADC /* TabbarController.swift */; };
 		0D85F7881DB49C41000E5ADC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D85F7871DB49C41000E5ADC /* Main.storyboard */; };
 		0D9AE0791C8E7FB800625D5E /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9AE0781C8E7FB800625D5E /* Const.swift */; };
-		0DC1465C1DB4B7CD00DE2E0D /* patientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC1465B1DB4B7CD00DE2E0D /* patientCell.xib */; };
-		0DC1465E1DB4B80600DE2E0D /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1465D1DB4B80600DE2E0D /* PatientTableViewCell.swift */; };
 		0DC146621DB4C63300DE2E0D /* sleepcircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC146611DB4C63300DE2E0D /* sleepcircle.m */; };
 		0DC146681DB4C65D00DE2E0D /* STLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC146651DB4C65D00DE2E0D /* STLoopProgressView.m */; };
 		0DC146691DB4C65D00DE2E0D /* STLoopProgressView+BaseConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC146671DB4C65D00DE2E0D /* STLoopProgressView+BaseConfiguration.m */; };
@@ -100,7 +93,6 @@
 		3A3262E11BB912180002687B /* OSSTry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3262DF1BB912180002687B /* OSSTry.swift */; };
 		3A33EF851BAA56D700D82A4D /* MessageSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A33EF841BAA56D700D82A4D /* MessageSubject.swift */; };
 		3A35AB651BCCE8B000ED3293 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AB641BCCE8B000ED3293 /* SweetAlert.swift */; };
-		3A35AB671BCCECF000ED3293 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AB661BCCECF000ED3293 /* Session.swift */; };
 		3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */; };
 		3A36B0231BA96648000F4AED /* RealTimeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B0221BA96648000F4AED /* RealTimeReport.swift */; };
 		3A3EF7C01BDE05A800CDDAED /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3EF7BE1BDE05A800CDDAED /* TodoItem.swift */; };
@@ -145,17 +137,12 @@
 		0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHelper.swift; sourceTree = "<group>"; };
 		0D35D5F91C4CC3D8009F8EB2 /* Message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Message.plist; sourceTree = "<group>"; };
 		0D652BD01DB49E1100110E63 /* IAlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmViewModel.swift; sourceTree = "<group>"; };
+		0D6B4CBA1DB768EC00C6DD3E /* IBedUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBedUserInfo.swift; sourceTree = "<group>"; };
 		0D85F70C1DB497E3000E5ADC /* AlarmInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmInfo.swift; sourceTree = "<group>"; };
 		0D85F70D1DB497E3000E5ADC /* AlarmList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmList.swift; sourceTree = "<group>"; };
 		0D85F70E1DB497E3000E5ADC /* IBedUserList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBedUserList.swift; sourceTree = "<group>"; };
-		0D85F70F1DB497E3000E5ADC /* IEquipmentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEquipmentInfo.swift; sourceTree = "<group>"; };
-		0D85F7101DB497E3000E5ADC /* IHRRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IHRRange.swift; sourceTree = "<group>"; };
 		0D85F7111DB497E3000E5ADC /* ILoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginUser.swift; sourceTree = "<group>"; };
 		0D85F7121DB497E3000E5ADC /* IMainInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMainInfo.swift; sourceTree = "<group>"; };
-		0D85F7131DB497E3000E5ADC /* IMainInfoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMainInfoList.swift; sourceTree = "<group>"; };
-		0D85F7141DB497E3000E5ADC /* IRRRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRRRange.swift; sourceTree = "<group>"; };
-		0D85F7151DB497E3000E5ADC /* ISleepQualityReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISleepQualityReport.swift; sourceTree = "<group>"; };
-		0D85F7161DB497E3000E5ADC /* IWeekReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IWeekReport.swift; sourceTree = "<group>"; };
 		0D85F7221DB49817000E5ADC /* EMProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMProperties.swift; sourceTree = "<group>"; };
 		0D85F7231DB49817000E5ADC /* EMServiceException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMServiceException.swift; sourceTree = "<group>"; };
 		0D85F7241DB49817000E5ADC /* EMString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMString.swift; sourceTree = "<group>"; };
@@ -197,8 +184,6 @@
 		0D85F7721DB49B0A000E5ADC /* TabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		0D85F7871DB49C41000E5ADC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0D9AE0781C8E7FB800625D5E /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		0DC1465B1DB4B7CD00DE2E0D /* patientCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = patientCell.xib; sourceTree = "<group>"; };
-		0DC1465D1DB4B80600DE2E0D /* PatientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
 		0DC146601DB4C63300DE2E0D /* sleepcircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sleepcircle.h; sourceTree = "<group>"; };
 		0DC146611DB4C63300DE2E0D /* sleepcircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sleepcircle.m; sourceTree = "<group>"; };
 		0DC146641DB4C65D00DE2E0D /* STLoopProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLoopProgressView.h; sourceTree = "<group>"; };
@@ -243,7 +228,6 @@
 		3A3262DF1BB912180002687B /* OSSTry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSSTry.swift; sourceTree = "<group>"; };
 		3A33EF841BAA56D700D82A4D /* MessageSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSubject.swift; sourceTree = "<group>"; };
 		3A35AB641BCCE8B000ED3293 /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
-		3A35AB661BCCECF000ED3293 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeDelegate.swift; sourceTree = "<group>"; };
 		3A36B0221BA96648000F4AED /* RealTimeReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeReport.swift; sourceTree = "<group>"; };
 		3A3D65E71BAAB67C00CEFB25 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
@@ -326,7 +310,7 @@
 			name = common;
 			sourceTree = "<group>";
 		};
-		0D85F7361DB49961000E5ADC /* AddPatient */ = {
+		0D85F7361DB49961000E5ADC /* Patient */ = {
 			isa = PBXGroup;
 			children = (
 				0D85F7371DB49995000E5ADC /* BedPatientCell.swift */,
@@ -336,7 +320,7 @@
 				0D85F73B1DB49995000E5ADC /* PartTableCell.xib */,
 				0D85F73C1DB49995000E5ADC /* PartTableViewCell.swift */,
 			);
-			name = AddPatient;
+			name = Patient;
 			sourceTree = "<group>";
 		};
 		0D85F7431DB499EA000E5ADC /* PopDownList */ = {
@@ -371,15 +355,6 @@
 			children = (
 			);
 			name = AlarmCell;
-			sourceTree = "<group>";
-		};
-		0DC1465A1DB4B76200DE2E0D /* patientcell */ = {
-			isa = PBXGroup;
-			children = (
-				0DC1465B1DB4B7CD00DE2E0D /* patientCell.xib */,
-				0DC1465D1DB4B80600DE2E0D /* PatientTableViewCell.swift */,
-			);
-			name = patientcell;
 			sourceTree = "<group>";
 		};
 		0DC1465F1DB4C62500DE2E0D /* sleepcircle */ = {
@@ -494,16 +469,16 @@
 		3A41ADE01BA7B396000C109B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3A325A331BD08B7B00DE4E78 /* BaseViewModel.swift */,
 				3AC7B0E31BF42EFB002DE94C /* IloginViewModel.swift */,
-				0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */,
-				0DC1468C1DB60A7D00DE2E0D /* WeekReportViewModel.swift */,
-				3ACD645D1BFC577A00FB62BB /* IChoosePatientsViewModel.swift */,
 				3AF844C41BFD619E00B5EDE3 /* IMyPatientsViewModel.swift */,
-				2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */,
+				3ACD645D1BFC577A00FB62BB /* IChoosePatientsViewModel.swift */,
 				0DC1467E1DB4C8EA00DE2E0D /* HRTabViewModel.swift */,
 				0DC1467F1DB4C8EA00DE2E0D /* RRTabViewModel.swift */,
 				0DC146801DB4C8EA00DE2E0D /* SleepTabViewModel.swift */,
-				3A325A331BD08B7B00DE4E78 /* BaseViewModel.swift */,
+				0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */,
+				2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */,
+				0DC1468C1DB60A7D00DE2E0D /* WeekReportViewModel.swift */,
 				0D652BD01DB49E1100110E63 /* IAlarmViewModel.swift */,
 			);
 			name = ViewModel;
@@ -521,20 +496,20 @@
 		3A41ADE41BA7B3E9000C109B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0D85F7621DB49B0A000E5ADC /* IAccountSetController.swift */,
 				0D85F7631DB49B0A000E5ADC /* IBaseViewController.swift */,
-				0D85F7641DB49B0A000E5ADC /* IChoosePatientsController.swift */,
-				0D85F7651DB49B0A000E5ADC /* IEmailViewController.swift */,
-				0DC146761DB4C7D800DE2E0D /* HRTabViewController.swift */,
-				0DC146771DB4C7D800DE2E0D /* MeTabViewController.swift */,
-				0DC146781DB4C7D800DE2E0D /* RRTabViewController.swift */,
-				0DC146791DB4C7D800DE2E0D /* SleepTabViewController.swift */,
+				0D85F7691DB49B0A000E5ADC /* IServerSettingController.swift */,
 				0D85F7661DB49B0A000E5ADC /* LoginViewController.swift */,
 				0D85F7671DB49B0A000E5ADC /* IMyPatientsController.swift */,
-				0D85F7691DB49B0A000E5ADC /* IServerSettingController.swift */,
-				0D85F76A1DB49B0A000E5ADC /* IWeekSleepcareController.swift */,
-				0D85F76D1DB49B0A000E5ADC /* ShowAlarmViewController.swift */,
+				0D85F7641DB49B0A000E5ADC /* IChoosePatientsController.swift */,
 				0D85F7721DB49B0A000E5ADC /* TabbarController.swift */,
+				0DC146761DB4C7D800DE2E0D /* HRTabViewController.swift */,
+				0DC146781DB4C7D800DE2E0D /* RRTabViewController.swift */,
+				0DC146791DB4C7D800DE2E0D /* SleepTabViewController.swift */,
+				0DC146771DB4C7D800DE2E0D /* MeTabViewController.swift */,
+				0D85F7621DB49B0A000E5ADC /* IAccountSetController.swift */,
+				0D85F76A1DB49B0A000E5ADC /* IWeekSleepcareController.swift */,
+				0D85F7651DB49B0A000E5ADC /* IEmailViewController.swift */,
+				0D85F76D1DB49B0A000E5ADC /* ShowAlarmViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -564,7 +539,6 @@
 				0DCC7ABC1C34C71700CC2498 /* RealTimeHelper.swift */,
 				0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */,
 				3A36B0201BA94E89000F4AED /* RealTimeDelegate.swift */,
-				3A35AB661BCCECF000ED3293 /* Session.swift */,
 				3A0B97161BF5791F00409AD9 /* SessionForIphone.swift */,
 				0D85F72C1DB498D8000E5ADC /* IAlarmHelper.swift */,
 				0DC2284C1C212F0E00AF4737 /* PlistHelper.swift */,
@@ -589,20 +563,15 @@
 				0D85F70C1DB497E3000E5ADC /* AlarmInfo.swift */,
 				0D85F70D1DB497E3000E5ADC /* AlarmList.swift */,
 				0D85F70E1DB497E3000E5ADC /* IBedUserList.swift */,
-				0D85F70F1DB497E3000E5ADC /* IEquipmentInfo.swift */,
-				0D85F7101DB497E3000E5ADC /* IHRRange.swift */,
+				0D6B4CBA1DB768EC00C6DD3E /* IBedUserInfo.swift */,
 				0D85F7111DB497E3000E5ADC /* ILoginUser.swift */,
 				0D85F7121DB497E3000E5ADC /* IMainInfo.swift */,
-				0D85F7131DB497E3000E5ADC /* IMainInfoList.swift */,
-				0D85F7141DB497E3000E5ADC /* IRRRange.swift */,
 				0DC1468E1DB60B4800DE2E0D /* WeekSleep.swift */,
-				0D85F7151DB497E3000E5ADC /* ISleepQualityReport.swift */,
 				0D85F7221DB49817000E5ADC /* EMProperties.swift */,
 				0D85F7231DB49817000E5ADC /* EMServiceException.swift */,
 				0D85F7241DB49817000E5ADC /* EMString.swift */,
 				0D85F7251DB49817000E5ADC /* MessageFactory.swift */,
 				0D85F7261DB49817000E5ADC /* ServerResult.swift */,
-				0D85F7161DB497E3000E5ADC /* IWeekReport.swift */,
 				0DC146841DB4CA0100DE2E0D /* HRRange.swift */,
 				0DC146881DB4CE0200DE2E0D /* RRRange.swift */,
 				0DC146861DB4CDFC00DE2E0D /* SleepQualityReport.swift */,
@@ -620,11 +589,10 @@
 				0DC1466A1DB4C68F00DE2E0D /* chartview */,
 				0DC146631DB4C65600DE2E0D /* circleview */,
 				0DC1465F1DB4C62500DE2E0D /* sleepcircle */,
-				0DC1465A1DB4B76200DE2E0D /* patientcell */,
 				0D85F74E1DB49A41000E5ADC /* AlarmCell */,
 				0D85F7441DB499F7000E5ADC /* ChooseDate */,
 				0D85F7431DB499EA000E5ADC /* PopDownList */,
-				0D85F7361DB49961000E5ADC /* AddPatient */,
+				0D85F7361DB49961000E5ADC /* Patient */,
 				0D1341C51C50B9F800051E2C /* common */,
 			);
 			name = UILib;
@@ -746,7 +714,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C0DC3C71BF9A20F0048BEEA /* IEmailView.xib in Resources */,
-				0DC1465C1DB4B7CD00DE2E0D /* patientCell.xib in Resources */,
 				0D85F73E1DB49995000E5ADC /* BedPatientCell.xib in Resources */,
 				0D85F7411DB49995000E5ADC /* PartTableCell.xib in Resources */,
 				0DC2280C1C1FD65600AF4737 /* JHSpinnerView.xib in Resources */,
@@ -830,7 +797,6 @@
 				0D85F7331DB49926000E5ADC /* Li_common.swift in Sources */,
 				0D85F7751DB49B0A000E5ADC /* IBaseViewController.swift in Sources */,
 				0D652BD11DB49E1100110E63 /* IAlarmViewModel.swift in Sources */,
-				0D85F7201DB497E3000E5ADC /* ISleepQualityReport.swift in Sources */,
 				3A4CD3F81BA804D2002C8A1A /* XmppMsgManager.swift in Sources */,
 				3A4CD3FF1BA808C1002C8A1A /* XmppMsgHelper.swift in Sources */,
 				3A0B97171BF5791F00409AD9 /* SessionForIphone.swift in Sources */,
@@ -848,24 +814,19 @@
 				0D85F74C1DB49A10000E5ADC /* PopDownListForIphone.swift in Sources */,
 				0DC2280E1C1FD65F00AF4737 /* JHSpinnerView.swift in Sources */,
 				0DC1468D1DB60A7D00DE2E0D /* WeekReportViewModel.swift in Sources */,
-				0D85F7211DB497E3000E5ADC /* IWeekReport.swift in Sources */,
 				3A4CD3FD1BA80852002C8A1A /* BaseMessage.swift in Sources */,
 				0DC1467A1DB4C7D800DE2E0D /* HRTabViewController.swift in Sources */,
 				0DC146751DB4C69500DE2E0D /* PointBtn.m in Sources */,
-				3A35AB671BCCECF000ED3293 /* Session.swift in Sources */,
 				3AF844C51BFD619E00B5EDE3 /* IMyPatientsViewModel.swift in Sources */,
 				3A325A341BD08B7B00DE4E78 /* BaseViewModel.swift in Sources */,
 				0D85F77F1DB49B0A000E5ADC /* ShowAlarmViewController.swift in Sources */,
 				0D85F7791DB49B0A000E5ADC /* IMyPatientsController.swift in Sources */,
-				0D85F71A1DB497E3000E5ADC /* IEquipmentInfo.swift in Sources */,
 				0DC1468B1DB5F03700DE2E0D /* MessageEnum.swift in Sources */,
 				0DC146891DB4CE0200DE2E0D /* RRRange.swift in Sources */,
 				0DC146811DB4C8EA00DE2E0D /* HRTabViewModel.swift in Sources */,
-				0D85F71F1DB497E3000E5ADC /* IRRRange.swift in Sources */,
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,
 				3AB43E911BD4E1B9005023D3 /* Term.swift in Sources */,
 				0D336D0E1C92596D0049883F /* RemoteNoticeHelper.swift in Sources */,
-				0D85F71B1DB497E3000E5ADC /* IHRRange.swift in Sources */,
 				0DC146741DB4C69500DE2E0D /* ChatLineView.m in Sources */,
 				0D85F74D1DB49A10000E5ADC /* ZSYPopoverListView.m in Sources */,
 				0D85F7571DB49A64000E5ADC /* THDateDay.m in Sources */,
@@ -882,13 +843,12 @@
 				0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */,
 				0D85F73F1DB49995000E5ADC /* CommonTableView.swift in Sources */,
 				0D85F72D1DB498D8000E5ADC /* IAlarmHelper.swift in Sources */,
+				0D6B4CBB1DB768EC00C6DD3E /* IBedUserInfo.swift in Sources */,
 				0DC146681DB4C65D00DE2E0D /* STLoopProgressView.m in Sources */,
 				0DC146691DB4C65D00DE2E0D /* STLoopProgressView+BaseConfiguration.m in Sources */,
 				3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */,
-				0D85F71E1DB497E3000E5ADC /* IMainInfoList.swift in Sources */,
 				0DC146931DB60C9B00DE2E0D /* MeTabLabel.swift in Sources */,
 				3A33EF851BAA56D700D82A4D /* MessageSubject.swift in Sources */,
-				0DC1465E1DB4B80600DE2E0D /* PatientTableViewCell.swift in Sources */,
 				0D85F77C1DB49B0A000E5ADC /* IWeekSleepcareController.swift in Sources */,
 				0D85F7841DB49B0A000E5ADC /* TabbarController.swift in Sources */,
 				0D85F7741DB49B0A000E5ADC /* IAccountSetController.swift in Sources */,

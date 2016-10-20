@@ -8,56 +8,79 @@
 
 import UIKit
 
-class IMyPatientsController: UITableViewController  {
+class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-    var viewModel:IMyPatientsViewModel?
+    @IBOutlet weak var patientsTableview: UITableView!
+    
+    
+   
     let session = SessionForIphone.GetSession()
     var realtimer:NSTimer?
     let cellID = "patientCell"
-    //我关注的老人集合
-    var MyPatientsArray:Array<MyPatientsTableCellViewModel> = Array<MyPatientsTableCellViewModel>()
+    //我的病人列表
+    var mypatientsArray:Array<MyPatientsTableCellViewModel> = Array<MyPatientsTableCellViewModel>()
+
+     var mypatientsViewmodel:IMyPatientsViewModel?
+    
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        if self.mypatientsViewmodel == nil{
+            self.mypatientsViewmodel = IMyPatientsViewModel()
+            
+        }
+        self.mypatientsViewmodel!.InitData()
+
+
+      
+    }
 
     
-    @IBAction func ConfirmAddPatient(segue:UIStoryboardSegue){
-        let choosePatientViewController = segue.sourceViewController as! IChoosePatientsController
-        let addPatientList = choosePatientViewController.addList
-        //update the tableView
-        for addPatient in addPatientList{
-            self.MyPatientsArray.append(addPatient)
-            let indexPath = NSIndexPath(forRow: self.MyPatientsArray.count - 1, inSection: 0)
-            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-          
-        }
-       
-    }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ShowChoosePatient" {
-         let vc = segue.destinationViewController as! IChoosePatientsController
-           vc.allPatientInfo = self.viewModel
-        }
-   
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        self.mypatientsViewmodel = IMyPatientsViewModel()
+        self.patientsTableview.delegate = self
+        self.patientsTableview.dataSource = self
+        
+        
+        //去除末尾多余的行
+        self.patientsTableview.tableFooterView = UIView()
+        
+        //去除顶部留白
+        self.automaticallyAdjustsScrollViewInsets = false
+        RACObserve(self.mypatientsViewmodel, "MyPatientsArray") ~> RAC(self, "mypatientsArray")
     }
     
     
-    //返回指定分区的行数
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        return MyPatientsArray.count
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
-    //返回表格总列数
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.mypatientsArray.count
+    }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     //返回单元格的高度
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 160
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 100
     }
+    //分隔高度
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 15
+    }
+
+    
     //自定义单元格
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell:MyPatientsTableViewCell! = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath) as! MyPatientsTableViewCell
         
@@ -65,13 +88,13 @@ class IMyPatientsController: UITableViewController  {
             cell = MyPatientsTableViewCell()
         }
 
-        cell.CellLoadData(self.MyPatientsArray[indexPath.row])
+         cell.CellLoadData(self.mypatientsArray[indexPath.section])
         return cell
         
     }
     
     //选中某行操作
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         var cell:MyPatientsTableViewCell = tableView.cellForRowAtIndexPath(indexPath) as! MyPatientsTableViewCell
         cell.accessoryType = UITableViewCellAccessoryType.Checkmark
         
@@ -80,60 +103,41 @@ class IMyPatientsController: UITableViewController  {
         session!.CurPatientName = cell.source.BedUserName!
        PLISTHELPER.CurPatientCode = cell.source.BedUserCode!
         PLISTHELPER.CurPatientCode = cell.source.BedUserName!
+    
+    
+     tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    }
+    
+    func tableView(tableView:UITableView ,canEditRowAtIndexPath indexPath:NSIndexPath)->Bool {
+        return true
     }
     
     //显示删除样式
-    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle{
+   func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle{
         return UITableViewCellEditingStyle.Delete
     }
     
     //提交删除
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         if(editingStyle == UITableViewCellEditingStyle.Delete){
            
            //删除model中的这个老人，更新session list，删除和这个老人有关的报警信息
-            self.MyPatientsArray[indexPath.row].deleteBedUserHandler!(myPatientsTableViewModel: self.MyPatientsArray[indexPath.row])
-            self.MyPatientsArray.removeAtIndex(indexPath.row)
-            //删除tableview中的这个老人
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-        
+            self.mypatientsArray[indexPath.section].deleteBedUserHandler!(myPatientsTableViewModel: self.mypatientsArray[indexPath.section])
+            self.mypatientsArray.removeAtIndex(indexPath.section)
+           
+          self.patientsTableview.reloadData()
           
         }
     }
-
-    override func viewWillAppear(animated: Bool) {
-       
-        currentController = self
-        if self.viewModel == nil{
-            self.viewModel = IMyPatientsViewModel()
-        
-        }
-        self.viewModel!.InitData()
-        self.MyPatientsArray = self.viewModel!.MyPatientsArray
-    }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
   
-        let navigationTitleAttribute: NSDictionary = NSDictionary(objectsAndKeys: UIColor.whiteColor(), NSForegroundColorAttributeName)
-        self.navigationController?.navigationBar.titleTextAttributes = navigationTitleAttribute as [NSObject: AnyObject]
-        
-        rac_Setting()
-        
-       
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        var footerView = UIView(frame:CGRectMake(0, 0, SCREENWIDTH,15))
+        footerView.backgroundColor = seperatorColor
+        return footerView
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    //初始化设置与属性等绑定
-    func rac_Setting(){
-        self.viewModel = IMyPatientsViewModel()
-       
-    }
-    
+
+
 }

@@ -42,6 +42,7 @@ class XmppMsgManager:MessageDelegate{
             while _xmppMsgHelper!.loginFlag == 0 {
                 sec = NSDate().timeIntervalSinceDate(curTime)
                 if(sec > 4){
+                     print("xmppmsgmanager connect overtime\n")
                     return false
                 }
             }
@@ -50,6 +51,7 @@ class XmppMsgManager:MessageDelegate{
             }
             return _xmppMsgHelper!.loginFlag == 1 ? true : false
         }
+        print("xmppmsgmanager connect false\n")
         return false
     }
     
@@ -61,7 +63,7 @@ class XmppMsgManager:MessageDelegate{
             var sec:NSTimeInterval = 0
             while _xmppMsgHelper!.loginFlag == 0 {
                 sec = NSDate().timeIntervalSinceDate(curTime)
-                if(sec > 3){
+                if(sec > 4){
                     return false
                 }
             }
@@ -81,21 +83,33 @@ class XmppMsgManager:MessageDelegate{
     }
     
     //发送数据--等待数据响应
-    func SendData(baseMessage:BaseMessage,timeOut:NSTimeInterval=9)->BaseMessage?{
+    func SendData(baseMessage:BaseMessage,timeOut:NSTimeInterval=15)->BaseMessage?{
     
+        var  result :BaseMessage!
         
-        _xmppMsgHelper?.sendElement(baseMessage.ToXml())
-        requsetQuene[baseMessage.messageSubject.requestID!] = self
-        var now = NSDate()
-        //添加时间判断，没收到数据则抛出异常
-        var sec:NSTimeInterval = 0
-        while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {
-            sec = NSDate().timeIntervalSinceDate(now)
-            if(sec > timeOut){
-                throw("-2", ShowMessage(MessageEnum.GetDataOvertime))
+        //非注册相关的服务器数据请求
+        if self.Connect(){
+            _xmppMsgHelper?.sendElement(baseMessage.ToXml())
+            requsetQuene[baseMessage.messageSubject.requestID!] = self
+            
+            //添加时间判断，没收到数据则抛出异常
+            var now = NSDate()
+            var sec:NSTimeInterval = 0
+            while requsetQuene[baseMessage.messageSubject.requestID!]!.isKindOfClass(BaseMessage) == false {
+                sec = NSDate().timeIntervalSinceDate(now)
+                if(sec > timeOut){
+                    throw("-2", ShowMessage(MessageEnum.GetDataOvertime))
+                }
             }
+            result = requsetQuene.removeValueForKey(baseMessage.messageSubject.requestID!) as! BaseMessage
         }
-        var result:BaseMessage = requsetQuene.removeValueForKey(baseMessage.messageSubject.requestID!) as! BaseMessage
+        else if LOGINFLAG{
+            throw("-2", ShowMessage(MessageEnum.ConnectFail))
+            
+        }
+        else{
+            throw("-2", ShowMessage(MessageEnum.AccountDontExist))
+        }
         
         return result
     }
@@ -116,7 +130,7 @@ class XmppMsgManager:MessageDelegate{
                 self._realTimeDelegate?.GetRealTimeDelegate(object as! RealTimeReport)
             }
         }
-        else if(object.isKindOfClass(AlarmList) && "GetAlarmByUser" != object.messageSubject.operate && "GetAlarmByLoginUser" != object.messageSubject.operate)
+        else if(object.isKindOfClass(AlarmList) &&  "GetAlarmByLoginUser" != object.messageSubject.operate)
         {
             if(self._waringAttentionDelegate != nil){
                 self._waringAttentionDelegate?.GetWaringAttentionDelegate(object as! AlarmList)

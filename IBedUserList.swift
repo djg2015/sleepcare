@@ -21,7 +21,8 @@ class IBedUserList: BaseMessage {
         var bedUserList = doc.nodesForXPath("//BedUserInfo", error:nil) as! [DDXMLElement]
         
         for bedUser in bedUserList {
-            var bedUserInfo = IBedUserInfo(messageSubject: MessageSubject.ParseXmlToSubject(subjectXml))
+            var bedUserInfo = IBedUserInfo()
+            
             if bedUser.elementForName("MainCode") != nil{
                 bedUserInfo.MainCode = bedUser.elementForName("MainCode").stringValue()
             }
@@ -33,6 +34,9 @@ class IBedUserList: BaseMessage {
             }
             if bedUser.elementForName("BedUserName") != nil{
              bedUserInfo.BedUserName = bedUser.elementForName("BedUserName").stringValue()
+            }
+            if bedUser.elementForName("Sex") != nil{
+                bedUserInfo.Sex = bedUser.elementForName("Sex").stringValue()
             }
             if bedUser.elementForName("PartCode") != nil{
             bedUserInfo.PartCode = bedUser.elementForName("PartCode").stringValue()
@@ -55,6 +59,7 @@ class IBedUserList: BaseMessage {
             if bedUser.elementForName("EquipmentID") != nil{
             bedUserInfo.EquipmentID = bedUser.elementForName("EquipmentID").stringValue()
             }
+            
             result.bedUserInfoList.append(bedUserInfo)
         }
         
@@ -63,17 +68,3 @@ class IBedUserList: BaseMessage {
 
 }
 
-class IBedUserInfo:BaseMessage {
-    var MainCode:String = ""
-    var MainName:String = ""
-    var BedUserCode:String = ""
-    var BedUserName:String = ""
-    var PartCode:String = ""
-    var PartName:String = ""
-    var RoomCode:String = ""
-    var RoomName:String = ""
-    var BedCode:String = ""
-    var BedNumber:String = ""
-    var EquipmentID:String = ""
-  
-}

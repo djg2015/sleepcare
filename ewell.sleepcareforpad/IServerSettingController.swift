@@ -23,15 +23,10 @@ class IServerSettingController:IBaseViewController {
     @IBOutlet weak var txtServerPwd: UITextField!
     
 
-    override func viewWillAppear(animated: Bool) {
-  
-   
-    }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-     //   self.topView.backgroundColor = themeColor[themeName]
         
         self.txtServerJid.text = PLISTHELPER.ServerJID
         self.txtServerAddress.text = PLISTHELPER.XmppServer
@@ -54,7 +49,7 @@ class IServerSettingController:IBaseViewController {
               PLISTHELPER.XmppUsername  = self.txtServerLoginName.text
               PLISTHELPER.XmppUserpwd = self.txtServerPwd.text
                 
-                showDialogMsg(ShowMessage(MessageEnum.ServerSettingSuccess), "提示", buttonTitle: "确定", action: nil)
+                showDialogMsg(ShowMessage(MessageEnum.ServerSettingSuccess), "", buttonTitle: "确定", action: self.Close)
                 },
                 catch: { ex in
                     //异常处理
@@ -64,6 +59,15 @@ class IServerSettingController:IBaseViewController {
                     
                 }
             )}
+    }
+    
+    @IBAction func btnBack(sender:UIButton){
+    self.navigationController?.popViewControllerAnimated(true)
+        
+    }
+    
+    func Close(isOtherButton: Bool){
+     self.navigationController?.popViewControllerAnimated(true)
     }
     
     

@@ -171,7 +171,7 @@ class IloginViewModel: BaseViewModel {
 //                
                 
                 //开启报警，获取未处理的报警信息
-                IAlarmHelper.GetAlarmInstance().BeginWaringAttention()
+             //   IAlarmHelper.GetAlarmInstance().BeginWaringAttention()
                 
                 //开启远程通知（有token值的情况下）
                 LOGINFLAG = true
@@ -192,8 +192,8 @@ class IloginViewModel: BaseViewModel {
                 }
                 
                 //跳转主页面
-                if self.controller != nil{
-                    self.controller!.performSegueWithIdentifier("patientlist",sender:self.controller!)
+                if self.parentcontroller != nil{
+                    self.parentcontroller!.performSegueWithIdentifier("patientlist",sender:self.parentcontroller!)
                 }
                 
                 //登录业务完成后，重新允许用户点击登录按钮操作

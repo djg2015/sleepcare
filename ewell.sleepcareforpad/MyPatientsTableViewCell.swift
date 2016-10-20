@@ -9,32 +9,20 @@
 import UIKit
 
 class MyPatientsTableViewCell: UITableViewCell {
-    @IBOutlet weak var lblPartName: UILabel!
+    
     @IBOutlet weak var lblBedStatus: UILabel!
     @IBOutlet weak var lblHR: UILabel!
     @IBOutlet weak var lblRR: UILabel!
     @IBOutlet weak var lblBedNum: UILabel!
     @IBOutlet weak var lblRoomNum: UILabel!
     @IBOutlet weak var lblBedUserName: UILabel!
-    //  @IBOutlet weak var imgDetail: UIImageView!
-    
-    @IBOutlet weak var lblMainName: UILabel!
-    
-    
+ @IBOutlet weak var imgSex: UIImageView!
     @IBOutlet weak var imgStatus: UIImageView!
-  //  @IBOutlet weak var layerView: BackgroundCommon!
+
     
     var source:MyPatientsTableCellViewModel!
     var bindFlag:Bool = false
     
-    var statusImageName:String?
-        {
-        didSet{
-            if statusImageName != nil{
-                self.imgStatus.image = UIImage(named:statusImageName!)
-            }
-        }
-    }
     
     
     //数据绑定床位界面
@@ -46,38 +34,34 @@ class MyPatientsTableViewCell: UITableViewCell {
         self.source.RoomNum = (data as MyPatientsTableCellViewModel).RoomNum
         self.source.BedNum = (data as MyPatientsTableCellViewModel).BedNum
         self.source.PartCode = (data as MyPatientsTableCellViewModel).PartCode
-        self.source.MainName = (data as MyPatientsTableCellViewModel).MainName
-        self.source.PartName = (data as MyPatientsTableCellViewModel).PartName
+       self.source.Sex = (data as MyPatientsTableCellViewModel).Sex
+          self.source.EquipmentID = (data as MyPatientsTableCellViewModel).EquipmentID
+        
+        
         self.source.selectedBedUserHandler = (data as MyPatientsTableCellViewModel).selectedBedUserHandler
         self.source.deleteBedUserHandler = (data as MyPatientsTableCellViewModel).deleteBedUserHandler
-        self.source.EquipmentID = (data as MyPatientsTableCellViewModel).EquipmentID
+      
         
-        RACObserve(self.source, "StatusImageName") ~> RAC(self, "statusImageName")
+      
         RACObserve(data, "HR") ~> RAC(self.source, "HR")
         RACObserve(data, "RR") ~> RAC(self.source, "RR")
         RACObserve(data, "BedStatus") ~> RAC(self.source, "BedStatus")
          RACObserve(data, "BedNum") ~> RAC(self.source, "BedNum")
          RACObserve(data, "BedCode") ~> RAC(self.source, "BedCode")
          RACObserve(data, "BedUserName") ~> RAC(self.source, "BedUserName")
+         RACObserve(data, "Sex") ~> RAC(self.source, "Sex")
+       
      
-        RACObserve(self.source, "MainName") ~> RAC(self.lblMainName, "text")
-        RACObserve(self.source, "PartName") ~> RAC(self.lblPartName, "text")
+       
         RACObserve(self.source, "BedStatus") ~> RAC(self.lblBedStatus, "text")
         RACObserve(self.source, "HR") ~> RAC(self.lblHR, "text")
         RACObserve(self.source, "RR") ~> RAC(self.lblRR, "text")
         RACObserve(self.source, "BedNum") ~> RAC(self.lblBedNum, "text")
         RACObserve(self.source, "RoomNum") ~> RAC(self.lblRoomNum, "text")
         RACObserve(self.source, "BedUserName") ~> RAC(self.lblBedUserName, "text")
+         RACObserve(self.source, "SexImg") ~> RAC(self.imgSex, "image")
         
-        //        if(!self.bindFlag){
-        
-        //
-        //            //设置箭头点击查看明细
-        //           self.imgDetail.userInteractionEnabled = true
-        //           var singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageViewTouch")
-        //            self.imgDetail.addGestureRecognizer(singleTap)
-        //            self.bindFlag = true
-        //        }
+       
         
     }
     
@@ -85,41 +69,12 @@ class MyPatientsTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func imageViewTouch(){
-        if(self.source.selectedBedUserHandler != nil){
-            self.source.selectedBedUserHandler!(myPatientsTableViewModel: self.source)
-        }
-    }
+   
     
 }
 
 class MyPatientsTableCellViewModel:NSObject{
     //属性定义
-    //床位用户姓名
-    var _mainName:String?
-    dynamic var MainName:String?{
-        get
-        {
-            return self._mainName
-        }
-        set(value)
-        {
-            self._mainName = value
-        }
-    }
-    
-    //床位用户编号
-    var _bedUserCode:String?
-    dynamic var BedUserCode:String?{
-        get
-        {
-            return self._bedUserCode
-        }
-        set(value)
-        {
-            self._bedUserCode=value
-        }
-    }
     
     //床位用户姓名
     var _bedUserName:String?
@@ -131,6 +86,153 @@ class MyPatientsTableCellViewModel:NSObject{
         set(value)
         {
             self._bedUserName=value
+        }
+    }
+
+    
+    //房间号
+    var _roomNum:String?
+    dynamic var RoomNum:String?{
+        get
+        {
+            if(self._roomNum != nil){
+                if(self._roomNum!.hasSuffix("房") == false){
+                    return self._roomNum! + "房"
+                }
+            }
+            return self._roomNum
+        }
+        set(value)
+        {
+            self._roomNum=value
+        }
+    }
+    
+    //床位号
+    var _bedNum:String?
+    dynamic var BedNum:String?{
+        get
+        {
+            if(self._bedNum != nil){
+                
+                    return self._bedNum!
+                
+            }
+            return self._bedNum
+        }
+        set(value)
+        {
+            self._bedNum=value
+        }
+    }
+    
+    //心率
+    var _hr:String?
+    dynamic var HR:String?{
+        get
+        {
+            if(self._hr == nil){
+                return ""
+            }
+                       return self._hr!
+        }
+        set(value)
+        {
+            self._hr=value
+        }
+    }
+    
+    //呼吸
+    var _rr:String?
+    dynamic var RR:String?{
+        get
+        {
+            if(self._rr == nil){
+                return ""
+            }
+            
+            return self._rr!
+        }
+        set(value)
+        {
+            self._rr=value
+        }
+    }
+    
+    //在离床状态
+    var _bedStatus:String?
+    dynamic var BedStatus:String?{
+        get
+        {
+            return self._bedStatus
+        }
+        set(value)
+        {
+            self._bedStatus=value
+        }
+    }
+    
+  
+    //报警图片显示,默认隐藏（true），有报警时显示图片（false）
+    var _ishiddenAlarm:Bool=true
+    dynamic var IshiddenAlarm:Bool{
+        get
+        {
+            return self._ishiddenAlarm
+        }
+        set(value)
+        {
+            self._ishiddenAlarm=value
+        }
+    }
+    
+    // 性别
+    var _sex:String?
+    dynamic var Sex:String?{
+        get
+        {
+            return self._sex
+        }
+        set(value)
+        {
+            self._sex=value
+            if (self._sex == "0"){
+            self._sexImg?.image = UIImage(named: "icon_male_")
+            }
+            else if(self._sex == "1"){
+                self._sexImg?.image = UIImage(named: "icon_female_")
+            }
+            else{
+             self._sexImg?.image = nil
+            }
+        }
+    }
+    var _sexImg:UIImageView?
+    dynamic var SexImg:UIImageView?{
+        get
+        {
+            return self._sexImg
+        }
+        set(value)
+        {
+            self._sexImg=value
+           
+        }
+    }
+
+    
+        
+    //-----------------------------------------------------
+    // 设备编号
+    var _equipmentID:String?
+    dynamic var EquipmentID:String?{
+        get
+        {
+            return self._equipmentID
+        }
+        set(value)
+        {
+            self._equipmentID=value
         }
     }
     
@@ -161,149 +263,19 @@ class MyPatientsTableCellViewModel:NSObject{
     }
     
     
-    //场景名称
-    var _partName:String?
-    dynamic var PartName:String?{
+    //床位用户编号
+    var _bedUserCode:String?
+    dynamic var BedUserCode:String?{
         get
         {
-            return self._partName
+            return self._bedUserCode
         }
         set(value)
         {
-            self._partName=value
+            self._bedUserCode=value
         }
     }
     
-    //房间号
-    var _roomNum:String?
-    dynamic var RoomNum:String?{
-        get
-        {
-            if(self._roomNum != nil){
-                if(self._roomNum!.hasSuffix("室") == false){
-                    return self._roomNum! + "室"
-                }
-            }
-            return self._roomNum
-        }
-        set(value)
-        {
-            self._roomNum=value
-        }
-    }
-    
-    //床位号
-    var _bedNum:String?
-    dynamic var BedNum:String?{
-        get
-        {
-            if(self._bedNum != nil){
-                if(self._bedNum!.hasSuffix("床") == false){
-                    return self._bedNum! + "床"
-                }
-            }
-            return self._bedNum
-        }
-        set(value)
-        {
-            self._bedNum=value
-        }
-    }
-    
-    //心率
-    var _hr:String?
-    dynamic var HR:String?{
-        get
-        {
-            if(self._hr == nil){
-                return ""
-            }
-            if(self._hr!.hasSuffix("次/分") == false){
-                return self._hr! + "次/分"
-            }
-            return self._hr!
-        }
-        set(value)
-        {
-            self._hr=value
-        }
-    }
-    
-    //呼吸
-    var _rr:String?
-    dynamic var RR:String?{
-        get
-        {
-            if(self._rr == nil){
-                return ""
-            }
-            if(self._rr!.hasSuffix("次/分") == false){
-                return self._rr! + "次/分"
-            }
-            return self._rr!
-        }
-        set(value)
-        {
-            self._rr=value
-        }
-    }
-    
-    //在离床状态
-    var _bedStatus:String?
-    dynamic var BedStatus:String?{
-        get
-        {
-            return self._bedStatus
-        }
-        set(value)
-        {
-            self._bedStatus=value
-            if value == "在床"{
-                StatusImageName = "greenpoint.png"
-            }
-            else if value == "离床"{
-                StatusImageName = "greypoint.png"
-            }
-            else if value == "请假"{
-                StatusImageName = "lightgreenpoint.png"
-            }
-            else if value == "异常"{
-                StatusImageName = "yellowpoint.png"
-            }
-            else if value == "空床"{
-                StatusImageName = "lightgreenpoint.png"
-            }
-            else {
-                self._bedStatus = "确认中"
-                 StatusImageName = "yellowpoint.png"
-            }
-        }
-    }
-    
-    // 设备编号
-    var _equipmentID:String?
-    dynamic var EquipmentID:String?{
-        get
-        {
-            return self._equipmentID
-        }
-        set(value)
-        {
-            self._equipmentID=value
-        }
-    }
-    
-    var _statusImageName:String?
-    dynamic var StatusImageName:String?{
-        get
-        {
-            return self._statusImageName
-        }
-        set(value)
-        {
-            self._statusImageName=value
-        }
-    }
     
     //操作定义
     var selectedBedUserHandler: ((myPatientsTableViewModel:MyPatientsTableCellViewModel) -> ())?

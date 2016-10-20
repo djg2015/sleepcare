@@ -25,8 +25,7 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
     
     
     @IBAction func Close(sender:AnyObject){
-        //把当前页面中的报警信息设置为“已读”
-        IAlarmHelper.GetAlarmInstance().SetReadWarning(self.alarmViewModel!.codeList)
+      
         
         if self.parentController.isKindOfClass(MeTabViewController){
             let count = IAlarmHelper.GetAlarmInstance().WarningList.count

@@ -15,6 +15,7 @@ class LoginViewController: IBaseViewController,LoginButtonDelegate{
     @IBOutlet weak var rememberPwdBtn: UIButton!
     @IBOutlet weak var loginBtn: UIButton!
     
+    @IBOutlet weak var logoImg: UIImageView!
     
     var iloginViewModel:IloginViewModel!
     
@@ -52,10 +53,18 @@ class LoginViewController: IBaseViewController,LoginButtonDelegate{
         self.iloginViewModel.parentcontroller = self
         self.iloginViewModel.loginbuttonDelegate = self
         
+        let tapGR = UITapGestureRecognizer(target: self, action: "tapHandler:")
+        logoImg.addGestureRecognizer(tapGR)
+        
+        
+        
+        
         
         self.rememberPwdBtn.setBackgroundImage(UIImage(named: "icon_square"), forState: UIControlState.Normal)
         self.rememberPwdBtn.setBackgroundImage(UIImage(named: "icon_square 1"), forState: UIControlState.Selected)
         self.rememberPwdBtn.selected = false
+        
+        
         
         //初始化页面数据
         self.iloginViewModel.LoadData()
@@ -65,12 +74,17 @@ class LoginViewController: IBaseViewController,LoginButtonDelegate{
         
         RACObserve(self.iloginViewModel, "Loginname") ~> RAC(self.loginnameText, "text")
         RACObserve(self.iloginViewModel, "Pwd") ~> RAC(self.passwordText, "text")
-        self.loginnameText.rac_textSignal() ~> RAC(self.iloginViewModel, "Telephone")
+        self.loginnameText.rac_textSignal() ~> RAC(self.iloginViewModel, "Loginname")
         self.passwordText.rac_textSignal() ~> RAC(self.iloginViewModel, "Pwd")
         RACObserve(self.iloginViewModel, "IsRememberpwd") ~> RAC(self.rememberPwdBtn, "selected")
         
         
     }
+    
+    func tapHandler(sender:UITapGestureRecognizer) {
+        self.performSegueWithIdentifier("serversetting", sender: self)
+    }
+    
     
     func DisableLoginButton() {
         self.loginBtn.userInteractionEnabled = false

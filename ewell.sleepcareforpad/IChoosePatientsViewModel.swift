@@ -141,9 +141,9 @@ class IChoosePatientsViewModel: BaseViewModel {
                             myPatientsTableCellViewModel.BedUserCode = choosedbedUsers[i].BedUserCode
                             myPatientsTableCellViewModel.BedUserName = choosedbedUsers[i].BedUserName
                             myPatientsTableCellViewModel.PartCode = choosedbedUsers[i].PartCode
-                            myPatientsTableCellViewModel.PartName = choosedbedUsers[i].PartName
+                           
                             myPatientsTableCellViewModel.BedCode = choosedbedUsers[i].BedCode
-                            myPatientsTableCellViewModel.MainName = choosedbedUsers[i].MainName
+                           
                             myPatientsTableCellViewModel.BedNum = choosedbedUsers[i].BedNum
                             myPatientsTableCellViewModel.RoomNum = choosedbedUsers[i].RoomNum
                             choosedPatients.append(myPatientsTableCellViewModel)

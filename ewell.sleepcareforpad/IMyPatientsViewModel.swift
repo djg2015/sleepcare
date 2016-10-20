@@ -50,13 +50,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     func InitData(){
         try {
             ({
-                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isconnect = xmppMsgManager!.Connect()
-                if(!isconnect){
-                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-                }
-                else{
-               
+                
                 var session = SessionForIphone.GetSession()
                 session!.BedUserCodeList = Array<String>()
                 
@@ -66,15 +60,18 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 var curArray = Array<MyPatientsTableCellViewModel>()
                 for(var i=0;i<bedUserList.bedUserInfoList.count;i++){
                     var myPatientsTableCellViewModel = MyPatientsTableCellViewModel()
-                    myPatientsTableCellViewModel.MainName = bedUserList.bedUserInfoList[i].MainName
+                   
                     myPatientsTableCellViewModel.BedUserCode = bedUserList.bedUserInfoList[i].BedUserCode
                     myPatientsTableCellViewModel.BedUserName = bedUserList.bedUserInfoList[i].BedUserName
                     myPatientsTableCellViewModel.RoomNum = bedUserList.bedUserInfoList[i].RoomName
                     myPatientsTableCellViewModel.BedNum = bedUserList.bedUserInfoList[i].BedNumber
                     myPatientsTableCellViewModel.BedCode = bedUserList.bedUserInfoList[i].BedCode
                     myPatientsTableCellViewModel.PartCode = bedUserList.bedUserInfoList[i].PartCode
-                    myPatientsTableCellViewModel.PartName = bedUserList.bedUserInfoList[i].PartName
+                   
                     myPatientsTableCellViewModel.EquipmentID = bedUserList.bedUserInfoList[i].EquipmentID
+                    myPatientsTableCellViewModel.Sex = bedUserList.bedUserInfoList[i].Sex
+                    
+                    
                     myPatientsTableCellViewModel.selectedBedUserHandler = self.ShowPatientDetail
                     myPatientsTableCellViewModel.deleteBedUserHandler = self.RemovePatient
                     
@@ -83,7 +80,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 }
                 self.MyPatientsArray = curArray
                 self.bedUserCodeList = session!.BedUserCodeList
-                }
+               
                 },
                 catch: { ex in
                     //异常处理
@@ -114,9 +111,9 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                         patient[i].RR = realtimeData[patient[i].BedUserCode!]!.RR
                         patient[i].BedStatus = realtimeData[patient[i].BedUserCode!]!.OnBedStatus
                          //111
-                        patient[i].BedNum = realtimeData[patient[i].BedUserCode!]!.BedNumber
-                       patient[i].BedUserName = realtimeData[patient[i].BedUserCode!]!.UserName
-                       patient[i].BedCode = realtimeData[patient[i].BedUserCode!]!.BedCode
+//                        patient[i].BedNum = realtimeData[patient[i].BedUserCode!]!.BedNumber
+//                       patient[i].BedUserName = realtimeData[patient[i].BedUserCode!]!.UserName
+//                       patient[i].BedCode = realtimeData[patient[i].BedUserCode!]!.BedCode
                     }
                 }
                 
@@ -134,12 +131,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     }
 
     
-    //显示某个床位用户体征明细
-    func ShowPatientDetail(myPatientsTableViewModel:MyPatientsTableCellViewModel){
-        var session = SessionForIphone.GetSession()
-        session!.CurPatientCode = myPatientsTableViewModel.BedUserCode!
-       
-    }
+   
     
     //移除指定床位用户，更新服务器端，更新当前session的关注老人床位号列表
     func RemovePatient(myPatientsTableViewModel:MyPatientsTableCellViewModel){
@@ -147,8 +139,10 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
         if(exist.count > 0){
             try {
                 ({
-                   
-                    var session = SessionForIphone.GetSession()
+                     var session = SessionForIphone.GetSession()
+                    SleepCareForIPhoneBussiness().RemoveFollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode!)
+                    
+                    //更新bedusercodelist
                     var tempList = session!.BedUserCodeList
                     for(var i = 0 ; i < tempList.count ; i++){
                         if tempList[i] == myPatientsTableViewModel.BedUserCode! {
@@ -159,8 +153,9 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     session!.BedUserCodeList = tempList
                     self.bedUserCodeList = tempList
                     
+                     //删除和这个老人有关的报警信息
                     IAlarmHelper.GetAlarmInstance().DeletePatientAlarm(myPatientsTableViewModel.BedUserName!)
-                    SleepCareForIPhoneBussiness().RemoveFollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode!)
+
                     },
                     catch: { ex in
                         //异常处理
@@ -177,6 +172,13 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
         
     }
     
+    
+    
+    func ShowPatientDetail(myPatientsTableViewModel:MyPatientsTableCellViewModel){
+        var session = SessionForIphone.GetSession()
+        session!.CurPatientCode = myPatientsTableViewModel.BedUserCode!
+        
+    }
     /**
     添加关注的老人：更新到服务器端，更新当前session的关注老人床位号列表
     :param: myPatientsTableViewModels	当前所有关注的老人信息

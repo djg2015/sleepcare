@@ -16,10 +16,13 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
     var loginFlag:Int = 0
     var _messageDelegate:MessageDelegate?
     func setupStream(){
-        
         //初始化XMPPStream
-        xmppStream = XMPPStream()
-        xmppStream!.addDelegate(self,delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0));
+        if xmppStream == nil{
+            xmppStream = XMPPStream()
+            xmppStream!.addDelegate(self,delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))
+            
+        }
+
         
     }
     
@@ -40,70 +43,73 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
     }
     
     func connect(timeOut:NSTimeInterval) -> Bool{
-        //初始化登录flag
-        self.loginFlag = 0
         self.setupStream()
-        //iphone连接测试
-        var userId:String?  = PLISTHELPER.XmppUsernamePhone
-        var pass:String? = PLISTHELPER.XmppUserpwd
-        var server:String? = PLISTHELPER.XmppServer
-        var port:String? = PLISTHELPER.XmppPort
-        //此时已打开连接
-        if (!xmppStream!.isDisconnected()) {
-            return true
+        if (xmppStream!.isDisconnected()) {
+            
+            //初始化登录flag
+            self.loginFlag = 0
+            //iphone连接测试
+            var userId:String?  = PLISTHELPER.XmppUsernamePhone
+            var pass:String? = PLISTHELPER.XmppUserpwd
+            var server:String? = PLISTHELPER.XmppServer
+            var port:String? = PLISTHELPER.XmppPort
+            
+            
+            
+            //设置用户
+            xmppStream!.myJID = XMPPJID.jidWithString(userId)
+            //设置服务器
+            xmppStream!.hostName = server
+            xmppStream!.hostPort = UInt16(port!.toUInt()!)
+            //密码
+            password = pass
+            
+            //连接服务器
+            var error:NSError?
+            if (!xmppStream!.connectWithTimeout(timeOut,error: &error)) {
+                println("xmppmsghelper cannot connect \(server)")
+                return false
+            }
+            
         }
-        
-        if (userId == "" || pass == "") {
-            return false;
-        }
-        //设置用户
-        xmppStream!.myJID = XMPPJID.jidWithString(userId)
-        //设置服务器
-        xmppStream!.hostName = server
-        xmppStream!.hostPort = UInt16(port!.toUInt()!)
-        //密码
-        password = pass;
-        
-        //连接服务器
-        var error:NSError? ;
-        if (!xmppStream!.connectWithTimeout(timeOut,error: &error)) {
-            println("cannot connect \(server)")
-            return false;
-        }
-        println("connect success!!!")
-        return true;
+        println("xmppmsghelper connect success\n")
+        return true
+
         
     }
     
     func RegistConnect(timeOut:NSTimeInterval) -> Bool{
-        //初始化登录flag
-        self.loginFlag = 0
         self.setupStream()
-        //ipad连接测试／iphone注册账户相关链接测试
-        var userId:String?  = PLISTHELPER.XmppUsername
-        var pass:String? = PLISTHELPER.XmppUserpwd
-        var server:String? = PLISTHELPER.XmppServer
-        var port:String? = PLISTHELPER.XmppPort
-        if (!xmppStream!.isDisconnected()) {
-            return true
+        
+        if (xmppStream!.isDisconnected()) {
+            //初始化登录flag
+            self.loginFlag = 0
+            
+            //ipad连接测试／iphone注册账户相关链接测试
+            var userId:String?  = PLISTHELPER.XmppUsername
+            var pass:String? = PLISTHELPER.XmppUserpwd
+            var server:String? = PLISTHELPER.XmppServer
+            var port:String? = PLISTHELPER.XmppPort
+            
+            
+            //设置用户
+            xmppStream!.myJID = XMPPJID.jidWithString(userId)
+            //设置服务器
+            xmppStream!.hostName = server
+            xmppStream!.hostPort = UInt16(port!.toUInt()!)
+            //密码
+            password = pass
+            
+            //连接服务器
+            var error:NSError? ;
+            if (!xmppStream!.connectWithTimeout(timeOut,error: &error)) {
+                println("cannot connect \(server)")
+                return false
+            }
         }
         
-        //设置用户
-        xmppStream!.myJID = XMPPJID.jidWithString(userId)
-        //设置服务器
-        xmppStream!.hostName = server
-        xmppStream!.hostPort = UInt16(port!.toUInt()!)
-        //密码
-        password = pass;
-        
-        //连接服务器
-        var error:NSError? ;
-        if (!xmppStream!.connectWithTimeout(timeOut,error: &error)) {
-            println("cannot connect \(server)")
-            return false;
-        }
-        println("connect success!!!")
-        return true;
+        println("xmppmsghelperforregist connect success!!!")
+        return true
         
     }
 
@@ -125,6 +131,7 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
     func xmppStreamDidConnect(sender:XMPPStream ){
         println("xmppStreamDidConnect \(xmppStream!.isConnected())")
         isOpen = true;
+            //验证账户密码
         var error:NSError?
         xmppStream!.authenticateWithPassword(password ,error:&error);
         if error != nil {
@@ -139,7 +146,11 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
         loginFlag=1
     }
     
+    //验证失败，断开xmpp连接
     func xmppStream(sender:XMPPStream , didNotAuthenticate error:DDXMLElement ){
+        println("xmppStreamDidAuthenticate false")
+        xmppStream?.disconnect()
+        isOpen = false
         loginFlag=2
     }
     

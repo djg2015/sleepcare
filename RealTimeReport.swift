@@ -16,7 +16,7 @@ class RealTimeReport:BaseMessage{
     var CaseCode:String = ""
     var HR:String = ""
     var RR:String = ""
-    var BodyTemperature:String = ""
+ 
     var OnBedStatus:String = ""
     var MsgTime:String = ""
     var LastedLeaveTime:String = ""
@@ -38,7 +38,6 @@ class RealTimeReport:BaseMessage{
             }
             result.HR = realTimeReport.elementForName("HR").stringValue()
             result.RR = realTimeReport.elementForName("RR").stringValue()
-            result.BodyTemperature = realTimeReport.elementForName("BodyTemperature") != nil ?realTimeReport.elementForName("BodyTemperature").stringValue() : ""
             if realTimeReport.elementForName("OnBedStatus") != nil{
             result.OnBedStatus = realTimeReport.elementForName("OnBedStatus").stringValue()
             }

@@ -80,7 +80,6 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     func BeginWaringAttention(){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWariningAction", name: "OpenAlarmView", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "CloseWaringAttention", name: "WarningClose", object: nil)
-        //    NSNotificationCenter.defaultCenter().addObserver(self,selector:"ReConnect", name:"ReConnectInternetForPhone", object: nil)
         self.IsOpen = true
         
         //清除已经overdue的todoitem
@@ -94,7 +93,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         
         //初始化定时器
         self.setAlarmTimer()
-        self.setTimer()
+        
     }
     
     //关闭报警提醒
@@ -114,9 +113,9 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         try {
             ({
                 var session = SessionForIphone.GetSession()
-                var curDateString = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
+               // var curDateString = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
               
-                var alarmList:AlarmList = SleepCareForIPhoneBussiness().GetAlarmByLoginUser(session!.User!.MainCode,loginName:session!.User!.LoginName,schemaCode:"",alarmTimeBegin:"2016-01-01",alarmTimeEnd:curDateString,transferTypeCode:"001",from:nil,max:nil)
+                var alarmList:AlarmList = SleepCareForIPhoneBussiness().GetAlarmByLoginUser(session!.User!.MainCode,loginName:session!.User!.LoginName,schemaCode:"",alarmTimeBegin:"",alarmTimeEnd:"",transferTypeCode:"001",from:nil,max:nil)
                 
                 var alarmInfo:AlarmInfo
                 var tempWarningList:Array<WarningInfo>=[]
@@ -124,6 +123,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                 for(var i=0;i<alarmList.alarmInfoList.count;i++){
                     
                     alarmInfo = alarmList.alarmInfoList[i]
+                   
+                    
                     let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,userCode: alarmInfo.UserCode,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmTime: alarmInfo.AlarmTime,equipmentID:self.equipmentid,sex:alarmInfo.UserSex,alarmType:alarmInfo.SchemaCode)
                     
                     tempWarningList.append(warningInfo)
@@ -162,28 +163,23 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         }
     }
     
-    //从后台进入前台，获取报警信息数，刷新页面数字
-    func GetAlarmCount()->Int{
-        
-        return self.Warningcouts
-    }
-    
+  
     
     //--------------------------------------定时器--------------------------------------------
-    //若存在未读信息，则弹窗提示是否查看
-    func setTimer(){
-        var  realtimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "RunAlarmThread", userInfo: nil, repeats:true);
-        realtimer.fire()
-    }
-    
-    func RunAlarmThread(){
-        
-        var unread = self.WarningList.filter({$0.IsRead == false})
-        if unread.count>0{
-            self.showWariningNotification()
-        }
-        
-    }
+//    //若存在未读信息，则弹窗提示是否查看
+//    func setTimer(){
+//        var  realtimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "RunAlarmThread", userInfo: nil, repeats:true);
+//        realtimer.fire()
+//    }
+//    
+//    func RunAlarmThread(){
+//        
+//        var unread = self.WarningList.filter({$0.IsRead == false})
+//        if unread.count>0{
+//            self.showWariningNotification()
+//        }
+//        
+//    }
     
     //实时报警处理线程
     func setAlarmTimer(){
@@ -200,6 +196,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
            let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,userCode: alarmInfo.UserCode,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmTime: alarmInfo.AlarmTime,equipmentID:equipmentid,sex:alarmInfo.UserSex,alarmType:alarmInfo.SchemaCode)
             
             self.WarningList.append(warningInfo)
+             self._codes.append(alarmInfo.AlarmCode)
             
             //同意接收通知，才往todolist里加
             TodoList.sharedInstance.addItem(todoItem)
@@ -255,47 +252,15 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     //--------------------------------报警弹窗和页面跳转---------------------------------
     //点击远程消息通知后的操作：若已登录且当前不是报警页面，则直接跳转报警信息页面
     func showWariningAction(){
-        if currentController != nil{
+        if (LOGINFLAG && currentController != nil){
             let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
             nextController.parentController = currentController
             currentController.presentViewController(nextController, animated: true, completion: nil)
         }
     }
     
-    //当前不是弹窗页面且没有打开的弹窗，则弹窗提示是否查看报警
-    func showWariningNotification(){
-        if(LOGINFLAG){
-            
-            self.AlarmAlert.showAlert("新报警", subTitle:"提示", style: AlertStyle.None,buttonTitle:"忽略",buttonColor: UIColor.colorFromRGB(0xAEDEF4),otherButtonTitle:"立即查看", otherButtonColor:UIColor.colorFromRGB(0xAEDEF4), action: self.ShowAlarmInfo)
-        }
-    }
-    //弹窗按钮的具体操作
-    func ShowAlarmInfo(isOtherButton: Bool){
-        //点击“立即查看”,则跳转alarmview页面
-        if !isOtherButton{
-            let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
-            nextController.parentController = currentController
-            currentController.presentViewController(nextController, animated: true, completion: nil)
-            
-        }
-        else{
-            for warning in self.WarningList{
-                warning.IsRead = true
-            }
-        }
-        
-    }
     
-    func SetReadWarning(codeList:Array<String>){
-        for code in codeList{
-            var tempList = self.WarningList.filter({$0.AlarmCode == code})
-            if tempList.count > 0{
-                tempList[0].IsRead = true
-            }
-        }
-        
-    }
-    
+   
     
     //----------------------------------报警delegate-------------------------------------
     //获取原始报警数据warningcaches,通过bedcode过滤为需要的报警信息
@@ -335,11 +300,11 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                                     }//删除已处理的报警
                                 }
                                     
-                                    //不存在此code信息，则加入到codes和warningCaches里
+                                    //不存在此code信息，则加入到warningCaches里
                                 else{
                                     if alarmList.alarmInfoList[i].HandleFlag == "0"
                                     {
-                                        self._codes.append(alarmList.alarmInfoList[i].AlarmCode)
+                                       
                                         self._wariningCaches.append(alarmList.alarmInfoList[i])
                                         break
                                     }
