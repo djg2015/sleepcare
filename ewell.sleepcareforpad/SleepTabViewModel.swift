@@ -11,6 +11,21 @@ import UIKit
 class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
     var realtimeFlag:Bool = false
     
+    //圆圈内:睡眠得分
+    var _sleepQuality:String=""
+    dynamic var SleepQuality:String{
+        get
+        {
+            return self._sleepQuality
+        }
+        set(value)
+        {
+            self._sleepQuality = value
+        }
+    }
+
+    
+    
     // 查看日期yyyy－mm－dd
     var _selectDate:String=""
     dynamic var SelectDate:String{
@@ -38,7 +53,7 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
     }
     
     
-    var _bedUserName:String="选择老人"
+    var _bedUserName:String=""
     dynamic var BedUserName:String{
         get
         {
@@ -61,62 +76,50 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
         {
             self._onBedStatus = value
             if value == "在床"{
-                StatusImage = UIImage(named:"icon_onbed.png")!
+                StatusImageName = "icon_onbed"
             }
             else if value == "离床"{
-                StatusImage = UIImage(named:"icon_offbed.png")!
+                StatusImageName = "icon_offbed"
             }
             else if value == "请假"{
-                StatusImage = UIImage(named:"icon_请假.png")!
+                StatusImageName = "icon_请假"
                 
             }
             else if value == "异常"{
                 
-                StatusImage = UIImage(named:"icon_异常.png")!
+                StatusImageName = "icon_异常"
             }
             else{
-                StatusImage = UIImage(named:"icon_检测中.png")!
+                StatusImageName = ""
             }
         }
     }
-    //在离床状态的图片,默认“检测中。png”
-    var _statusImage:UIImage = UIImage(named:"icon_检测中.png")!
-    dynamic var StatusImage:UIImage{
+    //在离床状态的图片
+    var _statusImageName:String=""
+    dynamic var StatusImageName:String{
         get
         {
-            return self._statusImage
+            return self._statusImageName
         }
         set(value)
         {
-            self._statusImage=value
+            self._statusImageName=value
         }
     }
     
-    //圆圈内在床时长（时）
-    var _bedTimespanHour:String="0"
-    dynamic var BedTimespanHour:String{
+    //在床时长（
+    var _bedTimespan:String="0时0分"
+    dynamic var BedTimespan:String{
         get
         {
-            return self._bedTimespanHour
+            return self._bedTimespan
         }
         set(value)
         {
-            self._bedTimespanHour = value
+            self._bedTimespan = value
         }
     }
-    //圆圈内在床时长（分）
-    var _bedTimespanMinute:String="时0分"
-    dynamic var BedTimespanMinute:String{
-        get
-        {
-            return self._bedTimespanMinute
-        }
-        set(value)
-        {
-            self._bedTimespanMinute = value
-        }
-    }
-
+   
     
     //清醒时长
     var _awakeningTimespan:String="0小时"
@@ -240,9 +243,9 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
     }
 
     //------------------------载入sleep chart值--------------------------
-    //返回值：1 正常 2没选择老人  3没添加设备
-    func LoadPatientSleep()->String {
-        var flag = "2"
+
+    func LoadPatientSleep(){
+       
         try {({
             if SessionForIphone.GetSession() != nil{
                 self.BedUserCode = SessionForIphone.GetSession()!.CurPatientCode!
@@ -255,13 +258,12 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
                     self.realtimeFlag = true
                     RealTimeHelper.GetRealTimeInstance().SetDelegate("SleepTabViewModel",currentViewModelDelegate: self)
                     RealTimeHelper.GetRealTimeInstance().setRealTimer()
-                    flag = "1"
+                  
                 }
                     
-                                  //当前没有设备：隐藏页面内所有的subviews,提示添加noticeview提示先添加设备
                 else{
                     self.ClearSleepData()
-                    flag = "3"
+                   
                 }
                 
             }
@@ -275,7 +277,7 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
             }
             )}
         
-        return flag
+     
     }
 
     
@@ -283,20 +285,23 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
         //获取某床位用户睡眠报告
         var tempSleepRange:SleepQualityReport = SleepCareForIPhoneBussiness().GetSleepQualityofBedUser(self.BedUserCode,reportDate:self.SelectDate)
         
-       
-        //圆圈内值
+       //
+        self.SleepQuality = tempSleepRange.SleepQuality
+        
+        
+        //睡眠时长label（？时？分）
         if tempSleepRange.SleepTimespan != ""{
-        self.BedTimespanHour = tempSleepRange.SleepTimespan.subString(0, length: 2)
-        self.BedTimespanMinute = "时" + tempSleepRange.SleepTimespan.subString(3, length: 2) + "分"
+            self.BedTimespan = tempSleepRange.SleepTimespan.subString(0, length: 2)+"时"+tempSleepRange.SleepTimespan.subString(3, length: 2) + "分"
         }
         else {
-        self.BedTimespanHour = "0"
-        self.BedTimespanMinute = "时0分"
+        self.BedTimespan = "0时0分"
         }
+        
+        
         //三个圆点值
         if tempSleepRange.AwakeningTimespan != ""{
         self.AwakeCircleValue = CGFloat((tempSleepRange.AwakeningTimespan.subString(0, length: 2) as NSString).floatValue + (tempSleepRange.AwakeningTimespan.subString(3, length: 2) as NSString).floatValue/60.0)/12.0
-        self.AwakeningTimespan = tempSleepRange.AwakeningTimespan.subString(0, length: 2) + "/" + tempSleepRange.AwakeningTimespan.subString(3, length: 2)
+        self.AwakeningTimespan = tempSleepRange.AwakeningTimespan.subString(0, length: 2) + "h" + tempSleepRange.AwakeningTimespan.subString(3, length: 2) + "m"
         }
         else{
             self.AwakeCircleValue = 0.0
@@ -305,7 +310,7 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
         
         if tempSleepRange.LightSleepTimespan != ""{
              self.LightSleepCircleValue = CGFloat((tempSleepRange.LightSleepTimespan.subString(0, length: 2) as NSString).floatValue + (tempSleepRange.LightSleepTimespan.subString(3, length: 2) as NSString).floatValue/60.0 )/12.0
-            self.LightSleepTimespan = tempSleepRange.LightSleepTimespan.subString(0, length: 2) + "/" + tempSleepRange.LightSleepTimespan.subString(3, length: 2)
+            self.LightSleepTimespan = tempSleepRange.LightSleepTimespan.subString(0, length: 2) + "h" + tempSleepRange.LightSleepTimespan.subString(3, length: 2) + "m"
         }
         else{
              self.LightSleepCircleValue = 0.0
@@ -314,7 +319,7 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
         
         if tempSleepRange.DeepSleepTimespan != ""{
              self.DeepSleepCircleValue = CGFloat((tempSleepRange.DeepSleepTimespan.subString(0, length: 2) as NSString).floatValue + (tempSleepRange.DeepSleepTimespan.subString(3, length: 2) as NSString).floatValue/60.0)/12.0
-            self.DeepSleepTimespan = tempSleepRange.DeepSleepTimespan.subString(0, length: 2) + "/" + tempSleepRange.DeepSleepTimespan.subString(3, length: 2)
+            self.DeepSleepTimespan = tempSleepRange.DeepSleepTimespan.subString(0, length: 2) + "h" + tempSleepRange.DeepSleepTimespan.subString(3, length: 2) + "m"
         }
         else{
             self.DeepSleepCircleValue = 0.0
@@ -362,8 +367,8 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
         self.AwakeningTimespan = ""
         self.LightSleepTimespan = ""
         self.DeepSleepTimespan = ""
-        self.BedTimespanMinute = ""
-        self.BedTimespanHour = ""
+        self.BedTimespan = ""
+       
         self.SleepReport = SleepReportList()
         self._circleValueList = Array<CGFloat>()
     }

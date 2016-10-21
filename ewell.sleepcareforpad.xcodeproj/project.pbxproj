@@ -76,7 +76,6 @@
 		0DC146851DB4CA0100DE2E0D /* HRRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC146841DB4CA0100DE2E0D /* HRRange.swift */; };
 		0DC146871DB4CDFC00DE2E0D /* SleepQualityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC146861DB4CDFC00DE2E0D /* SleepQualityReport.swift */; };
 		0DC146891DB4CE0200DE2E0D /* RRRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC146881DB4CE0200DE2E0D /* RRRange.swift */; };
-		0DC1468B1DB5F03700DE2E0D /* MessageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1468A1DB5F03700DE2E0D /* MessageEnum.swift */; };
 		0DC1468D1DB60A7D00DE2E0D /* WeekReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1468C1DB60A7D00DE2E0D /* WeekReportViewModel.swift */; };
 		0DC1468F1DB60B4800DE2E0D /* WeekSleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1468E1DB60B4800DE2E0D /* WeekSleep.swift */; };
 		0DC146911DB60BC500DE2E0D /* WeekreportLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC146901DB60BC500DE2E0D /* WeekreportLabel.swift */; };
@@ -211,7 +210,6 @@
 		0DC146841DB4CA0100DE2E0D /* HRRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRRange.swift; sourceTree = "<group>"; };
 		0DC146861DB4CDFC00DE2E0D /* SleepQualityReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepQualityReport.swift; sourceTree = "<group>"; };
 		0DC146881DB4CE0200DE2E0D /* RRRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRRange.swift; sourceTree = "<group>"; };
-		0DC1468A1DB5F03700DE2E0D /* MessageEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageEnum.swift; sourceTree = "<group>"; };
 		0DC1468C1DB60A7D00DE2E0D /* WeekReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekReportViewModel.swift; sourceTree = "<group>"; };
 		0DC1468E1DB60B4800DE2E0D /* WeekSleep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekSleep.swift; sourceTree = "<group>"; };
 		0DC146901DB60BC500DE2E0D /* WeekreportLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekreportLabel.swift; sourceTree = "<group>"; };
@@ -478,12 +476,12 @@
 				3AF844C41BFD619E00B5EDE3 /* IMyPatientsViewModel.swift */,
 				3ACD645D1BFC577A00FB62BB /* IChoosePatientsViewModel.swift */,
 				0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */,
-				0DC146801DB4C8EA00DE2E0D /* SleepTabViewModel.swift */,
+				0DC1468C1DB60A7D00DE2E0D /* WeekReportViewModel.swift */,
 				2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */,
+				0D652BD01DB49E1100110E63 /* IAlarmViewModel.swift */,
 				0DC1467E1DB4C8EA00DE2E0D /* HRTabViewModel.swift */,
 				0DC1467F1DB4C8EA00DE2E0D /* RRTabViewModel.swift */,
-				0DC1468C1DB60A7D00DE2E0D /* WeekReportViewModel.swift */,
-				0D652BD01DB49E1100110E63 /* IAlarmViewModel.swift */,
+				0DC146801DB4C8EA00DE2E0D /* SleepTabViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -583,7 +581,6 @@
 				3A4CD3FC1BA80852002C8A1A /* BaseMessage.swift */,
 				3A33EF841BAA56D700D82A4D /* MessageSubject.swift */,
 				3A36B0221BA96648000F4AED /* RealTimeReport.swift */,
-				0DC1468A1DB5F03700DE2E0D /* MessageEnum.swift */,
 				0D47F1B61DB9A11B0012C078 /* PatientCodeAndName.swift */,
 			);
 			name = Model;
@@ -827,7 +824,6 @@
 				3A325A341BD08B7B00DE4E78 /* BaseViewModel.swift in Sources */,
 				0D85F77F1DB49B0A000E5ADC /* ShowAlarmViewController.swift in Sources */,
 				0D85F7791DB49B0A000E5ADC /* IMyPatientsController.swift in Sources */,
-				0DC1468B1DB5F03700DE2E0D /* MessageEnum.swift in Sources */,
 				0DC146891DB4CE0200DE2E0D /* RRRange.swift in Sources */,
 				0DC146811DB4C8EA00DE2E0D /* HRTabViewModel.swift in Sources */,
 				3A3262E01BB912180002687B /* OSSExceptionHelper.m in Sources */,

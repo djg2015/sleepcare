@@ -10,40 +10,20 @@ import UIKit
 
 class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var tableview1: UITableView!
+    
+    @IBAction func btnBack(sender:UIButton){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    
     var alarmViewModel:IAlarmViewModel!
     var parentController:UIViewController!
-    
-    
-    
-    let screenwidth = UIScreen.mainScreen().bounds.width
-    
-    
-    
     var source:Array<AlarmTableCell> = Array<AlarmTableCell>()
     
     
     
     
-    @IBAction func Close(sender:AnyObject){
-      
-        
-        if self.parentController.isKindOfClass(MeViewController){
-            let count = IAlarmHelper.GetAlarmInstance().WarningList.count
-            let vc = self.parentController as! MeViewController
-            if count > 0{
-               
-                vc.hiddenalarm = false
-            }
-            else{
-              
-                vc.hiddenalarm = true
-            }
-            vc.memuTable.reloadData()
-        }
-        //返回上一页
-        self.parentController.navigationController?.popViewControllerAnimated(true)
-    }
-    
+  
     
     
     override func viewWillAppear(animated: Bool) {
@@ -114,7 +94,7 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
             
             
             var alarmImage =  UIImageView(frame: CGRectMake(12, 0, 27, 47))
-            alarmImage.image = UIImage(named:"icon_报警页面.png")
+            alarmImage.image = UIImage(named:"icon_报警")
             cell?.contentView.addSubview(alarmImage)
             
             var typeLabel = UILabel(frame:CGRectMake(45, 18, 76, 21))
@@ -123,23 +103,23 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
             typeLabel.font = font14
             cell?.contentView.addSubview(typeLabel)
             
-            var timeLabel = UILabel(frame:CGRectMake(screenwidth-182, 18, 170, 21))
+            var timeLabel = UILabel(frame:CGRectMake(SCREENWIDTH-182, 18, 170, 21))
             timeLabel.text = self.source[indexPath.section].AlarmTime
             timeLabel.textAlignment = NSTextAlignment.Right
             timeLabel.textColor = textGraycolor
             timeLabel.font = font14
             cell?.contentView.addSubview(timeLabel)
             
-            var underlineLabel1 = UILabel(frame:CGRectMake(12, 47, screenwidth-24, 1))
+            var underlineLabel1 = UILabel(frame:CGRectMake(12, 47, SCREENWIDTH-24, 1))
             underlineLabel1.backgroundColor = seperatorColor
             cell?.contentView.addSubview(underlineLabel1)
             
             var genderImageName:String = ""
-            if self.source[indexPath.section].UserGender == "1"{
-                genderImageName = "icon_male_choose.png"
+            if self.source[indexPath.section].UserGender == "男"{
+                genderImageName = "icon_male_"
             }
-            else if self.source[indexPath.section].UserGender == "2"{
-                genderImageName = "icon_female_choose.png"
+            else if self.source[indexPath.section].UserGender == "女"{
+                genderImageName = "icon_female_"
             }
             var genderImage =  UIImageView(frame: CGRectMake(19, 62, 16, 16))
             genderImage.image = UIImage(named:genderImageName)
@@ -159,27 +139,27 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
             
             
             
-            var alarmcontentText = UITextView(frame:CGRectMake(38, 80,screenwidth-42 , 56))
+            var alarmcontentText = UITextView(frame:CGRectMake(38, 80,SCREENWIDTH-42 , 56))
             alarmcontentText.text =  self.source[indexPath.section].AlarmContent
             alarmcontentText.textColor = textGraycolor
             alarmcontentText.font = font14
             alarmcontentText.editable = false
             cell?.contentView.addSubview(alarmcontentText)
             
-            var underlineLabel2 = UILabel(frame:CGRectMake(12, 136, screenwidth-24, 1))
+            var underlineLabel2 = UILabel(frame:CGRectMake(12, 136, SCREENWIDTH-24, 1))
             underlineLabel2.backgroundColor = seperatorColor
             cell?.contentView.addSubview(underlineLabel2)
             
-            var setnumberLabel = UILabel(frame:CGRectMake(screenwidth-192, 147, 180, 21))
+            var setnumberLabel = UILabel(frame:CGRectMake(SCREENWIDTH-192, 147, 180, 21))
             setnumberLabel.text = "设备编号  " + self.source[indexPath.section].EquipmentCode
             setnumberLabel.font = font14
             setnumberLabel.textColor = textGraycolor
             setnumberLabel.textAlignment = NSTextAlignment.Right
             cell?.contentView.addSubview(setnumberLabel)
             
-            var deleteImage =  UIImageView(frame: CGRectMake(screenwidth, 0, 200, 180))
+            var deleteImage =  UIImageView(frame: CGRectMake(SCREENWIDTH, 0, 200, 180))
             // deleteImage.backgroundColor = UIColor.redColor()
-            deleteImage.image = UIImage(named:"icon_alarmtrash.png")
+            deleteImage.image = UIImage(named:"icon_trash")
             cell?.contentView.addSubview(deleteImage)
             
             
@@ -214,7 +194,7 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        var footerView = UIView(frame:CGRectMake(0, 0, screenwidth,15))
+        var footerView = UIView(frame:CGRectMake(0, 0, SCREENWIDTH,15))
         footerView.backgroundColor = seperatorColor
         return footerView
     }

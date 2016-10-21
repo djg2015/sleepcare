@@ -9,6 +9,7 @@
 import Foundation
 
 class PatientCodeAndName{
-
+    var patientcode:String = ""
+    var patientname:String = ""
     
 }

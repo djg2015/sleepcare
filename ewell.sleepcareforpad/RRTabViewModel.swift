@@ -28,7 +28,7 @@ class RRTabViewModel: BaseViewModel,GetRealtimeDataDelegate  {
     }
     
     
-    var _bedUserName:String="选择老人"
+    var _bedUserName:String=""
     dynamic var BedUserName:String{
         get
         {
@@ -51,26 +51,26 @@ class RRTabViewModel: BaseViewModel,GetRealtimeDataDelegate  {
         {
             self._onBedStatus = value
             if value == "在床"{
-                StatusImageName = "icon_onbed.png"
+                StatusImageName = "icon_onbed"
             }
             else if value == "离床"{
-                StatusImageName = "icon_offbed.png"
+                StatusImageName = "icon_offbed"
             }
             else if value == "请假"{
-                StatusImageName = "icon_请假.png"
+                StatusImageName = "icon_请假"
                 
             }
             else if value == "异常"{
                 
-                StatusImageName = "icon_异常.png"
+                StatusImageName = "icon_异常"
             }
             else{
                 StatusImageName = ""
             }
         }
     }
-    //在离床状态的图片,默认“检测中。png”
-    var _statusImageName:String="icon_检测中.png"
+    //在离床状态的图片
+    var _statusImageName:String=""
     dynamic var StatusImageName:String{
         get
         {
@@ -90,81 +90,14 @@ class RRTabViewModel: BaseViewModel,GetRealtimeDataDelegate  {
         }
         set(value)
         {
-            let oldvalue = self._currentRR.toInt()
+          
             self._currentRR = value
-            if (value.toInt() <= 0 ){
-               
-                    //非在床：点变灰，报警图标变白
-                    if OnBedStatus == "在床"{
-                        if CurrentRRImage != "icon_red circle.png"{
-                        //在床：点变红，报警图标变红
-                        CurrentRRImage = "icon_red circle.png"
-                        AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
-                        }
-                    }
-                    else{
-                        if  CurrentRRImage != "icon_gray circle.png"{
-                        CurrentRRImage = "icon_gray circle.png"
-                        AlarmNoticeImage = UIImage(named:"btn_无警报.png")!
-                    }
-                    
-                }
-                
-            }
-                
-            else if (value.toInt() < RRLOW ){
-                if  CurrentRRImage != "icon_blue circle.png"{
-                    //点变蓝，报警图标变红
-                    CurrentRRImage = "icon_blue circle.png"
-                    AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
-                }
-            }
-            else if (value.toInt() > RRMIDDLE ){
-                //点变红，报警图标变红
-                if CurrentRRImage != "icon_red circle.png"{
-                    CurrentRRImage = "icon_red circle.png"
-                    AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
-                }
-            }
-            else {
-                //值处于8-30正常状态,圆紫色，报警图标变白色
-                if CurrentRRImage != "icon_purple circle.png"{
-                    CurrentRRImage = "icon_purple circle.png"
-                    AlarmNoticeImage = UIImage(named:"btn_无警报.png")!
-                }
-            }
-            
+        
             
         }
     }
     
-    
-    //实时呼吸值状态的图片，默认灰色点
-    var _currentRRImage:String="icon_gray circle.png"
-    dynamic var CurrentRRImage:String{
-        get
-        {
-            return self._currentRRImage
-        }
-        set(value)
-        {
-            self._currentRRImage=value
-        }
-    }
-    
-    //报警状态的图片，默认无报警白色图
-    var _alarmNoticeImage:UIImage=UIImage(named:"btn_无警报.png")!
-    dynamic var AlarmNoticeImage:UIImage{
-        get
-        {
-            return self._alarmNoticeImage
-        }
-        set(value)
-        {
-            self._alarmNoticeImage=value
-        }
-    }
-    
+  
     // 上一次平均呼吸
     var _lastAvgRR:String="0"
     dynamic var LastAvgRR:String{
@@ -226,9 +159,9 @@ class RRTabViewModel: BaseViewModel,GetRealtimeDataDelegate  {
     }
     
     //------------------------载入rr图标值--------------------------
-    //返回值：1 正常 2没选择老人  3没添加设备
-    func LoadPatientRR()->String {
-        var flag = "2"
+   
+    func LoadPatientRR(){
+       
         try {({
             if SessionForIphone.GetSession() != nil{
                 self.BedUserCode = SessionForIphone.GetSession()!.CurPatientCode!
@@ -241,12 +174,11 @@ class RRTabViewModel: BaseViewModel,GetRealtimeDataDelegate  {
                     self.realtimeFlag = true
                     RealTimeHelper.GetRealTimeInstance().SetDelegate("RRTabViewModel",currentViewModelDelegate: self)
                     RealTimeHelper.GetRealTimeInstance().setRealTimer()
-                    flag = "1"
+                  
                 }
-                                 //当前没有设备：隐藏页面内所有的subviews,提示添加noticeview提示先添加设备
+                    
                 else{
                     self.ClearRRData()
-                    flag = "3"
                 }
                 
             }
@@ -258,8 +190,7 @@ class RRTabViewModel: BaseViewModel,GetRealtimeDataDelegate  {
             finally: {
             }
             )}
-        
-        return flag
+    
     }
     
     //获取chart图表数据

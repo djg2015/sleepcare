@@ -322,8 +322,20 @@ class WeekReportViewModel: BaseViewModel {
             return self._bedusercode
         }
         set(value)
-        {                                                      1
+        {
             self._bedusercode = value
+        }
+    }
+    
+    var _popdownList:Array<PatientCodeAndName>=Array<PatientCodeAndName>()
+    dynamic var PopdownList:Array<PatientCodeAndName>{
+        get
+        {
+            return self._popdownList
+        }
+        set(value)
+        {
+            self._popdownList = value
         }
     }
     
@@ -333,10 +345,37 @@ class WeekReportViewModel: BaseViewModel {
         
         let curDateString = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
         self.SelectDate = Date(string: curDateString, format: "yyyy-MM-dd").addDays(-1).description(format: "yyyy-MM-dd")
-        self.bedusercode = SessionForIphone.GetSession()!.CurPatientCode!
+      
         
-        LoadData()
+         //初始化下拉病人列表
+        LoadPatientPopdownList()
         
+       //  LoadData()
+        
+    }
+    
+    func LoadPatientPopdownList(){
+        try {
+            ({
+                var session = SessionForIphone.GetSession()
+                var bedUserList:IBedUserList = SleepCareForIPhoneBussiness().GetBedUsersByLoginName(session!.User!.LoginName, mainCode: session!.User!.MainCode)
+                
+                 for(var i=0;i<bedUserList.bedUserInfoList.count;i++){
+                    var popdownListItem = PatientCodeAndName()
+                    popdownListItem.patientcode = bedUserList.bedUserInfoList[i].BedUserCode
+                    popdownListItem.patientname = bedUserList.bedUserInfoList[i].BedUserName
+                    self._popdownList.append(popdownListItem)
+                }
+                },
+                catch: { ex in
+                    //异常处理
+                    handleException(ex,showDialog: true)
+                },
+                finally: {
+                    
+                }
+            )}
+
     }
     
     func LoadData(){
@@ -503,6 +542,8 @@ class WeekReportViewModel: BaseViewModel {
     
     
 }
+
+
 //心率呼吸chart
 class HRRRChart:NSObject{
     var _valueX:NSArray = NSArray()

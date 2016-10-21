@@ -51,25 +51,25 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
         {
             self._onBedStatus = value
             if value == "在床"{
-                StatusImageName = ""
+                StatusImageName = "icon_onbed"
             }
             else if value == "离床"{
-                StatusImageName = ""
+                StatusImageName = "icon_offbed"
             }
             else if value == "请假"{
-                StatusImageName = ""
+                StatusImageName = "icon_请假"
                 
             }
             else if value == "异常"{
                 
-                StatusImageName = ""
+                StatusImageName = "icon_异常"
             }
             else{
                 StatusImageName = ""
             }
         }
     }
-    //在离床状态的图片,默认“检测中。png”
+    //在离床状态的图片
     var _statusImageName:String=""
     dynamic var StatusImageName:String{
         get
@@ -90,80 +90,16 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
         }
         set(value)
         {
-            let oldvalue = self._currentHR.toInt()
+           
             self._currentHR = value
-            if (value.toInt() <= 0 ){
-              
-                    //非在床：点变灰，报警图标变白
-                    if OnBedStatus == "在床"{
-                        if CurrentHRImage != ""{
-                        //在床：点变红，报警图标变红
-                        CurrentHRImage = ""
-                        AlarmNoticeImage = UIImage(named:"icon_alarm_red_")!
-                        }
-                    }
-                    else{
-                         if CurrentHRImage != ""{
-                        CurrentHRImage = ""
-                        AlarmNoticeImage = UIImage(named:"icon_alarm_")!
-                    }
-                    
-                }
-                
-            }
-                
-            else if (value.toInt() < HRLOW){
-                if CurrentHRImage != ""{
-                    //点变蓝，报警图标变红
-                    CurrentHRImage = ""
-                    AlarmNoticeImage = UIImage(named:"icon_alarm_red_")!
-                }
-            }
-            else if (value.toInt()>HRMIDDLE ){
-                //点变红，报警图标变红
-                if CurrentHRImage != "icon_red circle.png"{
-                    CurrentHRImage = "icon_red circle.png"
-                    AlarmNoticeImage = UIImage(named:"icon_alarm_red_")!
-                }
-            }
-            else {
-                //值处于20-80正常状态,圆紫色，报警图标变白色
-                if CurrentHRImage != ""{
-                    CurrentHRImage = ""
-                    AlarmNoticeImage = UIImage(named:"icon_alarm_")!
-                }
-            }
-            
             
         }
+        
     }
     
     
-    //实时心率值状态的图片，默认灰色点
-    var _currentHRImage:String=""
-    dynamic var CurrentHRImage:String{
-        get
-        {
-            return self._currentHRImage
-        }
-        set(value)
-        {
-            self._currentHRImage=value
-        }
-    }
+   
     
-    //报警状态的图片，默认无报警白色图
-    var _alarmNoticeImage:UIImage=UIImage(named:"icon_alarm_")!
-    dynamic var AlarmNoticeImage:UIImage{
-        get
-        {
-            return self._alarmNoticeImage
-        }
-        set(value)
-        {
-            self._alarmNoticeImage=value
-        }
-    }
     
     // 上一次平均心率
     var _lastAvgHR:String="0"
@@ -224,9 +160,9 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
     }
     
 //------------------------载入hr图标值--------------------------
-    //返回值：1 正常 2没选择老人  3没添加设备
-    func LoadPatientHR()->String {
-        var flag = "2"
+   
+    func LoadPatientHR(){
+      
         try {({
             if SessionForIphone.GetSession() != nil{
             self.BedUserCode = SessionForIphone.GetSession()!.CurPatientCode!
@@ -239,13 +175,13 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
                 self.realtimeFlag = true
                 RealTimeHelper.GetRealTimeInstance().SetDelegate("HRTabViewModel",currentViewModelDelegate: self)
                 RealTimeHelper.GetRealTimeInstance().setRealTimer()
-                flag = "1"
+               
             }
            
-                //当前没有设备：隐藏页面内所有的subviews,提示添加noticeview提示先添加设备
+               
             else{
                 self.ClearHRData()
-                flag = "3"
+               
             }
             
             }
@@ -258,7 +194,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
             }
             )}
         
-        return flag
+      
     }
     
     //获取chart图表数据

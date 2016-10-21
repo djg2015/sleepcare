@@ -64,9 +64,9 @@ static const char * const kZSYPopoverListButtonClickForDone = "kZSYPopoverListBu
     
     _titleName = [[UILabel alloc] initWithFrame:CGRectZero];
     self.titleName.font = [UIFont systemFontOfSize:17.0f];
-    self.titleName.backgroundColor = [UIColor colorWithRed:59./255.
-                                                 green:89./255.
-                                                  blue:152./255.
+    self.titleName.backgroundColor = [UIColor colorWithRed:80./255.
+                                                 green:171./255.
+                                                  blue:242./255.
                                                  alpha:1.0f];
     
     self.titleName.textAlignment = NSTextAlignmentCenter;

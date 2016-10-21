@@ -25,13 +25,24 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
     var alarmTimer:NSTimer!
     
     
+    @IBAction func UnwindHRTab(unwindsegue:UIStoryboardSegue){
+        
+    }
+
+    @IBAction func UnwindRRTab(unwindsegue:UIStoryboardSegue){
+        
+    }
+    
+    @IBAction func UnwindSleepTab(unwindsegue:UIStoryboardSegue){
+        
+    }
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "addpatient" {
             let vc = segue.destinationViewController as! IChoosePatientsController
             vc.allPatientInfo = self.mypatientsViewmodel
         }
-        
-        
     }
 
     
@@ -135,7 +146,7 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
         session!.CurPatientCode = cell.source.BedUserCode
         session!.CurPatientName = cell.source.BedUserName!
     
-   // self.performSegueWithIdentifier("showpatient", sender: self)
+       self.performSegueWithIdentifier("showpatient", sender: self)
     
     
      tableView.deselectRowAtIndexPath(indexPath, animated: false)

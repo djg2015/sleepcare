@@ -19,7 +19,7 @@ let tag_IP_hrRange:String="<EPHRRange"
 let tag_IP_rrRange:String="<EPRRRange"
 let tag_IP_sleepQuality:String="<SleepQualityReport"
 let tag_IP_mainInfoList:String="<EPMainInfoList"
-let tag_IP_weekReport:String="<WeekReport"
+let tag_IP_weekReport:String="<WeekSleep"
 let tag_IP_mainInfo:String="<MainInfo"
 
 class MessageFactory {

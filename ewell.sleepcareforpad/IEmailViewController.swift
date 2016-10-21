@@ -15,18 +15,22 @@ class IEmailViewController: IBaseViewController {
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var txtEmailAddress: UITextField!
     @IBOutlet weak var btnSendEmail: UIButton!
+    @IBAction func ClickCancle(sender:AnyObject){
+        self.ParentController.dismissSemiModalView()
+        
+    }
     
     var emailViewModel:IEmailViewModel?
     var BedUserCode:String = ""
     var SleepDate:String = ""
-   // var ParentController:SleepViewController!
+   var ParentController:IWeekSleepcareController!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+        self.view.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHIGHT)
         self.emailViewModel = IEmailViewModel()
-       
+        self.emailView.backgroundColor = defaultblueColor
         self.rac_settings()
     }
     
@@ -47,9 +51,6 @@ class IEmailViewController: IBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func ClickCancle(sender:AnyObject){
-       // self.ParentController.dismissSemiModalView()
-        
-    }
+   
     
    }

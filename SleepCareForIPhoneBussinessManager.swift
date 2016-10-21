@@ -13,9 +13,6 @@ protocol SleepCareForIPhoneBussinessManager{
     //      loginPassword->登录密码
     func Login(loginName:String,loginPassword:String) -> ILoginUser
     
-      // 根据医院/养老院编号获取楼层以及床位用户信息
-    // 参数：mainCode->医院/养老院编号
-  //  func GetPartInfoByMainCode(mainCode:String)->IMainInfo
     
     // 根据医院/养老院编号获取楼层以及床位用户信息（排除已经关注的老人）S
     // 参数：mainCode->医院/养老院编号
@@ -38,23 +35,7 @@ protocol SleepCareForIPhoneBussinessManager{
     //      mainCode->医院/养老院编号
     func GetBedUsersByLoginName(loginName:String,mainCode:String)->IBedUserList
     
-//    // 根据床位用户编码获取心率曲线图(往前推12个小时)
-//    // 参数：bedUserCode->床位用户编号
-//    func GetHRTimeReport(bedUserCode:String)->IHRRange
-//    
-//    // 根据床位用户编码获取呼吸曲线图(往前推12个小时)
-//    // 参数：bedUserCode->床位用户编号
-//    func GetRRTimeReport(bedUserCode:String)->IRRRange
-//    
-//    // 根据床位用户编码分析日期查询用户的睡眠质量
-//    // 参数：bedUserCode->床位用户编号
-//    //      reportDate->报告日期
-//    func GetSleepQualityByUser(bedUserCode:String,reportDate:String)->ISleepQualityReport
-//    
-    // 根据床位用户编码分析日期查询用户的周报表
-    // 参数：bedUserCode->床位用户编号
-    //      reportDate->报告日期
-//    func GetWeekReportByUser(bedUserCode:String,reportDate:String)->IWeekReport
+
     
     // 根据床位用户编码和邮箱信息发送邮件(指定日期所在周的报表)
     // 参数：bedUserCode->床位用户编号
@@ -102,10 +83,7 @@ protocol SleepCareForIPhoneBussinessManager{
     func GetSleepQualityofBedUser(bedUserCode:String,reportDate:String)->SleepQualityReport
 
     
-    // 处理报警信息
-    // 参数：alarmCode-> 报警编号
-    //      transferType-> 处理类型 002:处理 003:误警报
-    func HandleAlarm(alarmCode:String,transferType:String)->ServerResult
+   
     
     //根据当前登录用户、报警类型、报警时间段、报警处理状态等多条件获取关注老人的报警信息
     func GetAlarmByLoginUser(mainCode:String,loginName:String,schemaCode:String,alarmTimeBegin:String,alarmTimeEnd:String,transferTypeCode:String,from:String?,max:String?)-> AlarmList

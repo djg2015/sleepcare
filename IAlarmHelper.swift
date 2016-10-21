@@ -348,7 +348,7 @@ class WarningInfo{
     var AlarmType:String = ""
     var UserName:String = ""
     var UserCode:String = ""
-    var Sex:String=""
+    var Sex:String=""   //"男"“女”
     var BedNumber:String = ""
     var AlarmContent:String = ""
     var AlarmTime:String = ""

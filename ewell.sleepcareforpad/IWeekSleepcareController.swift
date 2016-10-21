@@ -9,19 +9,15 @@
 import UIKit
 
 class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDateDelegate, PopDownListItemChoosed  {
-     var popDownListForIphone:PopDownListForIphone?
-     var patientlistBusinesses:Array<PopDownListItem>!
     
     @IBOutlet weak var mainscrollView: UIScrollView!
     @IBOutlet weak var lblDate: UILabel!
-    
     @IBOutlet weak var btnChoosePatient: UIButton!
+    
     @IBAction func btnBack(sender:UIButton){
         self.navigationController?.popViewControllerAnimated(true)
     }
 
-    
-   
     
     @IBAction func SendEmail(sender:UIButton){
         if self.weekreportViewModel.bedusercode != ""{
@@ -29,7 +25,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
             self.email = IEmailViewController(nibName: "IEmailView", bundle: nil)
             self.email!.BedUserCode = self.weekreportViewModel.bedusercode
             self.email!.SleepDate = self.weekreportViewModel.SelectDate
-         //   self.email!.ParentController = self
+            self.email!.ParentController = self
             var kNSemiModalOptionKeys = [ KNSemiModalOptionKeys.pushParentBack:"NO",
                 KNSemiModalOptionKeys.animationDuration:"0.2",KNSemiModalOptionKeys.shadowOpacity:"0.3"]
             
@@ -38,14 +34,13 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
         
     }
     
-    
-    
+    var popDownListForIphone:PopDownListForIphone?
+    var patientlistBusinesses:Array<PopDownListItem>!
     var weekreportViewModel:WeekReportViewModel!
     var email:IEmailViewController?
     
-
     
-    
+    //页面UI控件
     var hrTitleLabel:UILabel!
     var HrRrChartView = ChartView()
     var hrFiguresView:UIView!
@@ -111,56 +106,75 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
     
     
     
-    override func viewWillAppear(animated: Bool) {
-        currentController = self
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
+
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.weekreportViewModel = WeekReportViewModel()
-        
-        RACObserve(self.weekreportViewModel, "DateLabel") ~> RAC(self.lblDate, "text")
-        
+
         //usercode->username
         self.patientlistBusinesses = Array<PopDownListItem>()
-        
-//        for(var i=0;i<SessionForIphone.GetSession()?.BedUserCodeList.count;i++){
-//            var item:PopDownListItem = PopDownListItem()
-//            var 
-//            item.key =
-//            item.value =
-//             self.patientlistBusinesses.append(item)
-//        }
-        
-        self.btnChoosePatient.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
-            .subscribeNext {
-                _ in
-                if(self.popDownListForIphone == nil){
-                    self.popDownListForIphone = PopDownListForIphone()
-                    self.popDownListForIphone?.delegate = self
-                }
-                self.popDownListForIphone?.Show("选择要查看的病人", source:self.patientlistBusinesses)
+        for(var i=0;i<self.weekreportViewModel.PopdownList.count;i++){
+            var item:PopDownListItem = PopDownListItem()
+           var tempitem = self.weekreportViewModel.PopdownList[i]
+            item.key = tempitem.patientcode
+            item.value = tempitem.patientname
+             self.patientlistBusinesses.append(item)
         }
-
-        
-        self.mainscrollView.delegate = self
-        self.mainscrollView.contentSize = CGSize(width:SCREENWIDTH,height:1370)
         
         
         self.rac_settings()
         
-        self.Refresh()
-        
+       
+        //首次进入页面，弹窗选择一个老人，选择成功后self.viewmodel.loaddata(),self.refresh
+        self.ChoosePatientPopdown()
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //选择日期
+    func tapHandler(sender:UITapGestureRecognizer) {
+        if self.weekreportViewModel.bedusercode != ""{
+            //设置日期弹出窗口
+            var alertview:DatePickerView = DatePickerView(frame:UIScreen.mainScreen().bounds)
+            alertview.datedelegate = self
+            self.view.addSubview(alertview)
+        }
+
     }
+    
+    //选择病人
+    func ChoosePatientPopdown(){
+        if(self.popDownListForIphone == nil){
+            self.popDownListForIphone = PopDownListForIphone()
+            self.popDownListForIphone?.delegate = self
+        }
+        self.popDownListForIphone?.Show("选择要查看的病人", source:self.patientlistBusinesses)
+    }
+    
     
     func rac_settings(){
+        self.btnChoosePatient.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
+            .subscribeNext {
+                _ in
+                self.ChoosePatientPopdown()
+        }
+        
+        RACObserve(self.weekreportViewModel, "DateLabel") ~> RAC(self.lblDate, "text")
+        
+       
+        
+        self.mainscrollView.delegate = self
+        self.mainscrollView.contentSize = CGSize(width:SCREENWIDTH,height:1370)
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: "tapHandler:")
+        lblDate.addGestureRecognizer(tapGR)
+        
         self.AddHrRrTitle()
         self.AddHrRrChart()
         self.AddHrFigures()
@@ -176,6 +190,8 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
         self.AddSuggestionContent()
     }
     
+    
+    //苏阿信页面值
     func Refresh(){
         HrRrChartView.RemoveTrendChartView()
         if self.weekreportViewModel.HRRRRange.flag{
@@ -220,7 +236,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
         
         SleepChartView.RemoveTrendChartView()
         if self.weekreportViewModel.SleepRange.flag{
-            SleepChartView.frame = CGRectMake(0, 732, SCREENWIDTH-30, 200)
+            SleepChartView.frame = CGRectMake(0, 732, SCREENWIDTH, 200)
             //＝＝“3”的折线效果，但无遮层
             SleepChartView.Type = "6"
             let titleNameList1 = "深睡"
@@ -428,7 +444,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
     
     
     func AddSleepChart(){
-        
+       //  SleepChartView.frame = CGRectMake(0, 730, SCREENWIDTH, 200)
     }
     
     
@@ -634,7 +650,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
         
     }
     
-    
+    //---------------------------------delegate
     func SelectDate(sender: UIView, dateString: String) {
         self.weekreportViewModel.SelectDate = dateString
         
@@ -644,20 +660,16 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
     }
     
     func ChoosedItem(item:PopDownListItem){
-//        self.iModifyViewModel.MainCode = item.key!
-//        self.iModifyViewModel.MainName = item.value!
-//        self.txtMain.text = item.value
+        self.weekreportViewModel.bedusercode = item.key!
+     
+       print(item.key! + "\n" + item.value!)
+        
+        self.weekreportViewModel.LoadData()
+        
+        self.Refresh()
     }
     
-    
-    func ChangeDate(){
-        if self.weekreportViewModel.bedusercode != ""{
-            //设置日期弹出窗口
-            var alertview:DatePickerView = DatePickerView(frame:UIScreen.mainScreen().bounds)
-            alertview.datedelegate = self
-            self.view.addSubview(alertview)
-        }
-    }
+
     
 }
 

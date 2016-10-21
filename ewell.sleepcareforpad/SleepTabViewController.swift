@@ -8,34 +8,35 @@
 
 import UIKit
 
-class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListItemChoosed{
+class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDelegate{
     
-    @IBOutlet weak var adddeviceView: UIView!
+
     @IBOutlet weak var topview: UIView!
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
-    
-    @IBOutlet weak var sleepTabbar: UITabBarItem!
+    @IBOutlet weak var view3: UIView!
+   
     
     
     
     //标题老人名字(为空时显示“选择老人”)
     @IBOutlet weak var NameLabel: UILabel!
-    //切换当前老人
-    @IBOutlet weak var ChangePatientBtn: UIButton!
+    
+    @IBOutlet weak var DateLabel: UILabel!
     
     //在离床图标
     @IBOutlet weak var BedStatusImg: UIImageView!
+    
+    
+     @IBOutlet weak var SleepQualityLabel: UILabel!
     
     //睡眠时长数据
     @IBOutlet weak var AwakingLabel: UILabel!
     @IBOutlet weak var LightSleepLabel: UILabel!
     @IBOutlet weak var DeepSleepLabel: UILabel!
-    @IBOutlet weak var circleHourLabel: UILabel!
-    @IBOutlet weak var circleMinuteLabel: UILabel!
+  
     //放图表的容器scrollview
     @IBOutlet weak var chartScrollView: ChartScrollView!
-    
     
     
     var sleepTabViewModel:SleepTabViewModel!
@@ -44,15 +45,24 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
      var biglinewidth:CGFloat = 0
     
     //画圆
-    let bigoriginX = (UIScreen.mainScreen().bounds.width-bigCircleHeight)/2
+    let bigoriginX = (SCREENWIDTH-bigCircleHeight)/2
     
-    //选择老人下拉列表
-    var popDownListForIphone:PopDownListForIphone?
-    var patientDownlist:Array<PopDownListItem> = Array<PopDownListItem>()
+   
+    var statusImageName:String?
+        {
+        didSet{
+            if statusImageName != nil{
+                self.BedStatusImg.image = UIImage(named:statusImageName!)
+            }
+            else if statusImageName == ""{
+                self.BedStatusImg.image = nil
+            }
+        }
+    }
     
-    @IBAction func ClickChangePatient(sender:UIButton){
+    @IBAction func ClickChangeDate(sender:UIButton){
         
-        self.ChangePatient()
+        self.ChangeDate()
     }
     
     
@@ -68,16 +78,11 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.popDownListForIphone = nil
-        
         if  self.sleepTabViewModel == nil{
             self.sleepTabViewModel = SleepTabViewModel()
         }
         
         self.RefreshSleepView()
-        
-      
-        
     }
     
     
@@ -86,39 +91,16 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
         
         // Do any additional setup after loading the view.
         rac_settings()
-        //第一次显示页面时手动调用viewwillappear？？bug
-        //  self.viewWillAppear(true)
-    }
+          }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func ChangePatient(){
-        if(self.popDownListForIphone == nil){
-            
-            self.popDownListForIphone = PopDownListForIphone()
-            self.popDownListForIphone?.delegate = self
-            
-         
-            self.patientDownlist = Array<PopDownListItem>()
-//            for(var i=0;i<tempPatientList.count;i++){
-//                var item:PopDownListItem = PopDownListItem()
-//                item.key = tempPatientList[i].BedUserCode
-//                item.value = tempPatientList[i].BedUserName
-//                item.equipmentcode = tempPatientList[i].EquipmentID
-//                patientDownlist.append(item)
-//            }
-            
-        }
-        
-        self.popDownListForIphone?.Show("选择老人", source:patientDownlist)
-    }
-    
-    
-    
+   
+ 
+
     func rac_settings(){
         self.sleepTabViewModel = SleepTabViewModel()
         
@@ -161,21 +143,20 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
         
         //控件绑定
         RACObserve(self.sleepTabViewModel, "BedUserName") ~> RAC(self.NameLabel, "text")
-        RACObserve(self.sleepTabViewModel, "StatusImage") ~> RAC(self.BedStatusImg, "image")
+        RACObserve(self.sleepTabViewModel, "StatusImageName") ~> RAC(self, "statusImageName")
         RACObserve(self.sleepTabViewModel, "AwakeningTimespan") ~> RAC(self.AwakingLabel, "text")
         RACObserve(self.sleepTabViewModel, "LightSleepTimespan") ~> RAC(self.LightSleepLabel, "text")
         RACObserve(self.sleepTabViewModel, "DeepSleepTimespan") ~> RAC(self.DeepSleepLabel, "text")
-        RACObserve(self.sleepTabViewModel, "BedTimespanHour") ~> RAC(self.circleHourLabel, "text")
-        RACObserve(self.sleepTabViewModel, "BedTimespanMinute") ~> RAC(self.circleMinuteLabel, "text")
+       
         RACObserve(self.sleepTabViewModel, "CircleValueList") ~> RAC(self, "circlevaluelist")
         
+         RACObserve(self.sleepTabViewModel, "SleepQuality") ~> RAC(self.SleepQualityLabel, "text")
         
         
-        
-        //点击名字，切换老人
-        var singleTap2:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "ChangePatient")
-        self.NameLabel.addGestureRecognizer(singleTap2)
-        self.NameLabel.userInteractionEnabled = true
+        //点击日期lable，切换
+        var singleTap2:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "ChangeDate")
+        self.DateLabel.addGestureRecognizer(singleTap2)
+        self.DateLabel.userInteractionEnabled = true
         
     }
     
@@ -194,45 +175,25 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
     }
     
     
-    //选择日期，弹窗
-//    func ChangeDate(){
-//        if self.sleepTabViewModel.BedUserCode == ""{
-//            showDialogMsg(ShowMessage(MessageEnum.ChoosePatientReminder))
-//        }
-//        else{
-//            //设置日期弹出窗口
-//            var alertview:DatePickerView = DatePickerView(frame:UIScreen.mainScreen().bounds)
-//            alertview.datedelegate = self
-//            self.view.addSubview(alertview)
-//        }
-//        
-//    }
-    
-//    func SelectDate(sender: UIView, dateString: String) {
-//        self.sleepTabViewModel.SelectDate = dateString
-//        
-//        self.RefreshSleepView()
-//    }
-    
-    
-    //弹窗选择老人，进行点击后的操作
-    func ChoosedItem(item:PopDownListItem){
-        if self.sleepTabViewModel.BedUserCode != item.key!{
-            
-            SessionForIphone.GetSession()?.CurPatientCode = item.key!
-            SessionForIphone.GetSession()?.CurPatientName = item.value!
-            
-            self.sleepTabViewModel.BedUserCode = item.key!
-            self.sleepTabViewModel.BedUserName = item.value!
-            
-            PLISTHELPER.CurPatientName = item.value!
-            PLISTHELPER.CurPatientCode = item.key!
-            
-        
-            
-            self.RefreshSleepView()
+   
+    func ChangeDate(){
+        if self.sleepTabViewModel.BedUserCode != ""{
+            //设置日期弹出窗口
+            var alertview:DatePickerView = DatePickerView(frame:UIScreen.mainScreen().bounds)
+            alertview.datedelegate = self
+            self.view.addSubview(alertview)
         }
+        
     }
+    
+    func SelectDate(sender: UIView, dateString: String) {
+        self.sleepTabViewModel.SelectDate = dateString
+        
+        self.RefreshSleepView()
+    }
+    
+    
+  
     
     //---------------------刷新页面数据---------------------
     func RefreshSleepView(){
@@ -252,16 +213,11 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
         self.bigcircleView.drawcircle()
         self.view1.addSubview(self.bigcircleView)
         
-        let flag = self.sleepTabViewModel.LoadPatientSleep()
-        //显示内容
-        if flag == "1"{
+       self.sleepTabViewModel.LoadPatientSleep()
+       
             //清除scrollview中chartview的内容
             self.chartScrollView.chartView1.RemoveTrendChartView()
-            
-           
-           
-            
-            
+
             if self.sleepTabViewModel.SleepReport.flag{
                 //刷新数据
                 self.chartScrollView.chartView1.valueAll =  self.sleepTabViewModel.SleepReport.ValueY as [AnyObject]
@@ -270,37 +226,7 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,PopDownListI
                 chartScrollView.chartView1.Type = self.sleepTabViewModel.SleepReport.Type
                 chartScrollView.chartView1.addTrendChartView(CGRectMake(0, 0, chartwidth, chartheight))
               
-            }
-            
-            
-            
-            
-            //显示设置
-            self.adddeviceView.hidden = true
-            self.view1.hidden = false
-            self.view2.hidden = false
-            self.chartScrollView.hidden = false
-            
-            
-            
-        }
-            //当前有老人设备但没有选择：隐藏除topview之外的subviews，需要选择一个老人后再刷新页面显示具体内容
-        else if flag == "2"{
-            self.view1.hidden = true
-            self.view2.hidden = true
-            self.chartScrollView.hidden = true
-            self.adddeviceView.hidden = true
-            self.NameLabel.text = "选择老人"
-            
-        }
-            //当前没有设备：隐藏页面内所有的subviews,提示添加noticeview提示先添加设备
-        else if  flag == "3"{
-            self.view1.hidden = true
-            self.view2.hidden = true
-            self.chartScrollView.hidden = true
-            self.adddeviceView.hidden = false
-            self.NameLabel.text = "选择老人"
-        }
+            } 
     }
     
 }

@@ -13,30 +13,16 @@ class TabbarController: UITabBarController{
     var selecthrImage = UIImage(named:"icon_heart_rate_")
     var selectrrImage = UIImage(named:"icon_breath_blue_")
     var selectsleepImage = UIImage(named:"icon_sleep_blue_")
-   
     var selectedImage:UIImage!
     
-    
-   
-    @IBAction func UnwindWeekReport(unwindsegue:UIStoryboardSegue){
-        
-        
-    }
-   
-    @IBAction func UnwindAccountSetting(unwindsegue:UIStoryboardSegue){
-        
-        
-    }
-    
- 
-    
+
     override func viewDidLoad() {
         //去除选中图片背景蓝色tint
         selecthrImage = selecthrImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         selectrrImage = selectrrImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         selectsleepImage = selectsleepImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
      
-        self.selectedIndex = 1
+        self.selectedIndex = 0
         selectedImage = selecthrImage
         self.tabBar.selectedItem?.selectedImage = selectedImage
         
@@ -70,10 +56,6 @@ class TabbarController: UITabBarController{
             print("未知按钮")
         }
     }
-    
-    
-    
-    
     
 }
 
