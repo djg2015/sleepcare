@@ -12,8 +12,7 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
     
     @IBOutlet weak var patientsTableview: UITableView!
     
-    
-   
+      
     let session = SessionForIphone.GetSession()
     var realtimer:NSTimer?
     let cellID = "patientCell"
@@ -22,6 +21,19 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
 
      var mypatientsViewmodel:IMyPatientsViewModel?
     
+    //定时器：检查病人列表中的用户是否有报警
+    var alarmTimer:NSTimer!
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "addpatient" {
+            let vc = segue.destinationViewController as! IChoosePatientsController
+            vc.allPatientInfo = self.mypatientsViewmodel
+        }
+        
+        
+    }
+
     
     
     override func viewWillAppear(animated: Bool) {
@@ -30,15 +42,19 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
             
         }
         self.mypatientsViewmodel!.InitData()
-
-
+ self.patientsTableview.reloadData()
+        
+         alarmTimer.fire()
       
     }
 
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        alarmTimer =  NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
+      
         
         // Do any additional setup after loading the view.
         self.mypatientsViewmodel = IMyPatientsViewModel()
@@ -60,6 +76,23 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
+    //遍历mypatientsArray，和alarmlist中的usercode匹配，设置
+    func alarmTimerFireMethod(timer: NSTimer) {
+        for(var i=0;i<self.mypatientsArray.count;i++)
+        {
+        mypatientsArray[i].IshiddenAlarm = self.AlarmAndPatientMatch(mypatientsArray[i].BedUserCode)
+           
+        }
+        
+    }
+    
+    func AlarmAndPatientMatch(patientUsercode:String)->Bool{
+      var alarmPatientlist = IAlarmHelper.GetAlarmInstance().WarningList.filter({$0.UserCode == patientUsercode})
+        if(alarmPatientlist.count>0){
+        return false
+        }
+        return true
+    }
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -96,13 +129,13 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
     //选中某行操作
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         var cell:MyPatientsTableViewCell = tableView.cellForRowAtIndexPath(indexPath) as! MyPatientsTableViewCell
-        cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+    
         
         let session = SessionForIphone.GetSession()
-        session!.CurPatientCode = cell.source.BedUserCode!
+        session!.CurPatientCode = cell.source.BedUserCode
         session!.CurPatientName = cell.source.BedUserName!
-       PLISTHELPER.CurPatientCode = cell.source.BedUserCode!
-        PLISTHELPER.CurPatientCode = cell.source.BedUserName!
+    
+   // self.performSegueWithIdentifier("showpatient", sender: self)
     
     
      tableView.deselectRowAtIndexPath(indexPath, animated: false)

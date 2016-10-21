@@ -9,6 +9,7 @@
 import Foundation
 class IChoosePatientsViewModel: BaseViewModel {
     //------------属性定义------------
+  
     //我的关注老人主体对象
     var myPatientsViewModel:IMyPatientsViewModel!
     var _partBedUserDic:Dictionary<String,Array<BedPatientViewModel>>!
@@ -54,6 +55,7 @@ class IChoosePatientsViewModel: BaseViewModel {
     //界面处理命令
     var commitCommand: RACCommand?
     
+    var parentcontroller:IBaseViewController!
     //构造函数
     override init(){
         super.init()
@@ -71,13 +73,7 @@ class IChoosePatientsViewModel: BaseViewModel {
     func InitData(){
         try {
             ({
-                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isconnect = xmppMsgManager!.Connect()
-                if(!isconnect){
-                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-                }
-                else{
-               
+                
                 var session = SessionForIphone.GetSession()
                 var mainInfo:IMainInfo = SleepCareForIPhoneBussiness().GetPartInfoWithoutFollowBedUser(session!.User!.LoginName,mainCode:session!.User!.MainCode)
              
@@ -105,12 +101,14 @@ class IChoosePatientsViewModel: BaseViewModel {
                         bedPatientViewModel.BedCode = mainInfo.PartInfoList[i].BedInfoList[j].BedCode
                         bedPatientViewModel.BedUserCode = mainInfo.PartInfoList[i].BedInfoList[j].BedUserCode
                         bedPatientViewModel.BedUserName = mainInfo.PartInfoList[i].BedInfoList[j].BedUserName
+                        bedPatientViewModel.EquipmentID = mainInfo.PartInfoList[i].BedInfoList[j].EquipmentID
+                        
                         bedPatientViewModel.selectedPatientHandler = self.ChoosedPatient
                         curBedUsers.append(bedPatientViewModel)
                     }
                     self.PartBedUserDic[mainInfo.PartInfoList[i].PartCode] = curBedUsers
                 }
-                }
+              
                 },
                 catch: { ex in
                     //异常处理
@@ -138,12 +136,11 @@ class IChoosePatientsViewModel: BaseViewModel {
                         flag = true
                         for(var i=0;i<choosedbedUsers.count;i++){
                             var myPatientsTableCellViewModel:MyPatientsTableCellViewModel = MyPatientsTableCellViewModel()
-                            myPatientsTableCellViewModel.BedUserCode = choosedbedUsers[i].BedUserCode
+                            myPatientsTableCellViewModel.BedUserCode = choosedbedUsers[i].BedUserCode!
                             myPatientsTableCellViewModel.BedUserName = choosedbedUsers[i].BedUserName
                             myPatientsTableCellViewModel.PartCode = choosedbedUsers[i].PartCode
-                           
                             myPatientsTableCellViewModel.BedCode = choosedbedUsers[i].BedCode
-                           
+                            myPatientsTableCellViewModel.EquipmentID = choosedbedUsers[i].EquipmentID
                             myPatientsTableCellViewModel.BedNum = choosedbedUsers[i].BedNum
                             myPatientsTableCellViewModel.RoomNum = choosedbedUsers[i].RoomNum
                             choosedPatients.append(myPatientsTableCellViewModel)
@@ -154,8 +151,12 @@ class IChoosePatientsViewModel: BaseViewModel {
                 
                 if flag{
                     self.myPatientsViewModel.AddPatients(choosedPatients)
+                 
                 }
-              //  IViewControllerManager.GetInstance()!.CloseViewController()
+                
+                //弹窗提示添加成功，点击确认返回上一页
+                  showDialogMsg(ShowMessage(MessageEnum.AddPatientSuccess), "", buttonTitle: "确定", action: self.Close)
+             
                 
                 
                 
@@ -173,7 +174,13 @@ class IChoosePatientsViewModel: BaseViewModel {
         
     }
     
-   
+    func Close(isOtherButton: Bool){
+        if(self.parentcontroller != nil){
+        self.parentcontroller.navigationController?.popViewControllerAnimated(true)
+        }
+    }
+
+    
     //加载选择的科室对应的床位
     func ChoosedPart(partTableViewModel:PartTableViewModel){
         if(self.lasedPartCode == partTableViewModel.PartCode){

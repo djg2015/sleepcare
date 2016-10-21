@@ -116,7 +116,17 @@ class PlistHelper:NSObject{
         }
     }
     
-    
+    var _isRemembered:String=""
+    dynamic var IsRemembered:String{
+        get{
+            return self._isRemembered
+        }
+        set(value){
+            self._isRemembered = value
+            self.SetValueIntoPlist("isRemembered", value:self._isRemembered)
+        }
+    }
+
     
     //错误提示的文字信息
     var _messageList:Array<String> = Array<String>()
@@ -183,7 +193,7 @@ class PlistHelper:NSObject{
         }
         else {
             println("sleepcare.plist already exits.")
-            //  fileManager.removeItemAtPath(path, error: nil)
+         //  fileManager.removeItemAtPath(path, error: nil)
         }
         sleepcareResultDictionary = NSMutableDictionary(contentsOfFile: path)
     }
@@ -268,8 +278,16 @@ class PlistHelper:NSObject{
             value = NSMutableDictionary(contentsOfFile: path)!.valueForKey("curPatientName")
             self._curPatientName = (value == nil) ? "" : (value as! String)
           
+            value = NSMutableDictionary(contentsOfFile: path)!.valueForKey("loginUsername")
+            self._loginUsername = (value == nil) ? "" : (value as! String)
             
-            print(self.CurPatientName)
+            value = NSMutableDictionary(contentsOfFile: path)!.valueForKey("loginUserpwd")
+            self._loginUserpwd = (value == nil) ? "" : (value as! String)
+            
+             value = NSMutableDictionary(contentsOfFile: path)!.valueForKey("isRemembered")
+            self._isRemembered = (value == nil) ? "" : (value as! String)
+
+           
             
         } else {
             println("WARNING: sleepcare.plist doesn't exist! return 空!")

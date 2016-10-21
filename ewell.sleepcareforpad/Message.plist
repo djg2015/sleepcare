@@ -15,7 +15,7 @@
 	<key>6</key>
 	<string>请选择所属养老院/医院！</string>
 	<key>7</key>
-	<string>账号保存成功！</string>
+	<string>账号修改成功！确认后返回</string>
 	<key>8</key>
 	<string>账号注册成功！</string>
 	<key>9</key>
@@ -41,9 +41,9 @@
 	<key>19</key>
 	<string>操作失败！请确认用户名/密码是否正确，同时检查网络连接是否正常</string>
 	<key>20</key>
-	<string>注册账户失败！</string>
+	<string>添加成功！返回病人列表页面</string>
 	<key>21</key>
-	<string>修改账户失败！</string>
+	<string>修改账户失败！请再试一次</string>
 	<key>22</key>
 	<string>请先阅读用户服务协议，打勾后才能注册账户！</string>
 </dict>

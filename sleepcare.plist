@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>loginUsername</key>
-	<string>yuanzhang</string>
+	<string></string>
 	<key>loginUserpwd</key>
-	<string>123</string>
+	<string></string>
 	<key>serverjid</key>
 	<string>ewell@122.224.242.241</string>
 	<key>xmppserver</key>
@@ -26,5 +26,7 @@
 	<string></string>
 	<key>curPatientName</key>
 	<string></string>
+	<key>isRemembered</key>
+	<string>false</string>
 </dict>
 </plist>

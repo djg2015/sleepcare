@@ -28,7 +28,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
     }
     
     
-    var _bedUserName:String="选择老人"
+    var _bedUserName:String=""
     dynamic var BedUserName:String{
         get
         {
@@ -51,18 +51,18 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
         {
             self._onBedStatus = value
             if value == "在床"{
-                StatusImageName = "icon_onbed.png"
+                StatusImageName = ""
             }
             else if value == "离床"{
-                StatusImageName = "icon_offbed.png"
+                StatusImageName = ""
             }
             else if value == "请假"{
-                StatusImageName = "icon_请假.png"
+                StatusImageName = ""
                 
             }
             else if value == "异常"{
                 
-                StatusImageName = "icon_异常.png"
+                StatusImageName = ""
             }
             else{
                 StatusImageName = ""
@@ -70,7 +70,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
         }
     }
     //在离床状态的图片,默认“检测中。png”
-    var _statusImageName:String="icon_检测中.png"
+    var _statusImageName:String=""
     dynamic var StatusImageName:String{
         get
         {
@@ -96,16 +96,16 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
               
                     //非在床：点变灰，报警图标变白
                     if OnBedStatus == "在床"{
-                        if CurrentHRImage != "icon_red circle.png"{
+                        if CurrentHRImage != ""{
                         //在床：点变红，报警图标变红
-                        CurrentHRImage = "icon_red circle.png"
-                        AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
+                        CurrentHRImage = ""
+                        AlarmNoticeImage = UIImage(named:"icon_alarm_red_")!
                         }
                     }
                     else{
-                         if CurrentHRImage != "icon_gray circle.png"{
-                        CurrentHRImage = "icon_gray circle.png"
-                        AlarmNoticeImage = UIImage(named:"btn_无警报.png")!
+                         if CurrentHRImage != ""{
+                        CurrentHRImage = ""
+                        AlarmNoticeImage = UIImage(named:"icon_alarm_")!
                     }
                     
                 }
@@ -113,24 +113,24 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
             }
                 
             else if (value.toInt() < HRLOW){
-                if CurrentHRImage != "icon_blue circle.png"{
+                if CurrentHRImage != ""{
                     //点变蓝，报警图标变红
-                    CurrentHRImage = "icon_blue circle.png"
-                    AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
+                    CurrentHRImage = ""
+                    AlarmNoticeImage = UIImage(named:"icon_alarm_red_")!
                 }
             }
             else if (value.toInt()>HRMIDDLE ){
                 //点变红，报警图标变红
                 if CurrentHRImage != "icon_red circle.png"{
                     CurrentHRImage = "icon_red circle.png"
-                    AlarmNoticeImage = UIImage(named:"btn_有警报.png")!
+                    AlarmNoticeImage = UIImage(named:"icon_alarm_red_")!
                 }
             }
             else {
                 //值处于20-80正常状态,圆紫色，报警图标变白色
-                if CurrentHRImage != "icon_purple circle.png"{
-                    CurrentHRImage = "icon_purple circle.png"
-                    AlarmNoticeImage = UIImage(named:"btn_无警报.png")!
+                if CurrentHRImage != ""{
+                    CurrentHRImage = ""
+                    AlarmNoticeImage = UIImage(named:"icon_alarm_")!
                 }
             }
             
@@ -140,7 +140,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
     
     
     //实时心率值状态的图片，默认灰色点
-    var _currentHRImage:String="icon_gray circle.png"
+    var _currentHRImage:String=""
     dynamic var CurrentHRImage:String{
         get
         {
@@ -153,7 +153,7 @@ class HRTabViewModel: BaseViewModel,GetRealtimeDataDelegate {
     }
     
     //报警状态的图片，默认无报警白色图
-    var _alarmNoticeImage:UIImage=UIImage(named:"btn_无警报.png")!
+    var _alarmNoticeImage:UIImage=UIImage(named:"icon_alarm_")!
     dynamic var AlarmNoticeImage:UIImage{
         get
         {

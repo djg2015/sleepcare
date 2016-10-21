@@ -8,21 +8,20 @@
 
 import UIKit
 
-class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDateDelegate  {
+class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDateDelegate, PopDownListItemChoosed  {
+     var popDownListForIphone:PopDownListForIphone?
+     var patientlistBusinesses:Array<PopDownListItem>!
     
     @IBOutlet weak var mainscrollView: UIScrollView!
-    
     @IBOutlet weak var lblDate: UILabel!
     
-    
-    @IBAction func ChangeDate(sender:UIButton){
-        if self.weekreportViewModel.bedusercode != ""{
-            //设置日期弹出窗口
-            var alertview:DatePickerView = DatePickerView(frame:UIScreen.mainScreen().bounds)
-            alertview.datedelegate = self
-            self.view.addSubview(alertview)
-        }
+    @IBOutlet weak var btnChoosePatient: UIButton!
+    @IBAction func btnBack(sender:UIButton){
+        self.navigationController?.popViewControllerAnimated(true)
     }
+
+    
+   
     
     @IBAction func SendEmail(sender:UIButton){
         if self.weekreportViewModel.bedusercode != ""{
@@ -44,7 +43,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
     var weekreportViewModel:WeekReportViewModel!
     var email:IEmailViewController?
     
-    let screenwidth = UIScreen.mainScreen().bounds.width
+
     
     
     var hrTitleLabel:UILabel!
@@ -123,11 +122,34 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
         
         RACObserve(self.weekreportViewModel, "DateLabel") ~> RAC(self.lblDate, "text")
         
+        //usercode->username
+        self.patientlistBusinesses = Array<PopDownListItem>()
+        
+//        for(var i=0;i<SessionForIphone.GetSession()?.BedUserCodeList.count;i++){
+//            var item:PopDownListItem = PopDownListItem()
+//            var 
+//            item.key =
+//            item.value =
+//             self.patientlistBusinesses.append(item)
+//        }
+        
+        self.btnChoosePatient.rac_signalForControlEvents(UIControlEvents.TouchUpInside)
+            .subscribeNext {
+                _ in
+                if(self.popDownListForIphone == nil){
+                    self.popDownListForIphone = PopDownListForIphone()
+                    self.popDownListForIphone?.delegate = self
+                }
+                self.popDownListForIphone?.Show("选择要查看的病人", source:self.patientlistBusinesses)
+        }
+
+        
         self.mainscrollView.delegate = self
-        self.mainscrollView.contentSize = CGSize(width:screenwidth,height:1370)
+        self.mainscrollView.contentSize = CGSize(width:SCREENWIDTH,height:1370)
         
         
         self.rac_settings()
+        
         self.Refresh()
         
         
@@ -164,7 +186,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
             HrRrChartView.valueAll = self.weekreportViewModel.HRRRRange.ValueY as [AnyObject]
             HrRrChartView.valueXList =  self.weekreportViewModel.HRRRRange.ValueX as [AnyObject]
             HrRrChartView.valueTitleNames = NSArray(objects:titleNameList1,titleNameList2) as [AnyObject]
-            HrRrChartView.addTrendChartView(CGRectMake(15, 0, screenwidth-30, 200))
+            HrRrChartView.addTrendChartView(CGRectMake(15, 0, SCREENWIDTH-30, 200))
             self.mainscrollView.addSubview(HrRrChartView)
         }
         
@@ -183,13 +205,13 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
         
         LeaveBedChartView.RemoveTrendChartView()
         if  self.weekreportViewModel.LeaveBedRange.flag{
-            LeaveBedChartView.frame = CGRectMake(0, 420, screenwidth, 200)
+            LeaveBedChartView.frame = CGRectMake(0, 420, SCREENWIDTH, 200)
             LeaveBedChartView.Type = "4"
             let titleNameList1 = "离床"
             LeaveBedChartView.valueAll = self.weekreportViewModel.LeaveBedRange.ValueY as [AnyObject]
             LeaveBedChartView.valueXList = self.weekreportViewModel.LeaveBedRange.ValueX as [AnyObject]
             LeaveBedChartView.valueTitleNames = NSArray(objects:titleNameList1) as [AnyObject]
-            LeaveBedChartView.addTrendChartView(CGRectMake(15, 0, screenwidth-30, 200))
+            LeaveBedChartView.addTrendChartView(CGRectMake(15, 0, SCREENWIDTH-30, 200))
             self.mainscrollView.addSubview(LeaveBedChartView)
         }
         
@@ -198,7 +220,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
         
         SleepChartView.RemoveTrendChartView()
         if self.weekreportViewModel.SleepRange.flag{
-            SleepChartView.frame = CGRectMake(0, 732, screenwidth-30, 200)
+            SleepChartView.frame = CGRectMake(0, 732, SCREENWIDTH-30, 200)
             //＝＝“3”的折线效果，但无遮层
             SleepChartView.Type = "6"
             let titleNameList1 = "深睡"
@@ -207,7 +229,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
             SleepChartView.valueAll = self.weekreportViewModel.SleepRange.ValueY as [AnyObject]
             SleepChartView.valueXList =  self.weekreportViewModel.SleepRange.ValueX as [AnyObject]
             SleepChartView.valueTitleNames = NSArray(objects:titleNameList1,titleNameList2,titleNameList3) as [AnyObject]
-            SleepChartView.addTrendChartView(CGRectMake(15, 0, screenwidth-30, 200))
+            SleepChartView.addTrendChartView(CGRectMake(15, 0, SCREENWIDTH-30, 200))
             self.mainscrollView.addSubview(SleepChartView)
         }
         
@@ -236,7 +258,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
     }
     
     func AddHrRrTitle(){
-        hrTitleLabel = UILabel(frame: CGRectMake(0, 0, screenwidth, 35))
+        hrTitleLabel = UILabel(frame: CGRectMake(0, 0, SCREENWIDTH, 35))
         
         hrTitleLabel.text = "心率和呼吸"
         hrTitleLabel.font = font16
@@ -249,12 +271,12 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
     
     func AddHrRrChart(){
         
-        HrRrChartView.frame = CGRectMake(0, 35, screenwidth, 200)
+        HrRrChartView.frame = CGRectMake(0, 35, SCREENWIDTH, 200)
         
     }
     
     func AddHrFigures(){
-        hrFiguresView = UIView(frame:CGRectMake(0, 237, screenwidth, 73))
+        hrFiguresView = UIView(frame:CGRectMake(0, 237, SCREENWIDTH, 73))
         hrFiguresView.backgroundColor = UIColor.whiteColor()
         hrImage = UIImageView(frame:CGRectMake(hrFigureWidth/2 - 13, 16, 26, 23))
         hrImage.image = UIImage(named:"icon_heart.png")
@@ -309,7 +331,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
     }
     
     func AddRrFigures(){
-        rrFiguresView = UIView(frame:CGRectMake(0, 312, screenwidth, 73))
+        rrFiguresView = UIView(frame:CGRectMake(0, 312, SCREENWIDTH, 73))
         rrFiguresView.backgroundColor = UIColor.whiteColor()
         rrImage = UIImageView(frame:CGRectMake(rrFigureWidth/2 - 13, 16, 26, 23))
         rrImage.image = UIImage(named:"icon_breath.png")
@@ -364,7 +386,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
     }
     
     func AddLeaveBedTitle(){
-        leavebedTitleLabel = UILabel(frame: CGRectMake(0, 385, screenwidth, 35))
+        leavebedTitleLabel = UILabel(frame: CGRectMake(0, 385, SCREENWIDTH, 35))
         leavebedTitleLabel.text = "离床时间"
         leavebedTitleLabel.font = font16
         leavebedTitleLabel.textColor = rrcolor
@@ -377,7 +399,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
     }
     
     func AddLeaveBedFigures(){
-        LeaveBedFiguresView = UIView(frame:CGRectMake(0, 622, screenwidth, 73))
+        LeaveBedFiguresView = UIView(frame:CGRectMake(0, 622, SCREENWIDTH, 73))
         LeaveBedFiguresView.backgroundColor = UIColor.whiteColor()
         
         leavebedSubTitleLabel = UILabel(frame: CGRectMake(35, 23, 70, 25))
@@ -395,7 +417,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
     }
     
     func AddSleepTitle(){
-        var sleepTitleLabel = UILabel(frame: CGRectMake(0, 695, screenwidth, 35))
+        var sleepTitleLabel = UILabel(frame: CGRectMake(0, 695, SCREENWIDTH, 35))
         sleepTitleLabel.text = "睡眠时间"
         sleepTitleLabel.font = font16
         sleepTitleLabel.textColor = rrcolor
@@ -411,7 +433,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
     
     
     func AddSleepFigures(){
-        SleepFiguresView = UIView(frame:CGRectMake(0, 934, screenwidth, 148))
+        SleepFiguresView = UIView(frame:CGRectMake(0, 934, SCREENWIDTH, 148))
         SleepFiguresView.backgroundColor = UIColor.clearColor()
         
         awakeView = UIView(frame:CGRectMake(0, 0, sleepFigureWidth, 73))
@@ -516,7 +538,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
     }
     
     func AddSuggestionTitle(){
-        suggestionTitleLabel = UILabel(frame: CGRectMake(0, 1082, screenwidth, 35))
+        suggestionTitleLabel = UILabel(frame: CGRectMake(0, 1082, SCREENWIDTH, 35))
         suggestionTitleLabel.text = "睡眠建议"
         suggestionTitleLabel.font = font16
         suggestionTitleLabel.textColor = rrcolor
@@ -526,7 +548,7 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
     }
     
     func AddSuggestionFigures(){
-        SuggestionFiguresView = UIView(frame:CGRectMake(0, 1117, screenwidth, 148))
+        SuggestionFiguresView = UIView(frame:CGRectMake(0, 1117, SCREENWIDTH, 148))
         SuggestionFiguresView.backgroundColor = UIColor.clearColor()
         
         leavebedtimesView = UIView(frame:CGRectMake(0, 0, suggestionFigureWidth, 73))
@@ -600,9 +622,9 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
     }
     
     func AddSuggestionContent(){
-        SuggestionContentView = UIView(frame:CGRectMake(0, 1267, screenwidth, 103))
+        SuggestionContentView = UIView(frame:CGRectMake(0, 1267, SCREENWIDTH, 103))
         SuggestionContentView.backgroundColor = UIColor.whiteColor()
-        suggestionContent = UITextView(frame:CGRectMake(30, 10, screenwidth-50, 90))
+        suggestionContent = UITextView(frame:CGRectMake(30, 10, SCREENWIDTH-50, 90))
         //  suggestionContent.text = self.weekreportViewModel.SleepSuggest
         suggestionContent.editable = false
         suggestionContent.font = font14
@@ -621,6 +643,21 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
         self.Refresh()
     }
     
+    func ChoosedItem(item:PopDownListItem){
+//        self.iModifyViewModel.MainCode = item.key!
+//        self.iModifyViewModel.MainName = item.value!
+//        self.txtMain.text = item.value
+    }
+    
+    
+    func ChangeDate(){
+        if self.weekreportViewModel.bedusercode != ""{
+            //设置日期弹出窗口
+            var alertview:DatePickerView = DatePickerView(frame:UIScreen.mainScreen().bounds)
+            alertview.datedelegate = self
+            self.view.addSubview(alertview)
+        }
+    }
     
 }
 

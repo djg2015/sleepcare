@@ -36,7 +36,7 @@ enum MessageEnum:Int{
     case LoginNameExistBlank
     case PwdExistBlank
     case AccountDontExist
-    case RegistAccountFail
+    case AddPatientSuccess
     case ModifyAccountFail
     case NeedCheckProtol
 

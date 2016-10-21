@@ -84,6 +84,8 @@ class PartTableViewModel:NSObject{
         }
     }
     
+       
+    
     //是否选中
     var _isChoosed:Bool = false
     dynamic var IsChoosed:Bool{

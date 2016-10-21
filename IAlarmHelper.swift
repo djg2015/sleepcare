@@ -113,9 +113,9 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         try {
             ({
                 var session = SessionForIphone.GetSession()
-               // var curDateString = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
+               var curDateString = DateFormatterHelper.GetInstance().GetStringDateFromCurrent("yyyy-MM-dd")
               
-                var alarmList:AlarmList = SleepCareForIPhoneBussiness().GetAlarmByLoginUser(session!.User!.MainCode,loginName:session!.User!.LoginName,schemaCode:"",alarmTimeBegin:"",alarmTimeEnd:"",transferTypeCode:"001",from:nil,max:nil)
+                var alarmList:AlarmList = SleepCareForIPhoneBussiness().GetAlarmByLoginUser(session!.User!.MainCode,loginName:session!.User!.LoginName,schemaCode:"",alarmTimeBegin:"2016-01-01",alarmTimeEnd:curDateString,transferTypeCode:"001",from:nil,max:nil)
                 
                 var alarmInfo:AlarmInfo
                 var tempWarningList:Array<WarningInfo>=[]

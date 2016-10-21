@@ -12,6 +12,8 @@
 		0D336D0E1C92596D0049883F /* RemoteNoticeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */; };
 		0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */; };
 		0D35D5FA1C4CC3D8009F8EB2 /* Message.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D35D5F91C4CC3D8009F8EB2 /* Message.plist */; };
+		0D47F1B31DB8BB1F0012C078 /* AccountSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D47F1B21DB8BB1F0012C078 /* AccountSettingController.swift */; };
+		0D47F1B71DB9A11B0012C078 /* PatientCodeAndName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D47F1B61DB9A11B0012C078 /* PatientCodeAndName.swift */; };
 		0D652BD11DB49E1100110E63 /* IAlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D652BD01DB49E1100110E63 /* IAlarmViewModel.swift */; };
 		0D6B4CBB1DB768EC00C6DD3E /* IBedUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B4CBA1DB768EC00C6DD3E /* IBedUserInfo.swift */; };
 		0D85F7171DB497E3000E5ADC /* AlarmInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F70C1DB497E3000E5ADC /* AlarmInfo.swift */; };
@@ -45,7 +47,7 @@
 		0D85F7591DB49A64000E5ADC /* THDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7541DB49A64000E5ADC /* THDatePickerViewController.m */; };
 		0D85F75A1DB49A64000E5ADC /* THDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D85F7551DB49A64000E5ADC /* THDatePickerViewController.xib */; };
 		0D85F75C1DB49AA6000E5ADC /* image in Resources */ = {isa = PBXBuildFile; fileRef = 0D85F75B1DB49AA6000E5ADC /* image */; };
-		0D85F7741DB49B0A000E5ADC /* IAccountSetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7621DB49B0A000E5ADC /* IAccountSetController.swift */; };
+		0D85F7741DB49B0A000E5ADC /* ModifyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7621DB49B0A000E5ADC /* ModifyAccountController.swift */; };
 		0D85F7751DB49B0A000E5ADC /* IBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7631DB49B0A000E5ADC /* IBaseViewController.swift */; };
 		0D85F7761DB49B0A000E5ADC /* IChoosePatientsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7641DB49B0A000E5ADC /* IChoosePatientsController.swift */; };
 		0D85F7771DB49B0A000E5ADC /* IEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F7651DB49B0A000E5ADC /* IEmailViewController.swift */; };
@@ -65,7 +67,7 @@
 		0DC146741DB4C69500DE2E0D /* ChatLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1466F1DB4C69500DE2E0D /* ChatLineView.m */; };
 		0DC146751DB4C69500DE2E0D /* PointBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC146711DB4C69500DE2E0D /* PointBtn.m */; };
 		0DC1467A1DB4C7D800DE2E0D /* HRTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC146761DB4C7D800DE2E0D /* HRTabViewController.swift */; };
-		0DC1467B1DB4C7D800DE2E0D /* MeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC146771DB4C7D800DE2E0D /* MeTabViewController.swift */; };
+		0DC1467B1DB4C7D800DE2E0D /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC146771DB4C7D800DE2E0D /* MeViewController.swift */; };
 		0DC1467C1DB4C7D800DE2E0D /* RRTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC146781DB4C7D800DE2E0D /* RRTabViewController.swift */; };
 		0DC1467D1DB4C7D800DE2E0D /* SleepTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC146791DB4C7D800DE2E0D /* SleepTabViewController.swift */; };
 		0DC146811DB4C8EA00DE2E0D /* HRTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1467E1DB4C8EA00DE2E0D /* HRTabViewModel.swift */; };
@@ -136,6 +138,8 @@
 		0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNoticeHelper.swift; sourceTree = "<group>"; };
 		0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHelper.swift; sourceTree = "<group>"; };
 		0D35D5F91C4CC3D8009F8EB2 /* Message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Message.plist; sourceTree = "<group>"; };
+		0D47F1B21DB8BB1F0012C078 /* AccountSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingController.swift; sourceTree = "<group>"; };
+		0D47F1B61DB9A11B0012C078 /* PatientCodeAndName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientCodeAndName.swift; sourceTree = "<group>"; };
 		0D652BD01DB49E1100110E63 /* IAlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmViewModel.swift; sourceTree = "<group>"; };
 		0D6B4CBA1DB768EC00C6DD3E /* IBedUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBedUserInfo.swift; sourceTree = "<group>"; };
 		0D85F70C1DB497E3000E5ADC /* AlarmInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmInfo.swift; sourceTree = "<group>"; };
@@ -172,7 +176,7 @@
 		0D85F7541DB49A64000E5ADC /* THDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THDatePickerViewController.m; sourceTree = "<group>"; };
 		0D85F7551DB49A64000E5ADC /* THDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THDatePickerViewController.xib; sourceTree = "<group>"; };
 		0D85F75B1DB49AA6000E5ADC /* image */ = {isa = PBXFileReference; lastKnownFileType = folder; path = image; sourceTree = "<group>"; };
-		0D85F7621DB49B0A000E5ADC /* IAccountSetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAccountSetController.swift; sourceTree = "<group>"; };
+		0D85F7621DB49B0A000E5ADC /* ModifyAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyAccountController.swift; sourceTree = "<group>"; };
 		0D85F7631DB49B0A000E5ADC /* IBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBaseViewController.swift; sourceTree = "<group>"; };
 		0D85F7641DB49B0A000E5ADC /* IChoosePatientsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IChoosePatientsController.swift; sourceTree = "<group>"; };
 		0D85F7651DB49B0A000E5ADC /* IEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IEmailViewController.swift; sourceTree = "<group>"; };
@@ -198,7 +202,7 @@
 		0DC146701DB4C69500DE2E0D /* PointBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointBtn.h; sourceTree = "<group>"; };
 		0DC146711DB4C69500DE2E0D /* PointBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointBtn.m; sourceTree = "<group>"; };
 		0DC146761DB4C7D800DE2E0D /* HRTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRTabViewController.swift; sourceTree = "<group>"; };
-		0DC146771DB4C7D800DE2E0D /* MeTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeTabViewController.swift; sourceTree = "<group>"; };
+		0DC146771DB4C7D800DE2E0D /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		0DC146781DB4C7D800DE2E0D /* RRTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRTabViewController.swift; sourceTree = "<group>"; };
 		0DC146791DB4C7D800DE2E0D /* SleepTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepTabViewController.swift; sourceTree = "<group>"; };
 		0DC1467E1DB4C8EA00DE2E0D /* HRTabViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRTabViewModel.swift; sourceTree = "<group>"; };
@@ -473,11 +477,11 @@
 				3AC7B0E31BF42EFB002DE94C /* IloginViewModel.swift */,
 				3AF844C41BFD619E00B5EDE3 /* IMyPatientsViewModel.swift */,
 				3ACD645D1BFC577A00FB62BB /* IChoosePatientsViewModel.swift */,
+				0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */,
+				0DC146801DB4C8EA00DE2E0D /* SleepTabViewModel.swift */,
+				2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */,
 				0DC1467E1DB4C8EA00DE2E0D /* HRTabViewModel.swift */,
 				0DC1467F1DB4C8EA00DE2E0D /* RRTabViewModel.swift */,
-				0DC146801DB4C8EA00DE2E0D /* SleepTabViewModel.swift */,
-				0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */,
-				2CB427AA1BF9B11A00BF7E15 /* IEmailViewModel.swift */,
 				0DC1468C1DB60A7D00DE2E0D /* WeekReportViewModel.swift */,
 				0D652BD01DB49E1100110E63 /* IAlarmViewModel.swift */,
 			);
@@ -501,15 +505,16 @@
 				0D85F7661DB49B0A000E5ADC /* LoginViewController.swift */,
 				0D85F7671DB49B0A000E5ADC /* IMyPatientsController.swift */,
 				0D85F7641DB49B0A000E5ADC /* IChoosePatientsController.swift */,
+				0DC146771DB4C7D800DE2E0D /* MeViewController.swift */,
+				0D47F1B21DB8BB1F0012C078 /* AccountSettingController.swift */,
+				0D85F7621DB49B0A000E5ADC /* ModifyAccountController.swift */,
+				0D85F76A1DB49B0A000E5ADC /* IWeekSleepcareController.swift */,
+				0D85F7651DB49B0A000E5ADC /* IEmailViewController.swift */,
+				0D85F76D1DB49B0A000E5ADC /* ShowAlarmViewController.swift */,
 				0D85F7721DB49B0A000E5ADC /* TabbarController.swift */,
 				0DC146761DB4C7D800DE2E0D /* HRTabViewController.swift */,
 				0DC146781DB4C7D800DE2E0D /* RRTabViewController.swift */,
 				0DC146791DB4C7D800DE2E0D /* SleepTabViewController.swift */,
-				0DC146771DB4C7D800DE2E0D /* MeTabViewController.swift */,
-				0D85F7621DB49B0A000E5ADC /* IAccountSetController.swift */,
-				0D85F76A1DB49B0A000E5ADC /* IWeekSleepcareController.swift */,
-				0D85F7651DB49B0A000E5ADC /* IEmailViewController.swift */,
-				0D85F76D1DB49B0A000E5ADC /* ShowAlarmViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -579,6 +584,7 @@
 				3A33EF841BAA56D700D82A4D /* MessageSubject.swift */,
 				3A36B0221BA96648000F4AED /* RealTimeReport.swift */,
 				0DC1468A1DB5F03700DE2E0D /* MessageEnum.swift */,
+				0D47F1B61DB9A11B0012C078 /* PatientCodeAndName.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -846,19 +852,20 @@
 				0D6B4CBB1DB768EC00C6DD3E /* IBedUserInfo.swift in Sources */,
 				0DC146681DB4C65D00DE2E0D /* STLoopProgressView.m in Sources */,
 				0DC146691DB4C65D00DE2E0D /* STLoopProgressView+BaseConfiguration.m in Sources */,
+				0D47F1B71DB9A11B0012C078 /* PatientCodeAndName.swift in Sources */,
 				3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */,
 				0DC146931DB60C9B00DE2E0D /* MeTabLabel.swift in Sources */,
 				3A33EF851BAA56D700D82A4D /* MessageSubject.swift in Sources */,
 				0D85F77C1DB49B0A000E5ADC /* IWeekSleepcareController.swift in Sources */,
 				0D85F7841DB49B0A000E5ADC /* TabbarController.swift in Sources */,
-				0D85F7741DB49B0A000E5ADC /* IAccountSetController.swift in Sources */,
+				0D85F7741DB49B0A000E5ADC /* ModifyAccountController.swift in Sources */,
 				0D85F7351DB49926000E5ADC /* Popover.swift in Sources */,
 				0D85F7171DB497E3000E5ADC /* AlarmInfo.swift in Sources */,
 				0D85F71D1DB497E3000E5ADC /* IMainInfo.swift in Sources */,
 				0D85F7761DB49B0A000E5ADC /* IChoosePatientsController.swift in Sources */,
 				0DC146721DB4C69500DE2E0D /* ChartScrollView.swift in Sources */,
 				3A4CD3FA1BA80536002C8A1A /* CommonHelper.swift in Sources */,
-				0DC1467B1DB4C7D800DE2E0D /* MeTabViewController.swift in Sources */,
+				0DC1467B1DB4C7D800DE2E0D /* MeViewController.swift in Sources */,
 				0DC2284D1C212F0E00AF4737 /* PlistHelper.swift in Sources */,
 				0D85F7321DB49926000E5ADC /* DatePickerView.swift in Sources */,
 				3A3EF7C01BDE05A800CDDAED /* TodoItem.swift in Sources */,
@@ -871,6 +878,7 @@
 				0DC1467C1DB4C7D800DE2E0D /* RRTabViewController.swift in Sources */,
 				2CB427AB1BF9B11A00BF7E15 /* IEmailViewModel.swift in Sources */,
 				0DC146871DB4CDFC00DE2E0D /* SleepQualityReport.swift in Sources */,
+				0D47F1B31DB8BB1F0012C078 /* AccountSettingController.swift in Sources */,
 				0D85F72B1DB49817000E5ADC /* ServerResult.swift in Sources */,
 				0D85F7421DB49995000E5ADC /* PartTableViewCell.swift in Sources */,
 				0D85F7401DB49995000E5ADC /* MyPatientsTableViewCell.swift in Sources */,

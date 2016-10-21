@@ -418,6 +418,7 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
         }
         return message as! ServerResult
     }
+    
 
     //16查询指定日期所在周的老人睡眠报表
     //参数：bedUserCode

@@ -69,7 +69,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     myPatientsTableCellViewModel.PartCode = bedUserList.bedUserInfoList[i].PartCode
                    
                     myPatientsTableCellViewModel.EquipmentID = bedUserList.bedUserInfoList[i].EquipmentID
-                    myPatientsTableCellViewModel.Sex = bedUserList.bedUserInfoList[i].Sex
+                    myPatientsTableCellViewModel.SexImgName = bedUserList.bedUserInfoList[i].Sex
                     
                     
                     myPatientsTableCellViewModel.selectedBedUserHandler = self.ShowPatientDetail
@@ -107,9 +107,9 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     {$0.BedUserCode == realTimeReport.UserCode})
                 if(patient.count > 0){
                     for(var i = 0; i < patient.count; i++){
-                        patient[i].HR = realtimeData[patient[i].BedUserCode!]!.HR
-                        patient[i].RR = realtimeData[patient[i].BedUserCode!]!.RR
-                        patient[i].BedStatus = realtimeData[patient[i].BedUserCode!]!.OnBedStatus
+                        patient[i].HR = realtimeData[patient[i].BedUserCode]!.HR
+                        patient[i].RR = realtimeData[patient[i].BedUserCode]!.RR
+                        patient[i].BedStatus = realtimeData[patient[i].BedUserCode]!.OnBedStatus
                          //111
 //                        patient[i].BedNum = realtimeData[patient[i].BedUserCode!]!.BedNumber
 //                       patient[i].BedUserName = realtimeData[patient[i].BedUserCode!]!.UserName
@@ -140,12 +140,12 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
             try {
                 ({
                      var session = SessionForIphone.GetSession()
-                    SleepCareForIPhoneBussiness().RemoveFollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode!)
+                    SleepCareForIPhoneBussiness().RemoveFollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode)
                     
                     //更新bedusercodelist
                     var tempList = session!.BedUserCodeList
                     for(var i = 0 ; i < tempList.count ; i++){
-                        if tempList[i] == myPatientsTableViewModel.BedUserCode! {
+                        if tempList[i] == myPatientsTableViewModel.BedUserCode {
                             tempList.removeAtIndex(i)
                             break
                         }
@@ -166,8 +166,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     }
                 )}
             
-            var index = find(self.MyPatientsArray, exist[0])!
-            self.MyPatientsArray.removeAtIndex(index)
+           
         }
         
     }
@@ -176,7 +175,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     
     func ShowPatientDetail(myPatientsTableViewModel:MyPatientsTableCellViewModel){
         var session = SessionForIphone.GetSession()
-        session!.CurPatientCode = myPatientsTableViewModel.BedUserCode!
+        session!.CurPatientCode = myPatientsTableViewModel.BedUserCode
         
     }
     /**
@@ -191,14 +190,14 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 var tempList = session!.BedUserCodeList
                 
                 for(var i=0;i<myPatientsTableViewModels.count;i++){
-                    SleepCareForIPhoneBussiness().FollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModels[i].BedUserCode!, mainCode: session!.User!.MainCode)
+                    SleepCareForIPhoneBussiness().FollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModels[i].BedUserCode, mainCode: session!.User!.MainCode)
                   //  var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModels[i].BedUserCode})
                  //   if(exist.count == 0){
                         myPatientsTableViewModels[i].selectedBedUserHandler = self.ShowPatientDetail
                         myPatientsTableViewModels[i].deleteBedUserHandler = self.RemovePatient
                         self.MyPatientsArray.append(myPatientsTableViewModels[i])
                         
-                        tempList.append(myPatientsTableViewModels[i].BedUserCode!)
+                        tempList.append(myPatientsTableViewModels[i].BedUserCode)
                   //  }
                 }
                 session!.BedUserCodeList = tempList

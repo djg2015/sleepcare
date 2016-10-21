@@ -23,7 +23,26 @@ class MyPatientsTableViewCell: UITableViewCell {
     var source:MyPatientsTableCellViewModel!
     var bindFlag:Bool = false
     
+    var SexImgName:String?{
+     didSet{
+    if (self.SexImgName == "0"){
+                self.imgSex?.image = UIImage(named: "icon_male_")
+                }
+                else if(self.SexImgName == "1"){
+                    self.imgSex?.image = UIImage(named: "icon_female_")
+                }
+                else{
+                 self.imgSex?.image = nil
+                }
+        }
+    }
     
+    
+    var IshiddenAlarm:Bool=true{
+        didSet{
+        self.imgStatus.hidden = IshiddenAlarm
+        }
+    }
     
     //数据绑定床位界面
     func CellLoadData(data:MyPatientsTableCellViewModel){
@@ -34,9 +53,9 @@ class MyPatientsTableViewCell: UITableViewCell {
         self.source.RoomNum = (data as MyPatientsTableCellViewModel).RoomNum
         self.source.BedNum = (data as MyPatientsTableCellViewModel).BedNum
         self.source.PartCode = (data as MyPatientsTableCellViewModel).PartCode
-       self.source.Sex = (data as MyPatientsTableCellViewModel).Sex
+       self.source.SexImgName = (data as MyPatientsTableCellViewModel).SexImgName
           self.source.EquipmentID = (data as MyPatientsTableCellViewModel).EquipmentID
-        
+         self.source.IshiddenAlarm = (data as MyPatientsTableCellViewModel).IshiddenAlarm
         
         self.source.selectedBedUserHandler = (data as MyPatientsTableCellViewModel).selectedBedUserHandler
         self.source.deleteBedUserHandler = (data as MyPatientsTableCellViewModel).deleteBedUserHandler
@@ -49,17 +68,17 @@ class MyPatientsTableViewCell: UITableViewCell {
          RACObserve(data, "BedNum") ~> RAC(self.source, "BedNum")
          RACObserve(data, "BedCode") ~> RAC(self.source, "BedCode")
          RACObserve(data, "BedUserName") ~> RAC(self.source, "BedUserName")
-         RACObserve(data, "Sex") ~> RAC(self.source, "Sex")
        
-     
        
+     RACObserve(self.source, "IshiddenAlarm") ~> RAC(self, "IshiddenAlarm")
+        RACObserve(self.source, "SexImgName") ~> RAC(self, "SexImgName")
         RACObserve(self.source, "BedStatus") ~> RAC(self.lblBedStatus, "text")
         RACObserve(self.source, "HR") ~> RAC(self.lblHR, "text")
         RACObserve(self.source, "RR") ~> RAC(self.lblRR, "text")
         RACObserve(self.source, "BedNum") ~> RAC(self.lblBedNum, "text")
         RACObserve(self.source, "RoomNum") ~> RAC(self.lblRoomNum, "text")
         RACObserve(self.source, "BedUserName") ~> RAC(self.lblBedUserName, "text")
-         RACObserve(self.source, "SexImg") ~> RAC(self.imgSex, "image")
+ 
         
        
         
@@ -132,7 +151,7 @@ class MyPatientsTableCellViewModel:NSObject{
         get
         {
             if(self._hr == nil){
-                return ""
+                return "确认中"
             }
                        return self._hr!
         }
@@ -148,7 +167,7 @@ class MyPatientsTableCellViewModel:NSObject{
         get
         {
             if(self._rr == nil){
-                return ""
+                return "确认中"
             }
             
             return self._rr!
@@ -160,15 +179,16 @@ class MyPatientsTableCellViewModel:NSObject{
     }
     
     //在离床状态
-    var _bedStatus:String?
-    dynamic var BedStatus:String?{
+    var _bedStatus:String="确认中"
+    dynamic var BedStatus:String{
         get
         {
             return self._bedStatus
         }
         set(value)
         {
-            self._bedStatus=value
+        self._bedStatus=value
+         
         }
     }
     
@@ -183,42 +203,24 @@ class MyPatientsTableCellViewModel:NSObject{
         set(value)
         {
             self._ishiddenAlarm=value
+            
         }
     }
     
     // 性别
-    var _sex:String?
-    dynamic var Sex:String?{
+    var _sexImgName:String?
+    dynamic var SexImgName:String?{
         get
         {
-            return self._sex
+            return self._sexImgName
         }
         set(value)
         {
-            self._sex=value
-            if (self._sex == "0"){
-            self._sexImg?.image = UIImage(named: "icon_male_")
-            }
-            else if(self._sex == "1"){
-                self._sexImg?.image = UIImage(named: "icon_female_")
-            }
-            else{
-             self._sexImg?.image = nil
-            }
-        }
-    }
-    var _sexImg:UIImageView?
-    dynamic var SexImg:UIImageView?{
-        get
-        {
-            return self._sexImg
-        }
-        set(value)
-        {
-            self._sexImg=value
+            self._sexImgName=value
            
         }
     }
+   
 
     
         
@@ -264,15 +266,15 @@ class MyPatientsTableCellViewModel:NSObject{
     
     
     //床位用户编号
-    var _bedUserCode:String?
-    dynamic var BedUserCode:String?{
+    var _bedUserCode:String=""
+    dynamic var BedUserCode:String{
         get
         {
             return self._bedUserCode
         }
         set(value)
         {
-            self._bedUserCode=value
+           self._bedUserCode=value
         }
     }
     

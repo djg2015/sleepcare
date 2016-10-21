@@ -48,45 +48,9 @@ class IModifyViewModel:BaseViewModel {
         }
     }
     
-    var _mainCode:String = ""
-    //所属养老院/医院
-    dynamic var MainCode:String{
-        get
-        {
-            return self._mainCode
-        }
-        set(value)
-        {
-            self._mainCode=value
-        }
-    }
+  
     
-    var _mainName:String = ""
-    //所属养老院/医院名称
-    dynamic var MainName:String{
-        get
-        {
-            return self._mainName
-        }
-        set(value)
-        {
-            self._mainName=value
-        }
-    }
-    
-    var _mainBusinesses:Array<PopDownListItem> = Array<PopDownListItem>()
-    //养老院/医院集合
-    var MainBusinesses:Array<PopDownListItem>{
-        get
-        {
-            return self._mainBusinesses
-        }
-        set(value)
-        {
-            self._mainBusinesses=value
-        }
-    }
-    
+   
     //界面处理命令
     var modifyCommand: RACCommand?
     
@@ -99,33 +63,7 @@ class IModifyViewModel:BaseViewModel {
             return self.Modify()
         }
         
-        try {
-            ({
-                
-                    //初始化用户信息
-                    var session = SessionForIphone.GetSession()
-                    if(session != nil){
-                        self.LoginName = session!.User!.LoginName
-                        self.Pwd = session!.OldPwd!
-                        self.RePwd = session!.OldPwd!
-                        self.MainCode = session!.User!.MainCode
-                        var mains = self.MainBusinesses.filter(
-                            {$0.key == self.MainCode})
-                        if(mains.count > 0){
-                            let curMain:PopDownListItem = mains[0]
-                            self.MainName = curMain.value!
-                        }
-                    }
-              
-                },
-                catch: { ex in
-                    //异常处理
-                    handleException(ex,showDialog: true)
-                },
-                finally: {
-                    
-                }
-            )}
+       self.LoginName = SessionForIphone.GetSession()!.User!.LoginName
         
     }
     
@@ -134,12 +72,7 @@ class IModifyViewModel:BaseViewModel {
     func Modify() -> RACSignal{
         try {
             ({
-                var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-                let isconnect = xmppMsgManager!.Connect()
-                if(!isconnect){
-                    showDialogMsg(ShowMessage(MessageEnum.ConnectFail))
-                }
-                else{
+               
                     //检查输入是否合法
                     if(self.Pwd == ""){
                         showDialogMsg(ShowMessage(MessageEnum.PwdNil))
@@ -150,30 +83,24 @@ class IModifyViewModel:BaseViewModel {
                         self.RePwd = ""
                         return
                     }
-                    if(self.MainCode == ""){
-                        showDialogMsg(ShowMessage(MessageEnum.MainhouseNil))
-                        return
-                    }
-                    
+                
                    
                     var session = SessionForIphone.GetSession()
                     
-                    //如果改变了养老院，则当前关注的老人置空
-                    if session!.User!.MainCode != self.MainCode{
-                        session!.CurPatientCode = ""
-                    }
-                    //修改账户到服务器端
-                    let result:ServerResult = SleepCareForIPhoneBussiness().ModifyLoginUser(self.LoginName, oldPassword: session!.OldPwd!, newPassword: self.Pwd, mainCode: self.MainCode)
-                    session?.OldPwd = self.Pwd
-                    session?.User?.MainCode = self.MainCode
+                                       //修改账户到服务器端
+                    let result:ServerResult = SleepCareForIPhoneBussiness().ModifyLoginUser(self.LoginName, oldPassword: session!.OldPwd!, newPassword: self.Pwd, mainCode: session!.User!.MainCode)
+                
+                
                     //提示修改账户是否成功
                     if result.Result{
+                         session?.OldPwd = self.Pwd
+                        
                         showDialogMsg(ShowMessage(MessageEnum.ModifyAccountSuccess), "提示", buttonTitle: "确定", action: self.AfterModify)
                     }
                     else{
-                        showDialogMsg(ShowMessage(MessageEnum.ModifyAccountFail),"提示" ,buttonTitle: "确定", action: self.AfterModify)
+                        showDialogMsg(ShowMessage(MessageEnum.ModifyAccountFail),"提示" ,buttonTitle: "确定", action: nil)
                     }
-                }
+                
                 },
                 catch: { ex in
                     handleException(ex,showDialog: true)
@@ -185,14 +112,10 @@ class IModifyViewModel:BaseViewModel {
         return RACSignal.empty()
     }
     
-    //失去连接后处理
-    func ConnectLost(isOtherButton: Bool){
-       // IViewControllerManager.GetInstance()!.CloseViewController()
-        
-    }
+   
     //关闭当前页面
     func AfterModify(isOtherButton: Bool){
-        
+        self.controller?.navigationController?.popViewControllerAnimated(true)
     }
     
 }

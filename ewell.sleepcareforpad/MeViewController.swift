@@ -1,6 +1,6 @@
 //
 //  MeTabViewController.swift
-//  
+//
 //
 //  Created by Qinyuan Liu on 6/17/16.
 //
@@ -8,27 +8,27 @@
 
 import UIKit
 
-class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
+class MeViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
     @IBOutlet weak var memuTable: UITableView!
-    
-    @IBOutlet weak var meTabber: UITabBarItem!
     
     var imageList:Array<Array<String>>!
     var titleList:Array<Array<String>>!
-    let screenwidth = UIScreen.mainScreen().bounds.width
-
     var hiddenalarm:Bool = true
     
-
+    
+    @IBAction func BtnBack(sender:UIButton){
+    self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         let count = IAlarmHelper.GetAlarmInstance().WarningList.count
         if count > 0{
             self.hiddenalarm = false
-             self.meTabber.badgeValue = String(count)
+          
         }
         else{
             self.hiddenalarm = true
-             self.meTabber.badgeValue = nil
+          
         }
         self.memuTable.reloadData()
         
@@ -38,16 +38,16 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-       
-
+        
+        
         self.memuTable.delegate = self
         self.memuTable.dataSource = self
-        self.memuTable.contentSize = CGSize(width: UIScreen.mainScreen().bounds.height - 100, height:screenwidth)
+        self.memuTable.contentSize = CGSize(width: SCREENWIDTH - 60, height:SCREENHIGHT)
         
-        self.imageList = [["icon_nurse.png"],["icon_my devices.png","icon_报警信息.png","icon_time.png"],["icon_关于.png","icon_使用技巧.png","icon_当前版本.png"],["icon_set.png"]]
-        self.titleList = [["老人信息"],["设备","报警信息","周报表"],["关于","使用技巧","当前版本"],["设置"]]
+        self.imageList = [["icon_nurse"],["icon_报警信息","icon_time"],["icon_当前版本"],["icon_set"]]
+        self.titleList = [["用户名"],["报警信息","周报表"],["当前版本"],["设置"]]
         
         //去除末尾多余的行
         self.memuTable.tableFooterView = UIView()
@@ -55,13 +55,13 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
         //去除顶部留白
         self.automaticallyAdjustsScrollViewInsets = false
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-   
+    
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -71,14 +71,14 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         //首先根据标示去缓存池取
         if (indexPath.section==0){
-            //监护人：图片＋文字＋右箭头,cell高70
+            //监护人：图片＋文字,cell高70
             cell = tableView.dequeueReusableCellWithIdentifier("samplecell1") as? UITableViewCell
         }
-        else if (indexPath.section == 2 && indexPath.row == 2){
+        else if (indexPath.section == 2 ){
             //当前版本：图片＋文字＋文字
             cell = tableView.dequeueReusableCellWithIdentifier("samplecell2") as? UITableViewCell
         }
-        else if (indexPath.section == 1 && indexPath.row == 1){
+        else if (indexPath.section == 1 && indexPath.row == 0){
             //报警信息：图片＋文字＋红色圆点 ＋右箭头
             //    cell = tableView.dequeueReusableCellWithIdentifier("samplecell3") as? UITableViewCell
         }
@@ -98,35 +98,35 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 image1.image = UIImage(named:self.imageList[indexPath.section][indexPath.row])
                 cell?.contentView.addSubview(image1)
                 
-              //  var label1 = UILabel(frame:CGRectMake(79, 24, 114, 21))
-              //  label1.font = font16
+                //  var label1 = UILabel(frame:CGRectMake(79, 24, 114, 21))
+                //  label1.font = font16
                 var label1 = MeTabLabel(frame:CGRectMake(79, 24, 114, 21))
                 label1.text = self.titleList[indexPath.section][indexPath.row]
                 cell?.contentView.addSubview(label1)
                 
-                cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+               
             }
-            else if (indexPath.section == 2 && indexPath.row == 2){
+            else if (indexPath.section == 2 ){
                 cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "samplecell2")
                 var image2 =  UIImageView(frame: CGRectMake(14, 8, 27, 27))
                 image2.image = UIImage(named:self.imageList[indexPath.section][indexPath.row])
                 cell?.contentView.addSubview(image2)
                 
-              //  var label2 = UILabel(frame:CGRectMake(56, 11, 122, 21))
+                //  var label2 = UILabel(frame:CGRectMake(56, 11, 122, 21))
                 // label2.font = font16
                 var label2 = MeTabLabel(frame:CGRectMake(56, 11, 122, 21))
                 label2.text = self.titleList[indexPath.section][indexPath.row]
                 cell?.contentView.addSubview(label2)
                 
                 
-                var label2_2 = UILabel(frame:CGRectMake(self.screenwidth-60, 11, 40, 21))
-                label2_2.text = "1.1.0"
+                var label2_2 = UILabel(frame:CGRectMake(SCREENWIDTH-60, 11, 40, 21))
+                label2_2.text = "1.0"
                 label2_2.textColor = textGraycolor
                 label2_2.textAlignment = NSTextAlignment.Right
                 label2_2.font = font16
                 cell?.contentView.addSubview(label2_2)
             }
-            else if (indexPath.section == 1 && indexPath.row == 1){
+            else if (indexPath.section == 1 && indexPath.row == 0){
                 cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "samplecell3")
                 var image3 =  UIImageView(frame: CGRectMake(14, 8, 27, 27))
                 image3.image = UIImage(named:self.imageList[indexPath.section][indexPath.row])
@@ -134,12 +134,12 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
                 var label3 = MeTabLabel(frame:CGRectMake(56, 11, 70, 21))
                 label3.text = self.titleList[indexPath.section][indexPath.row]
-             //   label3.font = font16
+                //   label3.font = font16
                 cell?.contentView.addSubview(label3)
                 
                 if !self.hiddenalarm{
-                    var image3_2 =  UIImageView(frame: CGRectMake(120, 8, 9, 9))
-                    image3_2.image = UIImage(named:"icon_red circle.png")
+                    var image3_2 =  UIImageView(frame: CGRectMake(122, 9, 9, 9))
+                    image3_2.image = UIImage(named:"icon_redcircle")
                     cell?.contentView.addSubview(image3_2)
                 }
                 
@@ -154,7 +154,7 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
                 var label4 = MeTabLabel(frame:CGRectMake(56, 11, 122, 21))
                 label4.text = self.titleList[indexPath.section][indexPath.row]
-               // label4.font = font16
+                // label4.font = font16
                 cell?.contentView.addSubview(label4)
                 
                 cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
@@ -180,75 +180,48 @@ class MeTabViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (section == 0||section == 3) {
-            return 1
+        if (section == 1) {
+            return 2
         }
         
-        return 3
+        return 1
         
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.section == 0){
-            if SessionForIphone.GetSession()!.CurPatientName != ""{
+        if (indexPath.section == 1){
+            if indexPath.row == 1{
+                self.performSegueWithIdentifier("showweekreport", sender: self)
+            }
+            else if indexPath.row == 0{
+                self.performSegueWithIdentifier("showalarmlist", sender: self)
+                
+            }
             
-                self.performSegueWithIdentifier("modifypatientinfo", sender: self)
-            }
         }
-        else if (indexPath.section == 1){
-            if indexPath.row == 0{
-            self.performSegueWithIdentifier("equipmentinfo", sender: self)
-            }
-            else if indexPath.row == 1{
-//                let nextController = AlarmInfoViewController(nibName:"AlarmView", bundle:nil)
-//                nextController.parentController = self
-//                self.navigationController?.pushViewController(nextController, animated: true)
         
-            }
-            else{
-            self.performSegueWithIdentifier("weekreportinfo", sender: self)
-            }
-        }
-        else if(indexPath.section == 2){
-            if indexPath.row == 0{
-                self.performSegueWithIdentifier("aboutinfo", sender: self)
-            }
-            else if indexPath.row == 1{
-                self.performSegueWithIdentifier("skillinfo", sender: self)
-            }
-        }
         else if (indexPath.section == 3){
-            self.performSegueWithIdentifier("accountinfo", sender: self)
+            self.performSegueWithIdentifier("accountsetting", sender: self)
         }
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-
+    
     
     
     func SetAlarmPic(count:Int){
-    
-    if count > 0{
-    self.hiddenalarm = false
-    
-    }
-    else{
-    self.hiddenalarm = true
-    }
-    self.memuTable.reloadData()
-    }
-    
-    
-        func SetTabbarBadge(count:Int){
-            if count > 0{
-    
-                self.meTabber.badgeValue = String(count)
-            }
-            else{
-                self.meTabber.badgeValue = nil
-            }
+        
+        if count > 0{
+            self.hiddenalarm = false
+            
         }
+        else{
+            self.hiddenalarm = true
+        }
+        self.memuTable.reloadData()
+    }
     
-
-
+    
+    
+    
 }

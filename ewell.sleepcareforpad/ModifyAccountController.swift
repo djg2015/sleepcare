@@ -8,23 +8,40 @@
 
 import UIKit
 
-class IAccountSetController: IBaseViewController{
+class ModifyAccountController: IBaseViewController{
     
-    @IBOutlet weak var txtMain: UITextField!
     @IBOutlet weak var txtRePwd: UITextField!
     @IBOutlet weak var txtPwd: UITextField!
     @IBOutlet weak var txtLoginName: UITextField!
     @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var btnSecurePwd: UIButton!
 
-    @IBOutlet weak var btnChooseRole: UIButton!
+   
     
-    var popDownListForIphone:PopDownListForIphone?
     var iModifyViewModel:IModifyViewModel!
    
-    @IBAction func ClickCancle(sender:AnyObject){
-    self.dismissViewControllerAnimated(false, completion: nil)
-      //  currentController = parentController
+    @IBAction func btnBack(sender:AnyObject){
+   self.navigationController?.popViewControllerAnimated(true)
+    
           }
+    
+    //默认情况下密码输入不可见，选中，则可见。
+    @IBAction func ClickSecurePwd(sender:UIButton){
+        self.btnSecurePwd.selected = !self.btnSecurePwd.selected
+        if btnSecurePwd.selected{
+            
+            self.txtPwd.secureTextEntry = false
+            self.txtRePwd.secureTextEntry = false
+        }
+        else{
+           
+            self.txtPwd.secureTextEntry = true
+            self.txtRePwd.secureTextEntry = true
+        }
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,22 +56,23 @@ class IAccountSetController: IBaseViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
-    
-        currentController = self
-    }
-
+  
     //-------------自定义方法处理---------------
     func rac_settings(){
         self.iModifyViewModel = IModifyViewModel()
         self.iModifyViewModel.controller = self
+       
+        
+        self.btnSecurePwd.setBackgroundImage(UIImage(named: "icon_密码不可见"), forState: UIControlState.Normal)
+        self.btnSecurePwd.setBackgroundImage(UIImage(named: "icon_密码可见"), forState: UIControlState.Selected)
+        
+        
         self.btnSave!.rac_command = self.iModifyViewModel?.modifyCommand
         RACObserve(self.iModifyViewModel, "LoginName") ~> RAC(self.txtLoginName, "text")
         RACObserve(self.iModifyViewModel, "Pwd") ~> RAC(self.txtPwd, "text")
         RACObserve(self.iModifyViewModel, "RePwd") ~> RAC(self.txtRePwd, "text")
-        RACObserve(self.iModifyViewModel, "MainName") ~> RAC(self.txtMain, "text")
-        
       
+        
         self.txtPwd.rac_textSignal() ~> RAC(self.iModifyViewModel, "Pwd")
         self.txtRePwd.rac_textSignal() ~> RAC(self.iModifyViewModel, "RePwd")
 

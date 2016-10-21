@@ -27,15 +27,15 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
     @IBAction func Close(sender:AnyObject){
       
         
-        if self.parentController.isKindOfClass(MeTabViewController){
+        if self.parentController.isKindOfClass(MeViewController){
             let count = IAlarmHelper.GetAlarmInstance().WarningList.count
-            let vc = self.parentController as! MeTabViewController
+            let vc = self.parentController as! MeViewController
             if count > 0{
-                vc.meTabber.badgeValue = String(count)
+               
                 vc.hiddenalarm = false
             }
             else{
-                vc.meTabber.badgeValue = nil
+              
                 vc.hiddenalarm = true
             }
             vc.memuTable.reloadData()

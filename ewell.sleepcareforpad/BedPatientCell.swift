@@ -13,16 +13,19 @@ class BedPatientCell: CommonTableCell {
     @IBOutlet weak var lblBedNum: UILabel!
     @IBOutlet weak var lblBedUserName: UILabel!
     @IBOutlet weak var imgChecked: UIImageView!
+    @IBOutlet weak var lblEquipmentID: UILabel!
+    
+    
     var source:BedPatientViewModel!
     var bindFlag:Bool = false
     var IsChoosed:Bool = false{
         didSet{
             
             if(self.IsChoosed == true){
-                self.imgChecked.image = UIImage(named: "checked.png")
+                self.imgChecked.image = UIImage(named: "icon_square_check")
             }
             else{
-                self.imgChecked.image = UIImage(named: "unchecked.png")
+                self.imgChecked.image = UIImage(named: "icon_square_uncheck")
             }
         }
         
@@ -30,10 +33,10 @@ class BedPatientCell: CommonTableCell {
     override func CellLoadData(data:AnyObject){
         self.source = data as! BedPatientViewModel
         if(self.source!.IsChoosed){
-            self.imgChecked.image = UIImage(named: "checked.png")
+            self.imgChecked.image = UIImage(named: "icon_square_check")
         }
         else{
-            self.imgChecked.image = UIImage(named: "unchecked.png")
+            self.imgChecked.image = UIImage(named: "icon_square_uncheck")
             
         }
         self.selectionStyle = UITableViewCellSelectionStyle.None
@@ -41,6 +44,7 @@ class BedPatientCell: CommonTableCell {
             RACObserve(self.source, "RoomNum") ~> RAC(self.lblRoomNum, "text")
             RACObserve(self.source, "BedNum") ~> RAC(self.lblBedNum, "text")
             RACObserve(self.source, "BedUserName") ~> RAC(self.lblBedUserName, "text")
+             RACObserve(self.source, "EquipmentID") ~> RAC(self.lblEquipmentID, "text")
             RACObserve(self.source, "IsChoosed") ~> RAC(self, "IsChoosed")
             self.bindFlag = true
         }
@@ -48,7 +52,7 @@ class BedPatientCell: CommonTableCell {
     }
     
     override func Checked(){
-        self.imgChecked.image = UIImage(named: "checked.png")
+        self.imgChecked.image = UIImage(named: "icon_square_check")
         self.source!.IsChoosed = true
         if(self.source!.selectedPatientHandler != nil){
             self.source!.selectedPatientHandler!(bedPatientViewModel: self.source!)
@@ -56,7 +60,7 @@ class BedPatientCell: CommonTableCell {
     }
     
     override func UnChechked(){
-        self.imgChecked.image = UIImage(named: "unchecked.png")
+        self.imgChecked.image = UIImage(named: "icon_square_uncheck")
         self.source!.IsChoosed = false
     }
 }
@@ -165,6 +169,19 @@ class BedPatientViewModel:NSObject{
         }
     }
     
+    //设备编号
+    var _equipmentID:String?
+    dynamic var EquipmentID:String?{
+        get
+        {
+            return self._equipmentID
+        }
+        set(value)
+        {
+            self._equipmentID=value
+        }
+    }
+
     
     //是否选中
     var _isChoosed:Bool = false

@@ -36,8 +36,8 @@ class IloginViewModel: BaseViewModel {
         }
     }
     
-    var _isRememberpwd:Bool=true
-    //记住密码:首次注册后登录默认true，本地有记录登录名密码时为true，其他情况为false
+    var _isRememberpwd:Bool=false
+    //记住密码
     dynamic var IsRememberpwd:Bool{
         get
         {
@@ -86,7 +86,11 @@ class IloginViewModel: BaseViewModel {
     func LoadData(){
         let temploginname = PLISTHELPER.LoginUsername
         let temppwd = PLISTHELPER.LoginUserpwd
-     
+     let tempremember = PLISTHELPER.IsRemembered
+        
+        if(tempremember == "true"){
+        self.IsRememberpwd = true
+        }
         
         if (temploginname != "" && temppwd != ""){
             self.Loginname = temploginname
@@ -171,7 +175,7 @@ class IloginViewModel: BaseViewModel {
 //                
                 
                 //开启报警，获取未处理的报警信息
-             //   IAlarmHelper.GetAlarmInstance().BeginWaringAttention()
+                IAlarmHelper.GetAlarmInstance().BeginWaringAttention()
                 
                 //开启远程通知（有token值的情况下）
                 LOGINFLAG = true
@@ -181,7 +185,7 @@ class IloginViewModel: BaseViewModel {
                 if self.IsRememberpwd{
                     PLISTHELPER.LoginUsername = self.Loginname
                     PLISTHELPER.LoginUserpwd = self.Pwd
-                    
+                    PLISTHELPER.IsRemembered = "true"
                 }
                 else{
                     
@@ -189,6 +193,7 @@ class IloginViewModel: BaseViewModel {
                     PLISTHELPER.LoginUserpwd  = ""
                     self.Loginname = ""
                     self.Pwd = ""
+                     PLISTHELPER.IsRemembered = "false"
                 }
                 
                 //跳转主页面

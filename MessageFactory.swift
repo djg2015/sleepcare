@@ -20,6 +20,7 @@ let tag_IP_rrRange:String="<EPRRRange"
 let tag_IP_sleepQuality:String="<SleepQualityReport"
 let tag_IP_mainInfoList:String="<EPMainInfoList"
 let tag_IP_weekReport:String="<WeekReport"
+let tag_IP_mainInfo:String="<MainInfo"
 
 class MessageFactory {
     //xmpp字符串节点
@@ -69,7 +70,7 @@ class MessageFactory {
             return WeekSleep.XmlToMessage(message.subject, bodyXMl: message.content)
         }
         
-        else if(message.content.hasPrefix(tag_IP_mainInfoList))
+        else if(message.content.hasPrefix(tag_IP_mainInfo))
         {
             return IMainInfo.XmlToMessage(message.subject, bodyXMl: message.content)
         }
