@@ -16,7 +16,7 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view3: UIView!
    
-    
+     @IBOutlet weak var AlarmBtn: UIButton!
     
     
     //标题老人名字(为空时显示“选择老人”)
@@ -39,6 +39,12 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
     @IBOutlet weak var chartScrollView: ChartScrollView!
     
     
+    //定时器：检查病人是否有报警
+    var alarmTimer:NSTimer!
+    //当前查看的老人
+    var _bedUserCode:String!
+    var _bedUserName:String!
+    
     var sleepTabViewModel:SleepTabViewModel!
     //圆圈
     var bigcircleView: sleepcircle!
@@ -51,7 +57,7 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
     var statusImageName:String?
         {
         didSet{
-            if statusImageName != nil{
+            if (statusImageName != nil && statusImageName != ""){
                 self.BedStatusImg.image = UIImage(named:statusImageName!)
             }
             else if statusImageName == ""{
@@ -83,6 +89,9 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
         }
         
         self.RefreshSleepView()
+        
+        alarmTimer =  NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
+        alarmTimer.fire()
     }
     
     
@@ -98,9 +107,30 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
         // Dispose of any resources that can be recreated.
     }
     
-   
+    override func viewDidDisappear(animated: Bool) {
+        alarmTimer.invalidate()
+    }
  
-
+    //bedusercode 和alarmlist中的usercode匹配，设置"报警"是否显示
+    func alarmTimerFireMethod(timer: NSTimer) {
+        if(self._bedUserCode != nil){
+            AlarmBtn.hidden = self.AlarmNotice(self._bedUserCode)
+            
+        }
+    }
+    
+    func AlarmNotice(currentusercode:String)->Bool{
+        let tempcodes = IAlarmHelper.GetAlarmInstance().Codes
+        for(var i = 0; i < tempcodes.count;i++){
+            if(currentusercode == tempcodes[i]){
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    
     func rac_settings(){
         self.sleepTabViewModel = SleepTabViewModel()
         
@@ -142,6 +172,9 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
         
         
         //控件绑定
+        
+         RACObserve(self.sleepTabViewModel, "SelectDate") ~> RAC(self.DateLabel, "text")
+         RACObserve(self.sleepTabViewModel, "BedUserCode") ~> RAC(self, "_bedUserCode")
         RACObserve(self.sleepTabViewModel, "BedUserName") ~> RAC(self.NameLabel, "text")
         RACObserve(self.sleepTabViewModel, "StatusImageName") ~> RAC(self, "statusImageName")
         RACObserve(self.sleepTabViewModel, "AwakeningTimespan") ~> RAC(self.AwakingLabel, "text")

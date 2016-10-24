@@ -14,7 +14,7 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
     
       
     let session = SessionForIphone.GetSession()
-    var realtimer:NSTimer?
+   
     let cellID = "patientCell"
     //我的病人列表
     var mypatientsArray:Array<MyPatientsTableCellViewModel> = Array<MyPatientsTableCellViewModel>()
@@ -55,16 +55,21 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
         self.mypatientsViewmodel!.InitData()
  self.patientsTableview.reloadData()
         
+        
+         alarmTimer =  NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
          alarmTimer.fire()
       
     }
 
-   
+    override func viewDidDisappear(animated: Bool) {
+        alarmTimer.invalidate()
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        alarmTimer =  NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
+       
       
         
         // Do any additional setup after loading the view.

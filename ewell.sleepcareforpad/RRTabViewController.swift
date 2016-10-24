@@ -15,6 +15,7 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate{
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view3: UIView!
     
+      @IBOutlet weak var AlarmBtn: UIButton!
   
     //标题老人名字
     @IBOutlet weak var NameLabel: UILabel!
@@ -36,7 +37,8 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate{
     //放图表的容器scrollview
     @IBOutlet weak var chartScrollView: ChartScrollView!
     
-   
+    //定时器：检查病人是否有报警
+    var alarmTimer:NSTimer!
     
     //-------------------------------变量定义-------------------------------
     //滑动栏内选中的button
@@ -73,7 +75,7 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate{
     var statusImageName:String?
         {
         didSet{
-            if statusImageName != nil{
+            if (statusImageName != nil && statusImageName != ""){
                 self.BedStatusImg.image = UIImage(named:statusImageName!)
             }
             else if statusImageName == ""{
@@ -103,6 +105,10 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate{
         }
         
         self.RefreshRRView()
+        
+        alarmTimer =  NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
+        alarmTimer.fire()
+
     }
     
     
@@ -120,6 +126,31 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidDisappear(animated: Bool) {
+        alarmTimer.invalidate()
+    }
+    
+    //bedusercode 和alarmlist中的usercode匹配，设置"报警"是否显示
+    func alarmTimerFireMethod(timer: NSTimer) {
+        if(self._bedUserCode != nil){
+            AlarmBtn.hidden = self.AlarmNotice(self._bedUserCode)
+            
+        }
+    }
+    
+    func AlarmNotice(currentusercode:String)->Bool{
+        let tempcodes = IAlarmHelper.GetAlarmInstance().Codes
+        for(var i = 0; i < tempcodes.count;i++){
+            if(currentusercode == tempcodes[i]){
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    
     
     func rac_settings(){
         self.rrTabViewModel = RRTabViewModel()
@@ -178,6 +209,7 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate{
         
         
         //模型绑定页面控件
+         RACObserve(self.rrTabViewModel, "BedUserCode") ~> RAC(self, "_bedUserCode")
         RACObserve(self.rrTabViewModel, "BedUserName") ~> RAC(self.NameLabel, "text")
         RACObserve(self.rrTabViewModel, "StatusImageName") ~> RAC(self, "statusImageName")
         RACObserve(self.rrTabViewModel, "CurrentRR") ~> RAC(self.circleRRLabel, "text")
