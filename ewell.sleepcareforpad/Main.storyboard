@@ -506,13 +506,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGY-T5-xhP">
-                                        <rect key="frame" x="0.0" y="18" width="97" height="35"/>
+                                        <rect key="frame" x="4" y="18" width="97" height="35"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="97" id="BEc-Yc-1xe"/>
                                             <constraint firstAttribute="height" constant="35" id="c7M-H6-Ore"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" backgroundImage="人">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -526,7 +526,7 @@
                                 <color key="backgroundColor" red="0.33725490200000002" green="0.63921568630000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="UTg-2l-lzN" secondAttribute="trailing" constant="12" id="2fR-53-ZTl"/>
-                                    <constraint firstItem="TGY-T5-xhP" firstAttribute="leading" secondItem="dWB-f5-X9T" secondAttribute="leading" id="CXc-6R-OT8"/>
+                                    <constraint firstItem="TGY-T5-xhP" firstAttribute="leading" secondItem="dWB-f5-X9T" secondAttribute="leading" constant="4" id="CXc-6R-OT8"/>
                                     <constraint firstAttribute="centerX" secondItem="2dd-JZ-7Q5" secondAttribute="centerX" id="O64-o9-JHf"/>
                                     <constraint firstAttribute="height" constant="60" id="YE5-lR-14d"/>
                                     <constraint firstAttribute="centerY" secondItem="2dd-JZ-7Q5" secondAttribute="centerY" constant="-4.5" id="dxg-Ky-OvM"/>
@@ -668,9 +668,13 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqf-9U-sbg">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqf-9U-sbg">
                                                             <rect key="frame" x="74" y="9" width="53" height="21"/>
                                                             <animations/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="oGI-Fh-s6S"/>
+                                                                <constraint firstAttribute="width" constant="53" id="yNu-b6-Dit"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -692,6 +696,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="ASm-2F-kNZ" secondAttribute="trailing" constant="7" id="4uV-RD-dzW"/>
                                                         <constraint firstItem="67B-TC-8R6" firstAttribute="leading" secondItem="Blu-SI-wZq" secondAttribute="leading" constant="7" id="94g-AI-cto"/>
                                                         <constraint firstAttribute="centerX" secondItem="Z9H-ol-rht" secondAttribute="centerX" id="Dqr-ey-G5T"/>
+                                                        <constraint firstItem="Z9H-ol-rht" firstAttribute="top" secondItem="Tqf-9U-sbg" secondAttribute="bottom" constant="7" id="TSX-fI-Gbi"/>
                                                         <constraint firstItem="ASm-2F-kNZ" firstAttribute="top" secondItem="UdN-FJ-LGu" secondAttribute="bottom" constant="7" id="V7J-0Y-7XJ"/>
                                                         <constraint firstAttribute="height" constant="60" id="Yle-VG-OS6"/>
                                                         <constraint firstAttribute="bottom" secondItem="ASm-2F-kNZ" secondAttribute="bottom" constant="2" id="cvr-JN-gAR"/>
@@ -699,6 +704,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="UdN-FJ-LGu" secondAttribute="trailing" constant="-2" id="obC-HU-iJt"/>
                                                         <constraint firstItem="67B-TC-8R6" firstAttribute="top" secondItem="pxw-D3-9H0" secondAttribute="bottom" constant="7" id="pb4-nd-Ftp"/>
                                                         <constraint firstItem="pxw-D3-9H0" firstAttribute="leading" secondItem="Blu-SI-wZq" secondAttribute="leading" constant="7" id="qv1-LC-FhI"/>
+                                                        <constraint firstAttribute="centerX" secondItem="Tqf-9U-sbg" secondAttribute="centerX" id="rRV-WZ-cSC"/>
                                                         <constraint firstAttribute="bottom" secondItem="67B-TC-8R6" secondAttribute="bottom" constant="2" id="sh3-f1-EYm"/>
                                                     </constraints>
                                                 </view>
@@ -1611,13 +1617,13 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyS-Sc-tIl" userLabel="back">
-                                <rect key="frame" x="10" y="19" width="95" height="34"/>
+                                <rect key="frame" x="10" y="19" width="80" height="34"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="b1Z-wc-3RM"/>
-                                    <constraint firstAttribute="width" constant="95" id="vr1-wp-hJB"/>
+                                    <constraint firstAttribute="width" constant="80" id="vr1-wp-hJB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" backgroundImage="返回">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1869,13 +1875,13 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4t-sr-8LD">
-                                <rect key="frame" x="10" y="19" width="95" height="34"/>
+                                <rect key="frame" x="10" y="19" width="80" height="34"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="95" id="9Hc-m4-eEX"/>
+                                    <constraint firstAttribute="width" constant="80" id="9Hc-m4-eEX"/>
                                     <constraint firstAttribute="height" constant="34" id="n4e-Lw-Dlf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" backgroundImage="返回">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2094,13 +2100,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1X-jo-rmX">
-                                        <rect key="frame" x="10" y="19" width="95" height="34"/>
+                                        <rect key="frame" x="10" y="19" width="80" height="34"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="95" id="EwA-ez-khB"/>
+                                            <constraint firstAttribute="width" constant="80" id="EwA-ez-khB"/>
                                             <constraint firstAttribute="height" constant="34" id="uvJ-D4-zOi"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" backgroundImage="返回">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2399,7 +2405,7 @@
         <image name="icon_退出登录" width="514" height="80"/>
         <image name="人" width="97" height="35"/>
         <image name="登录背景页375X667_" width="375" height="667"/>
-        <image name="返回" width="95" height="34"/>
+        <image name="返回" width="80" height="34"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

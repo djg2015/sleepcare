@@ -129,7 +129,7 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,RRSetAlarmDeleg
             self.backBtn.setTitle("", forState: UIControlState.Normal)
         }
         else{
-            self.backBtn.setTitle(" 报警数" + String(count), forState: UIControlState.Normal)
+            self.backBtn.setTitle("   报警(" + String(count)+")", forState: UIControlState.Normal)
         }
         
         // Do any additional setup after loading the view.
@@ -358,7 +358,7 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,RRSetAlarmDeleg
             self.backBtn.setTitle("", forState: UIControlState.Normal)
         }
         else{
-            self.backBtn.setTitle(" 报警数"+count, forState: UIControlState.Normal)
+            self.backBtn.setTitle("   报警("+count+")", forState: UIControlState.Normal)
         }
         
     }

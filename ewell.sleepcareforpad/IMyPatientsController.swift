@@ -83,7 +83,7 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
             self.MeBtn.setTitle("", forState: UIControlState.Normal)
         }
         else{
-            self.MeBtn.setTitle("    报警数" + String(count), forState: UIControlState.Normal)
+            self.MeBtn.setTitle("    报警(" + String(count)+")", forState: UIControlState.Normal)
         }
         
         // Do any additional setup after loading the view.
@@ -209,7 +209,7 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
             self.MeBtn.setTitle("", forState: UIControlState.Normal)
         }
         else{
-            self.MeBtn.setTitle("    报警数"+count, forState: UIControlState.Normal)
+            self.MeBtn.setTitle("    报警("+count+")", forState: UIControlState.Normal)
         }
       
         

@@ -365,8 +365,8 @@
             clickBtn.backgroundColor = [UIColor grayColor];
         }
         else if([clickBtn.valueStr intValue]<=80){
-            moneyLable.textColor = [UIColor greenColor];
-            clickBtn.backgroundColor = [UIColor greenColor];
+            moneyLable.textColor = [UIColor colorWithRed:75/255.0 green: 224/255.0 blue: 211/255.0 alpha:0.1];
+            clickBtn.backgroundColor = [UIColor colorWithRed:75/255.0 green: 224/255.0 blue: 211/255.0 alpha:0.1];
         }
         else{
             moneyLable.textColor = [UIColor redColor];
@@ -379,8 +379,8 @@
             clickBtn.backgroundColor = [UIColor grayColor];
         }
         else if([clickBtn.valueStr intValue]<=40){
-            moneyLable.textColor = [UIColor greenColor];
-            clickBtn.backgroundColor = [UIColor greenColor];
+            moneyLable.textColor = [UIColor colorWithRed:75/255.0 green: 224/255.0 blue: 211/255.0 alpha:0.1];
+            clickBtn.backgroundColor = [UIColor colorWithRed:75/255.0 green: 224/255.0 blue: 211/255.0 alpha:0.1];
         }
         else{
             moneyLable.textColor = [UIColor redColor];
@@ -508,12 +508,12 @@
                         clickBtn.backgroundColor = [UIColor grayColor];
                     }
                     else if([clickBtn.valueStr intValue]<=80){
-                        moneyLable.textColor = [UIColor greenColor];
-                        clickBtn.backgroundColor = [UIColor greenColor];
+                        moneyLable.textColor = [UIColor colorWithRed:75/255.0 green: 224/255.0 blue: 211/255.0 alpha:1.0];
+                        clickBtn.backgroundColor = [UIColor colorWithRed:75/255.0 green: 224/255.0 blue: 211/255.0 alpha:1.0];
                     }
                     else{
-                        moneyLable.textColor = [UIColor redColor];
-                        clickBtn.backgroundColor = [UIColor redColor];
+                        moneyLable.textColor = [UIColor colorWithRed:254/255.0 green: 79/255.0 blue: 74/255.0 alpha:1.0];
+                        clickBtn.backgroundColor = [UIColor colorWithRed:254/255.0 green: 79/255.0 blue: 74/255.0 alpha:1.0];
                     }
                 }
                 else if ([self.chartType isEqualToString:@"2"]){
@@ -522,12 +522,12 @@
                         clickBtn.backgroundColor = [UIColor grayColor];
                     }
                     else if([clickBtn.valueStr intValue]<=40){
-                        moneyLable.textColor = [UIColor greenColor];
-                        clickBtn.backgroundColor = [UIColor greenColor];
+                        moneyLable.textColor = [UIColor colorWithRed:75/255.0 green: 224/255.0 blue: 211/255.0 alpha:1.0];
+                        clickBtn.backgroundColor = [UIColor colorWithRed:75/255.0 green: 224/255.0 blue: 211/255.0 alpha:1.0];
                     }
                     else{
-                        moneyLable.textColor = [UIColor redColor];
-                        clickBtn.backgroundColor = [UIColor redColor];
+                        moneyLable.textColor = [UIColor colorWithRed:254/255.0 green: 79/255.0 blue: 74/255.0 alpha:1.0];
+                        clickBtn.backgroundColor = [UIColor colorWithRed:254/255.0 green: 79/255.0 blue: 74/255.0 alpha:1.0];
                     }
                     
                 }
@@ -537,8 +537,8 @@
                         clickBtn.backgroundColor = [UIColor grayColor];
                     }
                     else {
-                        moneyLable.textColor = [UIColor greenColor];
-                        clickBtn.backgroundColor = [UIColor greenColor];
+                        moneyLable.textColor = [UIColor colorWithRed:92/255.0 green: 130/255.0 blue: 245/255.0 alpha:1.0];
+                        clickBtn.backgroundColor = [UIColor colorWithRed:92/255.0 green: 130/255.0 blue: 245/255.0 alpha:1.0];
                     }
                     
                 }

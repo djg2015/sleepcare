@@ -120,7 +120,7 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
             self.backBtn.setTitle("", forState: UIControlState.Normal)
         }
         else{
-            self.backBtn.setTitle(" 报警数" + String(count), forState: UIControlState.Normal)
+            self.backBtn.setTitle("   报警(" + String(count)+")", forState: UIControlState.Normal)
         }
         // Do any additional setup after loading the view.
         rac_settings()
@@ -294,7 +294,7 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
             self.backBtn.setTitle("", forState: UIControlState.Normal)
         }
         else{
-            self.backBtn.setTitle(" 报警数"+count, forState: UIControlState.Normal)
+            self.backBtn.setTitle("   报警("+count+")", forState: UIControlState.Normal)
         }
         
     }
