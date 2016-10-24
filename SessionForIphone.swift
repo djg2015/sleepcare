@@ -64,7 +64,18 @@ class SessionForIphone {
         }
     }
     
-   
+    
+    //usercode－－－－equipmentid
+    private var _userandequipmentList:Array<UserAndEquipmentItem> = Array<UserAndEquipmentItem>()
+    var UserandequipmentList:Array<UserAndEquipmentItem>{
+        get{
+            return self._userandequipmentList
+        }
+        set(value){
+            self._userandequipmentList = value
+        }
+    }
+    
     
     private static var instance:SessionForIphone? = nil
     

@@ -8,8 +8,9 @@
 
 import UIKit
 
-class HRTabViewController: UIViewController,UIScrollViewDelegate{
+class HRTabViewController: UIViewController,UIScrollViewDelegate,HRSetAlarmDelegate{
     
+    @IBOutlet weak var backBtn: UIButton!
    
     @IBOutlet weak var topview: UIView!
     @IBOutlet weak var view1: UIView!
@@ -92,6 +93,13 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate{
     }
     
  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "hrtoalarm" {
+            let vc = segue.destinationViewController as! ShowAlarmViewController
+            vc.usercode = self._bedUserCode
+        }
+    }
+
     
     override func viewWillAppear(animated: Bool) {
         if  self.hrTabViewModel == nil{
@@ -102,6 +110,8 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate{
         
          alarmTimer =  NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
          alarmTimer.fire()
+        
+         IAlarmHelper.GetAlarmInstance()._hrSetAlarmDelegate = self
     }
     
     
@@ -123,6 +133,9 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate{
     
     override func viewDidDisappear(animated: Bool) {
         alarmTimer.invalidate()
+        
+        IAlarmHelper.GetAlarmInstance()._hrSetAlarmDelegate = nil
+        
     }
     
     //bedusercode 和alarmlist中的usercode匹配，设置"报警"是否显示
@@ -134,13 +147,10 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate{
     }
 
     func AlarmNotice(currentusercode:String)->Bool{
-        let tempcodes = IAlarmHelper.GetAlarmInstance().Codes
-        for(var i = 0; i < tempcodes.count;i++){
-            if(currentusercode == tempcodes[i]){
-             return false
-            }
+        var alarmPatientlist = IAlarmHelper.GetAlarmInstance().WarningList.filter({$0.UserCode == currentusercode})
+        if(alarmPatientlist.count>0){
+            return false
         }
-        
         return true
     }
     
@@ -308,6 +318,18 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate{
             chartScrollView.chartView3.Type = self.hrTabViewModel.HRMonthReport.Type
             chartScrollView.chartView3.addTrendChartView(CGRectMake(chartwidth*2, 0, chartwidth, chartheight))
             }    
+    }
+    
+    
+    func HRSetAlarmPic(count:String){
+        if count=="0"{
+            
+            self.backBtn.setTitle("", forState: UIControlState.Normal)
+        }
+        else{
+            self.backBtn.setTitle("   报警数"+count, forState: UIControlState.Normal)
+        }
+        
     }
     
 }

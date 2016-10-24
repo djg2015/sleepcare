@@ -469,7 +469,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTg-2l-lzN">
-                                        <rect key="frame" x="279" y="18" width="28" height="30"/>
+                                        <rect key="frame" x="279" y="20" width="28" height="30"/>
                                         <animations/>
                                         <state key="normal" backgroundImage="icon_+_">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -478,23 +478,25 @@
                                             <segue destination="1XF-Ph-Wnb" kind="push" identifier="addpatient" id="RyN-xj-2Jj"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGY-T5-xhP">
-                                        <rect key="frame" x="13" y="18" width="34" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="病人列表" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dd-JZ-7Q5">
+                                        <rect key="frame" x="130" y="24" width="78" height="21"/>
                                         <animations/>
-                                        <state key="normal" backgroundImage="icon_user_">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGY-T5-xhP">
+                                        <rect key="frame" x="0.0" y="17" width="97" height="35"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" backgroundImage="人">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <segue destination="5iO-eV-25G" kind="push" identifier="memenu" id="XUy-ba-i2N"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="病人列表" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dd-JZ-7Q5">
-                                        <rect key="frame" x="130" y="22" width="68" height="21"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.33725490200000002" green="0.63921568630000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -635,6 +637,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cpB-I2-Kti"/>
                     <connections>
+                        <outlet property="MeBtn" destination="TGY-T5-xhP" id="hUn-PQ-xWd"/>
                         <outlet property="patientsTableview" destination="9iL-ug-0bF" id="lei-vo-pUa"/>
                         <segue destination="f7r-ty-nb6" kind="push" identifier="showpatient" id="YeZ-ec-Vgg"/>
                     </connections>
@@ -1357,15 +1360,15 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qb-re-R6p">
-                                        <rect key="frame" x="266" y="23" width="46" height="30"/>
+                                        <rect key="frame" x="271" y="22" width="36" height="30"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="报警">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" backgroundImage="icon_alarm_red_">
                                             <color key="titleColor" red="0.99607843139999996" green="0.30980392159999998" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.99607843139999996" green="0.30980392159999998" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="5yb-nI-LUW" kind="push" id="B6W-Ec-DYg"/>
+                                            <segue destination="5yb-nI-LUW" kind="push" identifier="hrtoalarm" id="B6W-Ec-DYg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1378,10 +1381,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyS-Sc-tIl" userLabel="back">
-                                <rect key="frame" x="10" y="18" width="35" height="36"/>
+                                <rect key="frame" x="10" y="21" width="95" height="34"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" backgroundImage="icon_返回_">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" backgroundImage="返回">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1563,6 +1566,7 @@
                         <outlet property="NameLabel" destination="ahO-rg-Pdu" id="C5D-0t-Tbz"/>
                         <outlet property="SelectUnderline" destination="rdq-mq-Qb6" id="1ar-6N-9Wd"/>
                         <outlet property="WeekBtn" destination="t87-3O-RTC" id="7Sj-kW-vYD"/>
+                        <outlet property="backBtn" destination="LyS-Sc-tIl" id="a7r-IV-lI9"/>
                         <outlet property="chartScrollView" destination="5Px-w1-fEu" id="fZZ-dI-cyK"/>
                         <outlet property="circleHRLabel" destination="uG1-Lu-MGd" id="wCJ-82-3cP"/>
                         <outlet property="longlineLabel" destination="NZW-Pr-XRB" id="yVN-OF-gnW"/>
@@ -1602,15 +1606,15 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ExI-yD-uoZ">
-                                        <rect key="frame" x="257" y="22" width="46" height="30"/>
+                                        <rect key="frame" x="271" y="22" width="36" height="30"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="报警">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" backgroundImage="icon_alarm_red_">
                                             <color key="titleColor" red="0.99607843139999996" green="0.30980392159999998" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.99607843139999996" green="0.30980392159999998" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="5yb-nI-LUW" kind="push" id="UfY-G0-kCF"/>
+                                            <segue destination="5yb-nI-LUW" kind="push" identifier="rrtoalarm" id="UfY-G0-kCF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1623,10 +1627,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4t-sr-8LD">
-                                <rect key="frame" x="13" y="16" width="35" height="36"/>
+                                <rect key="frame" x="10" y="21" width="95" height="34"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" backgroundImage="icon_返回_">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" backgroundImage="返回">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1802,6 +1806,7 @@
                         <outlet property="NameLabel" destination="W6n-eV-f7R" id="f3d-WQ-Hlm"/>
                         <outlet property="SelectUnderline" destination="FRH-KZ-n9A" id="xpz-nw-Unt"/>
                         <outlet property="WeekBtn" destination="2fD-aF-gIP" id="Jjt-BM-8H6"/>
+                        <outlet property="backBtn" destination="f4t-sr-8LD" id="bN1-Ro-SeY"/>
                         <outlet property="chartScrollView" destination="Dje-qW-dS3" id="sKQ-CU-Pnc"/>
                         <outlet property="circleRRLabel" destination="r5B-oP-7Kw" id="rQr-cP-2N4"/>
                         <outlet property="longlineLabel" destination="vSs-TR-EzR" id="DRO-Z3-YDZ"/>
@@ -1841,10 +1846,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1X-jo-rmX">
-                                        <rect key="frame" x="13" y="18" width="35" height="36"/>
+                                        <rect key="frame" x="10" y="21" width="95" height="34"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" backgroundImage="icon_返回_">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" backgroundImage="返回">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1853,15 +1858,15 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJq-zp-u3d">
-                                        <rect key="frame" x="259" y="24" width="46" height="30"/>
+                                        <rect key="frame" x="271" y="24" width="36" height="30"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="报警">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" backgroundImage="icon_alarm_red_">
                                             <color key="titleColor" red="0.99607843139999996" green="0.30980392159999998" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.99607843139999996" green="0.30980392159999998" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="5yb-nI-LUW" kind="push" id="qID-yD-au6"/>
+                                            <segue destination="5yb-nI-LUW" kind="push" identifier="sleeptoalarm" id="qID-yD-au6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2097,7 +2102,9 @@
                         <outlet property="DeepSleepLabel" destination="biT-gs-GQm" id="nkl-EF-0tt"/>
                         <outlet property="LightSleepLabel" destination="hgs-5t-YQ5" id="JHX-7o-sl1"/>
                         <outlet property="NameLabel" destination="Z3p-Wh-vC3" id="6bg-bZ-X5P"/>
+                        <outlet property="OnBedTimeLabel" destination="BV1-W2-4MO" id="c2u-Jn-zrc"/>
                         <outlet property="SleepQualityLabel" destination="EUM-EU-P3P" id="n6l-x0-wRF"/>
+                        <outlet property="backBtn" destination="v1X-jo-rmX" id="LVn-V0-EBL"/>
                         <outlet property="chartScrollView" destination="NYX-vs-I0B" id="xW2-8Q-Iic"/>
                         <outlet property="topview" destination="tdb-g3-Ka1" id="sMw-59-ZY5"/>
                         <outlet property="view1" destination="JJI-Es-65u" id="tq2-RX-you"/>
@@ -2113,6 +2120,7 @@
     <resources>
         <image name="Ergent_" width="61" height="50"/>
         <image name="icon_+_" width="29" height="29"/>
+        <image name="icon_alarm_red_" width="29" height="29"/>
         <image name="icon_breath_" width="25" height="25"/>
         <image name="icon_email" width="29" height="29"/>
         <image name="icon_female_" width="20" height="20"/>
@@ -2129,7 +2137,9 @@
         <image name="icon_登录" width="514" height="80"/>
         <image name="icon_返回_" width="29" height="29"/>
         <image name="icon_退出登录" width="514" height="80"/>
+        <image name="人" width="97" height="35"/>
         <image name="登录背景页375X667_" width="375" height="667"/>
+        <image name="返回" width="95" height="34"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -2137,6 +2147,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="p9P-gd-ijq"/>
+        <segue reference="UfY-G0-kCF"/>
     </inferredMetricsTieBreakers>
 </document>

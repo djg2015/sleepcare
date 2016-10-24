@@ -8,13 +8,16 @@
 
 import UIKit
 
-class MeViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
+class MeViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,MeSetAlarmDelegate{
     @IBOutlet weak var memuTable: UITableView!
     
+    
+     var alarmcountbutton:UIButton!
     var imageList:Array<Array<String>>!
     var titleList:Array<Array<String>>!
     var hiddenalarm:Bool = true
     
+    var alarmcountString:String = ""
     
     @IBAction func BtnBack(sender:UIButton){
     self.navigationController?.popViewControllerAnimated(true)
@@ -22,9 +25,11 @@ class MeViewController: UIViewController,UITableViewDataSource,UITableViewDelega
     
     override func viewWillAppear(animated: Bool) {
         let count = IAlarmHelper.GetAlarmInstance().WarningList.count
+        alarmcountString = String(count)
+        
         if count > 0{
             self.hiddenalarm = false
-          
+         
         }
         else{
             self.hiddenalarm = true
@@ -32,7 +37,8 @@ class MeViewController: UIViewController,UITableViewDataSource,UITableViewDelega
         }
         self.memuTable.reloadData()
         
-        currentController = self
+       IAlarmHelper.GetAlarmInstance()._meSetAlarmDelegate = self
+        
     }
     
     
@@ -54,7 +60,17 @@ class MeViewController: UIViewController,UITableViewDataSource,UITableViewDelega
         
         //去除顶部留白
         self.automaticallyAdjustsScrollViewInsets = false
+        
+       
     }
+    
+    override func viewDidDisappear(animated: Bool) {
+ 
+        IAlarmHelper.GetAlarmInstance()._meSetAlarmDelegate = nil
+    }
+    
+
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -138,9 +154,15 @@ class MeViewController: UIViewController,UITableViewDataSource,UITableViewDelega
                 cell?.contentView.addSubview(label3)
                 
                 if !self.hiddenalarm{
-                    var image3_2 =  UIImageView(frame: CGRectMake(122, 9, 9, 9))
-                    image3_2.image = UIImage(named:"icon_redcircle")
-                    cell?.contentView.addSubview(image3_2)
+                    alarmcountbutton = UIButton(frame: CGRectMake(127, 13, 16, 16))
+                   alarmcountbutton.setBackgroundImage(UIImage(named:"icon_redcircle"), forState: UIControlState.Normal)
+                    alarmcountbutton.userInteractionEnabled = false
+                    alarmcountbutton.setTitle(alarmcountString, forState: UIControlState.Normal)
+                    alarmcountbutton.titleLabel?.font = UIFont.systemFontOfSize(10)
+                    cell?.contentView.addSubview(alarmcountbutton)
+                    // var image3_2 =  UIImageView(frame: CGRectMake(127, 13, 16, 16))
+                   // image3_2.image = UIImage(named:"icon_redcircle")
+                   // cell?.contentView.addSubview(image3_2)
                 }
                 
                 
@@ -209,19 +231,18 @@ class MeViewController: UIViewController,UITableViewDataSource,UITableViewDelega
     
     
     
-    func SetAlarmPic(count:Int){
+    func MeSetAlarmPic(count:String){
         
-        if count > 0{
-            self.hiddenalarm = false
-            
+        if count=="0"{
+           
+             self.hiddenalarm = true
         }
         else{
-            self.hiddenalarm = true
+             self.hiddenalarm = false
+          alarmcountString = count
         }
         self.memuTable.reloadData()
     }
-    
-    
     
     
 }

@@ -13,7 +13,8 @@
 		0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */; };
 		0D35D5FA1C4CC3D8009F8EB2 /* Message.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D35D5F91C4CC3D8009F8EB2 /* Message.plist */; };
 		0D47F1B31DB8BB1F0012C078 /* AccountSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D47F1B21DB8BB1F0012C078 /* AccountSettingController.swift */; };
-		0D47F1B71DB9A11B0012C078 /* PatientCodeAndName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D47F1B61DB9A11B0012C078 /* PatientCodeAndName.swift */; };
+		0D47F1B91DBDB11D0012C078 /* UserAndEquipmentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D47F1B81DBDB11D0012C078 /* UserAndEquipmentItem.swift */; };
+		0D47F1BB1DBDD5540012C078 /* PatientCodeAndName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D47F1BA1DBDD5540012C078 /* PatientCodeAndName.swift */; };
 		0D652BD11DB49E1100110E63 /* IAlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D652BD01DB49E1100110E63 /* IAlarmViewModel.swift */; };
 		0D6B4CBB1DB768EC00C6DD3E /* IBedUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B4CBA1DB768EC00C6DD3E /* IBedUserInfo.swift */; };
 		0D85F7171DB497E3000E5ADC /* AlarmInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85F70C1DB497E3000E5ADC /* AlarmInfo.swift */; };
@@ -138,7 +139,8 @@
 		0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHelper.swift; sourceTree = "<group>"; };
 		0D35D5F91C4CC3D8009F8EB2 /* Message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Message.plist; sourceTree = "<group>"; };
 		0D47F1B21DB8BB1F0012C078 /* AccountSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingController.swift; sourceTree = "<group>"; };
-		0D47F1B61DB9A11B0012C078 /* PatientCodeAndName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientCodeAndName.swift; sourceTree = "<group>"; };
+		0D47F1B81DBDB11D0012C078 /* UserAndEquipmentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAndEquipmentItem.swift; sourceTree = "<group>"; };
+		0D47F1BA1DBDD5540012C078 /* PatientCodeAndName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientCodeAndName.swift; sourceTree = "<group>"; };
 		0D652BD01DB49E1100110E63 /* IAlarmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlarmViewModel.swift; sourceTree = "<group>"; };
 		0D6B4CBA1DB768EC00C6DD3E /* IBedUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBedUserInfo.swift; sourceTree = "<group>"; };
 		0D85F70C1DB497E3000E5ADC /* AlarmInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmInfo.swift; sourceTree = "<group>"; };
@@ -581,7 +583,8 @@
 				3A4CD3FC1BA80852002C8A1A /* BaseMessage.swift */,
 				3A33EF841BAA56D700D82A4D /* MessageSubject.swift */,
 				3A36B0221BA96648000F4AED /* RealTimeReport.swift */,
-				0D47F1B61DB9A11B0012C078 /* PatientCodeAndName.swift */,
+				0D47F1B81DBDB11D0012C078 /* UserAndEquipmentItem.swift */,
+				0D47F1BA1DBDD5540012C078 /* PatientCodeAndName.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -848,11 +851,12 @@
 				0D6B4CBB1DB768EC00C6DD3E /* IBedUserInfo.swift in Sources */,
 				0DC146681DB4C65D00DE2E0D /* STLoopProgressView.m in Sources */,
 				0DC146691DB4C65D00DE2E0D /* STLoopProgressView+BaseConfiguration.m in Sources */,
-				0D47F1B71DB9A11B0012C078 /* PatientCodeAndName.swift in Sources */,
 				3A36B0211BA94E89000F4AED /* RealTimeDelegate.swift in Sources */,
+				0D47F1BB1DBDD5540012C078 /* PatientCodeAndName.swift in Sources */,
 				0DC146931DB60C9B00DE2E0D /* MeTabLabel.swift in Sources */,
 				3A33EF851BAA56D700D82A4D /* MessageSubject.swift in Sources */,
 				0D85F77C1DB49B0A000E5ADC /* IWeekSleepcareController.swift in Sources */,
+				0D47F1B91DBDB11D0012C078 /* UserAndEquipmentItem.swift in Sources */,
 				0D85F7841DB49B0A000E5ADC /* TabbarController.swift in Sources */,
 				0D85F7741DB49B0A000E5ADC /* ModifyAccountController.swift in Sources */,
 				0D85F7351DB49926000E5ADC /* Popover.swift in Sources */,

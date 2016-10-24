@@ -15,8 +15,15 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     private var _wariningCaches:Array<AlarmInfo>!
 
     var AlarmAlert = SweetAlert(contentHeight: 300)
-    var equipmentid = ""
     
+    
+    var _meSetAlarmDelegate:MeSetAlarmDelegate!
+    
+    var _mypatientSetAlarmDelegate:MypatientSetAlarmDelegate!
+    
+    var _hrSetAlarmDelegate:HRSetAlarmDelegate!
+     var _rrSetAlarmDelegate:RRSetAlarmDelegate!
+     var _sleepSetAlarmDelegate:SleepSetAlarmDelegate!
     //-------------------类字段--------------------------
     //未读的未处理报警总数
     var _warningcouts:Int = 0
@@ -124,8 +131,16 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                     
                     alarmInfo = alarmList.alarmInfoList[i]
                    
+                    let tempUserEquipmentList = session!.UserandequipmentList
+                    var equipmentid = ""
+                    for(var i = 0; i<tempUserEquipmentList.count; i++){
+                        if(tempUserEquipmentList[i].usercode == alarmInfo.UserCode){
+                        equipmentid = tempUserEquipmentList[i].equipmentid
+                            break
+                        }
+                    }
                     
-                    let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,userCode: alarmInfo.UserCode,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmTime: alarmInfo.AlarmTime,equipmentID:self.equipmentid,sex:alarmInfo.UserSex,alarmType:alarmInfo.SchemaCode)
+                    let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,userCode: alarmInfo.UserCode,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmTime: alarmInfo.AlarmTime,equipmentID:equipmentid,sex:alarmInfo.UserSex,alarmType:alarmInfo.SchemaCode)
                     
                     tempWarningList.append(warningInfo)
                     tempCodes.append(alarmInfo.AlarmCode)
@@ -144,10 +159,29 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             )}
         
         
-//        if self.alarmpicdelegate != nil{
-//            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
-//        }
+        if self._mypatientSetAlarmDelegate != nil{
+            self._mypatientSetAlarmDelegate.MypatientSetAlarmPic(String(self.Warningcouts))
+        }
        
+        
+        if self._meSetAlarmDelegate != nil{
+            self._meSetAlarmDelegate.MeSetAlarmPic(String(self.Warningcouts))
+        }
+        
+        if self._hrSetAlarmDelegate != nil{
+            self._hrSetAlarmDelegate.HRSetAlarmPic(String(self.Warningcouts))
+        }
+
+        if self._rrSetAlarmDelegate != nil{
+            self._rrSetAlarmDelegate.RRSetAlarmPic(String(self.Warningcouts))
+        }
+
+        if self._sleepSetAlarmDelegate != nil{
+            self._sleepSetAlarmDelegate.SleepSetAlarmPic(String(self.Warningcouts))
+        }
+
+        
+        
         //外部图标上的badge number
         TodoList.sharedInstance.SetBadgeNumber(self.Warningcouts)
     }
@@ -166,20 +200,6 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
   
     
     //--------------------------------------定时器--------------------------------------------
-//    //若存在未读信息，则弹窗提示是否查看
-//    func setTimer(){
-//        var  realtimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "RunAlarmThread", userInfo: nil, repeats:true);
-//        realtimer.fire()
-//    }
-//    
-//    func RunAlarmThread(){
-//        
-//        var unread = self.WarningList.filter({$0.IsRead == false})
-//        if unread.count>0{
-//            self.showWariningNotification()
-//        }
-//        
-//    }
     
     //实时报警处理线程
     func setAlarmTimer(){
@@ -193,6 +213,17 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
             let alarmInfo:AlarmInfo = self._wariningCaches[0] as AlarmInfo
             //deadline为报警信息收到后,立刻
             let todoItem = TodoItem(deadline: NSDate(timeIntervalSinceNow: 0), title: alarmInfo.SchemaContent, UUID: alarmInfo.AlarmCode)
+            
+           
+            let tempUserEquipmentList = SessionForIphone.GetSession()!.UserandequipmentList
+            var equipmentid = ""
+            for(var i = 0; i<tempUserEquipmentList.count; i++){
+                if(tempUserEquipmentList[i].usercode == alarmInfo.UserCode){
+                    equipmentid = tempUserEquipmentList[i].equipmentid
+                    break
+                }
+            }
+            
            let warningInfo = WarningInfo(alarmCode: alarmInfo.AlarmCode,userName: alarmInfo.UserName,userCode: alarmInfo.UserCode,bedNumber:alarmInfo.BedNumber,alarmContent: alarmInfo.SchemaContent,alarmTime: alarmInfo.AlarmTime,equipmentID:equipmentid,sex:alarmInfo.UserSex,alarmType:alarmInfo.SchemaCode)
             
             self.WarningList.append(warningInfo)
@@ -205,10 +236,27 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
         }
         self.Warningcouts = self.WarningList.count
         
-//        if self.alarmpicdelegate != nil{
-//            self.alarmpicdelegate.SetAlarmPic(self.Warningcouts)
-//        }
+        if self._mypatientSetAlarmDelegate != nil{
+            self._mypatientSetAlarmDelegate.MypatientSetAlarmPic(String(self.Warningcouts))
+        }
+       
         
+        if self._meSetAlarmDelegate != nil{
+            self._meSetAlarmDelegate.MeSetAlarmPic(String(self.Warningcouts))
+        }
+        
+        if self._hrSetAlarmDelegate != nil{
+            self._hrSetAlarmDelegate.HRSetAlarmPic(String(self.Warningcouts))
+        }
+        
+        if self._rrSetAlarmDelegate != nil{
+            self._rrSetAlarmDelegate.RRSetAlarmPic(String(self.Warningcouts))
+        }
+        
+        if self._sleepSetAlarmDelegate != nil{
+            self._sleepSetAlarmDelegate.SleepSetAlarmPic(String(self.Warningcouts))
+        }
+
        
     }
     
@@ -296,6 +344,9 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                                                 break
                                             }
                                         }
+                                        
+                                        self.Warningcouts = self.WarningList.count
+
                                         break
                                     }//删除已处理的报警
                                 }
@@ -306,9 +357,11 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                                     {
                                        
                                         self._wariningCaches.append(alarmList.alarmInfoList[i])
-                                        break
+                                   break
                                     }
                                 }
+                                
+                                
                                 
                             }
                         }
@@ -333,13 +386,27 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
 }
 
-//------------------------------协议：设置页面上报警数字和图标---------------------------
+//------------------------------协议：我的病人页面上报警数字---------------------------
 ////设置”我的“页面报警信息图标
-//protocol SetAlarmPicDelegate{
-//    func SetAlarmPic(count:Int)
-//}
+protocol MeSetAlarmDelegate{
+    func MeSetAlarmPic(count:String)
+}
 
+protocol MypatientSetAlarmDelegate{
+    func MypatientSetAlarmPic(count:String)
+}
 
+protocol HRSetAlarmDelegate{
+    func HRSetAlarmPic(count:String)
+}
+
+protocol RRSetAlarmDelegate{
+    func RRSetAlarmPic(count:String)
+}
+
+protocol SleepSetAlarmDelegate{
+    func SleepSetAlarmPic(count:String)
+}
 
 
 //----------------------------------报警信息类--------------------------------------

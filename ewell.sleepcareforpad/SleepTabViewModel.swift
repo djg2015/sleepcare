@@ -107,7 +107,7 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
         }
     }
     
-    //在床时长（
+    //睡眠时长（
     var _bedTimespan:String="0时0分"
     dynamic var BedTimespan:String{
         get

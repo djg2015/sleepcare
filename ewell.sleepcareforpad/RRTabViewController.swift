@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RRTabViewController: UIViewController,UIScrollViewDelegate{
+class RRTabViewController: UIViewController,UIScrollViewDelegate,RRSetAlarmDelegate{
 
-  
+  @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var topview: UIView!
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view3: UIView!
@@ -95,7 +95,13 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate{
     
     
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "rrtoalarm" {
+            let vc = segue.destinationViewController as! ShowAlarmViewController
+            vc.usercode = self._bedUserCode
+        }
+    }
+
    
     
     
@@ -108,6 +114,8 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate{
         
         alarmTimer =  NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
         alarmTimer.fire()
+        
+         IAlarmHelper.GetAlarmInstance()._rrSetAlarmDelegate = self
 
     }
     
@@ -129,6 +137,8 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate{
     
     override func viewDidDisappear(animated: Bool) {
         alarmTimer.invalidate()
+     IAlarmHelper.GetAlarmInstance()._rrSetAlarmDelegate = nil
+        
     }
     
     //bedusercode 和alarmlist中的usercode匹配，设置"报警"是否显示
@@ -140,16 +150,12 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate{
     }
     
     func AlarmNotice(currentusercode:String)->Bool{
-        let tempcodes = IAlarmHelper.GetAlarmInstance().Codes
-        for(var i = 0; i < tempcodes.count;i++){
-            if(currentusercode == tempcodes[i]){
-                return false
-            }
+        var alarmPatientlist = IAlarmHelper.GetAlarmInstance().WarningList.filter({$0.UserCode == currentusercode})
+        if(alarmPatientlist.count>0){
+            return false
         }
-        
         return true
     }
-    
     
     
     func rac_settings(){
@@ -335,5 +341,16 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate{
             }
             
                
+    }
+    
+    func RRSetAlarmPic(count:String){
+        if count=="0"{
+            
+            self.backBtn.setTitle("", forState: UIControlState.Normal)
+        }
+        else{
+            self.backBtn.setTitle("   报警数"+count, forState: UIControlState.Normal)
+        }
+        
     }
 }

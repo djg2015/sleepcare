@@ -23,11 +23,12 @@ class IAlarmViewModel: BaseViewModel {
     
     var codeList:Array<String>=Array<String>()
     
+    var AlarmUserCode:String = ""
     //构造函数
     override init(){
         super.init()
         
-        LoadData()
+        
     }
     
     func LoadData(){
@@ -35,11 +36,16 @@ class IAlarmViewModel: BaseViewModel {
             ({
                 //每次打开IAlarmView页面，从服务器获取未处理的信息，刷新table内容
                 IAlarmHelper.GetAlarmInstance().ReloadUndealedWarning()
-                //刷新todolist里信息
                 IAlarmHelper.GetAlarmInstance().ReloadTodoList()
-                
                 var tempAlarmArray = Array<AlarmTableCell>()
                 var warningList = IAlarmHelper.GetAlarmInstance().WarningList
+                
+                if(warningList.count>0){
+                //用AlarmUserCode过滤出需要显示的报警信息
+                if(self.AlarmUserCode != ""){
+                warningList = warningList.filter({$0.UserCode == self.AlarmUserCode})
+                }
+               
                 for (var i = 0 ; i < warningList.count ; i++){
                     var tempAlarm = AlarmTableCell()
                     var info = warningList[i]
@@ -77,8 +83,10 @@ class IAlarmViewModel: BaseViewModel {
                     tempAlarmArray.append(tempAlarm)
                     self.codeList.append(info.AlarmCode)
                 }//for i
+                }
                 
                 self.AlarmArray = tempAlarmArray
+                
                 },
                 catch: { ex in
                     //异常处理

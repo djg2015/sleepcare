@@ -58,7 +58,15 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 self.MyPatientsArray = Array<MyPatientsTableCellViewModel>()
                 
                 var curArray = Array<MyPatientsTableCellViewModel>()
+                
+                var tempList = Array<UserAndEquipmentItem>()
+                
                 for(var i=0;i<bedUserList.bedUserInfoList.count;i++){
+                     var tempListItem = UserAndEquipmentItem()
+                    tempListItem.usercode = bedUserList.bedUserInfoList[i].BedUserCode
+                    tempListItem.equipmentid = bedUserList.bedUserInfoList[i].EquipmentID
+                    tempList.append(tempListItem)
+                    
                     var myPatientsTableCellViewModel = MyPatientsTableCellViewModel()
                    
                     myPatientsTableCellViewModel.BedUserCode = bedUserList.bedUserInfoList[i].BedUserCode
@@ -80,6 +88,8 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 }
                 self.MyPatientsArray = curArray
                 self.bedUserCodeList = session!.BedUserCodeList
+                
+                session!.UserandequipmentList = tempList
                
                 },
                 catch: { ex in
@@ -153,6 +163,17 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     session!.BedUserCodeList = tempList
                     self.bedUserCodeList = tempList
                     
+                   //更新userandequipmentlist
+                 var tempList2 = session!.UserandequipmentList
+                    for(var i = 0 ; i < tempList2.count ; i++){
+                        if tempList2[i].usercode == myPatientsTableViewModel.BedUserCode {
+                            tempList2.removeAtIndex(i)
+                            break
+                        }
+                    }
+                    session!.UserandequipmentList = tempList2
+                    
+                    
                      //删除和这个老人有关的报警信息
                     IAlarmHelper.GetAlarmInstance().DeletePatientAlarm(myPatientsTableViewModel.BedUserName!)
 
@@ -189,6 +210,8 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 var session = SessionForIphone.GetSession()
                 var tempList = session!.BedUserCodeList
                 
+                var tempList2 = session!.UserandequipmentList
+                
                 for(var i=0;i<myPatientsTableViewModels.count;i++){
                     SleepCareForIPhoneBussiness().FollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModels[i].BedUserCode, mainCode: session!.User!.MainCode)
                   //  var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModels[i].BedUserCode})
@@ -198,10 +221,17 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                         self.MyPatientsArray.append(myPatientsTableViewModels[i])
                         
                         tempList.append(myPatientsTableViewModels[i].BedUserCode)
+                    
+                    let newItem = UserAndEquipmentItem()
+                    newItem.usercode = myPatientsTableViewModels[i].BedUserCode
+                    newItem.equipmentid = myPatientsTableViewModels[i].EquipmentID!
+                    tempList2.append(newItem)
                   //  }
                 }
                 session!.BedUserCodeList = tempList
                 self.bedUserCodeList = tempList
+                
+                session!.UserandequipmentList = tempList2
                 },
                 catch: { ex in
                     //异常处理

@@ -8,8 +8,8 @@
 
 import UIKit
 
-class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDelegate{
-    
+class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDelegate,SleepSetAlarmDelegate{
+     @IBOutlet weak var backBtn: UIButton!
 
     @IBOutlet weak var topview: UIView!
     @IBOutlet weak var view1: UIView!
@@ -29,6 +29,9 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
     
     
      @IBOutlet weak var SleepQualityLabel: UILabel!
+    
+    
+    @IBOutlet weak var OnBedTimeLabel: UILabel!
     
     //睡眠时长数据
     @IBOutlet weak var AwakingLabel: UILabel!
@@ -83,21 +86,42 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "sleeptoalarm" {
+            let vc = segue.destinationViewController as! ShowAlarmViewController
+            vc.usercode = self._bedUserCode
+        }
+    }
+
+    
     override func viewWillAppear(animated: Bool) {
         if  self.sleepTabViewModel == nil{
             self.sleepTabViewModel = SleepTabViewModel()
         }
         
+        
         self.RefreshSleepView()
         
         alarmTimer =  NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
         alarmTimer.fire()
+        
+        IAlarmHelper.GetAlarmInstance()._sleepSetAlarmDelegate = self
+
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let count = IAlarmHelper.GetAlarmInstance().Warningcouts
+        if count==0{
+            
+            self.backBtn.setTitle("", forState: UIControlState.Normal)
+        }
+        else{
+            self.backBtn.setTitle("   报警数" + String(count), forState: UIControlState.Normal)
+        }
         // Do any additional setup after loading the view.
         rac_settings()
           }
@@ -109,6 +133,9 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
     
     override func viewDidDisappear(animated: Bool) {
         alarmTimer.invalidate()
+        
+        IAlarmHelper.GetAlarmInstance()._sleepSetAlarmDelegate = nil
+
     }
  
     //bedusercode 和alarmlist中的usercode匹配，设置"报警"是否显示
@@ -120,13 +147,10 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
     }
     
     func AlarmNotice(currentusercode:String)->Bool{
-        let tempcodes = IAlarmHelper.GetAlarmInstance().Codes
-        for(var i = 0; i < tempcodes.count;i++){
-            if(currentusercode == tempcodes[i]){
-                return false
-            }
+        var alarmPatientlist = IAlarmHelper.GetAlarmInstance().WarningList.filter({$0.UserCode == currentusercode})
+        if(alarmPatientlist.count>0){
+            return false
         }
-        
         return true
     }
     
@@ -184,7 +208,9 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
         RACObserve(self.sleepTabViewModel, "CircleValueList") ~> RAC(self, "circlevaluelist")
         
          RACObserve(self.sleepTabViewModel, "SleepQuality") ~> RAC(self.SleepQualityLabel, "text")
+         RACObserve(self.sleepTabViewModel, "BedTimespan") ~> RAC(self.OnBedTimeLabel, "text")
         
+       
         
         //点击日期lable，切换
         var singleTap2:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "ChangeDate")
@@ -260,6 +286,17 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
                 chartScrollView.chartView1.addTrendChartView(CGRectMake(0, 0, chartwidth, chartheight))
               
             } 
+    }
+    
+    func SleepSetAlarmPic(count:String){
+        if count=="0"{
+            
+            self.backBtn.setTitle("", forState: UIControlState.Normal)
+        }
+        else{
+            self.backBtn.setTitle("   报警数"+count, forState: UIControlState.Normal)
+        }
+        
     }
     
 }

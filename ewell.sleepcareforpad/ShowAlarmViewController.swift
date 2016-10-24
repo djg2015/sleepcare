@@ -21,7 +21,8 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
     var source:Array<AlarmTableCell> = Array<AlarmTableCell>()
     
     
-    
+    //""显示全部报警信息
+    var usercode:String = ""
     
   
     
@@ -37,6 +38,8 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
         
         // Do any additional setup after loading the view.
         self.alarmViewModel = IAlarmViewModel()
+        self.alarmViewModel.AlarmUserCode = usercode
+        self.alarmViewModel.LoadData()
         
         self.tableview1.delegate = self
         self.tableview1.dataSource = self

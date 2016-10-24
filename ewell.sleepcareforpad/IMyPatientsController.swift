@@ -8,10 +8,11 @@
 
 import UIKit
 
-class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewDelegate ,MypatientSetAlarmDelegate{
     
     @IBOutlet weak var patientsTableview: UITableView!
     
+    @IBOutlet weak var MeBtn: UIButton!
       
     let session = SessionForIphone.GetSession()
    
@@ -53,16 +54,22 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
             
         }
         self.mypatientsViewmodel!.InitData()
- self.patientsTableview.reloadData()
+
         
         
          alarmTimer =  NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
          alarmTimer.fire()
+        
+        
+         self.patientsTableview.reloadData()
       
+        IAlarmHelper.GetAlarmInstance()._mypatientSetAlarmDelegate = self
     }
 
     override func viewDidDisappear(animated: Bool) {
         alarmTimer.invalidate()
+        
+        IAlarmHelper.GetAlarmInstance()._mypatientSetAlarmDelegate = nil
     }
 
     
@@ -188,5 +195,17 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
         return footerView
     }
 
+    
+    func MypatientSetAlarmPic(count:String){
+        if count=="0"{
+            
+            self.MeBtn.setTitle("", forState: UIControlState.Normal)
+        }
+        else{
+            self.MeBtn.setTitle("    报警数"+count, forState: UIControlState.Normal)
+        }
+      
+        
+    }
 
 }
