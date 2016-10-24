@@ -203,7 +203,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     //实时报警处理线程
     func setAlarmTimer(){
-        var realtimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
+        var realtimer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
         realtimer.fire()
     }
     

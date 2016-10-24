@@ -123,6 +123,15 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,RRSetAlarmDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let count = IAlarmHelper.GetAlarmInstance().Warningcouts
+        if count==0{
+            
+            self.backBtn.setTitle("", forState: UIControlState.Normal)
+        }
+        else{
+            self.backBtn.setTitle(" 报警数" + String(count), forState: UIControlState.Normal)
+        }
+        
         // Do any additional setup after loading the view.
         
         rac_settings()
@@ -349,7 +358,7 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,RRSetAlarmDeleg
             self.backBtn.setTitle("", forState: UIControlState.Normal)
         }
         else{
-            self.backBtn.setTitle("   报警数"+count, forState: UIControlState.Normal)
+            self.backBtn.setTitle(" 报警数"+count, forState: UIControlState.Normal)
         }
         
     }

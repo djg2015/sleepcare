@@ -77,7 +77,14 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
         super.viewDidLoad()
         
        
-      
+        let count = IAlarmHelper.GetAlarmInstance().Warningcouts
+        if count==0{
+            
+            self.MeBtn.setTitle("", forState: UIControlState.Normal)
+        }
+        else{
+            self.MeBtn.setTitle("    报警数" + String(count), forState: UIControlState.Normal)
+        }
         
         // Do any additional setup after loading the view.
         self.mypatientsViewmodel = IMyPatientsViewModel()
