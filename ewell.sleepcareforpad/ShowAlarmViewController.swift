@@ -160,10 +160,10 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
             setnumberLabel.textAlignment = NSTextAlignment.Right
             cell?.contentView.addSubview(setnumberLabel)
             
-            var deleteImage =  UIImageView(frame: CGRectMake(SCREENWIDTH, 0, 200, 180))
-            // deleteImage.backgroundColor = UIColor.redColor()
-            deleteImage.image = UIImage(named:"icon_trash")
-            cell?.contentView.addSubview(deleteImage)
+//            var deleteImage =  UIImageView(frame: CGRectMake(SCREENWIDTH, 0, 200, 180))
+//            // deleteImage.backgroundColor = UIColor.redColor()
+//            deleteImage.image = UIImage(named:"icon_trash")
+//            cell?.contentView.addSubview(deleteImage)
             
             
             
@@ -188,7 +188,7 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
         }
     }
     func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
-        return "删除"
+        return "处理"
     }
     
     

@@ -299,15 +299,15 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
         return message as! AlarmList
     }
     
-    //删除报警信息（已读）
-    //alarmCodes 报警编号(多个以半角逗号隔开)
-    //loginName 登录用户名
-    func DeleteAlarmMessage(alarmCodes:String,loginName:String)->ServerResult{
+    //处理报警信息
+    //alarmCode 报警编号
+   
+    func TransferAlarmMessage(alarmCode:String,transferType:String){
         
-        var subject = MessageSubject(opera: "DeleteAlarmMessage",bizcode: "sleepcareforiphone")
+        var subject = MessageSubject(opera: "TransferAlarmMessage",bizcode: "sleepcareforiphone")
         var post = EMProperties(messageSubject: subject)
-        post.AddKeyValue("alarmCodes", value: alarmCodes)
-        post.AddKeyValue("loginName", value: loginName)
+        post.AddKeyValue("alarmCode", value: alarmCode)
+        post.AddKeyValue("transferType", value: transferType)
         
         var xmpp = XmppMsgManager.GetInstance(timeout: xmpp_Timeout)
         var message = xmpp?.SendData(post)
@@ -315,7 +315,7 @@ class SleepCareForIPhoneBussiness: SleepCareForIPhoneBussinessManager {
         {
             throw((message as! EMServiceException).code, (message as! EMServiceException).message)
         }
-        return message as! ServerResult
+       
     }
     
 
