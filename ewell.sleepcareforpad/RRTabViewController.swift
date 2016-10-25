@@ -60,11 +60,17 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,RRSetAlarmDeleg
                 let rrfloat = (currentRR! as NSString).floatValue
                 self.outercircleView.persentage = CGFloat(rrfloat)/40.0
                 
-                if((rrfloat<8.0) || (rrfloat > 30.0)){
-                    self.circleRRLabel.textColor = redColor
+                if(rrfloat == 0.0){
+                    self.circleRRLabel.textColor = grayColor
+                }
+                else if(rrfloat<8.0){
+                  self.circleRRLabel.textColor = startColor
+                }
+                else if (rrfloat > 30.0){
+                    self.circleRRLabel.textColor = endColor
                 }
                 else{
-                    self.circleRRLabel.textColor = rrcolor
+                    self.circleRRLabel.textColor = centerColor
                 }
             }
         }

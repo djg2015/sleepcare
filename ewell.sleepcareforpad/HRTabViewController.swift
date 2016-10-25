@@ -60,11 +60,17 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,HRSetAlarmDeleg
                 let hrfloat = (currentHR! as NSString).floatValue
                 self.outercircleView.persentage = CGFloat(hrfloat)/120.0
                 
-                if((hrfloat<30.0) || (hrfloat > 100.0)){
-                self.circleHRLabel.textColor = redColor
+                if(hrfloat==0.0){
+                self.circleHRLabel.textColor = grayColor
+                }
+                else if(hrfloat<30.0){
+                self.circleHRLabel.textColor = startColor
+                }
+                else if(hrfloat > 100.0){
+                self.circleHRLabel.textColor = endColor
                 }
                 else{
-                self.circleHRLabel.textColor = hrcolor
+                self.circleHRLabel.textColor = centerColor
                 }
             }
         }

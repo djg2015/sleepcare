@@ -2194,7 +2194,11 @@ enum GCDAsyncSocketConfig
 	LogVerbose(@"IPv6: %@:%hu", [[self class] hostFromAddress:address6], [[self class] portFromAddress:address6]);
 	
 	// Determine socket type
-	
+    if (address6) {
+        [self setIPv4PreferredOverIPv6:NO];
+    }
+    
+    
 	BOOL preferIPv6 = (config & kPreferIPv6) ? YES : NO;
 	
 	BOOL useIPv6 = ((preferIPv6 && address6) || (address4 == nil));
@@ -7554,11 +7558,18 @@ static void CFWriteStreamCallback (CFWriteStreamRef stream, CFStreamEventType ty
 				}
 				else if (res->ai_family == AF_INET6)
 				{
-					// Found IPv6 address.
-					// Wrap the native address structure, and add to results.
-					
-					NSData *address6 = [NSData dataWithBytes:res->ai_addr length:res->ai_addrlen];
-					[addresses addObject:address6];
+                    // Found IPv6 address.
+                    // Wrap the native address structure, and add to results.
+                    
+                    struct sockaddr_in6 *sockaddr = (struct sockaddr_in6 *)res->ai_addr;
+                    in_port_t *portPtr = &sockaddr->sin6_port;
+                    if ((portPtr != NULL) && (*portPtr == 0)) {
+                        *portPtr = htons(port);
+                    }
+                    
+                    
+                    NSData *address6 = [NSData dataWithBytes:res->ai_addr length:res->ai_addrlen];
+                    [addresses addObject:address6];
 				}
 			}
 			freeaddrinfo(res0);

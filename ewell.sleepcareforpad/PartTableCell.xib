@@ -21,7 +21,7 @@
                             <constraint firstAttribute="width" constant="92" id="luC-8x-BMa"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.24648832070707072" green="0.24648832070707072" blue="0.24648832070707072" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
