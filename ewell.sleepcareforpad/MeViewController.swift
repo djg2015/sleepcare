@@ -52,8 +52,9 @@ class MeViewController: UIViewController,UITableViewDataSource,UITableViewDelega
         self.memuTable.dataSource = self
         self.memuTable.contentSize = CGSize(width: SCREENWIDTH - 60, height:SCREENHIGHT)
         
+        let username:String = SessionForIphone.GetSession()!.User!.LoginName
         self.imageList = [["icon_nurse"],["icon_报警信息","icon_time"],["icon_当前版本"],["icon_set"]]
-        self.titleList = [["用户名"],["报警信息","周报表"],["当前版本"],["设置"]]
+        self.titleList = [[username],["报警信息","周报表"],["当前版本"],["设置"]]
         
         //去除末尾多余的行
         self.memuTable.tableFooterView = UIView()

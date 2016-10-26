@@ -301,7 +301,7 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
         //三个圆点值
         if tempSleepRange.AwakeningTimespan != ""{
         self.AwakeCircleValue = CGFloat((tempSleepRange.AwakeningTimespan.subString(0, length: 2) as NSString).floatValue + (tempSleepRange.AwakeningTimespan.subString(3, length: 2) as NSString).floatValue/60.0)/12.0
-        self.AwakeningTimespan = tempSleepRange.AwakeningTimespan.subString(0, length: 2) + "h" + tempSleepRange.AwakeningTimespan.subString(3, length: 2) + "m"
+        self.AwakeningTimespan = tempSleepRange.AwakeningTimespan.subString(0, length: 2) + "时" + tempSleepRange.AwakeningTimespan.subString(3, length: 2) + "分"
         }
         else{
             self.AwakeCircleValue = 0.0
@@ -310,7 +310,7 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
         
         if tempSleepRange.LightSleepTimespan != ""{
              self.LightSleepCircleValue = CGFloat((tempSleepRange.LightSleepTimespan.subString(0, length: 2) as NSString).floatValue + (tempSleepRange.LightSleepTimespan.subString(3, length: 2) as NSString).floatValue/60.0 )/12.0
-            self.LightSleepTimespan = tempSleepRange.LightSleepTimespan.subString(0, length: 2) + "h" + tempSleepRange.LightSleepTimespan.subString(3, length: 2) + "m"
+            self.LightSleepTimespan = tempSleepRange.LightSleepTimespan.subString(0, length: 2) + "时" + tempSleepRange.LightSleepTimespan.subString(3, length: 2) + "分"
         }
         else{
              self.LightSleepCircleValue = 0.0
@@ -319,7 +319,7 @@ class SleepTabViewModel: BaseViewModel ,GetRealtimeDataDelegate{
         
         if tempSleepRange.DeepSleepTimespan != ""{
              self.DeepSleepCircleValue = CGFloat((tempSleepRange.DeepSleepTimespan.subString(0, length: 2) as NSString).floatValue + (tempSleepRange.DeepSleepTimespan.subString(3, length: 2) as NSString).floatValue/60.0)/12.0
-            self.DeepSleepTimespan = tempSleepRange.DeepSleepTimespan.subString(0, length: 2) + "h" + tempSleepRange.DeepSleepTimespan.subString(3, length: 2) + "m"
+            self.DeepSleepTimespan = tempSleepRange.DeepSleepTimespan.subString(0, length: 2) + "时" + tempSleepRange.DeepSleepTimespan.subString(3, length: 2) + "分"
         }
         else{
             self.DeepSleepCircleValue = 0.0

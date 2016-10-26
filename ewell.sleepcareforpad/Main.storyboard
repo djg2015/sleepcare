@@ -167,10 +167,10 @@
                                 <rect key="frame" x="16" y="369" width="288" height="199"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0k-j3-qtL">
-                                        <rect key="frame" x="18" y="82" width="256" height="32"/>
+                                        <rect key="frame" x="18" y="81" width="256" height="36"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="Gew-Ko-rkP"/>
+                                            <constraint firstAttribute="height" constant="36" id="Gew-Ko-rkP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="确 认" backgroundImage="icon_登录">
@@ -188,7 +188,7 @@
                                     <constraint firstAttribute="trailing" secondItem="V0k-j3-qtL" secondAttribute="trailing" constant="14" id="MQt-j9-v9s"/>
                                     <constraint firstItem="V0k-j3-qtL" firstAttribute="leading" secondItem="iNl-zr-pXm" secondAttribute="leading" constant="18" id="m3C-rZ-YIj"/>
                                     <constraint firstAttribute="centerX" secondItem="V0k-j3-qtL" secondAttribute="centerX" constant="-2" id="uvt-Qb-Raw"/>
-                                    <constraint firstAttribute="centerY" secondItem="V0k-j3-qtL" secondAttribute="centerY" constant="1.5" id="vw7-vF-PHg"/>
+                                    <constraint firstAttribute="centerY" secondItem="V0k-j3-qtL" secondAttribute="centerY" constant="0.5" id="vw7-vF-PHg"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -379,10 +379,10 @@
                                 <rect key="frame" x="0.0" y="355" width="320" height="213"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hO-bE-8a8">
-                                        <rect key="frame" x="43" y="92" width="234" height="30"/>
+                                        <rect key="frame" x="36" y="91" width="248" height="36"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="bTA-3L-nXU"/>
+                                            <constraint firstAttribute="height" constant="36" id="bTA-3L-nXU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="登 录" backgroundImage="icon_登录">
@@ -395,9 +395,9 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="8hO-bE-8a8" secondAttribute="centerX" id="b7i-Eb-Vhf"/>
-                                    <constraint firstAttribute="trailing" secondItem="8hO-bE-8a8" secondAttribute="trailing" constant="43" id="jMP-mc-nAy"/>
-                                    <constraint firstAttribute="centerY" secondItem="8hO-bE-8a8" secondAttribute="centerY" id="kQF-Ng-F3r"/>
-                                    <constraint firstItem="8hO-bE-8a8" firstAttribute="leading" secondItem="a6G-eF-xLx" secondAttribute="leading" constant="43" id="zAZ-vK-aIc"/>
+                                    <constraint firstAttribute="trailing" secondItem="8hO-bE-8a8" secondAttribute="trailing" constant="36" id="jMP-mc-nAy"/>
+                                    <constraint firstAttribute="centerY" secondItem="8hO-bE-8a8" secondAttribute="centerY" constant="-2.5" id="kQF-Ng-F3r"/>
+                                    <constraint firstItem="8hO-bE-8a8" firstAttribute="leading" secondItem="a6G-eF-xLx" secondAttribute="leading" constant="36" id="zAZ-vK-aIc"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmL-a4-dZH">
@@ -932,7 +932,7 @@
                                             <action selector="BtnBack:" destination="5iO-eV-25G" eventType="touchUpInside" id="KdD-4J-m6i"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="监护人" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZp-kJ-rpQ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZp-kJ-rpQ">
                                         <rect key="frame" x="115" y="24" width="90" height="21"/>
                                         <animations/>
                                         <constraints>
@@ -2259,11 +2259,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqy-0a-fdl" userLabel="view3">
                                 <rect key="frame" x="16" y="295" width="288" height="35"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0h0m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="hgs-5t-YQ5" customClass="HrRrSleepTabLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="112" y="0.0" width="59" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00时00分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="hgs-5t-YQ5" customClass="HrRrSleepTabLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="108" y="0.0" width="67" height="16"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="59" id="Xo0-8J-gvu"/>
+                                            <constraint firstAttribute="width" constant="67" id="Xo0-8J-gvu"/>
                                             <constraint firstAttribute="height" constant="16" id="icQ-jR-3hR"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -2277,11 +2277,11 @@
                                         <color key="textColor" red="0.29411764705882354" green="0.8784313725490196" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0h0m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="biT-gs-GQm" customClass="HrRrSleepTabLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="47" y="0.0" width="57" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00时00分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="biT-gs-GQm" customClass="HrRrSleepTabLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="39" y="0.0" width="67" height="16"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="57" id="f2U-0n-x0z"/>
+                                            <constraint firstAttribute="width" constant="67" id="f2U-0n-x0z"/>
                                             <constraint firstAttribute="height" constant="16" id="uek-eV-cOk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -2289,25 +2289,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="清醒" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCF-mY-bOV" customClass="HrRrSleepTabLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="198" y="18" width="24" height="15"/>
+                                        <rect key="frame" x="200" y="18" width="24" height="15"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.49019607843137253" green="0.97647058823529409" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0h0m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="j3t-Wp-I6U" customClass="HrRrSleepTabLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="179" y="0.0" width="63" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00时00分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="j3t-Wp-I6U" customClass="HrRrSleepTabLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
+                                        <rect key="frame" x="180" y="0.0" width="67" height="16"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="3nh-bv-hwH"/>
-                                            <constraint firstAttribute="width" constant="63" id="jXc-Ie-27U"/>
+                                            <constraint firstAttribute="width" constant="67" id="jXc-Ie-27U"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="深睡" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fl-nr-1vL" customClass="HrRrSleepTabLabel" customModule="ewell_sleepcareforpad" customModuleProvider="target">
-                                        <rect key="frame" x="64" y="18" width="24" height="15"/>
+                                        <rect key="frame" x="61" y="18" width="24" height="15"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2321,13 +2321,13 @@
                                     <constraint firstItem="hgs-5t-YQ5" firstAttribute="top" secondItem="wqy-0a-fdl" secondAttribute="top" id="KEY-VA-4Rd"/>
                                     <constraint firstAttribute="centerX" secondItem="xJJ-Lh-qLO" secondAttribute="centerX" constant="3" id="Ltt-wu-abU"/>
                                     <constraint firstItem="4Fl-nr-1vL" firstAttribute="top" secondItem="biT-gs-GQm" secondAttribute="bottom" constant="2" id="MWP-9s-uqW"/>
-                                    <constraint firstItem="hgs-5t-YQ5" firstAttribute="leading" secondItem="biT-gs-GQm" secondAttribute="trailing" constant="8" id="QWe-Fh-epF"/>
-                                    <constraint firstItem="xJJ-Lh-qLO" firstAttribute="leading" secondItem="4Fl-nr-1vL" secondAttribute="trailing" constant="41" id="UZp-7i-sEd"/>
-                                    <constraint firstItem="j3t-Wp-I6U" firstAttribute="leading" secondItem="hgs-5t-YQ5" secondAttribute="trailing" constant="8" id="XfZ-3i-Zjm"/>
+                                    <constraint firstItem="hgs-5t-YQ5" firstAttribute="leading" secondItem="biT-gs-GQm" secondAttribute="trailing" constant="2" id="QWe-Fh-epF"/>
+                                    <constraint firstItem="xJJ-Lh-qLO" firstAttribute="leading" secondItem="4Fl-nr-1vL" secondAttribute="trailing" constant="44" id="UZp-7i-sEd"/>
+                                    <constraint firstItem="j3t-Wp-I6U" firstAttribute="leading" secondItem="hgs-5t-YQ5" secondAttribute="trailing" constant="5" id="XfZ-3i-Zjm"/>
                                     <constraint firstAttribute="centerX" secondItem="hgs-5t-YQ5" secondAttribute="centerX" constant="2" id="ZLS-Dg-LaU"/>
                                     <constraint firstItem="j3t-Wp-I6U" firstAttribute="top" secondItem="wqy-0a-fdl" secondAttribute="top" id="fUf-yh-C3W"/>
                                     <constraint firstItem="biT-gs-GQm" firstAttribute="top" secondItem="wqy-0a-fdl" secondAttribute="top" id="jBB-4o-suR"/>
-                                    <constraint firstItem="MCF-mY-bOV" firstAttribute="leading" secondItem="xJJ-Lh-qLO" secondAttribute="trailing" constant="45" id="okL-il-jpR"/>
+                                    <constraint firstItem="MCF-mY-bOV" firstAttribute="leading" secondItem="xJJ-Lh-qLO" secondAttribute="trailing" constant="47" id="okL-il-jpR"/>
                                     <constraint firstItem="xJJ-Lh-qLO" firstAttribute="top" secondItem="hgs-5t-YQ5" secondAttribute="bottom" constant="2" id="tUJ-ZV-cgs"/>
                                 </constraints>
                             </view>
@@ -2413,6 +2413,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="UfY-G0-kCF"/>
+        <segue reference="qID-yD-au6"/>
     </inferredMetricsTieBreakers>
 </document>
