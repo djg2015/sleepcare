@@ -11,17 +11,36 @@ import Foundation
 
 //每次从后台进入前台时检查是否要开启／关闭通知
 func CheckRemoteNotice(){
-    
-    //首次启动app，要弹窗提示是否接受通知
-    if PLISTHELPER.FirstLaunch == "true"{
-        UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
-        PLISTHELPER.FirstLaunch = "false"
+    //ios <8.0
+    if  UIDevice.currentDevice().systemVersion.compare( "8.0.0" , options: NSStringCompareOptions.NumericSearch) == .OrderedAscending{
+        if PLISTHELPER.FirstLaunch == "true"{
+            UIApplication.sharedApplication().registerForRemoteNotificationTypes(UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound | UIRemoteNotificationType.Badge)
+            
+            PLISTHELPER.FirstLaunch = "false"
+        }
+        else{
+            if   UIApplication.sharedApplication().enabledRemoteNotificationTypes() ==  UIRemoteNotificationType.None
+            {
+                CloseNotice()
+            }
+            else{
+                OpenNotice()
+            }
+        }
         
     }
-        //非首次登录
-    else {
+        //>= ios8.0
+    else{
         
-     //   if deviceType == "iphone"{
+        //首次启动app，要弹窗提示是否接受通知
+        if PLISTHELPER.FirstLaunch == "true"{
+            UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
+            //  SetValueIntoPlist("firstLaunch","false")
+            PLISTHELPER.FirstLaunch = "false"
+            
+        }
+            //非首次登录
+        else {
             //不要接收通知
             if   UIApplication.sharedApplication().currentUserNotificationSettings().types ==  UIUserNotificationType.None
             {
@@ -40,7 +59,7 @@ func CheckRemoteNotice(){
                     
                 }
             }
-     //   }
+        }
     }
 }
 
@@ -50,15 +69,24 @@ func CheckRemoteNotice(){
 func OpenNotice(){
     try {
         ({
-            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-            let isconnect = xmppMsgManager!.Connect()
-            
-            if(isconnect){
-                if LOGINFLAG{
-                    var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
-                    if token != nil{
-             SleepCareForIPhoneBussiness().OpenNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+            //            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+            //            let isconnect = xmppMsgManager!.Connect()
+            //
+            //            if(isconnect){
+            if (AlarmNoticeFlag && LOGINFLAG){
+                var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
+                if (token != nil){
+                    if (UIDevice.currentDevice().systemVersion.compare( "8.0.0" , options: NSStringCompareOptions.NumericSearch) == .OrderedAscending){
+                        if(UIApplication.sharedApplication().enabledRemoteNotificationTypes() !=  UIRemoteNotificationType.None){
+                            SleepCareForIPhoneBussiness().OpenNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+                        }
                     }
+                    else {
+                        if(UIApplication.sharedApplication().currentUserNotificationSettings().types !=  UIUserNotificationType.None){
+                            SleepCareForIPhoneBussiness().OpenNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
+                        }
+                    }
+                    
                 }
             }
             },
@@ -77,16 +105,16 @@ func OpenNotice(){
 func CloseNotice(){
     try {
         ({
-            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-            let isconnect = xmppMsgManager!.Connect()
-            
-            if(isconnect){
-                if LOGINFLAG{
-                    var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
-                    if token != nil{
-                      SleepCareForIPhoneBussiness().CloseNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
-                    }
+            //            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
+            //            let isconnect = xmppMsgManager!.Connect()
+            //
+            //            if(isconnect){
+            if LOGINFLAG{
+                var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
+                if token != nil{
+                    SleepCareForIPhoneBussiness().CloseNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
                 }
+                //                }
             }
             },
             catch: { ex in
