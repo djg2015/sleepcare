@@ -24,6 +24,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     var _hrSetAlarmDelegate:HRSetAlarmDelegate!
      var _rrSetAlarmDelegate:RRSetAlarmDelegate!
      var _sleepSetAlarmDelegate:SleepSetAlarmDelegate!
+    
+    var realtimer:NSTimer!
     //-------------------类字段--------------------------
     //未读的未处理报警总数
     var _warningcouts:Int = 0
@@ -39,7 +41,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     }
     
     //所有未读的未处理报警code
-    var _codes:Array<String> = []
+    var _codes:Array<String> = Array<String>()
     dynamic var Codes:Array<String>{
         get
         {
@@ -52,7 +54,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     }
     
     //未处理报警列表
-    var _warningList:Array<WarningInfo>=[]
+    var _warningList:Array<WarningInfo>=Array<WarningInfo>()
     dynamic var WarningList:Array<WarningInfo>{
         get
         {
@@ -85,7 +87,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     //------------------------------------开始／结束报警器-------------------------------------
     //开始报警提醒
     func BeginWaringAttention(){
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWariningAction", name: "OpenAlarmView", object: nil)
+       // NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWariningAction", name: "OpenAlarmView", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "CloseWaringAttention", name: "WarningClose", object: nil)
         self.IsOpen = true
         
@@ -125,8 +127,8 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
                 var alarmList:AlarmList = SleepCareForIPhoneBussiness().GetAlarmByLoginUser(session!.User!.MainCode,loginName:session!.User!.LoginName,schemaCode:"",alarmTimeBegin:"2016-01-01",alarmTimeEnd:curDateString,transferTypeCode:"001",from:nil,max:nil)
                 
                 var alarmInfo:AlarmInfo
-                var tempWarningList:Array<WarningInfo>=[]
-                var tempCodes:Array<String> = []
+                var tempWarningList:Array<WarningInfo>=Array<WarningInfo>()
+                var tempCodes:Array<String> = Array<String>()
                 for(var i=0;i<alarmList.alarmInfoList.count;i++){
                     
                     alarmInfo = alarmList.alarmInfoList[i]
@@ -203,8 +205,12 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     //实时报警处理线程
     func setAlarmTimer(){
-        var realtimer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
+       realtimer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
         realtimer.fire()
+    }
+    
+    func stopAlarmTimer(){
+    realtimer.invalidate()
     }
     
     //线程处理报警信息，赋值给todolist
@@ -299,13 +305,13 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     //--------------------------------报警弹窗和页面跳转---------------------------------
     //点击远程消息通知后的操作：若已登录且当前不是报警页面，则直接跳转报警信息页面
-    func showWariningAction(){
-        if (LOGINFLAG && currentController != nil){
-            let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
-            nextController.parentController = currentController
-            currentController.presentViewController(nextController, animated: true, completion: nil)
-        }
-    }
+//    func showWariningAction(){
+//        if (LOGINFLAG && currentController != nil){
+//            let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
+//            nextController.parentController = currentController
+//            currentController.presentViewController(nextController, animated: true, completion: nil)
+//        }
+//    }
     
     
    

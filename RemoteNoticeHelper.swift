@@ -11,6 +11,7 @@ import Foundation
 
 //每次从后台进入前台时检查是否要开启／关闭通知
 func CheckRemoteNotice(){
+     if (UIDevice.currentDevice().systemVersion.compare( "10.0.0" , options: NSStringCompareOptions.NumericSearch) == .OrderedAscending){
     //ios <8.0
     if  UIDevice.currentDevice().systemVersion.compare( "8.0.0" , options: NSStringCompareOptions.NumericSearch) == .OrderedAscending{
         if PLISTHELPER.FirstLaunch == "true"{
@@ -35,7 +36,7 @@ func CheckRemoteNotice(){
         //首次启动app，要弹窗提示是否接受通知
         if PLISTHELPER.FirstLaunch == "true"{
             UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
-            //  SetValueIntoPlist("firstLaunch","false")
+        
             PLISTHELPER.FirstLaunch = "false"
             
         }
@@ -61,6 +62,22 @@ func CheckRemoteNotice(){
             }
         }
     }
+    }
+     else{
+    print("ios10+++++++++++++++++++++register\n")
+        if PLISTHELPER.FirstLaunch == "true"{
+            UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil))
+            
+            PLISTHELPER.FirstLaunch = "false"
+            
+        }
+        else {
+             var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
+             if (token == nil){
+         UIApplication.sharedApplication().registerForRemoteNotifications()
+            }
+        }
+    }
 }
 
 
@@ -69,24 +86,30 @@ func CheckRemoteNotice(){
 func OpenNotice(){
     try {
         ({
-            //            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-            //            let isconnect = xmppMsgManager!.Connect()
-            //
-            //            if(isconnect){
-            if (AlarmNoticeFlag && LOGINFLAG){
+            
+            if ( LOGINFLAG){
                 var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
                 if (token != nil){
-                    if (UIDevice.currentDevice().systemVersion.compare( "8.0.0" , options: NSStringCompareOptions.NumericSearch) == .OrderedAscending){
+                    
+                    //<ios10
+                    if (UIDevice.currentDevice().systemVersion.compare( "10.0.0" , options: NSStringCompareOptions.NumericSearch) == .OrderedAscending){
+                   //<8.0
+                     if (UIDevice.currentDevice().systemVersion.compare( "8.0.0" , options: NSStringCompareOptions.NumericSearch) == .OrderedAscending){
                         if(UIApplication.sharedApplication().enabledRemoteNotificationTypes() !=  UIRemoteNotificationType.None){
                             SleepCareForIPhoneBussiness().OpenNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
                         }
                     }
+                        //8.0-10.0
                     else {
                         if(UIApplication.sharedApplication().currentUserNotificationSettings().types !=  UIUserNotificationType.None){
                             SleepCareForIPhoneBussiness().OpenNotification(token!, loginName: SessionForIphone.GetSession()!.User!.LoginName)
                         }
                     }
-                    
+                    }
+                        //>=ios10.0
+                    else{
+                    print("ios10!!!!!!!!!!!!!!!!!!!!!!!\n")
+                    }
                 }
             }
             },
@@ -105,10 +128,7 @@ func OpenNotice(){
 func CloseNotice(){
     try {
         ({
-            //            var xmppMsgManager:XmppMsgManager? = XmppMsgManager.GetInstance(timeout: XMPPStreamTimeoutNone)
-            //            let isconnect = xmppMsgManager!.Connect()
-            //
-            //            if(isconnect){
+           
             if LOGINFLAG{
                 var token = NSUserDefaults.standardUserDefaults().objectForKey("DeviceToken") as? String
                 if token != nil{

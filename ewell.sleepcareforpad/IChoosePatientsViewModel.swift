@@ -12,7 +12,7 @@ class IChoosePatientsViewModel: BaseViewModel {
   
     //我的关注老人主体对象
     var myPatientsViewModel:IMyPatientsViewModel!
-    var _partBedUserDic:Dictionary<String,Array<BedPatientViewModel>>!
+    var _partBedUserDic:Dictionary<String,Array<BedPatientViewModel>>=Dictionary<String,Array<BedPatientViewModel>>()
     //科室床位用户字典集合
     var PartBedUserDic:Dictionary<String,Array<BedPatientViewModel>>{
         get
@@ -25,7 +25,7 @@ class IChoosePatientsViewModel: BaseViewModel {
         }
     }
     
-    var _partArray:Array<PartTableViewModel>!
+    var _partArray:Array<PartTableViewModel>=Array<PartTableViewModel>()
     //科室集合
     dynamic var PartArray:Array<PartTableViewModel>{
         get
@@ -65,7 +65,7 @@ class IChoosePatientsViewModel: BaseViewModel {
             return self.commit()
         }
         
-        InitData()
+       
     }
     
     //自定义处理----------------------

@@ -55,6 +55,8 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                 session!.BedUserCodeList = Array<String>()
                 
                 var bedUserList:IBedUserList = SleepCareForIPhoneBussiness().GetBedUsersByLoginName(session!.User!.LoginName, mainCode: session!.User!.MainCode)
+                
+                
                 self.MyPatientsArray = Array<MyPatientsTableCellViewModel>()
                 
                 var curArray = Array<MyPatientsTableCellViewModel>()
@@ -68,7 +70,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     tempList.append(tempListItem)
                     
                     var myPatientsTableCellViewModel = MyPatientsTableCellViewModel()
-                   
+
                     myPatientsTableCellViewModel.BedUserCode = bedUserList.bedUserInfoList[i].BedUserCode
                     myPatientsTableCellViewModel.BedUserName = bedUserList.bedUserInfoList[i].BedUserName
                     myPatientsTableCellViewModel.RoomNum = bedUserList.bedUserInfoList[i].RoomName

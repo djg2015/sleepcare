@@ -43,10 +43,7 @@ class IChoosePatientsController: IBaseViewController {
 //        }
 //    }
    
-    override func viewWillAppear(animated: Bool) {
-       
-       
-    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,16 +61,22 @@ class IChoosePatientsController: IBaseViewController {
     }
     
    
-
+   
     
     //初始化设置与属性等绑定
     func rac_Setting(){
         
         self.viewModel = IChoosePatientsViewModel()
+
       self.viewModel.myPatientsViewModel = self.allPatientInfo
       self.viewModel.parentcontroller = self
+       
+        self.viewModel.InitData()
+         RACObserve(self.viewModel, "PartBedUserArray") ~> RAC(self, "PartBedUserArray")
+       
+       
         
-        RACObserve(self.viewModel, "PartBedUserArray") ~> RAC(self, "PartBedUserArray")
+       
         self.btnConfirm.rac_command = self.viewModel.commitCommand
         
         self.tbParts.ShowTableView("PartTableCell",cellID: "partCell", source: self.viewModel.PartArray, cellHeight: 107)

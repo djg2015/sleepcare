@@ -178,6 +178,7 @@ class IloginViewModel: BaseViewModel {
                 IAlarmHelper.GetAlarmInstance().BeginWaringAttention()
                 
                 //开启远程通知（有token值的情况下）
+                
                 LOGINFLAG = true
                 OpenNotice()
                 

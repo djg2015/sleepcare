@@ -53,7 +53,13 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
             self.mypatientsViewmodel = IMyPatientsViewModel()
             
         }
-        self.mypatientsViewmodel!.InitData()
+        
+         //async
+        let queue = dispatch_queue_create("mypatientQueue", DISPATCH_QUEUE_SERIAL)
+        dispatch_async(queue, { () -> Void in
+            self.mypatientsViewmodel!.InitData()
+        })
+       
 
         
         
