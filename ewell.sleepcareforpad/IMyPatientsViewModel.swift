@@ -122,14 +122,8 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                         patient[i].HR = realtimeData[patient[i].BedUserCode]!.HR
                         patient[i].RR = realtimeData[patient[i].BedUserCode]!.RR
                         patient[i].BedStatus = realtimeData[patient[i].BedUserCode]!.OnBedStatus
-                         //111
-//                        patient[i].BedNum = realtimeData[patient[i].BedUserCode!]!.BedNumber
-//                       patient[i].BedUserName = realtimeData[patient[i].BedUserCode!]!.UserName
-//                       patient[i].BedCode = realtimeData[patient[i].BedUserCode!]!.BedCode
                     }
                 }
-                
-                
             }
         }
         
@@ -147,12 +141,13 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
     
     //移除指定床位用户，更新服务器端，更新当前session的关注老人床位号列表
     func RemovePatient(myPatientsTableViewModel:MyPatientsTableCellViewModel){
-        var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModel.BedUserCode})
-        if(exist.count > 0){
+        for(var i=0;i < self.MyPatientsArray.count; i++){
+            if(self.MyPatientsArray[i].BedUserCode == myPatientsTableViewModel.BedUserCode){
+    
             try {
                 ({
                      var session = SessionForIphone.GetSession()
-                    SleepCareForIPhoneBussiness().RemoveFollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode)
+                     SleepCareForIPhoneBussiness().RemoveFollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModel.BedUserCode)
                     
                     //更新bedusercodelist
                     var tempList = session!.BedUserCodeList
@@ -166,7 +161,7 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                     self.bedUserCodeList = tempList
                     
                    //更新userandequipmentlist
-                 var tempList2 = session!.UserandequipmentList
+                    var tempList2 = session!.UserandequipmentList
                     for(var i = 0 ; i < tempList2.count ; i++){
                         if tempList2[i].usercode == myPatientsTableViewModel.BedUserCode {
                             tempList2.removeAtIndex(i)
@@ -188,9 +183,12 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                         
                     }
                 )}
-            
-           
-        }
+                
+                //从本地病人列表中删除，会同步给controller里的列表，等待刷新
+                self.MyPatientsArray.removeAtIndex(i);
+                break;
+        }//end if
+        }//end for
         
     }
     
@@ -211,29 +209,29 @@ class IMyPatientsViewModel: BaseViewModel,GetRealtimeDataDelegate{
                
                 var session = SessionForIphone.GetSession()
                 var tempList = session!.BedUserCodeList
-                
                 var tempList2 = session!.UserandequipmentList
                 
+                var loginname = session!.User!.LoginName
+                var maincode = session!.User!.MainCode
+                
                 for(var i=0;i<myPatientsTableViewModels.count;i++){
-                    SleepCareForIPhoneBussiness().FollowBedUser(session!.User!.LoginName, bedUserCode: myPatientsTableViewModels[i].BedUserCode, mainCode: session!.User!.MainCode)
-                  //  var exist = self.MyPatientsArray.filter({$0.BedUserCode == myPatientsTableViewModels[i].BedUserCode})
-                 //   if(exist.count == 0){
+                    SleepCareForIPhoneBussiness().FollowBedUser(loginname, bedUserCode: myPatientsTableViewModels[i].BedUserCode, mainCode: maincode)
+                 
                         myPatientsTableViewModels[i].selectedBedUserHandler = self.ShowPatientDetail
                         myPatientsTableViewModels[i].deleteBedUserHandler = self.RemovePatient
                         self.MyPatientsArray.append(myPatientsTableViewModels[i])
                         
                         tempList.append(myPatientsTableViewModels[i].BedUserCode)
-                    
                     let newItem = UserAndEquipmentItem()
                     newItem.usercode = myPatientsTableViewModels[i].BedUserCode
                     newItem.equipmentid = myPatientsTableViewModels[i].EquipmentID!
                     tempList2.append(newItem)
-                  //  }
+                  
                 }
                 session!.BedUserCodeList = tempList
                 self.bedUserCodeList = tempList
-                
                 session!.UserandequipmentList = tempList2
+                
                 },
                 catch: { ex in
                     //异常处理

@@ -102,6 +102,7 @@ class IChoosePatientsViewModel: BaseViewModel {
                         bedPatientViewModel.BedUserCode = mainInfo.PartInfoList[i].BedInfoList[j].BedUserCode
                         bedPatientViewModel.BedUserName = mainInfo.PartInfoList[i].BedInfoList[j].BedUserName
                         bedPatientViewModel.EquipmentID = mainInfo.PartInfoList[i].BedInfoList[j].EquipmentID
+                        bedPatientViewModel.Sex = mainInfo.PartInfoList[i].BedInfoList[j].Sex
                         
                         bedPatientViewModel.selectedPatientHandler = self.ChoosedPatient
                         curBedUsers.append(bedPatientViewModel)
@@ -143,6 +144,8 @@ class IChoosePatientsViewModel: BaseViewModel {
                             myPatientsTableCellViewModel.EquipmentID = choosedbedUsers[i].EquipmentID
                             myPatientsTableCellViewModel.BedNum = choosedbedUsers[i].BedNum
                             myPatientsTableCellViewModel.RoomNum = choosedbedUsers[i].RoomNum
+                            
+                            myPatientsTableCellViewModel.SexImgName = choosedbedUsers[i].Sex
                             choosedPatients.append(myPatientsTableCellViewModel)
                         }
                     }

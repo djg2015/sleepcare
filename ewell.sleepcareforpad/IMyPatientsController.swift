@@ -49,27 +49,17 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
     
     
     override func viewWillAppear(animated: Bool) {
-        if self.mypatientsViewmodel == nil{
-            self.mypatientsViewmodel = IMyPatientsViewModel()
-            
-        }
-        
-         //async
-        let queue = dispatch_queue_create("mypatientQueue", DISPATCH_QUEUE_SERIAL)
-        dispatch_async(queue, { () -> Void in
-            self.mypatientsViewmodel!.InitData()
-        })
-       
-
-        
+//        if self.mypatientsViewmodel == nil{
+//            self.mypatientsViewmodel = IMyPatientsViewModel()
+//            
+//        }
         
          alarmTimer =  NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
          alarmTimer.fire()
-        
-        
-         self.patientsTableview.reloadData()
       
         IAlarmHelper.GetAlarmInstance()._mypatientSetAlarmDelegate = self
+        
+        self.patientsTableview.reloadData()
     }
 
     override func viewDidDisappear(animated: Bool) {
@@ -81,6 +71,16 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        self.mypatientsViewmodel = IMyPatientsViewModel()
+        self.patientsTableview.delegate = self
+        self.patientsTableview.dataSource = self
+        
+        //async
+        let queue = dispatch_queue_create("mypatientQueue", DISPATCH_QUEUE_SERIAL)
+        dispatch_async(queue, { () -> Void in
+            self.mypatientsViewmodel!.InitData()
+        })
         
        
         let count = IAlarmHelper.GetAlarmInstance().Warningcouts
@@ -91,12 +91,6 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
         else{
             self.MeBtn.setTitle("    报警(" + String(count)+")", forState: UIControlState.Normal)
         }
-        
-        // Do any additional setup after loading the view.
-        self.mypatientsViewmodel = IMyPatientsViewModel()
-        self.patientsTableview.delegate = self
-        self.patientsTableview.dataSource = self
-        
         
         //去除末尾多余的行
         self.patientsTableview.tableFooterView = UIView()
@@ -192,7 +186,7 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
            
            //删除model中的这个老人，更新session list，删除和这个老人有关的报警信息
             self.mypatientsArray[indexPath.section].deleteBedUserHandler!(myPatientsTableViewModel: self.mypatientsArray[indexPath.section])
-            self.mypatientsArray.removeAtIndex(indexPath.section)
+         //   self.mypatientsArray.removeAtIndex(indexPath.section)
            
           self.patientsTableview.reloadData()
           

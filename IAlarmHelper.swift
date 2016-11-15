@@ -18,9 +18,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     
     var _meSetAlarmDelegate:MeSetAlarmDelegate!
-    
     var _mypatientSetAlarmDelegate:MypatientSetAlarmDelegate!
-    
     var _hrSetAlarmDelegate:HRSetAlarmDelegate!
      var _rrSetAlarmDelegate:RRSetAlarmDelegate!
      var _sleepSetAlarmDelegate:SleepSetAlarmDelegate!

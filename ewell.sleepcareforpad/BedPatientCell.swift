@@ -181,6 +181,18 @@ class BedPatientViewModel:NSObject{
             self._equipmentID=value
         }
     }
+    //性别
+    var _sex:String?
+    dynamic var Sex:String?{
+        get
+        {
+            return self._sex
+        }
+        set(value)
+        {
+            self._sex=value
+        }
+    }
 
     
     //是否选中

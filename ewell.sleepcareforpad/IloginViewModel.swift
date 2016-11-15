@@ -53,7 +53,6 @@ class IloginViewModel: BaseViewModel {
     //界面处理命令
     var loginCommand: RACCommand?
     var rememberCommand: RACCommand?
-    //  var alarmHelper:IAlarmHelper?
     var session:SessionForIphone?
     
     var parentcontroller:IBaseViewController?
@@ -75,9 +74,7 @@ class IloginViewModel: BaseViewModel {
             return self.RememberPwd()
         }
         
-        //显示alarm详细信息的代理
-        //    self.alarmHelper = IAlarmHelper.GetAlarmInstance()
-        
+    
       
         
     }
@@ -164,16 +161,7 @@ class IloginViewModel: BaseViewModel {
                 
 
                 
-                
-//                //关注的病人列表
-//                var tempBedUserCodeList:Array<String> = Array<String>()
-//                for equipment in tempEquipmentList.equipmentList{
-//                    tempBedUserCodeList.append(equipment.BedUserCode)
-//                }
-//                self.session!.BedUserCodeList = tempBedUserCodeList
-//                
-//                
-                
+            
                 //开启报警，获取未处理的报警信息
                 IAlarmHelper.GetAlarmInstance().BeginWaringAttention()
                 

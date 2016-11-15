@@ -33,6 +33,7 @@ class IMainInfo: BaseMessage {
                 bed.BedUserCode = bedInfo.elementForName("BedUserCode").stringValue()
                 bed.BedUserName = bedInfo.elementForName("BedUserName").stringValue()
                 bed.EquipmentID = bedInfo.elementForName("EquipmentID") != nil ?bedInfo.elementForName("EquipmentID").stringValue() : "未绑定"
+                bed.Sex = bedInfo.elementForName("Sex") != nil ?bedInfo.elementForName("Sex").stringValue() : "1"
                 
                 part.BedInfoList.append(bed)
             }
@@ -58,4 +59,5 @@ class IBedInfo{
     var BedUserCode:String = ""
     var BedUserName:String = ""
     var EquipmentID:String=""
+    var Sex:String = ""
 }

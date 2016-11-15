@@ -141,7 +141,7 @@ class XmppMsgHelper:UIResponder, UIApplicationDelegate,XMPPStreamDelegate{
     
     //验证通过
     func xmppStreamDidAuthenticate(sender:XMPPStream ){
-        println("xmppStreamDidAuthenticate")
+        println("xmppStreamDidAuthenticate true\n")
         self.goOnline()
         loginFlag=1
     }
