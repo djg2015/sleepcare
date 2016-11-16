@@ -107,6 +107,7 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
         
         IAlarmHelper.GetAlarmInstance()._sleepSetAlarmDelegate = self
 
+        currentController = self
         
     }
     
@@ -124,7 +125,9 @@ class SleepTabViewController: UIViewController,UIScrollViewDelegate,SelectDateDe
         }
         // Do any additional setup after loading the view.
         rac_settings()
+        
           }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -24,13 +24,16 @@ class AccountSettingController: UIViewController,UITableViewDataSource,UITableVi
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        currentController = self
+        
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-       
-        
+    
         self.tableview1.delegate = self
         self.tableview1.dataSource = self
         

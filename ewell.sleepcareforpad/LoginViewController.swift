@@ -23,6 +23,8 @@ class LoginViewController: IBaseViewController,LoginButtonDelegate{
         
         CloseNotice()
         LOGINFLAG = false
+        currentController = nil
+        
         IAlarmHelper.GetAlarmInstance().CloseWaringAttention()
         PLISTHELPER.XmppUsernamePhone = ""
       
@@ -40,7 +42,7 @@ class LoginViewController: IBaseViewController,LoginButtonDelegate{
         
         // Do any additional setup after loading the view.
         rac_settings()
-        
+    
     }
     
     override func didReceiveMemoryWarning() {

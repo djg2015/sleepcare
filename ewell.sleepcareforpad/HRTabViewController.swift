@@ -118,6 +118,9 @@ class HRTabViewController: UIViewController,UIScrollViewDelegate,HRSetAlarmDeleg
          alarmTimer.fire()
         
          IAlarmHelper.GetAlarmInstance()._hrSetAlarmDelegate = self
+        
+        currentController = self
+        
     }
     
     

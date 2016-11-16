@@ -34,7 +34,6 @@ class IServerSettingController:IBaseViewController {
         self.txtServerLoginName.text = PLISTHELPER.XmppUsername
         self.txtServerPwd.text = PLISTHELPER.XmppUserpwd
         
-        
     }
    
 

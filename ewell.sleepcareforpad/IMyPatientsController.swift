@@ -62,6 +62,7 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
         alarmTimer.invalidate()
         
         IAlarmHelper.GetAlarmInstance()._mypatientSetAlarmDelegate = nil
+        currentController = self
     }
 
     

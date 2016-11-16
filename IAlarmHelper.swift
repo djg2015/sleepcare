@@ -85,7 +85,7 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     //------------------------------------开始／结束报警器-------------------------------------
     //开始报警提醒
     func BeginWaringAttention(){
-       // NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWariningAction", name: "OpenAlarmView", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showWariningAction", name: "OpenAlarmView", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "CloseWaringAttention", name: "WarningClose", object: nil)
         self.IsOpen = true
         
@@ -302,14 +302,16 @@ class IAlarmHelper:NSObject, WaringAttentionDelegate {
     
     
     //--------------------------------报警弹窗和页面跳转---------------------------------
-    //点击远程消息通知后的操作：若已登录且当前不是报警页面，则直接跳转报警信息页面
-//    func showWariningAction(){
-//        if (LOGINFLAG && currentController != nil){
-//            let nextController = ShowAlarmViewController(nibName:"AlarmView", bundle:nil)
-//            nextController.parentController = currentController
-//            currentController.presentViewController(nextController, animated: true, completion: nil)
-//        }
-//    }
+    // 点击远程消息通知后的操作：若已登录且当前不是报警页面，则直接跳转报警信息页面
+    func showWariningAction(){
+        if (LOGINFLAG && currentController != nil){
+            
+            let nextController = AlarmInfoViewController(nibName:"AlarmView", bundle:nil)
+            nextController.parentController = currentController
+            currentController.navigationController?.pushViewController(nextController, animated: true)
+ 
+        }
+    }
     
     
    

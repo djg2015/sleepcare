@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		014F22D79C8AFDD24AC8065A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54127559369C5508905B3990 /* libPods.a */; };
 		0D1341BF1C4F7CF000051E2C /* IModifyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */; };
+		0D1753F71DDC505500F3DD5A /* AlarmInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1753F61DDC505500F3DD5A /* AlarmInfoViewController.swift */; };
+		0D1753F91DDC505B00F3DD5A /* AlarmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D1753F81DDC505B00F3DD5A /* AlarmView.xib */; };
 		0D336D0E1C92596D0049883F /* RemoteNoticeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */; };
 		0D35D5F61C488CDE009F8EB2 /* MessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */; };
 		0D35D5FA1C4CC3D8009F8EB2 /* Message.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D35D5F91C4CC3D8009F8EB2 /* Message.plist */; };
@@ -135,6 +137,8 @@
 
 /* Begin PBXFileReference section */
 		0D1341BE1C4F7CF000051E2C /* IModifyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IModifyViewModel.swift; sourceTree = "<group>"; };
+		0D1753F61DDC505500F3DD5A /* AlarmInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmInfoViewController.swift; sourceTree = "<group>"; };
+		0D1753F81DDC505B00F3DD5A /* AlarmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmView.xib; sourceTree = "<group>"; };
 		0D336D0D1C92596D0049883F /* RemoteNoticeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNoticeHelper.swift; sourceTree = "<group>"; };
 		0D35D5F51C488CDE009F8EB2 /* MessageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHelper.swift; sourceTree = "<group>"; };
 		0D35D5F91C4CC3D8009F8EB2 /* Message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Message.plist; sourceTree = "<group>"; };
@@ -493,6 +497,7 @@
 			children = (
 				2C0DC3C61BF9A20F0048BEEA /* IEmailView.xib */,
 				0D85F7871DB49C41000E5ADC /* Main.storyboard */,
+				0D1753F81DDC505B00F3DD5A /* AlarmView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -515,6 +520,7 @@
 				0DC146761DB4C7D800DE2E0D /* HRTabViewController.swift */,
 				0DC146781DB4C7D800DE2E0D /* RRTabViewController.swift */,
 				0DC146791DB4C7D800DE2E0D /* SleepTabViewController.swift */,
+				0D1753F61DDC505500F3DD5A /* AlarmInfoViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -728,6 +734,7 @@
 				0D85F7881DB49C41000E5ADC /* Main.storyboard in Resources */,
 				0D85F75C1DB49AA6000E5ADC /* image in Resources */,
 				0D85F74A1DB49A10000E5ADC /* fs_main_login_normal.png in Resources */,
+				0D1753F91DDC505B00F3DD5A /* AlarmView.xib in Resources */,
 				0D85F74B1DB49A10000E5ADC /* fs_main_login_selected.png in Resources */,
 				3A41ADC81BA7A65A000C109B /* Images.xcassets in Resources */,
 				3AA3161D1BD0DD8500FC3C40 /* sleepcare.plist in Resources */,
@@ -870,6 +877,7 @@
 				0DC2284D1C212F0E00AF4737 /* PlistHelper.swift in Sources */,
 				0D85F7321DB49926000E5ADC /* DatePickerView.swift in Sources */,
 				3A3EF7C01BDE05A800CDDAED /* TodoItem.swift in Sources */,
+				0D1753F71DDC505500F3DD5A /* AlarmInfoViewController.swift in Sources */,
 				0D85F7271DB49817000E5ADC /* EMProperties.swift in Sources */,
 				0DC146821DB4C8EA00DE2E0D /* RRTabViewModel.swift in Sources */,
 				0D85F7591DB49A64000E5ADC /* THDatePickerViewController.m in Sources */,

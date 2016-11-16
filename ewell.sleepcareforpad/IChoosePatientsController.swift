@@ -43,7 +43,10 @@ class IChoosePatientsController: IBaseViewController {
 //        }
 //    }
    
-   
+    override func viewWillAppear(animated: Bool) {
+        currentController = self
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +54,7 @@ class IChoosePatientsController: IBaseViewController {
        
         rac_Setting()
             
-       
+        
     }
 
     

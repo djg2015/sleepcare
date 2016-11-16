@@ -123,6 +123,8 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,RRSetAlarmDeleg
         
          IAlarmHelper.GetAlarmInstance()._rrSetAlarmDelegate = self
 
+        currentController = self
+        
     }
     
     
@@ -142,7 +144,7 @@ class RRTabViewController: UIViewController,UIScrollViewDelegate,RRSetAlarmDeleg
         
         rac_settings()
       
-        
+       
     }
     
     override func didReceiveMemoryWarning() {

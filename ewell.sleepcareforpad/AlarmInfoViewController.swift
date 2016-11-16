@@ -1,6 +1,6 @@
 //
 //  AlarmInfoViewController.swift
-//
+//  
 //
 //  Created by Qinyuan Liu on 6/17/16.
 //
@@ -8,61 +8,59 @@
 
 import UIKit
 
-class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class AlarmInfoViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var tableview1: UITableView!
-    
-    @IBAction func btnBack(sender:UIButton){
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
-    
     var alarmViewModel:IAlarmViewModel!
     var parentController:UIViewController!
+    let screenwidth = UIScreen.mainScreen().bounds.width
+
     var source:Array<AlarmTableCell> = Array<AlarmTableCell>()
-    
-    
-    //""显示全部报警信息
-    var usercode:String = ""
-    
   
+   
+
     
-//    
-//    override func viewWillAppear(animated: Bool) {
-//       
-//        
-//        self.tableview1.reloadData()
-//        
-//    }
+    @IBAction func Close(sender:AnyObject){
+        
+        //返回上一页
+        self.parentController.navigationController?.popViewControllerAnimated(true)
+    }
+
+    
+    
+   
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
         self.alarmViewModel = IAlarmViewModel()
-        self.alarmViewModel.AlarmUserCode = usercode
         self.alarmViewModel.LoadData()
+        self.alarmViewModel.AlarmUserCode = ""
+        
         
         self.tableview1.delegate = self
         self.tableview1.dataSource = self
         
-         currentController = nil
+        currentController = nil
+        
         //去除末尾多余的行
         self.tableview1.tableFooterView = UIView()
         
         //去除顶部留白
         self.automaticallyAdjustsScrollViewInsets = false
         
-        RACObserve(self.alarmViewModel, "AlarmArray") ~> RAC(self, "source")
+          RACObserve(self.alarmViewModel, "AlarmArray") ~> RAC(self, "source")
+        
         self.tableview1.reloadData()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
+
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.source.count
     }
@@ -87,16 +85,16 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
         cell = tableView.dequeueReusableCellWithIdentifier("alarmCell") as? UITableViewCell
         
         if cell == nil{
-            //报警信息cell
+                       //报警信息cell
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "alarmCell")
-            
+        
             //报警图标 报警类型 时间
             //分割线
             //性别图标   姓名  床号
             //报警内容
             //分割线
             //设备编号
-            
+          
             
             var alarmImage =  UIImageView(frame: CGRectMake(12, 0, 27, 47))
             alarmImage.image = UIImage(named:"icon_报警")
@@ -108,14 +106,14 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
             typeLabel.font = font14
             cell?.contentView.addSubview(typeLabel)
             
-            var timeLabel = UILabel(frame:CGRectMake(SCREENWIDTH-182, 18, 170, 21))
+            var timeLabel = UILabel(frame:CGRectMake(screenwidth-182, 18, 170, 21))
             timeLabel.text = self.source[indexPath.section].AlarmTime
             timeLabel.textAlignment = NSTextAlignment.Right
             timeLabel.textColor = textGraycolor
             timeLabel.font = font14
             cell?.contentView.addSubview(timeLabel)
             
-            var underlineLabel1 = UILabel(frame:CGRectMake(12, 47, SCREENWIDTH-24, 1))
+            var underlineLabel1 = UILabel(frame:CGRectMake(12, 47, screenwidth-24, 1))
             underlineLabel1.backgroundColor = seperatorColor
             cell?.contentView.addSubview(underlineLabel1)
             
@@ -129,6 +127,7 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
             var genderImage =  UIImageView(frame: CGRectMake(19, 62, 16, 16))
             genderImage.image = UIImage(named:genderImageName)
             cell?.contentView.addSubview(genderImage)
+
             
             var nameLabel = UILabel(frame:CGRectMake(45, 59, 85, 21))
             nameLabel.text = self.source[indexPath.section].UserName
@@ -144,29 +143,24 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
             
             
             
-            var alarmcontentText = UITextView(frame:CGRectMake(38, 80,SCREENWIDTH-42 , 56))
+            var alarmcontentText = UITextView(frame:CGRectMake(38, 80,screenwidth-42 , 56))
             alarmcontentText.text =  self.source[indexPath.section].AlarmContent
             alarmcontentText.textColor = textGraycolor
             alarmcontentText.font = font14
             alarmcontentText.editable = false
             cell?.contentView.addSubview(alarmcontentText)
             
-            var underlineLabel2 = UILabel(frame:CGRectMake(12, 136, SCREENWIDTH-24, 1))
+            var underlineLabel2 = UILabel(frame:CGRectMake(12, 136, screenwidth-24, 1))
             underlineLabel2.backgroundColor = seperatorColor
             cell?.contentView.addSubview(underlineLabel2)
             
-            var setnumberLabel = UILabel(frame:CGRectMake(SCREENWIDTH-192, 147, 180, 21))
+            var setnumberLabel = UILabel(frame:CGRectMake(screenwidth-192, 147, 180, 21))
             setnumberLabel.text = "设备编号  " + self.source[indexPath.section].EquipmentCode
             setnumberLabel.font = font14
             setnumberLabel.textColor = textGraycolor
             setnumberLabel.textAlignment = NSTextAlignment.Right
             cell?.contentView.addSubview(setnumberLabel)
-            
-//            var deleteImage =  UIImageView(frame: CGRectMake(SCREENWIDTH, 0, 200, 180))
-//            // deleteImage.backgroundColor = UIColor.redColor()
-//            deleteImage.image = UIImage(named:"icon_trash")
-//            cell?.contentView.addSubview(deleteImage)
-            
+        
             
             
         }
@@ -184,7 +178,7 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         if(editingStyle == UITableViewCellEditingStyle.Delete){
             
-            self.source[indexPath.section].deleteAlarmHandler!(alarmcell: self.source[indexPath.section])
+             self.source[indexPath.section].deleteAlarmHandler!(alarmcell: self.source[indexPath.section])
             self.source.removeAtIndex(indexPath.section)
             self.tableview1.reloadData()
         }
@@ -194,12 +188,12 @@ class ShowAlarmViewController: UIViewController,UITableViewDataSource,UITableVie
     }
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
-    
+
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        var footerView = UIView(frame:CGRectMake(0, 0, SCREENWIDTH,15))
+        var footerView = UIView(frame:CGRectMake(0, 0, screenwidth,15))
         footerView.backgroundColor = seperatorColor
         return footerView
     }

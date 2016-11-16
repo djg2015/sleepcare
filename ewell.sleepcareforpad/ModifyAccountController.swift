@@ -41,7 +41,10 @@ class ModifyAccountController: IBaseViewController{
     }
     
     
-    
+    override func viewWillAppear(animated: Bool) {
+        currentController = self
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +52,7 @@ class ModifyAccountController: IBaseViewController{
       
         rac_settings()
         // Do any additional setup after loading the view.
+        
     }
     
     override func didReceiveMemoryWarning() {

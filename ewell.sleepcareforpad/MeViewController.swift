@@ -39,6 +39,7 @@ class MeViewController: UIViewController,UITableViewDataSource,UITableViewDelega
         
        IAlarmHelper.GetAlarmInstance()._meSetAlarmDelegate = self
         
+        currentController = self
     }
     
     
@@ -46,7 +47,6 @@ class MeViewController: UIViewController,UITableViewDataSource,UITableViewDelega
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
         
         self.memuTable.delegate = self
         self.memuTable.dataSource = self

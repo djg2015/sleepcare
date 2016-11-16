@@ -111,7 +111,10 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
         // Dispose of any resources that can be recreated.
     }
 
-   
+    override func viewWillAppear(animated: Bool) {
+        currentController = self
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +133,6 @@ class IWeekSleepcareController: UIViewController,UIScrollViewDelegate,SelectDate
         
         
         self.rac_settings()
-        
        
         //首次进入页面，弹窗选择一个老人，选择成功后self.viewmodel.loaddata(),self.refresh
         self.ChoosePatientPopdown()
