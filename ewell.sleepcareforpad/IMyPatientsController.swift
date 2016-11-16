@@ -49,10 +49,6 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
     
     
     override func viewWillAppear(animated: Bool) {
-//        if self.mypatientsViewmodel == nil{
-//            self.mypatientsViewmodel = IMyPatientsViewModel()
-//            
-//        }
         
          alarmTimer =  NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "alarmTimerFireMethod:", userInfo: nil, repeats:true);
          alarmTimer.fire()
@@ -77,10 +73,10 @@ class IMyPatientsController: UIViewController,UITableViewDataSource,UITableViewD
         self.patientsTableview.dataSource = self
         
         //async
-        let queue = dispatch_queue_create("mypatientQueue", DISPATCH_QUEUE_SERIAL)
-        dispatch_async(queue, { () -> Void in
+//        let queue = dispatch_queue_create("mypatientQueue", DISPATCH_QUEUE_SERIAL)
+//        dispatch_async(queue, { () -> Void in
             self.mypatientsViewmodel!.InitData()
-        })
+      //   })
         
        
         let count = IAlarmHelper.GetAlarmInstance().Warningcouts

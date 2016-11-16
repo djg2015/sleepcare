@@ -56,7 +56,10 @@ class MyPatientsTableViewCell: UITableViewCell {
        self.source.SexImgName = (data as MyPatientsTableCellViewModel).SexImgName
           self.source.EquipmentID = (data as MyPatientsTableCellViewModel).EquipmentID
          self.source.IshiddenAlarm = (data as MyPatientsTableCellViewModel).IshiddenAlarm
-        
+//        self.source.HR = (data as MyPatientsTableCellViewModel).HR
+//        self.source.RR = (data as MyPatientsTableCellViewModel).RR
+//        self.source.BedStatus = (data as MyPatientsTableCellViewModel).BedStatus
+//        
         self.source.selectedBedUserHandler = (data as MyPatientsTableCellViewModel).selectedBedUserHandler
         self.source.deleteBedUserHandler = (data as MyPatientsTableCellViewModel).deleteBedUserHandler
       
@@ -115,9 +118,10 @@ class MyPatientsTableCellViewModel:NSObject{
         get
         {
             if(self._roomNum != nil){
-                if(self._roomNum!.hasSuffix("房") == false){
-                    return self._roomNum! + "房"
-                }
+//                if(self._roomNum!.hasSuffix("房") == false){
+//                    return self._roomNum! + "房"
+//                }
+                return self._roomNum!
             }
             return self._roomNum
         }
